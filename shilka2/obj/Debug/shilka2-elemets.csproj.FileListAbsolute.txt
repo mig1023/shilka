@@ -1,0 +1,13 @@
+D:\__Visual Studio 2015\Projects\shilka2\shilka2\bin\Debug\shilka2.exe.config
+D:\__Visual Studio 2015\Projects\shilka2\shilka2\bin\Debug\shilka2.exe
+D:\__Visual Studio 2015\Projects\shilka2\shilka2\bin\Debug\shilka2.pdb
+D:\__Visual Studio 2015\Projects\shilka2\shilka2\obj\Debug\MainWindow.g.cs
+D:\__Visual Studio 2015\Projects\shilka2\shilka2\obj\Debug\App.g.cs
+D:\__Visual Studio 2015\Projects\shilka2\shilka2\obj\Debug\shilka2_MarkupCompile.cache
+D:\__Visual Studio 2015\Projects\shilka2\shilka2\obj\Debug\shilka2_MarkupCompile.lref
+D:\__Visual Studio 2015\Projects\shilka2\shilka2\obj\Debug\MainWindow.baml
+D:\__Visual Studio 2015\Projects\shilka2\shilka2\obj\Debug\shilka2.g.resources
+D:\__Visual Studio 2015\Projects\shilka2\shilka2\obj\Debug\shilka2.Properties.Resources.resources
+D:\__Visual Studio 2015\Projects\shilka2\shilka2\obj\Debug\shilka2-elemets.csproj.GenerateResource.Cache
+D:\__Visual Studio 2015\Projects\shilka2\shilka2\obj\Debug\shilka2.exe
+D:\__Visual Studio 2015\Projects\shilka2\shilka2\obj\Debug\shilka2.pdb
