@@ -11,62 +11,114 @@ namespace shilka2
 {
     public partial class MainWindow : Window
     {
+        Random rand;
+
         List<Shell> shells = new List<Shell>();
-        List<Line> all_lines = new List<Line>();
-        
+        List<Line> allLines = new List<Line>();
+
+        double ptX = 0;
+        double ptY = 0;
+        double currentHeight;
+        bool Fire = false;
+        int FireMutex = 0;
+
         public MainWindow()
         {
             InitializeComponent();
+            rand = new Random();
 
-            System.Timers.Timer Game = new System.Timers.Timer(50);
+            System.Timers.Timer Game = new System.Timers.Timer(30);
             Game.Enabled = true;
-            Game.Elapsed += new ElapsedEventHandler(shells_fly);
+            Game.Elapsed += new ElapsedEventHandler(ShellsFire);
+            Game.Elapsed += new ElapsedEventHandler(ShellsFly);
             Game.Start();
         }
 
-        public void shells_fly(object obj, ElapsedEventArgs e)
+        public void ShellsFly(object obj, ElapsedEventArgs e)
         {
             Dispatcher.BeginInvoke(new ThreadStart(delegate
             {
-                foreach(var line in all_lines)
+                foreach(var line in allLines)
                 {
                     canvas.Children.Remove(line);
                 }
 
-                all_lines.Clear();
+                allLines.Clear();
 
-                foreach(var shell in shells)
+                FireMutex++;
+
+                foreach (var shell in shells)
                 {
-                    Line shell_trace = new Line();
-                    shell_trace.X1 = shell.x + shell.cos;
-                    shell_trace.Y1 = shell.y + shell.sin;
-                    shell_trace.X2 = shell.x + 15 * shell.cos;
-                    shell_trace.Y2 = shell.y + 15 * shell.sin;
-                    shell_trace.Stroke = Brushes.Black;
+                    Line shellTrace = new Line();
+
+                    shellTrace.X1 = shell.x + shell.cos;
+                    shellTrace.Y1 = shell.y - shell.sin;
+                    shellTrace.X2 = shell.x + 5 * shell.cos;
+                    shellTrace.Y2 = shell.y - 5 * shell.sin;
+
+                    shellTrace.Stroke = Brushes.Black;
 
                     shell.x = (shell.x + 15 * shell.cos);
-                    shell.y = (shell.y + 15 * shell.sin);
+                    shell.y = (shell.y - 15 * shell.sin);
 
-                    canvas.Children.Add(shell_trace);
+                    canvas.Children.Add(shellTrace);
 
-                    all_lines.Add(shell_trace);
+                    allLines.Add(shellTrace);
                 }
+
+                FireMutex--;
             }));
+        }
+
+        public void ShellsFire(object obj, ElapsedEventArgs e)
+        {
+            if (Fire)
+            {
+                FireMutex++;
+                if (FireMutex > 1)
+                {
+                    FireMutex--;
+                    return;
+                }
+
+                Shell newShell = new Shell();
+
+                newShell.x = rand.Next(-3, 3);
+                newShell.y = currentHeight + rand.Next(-3, 3);
+
+                double e1 = Math.Sqrt((ptX * ptX) + (ptY * ptY));
+                newShell.cos = ptX / e1;
+                newShell.sin = ptY / e1;
+
+                shells.Add(newShell);
+                FireMutex--;
+            }
+        }
+
+        void SetNewTergetPoint(Point pt, object sender)
+        {
+            ptX = pt.X;
+            ptY = (sender as Window).Height - pt.Y;
+            currentHeight = (sender as Window).Height;
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Point pt = e.GetPosition((Window)sender);
+            SetNewTergetPoint(e.GetPosition((Window)sender), sender);
+            Fire = true;
+        }
 
-            Shell new_shell = new Shell();
-            new_shell.x = 0;
-            new_shell.y = 0; //(sender as Window).Height - 50;
-            
-            double e1 = Math.Sqrt((pt.X * pt.X) + (pt.Y * pt.Y));
-            new_shell.cos = pt.X / e1;
-            new_shell.sin = pt.Y / e1;
+        private void Window_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            Fire = false;
+        }
 
-            shells.Add(new_shell);
+        private void Window_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (Fire)
+            {
+                SetNewTergetPoint(e.GetPosition((Window)sender), sender);
+            }
         }
     }
 }

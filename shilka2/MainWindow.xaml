@@ -5,9 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:shilka2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+        Title="MainWindow" Height="350" Width="525" MouseLeftButtonDown="Window_MouseLeftButtonDown" MouseLeftButtonUp="Window_MouseLeftButtonUp" MouseMove="Window_MouseMove">
     <Grid>
         <Canvas x:Name="canvas" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-
     </Grid>
 </Window>
