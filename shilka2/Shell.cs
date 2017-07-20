@@ -31,8 +31,10 @@ namespace shilka2
         public static double currentWidth { get; set; }
 
         public static bool Fire = false;
+        public static bool AnimationStop = false;
 
         static int FireMutex = 0;
+        
         static Random rand;
 
         static List<Shell> shells = new List<Shell>();
@@ -49,8 +51,10 @@ namespace shilka2
             {
                 MainWindow main = (MainWindow)Application.Current.MainWindow;
 
+                if (AnimationStop) return;
+
                 foreach (var line in allLines)
-                    main.canvas.Children.Remove(line);
+                    main.firePlace.Children.Remove(line);
                
                 allLines.Clear();
 
@@ -69,12 +73,22 @@ namespace shilka2
 
                     shell.x = (shell.x + SHELL_SPEED * shell.cos);
                     shell.y = (shell.y - SHELL_SPEED * shell.sin);
+                    
+                    /*
+                    if (
+                        (shell.y < (main.label.Margin.Top + main.label.Height) ) &&
+                        (shell.y > (main.label.Margin.Top) ) &&
+                        (shell.x > (main.label.Margin.Left) ) &&
+                        (shell.x < (main.label.Margin.Left + main.label.Width) )
+                        )
+                        main.label.Content = "попал";
+                    */
 
                     if ((shell.y < 0) || (shell.x > currentWidth))
                         shell.fly = false;
                     else
                     {
-                        main.canvas.Children.Add(shellTrace);
+                        main.firePlace.Children.Add(shellTrace);
                         allLines.Add(shellTrace);
                     }
                 }

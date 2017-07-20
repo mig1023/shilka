@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:shilka2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525" MouseLeftButtonDown="Window_MouseLeftButtonDown" MouseLeftButtonUp="Window_MouseLeftButtonUp" MouseMove="Window_MouseMove">
-    <Grid>
-        <Canvas x:Name="canvas" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        Title="Shilka Anti-aircraft" Height="350" Width="525" MouseLeftButtonDown="Window_MouseLeftButtonDown" MouseLeftButtonUp="Window_MouseLeftButtonUp" MouseMove="Window_MouseMove" Closing="Window_Closing">
+    <Grid x:Name="gridFirePlace">
+        <Canvas x:Name="firePlace" Margin="0,-50,0,50" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button x:Name="closeButton" Content="X" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" VerticalAlignment="Top" Width="30" Click="closeButton_Click"/>
+        <Label x:Name="label" Content="Label" HorizontalAlignment="Left" Height="29" Margin="228,33,0,0" VerticalAlignment="Top" Width="50"/>
     </Grid>
 </Window>
