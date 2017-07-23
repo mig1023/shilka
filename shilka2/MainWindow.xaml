@@ -10,5 +10,6 @@
         <Canvas x:Name="firePlace" Margin="0,-50,0,50" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Button x:Name="closeButton" Content="X" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" VerticalAlignment="Top" Width="30" Click="closeButton_Click"/>
         <Label x:Name="label" Content="Label" HorizontalAlignment="Left" Height="29" Margin="228,33,0,0" VerticalAlignment="Top" Width="50"/>
+        <Image x:Name="ShilkaImg" HorizontalAlignment="Left" Height="98" Margin="28,56,0,0" VerticalAlignment="Top" Width="182" Source="images/shilka.png"/>
     </Grid>
 </Window>

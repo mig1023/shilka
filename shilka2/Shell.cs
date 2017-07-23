@@ -19,6 +19,10 @@ namespace shilka2
         const int FRAGMENTATION = 9;
         const int VOLLEY = 3;
 
+        public const int FIRE_WIDTH_CORRECTION = 125;
+        public const int FIRE_HEIGHT_CORRECTION = 20;
+        public const int FIRE_HEIGHT_POINT_CORRECTION = 70;
+
         public double x { get; set; }
         public double y { get; set; }
         public double sin { get; set; }
@@ -116,8 +120,8 @@ namespace shilka2
                     Shell newShell = new Shell();
                     newShell.fly = true;
 
-                    newShell.x = rand.Next( (-1 * FRAGMENTATION) , FRAGMENTATION);
-                    newShell.y = currentHeight + rand.Next( (-1 * FRAGMENTATION), FRAGMENTATION);
+                    newShell.x = rand.Next( (-1 * FRAGMENTATION) , FRAGMENTATION) + FIRE_WIDTH_CORRECTION;
+                    newShell.y = currentHeight + rand.Next( (-1 * FRAGMENTATION), FRAGMENTATION) - FIRE_HEIGHT_CORRECTION;
 
                     double e1 = Math.Sqrt((ptX * ptX) + (ptY * ptY));
                     newShell.cos = ptX / e1;
