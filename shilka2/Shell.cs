@@ -31,18 +31,22 @@ namespace shilka2
         public int delay { get; set; }
         public static double ptX { get; set; }
         public static double ptY { get; set; }
-        public static double currentHeight { get; set; }
-        public static double currentWidth { get; set; }
+
+        public static double currentHeight = -1;
+        public static double currentWidth = -1;
 
         public static bool Fire = false;
         public static bool AnimationStop = false;
+
+        public static double LastSin = 0;
+        public static double LastCos = 1;
 
         static int FireMutex = 0;
         
         static Random rand;
 
         static List<Shell> shells = new List<Shell>();
-        static List<Line> allLines = new List<Line>();
+        public static List<Line> allLines = new List<Line>();
 
         static Shell()
         {
@@ -59,8 +63,9 @@ namespace shilka2
 
                 foreach (var line in allLines)
                     main.firePlace.Children.Remove(line);
-               
+       
                 allLines.Clear();
+                Shilka.DrawGuns(main);
 
                 FireMutex++;
 
@@ -77,7 +82,7 @@ namespace shilka2
 
                     shell.x = (shell.x + SHELL_SPEED * shell.cos);
                     shell.y = (shell.y - SHELL_SPEED * shell.sin);
-                    
+
                     /*
                     if (
                         (shell.y < (main.label.Margin.Top + main.label.Height) ) &&
@@ -90,6 +95,8 @@ namespace shilka2
 
                     if ((shell.y < 0) || (shell.x > currentWidth))
                         shell.fly = false;
+                    else if (shell.delay < 3)
+                        shell.delay++;
                     else
                     {
                         main.firePlace.Children.Add(shellTrace);
@@ -115,10 +122,13 @@ namespace shilka2
                     FireMutex--;
                     return;
                 }
+ 
+
                 for (int a = 0; a < VOLLEY; a++)
                 {
                     Shell newShell = new Shell();
                     newShell.fly = true;
+                    newShell.delay = 0;
 
                     newShell.x = rand.Next( (-1 * FRAGMENTATION) , FRAGMENTATION) + FIRE_WIDTH_CORRECTION;
                     newShell.y = currentHeight + rand.Next( (-1 * FRAGMENTATION), FRAGMENTATION) - FIRE_HEIGHT_CORRECTION;
@@ -126,6 +136,9 @@ namespace shilka2
                     double e1 = Math.Sqrt((ptX * ptX) + (ptY * ptY));
                     newShell.cos = ptX / e1;
                     newShell.sin = ptY / e1;
+
+                    LastCos = newShell.cos;
+                    LastSin = newShell.sin;
 
                     shells.Add(newShell);
                 }
