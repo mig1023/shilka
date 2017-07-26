@@ -15,8 +15,8 @@ namespace shilka2
     class Shell
     {
         const int SHELL_LENGTH = 3;
-        const int SHELL_SPEED = 15;
-        const int FRAGMENTATION = 9;
+        const int SHELL_SPEED = 25;
+        const int FRAGMENTATION = 15;
         const int VOLLEY = 3;
 
         public const int FIRE_WIDTH_CORRECTION = 125;
@@ -95,7 +95,7 @@ namespace shilka2
 
                     if ((shell.y < 0) || (shell.x > currentWidth))
                         shell.fly = false;
-                    else if (shell.delay < 3)
+                    else if (shell.delay < 2)
                         shell.delay++;
                     else
                     {
