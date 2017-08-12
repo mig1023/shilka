@@ -30,6 +30,8 @@ namespace shilka2
                 ShilkaImg.ActualHeight - Shilka.SHILKA_HEIGHT_CORRECTION;
 
             ShilkaImg.Margin = new Thickness(0, heightForShilka, 0, 0);
+
+            Aircraft.AircraftStart();
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
