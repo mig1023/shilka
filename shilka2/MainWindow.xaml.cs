@@ -12,6 +12,7 @@ namespace shilka2
     public partial class MainWindow : Window
     {
         System.Timers.Timer Game;
+        System.Timers.Timer Aircrafts;
 
         public MainWindow()
         {
@@ -24,15 +25,20 @@ namespace shilka2
             Game.Elapsed += new ElapsedEventHandler(Aircraft.AircraftFly);
             Game.Start();
 
+            Aircrafts = new System.Timers.Timer(3000);
+            Aircrafts.Enabled = true;
+            Aircrafts.Elapsed += new ElapsedEventHandler(Aircraft.AircraftStart);
+            Aircrafts.Start();
+
             this.WindowState = System.Windows.WindowState.Maximized;
             this.WindowStyle = System.Windows.WindowStyle.None;
 
             double heightForShilka = System.Windows.SystemParameters.PrimaryScreenHeight -
                 ShilkaImg.ActualHeight - Shilka.SHILKA_HEIGHT_CORRECTION;
 
-            ShilkaImg.Margin = new Thickness(0, heightForShilka, 0, 0);
+            Aircraft.minFlightHeight = (int)heightForShilka;
 
-            Aircraft.AircraftStart();
+            ShilkaImg.Margin = new Thickness(0, heightForShilka, 0, 0);
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
