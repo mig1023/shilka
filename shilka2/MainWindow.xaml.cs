@@ -21,6 +21,7 @@ namespace shilka2
             Game.Enabled = true;
             Game.Elapsed += new ElapsedEventHandler(Shell.ShellsFire);
             Game.Elapsed += new ElapsedEventHandler(Shell.ShellsFly);
+            Game.Elapsed += new ElapsedEventHandler(Aircraft.AircraftFly);
             Game.Start();
 
             this.WindowState = System.Windows.WindowState.Maximized;
