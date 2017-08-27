@@ -83,15 +83,24 @@ namespace shilka2
                     shell.x = (shell.x + SHELL_SPEED * shell.cos);
                     shell.y = (shell.y - SHELL_SPEED * shell.sin);
 
-                    /*
-                    if (
-                        (shell.y < (main.label.Margin.Top + main.label.Height) ) &&
-                        (shell.y > (main.label.Margin.Top) ) &&
-                        (shell.x > (main.label.Margin.Left) ) &&
-                        (shell.x < (main.label.Margin.Left + main.label.Width) )
-                        )
-                        main.label.Content = "попал";
-                    */
+                    foreach (var aircraft in Aircraft.aircrafts)
+                        if (
+                            shell.fly &&
+                            (shell.y < (aircraft.aircraftImage.Margin.Top + aircraft.aircraftImage.Height) ) &&
+                            (shell.y > (aircraft.aircraftImage.Margin.Top) ) &&
+                            (shell.x > (aircraft.aircraftImage.Margin.Left) ) &&
+                            (shell.x < (aircraft.aircraftImage.Margin.Left + aircraft.aircraftImage.Width) )
+                        ) {
+                            shell.fly = false;
+                            aircraft.hitpoint -= 1;
+                            Shilka.staticticInTarget++;
+                            if (aircraft.hitpoint <= 0)
+                            {
+                                if (aircraft.dead == false) Shilka.staticticAircraftShutdown++;
+                                aircraft.dead = true;
+                            }
+                        }
+                            
 
                     if ((shell.y < 0) || (shell.x > currentWidth))
                         shell.fly = false;
@@ -123,7 +132,6 @@ namespace shilka2
                     return;
                 }
  
-
                 for (int a = 0; a < VOLLEY; a++)
                 {
                     Shell newShell = new Shell();
@@ -139,6 +147,8 @@ namespace shilka2
 
                     LastCos = newShell.cos;
                     LastSin = newShell.sin;
+
+                    Shilka.statisticShellsFired++;
 
                     shells.Add(newShell);
                 }

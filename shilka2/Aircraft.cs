@@ -15,24 +15,24 @@ namespace shilka2
     class Aircraft
     {
         public const int MAX_FLIGHT_HEIGHT = 75;
-
-        enum FlightDirectionType { Left, Right };
-
-        public double x { get; set; }
-
-        public double y { get; set; }
-
         public static int maxFlightHeight { get; set; }
         public static int minFlightHeight { get; set; }
+        enum FlightDirectionType { Left, Right };
+        static Random rand;
 
+        public double x { get; set; }
+        public double y { get; set; }
         public double tangage { get; set; }
         int tangage_delay = 0;
 
-        static Random rand;
+        public int hitpoint;
+        public Boolean dead = false;
+        public Boolean fly = true;
 
         FlightDirectionType flightDirection;
 
-        Image aircraftImage = new Image();
+       public Image aircraftImage;
+
         public static List<Aircraft> aircrafts = new List<Aircraft>();
 
         static Aircraft()
@@ -58,19 +58,37 @@ namespace shilka2
                         aircraft.x += 8;
                     }
 
-                    aircraft.tangage_delay++;
-                    if (aircraft.tangage_delay > 12)
+                    if (aircraft.dead)
                     {
-                        aircraft.tangage_delay = 0;
-                        aircraft.tangage = 4 * (Aircraft.rand.NextDouble() * 2 - 1);
+                        aircraft.y += 10 * (Aircraft.rand.NextDouble() * 2 - 1);
                     }
-                    aircraft.y += aircraft.tangage;
+                    else
+                    {
+                        aircraft.tangage_delay++;
+                        if (aircraft.tangage_delay > 12)
+                        {
+                            aircraft.tangage_delay = 0;
+                            aircraft.tangage = 4 * (Aircraft.rand.NextDouble() * 2 - 1);
+                        }
+                        aircraft.y += aircraft.tangage;
+                        if (aircraft.y > Aircraft.minFlightHeight) aircraft.y = Aircraft.minFlightHeight;
+                    }
 
                     if (aircraft.y < maxFlightHeight) aircraft.y = maxFlightHeight;
-                    if (aircraft.y > Aircraft.minFlightHeight) aircraft.y = Aircraft.minFlightHeight;
+
+                    if (
+                        ((aircraft.x + aircraft.aircraftImage.ActualWidth) < 0) && (aircraft.flightDirection == FlightDirectionType.Left) ||
+                        (aircraft.x > main.ActualWidth) && (aircraft.flightDirection == FlightDirectionType.Right)
+                    ) {
+                        aircraft.fly = false;
+                    }
 
                     aircraft.aircraftImage.Margin = new Thickness(aircraft.x, aircraft.y, 0, 0);
                 }
+
+                for (int x = 0; x < Aircraft.aircrafts.Count; x++)
+                    if (Aircraft.aircrafts[x].fly == false)
+                        Aircraft.aircrafts.RemoveAt(x);
             }));
         }
 
@@ -100,16 +118,20 @@ namespace shilka2
                     newAircraft.x = Application.Current.MainWindow.Width;
                 }
                 
-                string direction = (newAircraft.flightDirection == FlightDirectionType.Left ? "left" : "right");
+                newAircraftImage.Source = new BitmapImage(new Uri("images/f-117-right.png", UriKind.Relative)) {};
 
-                newAircraftImage.Source = new BitmapImage(new Uri("images/f-117-"+direction+".png", UriKind.Relative)) {};
+                if (newAircraft.flightDirection == FlightDirectionType.Left)
+                {
+                    newAircraftImage.FlowDirection = System.Windows.FlowDirection.RightToLeft;
+                }
+
                 newAircraftImage.Margin = new Thickness(newAircraft.x, newAircraft.y, 0, 0);
+
+                newAircraft.hitpoint = 300;
                 
                 newAircraft.aircraftImage = newAircraftImage;
                 main.firePlace.Children.Add(newAircraftImage);
                 Aircraft.aircrafts.Add(newAircraft);
-
-                // нужно потм уничтожать объекты!
             }));
         }
 

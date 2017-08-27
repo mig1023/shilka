@@ -102,15 +102,9 @@
     <Resource Include="images\shilka.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="images\b1-left.png" />
     <Resource Include="images\b1-right.png" />
-    <Resource Include="images\b52-left.png" />
     <Resource Include="images\b52-right.png" />
-    <Resource Include="images\f-117-left.png" />
     <Resource Include="images\f-117-right.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\a-10-left.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\a-10-right.png" />

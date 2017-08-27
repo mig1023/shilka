@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Shapes;
@@ -13,6 +15,10 @@ namespace shilka2
     {
         public const int SHILKA_HEIGHT_CORRECTION = 100;
         static int flash_count = 0;
+
+        public static int statisticShellsFired = 0;
+        public static int staticticInTarget = 0;
+        public static int staticticAircraftShutdown = 0;
 
         public static void SetNewTergetPoint(Point pt, object sender)
         {
@@ -50,8 +56,8 @@ namespace shilka2
                     else
                         flash_count++;
 
-                    if ( ( (flash_count >= 5) && (flash_count < 10) && (num_guns == 0) ) ||
-                        ((flash_count >= 15) && (num_guns == 1)) )
+                    if (((flash_count >= 5) && (flash_count < 10) && (num_guns == 0)) ||
+                        ((flash_count >= 15) && (num_guns == 1)))
                     {
                         Line flash = new Line();
                         flash.X1 = gun.X2;
@@ -65,8 +71,24 @@ namespace shilka2
                     }
                 }
 
-                    
+
             }
+        }
+
+        public static void Statistic(object obj, ElapsedEventArgs e)
+        {
+            Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
+            {
+                MainWindow main = (MainWindow)Application.Current.MainWindow;
+
+                string stat = "";
+
+                if (statisticShellsFired > 0) stat += "Выстрелов: " + statisticShellsFired;
+                if (staticticInTarget > 0) stat += "\nПопаданий: " + staticticInTarget + " ( " + (staticticInTarget*100 / statisticShellsFired) + "% )";
+                if (staticticAircraftShutdown > 0) stat += "\nСбито: " + staticticAircraftShutdown;
+
+                main.statShells.Content = stat;
+            }));
         }
     }
 }
