@@ -94,14 +94,29 @@ namespace shilka2
 
         public static void AircraftStart(object obj, ElapsedEventArgs e)
         {
+            int newAircraft = Aircraft.rand.Next(4)+1;
+
+            Shilka.statisticAllAircraft++;
+
+            switch (newAircraft)
+            {
+                case 1: createNewAircraft("a10", 50, 204, 50); break;
+                case 2: createNewAircraft("b1", 50, 406, 79); break;
+                case 3: createNewAircraft("b52", 50, 406, 105); break;
+                case 4: createNewAircraft("f117", 50, 204, 28); break;
+            }
+        }
+
+        static void createNewAircraft(string aircraftName, int hitPoint, int aircraftWidth, int aircraftHeight)
+        {
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {
                 MainWindow main = (MainWindow)Application.Current.MainWindow;
 
                 Image newAircraftImage = new Image();
 
-                newAircraftImage.Width = 204;
-                newAircraftImage.Height = 50;
+                newAircraftImage.Width = aircraftWidth;
+                newAircraftImage.Height = aircraftHeight;
 
                 Aircraft newAircraft = new Aircraft();
 
@@ -117,8 +132,8 @@ namespace shilka2
                     newAircraft.flightDirection = FlightDirectionType.Left;
                     newAircraft.x = Application.Current.MainWindow.Width;
                 }
-                
-                newAircraftImage.Source = new BitmapImage(new Uri("images/f-117-right.png", UriKind.Relative)) {};
+
+                newAircraftImage.Source = new BitmapImage(new Uri("images/"+aircraftName+".png", UriKind.Relative)) { };
 
                 if (newAircraft.flightDirection == FlightDirectionType.Left)
                 {
@@ -127,14 +142,12 @@ namespace shilka2
 
                 newAircraftImage.Margin = new Thickness(newAircraft.x, newAircraft.y, 0, 0);
 
-                newAircraft.hitpoint = 300;
-                
+                newAircraft.hitpoint = hitPoint;
+
                 newAircraft.aircraftImage = newAircraftImage;
                 main.firePlace.Children.Add(newAircraftImage);
                 Aircraft.aircrafts.Add(newAircraft);
             }));
         }
-
-
     }
 }

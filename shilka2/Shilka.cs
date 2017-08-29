@@ -18,6 +18,7 @@ namespace shilka2
 
         public static int statisticShellsFired = 0;
         public static int staticticInTarget = 0;
+        public static int statisticAllAircraft = 0;
         public static int staticticAircraftShutdown = 0;
 
         public static void SetNewTergetPoint(Point pt, object sender)
@@ -85,7 +86,7 @@ namespace shilka2
 
                 if (statisticShellsFired > 0) stat += "Выстрелов: " + statisticShellsFired;
                 if (staticticInTarget > 0) stat += "\nПопаданий: " + staticticInTarget + " ( " + (staticticInTarget*100 / statisticShellsFired) + "% )";
-                if (staticticAircraftShutdown > 0) stat += "\nСбито: " + staticticAircraftShutdown;
+                if (staticticAircraftShutdown > 0) stat += "\nСбито: " + staticticAircraftShutdown + " ( " + (staticticAircraftShutdown * 100 / statisticAllAircraft) + "% )";
 
                 main.statShells.Content = stat;
             }));
