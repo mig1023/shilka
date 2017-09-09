@@ -25,6 +25,8 @@ namespace shilka2
         public double tangage { get; set; }
         int tangage_delay = 0;
 
+        public string aircraftType;
+        public int price;
         public int hitpoint;
         public Boolean dead = false;
         public Boolean fly = true;
@@ -81,6 +83,12 @@ namespace shilka2
                         (aircraft.x > main.ActualWidth) && (aircraft.flightDirection == FlightDirectionType.Right)
                     ) {
                         aircraft.fly = false;
+                        if (!aircraft.dead)
+                        {
+                            Shilka.statisticHasGone++;
+                            Shilka.statisticAmountOfDamage += aircraft.price;
+                            Shilka.statisticLastDamage = " ( +" + aircraft.price + " сбит " + aircraft.aircraftType + " )";
+                        }    
                     }
 
                     aircraft.aircraftImage.Margin = new Thickness(aircraft.x, aircraft.y, 0, 0);
@@ -100,14 +108,14 @@ namespace shilka2
 
             switch (newAircraft)
             {
-                case 1: createNewAircraft("a10", 50, 204, 50); break;
-                case 2: createNewAircraft("b1", 50, 406, 79); break;
-                case 3: createNewAircraft("b52", 50, 406, 105); break;
-                case 4: createNewAircraft("f117", 50, 204, 28); break;
+                case 1: createNewAircraft("a10", 50, 204, 50, 12); break;
+                case 2: createNewAircraft("b1", 50, 406, 79, 283); break;
+                case 3: createNewAircraft("b52", 50, 406, 105, 53); break;
+                case 4: createNewAircraft("f117", 50, 204, 28, 111); break;
             }
         }
 
-        static void createNewAircraft(string aircraftName, int hitPoint, int aircraftWidth, int aircraftHeight)
+        static void createNewAircraft(string aircraftName, int hitPoint, int aircraftWidth, int aircraftHeight, int price)
         {
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {
@@ -142,7 +150,9 @@ namespace shilka2
 
                 newAircraftImage.Margin = new Thickness(newAircraft.x, newAircraft.y, 0, 0);
 
+                newAircraft.aircraftType = aircraftName;
                 newAircraft.hitpoint = hitPoint;
+                newAircraft.price = price;
 
                 newAircraft.aircraftImage = newAircraftImage;
                 main.firePlace.Children.Add(newAircraftImage);

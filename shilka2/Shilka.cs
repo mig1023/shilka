@@ -20,6 +20,9 @@ namespace shilka2
         public static int staticticInTarget = 0;
         public static int statisticAllAircraft = 0;
         public static int staticticAircraftShutdown = 0;
+        public static int statisticHasGone = 0;
+        public static int statisticAmountOfDamage = 0;
+        public static string statisticLastDamage;
 
         public static void SetNewTergetPoint(Point pt, object sender)
         {
@@ -85,8 +88,14 @@ namespace shilka2
                 string stat = "";
 
                 if (statisticShellsFired > 0) stat += "Выстрелов: " + statisticShellsFired;
-                if (staticticInTarget > 0) stat += "\nПопаданий: " + staticticInTarget + " ( " + (staticticInTarget*100 / statisticShellsFired) + "% )";
-                if (staticticAircraftShutdown > 0) stat += "\nСбито: " + staticticAircraftShutdown + " ( " + (staticticAircraftShutdown * 100 / statisticAllAircraft) + "% )";
+                if (staticticInTarget > 0) stat += "\nПопаданий: " + staticticInTarget + 
+                    " ( " + (staticticInTarget*100 / statisticShellsFired) + "% )";
+                if (staticticAircraftShutdown > 0) stat += "\nСбито: " + staticticAircraftShutdown + 
+                    " ( " + (staticticAircraftShutdown * 100 / (statisticHasGone + staticticAircraftShutdown)) + "% )";
+                if (statisticHasGone > 0) stat += "\nУпущено: " + statisticHasGone + 
+                    " ( " + (statisticHasGone * 100 / (statisticHasGone + staticticAircraftShutdown)) + "% )";
+                if (statisticAmountOfDamage > 0)
+                    stat += "\nНанесён ущерб: " + statisticAmountOfDamage + " млн $" + statisticLastDamage;
 
                 main.statShells.Content = stat;
             }));

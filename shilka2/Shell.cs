@@ -96,7 +96,13 @@ namespace shilka2
                             Shilka.staticticInTarget++;
                             if (aircraft.hitpoint <= 0)
                             {
-                                if (aircraft.dead == false) Shilka.staticticAircraftShutdown++;
+                                if (aircraft.dead == false)
+                                {
+                                    Shilka.staticticAircraftShutdown++;
+                                    Shilka.statisticAmountOfDamage += aircraft.price;
+                                    Shilka.statisticLastDamage = " ( +" + aircraft.price + " сбит " + aircraft.aircraftType + " )";
+                                }
+
                                 aircraft.dead = true;
                             }
                         }
