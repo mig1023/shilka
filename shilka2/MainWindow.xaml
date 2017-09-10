@@ -11,5 +11,6 @@
         <Button x:Name="closeButton" Content="X" HorizontalAlignment="Left" Height="23" Margin="10,15,0,0" VerticalAlignment="Top" Width="30" Click="closeButton_Click"/>
         <Image x:Name="ShilkaImg" HorizontalAlignment="Left" Height="98" Margin="237,10,0,0" VerticalAlignment="Top" Width="182" Source="images/shilka.png"/>
         <Label x:Name="statShells" HorizontalAlignment="Left" Height="133" Margin="45,10,0,0" VerticalAlignment="Top" Width="450"/>
+        <Button x:Name="pauseButton" Content="I I" HorizontalAlignment="Left" Height="23" Margin="10,43,0,0" VerticalAlignment="Top" Width="30" Click="pauseButton_Click"/>
     </Grid>
 </Window>

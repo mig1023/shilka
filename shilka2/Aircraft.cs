@@ -28,6 +28,8 @@ namespace shilka2
         public string aircraftType;
         public int price;
         public int hitpoint;
+        public int hitpointMax;
+        public int speed;
         public Boolean dead = false;
         public Boolean fly = true;
 
@@ -53,11 +55,11 @@ namespace shilka2
                 {
                     if (aircraft.flightDirection == FlightDirectionType.Left)
                     {
-                        aircraft.x -= 8;
+                        aircraft.x -= aircraft.speed;
                     }
                     else
                     {
-                        aircraft.x += 8;
+                        aircraft.x += aircraft.speed;
                     }
 
                     if (aircraft.dead)
@@ -86,8 +88,16 @@ namespace shilka2
                         if (!aircraft.dead)
                         {
                             Shilka.statisticHasGone++;
-                            Shilka.statisticAmountOfDamage += aircraft.price;
-                            Shilka.statisticLastDamage = " ( +" + aircraft.price + " сбит " + aircraft.aircraftType + " )";
+
+                            if (aircraft.hitpoint < aircraft.hitpointMax)
+                            {
+                                Shilka.statisticDamaged++;
+
+                                double priceOfDamage = aircraft.price / ((double)aircraft.hitpointMax / (double)aircraft.hitpoint);
+                                Shilka.statisticAmountOfDamage += (int)priceOfDamage;
+                                Shilka.statisticLastDamage = " ( +" + priceOfDamage.ToString() + " повреждён " + aircraft.aircraftType + " )";
+                            }
+                            
                         }    
                     }
 
@@ -102,20 +112,28 @@ namespace shilka2
 
         public static void AircraftStart(object obj, ElapsedEventArgs e)
         {
-            int newAircraft = Aircraft.rand.Next(4)+1;
+            int newAircraft = Aircraft.rand.Next(12)+1;
 
             Shilka.statisticAllAircraft++;
 
             switch (newAircraft)
             {
-                case 1: createNewAircraft("a10", 50, 204, 50, 12); break;
-                case 2: createNewAircraft("b1", 50, 406, 79, 283); break;
-                case 3: createNewAircraft("b52", 50, 406, 105, 53); break;
-                case 4: createNewAircraft("f117", 50, 204, 28, 111); break;
+                case 1: createNewAircraft("a10", 120, 204, 50, 12, 5); break;
+                case 2: createNewAircraft("b1", 50, 406, 79, 283, 12); break;
+                case 3: createNewAircraft("b52", 80, 406, 105, 53, 8); break;
+                case 4: createNewAircraft("f117", 50, 204, 28, 111, 10); break;
+                case 5: createNewAircraft("f14", 80, 204, 54, 38, 10); break;
+                case 6: createNewAircraft("f18", 80, 204, 55, 29, 10); break;
+                case 7: createNewAircraft("f16", 80, 204, 65, 34, 10); break;
+                case 8: createNewAircraft("f22", 50, 204, 47, 142, 12); break;
+                case 9: createNewAircraft("f15", 80, 204, 48, 29, 10); break;
+                case 10: createNewAircraft("f4", 80, 204, 56, 3, 8); break;
+                case 11: createNewAircraft("tornado", 50, 204, 72, 111, 10); break;
+                case 12: createNewAircraft("predator", 30, 140, 42, 4, 5); break;
             }
         }
 
-        static void createNewAircraft(string aircraftName, int hitPoint, int aircraftWidth, int aircraftHeight, int price)
+        static void createNewAircraft(string aircraftName, int hitPoint, int aircraftWidth, int aircraftHeight, int price, int speed)
         {
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {
@@ -152,7 +170,9 @@ namespace shilka2
 
                 newAircraft.aircraftType = aircraftName;
                 newAircraft.hitpoint = hitPoint;
+                newAircraft.hitpointMax = hitPoint;
                 newAircraft.price = price;
+                newAircraft.speed = speed;
 
                 newAircraft.aircraftImage = newAircraftImage;
                 main.firePlace.Children.Add(newAircraftImage);

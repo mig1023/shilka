@@ -21,6 +21,7 @@ namespace shilka2
         public static int statisticAllAircraft = 0;
         public static int staticticAircraftShutdown = 0;
         public static int statisticHasGone = 0;
+        public static int statisticDamaged = 0;
         public static int statisticAmountOfDamage = 0;
         public static string statisticLastDamage;
 
@@ -86,14 +87,20 @@ namespace shilka2
                 MainWindow main = (MainWindow)Application.Current.MainWindow;
 
                 string stat = "";
+                int shutdownPercent = 0;
 
                 if (statisticShellsFired > 0) stat += "Выстрелов: " + statisticShellsFired;
                 if (staticticInTarget > 0) stat += "\nПопаданий: " + staticticInTarget + 
                     " ( " + (staticticInTarget*100 / statisticShellsFired) + "% )";
-                if (staticticAircraftShutdown > 0) stat += "\nСбито: " + staticticAircraftShutdown + 
-                    " ( " + (staticticAircraftShutdown * 100 / (statisticHasGone + staticticAircraftShutdown)) + "% )";
-                if (statisticHasGone > 0) stat += "\nУпущено: " + statisticHasGone + 
-                    " ( " + (statisticHasGone * 100 / (statisticHasGone + staticticAircraftShutdown)) + "% )";
+
+                if (staticticAircraftShutdown > 0)
+                {
+                    shutdownPercent = (staticticAircraftShutdown * 100 / (statisticHasGone + staticticAircraftShutdown));
+                    stat += "\nСбито: " + staticticAircraftShutdown + " ( " + shutdownPercent + "% )";
+                }
+                    
+                if ( (staticticAircraftShutdown > 0) && (statisticDamaged > 0) ) stat += " + " + statisticDamaged + " поврежден";
+                if (statisticHasGone > 0) stat += "\nУпущено: " + statisticHasGone + " ( " + (100 - shutdownPercent) + "% )";
                 if (statisticAmountOfDamage > 0)
                     stat += "\nНанесён ущерб: " + statisticAmountOfDamage + " млн $" + statisticLastDamage;
 

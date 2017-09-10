@@ -13,6 +13,7 @@ namespace shilka2
     {
         System.Timers.Timer Game;
         System.Timers.Timer Aircrafts;
+        bool Pause = false; 
 
         public MainWindow()
         {
@@ -35,9 +36,9 @@ namespace shilka2
             this.WindowStyle = System.Windows.WindowStyle.None;
 
             double heightForShilka = System.Windows.SystemParameters.PrimaryScreenHeight -
-                ShilkaImg.ActualHeight - Shilka.SHILKA_HEIGHT_CORRECTION;
+                ShilkaImg.ActualHeight - Shilka.SHILKA_HEIGHT_CORRECTION ;
 
-            Aircraft.minFlightHeight = (int)heightForShilka;
+            Aircraft.minFlightHeight = (int)heightForShilka - 35;
 
             ShilkaImg.Margin = new Thickness(0, heightForShilka, 0, 0);
         }
@@ -68,6 +69,25 @@ namespace shilka2
         private void closeButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void pauseButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (Pause)
+            {
+                Shell.AnimationStop = false;
+                Game.Start();
+                Aircrafts.Start();
+                Pause = false;
+            }
+            else
+            {
+                Shell.AnimationStop = true;
+                Game.Stop();
+                Aircrafts.Stop();
+                Pause = true;
+            }
+           
         }
     }
 }
