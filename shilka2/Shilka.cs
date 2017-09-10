@@ -22,6 +22,7 @@ namespace shilka2
         public static int staticticAircraftShutdown = 0;
         public static int statisticHasGone = 0;
         public static int statisticDamaged = 0;
+        public static int statisticFriendDamage = 0;
         public static int statisticAmountOfDamage = 0;
         public static string statisticLastDamage;
 
@@ -103,6 +104,7 @@ namespace shilka2
                 if (statisticHasGone > 0) stat += "\nУпущено: " + statisticHasGone + " ( " + (100 - shutdownPercent) + "% )";
                 if (statisticAmountOfDamage > 0)
                     stat += "\nНанесён ущерб: " + statisticAmountOfDamage + " млн $" + statisticLastDamage;
+                if (statisticFriendDamage > 0) stat += "\nПовреждено своих: " + statisticFriendDamage;
 
                 main.statShells.Content = stat;
             }));

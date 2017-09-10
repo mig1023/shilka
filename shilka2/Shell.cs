@@ -93,14 +93,24 @@ namespace shilka2
                         ) {
                             shell.fly = false;
                             aircraft.hitpoint -= 1;
+
                             Shilka.staticticInTarget++;
+
                             if (aircraft.hitpoint <= 0)
                             {
                                 if (aircraft.dead == false)
                                 {
-                                    Shilka.staticticAircraftShutdown++;
-                                    Shilka.statisticAmountOfDamage += aircraft.price;
-                                    Shilka.statisticLastDamage = " ( +" + aircraft.price + " сбит " + aircraft.aircraftType + " )";
+                                    if (!aircraft.friend)
+                                    {
+                                        Shilka.staticticAircraftShutdown++;
+                                        Shilka.statisticAmountOfDamage += aircraft.price;
+                                        Shilka.statisticLastDamage = " ( +" + aircraft.price + " сбит " + aircraft.aircraftType + " )";
+                                    }
+                                    else
+                                    {
+                                        // game over
+                                    }
+                                    
                                 }
 
                                 aircraft.dead = true;

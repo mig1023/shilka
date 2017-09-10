@@ -32,6 +32,7 @@ namespace shilka2
         public int speed;
         public Boolean dead = false;
         public Boolean fly = true;
+        public Boolean friend = false; 
 
         FlightDirectionType flightDirection;
 
@@ -85,7 +86,7 @@ namespace shilka2
                         (aircraft.x > main.ActualWidth) && (aircraft.flightDirection == FlightDirectionType.Right)
                     ) {
                         aircraft.fly = false;
-                        if (!aircraft.dead)
+                        if ((!aircraft.dead) && (!aircraft.friend))
                         {
                             Shilka.statisticHasGone++;
 
@@ -112,28 +113,36 @@ namespace shilka2
 
         public static void AircraftStart(object obj, ElapsedEventArgs e)
         {
-            int newAircraft = Aircraft.rand.Next(12)+1;
-
-            Shilka.statisticAllAircraft++;
+            int newAircraft = Aircraft.rand.Next(20)+1;
 
             switch (newAircraft)
             {
-                case 1: createNewAircraft("a10", 120, 204, 50, 12, 5); break;
-                case 2: createNewAircraft("b1", 50, 406, 79, 283, 12); break;
-                case 3: createNewAircraft("b52", 80, 406, 105, 53, 8); break;
-                case 4: createNewAircraft("f117", 50, 204, 28, 111, 10); break;
-                case 5: createNewAircraft("f14", 80, 204, 54, 38, 10); break;
-                case 6: createNewAircraft("f18", 80, 204, 55, 29, 10); break;
-                case 7: createNewAircraft("f16", 80, 204, 65, 34, 10); break;
-                case 8: createNewAircraft("f22", 50, 204, 47, 142, 12); break;
-                case 9: createNewAircraft("f15", 80, 204, 48, 29, 10); break;
-                case 10: createNewAircraft("f4", 80, 204, 56, 3, 8); break;
-                case 11: createNewAircraft("tornado", 50, 204, 72, 111, 10); break;
-                case 12: createNewAircraft("predator", 30, 140, 42, 4, 5); break;
+                case 1: createNewAircraft("a10", 120, 204, 50, 12, 5, false); break;
+                case 2: createNewAircraft("b1", 50, 406, 79, 283, 12, false); break;
+                case 3: createNewAircraft("b52", 80, 406, 105, 53, 8, false); break;
+                case 4: createNewAircraft("f117", 50, 204, 28, 111, 10, false); break;
+                case 5: createNewAircraft("f14", 80, 204, 54, 38, 10, false); break;
+                case 6: createNewAircraft("f18", 80, 204, 55, 29, 10, false); break;
+                case 7: createNewAircraft("f16", 80, 204, 65, 34, 10, false); break;
+                case 8: createNewAircraft("f22", 50, 204, 47, 142, 12, false); break;
+                case 9: createNewAircraft("f15", 80, 204, 48, 29, 10, false); break;
+                case 10: createNewAircraft("f4", 80, 204, 56, 3, 8, false); break;
+                case 11: createNewAircraft("tornado", 50, 204, 72, 111, 10, false); break;
+                case 12: createNewAircraft("predator", 30, 140, 42, 4, 5, false); break;
+
+                case 13: createNewAircraft("mig23", 80, 204, 55, 0, 10, true); break;
+                case 14: createNewAircraft("mig29", 80, 204, 51, 0, 10, true); break;
+                case 15: createNewAircraft("mig31", 80, 204, 57, 0, 12, true); break;
+                case 16: createNewAircraft("su17", 80, 204, 52, 0, 5, true); break;
+                case 17: createNewAircraft("su24", 80, 204, 53, 0, 8, true); break;
+                case 18: createNewAircraft("su25", 120, 204, 63, 0, 5, true); break;
+                case 19: createNewAircraft("su27", 80, 204, 50, 0, 10, true); break;
+                case 20: createNewAircraft("su34", 100, 204, 47, 0, 10, true); break;
             }
         }
 
-        static void createNewAircraft(string aircraftName, int hitPoint, int aircraftWidth, int aircraftHeight, int price, int speed)
+        static void createNewAircraft(string aircraftName, int hitPoint, int aircraftWidth, int aircraftHeight, int price, 
+            int speed, Boolean friend)
         {
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {
@@ -173,6 +182,9 @@ namespace shilka2
                 newAircraft.hitpointMax = hitPoint;
                 newAircraft.price = price;
                 newAircraft.speed = speed;
+                newAircraft.friend = friend;
+
+                if (friend) Shilka.statisticAllAircraft++;
 
                 newAircraft.aircraftImage = newAircraftImage;
                 main.firePlace.Children.Add(newAircraftImage);

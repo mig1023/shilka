@@ -11,8 +11,8 @@ namespace shilka2
 {
     public partial class MainWindow : Window
     {
-        System.Timers.Timer Game;
-        System.Timers.Timer Aircrafts;
+        public System.Timers.Timer Game;
+        public System.Timers.Timer Aircrafts;
         bool Pause = false; 
 
         public MainWindow()
