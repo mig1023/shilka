@@ -19,6 +19,7 @@ namespace shilka2
         public static int statisticShellsFired = 0;
         public static int staticticInTarget = 0;
         public static int statisticAllAircraft = 0;
+        public static int statisticPriceOfAllAircrafts = 0;
         public static int staticticAircraftShutdown = 0;
         public static int statisticHasGone = 0;
         public static int statisticDamaged = 0;
@@ -100,11 +101,15 @@ namespace shilka2
                     stat += "\nСбито: " + staticticAircraftShutdown + " ( " + shutdownPercent + "% )";
                 }
                     
-                if ( (staticticAircraftShutdown > 0) && (statisticDamaged > 0) ) stat += " + " + statisticDamaged + " поврежден";
+                if ( (staticticAircraftShutdown > 0) && (statisticDamaged > 0) ) stat += " + повреждён: " + statisticDamaged;
                 if (statisticHasGone > 0) stat += "\nУпущено: " + statisticHasGone + " ( " + (100 - shutdownPercent) + "% )";
                 if (statisticAmountOfDamage > 0)
                     stat += "\nНанесён ущерб: " + statisticAmountOfDamage + " млн $" + statisticLastDamage;
                 if (statisticFriendDamage > 0) stat += "\nПовреждено своих: " + statisticFriendDamage;
+
+                if (staticticAircraftShutdown > 0) stat += String.Format("\nУдача: {0:f2}",
+                    (double)statisticPriceOfAllAircrafts / (statisticAllAircraft * (double)Aircraft.AIRCRAFT_AVERAGE_PRICE) );
+               
 
                 main.statShells.Content = stat;
             }));

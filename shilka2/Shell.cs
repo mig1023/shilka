@@ -108,7 +108,10 @@ namespace shilka2
                                     }
                                     else
                                     {
-                                        // game over
+                                        main.Game.Stop();
+                                        main.Aircrafts.Stop();
+                                        MessageBox.Show("Вы подбили своего!");
+                                        main.Close();
                                     }
                                     
                                 }
