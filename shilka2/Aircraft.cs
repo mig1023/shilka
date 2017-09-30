@@ -97,7 +97,7 @@ namespace shilka2
 
                                 double priceOfDamage = aircraft.price / ((double)aircraft.hitpointMax / (double)aircraft.hitpoint);
                                 Shilka.statisticAmountOfDamage += (int)priceOfDamage;
-                                Shilka.statisticLastDamage = " ( +" + priceOfDamage.ToString() + " повреждён " + aircraft.aircraftType + " )";
+                                Shilka.statisticLastDamage = " ( +" + priceOfDamage.ToString() + "$ повреждён " + aircraft.aircraftType + " )";
                             }
                             
                         } 
