@@ -115,65 +115,67 @@ namespace shilka2
 
         public static void AircraftStart(object obj, ElapsedEventArgs e)
         {
-            int newAircraft = Aircraft.rand.Next(32)+1;
+            int newAircraft = Aircraft.rand.Next(4)+1;
 
             switch (newAircraft)
             {
-                // enemies
                 case 1:
-                case 21:
-                    createNewAircraft("a10", 120, 204, 50, 12, 5, false); break;
                 case 2:
-                case 22:
-                    createNewAircraft("b1", 50, 406, 79, 283, 12, false); break;
                 case 3:
-                case 23:
-                    createNewAircraft("b52", 80, 406, 105, 53, 8, false); break;
+                    int newEnemyAircraft = Aircraft.rand.Next(12) + 1;
+
+                    switch (newEnemyAircraft)
+                    {
+                        case 1:
+                            createNewAircraft("a10", 120, 204, 50, 12, 5, false); break;
+                        case 2:
+                            createNewAircraft("b1", 50, 406, 79, 283, 12, false); break;
+                        case 3:
+                            createNewAircraft("b52", 80, 406, 105, 53, 8, false); break;
+                        case 4:
+                            createNewAircraft("f117", 50, 204, 28, 111, 10, false); break;
+                        case 5:
+                            createNewAircraft("f14", 80, 204, 54, 38, 10, false); break;
+                        case 6:
+                            createNewAircraft("f18", 80, 204, 55, 29, 10, false); break;
+                        case 7:
+                            createNewAircraft("f16", 80, 204, 65, 34, 10, false); break;
+                        case 8:
+                            createNewAircraft("f22", 50, 204, 47, 142, 12, false); break;
+                        case 9:
+                            createNewAircraft("f15", 80, 204, 48, 29, 10, false); break;
+                        case 10:
+                            createNewAircraft("f4", 80, 204, 56, 3, 8, false); break;
+                        case 11:
+                            createNewAircraft("tornado", 50, 204, 72, 111, 10, false); break;
+                        case 12:
+                            createNewAircraft("predator", 30, 140, 42, 4, 5, false); break;
+                    }
+                    break;
+
                 case 4:
-                case 24:
-                    createNewAircraft("f117", 50, 204, 28, 111, 10, false); break;
-                case 5:
-                case 25:
-                    createNewAircraft("f14", 80, 204, 54, 38, 10, false); break;
-                case 6:
-                case 26:
-                    createNewAircraft("f18", 80, 204, 55, 29, 10, false); break;
-                case 7:
-                case 27:
-                    createNewAircraft("f16", 80, 204, 65, 34, 10, false); break;
-                case 8:
-                case 28:
-                    createNewAircraft("f22", 50, 204, 47, 142, 12, false); break;
-                case 9:
-                case 29:
-                    createNewAircraft("f15", 80, 204, 48, 29, 10, false); break;
-                case 10:
-                case 30:
-                    createNewAircraft("f4", 80, 204, 56, 3, 8, false); break;
-                case 11:
-                case 31:
-                    createNewAircraft("tornado", 50, 204, 72, 111, 10, false); break;
-                case 12:
-                case 32:
-                    createNewAircraft("predator", 30, 140, 42, 4, 5, false); break;
-                
-                // friends
-                case 13:
-                    createNewAircraft("mig23", 80, 204, 55, 0, 10, true); break;
-                case 14:
-                    createNewAircraft("mig29", 80, 204, 51, 0, 10, true); break;
-                case 15:
-                    createNewAircraft("mig31", 80, 204, 57, 0, 12, true); break;
-                case 16:
-                    createNewAircraft("su17", 80, 204, 52, 0, 5, true); break;
-                case 17:
-                    createNewAircraft("su24", 80, 204, 53, 0, 8, true); break;
-                case 18:
-                    createNewAircraft("su25", 120, 204, 63, 0, 5, true); break;
-                case 19:
-                    createNewAircraft("su27", 80, 204, 50, 0, 10, true); break;
-                case 20:
-                    createNewAircraft("su34", 100, 204, 47, 0, 10, true); break;
+                    int newFriendAircraft = Aircraft.rand.Next(8) + 1;
+
+                    switch (newFriendAircraft)
+                    {
+                        case 1:
+                            createNewAircraft("mig23", 80, 204, 55, 0, 10, true); break;
+                        case 2:
+                            createNewAircraft("mig29", 80, 204, 51, 0, 10, true); break;
+                        case 3:
+                            createNewAircraft("mig31", 80, 204, 57, 0, 12, true); break;
+                        case 4:
+                            createNewAircraft("su17", 80, 204, 52, 0, 5, true); break;
+                        case 5:
+                            createNewAircraft("su24", 80, 204, 53, 0, 8, true); break;
+                        case 6:
+                            createNewAircraft("su25", 120, 204, 63, 0, 5, true); break;
+                        case 7:
+                            createNewAircraft("su27", 80, 204, 50, 0, 10, true); break;
+                        case 8:
+                            createNewAircraft("su34", 100, 204, 47, 0, 10, true); break;
+                    }
+                    break;
             }
         }
 
