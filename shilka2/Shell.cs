@@ -104,7 +104,8 @@ namespace shilka2
                                     {
                                         Shilka.staticticAircraftShutdown++;
                                         Shilka.statisticAmountOfDamage += aircraft.price;
-                                        Shilka.statisticLastDamage = " ( +" + aircraft.price + " сбит " + aircraft.aircraftType + " )";
+                                        Shilka.statisticLastDamage = " ( +" + aircraft.price + " млн $ сбит " + 
+                                            aircraft.aircraftType + " )";
                                     }
                                     else
                                     {

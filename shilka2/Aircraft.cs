@@ -15,7 +15,7 @@ namespace shilka2
     class Aircraft
     {
         public const int MAX_FLIGHT_HEIGHT = 75;
-        public const int AIRCRAFT_AVERAGE_PRICE = 71;
+        public const int AIRCRAFT_AVERAGE_PRICE = 81;
         public static int maxFlightHeight { get; set; }
         public static int minFlightHeight { get; set; }
         enum FlightDirectionType { Left, Right };
@@ -97,7 +97,8 @@ namespace shilka2
 
                                 double priceOfDamage = aircraft.price / ((double)aircraft.hitpointMax / (double)aircraft.hitpoint);
                                 Shilka.statisticAmountOfDamage += (int)priceOfDamage;
-                                Shilka.statisticLastDamage = " ( +" + priceOfDamage.ToString() + "$ повреждён " + aircraft.aircraftType + " )";
+                                Shilka.statisticLastDamage = String.Format(" ( +{0:f2} млн $ повреждён ", priceOfDamage) + 
+                                    aircraft.aircraftType + " )";
                             }
                             
                         } 
@@ -127,35 +128,35 @@ namespace shilka2
                     switch (newEnemyAircraft)
                     {
                         case 1:
-                            createNewAircraft("a10", 120, 204, 50, 12, 5, false); break;
+                            createNewAircraft("a10", 200, 204, 50, 12, 5, false); break;
                         case 2:
-                            createNewAircraft("b1", 50, 406, 79, 283, 12, false); break;
+                            createNewAircraft("b1", 90, 406, 79, 283, 12, false); break;
                         case 3:
-                            createNewAircraft("b52", 80, 406, 105, 53, 8, false); break;
+                            createNewAircraft("b52", 120, 406, 105, 53, 8, false); break;
                         case 4:
                             createNewAircraft("f117", 50, 204, 28, 111, 10, false); break;
                         case 5:
-                            createNewAircraft("f14", 80, 204, 54, 38, 10, false); break;
+                            createNewAircraft("f14", 120, 204, 54, 38, 10, false); break;
                         case 6:
-                            createNewAircraft("f18", 80, 204, 55, 29, 10, false); break;
+                            createNewAircraft("f18", 120, 204, 55, 29, 10, false); break;
                         case 7:
-                            createNewAircraft("f16", 80, 204, 65, 34, 10, false); break;
+                            createNewAircraft("f16", 120, 204, 65, 34, 10, false); break;
                         case 8:
-                            createNewAircraft("f22", 50, 204, 47, 142, 14, false); break;
+                            createNewAircraft("f22", 90, 204, 47, 142, 14, false); break;
                         case 9:
-                            createNewAircraft("f15", 80, 204, 53, 29, 10, false); break;
+                            createNewAircraft("f15", 120, 204, 53, 29, 10, false); break;
                         case 10:
-                            createNewAircraft("f4", 80, 204, 56, 3, 8, false); break;
+                            createNewAircraft("f4", 150, 204, 56, 3, 8, false); break;
                         case 11:
-                            createNewAircraft("tornado", 50, 204, 72, 111, 10, false); break;
+                            createNewAircraft("tornado", 100, 204, 72, 111, 10, false); break;
                         case 12:
                             createNewAircraft("predator", 30, 140, 38, 4, 5, false); break;
                         case 13:
-                            createNewAircraft("reaper", 30, 140, 50, 16, 5, false); break;
+                            createNewAircraft("reaper", 50, 140, 50, 16, 5, false); break;
                         case 14:
-                            createNewAircraft("f35", 50, 204, 52, 83, 10, false); break;
+                            createNewAircraft("f35", 90, 204, 52, 83, 10, false); break;
                         case 15:
-                            createNewAircraft("e3", 90, 406, 110, 270, 8, false); break;
+                            createNewAircraft("e3", 150, 406, 110, 270, 8, false); break;
                     }
                     break;
 
@@ -175,7 +176,7 @@ namespace shilka2
                         case 5:
                             createNewAircraft("su24", 80, 204, 53, 0, 8, true); break;
                         case 6:
-                            createNewAircraft("su25", 120, 204, 63, 0, 5, true); break;
+                            createNewAircraft("su25", 180, 204, 63, 0, 5, true); break;
                         case 7:
                             createNewAircraft("su27", 80, 204, 50, 0, 10, true); break;
                         case 8:

@@ -100,9 +100,21 @@ namespace shilka2
                     shutdownPercent = (staticticAircraftShutdown * 100 / (statisticHasGone + staticticAircraftShutdown));
                     stat += "\nСбито: " + staticticAircraftShutdown + " ( " + shutdownPercent + "% )";
                 }
-                    
-                if ( (staticticAircraftShutdown > 0) && (statisticDamaged > 0) ) stat += " + повреждён: " + statisticDamaged;
+
+                if ((staticticAircraftShutdown > 0) && (statisticDamaged > 0))
+                {
+                    int damagedPercent = (statisticDamaged * 100 / (statisticHasGone + staticticAircraftShutdown));
+                    stat += " + повреждён: " + statisticDamaged + " ( " + damagedPercent + "% )";
+                }
+                
                 if (statisticHasGone > 0) stat += "\nУпущено: " + statisticHasGone + " ( " + (100 - shutdownPercent) + "% )";
+
+                if (statisticDamaged < statisticHasGone)
+                {
+                    int statisticWithoutDamage = ((statisticHasGone - statisticDamaged) * 100 / (statisticHasGone + staticticAircraftShutdown));
+                    stat += " в том числе неповредённых: " + (statisticHasGone - statisticDamaged) + " ( " + statisticWithoutDamage + "% )";
+                }
+
                 if (statisticAmountOfDamage > 0)
                     stat += "\nНанесён ущерб: " + statisticAmountOfDamage + " млн $" + statisticLastDamage;
                 if (statisticFriendDamage > 0) stat += "\nПовреждено своих: " + statisticFriendDamage;
