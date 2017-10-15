@@ -33,7 +33,8 @@ namespace shilka2
         public int speed;
         public Boolean dead = false;
         public Boolean fly = true;
-        public Boolean friend = false; 
+        public Boolean friend = false;
+        public Boolean cloud = false;
 
         FlightDirectionType flightDirection;
 
@@ -70,14 +71,18 @@ namespace shilka2
                     }
                     else
                     {
-                        aircraft.tangage_delay++;
-                        if (aircraft.tangage_delay > 12)
+                        if (!aircraft.cloud)
                         {
-                            aircraft.tangage_delay = 0;
-                            aircraft.tangage = 4 * (Aircraft.rand.NextDouble() * 2 - 1);
+                            aircraft.tangage_delay++;
+                            if (aircraft.tangage_delay > 12)
+                            {
+                                aircraft.tangage_delay = 0;
+                                aircraft.tangage = 4 * (Aircraft.rand.NextDouble() * 2 - 1);
+                            }
+                            aircraft.y += aircraft.tangage;
+                            if (aircraft.y > Aircraft.minFlightHeight) aircraft.y = Aircraft.minFlightHeight;
                         }
-                        aircraft.y += aircraft.tangage;
-                        if (aircraft.y > Aircraft.minFlightHeight) aircraft.y = Aircraft.minFlightHeight;
+                        
                     }
 
                     if (aircraft.y < maxFlightHeight) aircraft.y = maxFlightHeight;
@@ -121,6 +126,11 @@ namespace shilka2
             switch (newAircraft)
             {
                 case 1:
+                    int newCloud = Aircraft.rand.Next(14) + 1;
+                    int cloudWidth = Aircraft.rand.Next(250) + 100;
+                    int cloudHeight = Aircraft.rand.Next(100) + 70;
+
+                    createNewAircraft("cloud" + newCloud, 10, cloudWidth, cloudHeight, 0, 5, false, true); break;
                 case 2:
                 case 3:
                     int newEnemyAircraft = Aircraft.rand.Next(15) + 1;
@@ -128,35 +138,35 @@ namespace shilka2
                     switch (newEnemyAircraft)
                     {
                         case 1:
-                            createNewAircraft("a10", 200, 204, 50, 12, 5, false); break;
+                            createNewAircraft("a10", 200, 204, 50, 12, 5, false, false); break;
                         case 2:
-                            createNewAircraft("b1", 90, 406, 79, 283, 12, false); break;
+                            createNewAircraft("b1", 90, 406, 79, 283, 12, false, false); break;
                         case 3:
-                            createNewAircraft("b52", 120, 406, 105, 53, 8, false); break;
+                            createNewAircraft("b52", 120, 406, 105, 53, 8, false, false); break;
                         case 4:
-                            createNewAircraft("f117", 50, 204, 28, 111, 10, false); break;
+                            createNewAircraft("f117", 50, 204, 28, 111, 10, false, false); break;
                         case 5:
-                            createNewAircraft("f14", 120, 204, 54, 38, 10, false); break;
+                            createNewAircraft("f14", 120, 204, 54, 38, 10, false, false); break;
                         case 6:
-                            createNewAircraft("f18", 120, 204, 55, 29, 10, false); break;
+                            createNewAircraft("f18", 120, 204, 55, 29, 10, false, false); break;
                         case 7:
-                            createNewAircraft("f16", 120, 204, 65, 34, 10, false); break;
+                            createNewAircraft("f16", 120, 204, 65, 34, 10, false, false); break;
                         case 8:
-                            createNewAircraft("f22", 90, 204, 47, 142, 14, false); break;
+                            createNewAircraft("f22", 90, 204, 47, 142, 14, false, false); break;
                         case 9:
-                            createNewAircraft("f15", 120, 204, 53, 29, 10, false); break;
+                            createNewAircraft("f15", 120, 204, 53, 29, 10, false, false); break;
                         case 10:
-                            createNewAircraft("f4", 150, 204, 56, 3, 8, false); break;
+                            createNewAircraft("f4", 150, 204, 56, 3, 8, false, false); break;
                         case 11:
-                            createNewAircraft("tornado", 100, 204, 72, 111, 10, false); break;
+                            createNewAircraft("tornado", 100, 204, 72, 111, 10, false, false); break;
                         case 12:
-                            createNewAircraft("predator", 30, 140, 38, 4, 5, false); break;
+                            createNewAircraft("predator", 30, 140, 38, 4, 5, false, false); break;
                         case 13:
-                            createNewAircraft("reaper", 50, 140, 50, 16, 5, false); break;
+                            createNewAircraft("reaper", 50, 140, 50, 16, 5, false, false); break;
                         case 14:
-                            createNewAircraft("f35", 90, 204, 52, 83, 10, false); break;
+                            createNewAircraft("f35", 90, 204, 52, 83, 10, false, false); break;
                         case 15:
-                            createNewAircraft("e3", 150, 406, 110, 270, 8, false); break;
+                            createNewAircraft("e3", 150, 406, 110, 270, 8, false, false); break;
                     }
                     break;
 
@@ -166,30 +176,30 @@ namespace shilka2
                     switch (newFriendAircraft)
                     {
                         case 1:
-                            createNewAircraft("mig23", 80, 204, 55, 0, 10, true); break;
+                            createNewAircraft("mig23", 80, 204, 55, 0, 10, true, false); break;
                         case 2:
-                            createNewAircraft("mig29", 80, 204, 51, 0, 10, true); break;
+                            createNewAircraft("mig29", 80, 204, 51, 0, 10, true, false); break;
                         case 3:
-                            createNewAircraft("mig31", 80, 204, 57, 0, 14, true); break;
+                            createNewAircraft("mig31", 80, 204, 57, 0, 14, true, false); break;
                         case 4:
-                            createNewAircraft("su17", 80, 204, 52, 0, 5, true); break;
+                            createNewAircraft("su17", 80, 204, 52, 0, 5, true, false); break;
                         case 5:
-                            createNewAircraft("su24", 80, 204, 53, 0, 8, true); break;
+                            createNewAircraft("su24", 80, 204, 53, 0, 8, true, false); break;
                         case 6:
-                            createNewAircraft("su25", 180, 204, 63, 0, 5, true); break;
+                            createNewAircraft("su25", 180, 204, 63, 0, 5, true, false); break;
                         case 7:
-                            createNewAircraft("su27", 80, 204, 50, 0, 10, true); break;
+                            createNewAircraft("su27", 80, 204, 50, 0, 10, true, false); break;
                         case 8:
-                            createNewAircraft("su34", 100, 204, 47, 0, 10, true); break;
+                            createNewAircraft("su34", 100, 204, 47, 0, 10, true, false); break;
                         case 9:
-                            createNewAircraft("pakfa", 80, 204, 45, 0, 12, true); break;
+                            createNewAircraft("pakfa", 80, 204, 45, 0, 12, true, false); break;
                     }
                     break;
             }
         }
 
         static void createNewAircraft(string aircraftName, int hitPoint, int aircraftWidth, int aircraftHeight, int price, 
-            int speed, Boolean friend)
+            int speed, Boolean friend, Boolean cloud)
         {
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {
@@ -230,6 +240,7 @@ namespace shilka2
                 newAircraft.price = price;
                 newAircraft.speed = speed;
                 newAircraft.friend = friend;
+                newAircraft.cloud = cloud;
 
                 if (!friend)
                 {
@@ -239,6 +250,7 @@ namespace shilka2
 
                 newAircraft.aircraftImage = newAircraftImage;
                 main.firePlace.Children.Add(newAircraftImage);
+                if (cloud) Canvas.SetZIndex(newAircraftImage, 100);
                 Aircraft.aircrafts.Add(newAircraft);
             }));
         }

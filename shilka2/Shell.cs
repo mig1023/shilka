@@ -91,6 +91,8 @@ namespace shilka2
                             (shell.x > (aircraft.aircraftImage.Margin.Left) ) &&
                             (shell.x < (aircraft.aircraftImage.Margin.Left + aircraft.aircraftImage.Width) )
                         ) {
+                            if (aircraft.cloud) continue;
+
                             shell.fly = false;
                             aircraft.hitpoint -= 1;
 
