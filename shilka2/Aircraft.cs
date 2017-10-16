@@ -67,7 +67,7 @@ namespace shilka2
 
                     if (aircraft.dead)
                     {
-                        aircraft.y += 10 * (Aircraft.rand.NextDouble() * 2 - 1);
+                        aircraft.y += 10 * (Aircraft.rand.NextDouble() * 2 - 1) + 4;
                     }
                     else
                     {
@@ -88,10 +88,11 @@ namespace shilka2
                     if (aircraft.y < maxFlightHeight) aircraft.y = maxFlightHeight;
 
                     if (
-                        ((aircraft.x + aircraft.aircraftImage.ActualWidth) < 0) && (aircraft.flightDirection == FlightDirectionType.Left) ||
-                        (aircraft.x > main.ActualWidth) && (aircraft.flightDirection == FlightDirectionType.Right)
+                        ((aircraft.x + aircraft.aircraftImage.Width) < 0) && (aircraft.flightDirection == FlightDirectionType.Left) ||
+                        (aircraft.x > main.Width) && (aircraft.flightDirection == FlightDirectionType.Right)
                     ) {
                         aircraft.fly = false;
+
                         if ((!aircraft.dead) && (!aircraft.friend))
                         {
                             Shilka.statisticHasGone++;
@@ -121,18 +122,20 @@ namespace shilka2
 
         public static void AircraftStart(object obj, ElapsedEventArgs e)
         {
-            int newAircraft = Aircraft.rand.Next(4)+1;
+            int newAircraft = Aircraft.rand.Next(6)+1;
 
             switch (newAircraft)
             {
                 case 1:
-                    int newCloud = Aircraft.rand.Next(14) + 1;
-                    int cloudWidth = Aircraft.rand.Next(250) + 100;
-                    int cloudHeight = Aircraft.rand.Next(100) + 70;
-
-                    createNewAircraft("cloud" + newCloud, 10, cloudWidth, cloudHeight, 0, 5, false, true); break;
                 case 2:
                 case 3:
+                    int newCloud = Aircraft.rand.Next(7) + 1;
+                    int cloudWidth = Aircraft.rand.Next(400) + 100;
+                    int cloudHeight = Aircraft.rand.Next(100) + 70;
+
+                    createNewAircraft("cloud" + newCloud, 10, cloudWidth, cloudHeight, 0, 5, true, true); break;
+                case 4:
+                case 5:
                     int newEnemyAircraft = Aircraft.rand.Next(15) + 1;
 
                     switch (newEnemyAircraft)
@@ -170,7 +173,7 @@ namespace shilka2
                     }
                     break;
 
-                case 4:
+                case 6:
                     int newFriendAircraft = Aircraft.rand.Next(9) + 1;
 
                     switch (newFriendAircraft)
@@ -227,7 +230,7 @@ namespace shilka2
 
                 newAircraftImage.Source = new BitmapImage(new Uri("images/"+aircraftName+".png", UriKind.Relative)) { };
 
-                if (newAircraft.flightDirection == FlightDirectionType.Left)
+                if ( ( (newAircraft.flightDirection == FlightDirectionType.Left) && !cloud ) || (Aircraft.rand.Next(2) == 1) && cloud )
                 {
                     newAircraftImage.FlowDirection = System.Windows.FlowDirection.RightToLeft;
                 }
@@ -248,9 +251,19 @@ namespace shilka2
                     Shilka.statisticPriceOfAllAircrafts += price;
                 }
 
+                int zindexAircraft = 50;
+                if (cloud && (aircraftWidth < 150))
+                {
+                    zindexAircraft = 1;
+                }
+                else if (cloud)
+                {
+                    zindexAircraft = 100;
+                }
+                Canvas.SetZIndex(newAircraftImage, zindexAircraft);
+
                 newAircraft.aircraftImage = newAircraftImage;
                 main.firePlace.Children.Add(newAircraftImage);
-                if (cloud) Canvas.SetZIndex(newAircraftImage, 100);
                 Aircraft.aircrafts.Add(newAircraft);
             }));
         }

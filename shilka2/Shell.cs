@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using System.Windows.Threading;
@@ -131,6 +132,7 @@ namespace shilka2
                     else
                     {
                         main.firePlace.Children.Add(shellTrace);
+                        Canvas.SetZIndex(shellTrace, 20);
                         allLines.Add(shellTrace);
                     }
                 }

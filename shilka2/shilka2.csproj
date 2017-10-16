@@ -149,19 +149,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\cloud1.png" />
-    <Resource Include="images\cloud10.png" />
-    <Resource Include="images\cloud11.png" />
-    <Resource Include="images\cloud12.png" />
-    <Resource Include="images\cloud13.png" />
-    <Resource Include="images\cloud14.png" />
     <Resource Include="images\cloud2.png" />
     <Resource Include="images\cloud3.png" />
     <Resource Include="images\cloud4.png" />
     <Resource Include="images\cloud5.png" />
     <Resource Include="images\cloud6.png" />
     <Resource Include="images\cloud7.png" />
-    <Resource Include="images\cloud8.png" />
-    <Resource Include="images\cloud9.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
