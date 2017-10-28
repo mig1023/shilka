@@ -92,19 +92,20 @@ namespace shilka2
                 int shutdownPercent = 0;
 
                 if (statisticShellsFired > 0) stat += "Выстрелов: " + statisticShellsFired;
-                if (staticticInTarget > 0) stat += "\nПопаданий: " + staticticInTarget + 
-                    " ( " + (staticticInTarget*100 / statisticShellsFired) + "% )";
+
+                if (staticticInTarget > 0)
+                    stat += "\nПопаданий: " + staticticInTarget + " ( " + (staticticInTarget*100 / statisticShellsFired) + "% )";
 
                 if (staticticAircraftShutdown > 0)
                 {
                     shutdownPercent = (staticticAircraftShutdown * 100 / (statisticHasGone + staticticAircraftShutdown));
                     stat += "\nСбито: " + staticticAircraftShutdown + " ( " + shutdownPercent + "% )";
-                }
 
-                if ((staticticAircraftShutdown > 0) && (statisticDamaged > 0))
-                {
-                    int damagedPercent = (statisticDamaged * 100 / (statisticHasGone + staticticAircraftShutdown));
-                    stat += " + повреждён: " + statisticDamaged + " ( " + damagedPercent + "% )";
+                    if (statisticDamaged > 0)
+                    {
+                        int damagedPercent = (statisticDamaged * 100 / (statisticHasGone + staticticAircraftShutdown));
+                        stat += " + повреждён: " + statisticDamaged + " ( " + damagedPercent + "% )";
+                    }
                 }
                 
                 if (statisticHasGone > 0) stat += "\nУпущено: " + statisticHasGone + " ( " + (100 - shutdownPercent) + "% )";
@@ -120,8 +121,7 @@ namespace shilka2
                 if (statisticFriendDamage > 0) stat += "\nПовреждено своих: " + statisticFriendDamage;
 
                 if (staticticAircraftShutdown > 0) stat += String.Format("\nУдача: {0:f2}",
-                    (double)statisticPriceOfAllAircrafts / (statisticAllAircraft * (double)Aircraft.AIRCRAFT_AVERAGE_PRICE) );
-               
+                    (double)statisticPriceOfAllAircrafts / (statisticAllAircraft * (double)Aircraft.AIRCRAFT_AVERAGE_PRICE) );   
 
                 main.statShells.Content = stat;
             }));

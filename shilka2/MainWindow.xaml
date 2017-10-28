@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:shilka2"
         mc:Ignorable="d"
-        Title="Shilka Antiaircraft" Height="350" Width="525" MouseLeftButtonDown="Window_MouseLeftButtonDown" MouseLeftButtonUp="Window_MouseLeftButtonUp" MouseMove="Window_MouseMove" Closing="Window_Closing">
+        Title="Shilka Antiaircraft" Height="350" Width="525" MouseLeftButtonDown="Window_MouseLeftButtonDown" MouseLeftButtonUp="Window_MouseLeftButtonUp" MouseMove="Window_MouseMove" Closing="Window_Closing" Background="White">
     <Grid x:Name="gridFirePlace">
         <Canvas x:Name="firePlace" Margin="0,-50,0,50" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Button x:Name="closeButton" Content="✖" HorizontalAlignment="Left" Height="23" Margin="10,15,0,0" VerticalAlignment="Top" Width="30" Click="closeButton_Click"/>

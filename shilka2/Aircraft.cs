@@ -129,16 +129,12 @@ namespace shilka2
                 case 1:
                 case 2:
                 case 3:
-                    int newCloud = Aircraft.rand.Next(7) + 1;
-                    int cloudWidth = Aircraft.rand.Next(400) + 100;
-                    int cloudHeight = Aircraft.rand.Next(100) + 70;
-
-                    createNewAircraft("cloud" + newCloud, 10, cloudWidth, cloudHeight, 0, 5, true, true); break;
+                    createNewAircraft("cloud" + (int)(Aircraft.rand.Next(7) + 1), 10, (int)(Aircraft.rand.Next(400) + 100),
+                        (int)(Aircraft.rand.Next(100) + 70), 0, 5, true, true);
+                    break;
                 case 4:
                 case 5:
-                    int newEnemyAircraft = Aircraft.rand.Next(15) + 1;
-
-                    switch (newEnemyAircraft)
+                    switch ((int)(Aircraft.rand.Next(15) + 1))
                     {
                         case 1:
                             createNewAircraft("a10", 200, 204, 50, 12, 5, false, false); break;
@@ -174,9 +170,7 @@ namespace shilka2
                     break;
 
                 case 6:
-                    int newFriendAircraft = Aircraft.rand.Next(9) + 1;
-
-                    switch (newFriendAircraft)
+                    switch ((int)(Aircraft.rand.Next(9) + 1))
                     {
                         case 1:
                             createNewAircraft("mig23", 80, 204, 55, 0, 10, true, false); break;
