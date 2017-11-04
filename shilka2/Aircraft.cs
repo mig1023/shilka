@@ -129,7 +129,7 @@ namespace shilka2
                 case 1:
                 case 2:
                 case 3:
-                    createNewAircraft("cloud" + (int)(Aircraft.rand.Next(7) + 1), 10, (int)(Aircraft.rand.Next(400) + 100),
+                    createNewAircraft("cloud" + (int)(Aircraft.rand.Next(7) + 1), 10, (int)(Aircraft.rand.Next(300) + 200),
                         (int)(Aircraft.rand.Next(100) + 70), 0, 5, true, true);
                     break;
                 case 4:
@@ -246,7 +246,7 @@ namespace shilka2
                 }
 
                 int zindexAircraft = 50;
-                if (cloud && (aircraftWidth < 150))
+                if (cloud && (aircraftWidth < 300))
                 {
                     zindexAircraft = 1;
                 }
