@@ -29,6 +29,7 @@ namespace shilka2
         public double sin { get; set; }
         public double cos { get; set; }
         public bool fly { get; set; }
+        public bool flash { get; set; }
         public int delay { get; set; }
         public static double ptX { get; set; }
         public static double ptY { get; set; }
@@ -94,7 +95,10 @@ namespace shilka2
                         ) {
                             if (aircraft.cloud) continue;
 
-                            shell.fly = false;
+                            shell.flash = true;
+                            shellTrace.Stroke = Brushes.Red;
+                            shellTrace.StrokeThickness = 4;
+
                             aircraft.hitpoint -= 1;
 
                             Shilka.staticticInTarget++;
@@ -122,6 +126,10 @@ namespace shilka2
 
                                 aircraft.dead = true;
                             }
+                        }
+                        else if (shell.flash)
+                        {
+                            shell.fly = false;
                         }
                             
 
