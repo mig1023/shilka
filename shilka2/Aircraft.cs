@@ -132,40 +132,146 @@ namespace shilka2
                     createNewAircraft("cloud" + (int)(Aircraft.rand.Next(7) + 1), 10, (int)(Aircraft.rand.Next(300) + 200),
                         (int)(Aircraft.rand.Next(100) + 70), 0, 5, true, true);
                     break;
+
                 case 4:
                 case 5:
                     switch ((int)(Aircraft.rand.Next(15) + 1))
                     {
                         case 1:
-                            createNewAircraft("a10", 200, 204, 50, 12, 5, false, false); break;
+                            createNewAircraft(
+                                aircraftName: "a10",
+                                hitPoint: 200,
+                                aircraftWidth: 204,
+                                aircraftHeight: 50,
+                                price: 12,
+                                speed: 5
+                            ); break;
                         case 2:
-                            createNewAircraft("b1", 90, 406, 79, 283, 12, false, false); break;
+                            createNewAircraft(
+                                aircraftName: "b1",
+                                hitPoint: 90,
+                                aircraftWidth: 406,
+                                aircraftHeight: 79,
+                                price: 283,
+                                speed: 12
+                            ); break;
                         case 3:
-                            createNewAircraft("b52", 120, 406, 105, 53, 8, false, false); break;
+                            createNewAircraft(
+                                aircraftName: "b52",
+                                hitPoint: 120,
+                                aircraftWidth: 406,
+                                aircraftHeight: 105,
+                                price: 53,
+                                speed: 8
+                            ); break;
                         case 4:
-                            createNewAircraft("f117", 50, 204, 28, 111, 10, false, false); break;
+                            createNewAircraft(
+                                aircraftName: "f117",
+                                hitPoint: 50,
+                                aircraftWidth: 204,
+                                aircraftHeight: 28,
+                                price: 111,
+                                speed: 10
+                            ); break;
                         case 5:
-                            createNewAircraft("f14", 120, 204, 54, 38, 10, false, false); break;
+                            createNewAircraft(
+                                aircraftName: "f14",
+                                hitPoint: 120,
+                                aircraftWidth: 204,
+                                aircraftHeight: 54,
+                                price: 38,
+                                speed: 10
+                            ); break;
                         case 6:
-                            createNewAircraft("f18", 120, 204, 55, 29, 10, false, false); break;
+                            createNewAircraft(
+                                aircraftName: "f18",
+                                hitPoint: 120,
+                                aircraftWidth: 204,
+                                aircraftHeight: 55,
+                                price: 29,
+                                speed: 10
+                            ); break;
                         case 7:
-                            createNewAircraft("f16", 120, 204, 65, 34, 10, false, false); break;
+                            createNewAircraft(
+                                aircraftName: "f16",
+                                hitPoint: 120,
+                                aircraftWidth: 204,
+                                aircraftHeight: 65,
+                                price: 34,
+                                speed: 10
+                            ); break;
                         case 8:
-                            createNewAircraft("f22", 90, 204, 47, 142, 14, false, false); break;
+                            createNewAircraft(
+                                aircraftName: "f22",
+                                hitPoint: 90,
+                                aircraftWidth: 204,
+                                aircraftHeight: 47,
+                                price: 142,
+                                speed: 14
+                            ); break;
                         case 9:
-                            createNewAircraft("f15", 120, 204, 53, 29, 10, false, false); break;
+                            createNewAircraft(
+                                aircraftName: "f15",
+                                hitPoint: 120,
+                                aircraftWidth: 204,
+                                aircraftHeight: 53,
+                                price: 29,
+                                speed: 10
+                            ); break;
                         case 10:
-                            createNewAircraft("f4", 150, 204, 56, 3, 8, false, false); break;
+                            createNewAircraft(
+                                aircraftName: "f4",
+                                hitPoint: 150,
+                                aircraftWidth: 204,
+                                aircraftHeight: 56,
+                                price: 3,
+                                speed: 8
+                            ); break;
                         case 11:
-                            createNewAircraft("tornado", 100, 204, 72, 111, 10, false, false); break;
+                            createNewAircraft(
+                                aircraftName: "tornado",
+                                hitPoint: 100,
+                                aircraftWidth: 204,
+                                aircraftHeight: 72,
+                                price: 111,
+                                speed: 10
+                            ); break;
                         case 12:
-                            createNewAircraft("predator", 30, 140, 38, 4, 5, false, false); break;
+                            createNewAircraft(
+                                aircraftName: "predator",
+                                hitPoint: 30,
+                                aircraftWidth: 140,
+                                aircraftHeight: 38,
+                                price: 4,
+                                speed: 5
+                            ); break;
                         case 13:
-                            createNewAircraft("reaper", 50, 140, 50, 16, 5, false, false); break;
+                            createNewAircraft(
+                                aircraftName: "reaper",
+                                hitPoint: 50,
+                                aircraftWidth: 140,
+                                aircraftHeight: 50,
+                                price: 16,
+                                speed: 5
+                            ); break;
                         case 14:
-                            createNewAircraft("f35", 90, 204, 52, 83, 10, false, false); break;
+                            createNewAircraft(
+                                aircraftName: "f35",
+                                hitPoint: 90,
+                                aircraftWidth: 204,
+                                aircraftHeight: 52,
+                                price: 83,
+                                speed: 10
+                            ); break;
                         case 15:
-                            createNewAircraft("e3", 150, 406, 110, 270, 8, false, false); break;
+                            createNewAircraft(
+                                aircraftName: "e3",
+                                hitPoint: 150,
+                                aircraftWidth: 406,
+                                aircraftHeight: 110,
+                                price: 270,
+                                speed: 8
+                            ); break;
                     }
                     break;
 
@@ -173,30 +279,102 @@ namespace shilka2
                     switch ((int)(Aircraft.rand.Next(9) + 1))
                     {
                         case 1:
-                            createNewAircraft("mig23", 80, 204, 55, 0, 10, true, false); break;
+                            createNewAircraft(
+                                aircraftName: "mig23",
+                                hitPoint: 80,
+                                aircraftWidth: 204,
+                                aircraftHeight: 55,
+                                price: 0,
+                                speed: 10,
+                                friend: true
+                            ); break;
                         case 2:
-                            createNewAircraft("mig29", 80, 204, 51, 0, 10, true, false); break;
+                            createNewAircraft(
+                                aircraftName: "mig29",
+                                hitPoint: 80,
+                                aircraftWidth: 204,
+                                aircraftHeight: 51,
+                                price: 0,
+                                speed: 10,
+                                friend: true
+                            ); break;
                         case 3:
-                            createNewAircraft("mig31", 80, 204, 57, 0, 14, true, false); break;
+                            createNewAircraft(
+                                aircraftName: "mig31",
+                                hitPoint: 80,
+                                aircraftWidth: 204,
+                                aircraftHeight: 57,
+                                price: 0,
+                                speed: 14,
+                                friend: true
+                            ); break;
                         case 4:
-                            createNewAircraft("su17", 80, 204, 52, 0, 5, true, false); break;
+                            createNewAircraft(
+                                aircraftName: "su17",
+                                hitPoint: 80,
+                                aircraftWidth: 204,
+                                aircraftHeight: 52,
+                                price: 0,
+                                speed: 5,
+                                friend: true
+                            ); break;
                         case 5:
-                            createNewAircraft("su24", 80, 204, 53, 0, 8, true, false); break;
+                            createNewAircraft(
+                                aircraftName: "su24",
+                                hitPoint: 80,
+                                aircraftWidth: 204,
+                                aircraftHeight: 53,
+                                price: 0,
+                                speed: 8,
+                                friend: true
+                            ); break;
                         case 6:
-                            createNewAircraft("su25", 180, 204, 63, 0, 5, true, false); break;
+                            createNewAircraft(
+                                aircraftName: "su25",
+                                hitPoint: 180,
+                                aircraftWidth: 204,
+                                aircraftHeight: 63,
+                                price: 0,
+                                speed: 5,
+                                friend: true
+                            ); break;
                         case 7:
-                            createNewAircraft("su27", 80, 204, 50, 0, 10, true, false); break;
+                            createNewAircraft(
+                                aircraftName: "su27",
+                                hitPoint: 80,
+                                aircraftWidth: 204,
+                                aircraftHeight: 50,
+                                price: 0,
+                                speed: 10,
+                                friend: true
+                            ); break;
                         case 8:
-                            createNewAircraft("su34", 100, 204, 47, 0, 10, true, false); break;
+                            createNewAircraft(
+                                aircraftName: "su34",
+                                hitPoint: 100,
+                                aircraftWidth: 204,
+                                aircraftHeight: 47,
+                                price: 0,
+                                speed: 10,
+                                friend: true
+                            ); break;
                         case 9:
-                            createNewAircraft("pakfa", 80, 204, 45, 0, 12, true, false); break;
+                            createNewAircraft(
+                                aircraftName: "pakfa",
+                                hitPoint: 80,
+                                aircraftWidth: 204,
+                                aircraftHeight: 45,
+                                price: 0,
+                                speed: 12,
+                                friend: true
+                            ); break;
                     }
                     break;
             }
         }
 
         static void createNewAircraft(string aircraftName, int hitPoint, int aircraftWidth, int aircraftHeight, int price, 
-            int speed, Boolean friend, Boolean cloud)
+            int speed, Boolean friend = false, Boolean cloud = false)
         {
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {
