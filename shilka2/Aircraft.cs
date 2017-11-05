@@ -424,14 +424,8 @@ namespace shilka2
                 }
 
                 int zindexAircraft = 50;
-                if (cloud && (aircraftWidth < 300))
-                {
-                    zindexAircraft = 1;
-                }
-                else if (cloud)
-                {
-                    zindexAircraft = 100;
-                }
+                if (cloud) zindexAircraft = 100;
+
                 Canvas.SetZIndex(newAircraftImage, zindexAircraft);
 
                 newAircraft.aircraftImage = newAircraftImage;
