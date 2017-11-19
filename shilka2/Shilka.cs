@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
 
@@ -53,6 +54,7 @@ namespace shilka2
                 gun.Stroke = Brushes.Black;
                 gun.StrokeThickness = 3;
                 main.firePlace.Children.Add(gun);
+                Canvas.SetZIndex(gun, 200);
                 Shell.allLines.Add(gun);
 
                 if (Shell.Fire)
@@ -74,6 +76,7 @@ namespace shilka2
                         flash.Stroke = Brushes.Red;
                         flash.StrokeThickness = 5;
                         main.firePlace.Children.Add(flash);
+                        Canvas.SetZIndex(flash, 210);
                         Shell.allLines.Add(flash);
                     }
                 }

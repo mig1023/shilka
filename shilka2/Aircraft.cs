@@ -128,11 +128,18 @@ namespace shilka2
             {
                 case 1:
                 case 2:
-                case 3:
-                    createNewAircraft("cloud" + (int)(Aircraft.rand.Next(7) + 1), 10, (int)(Aircraft.rand.Next(300) + 200),
-                        (int)(Aircraft.rand.Next(100) + 70), 0, 5, true, true);
+                    createNewAircraft(
+                        aircraftName: "cloud" + (int)(Aircraft.rand.Next(7) + 1),
+                        hitPoint: 10,
+                        aircraftWidth: (int)(Aircraft.rand.Next(300) + 200),
+                        aircraftHeight: (int)(Aircraft.rand.Next(100) + 70),
+                        price: 0,
+                        speed: 5,
+                        friend: true,
+                        cloud: true
+                    );
                     break;
-
+                case 3:
                 case 4:
                 case 5:
                     switch ((int)(Aircraft.rand.Next(15) + 1))
@@ -423,10 +430,7 @@ namespace shilka2
                     Shilka.statisticPriceOfAllAircrafts += price;
                 }
 
-                int zindexAircraft = 50;
-                if (cloud) zindexAircraft = 100;
-
-                Canvas.SetZIndex(newAircraftImage, zindexAircraft);
+                Canvas.SetZIndex(newAircraftImage, ( cloud ? 100 : 50) );
 
                 newAircraft.aircraftImage = newAircraftImage;
                 main.firePlace.Children.Add(newAircraftImage);
