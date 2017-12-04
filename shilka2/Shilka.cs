@@ -93,6 +93,9 @@ namespace shilka2
 
                 string stat = "";
                 int shutdownPercent = 0;
+                int baseForPercent = (
+                    (statisticHasGone > 0 || staticticAircraftShutdown > 0) ? ( 100 / (statisticHasGone + staticticAircraftShutdown) ) : 100
+                );
 
                 if (statisticShellsFired > 0) stat += "Выстрелов: " + statisticShellsFired;
 
@@ -101,21 +104,21 @@ namespace shilka2
 
                 if (staticticAircraftShutdown > 0)
                 {
-                    shutdownPercent = (staticticAircraftShutdown * 100 / (statisticHasGone + staticticAircraftShutdown));
+                    shutdownPercent = (staticticAircraftShutdown * baseForPercent);
                     stat += "\nСбито: " + staticticAircraftShutdown + " ( " + shutdownPercent + "% )";
 
                     if (statisticDamaged > 0)
                     {
-                        int damagedPercent = (statisticDamaged * 100 / (statisticHasGone + staticticAircraftShutdown));
+                        int damagedPercent = (statisticDamaged * baseForPercent);
                         stat += " + повреждён: " + statisticDamaged + " ( " + damagedPercent + "% )";
                     }
                 }
                 
-                if (statisticHasGone > 0) stat += "\nУпущено: " + statisticHasGone + " ( " + (100 - shutdownPercent) + "% )";
+                if (statisticHasGone > 0) stat += "\nУпущено: " + statisticHasGone + " ( " + (statisticHasGone * baseForPercent)  + "% )";
 
                 if (statisticDamaged < statisticHasGone)
                 {
-                    int statisticWithoutDamage = ((statisticHasGone - statisticDamaged) * 100 / (statisticHasGone + staticticAircraftShutdown));
+                    int statisticWithoutDamage = ((statisticHasGone - statisticDamaged) * baseForPercent);
                     stat += " в том числе неповредённых: " + (statisticHasGone - statisticDamaged) + " ( " + statisticWithoutDamage + "% )";
                 }
 
