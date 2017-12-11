@@ -14,7 +14,7 @@ namespace shilka2
 {
     class Shilka
     {
-        public const int SHILKA_HEIGHT_CORRECTION = 100;
+        public const int SHILKA_HEIGHT_CORRECTION = 111;
         static int flash_count = 0;
 
         public static int statisticShellsFired = 0;
@@ -48,7 +48,7 @@ namespace shilka2
             {
                 Line gun = new Line();
                 gun.X1 = Shell.FIRE_WIDTH_CORRECTION - 3 - (12 * num_guns);
-                gun.Y1 = currentHeight - Shell.FIRE_HEIGHT_CORRECTION + 5 - (7 * num_guns);
+                gun.Y1 = currentHeight - Shell.FIRE_HEIGHT_CORRECTION + 5 - (9 * num_guns);
                 gun.X2 = gun.X1 + 30 * Shell.LastCos;
                 gun.Y2 = gun.Y1 - 30 * Shell.LastSin;
                 gun.Stroke = Brushes.Black;

@@ -20,8 +20,8 @@ namespace shilka2
         const int FRAGMENTATION = 15;
         const int VOLLEY = 3;
 
-        public const int FIRE_WIDTH_CORRECTION = 125;
-        public const int FIRE_HEIGHT_CORRECTION = 20;
+        public const int FIRE_WIDTH_CORRECTION = 140;
+        public const int FIRE_HEIGHT_CORRECTION = 25;
         public const int FIRE_HEIGHT_POINT_CORRECTION = 70;
 
         public double x { get; set; }
