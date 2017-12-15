@@ -101,19 +101,13 @@
   <ItemGroup>
     <Resource Include="images\b1.png" />
     <Resource Include="images\f117.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="images\a10.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="images\f14.png" />
     <Resource Include="images\f16.png" />
     <Resource Include="images\f18.png" />
     <Resource Include="images\f22.png" />
     <Resource Include="images\f4.png" />
     <Resource Include="images\tornado.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="images\mig23.png" />
     <Resource Include="images\mig29.png" />
     <Resource Include="images\mig31.png" />
@@ -122,32 +116,13 @@
     <Resource Include="images\su25.png" />
     <Resource Include="images\su27.png" />
     <Resource Include="images\su34.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="images\predator.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="images\f15.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="images\b52.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="images\reaper.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="images\f35.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="images\e3.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="images\pakfa.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="images\shilka.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="images\cloud1.png" />
     <Resource Include="images\cloud2.png" />
     <Resource Include="images\cloud3.png" />
@@ -155,8 +130,6 @@
     <Resource Include="images\cloud5.png" />
     <Resource Include="images\cloud6.png" />
     <Resource Include="images\cloud7.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="images\eurofighter.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

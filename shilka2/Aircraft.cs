@@ -122,12 +122,14 @@ namespace shilka2
 
         public static void AircraftStart(object obj, ElapsedEventArgs e)
         {
-            int newAircraft = Aircraft.rand.Next(6)+1;
+            int newAircraft = Aircraft.rand.Next(10)+1;
 
             switch (newAircraft)
             {
                 case 1:
                 case 2:
+                case 3:
+                case 4:
                     createNewAircraft(
                         aircraftName: "cloud" + (int)(Aircraft.rand.Next(7) + 1),
                         hitPoint: 10,
@@ -139,9 +141,11 @@ namespace shilka2
                         cloud: true
                     );
                     break;
-                case 3:
-                case 4:
                 case 5:
+                case 6:
+                case 7:
+                case 8:
+                case 9:
                     switch ((int)(Aircraft.rand.Next(16) + 1))
                     {
                         case 1:
@@ -291,7 +295,7 @@ namespace shilka2
                     }
                     break;
 
-                case 6:
+                case 10:
                     switch ((int)(Aircraft.rand.Next(9) + 1))
                     {
                         case 1:
