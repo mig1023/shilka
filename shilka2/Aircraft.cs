@@ -146,7 +146,7 @@ namespace shilka2
                 case 7:
                 case 8:
                 case 9:
-                    switch ((int)(Aircraft.rand.Next(16) + 1))
+                    switch ((int)(Aircraft.rand.Next(17) + 1))
                     {
                         case 1:
                             createNewAircraft(
@@ -291,6 +291,15 @@ namespace shilka2
                                 aircraftHeight: 72,
                                 price: 123,
                                 speed: 10
+                            ); break;
+                        case 17:
+                            createNewAircraft(
+                                aircraftName: "rafale",
+                                hitPoint: 90,
+                                aircraftWidth: 204,
+                                aircraftHeight: 65,
+                                price: 85,
+                                speed: 11
                             ); break;
                     }
                     break;
