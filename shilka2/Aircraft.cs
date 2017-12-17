@@ -80,6 +80,7 @@ namespace shilka2
                                 aircraft.tangage = 4 * (Aircraft.rand.NextDouble() * 2 - 1);
                             }
                             aircraft.y += aircraft.tangage;
+
                             if (aircraft.y > Aircraft.minFlightHeight) aircraft.y = Aircraft.minFlightHeight;
                         }
                         

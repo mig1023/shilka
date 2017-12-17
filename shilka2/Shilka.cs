@@ -14,7 +14,6 @@ namespace shilka2
 {
     class Shilka
     {
-        public const int SHILKA_HEIGHT_CORRECTION = 111;
         static int flash_count = 0;
 
         public static int statisticShellsFired = 0;
@@ -123,7 +122,25 @@ namespace shilka2
                 }
 
                 if (statisticAmountOfDamage > 0)
-                    stat += "\nНанесён ущерб: " + statisticAmountOfDamage + " млн $" + statisticLastDamage;
+                {
+                    string AmountOfDamage;
+
+                    if (statisticAmountOfDamage < 1000)
+                    {
+                        AmountOfDamage = statisticAmountOfDamage + " млн $";
+                    }
+                    else if (statisticAmountOfDamage < 1000000)
+                    {
+                        AmountOfDamage = String.Format("{0:f2}", (double)statisticAmountOfDamage / 1000) + " млрд $";
+                    }
+                    else
+                    {
+                        AmountOfDamage = String.Format("{0:f2}", (double)statisticAmountOfDamage / 1000000) + " трлн $";
+                    }
+
+                    stat += "\nНанесён ущерб: " + AmountOfDamage + statisticLastDamage;
+                }
+                   
                 if (statisticFriendDamage > 0) stat += "\nПовреждено своих: " + statisticFriendDamage;
 
                 if (staticticAircraftShutdown > 0) stat += String.Format("\nУдача: {0:f2}",

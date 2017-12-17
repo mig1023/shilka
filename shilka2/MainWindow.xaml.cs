@@ -35,10 +35,10 @@ namespace shilka2
             this.WindowState = System.Windows.WindowState.Maximized;
             this.WindowStyle = System.Windows.WindowStyle.None;
 
-            double heightForShilka = System.Windows.SystemParameters.PrimaryScreenHeight -
-                ShilkaImg.ActualHeight - Shilka.SHILKA_HEIGHT_CORRECTION ;
+            double heightForShilka =
+                System.Windows.SystemParameters.PrimaryScreenHeight - ShilkaImg.Height;
 
-            Aircraft.minFlightHeight = (int)heightForShilka - 35;
+            Aircraft.minFlightHeight = (int)(heightForShilka - ShilkaImg.Height);
 
             ShilkaImg.Margin = new Thickness(0, heightForShilka, 0, 0);
         }
