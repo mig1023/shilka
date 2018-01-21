@@ -15,7 +15,7 @@ namespace shilka2
     class Aircraft
     {
         public const int MAX_FLIGHT_HEIGHT = 75;
-        public const int AIRCRAFT_AVERAGE_PRICE = 81;
+        public const int AIRCRAFT_AVERAGE_PRICE = 193;
         public static int maxFlightHeight { get; set; }
         public static int minFlightHeight { get; set; }
         enum FlightDirectionType { Left, Right };
@@ -147,7 +147,7 @@ namespace shilka2
                 case 7:
                 case 8:
                 case 9:
-                    switch ((int)(Aircraft.rand.Next(17) + 1))
+                    switch ((int)(Aircraft.rand.Next(18) + 1))
                     {
                         case 1:
                             createNewAircraft(
@@ -301,6 +301,15 @@ namespace shilka2
                                 aircraftHeight: 65,
                                 price: 85,
                                 speed: 11
+                            ); break;
+                        case 18:
+                            createNewAircraft(
+                                aircraftName: "b2",
+                                hitPoint: 125,
+                                aircraftWidth: 400,
+                                aircraftHeight: 80,
+                                price: 2100,
+                                speed: 18
                             ); break;
                     }
                     break;
