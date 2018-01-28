@@ -306,8 +306,8 @@ namespace shilka2
                             createNewAircraft(
                                 aircraftName: "b2",
                                 hitPoint: 125,
-                                aircraftWidth: 400,
-                                aircraftHeight: 80,
+                                aircraftWidth: 361,
+                                aircraftHeight: 59,
                                 price: 2100,
                                 speed: 18
                             ); break;
@@ -315,7 +315,7 @@ namespace shilka2
                     break;
 
                 case 10:
-                    switch ((int)(Aircraft.rand.Next(9) + 1))
+                    switch ((int)(Aircraft.rand.Next(10) + 1))
                     {
                         case 1:
                             createNewAircraft(
@@ -407,6 +407,16 @@ namespace shilka2
                                 speed: 12,
                                 friend: true
                             ); break;
+                        case 10:
+                            createNewAircraft(
+                                aircraftName: "tu160",
+                                hitPoint: 120,
+                                aircraftWidth: 400,
+                                aircraftHeight: 86,
+                                price: 0,
+                                speed: 18,
+                                friend: true
+                            ); break;
                     }
                     break;
             }
@@ -471,3 +481,4 @@ namespace shilka2
         }
     }
 }
+ 
