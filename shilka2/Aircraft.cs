@@ -15,7 +15,7 @@ namespace shilka2
     class Aircraft
     {
         public const int MAX_FLIGHT_HEIGHT = 75;
-        public const int AIRCRAFT_AVERAGE_PRICE = 193;
+        public const int AIRCRAFT_AVERAGE_PRICE = 81;
         public static int maxFlightHeight { get; set; }
         public static int minFlightHeight { get; set; }
         enum FlightDirectionType { Left, Right };
@@ -481,4 +481,3 @@ namespace shilka2
         }
     }
 }
- 
