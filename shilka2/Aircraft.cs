@@ -180,8 +180,8 @@ namespace shilka2
                             createNewAircraft(
                                 aircraftName: "f117",
                                 hitPoint: 50,
-                                aircraftWidth: 204,
-                                aircraftHeight: 28,
+                                aircraftWidth: 270,
+                                aircraftHeight: 48,
                                 price: 111,
                                 speed: 10
                             ); break;
@@ -189,8 +189,8 @@ namespace shilka2
                             createNewAircraft(
                                 aircraftName: "f14",
                                 hitPoint: 120,
-                                aircraftWidth: 204,
-                                aircraftHeight: 54,
+                                aircraftWidth: 275,
+                                aircraftHeight: 67,
                                 price: 38,
                                 speed: 10
                             ); break;
@@ -198,8 +198,8 @@ namespace shilka2
                             createNewAircraft(
                                 aircraftName: "f18",
                                 hitPoint: 120,
-                                aircraftWidth: 204,
-                                aircraftHeight: 55,
+                                aircraftWidth: 270,
+                                aircraftHeight: 61,
                                 price: 29,
                                 speed: 10
                             ); break;
@@ -216,8 +216,8 @@ namespace shilka2
                             createNewAircraft(
                                 aircraftName: "f22",
                                 hitPoint: 90,
-                                aircraftWidth: 204,
-                                aircraftHeight: 47,
+                                aircraftWidth: 270,
+                                aircraftHeight: 73,
                                 price: 142,
                                 speed: 14
                             ); break;
@@ -225,8 +225,8 @@ namespace shilka2
                             createNewAircraft(
                                 aircraftName: "f15",
                                 hitPoint: 120,
-                                aircraftWidth: 204,
-                                aircraftHeight: 53,
+                                aircraftWidth: 270,
+                                aircraftHeight: 62,
                                 price: 29,
                                 speed: 10
                             ); break;
@@ -234,8 +234,8 @@ namespace shilka2
                             createNewAircraft(
                                 aircraftName: "f4",
                                 hitPoint: 150,
-                                aircraftWidth: 204,
-                                aircraftHeight: 56,
+                                aircraftWidth: 270,
+                                aircraftHeight: 66,
                                 price: 3,
                                 speed: 8
                             ); break;
@@ -270,8 +270,8 @@ namespace shilka2
                             createNewAircraft(
                                 aircraftName: "f35",
                                 hitPoint: 90,
-                                aircraftWidth: 204,
-                                aircraftHeight: 52,
+                                aircraftWidth: 270,
+                                aircraftHeight: 76,
                                 price: 83,
                                 speed: 10
                             ); break;
@@ -321,8 +321,8 @@ namespace shilka2
                             createNewAircraft(
                                 aircraftName: "mig23",
                                 hitPoint: 80,
-                                aircraftWidth: 204,
-                                aircraftHeight: 55,
+                                aircraftWidth: 270,
+                                aircraftHeight: 79,
                                 price: 0,
                                 speed: 10,
                                 friend: true
@@ -331,8 +331,8 @@ namespace shilka2
                             createNewAircraft(
                                 aircraftName: "mig29",
                                 hitPoint: 80,
-                                aircraftWidth: 204,
-                                aircraftHeight: 51,
+                                aircraftWidth: 270,
+                                aircraftHeight: 65,
                                 price: 0,
                                 speed: 10,
                                 friend: true
@@ -341,8 +341,8 @@ namespace shilka2
                             createNewAircraft(
                                 aircraftName: "mig31",
                                 hitPoint: 80,
-                                aircraftWidth: 204,
-                                aircraftHeight: 57,
+                                aircraftWidth: 270,
+                                aircraftHeight: 74,
                                 price: 0,
                                 speed: 14,
                                 friend: true
@@ -381,8 +381,8 @@ namespace shilka2
                             createNewAircraft(
                                 aircraftName: "su27",
                                 hitPoint: 80,
-                                aircraftWidth: 204,
-                                aircraftHeight: 50,
+                                aircraftWidth: 270,
+                                aircraftHeight: 77,
                                 price: 0,
                                 speed: 10,
                                 friend: true
@@ -401,8 +401,8 @@ namespace shilka2
                             createNewAircraft(
                                 aircraftName: "pakfa",
                                 hitPoint: 80,
-                                aircraftWidth: 204,
-                                aircraftHeight: 45,
+                                aircraftWidth: 270,
+                                aircraftHeight: 57,
                                 price: 0,
                                 speed: 12,
                                 friend: true
