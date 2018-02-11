@@ -207,8 +207,8 @@ namespace shilka2
                             createNewAircraft(
                                 aircraftName: "f16",
                                 hitPoint: 120,
-                                aircraftWidth: 204,
-                                aircraftHeight: 65,
+                                aircraftWidth: 270,
+                                aircraftHeight: 84,
                                 price: 34,
                                 speed: 10
                             ); break;
@@ -243,7 +243,7 @@ namespace shilka2
                             createNewAircraft(
                                 aircraftName: "tornado",
                                 hitPoint: 100,
-                                aircraftWidth: 204,
+                                aircraftWidth: 270,
                                 aircraftHeight: 72,
                                 price: 111,
                                 speed: 10
@@ -253,7 +253,7 @@ namespace shilka2
                                 aircraftName: "predator",
                                 hitPoint: 30,
                                 aircraftWidth: 140,
-                                aircraftHeight: 38,
+                                aircraftHeight: 44,
                                 price: 4,
                                 speed: 5
                             ); break;
@@ -261,8 +261,8 @@ namespace shilka2
                             createNewAircraft(
                                 aircraftName: "reaper",
                                 hitPoint: 50,
-                                aircraftWidth: 140,
-                                aircraftHeight: 50,
+                                aircraftWidth: 161,
+                                aircraftHeight: 52,
                                 price: 16,
                                 speed: 5
                             ); break;
@@ -297,8 +297,8 @@ namespace shilka2
                             createNewAircraft(
                                 aircraftName: "rafale",
                                 hitPoint: 90,
-                                aircraftWidth: 204,
-                                aircraftHeight: 65,
+                                aircraftWidth: 270,
+                                aircraftHeight: 86,
                                 price: 85,
                                 speed: 11
                             ); break;
@@ -351,8 +351,8 @@ namespace shilka2
                             createNewAircraft(
                                 aircraftName: "su17",
                                 hitPoint: 80,
-                                aircraftWidth: 204,
-                                aircraftHeight: 52,
+                                aircraftWidth: 270,
+                                aircraftHeight: 61,
                                 price: 0,
                                 speed: 5,
                                 friend: true
@@ -361,8 +361,8 @@ namespace shilka2
                             createNewAircraft(
                                 aircraftName: "su24",
                                 hitPoint: 80,
-                                aircraftWidth: 204,
-                                aircraftHeight: 53,
+                                aircraftWidth: 270,
+                                aircraftHeight: 67,
                                 price: 0,
                                 speed: 8,
                                 friend: true
@@ -371,8 +371,8 @@ namespace shilka2
                             createNewAircraft(
                                 aircraftName: "su25",
                                 hitPoint: 180,
-                                aircraftWidth: 204,
-                                aircraftHeight: 63,
+                                aircraftWidth: 270,
+                                aircraftHeight: 81,
                                 price: 0,
                                 speed: 5,
                                 friend: true
@@ -391,8 +391,8 @@ namespace shilka2
                             createNewAircraft(
                                 aircraftName: "su34",
                                 hitPoint: 100,
-                                aircraftWidth: 204,
-                                aircraftHeight: 47,
+                                aircraftWidth: 270,
+                                aircraftHeight: 58,
                                 price: 0,
                                 speed: 10,
                                 friend: true
@@ -412,7 +412,7 @@ namespace shilka2
                                 aircraftName: "tu160",
                                 hitPoint: 120,
                                 aircraftWidth: 400,
-                                aircraftHeight: 86,
+                                aircraftHeight: 95,
                                 price: 0,
                                 speed: 18,
                                 friend: true
