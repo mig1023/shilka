@@ -411,8 +411,8 @@ namespace shilka2
                             createNewAircraft(
                                 aircraftName: "tu160",
                                 hitPoint: 120,
-                                aircraftWidth: 400,
-                                aircraftHeight: 95,
+                                aircraftWidth: 510,
+                                aircraftHeight: 108,
                                 price: 0,
                                 speed: 18,
                                 friend: true
