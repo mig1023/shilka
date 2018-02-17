@@ -24,7 +24,7 @@ namespace shilka2
             Game.Elapsed += new ElapsedEventHandler(Shell.ShellsFire);
             Game.Elapsed += new ElapsedEventHandler(Shell.ShellsFly);
             Game.Elapsed += new ElapsedEventHandler(Aircraft.AircraftFly);
-            Game.Elapsed += new ElapsedEventHandler(Shilka.Statistic);
+            Game.Elapsed += new ElapsedEventHandler(Shilka.StatisticShow);
             Game.Start();
 
             Aircrafts = new System.Timers.Timer(2000);

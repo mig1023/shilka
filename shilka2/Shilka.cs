@@ -84,17 +84,30 @@ namespace shilka2
             }
         }
 
-        public static void Statistic(object obj, ElapsedEventArgs e)
+        static void Statistic(out int baseForPercent, out int shutdownPercent, out int damagedPercent,
+            out int statisticWithoutDamage, out double chance)
+        {
+            baseForPercent = (
+                (statisticHasGone > 0 || staticticAircraftShutdown > 0) ? (100 / (statisticHasGone + staticticAircraftShutdown)) : 100
+            );
+
+            shutdownPercent = (staticticAircraftShutdown * baseForPercent) | 0;
+            damagedPercent = (statisticDamaged * baseForPercent);
+            statisticWithoutDamage = ((statisticHasGone - statisticDamaged) * baseForPercent);
+            chance = (double)statisticPriceOfAllAircrafts / (statisticAllAircraft * (double)Aircraft.AIRCRAFT_AVERAGE_PRICE);
+        } 
+
+        public static void StatisticShow(object obj, ElapsedEventArgs e)
         {
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {
                 MainWindow main = (MainWindow)Application.Current.MainWindow;
 
                 string stat = "";
-                int shutdownPercent = 0;
-                int baseForPercent = (
-                    (statisticHasGone > 0 || staticticAircraftShutdown > 0) ? ( 100 / (statisticHasGone + staticticAircraftShutdown) ) : 100
-                );
+                int baseForPercent, shutdownPercent, damagedPercent, statisticWithoutDamage;
+                double chance;
+
+                Statistic(out baseForPercent, out shutdownPercent, out damagedPercent, out statisticWithoutDamage, out chance);
 
                 if (statisticShellsFired > 0) stat += "Выстрелов: " + statisticShellsFired;
 
@@ -103,12 +116,10 @@ namespace shilka2
 
                 if (staticticAircraftShutdown > 0)
                 {
-                    shutdownPercent = (staticticAircraftShutdown * baseForPercent);
                     stat += "\nСбито: " + staticticAircraftShutdown + " ( " + shutdownPercent + "% )";
 
                     if (statisticDamaged > 0)
                     {
-                        int damagedPercent = (statisticDamaged * baseForPercent);
                         stat += " + повреждён: " + statisticDamaged + " ( " + damagedPercent + "% )";
                     }
                 }
@@ -117,7 +128,6 @@ namespace shilka2
 
                 if (statisticDamaged < statisticHasGone)
                 {
-                    int statisticWithoutDamage = ((statisticHasGone - statisticDamaged) * baseForPercent);
                     stat += " в том числе неповредённых: " + (statisticHasGone - statisticDamaged) + " ( " + statisticWithoutDamage + "% )";
                 }
 
@@ -143,8 +153,7 @@ namespace shilka2
                    
                 if (statisticFriendDamage > 0) stat += "\nПовреждено своих: " + statisticFriendDamage;
 
-                if (staticticAircraftShutdown > 0) stat += String.Format("\nУдача: {0:f2}",
-                    (double)statisticPriceOfAllAircrafts / (statisticAllAircraft * (double)Aircraft.AIRCRAFT_AVERAGE_PRICE) );   
+                if (staticticAircraftShutdown > 0) stat += String.Format("\nУдача: {0:f2}", chance );   
 
                 main.statShells.Content = stat;
             }));
