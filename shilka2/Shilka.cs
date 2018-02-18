@@ -9,6 +9,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace shilka2
 {
@@ -85,7 +86,7 @@ namespace shilka2
         }
 
         static void Statistic(out int baseForPercent, out int shutdownPercent, out int damagedPercent,
-            out int statisticWithoutDamage, out double chance)
+            out int statisticWithoutDamage, out double chance, out int inTargetPercent)
         {
             baseForPercent = (
                 (statisticHasGone > 0 || staticticAircraftShutdown > 0) ? (100 / (statisticHasGone + staticticAircraftShutdown)) : 100
@@ -95,7 +96,25 @@ namespace shilka2
             damagedPercent = (statisticDamaged * baseForPercent);
             statisticWithoutDamage = ((statisticHasGone - statisticDamaged) * baseForPercent);
             chance = (double)statisticPriceOfAllAircrafts / (statisticAllAircraft * (double)Aircraft.AIRCRAFT_AVERAGE_PRICE);
+            inTargetPercent = ( (statisticShellsFired > 0) ? staticticInTarget * 100 / statisticShellsFired : 0 );
         } 
+
+        public static void StatisticSave()
+        {
+            int baseForPercent, shutdownPercent, damagedPercent, statisticWithoutDamage, inTargetPercent;
+            double chance;
+
+            Statistic(out baseForPercent, out shutdownPercent, out damagedPercent, out statisticWithoutDamage,
+                out chance, out inTargetPercent);
+
+            string stat = String.Format("{0}|{1}|{2}|{3}|{4}|{5}|{6}|{7}|{8}|{9}|{10}|{11}|{12}\n",
+                  statisticShellsFired, staticticInTarget, staticticAircraftShutdown, inTargetPercent, staticticAircraftShutdown,
+                  shutdownPercent, statisticDamaged, damagedPercent, statisticHasGone, statisticWithoutDamage, statisticAmountOfDamage,
+                  statisticFriendDamage, chance
+            );
+
+            File.AppendAllText("statistic.dat", stat);
+        }
 
         public static void StatisticShow(object obj, ElapsedEventArgs e)
         {
@@ -104,15 +123,16 @@ namespace shilka2
                 MainWindow main = (MainWindow)Application.Current.MainWindow;
 
                 string stat = "";
-                int baseForPercent, shutdownPercent, damagedPercent, statisticWithoutDamage;
+                int baseForPercent, shutdownPercent, damagedPercent, statisticWithoutDamage, inTargetPercent;
                 double chance;
 
-                Statistic(out baseForPercent, out shutdownPercent, out damagedPercent, out statisticWithoutDamage, out chance);
+                Statistic(out baseForPercent, out shutdownPercent, out damagedPercent, out statisticWithoutDamage,
+                    out chance, out inTargetPercent);
 
                 if (statisticShellsFired > 0) stat += "Выстрелов: " + statisticShellsFired;
 
-                if (staticticInTarget > 0)
-                    stat += "\nПопаданий: " + staticticInTarget + " ( " + (staticticInTarget*100 / statisticShellsFired) + "% )";
+                if (staticticInTarget > 0) 
+                    stat += "\nПопаданий: " + staticticInTarget + " ( " + inTargetPercent + "% )";
 
                 if (staticticAircraftShutdown > 0)
                 {

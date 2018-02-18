@@ -64,6 +64,7 @@ namespace shilka2
         {
             Shell.AnimationStop = true;
             Game.Stop();
+            Shilka.StatisticSave();
         }
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
