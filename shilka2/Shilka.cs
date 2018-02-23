@@ -118,63 +118,62 @@ namespace shilka2
 
         public static void StatisticShow(object obj, ElapsedEventArgs e)
         {
+            string stat = "";
+            int baseForPercent, shutdownPercent, damagedPercent, statisticWithoutDamage, inTargetPercent;
+            double chance;
+
+            Statistic(out baseForPercent, out shutdownPercent, out damagedPercent, out statisticWithoutDamage,
+                out chance, out inTargetPercent);
+
+            if (statisticShellsFired > 0) stat += "Выстрелов: " + statisticShellsFired;
+
+            if (staticticInTarget > 0) 
+                stat += "\nПопаданий: " + staticticInTarget + " ( " + inTargetPercent + "% )";
+
+            if (staticticAircraftShutdown > 0)
+            {
+                stat += "\nСбито: " + staticticAircraftShutdown + " ( " + shutdownPercent + "% )";
+
+                if (statisticDamaged > 0)
+                {
+                    stat += " + повреждён: " + statisticDamaged + " ( " + damagedPercent + "% )";
+                }
+            }
+                
+            if (statisticHasGone > 0) stat += "\nУпущено: " + statisticHasGone + " ( " + (statisticHasGone * baseForPercent)  + "% )";
+
+            if (statisticDamaged < statisticHasGone)
+            {
+                stat += " в том числе неповредённых: " + (statisticHasGone - statisticDamaged) + " ( " + statisticWithoutDamage + "% )";
+            }
+
+            if (statisticAmountOfDamage > 0)
+            {
+                string AmountOfDamage;
+
+                if (statisticAmountOfDamage < 1000)
+                {
+                    AmountOfDamage = statisticAmountOfDamage + " млн $";
+                }
+                else if (statisticAmountOfDamage < 1000000)
+                {
+                    AmountOfDamage = String.Format("{0:f2}", (double)statisticAmountOfDamage / 1000) + " млрд $";
+                }
+                else
+                {
+                    AmountOfDamage = String.Format("{0:f2}", (double)statisticAmountOfDamage / 1000000) + " трлн $";
+                }
+
+                stat += "\nНанесён ущерб: " + AmountOfDamage + statisticLastDamage;
+            }
+                   
+            if (statisticFriendDamage > 0) stat += "\nПовреждено своих: " + statisticFriendDamage;
+
+            if (staticticAircraftShutdown > 0) stat += String.Format("\nУдача: {0:f2}", chance );
+
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {
                 MainWindow main = (MainWindow)Application.Current.MainWindow;
-
-                string stat = "";
-                int baseForPercent, shutdownPercent, damagedPercent, statisticWithoutDamage, inTargetPercent;
-                double chance;
-
-                Statistic(out baseForPercent, out shutdownPercent, out damagedPercent, out statisticWithoutDamage,
-                    out chance, out inTargetPercent);
-
-                if (statisticShellsFired > 0) stat += "Выстрелов: " + statisticShellsFired;
-
-                if (staticticInTarget > 0) 
-                    stat += "\nПопаданий: " + staticticInTarget + " ( " + inTargetPercent + "% )";
-
-                if (staticticAircraftShutdown > 0)
-                {
-                    stat += "\nСбито: " + staticticAircraftShutdown + " ( " + shutdownPercent + "% )";
-
-                    if (statisticDamaged > 0)
-                    {
-                        stat += " + повреждён: " + statisticDamaged + " ( " + damagedPercent + "% )";
-                    }
-                }
-                
-                if (statisticHasGone > 0) stat += "\nУпущено: " + statisticHasGone + " ( " + (statisticHasGone * baseForPercent)  + "% )";
-
-                if (statisticDamaged < statisticHasGone)
-                {
-                    stat += " в том числе неповредённых: " + (statisticHasGone - statisticDamaged) + " ( " + statisticWithoutDamage + "% )";
-                }
-
-                if (statisticAmountOfDamage > 0)
-                {
-                    string AmountOfDamage;
-
-                    if (statisticAmountOfDamage < 1000)
-                    {
-                        AmountOfDamage = statisticAmountOfDamage + " млн $";
-                    }
-                    else if (statisticAmountOfDamage < 1000000)
-                    {
-                        AmountOfDamage = String.Format("{0:f2}", (double)statisticAmountOfDamage / 1000) + " млрд $";
-                    }
-                    else
-                    {
-                        AmountOfDamage = String.Format("{0:f2}", (double)statisticAmountOfDamage / 1000000) + " трлн $";
-                    }
-
-                    stat += "\nНанесён ущерб: " + AmountOfDamage + statisticLastDamage;
-                }
-                   
-                if (statisticFriendDamage > 0) stat += "\nПовреждено своих: " + statisticFriendDamage;
-
-                if (staticticAircraftShutdown > 0) stat += String.Format("\nУдача: {0:f2}", chance );   
-
                 main.statShells.Content = stat;
             }));
         }
