@@ -55,6 +55,11 @@ namespace shilka2
             rand = new Random();
         }
 
+        public static void CasesFly(object obj, ElapsedEventArgs e)
+        {
+
+        }
+
         public static void ShellsFly(object obj, ElapsedEventArgs e)
         {
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
