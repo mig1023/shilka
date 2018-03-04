@@ -31,10 +31,12 @@ namespace shilka2
         public int hitpoint;
         public int hitpointMax;
         public int speed;
+
         public Boolean dead = false;
         public Boolean fly = true;
         public Boolean friend = false;
         public Boolean cloud = false;
+        public Boolean cantEscape = false;
 
         FlightDirectionType flightDirection;
 
@@ -56,13 +58,20 @@ namespace shilka2
 
                 foreach (var aircraft in Aircraft.aircrafts)
                 {
+                    double escapeFromFireCoefficient = 1;
+
+                    if ((aircraft.hitpoint < aircraft.hitpointMax) && !aircraft.cantEscape)
+                    {
+                        escapeFromFireCoefficient = 1.6;
+                    }
+
                     if (aircraft.flightDirection == FlightDirectionType.Left)
                     {
-                        aircraft.x -= aircraft.speed;
+                        aircraft.x -= aircraft.speed * escapeFromFireCoefficient;
                     }
                     else
                     {
-                        aircraft.x += aircraft.speed;
+                        aircraft.x += aircraft.speed * escapeFromFireCoefficient;
                     }
 
                     if (aircraft.dead)
@@ -156,7 +165,8 @@ namespace shilka2
                                 aircraftWidth: 270,
                                 aircraftHeight: 68,
                                 price: 12,
-                                speed: 5
+                                speed: 5,
+                                cantEscape: true
                             ); break;
                         case 2:
                             createNewAircraft(
@@ -174,7 +184,8 @@ namespace shilka2
                                 aircraftWidth: 565,
                                 aircraftHeight: 155,
                                 price: 53,
-                                speed: 8
+                                speed: 8,
+                                cantEscape: true
                             ); break;
                         case 4:
                             createNewAircraft(
@@ -255,7 +266,8 @@ namespace shilka2
                                 aircraftWidth: 140,
                                 aircraftHeight: 44,
                                 price: 4,
-                                speed: 5
+                                speed: 5,
+                                cantEscape: true
                             ); break;
                         case 13:
                             createNewAircraft(
@@ -264,7 +276,8 @@ namespace shilka2
                                 aircraftWidth: 161,
                                 aircraftHeight: 52,
                                 price: 16,
-                                speed: 5
+                                speed: 5,
+                                cantEscape: true
                             ); break;
                         case 14:
                             createNewAircraft(
@@ -318,7 +331,8 @@ namespace shilka2
                                 aircraftWidth: 265,
                                 aircraftHeight: 85,
                                 price: 70,
-                                speed: 7
+                                speed: 7,
+                                cantEscape: true
                             ); break;
                     }
                     break;
@@ -384,7 +398,8 @@ namespace shilka2
                                 aircraftHeight: 81,
                                 price: 0,
                                 speed: 5,
-                                friend: true
+                                friend: true,
+                                cantEscape: true
                             ); break;
                         case 7:
                             createNewAircraft(
@@ -432,7 +447,7 @@ namespace shilka2
         }
 
         static void createNewAircraft(string aircraftName, int hitPoint, int aircraftWidth, int aircraftHeight, int price, 
-            int speed, Boolean friend = false, Boolean cloud = false)
+            int speed, Boolean friend = false, Boolean cloud = false, Boolean cantEscape = false)
         {
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {
@@ -474,6 +489,7 @@ namespace shilka2
                 newAircraft.speed = speed;
                 newAircraft.friend = friend;
                 newAircraft.cloud = cloud;
+                newAircraft.cantEscape = cantEscape;
 
                 if (!friend)
                 {
