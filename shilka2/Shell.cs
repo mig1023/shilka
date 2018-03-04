@@ -13,6 +13,7 @@ using System.Windows.Threading;
 
 namespace shilka2
 {
+
     class Shell
     {
         const int SHELL_LENGTH = 3;
@@ -53,11 +54,6 @@ namespace shilka2
         static Shell()
         {
             rand = new Random();
-        }
-
-        public static void CasesFly(object obj, ElapsedEventArgs e)
-        {
-
         }
 
         public static void ShellsFly(object obj, ElapsedEventArgs e)
@@ -188,6 +184,8 @@ namespace shilka2
                     Shilka.statisticShellsFired++;
 
                     shells.Add(newShell);
+
+                    Case.CaseExtractor();
                 }
                 FireMutex--;
             }
