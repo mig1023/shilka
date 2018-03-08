@@ -44,6 +44,13 @@ namespace shilka2
 
         public static void CaseExtractor()
         {
+            CaseMutex++;
+            if (CaseMutex > 1)
+            {
+                CaseMutex--;
+                return;
+            }
+
             Case newCase = new Case();
             newCase.x = Shell.FIRE_WIDTH_CORRECTION / 2;
             newCase.y = Shell.currentHeight - EXTR_HEIGHT_CORRECTION;
@@ -53,6 +60,8 @@ namespace shilka2
             newCase.fly = true;
 
             Case.cases.Add(newCase);
+
+            CaseMutex--;
         }
 
         public static void CasesFly(object obj, ElapsedEventArgs e)
