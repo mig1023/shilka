@@ -18,8 +18,10 @@ namespace shilka2
     {
         const int SHELL_LENGTH = 3;
         const int SHELL_SPEED = 25;
+        const int SHELL_DELAY = 2;
         const int FRAGMENTATION = 15;
         const int VOLLEY = 3;
+        const int FLASH_SIZE = 4;
 
         public const int FIRE_WIDTH_CORRECTION = 140;
         public const int FIRE_HEIGHT_CORRECTION = 30;
@@ -98,7 +100,7 @@ namespace shilka2
 
                             shell.flash = true;
                             shellTrace.Stroke = Brushes.Red;
-                            shellTrace.StrokeThickness = 4;
+                            shellTrace.StrokeThickness = FLASH_SIZE;
 
                             aircraft.hitpoint -= 1;
 
@@ -136,7 +138,7 @@ namespace shilka2
 
                     if ((shell.y < 0) || (shell.x > currentWidth))
                         shell.fly = false;
-                    else if (shell.delay < 2)
+                    else if (shell.delay < SHELL_DELAY)
                         shell.delay++;
                     else
                     {

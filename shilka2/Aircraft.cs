@@ -16,6 +16,11 @@ namespace shilka2
     {
         public const int MAX_FLIGHT_HEIGHT = 75;
         public const int AIRCRAFT_AVERAGE_PRICE = 81;
+        const double ESCAPE_COEFFICIENT = 1.6;
+        const int TANGAGE_DELAY = 12;
+        const int TANGAGE_SPEED = 4;
+        const int TANGAGE_DEAD_SPEED = 10;
+
         public static int maxFlightHeight { get; set; }
         public static int minFlightHeight { get; set; }
         enum FlightDirectionType { Left, Right };
@@ -62,7 +67,7 @@ namespace shilka2
 
                     if ((aircraft.hitpoint < aircraft.hitpointMax) && !aircraft.cantEscape)
                     {
-                        escapeFromFireCoefficient = 1.6;
+                        escapeFromFireCoefficient = ESCAPE_COEFFICIENT;
                     }
 
                     if (aircraft.flightDirection == FlightDirectionType.Left)
@@ -76,17 +81,17 @@ namespace shilka2
 
                     if (aircraft.dead)
                     {
-                        aircraft.y += 10 * (Aircraft.rand.NextDouble() * 2 - 1) + 4;
+                        aircraft.y += TANGAGE_DEAD_SPEED * (Aircraft.rand.NextDouble() * 2 - 1) + 4;
                     }
                     else
                     {
                         if (!aircraft.cloud)
                         {
                             aircraft.tangage_delay++;
-                            if (aircraft.tangage_delay > 12)
+                            if (aircraft.tangage_delay > TANGAGE_DELAY)
                             {
                                 aircraft.tangage_delay = 0;
-                                aircraft.tangage = 4 * (Aircraft.rand.NextDouble() * 2 - 1);
+                                aircraft.tangage = TANGAGE_SPEED * (Aircraft.rand.NextDouble() * 2 - 1);
                             }
                             aircraft.y += aircraft.tangage;
 

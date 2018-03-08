@@ -15,6 +15,13 @@ namespace shilka2
     class Case
     {
         const int CASE_LENGTH = 5;
+        const double MIN_FRAGM_SIN = 0.2;
+        const double MAX_FRAGM_SIN = 0.4;
+        const double MIN_FRAGM_COS = 0.4;
+        const double MAX_FRAGM_COS = 0.8;
+        const int MIN_SPEED = 5;
+        const int MAX_SPEED = 10;
+        const int EXTR_HEIGHT_CORRECTION = 18; 
 
         public double x { get; set; }
         public double y { get; set; }
@@ -39,10 +46,10 @@ namespace shilka2
         {
             Case newCase = new Case();
             newCase.x = Shell.FIRE_WIDTH_CORRECTION / 2;
-            newCase.y = Shell.currentHeight - 18;
-            newCase.sin = rand.NextDouble() * (0.4 - 0.2) + 0.2;
-            newCase.cos = rand.NextDouble() * (0.8 - 0.4) + 0.4;
-            newCase.speed = rand.Next(5, 10);
+            newCase.y = Shell.currentHeight - EXTR_HEIGHT_CORRECTION;
+            newCase.sin = rand.NextDouble() * (MAX_FRAGM_SIN - MIN_FRAGM_SIN) + MIN_FRAGM_SIN;
+            newCase.cos = rand.NextDouble() * (MAX_FRAGM_COS - MIN_FRAGM_COS) + MIN_FRAGM_COS;
+            newCase.speed = rand.Next(MIN_SPEED, MAX_SPEED);
             newCase.fly = true;
 
             Case.cases.Add(newCase);
@@ -90,7 +97,6 @@ namespace shilka2
                 for (int x = 0; x < cases.Count; x++)
                     if ((CaseMutex <= 0) && (cases[x].fly == false))
                         cases.RemoveAt(x);
-
             }));
         }
     }
