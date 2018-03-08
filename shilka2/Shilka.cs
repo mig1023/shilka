@@ -28,6 +28,16 @@ namespace shilka2
         public static int statisticAmountOfDamage = 0;
         public static string statisticLastDamage;
 
+        public static int degreeOfHeatingGunBurrels = 30;
+        public static bool reheatingGunBurrels = false;
+
+        static Random rand;
+
+        static Shilka()
+        {
+            rand = new Random();
+        }
+
         public static void SetNewTergetPoint(Point pt, object sender)
         {
             Shell.ptX = pt.X - Shell.FIRE_WIDTH_CORRECTION;
@@ -37,6 +47,26 @@ namespace shilka2
 
             if (Shell.ptX < 0) Shell.ptX = 0;
             if (Shell.ptY < 0) Shell.ptY = 0;
+        }
+
+        public static void HeatingOfGuns(bool shooting)
+        {
+            if (rand.Next(2) == 1) return;
+
+            if (shooting)
+                degreeOfHeatingGunBurrels++;
+            else
+                degreeOfHeatingGunBurrels--;
+
+            if (degreeOfHeatingGunBurrels < 30)
+                Shilka.degreeOfHeatingGunBurrels = 30;
+            else if (degreeOfHeatingGunBurrels > 350)
+            {
+                reheatingGunBurrels = true;
+                Shell.Fire = false;
+            }
+            else if(degreeOfHeatingGunBurrels < 300)
+                reheatingGunBurrels = false;
         }
 
         public static void DrawGuns(MainWindow main)
@@ -170,6 +200,10 @@ namespace shilka2
             if (statisticFriendDamage > 0) stat += "\nПовреждено своих: " + statisticFriendDamage;
 
             if (staticticAircraftShutdown > 0) stat += String.Format("\nУдача: {0:f2}", chance );
+
+            if (statisticShellsFired > 0) stat += "\nТемпература стволов: " + degreeOfHeatingGunBurrels + "°C";
+            
+            if (reheatingGunBurrels) stat += " -- перегрев стволов!";
 
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {

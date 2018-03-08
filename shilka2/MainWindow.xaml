@@ -10,7 +10,7 @@
         <Canvas x:Name="firePlace" Margin="0,-50,0,50" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Button x:Name="closeButton" Content="✖" HorizontalAlignment="Left" Height="23" Margin="10,15,0,0" VerticalAlignment="Top" Width="30" Click="closeButton_Click"/>
         <Image x:Name="ShilkaImg" HorizontalAlignment="Left" Height="111" Margin="237,10,0,0" VerticalAlignment="Top" Width="185" Source="images/shilka.png"/>
-        <Label x:Name="statShells" HorizontalAlignment="Left" Height="133" Margin="45,10,0,0" VerticalAlignment="Top" Width="450"/>
+        <Label x:Name="statShells" HorizontalAlignment="Left" Height="183" Margin="45,10,0,0" VerticalAlignment="Top" Width="450"/>
         <ToggleButton x:Name="pauseButton" Content="❚❚" HorizontalAlignment="Left" Height="23" Margin="10,43,0,0" VerticalAlignment="Top" Width="30" Click="pauseButton_Click"/>
     </Grid>
 </Window>

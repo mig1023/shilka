@@ -158,7 +158,7 @@ namespace shilka2
 
         public static void ShellsFire(object obj, ElapsedEventArgs e)
         {
-            if (Fire)
+            if (Fire && !Shilka.reheatingGunBurrels)
             {
                 FireMutex++;
                 if (FireMutex > 1)
@@ -190,7 +190,11 @@ namespace shilka2
                     Case.CaseExtractor();
                 }
                 FireMutex--;
+
+                Shilka.HeatingOfGuns(true);
             }
+            else
+                Shilka.HeatingOfGuns(false);
         }
     }
 }

@@ -47,7 +47,8 @@ namespace shilka2
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Shilka.SetNewTergetPoint(e.GetPosition((Window)sender), sender);
-            Shell.Fire = true;
+
+            if (!Shilka.reheatingGunBurrels) Shell.Fire = true;
         }
 
         private void Window_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)

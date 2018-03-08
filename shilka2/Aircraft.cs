@@ -81,7 +81,7 @@ namespace shilka2
 
                     if (aircraft.dead)
                     {
-                        aircraft.y += TANGAGE_DEAD_SPEED * (Aircraft.rand.NextDouble() * 2 - 1) + 4;
+                        aircraft.y += TANGAGE_DEAD_SPEED * (rand.NextDouble() * 2 - 1) + 4;
                     }
                     else
                     {
@@ -91,7 +91,7 @@ namespace shilka2
                             if (aircraft.tangage_delay > TANGAGE_DELAY)
                             {
                                 aircraft.tangage_delay = 0;
-                                aircraft.tangage = TANGAGE_SPEED * (Aircraft.rand.NextDouble() * 2 - 1);
+                                aircraft.tangage = TANGAGE_SPEED * (rand.NextDouble() * 2 - 1);
                             }
                             aircraft.y += aircraft.tangage;
 
@@ -137,7 +137,7 @@ namespace shilka2
 
         public static void AircraftStart(object obj, ElapsedEventArgs e)
         {
-            int newAircraft = Aircraft.rand.Next(10)+1;
+            int newAircraft = rand.Next(10)+1;
 
             switch (newAircraft)
             {
@@ -146,10 +146,10 @@ namespace shilka2
                 case 3:
                 case 4:
                     createNewAircraft(
-                        aircraftName: "cloud" + (int)(Aircraft.rand.Next(7) + 1),
+                        aircraftName: "cloud" + (int)(rand.Next(7) + 1),
                         hitPoint: 10,
-                        aircraftWidth: (int)(Aircraft.rand.Next(300) + 200),
-                        aircraftHeight: (int)(Aircraft.rand.Next(100) + 70),
+                        aircraftWidth: (int)(rand.Next(300) + 200),
+                        aircraftHeight: (int)(rand.Next(100) + 70),
                         price: 0,
                         speed: 5,
                         friend: true,
@@ -161,7 +161,7 @@ namespace shilka2
                 case 7:
                 case 8:
                 case 9:
-                    switch ((int)(Aircraft.rand.Next(19) + 1))
+                    switch ((int)(rand.Next(19) + 1))
                     {
                         case 1:
                             createNewAircraft(
@@ -343,7 +343,7 @@ namespace shilka2
                     break;
 
                 case 10:
-                    switch ((int)(Aircraft.rand.Next(10) + 1))
+                    switch ((int)(rand.Next(10) + 1))
                     {
                         case 1:
                             createNewAircraft(
@@ -465,9 +465,9 @@ namespace shilka2
 
                 Aircraft newAircraft = new Aircraft();
 
-                newAircraft.y = Aircraft.rand.Next(Aircraft.maxFlightHeight, Aircraft.minFlightHeight);
+                newAircraft.y = rand.Next(Aircraft.maxFlightHeight, Aircraft.minFlightHeight);
 
-                if (Aircraft.rand.Next(2) == 1)
+                if (rand.Next(2) == 1)
                 {
                     newAircraft.flightDirection = FlightDirectionType.Right;
                     newAircraft.x = -1 * newAircraftImage.Width;
@@ -480,7 +480,7 @@ namespace shilka2
 
                 newAircraftImage.Source = new BitmapImage(new Uri("images/"+aircraftName+".png", UriKind.Relative)) { };
 
-                if ( ( (newAircraft.flightDirection == FlightDirectionType.Left) && !cloud ) || (Aircraft.rand.Next(2) == 1) && cloud )
+                if ( ( (newAircraft.flightDirection == FlightDirectionType.Left) && !cloud ) || (rand.Next(2) == 1) && cloud )
                 {
                     newAircraftImage.FlowDirection = System.Windows.FlowDirection.RightToLeft;
                 }
