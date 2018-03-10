@@ -10,6 +10,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using System.Windows.Media.Animation;
 
 namespace shilka2
 {
@@ -121,8 +122,19 @@ namespace shilka2
                                     {
                                         main.Game.Stop();
                                         main.Aircrafts.Stop();
-                                        MessageBox.Show("Вы подбили своего!");
-                                        main.Close();
+                                        //MessageBox.Show("Вы подбили своего!");
+                                        //main.Close();
+
+                                        double l = main.EndMenu.Margin.Left - main.EndMenu.ActualWidth;
+                                        double t = main.EndMenu.Margin.Top;
+                                        double r = main.EndMenu.Margin.Right;
+                                        double b = main.EndMenu.Margin.Bottom;
+
+                                        ThicknessAnimation endMenuShow = new ThicknessAnimation();
+                                        endMenuShow.Duration = TimeSpan.FromSeconds(0.2);
+                                        endMenuShow.From = main.EndMenu.Margin;
+                                        endMenuShow.To = new Thickness(l, t, r, b);
+                                        main.EndMenu.BeginAnimation(Border.MarginProperty, endMenuShow);
                                     }
                                     
                                 }

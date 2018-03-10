@@ -41,6 +41,9 @@ namespace shilka2
 
             Aircraft.minFlightHeight = (int)(heightForShilka - ShilkaImg.Height);
 
+            EndMenu.Height = System.Windows.SystemParameters.PrimaryScreenHeight;
+            EndMenu.Margin = new Thickness(System.Windows.SystemParameters.PrimaryScreenWidth, 0, 0, 0);
+
             ShilkaImg.Margin = new Thickness(0, heightForShilka, 0, 0);
         }
 
