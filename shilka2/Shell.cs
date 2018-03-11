@@ -120,21 +120,7 @@ namespace shilka2
                                     }
                                     else
                                     {
-                                        main.Game.Stop();
-                                        main.Aircrafts.Stop();
-                                        //MessageBox.Show("Вы подбили своего!");
-                                        //main.Close();
-
-                                        double l = main.EndMenu.Margin.Left - main.EndMenu.ActualWidth;
-                                        double t = main.EndMenu.Margin.Top;
-                                        double r = main.EndMenu.Margin.Right;
-                                        double b = main.EndMenu.Margin.Bottom;
-
-                                        ThicknessAnimation endMenuShow = new ThicknessAnimation();
-                                        endMenuShow.Duration = TimeSpan.FromSeconds(0.2);
-                                        endMenuShow.From = main.EndMenu.Margin;
-                                        endMenuShow.To = new Thickness(l, t, r, b);
-                                        main.EndMenu.BeginAnimation(Border.MarginProperty, endMenuShow);
+                                        main.EndGame("Вы подбили своего!\nИгра окончена.\nСохранить статистику?", "#FF7E1C25");
                                     }
                                     
                                 }

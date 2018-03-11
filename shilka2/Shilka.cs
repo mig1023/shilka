@@ -129,7 +129,7 @@ namespace shilka2
             inTargetPercent = ( (statisticShellsFired > 0) ? staticticInTarget * 100 / statisticShellsFired : 0 );
         } 
 
-        public static void StatisticSave()
+        public static void StatisticSave(string player)
         {
             int baseForPercent, shutdownPercent, damagedPercent, statisticWithoutDamage, inTargetPercent;
             double chance;
@@ -137,10 +137,10 @@ namespace shilka2
             Statistic(out baseForPercent, out shutdownPercent, out damagedPercent, out statisticWithoutDamage,
                 out chance, out inTargetPercent);
 
-            string stat = String.Format("{0}|{1}|{2}|{3}|{4}|{5}|{6}|{7}|{8}|{9}|{10}|{11}|{12}\n",
-                  statisticShellsFired, staticticInTarget, staticticAircraftShutdown, inTargetPercent, staticticAircraftShutdown,
-                  shutdownPercent, statisticDamaged, damagedPercent, statisticHasGone, statisticWithoutDamage, statisticAmountOfDamage,
-                  statisticFriendDamage, chance
+            string stat = String.Format("{0}|{1}|{2}|{3}|{4}|{5}|{6}|{7}|{8}|{9}|{10}|{11}|{12}|{13}\n",
+                  player, statisticShellsFired, staticticInTarget, staticticAircraftShutdown, inTargetPercent,
+                  staticticAircraftShutdown, shutdownPercent, statisticDamaged, damagedPercent, statisticHasGone,
+                  statisticWithoutDamage, statisticAmountOfDamage, statisticFriendDamage, chance
             );
 
             File.AppendAllText("statistic.dat", stat);
