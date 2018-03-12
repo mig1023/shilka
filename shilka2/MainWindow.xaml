@@ -15,8 +15,8 @@
         <Canvas x:Name="EndMenu" HorizontalAlignment="Left" Height="320" Margin="513,0,-511,0" VerticalAlignment="Top" Width="515">
             <Label x:Name="EndText" Content="" Height="131" Canvas.Left="24" Canvas.Top="15" Width="446" Foreground="White" FontSize="32" FontFamily="Arial Narrow"/>
             <TextBox x:Name="PlayerName" Height="33" Canvas.Left="24" TextWrapping="Wrap" Text="" Canvas.Top="172" Width="434" FontSize="18.667" KeyUp="PlayerName_KeyUp"/>
-            <Button x:Name="GameOverWithSave" Content="Сохранить" Height="41" Canvas.Left="23" Canvas.Top="223" Width="212" Click="GameOverWithSave_Click" IsEnabled="False"/>
-            <Button x:Name="GameOverWithoutSave" Content="Без сохранения" Height="41" Canvas.Left="246" Canvas.Top="223" Width="212" Click="GameOverWithoutSave_Click"/>
+            <Button x:Name="GameOverWithSave" Content="Сохранить" Height="41" Canvas.Left="23" Canvas.Top="223" Width="212" Click="GameOverWithSave_Click" IsEnabled="False" FontSize="16"/>
+            <Button x:Name="GameOverWithoutSave" Content="Без сохранения" Height="41" Canvas.Left="246" Canvas.Top="223" Width="212" Click="GameOverWithoutSave_Click" FontSize="16"/>
         </Canvas>
     </Grid>
 </Window>
