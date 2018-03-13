@@ -47,6 +47,10 @@ namespace shilka2
             EndMenu.Height = System.Windows.SystemParameters.PrimaryScreenHeight;
             EndMenu.Margin = new Thickness(System.Windows.SystemParameters.PrimaryScreenWidth, 0, 0, 0);
 
+            StatisticMenu.Height = System.Windows.SystemParameters.PrimaryScreenHeight;
+            StatisticMenu.Width = System.Windows.SystemParameters.PrimaryScreenWidth;
+            StatisticMenu.Margin = new Thickness(0, System.Windows.SystemParameters.PrimaryScreenHeight, 0, 0);
+
             ShilkaImg.Margin = new Thickness(0, heightForShilka, 0, 0);
         }
 
@@ -67,11 +71,45 @@ namespace shilka2
             var converter = new BrushConverter();
             EndMenu.Background = (Brush)converter.ConvertFrom(bgColor);
 
-            ThicknessAnimation endMenuShow = new ThicknessAnimation();
-            endMenuShow.Duration = TimeSpan.FromSeconds(0.2);
-            endMenuShow.From = EndMenu.Margin;
-            endMenuShow.To = new Thickness(l, t, r, b);
-            EndMenu.BeginAnimation(Border.MarginProperty, endMenuShow);
+            MoveCanvas(EndMenu, l, t, r, b);
+        }
+
+        public void GameStatisticShow()
+        {
+            Game.Stop();
+            Aircrafts.Stop();
+
+            double l = StatisticMenu.Margin.Left;
+            double t = StatisticMenu.Margin.Top - StatisticMenu.ActualHeight;
+            double r = StatisticMenu.Margin.Right;
+            double b = StatisticMenu.Margin.Bottom;
+
+            var converter = new BrushConverter();
+            StatisticMenu.Background = (Brush)converter.ConvertFrom("#FF004206");
+
+            MoveCanvas(StatisticMenu, l, t, r, b);
+        }
+
+        public void ReturnStatisticShow()
+        {
+            double l = StatisticMenu.Margin.Left;
+            double t = StatisticMenu.Margin.Top + StatisticMenu.ActualHeight;
+            double r = StatisticMenu.Margin.Right;
+            double b = StatisticMenu.Margin.Bottom;
+
+            MoveCanvas(StatisticMenu, l, t, r, b);
+
+            Game.Start();
+            Aircrafts.Start();
+        }
+
+        public void MoveCanvas(Canvas moveCanvas, double l, double t, double r, double b)
+        {
+            ThicknessAnimation move = new ThicknessAnimation();
+            move.Duration = TimeSpan.FromSeconds(0.2);
+            move.From = moveCanvas.Margin;
+            move.To = new Thickness(l, t, r, b);
+            moveCanvas.BeginAnimation(Border.MarginProperty, move);
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -115,7 +153,6 @@ namespace shilka2
                 Aircrafts.Stop();
                 Pause = true;
             }
-           
         }
 
         private void GameOverWithoutSave_Click(object sender, RoutedEventArgs e)
@@ -135,6 +172,16 @@ namespace shilka2
                 GameOverWithSave.IsEnabled = false;
             else
                 GameOverWithSave.IsEnabled = true;
+        }
+
+        private void statisticButton_Click(object sender, RoutedEventArgs e)
+        {
+            GameStatisticShow();
+        }
+
+        private void returnButton_Click(object sender, RoutedEventArgs e)
+        {
+            ReturnStatisticShow();
         }
     }
 }
