@@ -7,7 +7,9 @@
         mc:Ignorable="d"
         Title="Shilka Antiaircraft" Height="350" Width="525" MouseLeftButtonDown="Window_MouseLeftButtonDown" MouseLeftButtonUp="Window_MouseLeftButtonUp" MouseMove="Window_MouseMove" Background="White">
     <Grid x:Name="gridFirePlace">
-        <Canvas x:Name="firePlace" Margin="0,-50,0,50" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Canvas x:Name="firePlace" Margin="0,-50,0,50" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Image Source="images/background.png" Width="{Binding Path=ActualWidth, ElementName=gridFirePlace}" Height="{Binding Path=ActualHeight, ElementName=gridFirePlace}" Stretch="Fill"/>
+        </Canvas>
         <Button x:Name="closeButton" Content="✖" HorizontalAlignment="Left" Height="23" Margin="10,15,0,0" VerticalAlignment="Top" Width="30" Click="closeButton_Click"/>
         <Image x:Name="ShilkaImg" HorizontalAlignment="Left" Height="111" Margin="237,10,0,0" VerticalAlignment="Top" Width="185" Source="images/shilka.png"/>
         <Label x:Name="statShells" HorizontalAlignment="Left" Height="183" Margin="45,10,0,0" VerticalAlignment="Top" Width="450"/>
