@@ -14,15 +14,17 @@
         <Image x:Name="ShilkaImg" HorizontalAlignment="Left" Height="111" Margin="237,10,0,0" VerticalAlignment="Top" Width="185" Source="images/shilka.png"/>
         <Label x:Name="statShells" HorizontalAlignment="Left" Height="183" Margin="45,10,0,0" VerticalAlignment="Top" Width="450"/>
         <ToggleButton x:Name="pauseButton" Content="❚❚" HorizontalAlignment="Left" Height="23" Margin="10,43,0,0" VerticalAlignment="Top" Width="30" Click="pauseButton_Click"/>
-        <Button x:Name="statisticButton" Content="S" HorizontalAlignment="Left" Height="23" Margin="10,71,0,0" VerticalAlignment="Top" Width="30" Click="statisticButton_Click"/>
+        <Button x:Name="statisticButton" Content="★" HorizontalAlignment="Left" Height="23" Margin="10,71,0,0" VerticalAlignment="Top" Width="30" Click="statisticButton_Click" FontSize="13"/>
         <Canvas x:Name="EndMenu" HorizontalAlignment="Left" Height="320" Margin="513,0,-511,0" VerticalAlignment="Top" Width="515">
             <Label x:Name="EndText" Content="" Height="131" Canvas.Left="24" Canvas.Top="15" Width="446" Foreground="White" FontSize="32" FontFamily="Arial Narrow"/>
             <TextBox x:Name="PlayerName" Height="33" Canvas.Left="24" TextWrapping="Wrap" Text="" Canvas.Top="172" Width="434" FontSize="18.667" KeyUp="PlayerName_KeyUp"/>
-            <Button x:Name="GameOverWithSave" Content="Сохранить" Height="41" Canvas.Left="23" Canvas.Top="223" Width="212" Click="GameOverWithSave_Click" IsEnabled="False" FontSize="16"/>
-            <Button x:Name="GameOverWithoutSave" Content="Без сохранения" Height="41" Canvas.Left="246" Canvas.Top="223" Width="212" Click="GameOverWithoutSave_Click" FontSize="16"/>
+            <Button x:Name="GameOverWithSave" Content="Сохранить" Height="41" Canvas.Left="246" Canvas.Top="223" Width="212" Click="GameOverWithSave_Click" IsEnabled="False" FontSize="16"/>
+            <Button x:Name="GameOverWithoutSave" Content="Не сохранять" Height="41" Canvas.Left="23" Canvas.Top="223" Width="212" Click="GameOverWithoutSave_Click" FontSize="16"/>
         </Canvas>
         <Canvas x:Name="StatisticMenu" HorizontalAlignment="Left" Height="174" Margin="0,325,-1,-179" VerticalAlignment="Top" Width="518">
-            <Button x:Name="returnButton" Content="✖" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="30" Canvas.Left="10" Canvas.Top="12" Click="returnButton_Click"/>
+            <Button x:Name="returnButton" Content="✖" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="30" Canvas.Left="10" Canvas.Top="15" Click="returnButton_Click"/>
+            <Label x:Name="label" Content="Лучшие результаты" Height="50" Canvas.Left="61" Canvas.Top="14" Width="300" FontSize="32" Foreground="White"/>
+            <TextBlock x:Name="StatisticText" Height="{Binding Path=ActualHeight, ElementName=StatisticMenu}" Canvas.Left="58" TextWrapping="Wrap" Text="" Canvas.Top="68" Width="{Binding Path=ActualWidth, ElementName=StatisticMenu}"/>
         </Canvas>
     </Grid>
 </Window>

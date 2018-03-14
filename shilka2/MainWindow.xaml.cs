@@ -87,6 +87,8 @@ namespace shilka2
             var converter = new BrushConverter();
             StatisticMenu.Background = (Brush)converter.ConvertFrom("#FF004206");
 
+            StatisticText.Text = Shilka.LoadStatistic();
+
             MoveCanvas(StatisticMenu, l, t, r, b);
         }
 
@@ -176,6 +178,7 @@ namespace shilka2
 
         private void statisticButton_Click(object sender, RoutedEventArgs e)
         {
+
             GameStatisticShow();
         }
 

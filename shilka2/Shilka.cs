@@ -127,7 +127,7 @@ namespace shilka2
             statisticWithoutDamage = ((statisticHasGone - statisticDamaged) * baseForPercent);
             chance = (double)statisticPriceOfAllAircrafts / (statisticAllAircraft * (double)Aircraft.AIRCRAFT_AVERAGE_PRICE);
             inTargetPercent = ( (statisticShellsFired > 0) ? staticticInTarget * 100 / statisticShellsFired : 0 );
-        } 
+        }
 
         public static void StatisticSave(string player)
         {
@@ -144,6 +144,11 @@ namespace shilka2
             );
 
             File.AppendAllText("statistic.dat", stat);
+        }
+
+        public static string LoadStatistic()
+        {
+            return File.ReadAllText("statistic.dat");
         }
 
         public static void StatisticShow(object obj, ElapsedEventArgs e)
