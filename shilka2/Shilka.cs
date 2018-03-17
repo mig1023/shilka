@@ -16,6 +16,7 @@ namespace shilka2
     class Shilka
     {
         static int flash_count = 0;
+        static string statisticFileName = "statistic.dat";
 
         public static int statisticShellsFired = 0;
         public static int staticticInTarget = 0;
@@ -148,7 +149,24 @@ namespace shilka2
 
         public static string LoadStatistic()
         {
-            return File.ReadAllText("statistic.dat");
+            if (!File.Exists(statisticFileName)) return "";
+
+            string statisticText = File.ReadAllText(statisticFileName);
+            string[] statisticLines = statisticText.Split(new char[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+            string statistic = "";
+
+            foreach (string statLine in statisticLines)
+            {
+                string[] statElements = statLine.Split('|');
+                statistic += String.Format(
+                    "{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7}\t{8}\t{9}\t{10}\t{11}\t{12}\t{13}\n"
+                    , statElements[0], statElements[1], statElements[2], statElements[3], statElements[4], statElements[5]
+                    , statElements[6], statElements[7], statElements[8], statElements[9], statElements[10], statElements[11]
+                    , statElements[12], statElements[13]
+                );
+            }
+
+            return statistic;
         }
 
         public static void StatisticShow(object obj, ElapsedEventArgs e)
