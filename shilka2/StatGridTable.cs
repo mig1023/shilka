@@ -9,18 +9,18 @@ namespace shilka2
     class StatGridTable
     {
         public string name { get; set; }
-        public string shellsFired { get; set; }
-        public string inTarget { get; set; }
-        public string Shutdown { get; set; }
-        public string inTargetPercent { get; set; }
-        public string shutdownPercent { get; set; }
-        public string damaged { get; set; }
-        public string damagedPercent { get; set; }
-        public string hasGone { get; set; }
-        public string withoutDamage { get; set; }
-        public string amountOfDamage { get; set; }
-        public string friendDamage { get; set; }
-        public string chance { get; set; }
+        public int shellsFired { get; set; }
+        public int inTarget { get; set; }
+        public int Shutdown { get; set; }
+        public int inTargetPercent { get; set; }
+        public int shutdownPercent { get; set; }
+        public int damaged { get; set; }
+        public int damagedPercent { get; set; }
+        public int hasGone { get; set; }
+        public int withoutDamage { get; set; }
+        public int amountOfDamage { get; set; }
+        public int friendDamage { get; set; }
+        public float chance { get; set; }
 
         public StatGridTable(string name, string shellsFired, string inTarget,
               string aircraftShutdown, string inTargetPercent, string shutdownPercent,
@@ -29,18 +29,18 @@ namespace shilka2
               string chance)
         {
             this.name = name;
-            this.shellsFired = shellsFired;
-            this.inTarget = inTarget;
-            this.Shutdown = aircraftShutdown;
-            this.inTargetPercent = inTargetPercent + "%";
-            this.shutdownPercent = shutdownPercent + "%";
-            this.damaged = damaged;
-            this.damagedPercent = damagedPercent;
-            this.hasGone = hasGone;
-            this.withoutDamage = withoutDamage;
-            this.amountOfDamage = amountOfDamage;
-            this.friendDamage = friendDamage;
-            this.chance = string.Format("{0:f2}", float.Parse(chance));
+            this.shellsFired = int.Parse(shellsFired);
+            this.inTarget = int.Parse(inTarget);
+            this.Shutdown = int.Parse(aircraftShutdown);
+            this.inTargetPercent = int.Parse(inTargetPercent);
+            this.shutdownPercent = int.Parse(shutdownPercent);
+            this.damaged = int.Parse(damaged);
+            this.damagedPercent = int.Parse(damagedPercent);
+            this.hasGone = int.Parse(hasGone);
+            this.withoutDamage = int.Parse(withoutDamage);
+            this.amountOfDamage = int.Parse(amountOfDamage);
+            this.friendDamage = int.Parse(friendDamage);
+            this.chance = float.Parse(string.Format("{0:f2}", float.Parse(chance)));
         }
     }
 }
