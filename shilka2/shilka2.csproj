@@ -59,6 +59,7 @@
     <Compile Include="Case.cs" />
     <Compile Include="Shell.cs" />
     <Compile Include="Shilka.cs" />
+    <Compile Include="StatGridTable.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

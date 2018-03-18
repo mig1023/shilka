@@ -85,9 +85,12 @@ namespace shilka2
             double b = StatisticMenu.Margin.Bottom;
 
             var converter = new BrushConverter();
-            StatisticMenu.Background = (Brush)converter.ConvertFrom("#FF004206");
+            StatisticMenu.Background = (Brush)converter.ConvertFrom("#FF2A40CB");
 
-            StatisticText.Text = Shilka.LoadStatistic();
+            Shilka.LoadStatistic();
+
+            StatisticGrid.Height = StatisticMenu.Height - Shilka.statisticGridMargins;
+            StatisticGrid.Width = StatisticMenu.Width - Shilka.statisticGridMargins;
 
             MoveCanvas(StatisticMenu, l, t, r, b);
         }

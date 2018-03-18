@@ -16,7 +16,9 @@ namespace shilka2
     class Shilka
     {
         static int flash_count = 0;
+
         static string statisticFileName = "statistic.dat";
+        public static int statisticGridMargins = 120;
 
         public static int statisticShellsFired = 0;
         public static int staticticInTarget = 0;
@@ -138,35 +140,41 @@ namespace shilka2
             Statistic(out baseForPercent, out shutdownPercent, out damagedPercent, out statisticWithoutDamage,
                 out chance, out inTargetPercent);
 
-            string stat = String.Format("{0}|{1}|{2}|{3}|{4}|{5}|{6}|{7}|{8}|{9}|{10}|{11}|{12}|{13}\n",
+            string stat = String.Format("{0}|{1}|{2}|{3}|{4}|{5}|{6}|{7}|{8}|{9}|{10}|{11}|{12}\n",
                   player, statisticShellsFired, staticticInTarget, staticticAircraftShutdown, inTargetPercent,
-                  staticticAircraftShutdown, shutdownPercent, statisticDamaged, damagedPercent, statisticHasGone,
+                  shutdownPercent, statisticDamaged, damagedPercent, statisticHasGone,
                   statisticWithoutDamage, statisticAmountOfDamage, statisticFriendDamage, chance
             );
 
             File.AppendAllText("statistic.dat", stat);
         }
 
-        public static string LoadStatistic()
+        public static void LoadStatistic()
         {
-            if (!File.Exists(statisticFileName)) return "";
+            if (!File.Exists(statisticFileName)) return;
 
             string statisticText = File.ReadAllText(statisticFileName);
             string[] statisticLines = statisticText.Split(new char[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
-            string statistic = "";
+
+            List<StatGridTable> result = new List<StatGridTable>(statisticLines.Length);
 
             foreach (string statLine in statisticLines)
             {
                 string[] statElements = statLine.Split('|');
-                statistic += String.Format(
-                    "{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7}\t{8}\t{9}\t{10}\t{11}\t{12}\t{13}\n"
-                    , statElements[0], statElements[1], statElements[2], statElements[3], statElements[4], statElements[5]
-                    , statElements[6], statElements[7], statElements[8], statElements[9], statElements[10], statElements[11]
-                    , statElements[12], statElements[13]
-                );
+
+                result.Add(new StatGridTable(
+                    statElements[0], statElements[1], statElements[2], statElements[3],
+                    statElements[4], statElements[5], statElements[6], statElements[7],
+                    statElements[8], statElements[9], statElements[10], statElements[11],
+                    statElements[12]
+                ));
             }
 
-            return statistic;
+            Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
+            {
+                MainWindow main = (MainWindow)Application.Current.MainWindow;
+                main.StatisticGrid.ItemsSource = result;
+            }));
         }
 
         public static void StatisticShow(object obj, ElapsedEventArgs e)

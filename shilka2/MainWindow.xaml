@@ -24,7 +24,23 @@
         <Canvas x:Name="StatisticMenu" HorizontalAlignment="Left" Height="174" Margin="0,325,-1,-179" VerticalAlignment="Top" Width="518">
             <Button x:Name="returnButton" Content="✖" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="30" Canvas.Left="10" Canvas.Top="15" Click="returnButton_Click"/>
             <Label x:Name="label" Content="Лучшие результаты" Height="50" Canvas.Left="61" Canvas.Top="14" Width="300" FontSize="32" Foreground="White"/>
-            <TextBlock x:Name="StatisticText" Height="{Binding Path=ActualHeight, ElementName=StatisticMenu}" Canvas.Left="58" TextWrapping="Wrap" Text="" Canvas.Top="68" Width="{Binding Path=ActualWidth, ElementName=StatisticMenu}"/>
+            <DataGrid x:Name="StatisticGrid" Height="50" Canvas.Top="85" Width="150" Canvas.Left="60" AutoGenerateColumns="False" ColumnWidth="*">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Стрелок" Binding="{Binding name}"/>
+                    <DataGridTextColumn Header="Выстрелов" Binding="{Binding shellsFired}"/>
+                    <DataGridTextColumn Header="Из них в цель" Binding="{Binding inTarget}"/>
+                    <DataGridTextColumn Header="Сбито" Binding="{Binding Shutdown}"/>
+                    <DataGridTextColumn Header="Попаданий" Binding="{Binding inTargetPercent}"/>
+                    <DataGridTextColumn Header="Сбитых" Binding="{Binding shutdownPercent}"/>
+                    <DataGridTextColumn Header="Повреждённых" Binding="{Binding damaged}"/>
+                    <DataGridTextColumn Header="Повреждённых" Binding="{Binding damagedPercent}"/>
+                    <DataGridTextColumn Header="Упущенных" Binding="{Binding hasGone}"/>
+                    <DataGridTextColumn Header="Из них без повреждений" Binding="{Binding withoutDamage}"/>
+                    <DataGridTextColumn Header="Нанесён ущерб" Binding="{Binding amountOfDamage}"/>
+                    <DataGridTextColumn Header="Повреждено своих" Binding="{Binding Path=friendDamage}"/>
+                    <DataGridTextColumn Header="Удача" Binding="{Binding chance}"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </Canvas>
     </Grid>
 </Window>
