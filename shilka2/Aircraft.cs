@@ -66,25 +66,16 @@ namespace shilka2
                     double escapeFromFireCoefficient = 1;
 
                     if ((aircraft.hitpoint < aircraft.hitpointMax) && !aircraft.cantEscape)
-                    {
                         escapeFromFireCoefficient = ESCAPE_COEFFICIENT;
-                    }
 
                     if (aircraft.flightDirection == FlightDirectionType.Left)
-                    {
                         aircraft.x -= aircraft.speed * escapeFromFireCoefficient;
-                    }
                     else
-                    {
                         aircraft.x += aircraft.speed * escapeFromFireCoefficient;
-                    }
 
                     if (aircraft.dead)
-                    {
                         aircraft.y += TANGAGE_DEAD_SPEED * (rand.NextDouble() * 2 - 1) + 4;
-                    }
                     else
-                    {
                         if (!aircraft.cloud)
                         {
                             aircraft.tangage_delay++;
@@ -97,13 +88,12 @@ namespace shilka2
 
                             if (aircraft.y > Aircraft.minFlightHeight) aircraft.y = Aircraft.minFlightHeight;
                         }
-                        
-                    }
 
                     if (aircraft.y < maxFlightHeight) aircraft.y = maxFlightHeight;
 
                     if (
-                        ((aircraft.x + aircraft.aircraftImage.Width) < 0) && (aircraft.flightDirection == FlightDirectionType.Left) ||
+                        ((aircraft.x + aircraft.aircraftImage.Width) < 0) && (aircraft.flightDirection == FlightDirectionType.Left)
+                        ||
                         (aircraft.x > main.Width) && (aircraft.flightDirection == FlightDirectionType.Right)
                     ) {
                         aircraft.fly = false;
@@ -481,9 +471,7 @@ namespace shilka2
                 newAircraftImage.Source = new BitmapImage(new Uri("images/"+aircraftName+".png", UriKind.Relative)) { };
 
                 if ( ( (newAircraft.flightDirection == FlightDirectionType.Left) && !cloud ) || (rand.Next(2) == 1) && cloud )
-                {
                     newAircraftImage.FlowDirection = System.Windows.FlowDirection.RightToLeft;
-                }
 
                 newAircraftImage.Margin = new Thickness(newAircraft.x, newAircraft.y, 0, 0);
 

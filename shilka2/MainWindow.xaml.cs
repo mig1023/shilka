@@ -137,7 +137,8 @@ namespace shilka2
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!endGameAlready) EndGame("Выход из игры.\nСохранить статистику?", "#FF0F0570");
+            if (!endGameAlready)
+                EndGame("Выход из игры.\nСохранить статистику?", "#FF0F0570");
         }
 
         private void pauseButton_Click(object sender, RoutedEventArgs e)
@@ -181,7 +182,6 @@ namespace shilka2
 
         private void statisticButton_Click(object sender, RoutedEventArgs e)
         {
-
             GameStatisticShow();
         }
 

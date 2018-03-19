@@ -119,19 +119,12 @@ namespace shilka2
                                             aircraft.aircraftType + " )";
                                     }
                                     else
-                                    {
                                         main.EndGame("Вы подбили своего!\nИгра окончена.\nСохранить статистику?", "#FF7E1C25");
-                                    }
-                                    
                                 }
-
                                 aircraft.dead = true;
                             }
                         }
-                        else if (shell.flash)
-                        {
-                            shell.fly = false;
-                        }
+                        else if (shell.flash) shell.fly = false;
                             
 
                     if ((shell.y < 0) || (shell.x > currentWidth))

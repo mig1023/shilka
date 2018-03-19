@@ -196,34 +196,24 @@ namespace shilka2
                 stat += "\nСбито: " + staticticAircraftShutdown + " ( " + shutdownPercent + "% )";
 
                 if (statisticDamaged > 0)
-                {
                     stat += " + повреждён: " + statisticDamaged + " ( " + damagedPercent + "% )";
-                }
             }
                 
             if (statisticHasGone > 0) stat += "\nУпущено: " + statisticHasGone + " ( " + (statisticHasGone * baseForPercent)  + "% )";
 
             if (statisticDamaged < statisticHasGone)
-            {
                 stat += " в том числе неповредённых: " + (statisticHasGone - statisticDamaged) + " ( " + statisticWithoutDamage + "% )";
-            }
 
             if (statisticAmountOfDamage > 0)
             {
                 string AmountOfDamage;
 
                 if (statisticAmountOfDamage < 1000)
-                {
                     AmountOfDamage = statisticAmountOfDamage + " млн $";
-                }
                 else if (statisticAmountOfDamage < 1000000)
-                {
                     AmountOfDamage = String.Format("{0:f2}", (double)statisticAmountOfDamage / 1000) + " млрд $";
-                }
                 else
-                {
                     AmountOfDamage = String.Format("{0:f2}", (double)statisticAmountOfDamage / 1000000) + " трлн $";
-                }
 
                 stat += "\nНанесён ущерб: " + AmountOfDamage + statisticLastDamage;
             }
