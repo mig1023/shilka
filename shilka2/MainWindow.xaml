@@ -23,21 +23,26 @@
         </Canvas>
         <Canvas x:Name="StatisticMenu" HorizontalAlignment="Left" Height="174" Margin="0,325,-1,-179" VerticalAlignment="Top" Width="518">
             <Button x:Name="returnButton" Content="✖" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="30" Canvas.Left="10" Canvas.Top="15" Click="returnButton_Click"/>
-            <Label x:Name="label" Content="Лучшие результаты" Height="50" Canvas.Left="61" Canvas.Top="14" Width="300" FontSize="32" Foreground="White"/>
-            <DataGrid x:Name="StatisticGrid" Height="50" Canvas.Top="85" Width="150" Canvas.Left="60" AutoGenerateColumns="False" ColumnWidth="*">
+            <Label x:Name="label" Content="Результаты" Height="50" Canvas.Left="61" Canvas.Top="14" Width="300" FontSize="32" Foreground="White"/>
+            <DataGrid x:Name="StatisticGrid" Height="50" Canvas.Top="85" Width="150" Canvas.Left="60" BorderThickness="0" Background="#FF2A40CB" AutoGenerateColumns="False" ColumnWidth="*" GridLinesVisibility="Horizontal" BorderBrush="#FF2A40CB">
+                <DataGrid.Resources>
+                    <Style TargetType="DataGridCell" x:Key="blueCell">
+                        <Setter Property="Background" Value="#FFC1E0FF"/>
+                    </Style>
+                </DataGrid.Resources>
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Стрелок" Binding="{Binding name}"/>
-                    <DataGridTextColumn Header="Выстрелов" Binding="{Binding shellsFired}"/>
+                    <DataGridTextColumn Header="Выстрелов" Binding="{Binding shellsFired}" CellStyle="{StaticResource blueCell}"/>
                     <DataGridTextColumn Header="Из них в цель" Binding="{Binding inTarget}"/>
-                    <DataGridTextColumn Header="Сбито" Binding="{Binding Shutdown}"/>
-                    <DataGridTextColumn Header="Попаданий" Binding="{Binding inTargetPercent}"/>
-                    <DataGridTextColumn Header="Сбитых" Binding="{Binding shutdownPercent}"/>
+                    <DataGridTextColumn Header="Сбито" Binding="{Binding Shutdown}" CellStyle="{StaticResource blueCell}"/>
+                    <DataGridTextColumn Header="Попаданий, %" Binding="{Binding inTargetPercent}"/>
+                    <DataGridTextColumn Header="Сбитых" Binding="{Binding shutdownPercent}" CellStyle="{StaticResource blueCell}"/>
                     <DataGridTextColumn Header="Повреждённых" Binding="{Binding damaged}"/>
-                    <DataGridTextColumn Header="Повреждённых" Binding="{Binding damagedPercent}"/>
+                    <DataGridTextColumn Header="Повреждённых, %" Binding="{Binding damagedPercent}" CellStyle="{StaticResource blueCell}"/>
                     <DataGridTextColumn Header="Упущенных" Binding="{Binding hasGone}"/>
-                    <DataGridTextColumn Header="Из них без повреждений" Binding="{Binding withoutDamage}"/>
+                    <DataGridTextColumn Header="Из них без повреждений" Binding="{Binding withoutDamage}" CellStyle="{StaticResource blueCell}"/>
                     <DataGridTextColumn Header="Нанесён ущерб" Binding="{Binding amountOfDamage}"/>
-                    <DataGridTextColumn Header="Повреждено своих" Binding="{Binding Path=friendDamage}"/>
+                    <DataGridTextColumn Header="Повреждено своих" Binding="{Binding Path=friendDamage}" CellStyle="{StaticResource blueCell}"/>
                     <DataGridTextColumn Header="Удача" Binding="{Binding chance}"/>
                 </DataGrid.Columns>
             </DataGrid>
