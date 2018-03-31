@@ -24,7 +24,7 @@
         <Canvas x:Name="StatisticMenu" HorizontalAlignment="Left" Height="174" Margin="0,325,-1,-179" VerticalAlignment="Top" Width="518">
             <Button x:Name="returnButton" Content="✖" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="30" Canvas.Left="10" Canvas.Top="15" Click="returnButton_Click"/>
             <Label x:Name="label" Content="Результаты" Height="50" Canvas.Left="61" Canvas.Top="14" Width="300" FontSize="32" Foreground="White"/>
-            <DataGrid x:Name="StatisticGrid" Height="50" Canvas.Top="85" Width="150" Canvas.Left="60" BorderThickness="0" Background="#FF2A40CB" AutoGenerateColumns="False" ColumnWidth="*" GridLinesVisibility="Horizontal" BorderBrush="#FF2A40CB">
+            <DataGrid x:Name="StatisticGrid" Height="50" Canvas.Top="85" Width="150" Canvas.Left="60" VerticalScrollBarVisibility="Hidden" BorderThickness="0" Background="#FF2A40CB" AutoGenerateColumns="False" ColumnWidth="*" GridLinesVisibility="Horizontal" BorderBrush="#FF2A40CB">
                 <DataGrid.Resources>
                     <Style TargetType="DataGridCell" x:Key="blueCell">
                         <Setter Property="Background" Value="#FFC1E0FF"/>
