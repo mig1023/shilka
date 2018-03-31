@@ -47,5 +47,8 @@
                 </DataGrid.Columns>
             </DataGrid>
         </Canvas>
+        <Canvas x:Name="StartMenu" HorizontalAlignment="Left" Height="320" VerticalAlignment="Top" Width="355" Margin="-355,0,0,0">
+            <Button x:Name="startButton" Content="Новая игра" Height="29" Canvas.Left="10" Canvas.Top="10" Width="122" Click="startButton_Click"/>
+        </Canvas>
     </Grid>
 </Window>
