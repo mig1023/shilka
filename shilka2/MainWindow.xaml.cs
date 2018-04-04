@@ -57,12 +57,14 @@ namespace shilka2
 
         public void StartGame()
         {
-            double l = StartMenu.Margin.Left - StartMenu.ActualWidth;
-            double t = StartMenu.Margin.Top;
-            double r = StartMenu.Margin.Right;
-            double b = StartMenu.Margin.Bottom;
-
-            MoveCanvas(StartMenu, l, t, r, b, 1);
+            MoveCanvas(
+                StartMenu,
+                StartMenu.Margin.Left - StartMenu.ActualWidth,
+                StartMenu.Margin.Top,
+                StartMenu.Margin.Right,
+                StartMenu.Margin.Bottom,
+                1
+            );
 
             Game.Enabled = true;
             Game.Elapsed += new ElapsedEventHandler(Shell.ShellsFire);
@@ -85,17 +87,19 @@ namespace shilka2
             Game.Stop();
             Aircrafts.Stop();
 
-            double l = EndMenu.Margin.Left - EndMenu.ActualWidth;
-            double t = EndMenu.Margin.Top;
-            double r = EndMenu.Margin.Right;
-            double b = EndMenu.Margin.Bottom;
-
             EndText.Content = endText;
 
             var converter = new BrushConverter();
             EndMenu.Background = (Brush)converter.ConvertFrom(bgColor);
 
-            MoveCanvas(EndMenu, l, t, r, b, 0.2);
+            MoveCanvas(
+                EndMenu,
+                EndMenu.Margin.Left - EndMenu.ActualWidth,
+                EndMenu.Margin.Top,
+                EndMenu.Margin.Right,
+                EndMenu.Margin.Bottom,
+                0.2
+            );
         }
 
         public void GameStatisticShow()
@@ -106,11 +110,6 @@ namespace shilka2
                 Aircrafts.Stop();
             }
 
-            double l = StatisticMenu.Margin.Left;
-            double t = StatisticMenu.Margin.Top - StatisticMenu.ActualHeight;
-            double r = StatisticMenu.Margin.Right;
-            double b = StatisticMenu.Margin.Bottom;
-
             var converter = new BrushConverter();
             StatisticMenu.Background = (Brush)converter.ConvertFrom("#FF2A40CB");
 
@@ -119,17 +118,26 @@ namespace shilka2
             StatisticGrid.Height = StatisticMenu.Height - Shilka.statisticGridMargins;
             StatisticGrid.Width = StatisticMenu.Width - Shilka.statisticGridMargins;
 
-            MoveCanvas(StatisticMenu, l, t, r, b, 0.5);
+            MoveCanvas(
+                StatisticMenu,
+                StatisticMenu.Margin.Left,
+                StatisticMenu.Margin.Top - StatisticMenu.ActualHeight,
+                StatisticMenu.Margin.Right,
+                StatisticMenu.Margin.Bottom,
+                0.5
+            );
         }
 
         public void ReturnStatisticShow()
         {
-            double l = StatisticMenu.Margin.Left;
-            double t = StatisticMenu.Margin.Top + StatisticMenu.ActualHeight;
-            double r = StatisticMenu.Margin.Right;
-            double b = StatisticMenu.Margin.Bottom;
-
-            MoveCanvas(StatisticMenu, l, t, r, b, 0.2);
+            MoveCanvas(
+                StatisticMenu,
+                StatisticMenu.Margin.Left,
+                StatisticMenu.Margin.Top + StatisticMenu.ActualHeight,
+                StatisticMenu.Margin.Right,
+                StatisticMenu.Margin.Bottom,
+                0.2
+            );
 
             if (StartMenu.Margin.Left < 0)
             {
