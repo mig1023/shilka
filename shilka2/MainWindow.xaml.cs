@@ -13,7 +13,7 @@ namespace shilka2
 {
     public partial class MainWindow : Window
     {
-        public System.Timers.Timer Game;
+        public System.Timers.Timer Game = new System.Timers.Timer(30);
         public System.Timers.Timer Aircrafts;
         bool Pause = false;
         bool endGameAlready = false;
@@ -41,7 +41,13 @@ namespace shilka2
             StartMenu.Width = StatisticMenu.Width;
             StartMenu.Margin = new Thickness(0, 0, 0, 0);
 
-            startButton.Margin = new Thickness((StartMenu.Width / 2 - startButton.Width / 2), (StartMenu.Height / 2 - startButton.Height / 2), 0, 0);
+            Thickness buttonMargin = new Thickness(
+                (StartMenu.Width / 2 - startButton.Width / 2), (StartMenu.Height / 2 - startButton.Height * 1.5), 0, 0
+            );
+
+            startButton.Margin = buttonMargin;
+            resultButton.Margin = buttonMargin;
+            exitButton.Margin = buttonMargin;
 
             var converter = new BrushConverter();
             StartMenu.Background = (Brush)converter.ConvertFrom("#FF7A7A7A");
@@ -58,7 +64,6 @@ namespace shilka2
 
             MoveCanvas(StartMenu, l, t, r, b, 1);
 
-            Game = new System.Timers.Timer(30);
             Game.Enabled = true;
             Game.Elapsed += new ElapsedEventHandler(Shell.ShellsFire);
             Game.Elapsed += new ElapsedEventHandler(Shell.ShellsFly);
@@ -95,8 +100,11 @@ namespace shilka2
 
         public void GameStatisticShow()
         {
-            Game.Stop();
-            Aircrafts.Stop();
+            if (Game.Enabled)
+            {
+                Game.Stop();
+                Aircrafts.Stop();
+            }
 
             double l = StatisticMenu.Margin.Left;
             double t = StatisticMenu.Margin.Top - StatisticMenu.ActualHeight;
@@ -111,7 +119,7 @@ namespace shilka2
             StatisticGrid.Height = StatisticMenu.Height - Shilka.statisticGridMargins;
             StatisticGrid.Width = StatisticMenu.Width - Shilka.statisticGridMargins;
 
-            MoveCanvas(StatisticMenu, l, t, r, b, 0.2);
+            MoveCanvas(StatisticMenu, l, t, r, b, 0.5);
         }
 
         public void ReturnStatisticShow()
@@ -123,8 +131,11 @@ namespace shilka2
 
             MoveCanvas(StatisticMenu, l, t, r, b, 0.2);
 
-            Game.Start();
-            Aircrafts.Start();
+            if (StartMenu.Margin.Left < 0)
+            {
+                Game.Start();
+                Aircrafts.Start();
+            }
         }
 
         public void MoveCanvas(Canvas moveCanvas, double l, double t, double r, double b, double speed)
