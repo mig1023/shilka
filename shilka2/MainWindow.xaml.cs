@@ -111,7 +111,7 @@ namespace shilka2
             }
 
             var converter = new BrushConverter();
-            StatisticMenu.Background = (Brush)converter.ConvertFrom("#FF2A40CB");
+            StatisticMenu.Background = (Brush)converter.ConvertFrom("#FF001B36");
 
             Shilka.LoadStatistic();
 
@@ -124,7 +124,7 @@ namespace shilka2
                 StatisticMenu.Margin.Top - StatisticMenu.ActualHeight,
                 StatisticMenu.Margin.Right,
                 StatisticMenu.Margin.Bottom,
-                0.5
+                0.8
             );
         }
 
@@ -136,7 +136,7 @@ namespace shilka2
                 StatisticMenu.Margin.Top + StatisticMenu.ActualHeight,
                 StatisticMenu.Margin.Right,
                 StatisticMenu.Margin.Bottom,
-                0.2
+                0.8
             );
 
             if (StartMenu.Margin.Left < 0)
