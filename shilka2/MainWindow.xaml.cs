@@ -124,7 +124,7 @@ namespace shilka2
                 StatisticMenu.Margin.Top - StatisticMenu.ActualHeight,
                 StatisticMenu.Margin.Right,
                 StatisticMenu.Margin.Bottom,
-                0.8
+                1.8
             );
         }
 
@@ -136,7 +136,7 @@ namespace shilka2
                 StatisticMenu.Margin.Top + StatisticMenu.ActualHeight,
                 StatisticMenu.Margin.Right,
                 StatisticMenu.Margin.Bottom,
-                0.8
+                1.8
             );
 
             if (StartMenu.Margin.Left < 0)

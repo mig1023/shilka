@@ -18,17 +18,17 @@
         <Canvas x:Name="EndMenu" HorizontalAlignment="Left" Height="320" Margin="513,0,-511,0" VerticalAlignment="Top" Width="515">
             <Label x:Name="EndText" Content="" Height="131" Canvas.Left="24" Canvas.Top="15" Width="446" Foreground="White" FontSize="32" FontFamily="Arial Narrow"/>
             <TextBox x:Name="PlayerName" Height="33" Canvas.Left="24" TextWrapping="Wrap" Text="" Canvas.Top="172" Width="434" FontSize="18.667" KeyUp="PlayerName_KeyUp"/>
-            <Button x:Name="GameOverWithSave" Content="Сохранить" Height="41" Canvas.Left="246" Canvas.Top="223" Width="212" Click="GameOverWithSave_Click" IsEnabled="False" FontSize="16"/>
-            <Button x:Name="GameOverWithoutSave" Content="Не сохранять" Height="41" Canvas.Left="23" Canvas.Top="223" Width="212" Click="GameOverWithoutSave_Click" FontSize="16"/>
+            <Button x:Name="GameOverWithSave" Content="Сохранить" Height="41" Canvas.Left="246" Canvas.Top="223" Width="212" Click="GameOverWithSave_Click" IsEnabled="False" FontFamily="Arial Narrow" FontSize="16"/>
+            <Button x:Name="GameOverWithoutSave" Content="Не сохранять" Height="41" Canvas.Left="23" Canvas.Top="223" Width="212" Click="GameOverWithoutSave_Click" FontFamily="Arial Narrow" FontSize="16"/>
         </Canvas>
         <Canvas x:Name="StartMenu" HorizontalAlignment="Left" Height="320" VerticalAlignment="Top" Width="355" Margin="-355,0,0,0">
-            <Button x:Name="startButton" Content="Новая игра" Height="41" Canvas.Left="10" Canvas.Top="10" Width="215" Click="startButton_Click" FontSize="16"/>
-            <Button x:Name="resultButton" Content="Результаты" Height="41" Canvas.Left="10" Canvas.Top="56" Width="215" FontSize="16" Click="statisticButton_Click"/>
-            <Button x:Name="exitButton" Content="Выход" Height="41" Canvas.Left="10" Canvas.Top="102" Width="215" FontSize="16" Click="GameOverWithoutSave_Click"/>
+            <Button x:Name="startButton" Content="Новая игра" Height="41" Canvas.Left="10" Canvas.Top="10" Width="215" Click="startButton_Click" FontFamily="Arial Narrow" FontSize="20"/>
+            <Button x:Name="resultButton" Content="Результаты" Height="41" Canvas.Left="10" Canvas.Top="56" Width="215" FontFamily="Arial Narrow" FontSize="20" Click="statisticButton_Click"/>
+            <Button x:Name="exitButton" Content="Выход" Height="41" Canvas.Left="10" Canvas.Top="102" Width="215" FontFamily="Arial Narrow" FontSize="20" Click="GameOverWithoutSave_Click"/>
         </Canvas>
         <Canvas x:Name="StatisticMenu" HorizontalAlignment="Left" Height="174" Margin="0,325,-1,-179" VerticalAlignment="Top" Width="518">
             <Button x:Name="returnButton" Content="✖" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="30" Canvas.Left="10" Canvas.Top="15" Click="returnButton_Click"/>
-            <Label x:Name="label" Content="Результаты" Height="50" Canvas.Left="61" Canvas.Top="14" Width="300" FontSize="32" Foreground="White"/>
+            <Label x:Name="label" Content="Результаты" Height="50" Canvas.Left="61" Canvas.Top="14" Width="300" FontFamily="Arial Narrow" FontSize="36" Foreground="White"/>
             <DataGrid x:Name="StatisticGrid" Height="50" Canvas.Top="85" Width="150" Canvas.Left="60" VerticalScrollBarVisibility="Hidden" BorderThickness="0" Background="#FF2A40CB" AutoGenerateColumns="False" ColumnWidth="*" GridLinesVisibility="Horizontal" BorderBrush="#FF001B36">
                 <DataGrid.Resources>
                     <Style TargetType="DataGridCell" x:Key="blueCell">
