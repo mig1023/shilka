@@ -42,7 +42,7 @@ namespace shilka2
             StartMenu.Margin = new Thickness(0, 0, 0, 0);
 
             Thickness buttonMargin = new Thickness(
-                (StartMenu.Width / 2 - startButton.Width / 2), (StartMenu.Height / 2 - startButton.Height * 1.5), 0, 0
+                (StartMenu.Width / 2 - startButton.Width), (StartMenu.Height / 2 - startButton.Height / 2), 0, 0
             );
 
             startButton.Margin = buttonMargin;

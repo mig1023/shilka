@@ -19,8 +19,8 @@ namespace shilka2
         const double MAX_FRAGM_SIN = 0.4;
         const double MIN_FRAGM_COS = 0.4;
         const double MAX_FRAGM_COS = 0.8;
-        const int MIN_SPEED = 5;
-        const int MAX_SPEED = 10;
+        const int MIN_SPEED = 3;
+        const int MAX_SPEED = 12;
         const int EXTR_HEIGHT_CORRECTION = 18; 
 
         public double x { get; set; }
