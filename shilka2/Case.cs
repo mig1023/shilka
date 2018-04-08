@@ -34,6 +34,7 @@ namespace shilka2
         public static List<Line> allLines = new List<Line>();
 
         static int CaseMutex = 0;
+        static bool caseLimiter = false;
 
         static Random rand;
 
@@ -44,6 +45,14 @@ namespace shilka2
 
         public static void CaseExtractor()
         {
+            if (caseLimiter)
+            {
+                caseLimiter = false;
+                return;
+            }
+            else
+                caseLimiter = true;
+
             CaseMutex++;
             if (CaseMutex > 1)
             {
