@@ -42,15 +42,16 @@ namespace shilka2
             StartMenu.Margin = new Thickness(0, 0, 0, 0);
 
             Thickness buttonMargin = new Thickness(
-                (StartMenu.Width / 2 - startButton.Width), (StartMenu.Height / 2 - startButton.Height / 2), 0, 0
+                (StartMenu.Width / 2 - startButton.Width), (StartMenu.Height / 2 - (startButton.Height + shilkaArt.Height ) / 2), 0, 0
             );
 
             startButton.Margin = buttonMargin;
             resultButton.Margin = buttonMargin;
             exitButton.Margin = buttonMargin;
+            shilkaArt.Margin = buttonMargin;
 
             var converter = new BrushConverter();
-            StartMenu.Background = (Brush)converter.ConvertFrom("#FF7A7A7A");
+            StartMenu.Background = (Brush)converter.ConvertFrom("#FF343333");
 
             ShilkaImg.Margin = new Thickness(0, heightForShilka, 0, 0);
         }

@@ -55,11 +55,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Aircraft.cs" />
-    <Compile Include="Case.cs" />
-    <Compile Include="Shell.cs" />
-    <Compile Include="Shilka.cs" />
-    <Compile Include="StatGridTable.cs" />
+    <Compile Include="classes\Aircraft.cs" />
+    <Compile Include="classes\Case.cs" />
+    <Compile Include="classes\Shell.cs" />
+    <Compile Include="classes\Shilka.cs" />
+    <Compile Include="classes\StatTable.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -140,6 +140,10 @@
     <Resource Include="images\background.png" />
     <Resource Include="images\globalhawk.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\shilka-art.jpg" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace shilka2
 {
-    class StatGridTable
+    class StatTable
     {
         public string name { get; set; }
         public int shellsFired { get; set; }
@@ -22,7 +22,7 @@ namespace shilka2
         public int friendDamage { get; set; }
         public float chance { get; set; }
 
-        public StatGridTable(string name, string shellsFired, string inTarget,
+        public StatTable(string name, string shellsFired, string inTarget,
               string aircraftShutdown, string inTargetPercent, string shutdownPercent,
               string damaged, string damagedPercent, string hasGone,
               string withoutDamage, string amountOfDamage, string friendDamage,

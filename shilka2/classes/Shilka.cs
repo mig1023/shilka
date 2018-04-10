@@ -156,13 +156,13 @@ namespace shilka2
             string statisticText = File.ReadAllText(statisticFileName);
             string[] statisticLines = statisticText.Split(new char[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
 
-            List<StatGridTable> result = new List<StatGridTable>(statisticLines.Length);
+            List<StatTable> result = new List<StatTable>(statisticLines.Length);
 
             foreach (string statLine in statisticLines)
             {
                 string[] statElements = statLine.Split('|');
 
-                result.Add(new StatGridTable(
+                result.Add(new StatTable(
                     statElements[0], statElements[1], statElements[2], statElements[3],
                     statElements[4], statElements[5], statElements[6], statElements[7],
                     statElements[8], statElements[9], statElements[10], statElements[11],
