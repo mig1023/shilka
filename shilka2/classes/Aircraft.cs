@@ -329,6 +329,16 @@ namespace shilka2
                                 speed: 7,
                                 cantEscape: true
                             ); break;
+                        case 20:
+                            createNewAircraft(
+                                aircraftName: "tomahawk",
+                                hitPoint: 20,
+                                aircraftWidth: 125,
+                                aircraftHeight: 29,
+                                price: 2,
+                                speed: 5,
+                                cantEscape: true
+                            ); break;
                     }
                     break;
 
