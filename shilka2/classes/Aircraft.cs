@@ -151,7 +151,7 @@ namespace shilka2
                 case 7:
                 case 8:
                 case 9:
-                    switch ((int)(rand.Next(19) + 1))
+                    switch ((int)(rand.Next(20) + 1))
                     {
                         case 1:
                             createNewAircraft(
