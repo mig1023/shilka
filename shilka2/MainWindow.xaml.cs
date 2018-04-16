@@ -140,7 +140,7 @@ namespace shilka2
                 1
             );
 
-            if (StartMenu.Margin.Left < 0)
+            if (StartMenu.Margin.Left < 0 && !Pause)
             {
                 Game.Start();
                 Aircrafts.Start();
