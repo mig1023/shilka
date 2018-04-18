@@ -37,6 +37,14 @@ namespace shilka2
             StatisticMenu.Width = System.Windows.SystemParameters.PrimaryScreenWidth;
             StatisticMenu.Margin = new Thickness(0, System.Windows.SystemParameters.PrimaryScreenHeight, 0, 0);
 
+            var converter = new BrushConverter();
+            StatisticMenu.Background = (Brush)converter.ConvertFrom("#FF001B36");
+
+            StatisticGrid.ItemsSource = Shilka.LoadStatistic();
+
+            StatisticGrid.Height = StatisticMenu.Height - Shilka.statisticGridMargins;
+            StatisticGrid.Width = StatisticMenu.Width - Shilka.statisticGridMargins;
+
             StartMenu.Height = StatisticMenu.Height;
             StartMenu.Width = StatisticMenu.Width;
             StartMenu.Margin = new Thickness(0, 0, 0, 0);
@@ -50,7 +58,6 @@ namespace shilka2
             exitButton.Margin = buttonMargin;
             shilkaArt.Margin = buttonMargin;
 
-            var converter = new BrushConverter();
             StartMenu.Background = (Brush)converter.ConvertFrom("#FF343333");
 
             ShilkaImg.Margin = new Thickness(0, heightForShilka, 0, 0);
@@ -110,14 +117,6 @@ namespace shilka2
                 Game.Stop();
                 Aircrafts.Stop();
             }
-
-            var converter = new BrushConverter();
-            StatisticMenu.Background = (Brush)converter.ConvertFrom("#FF001B36");
-
-            Shilka.LoadStatistic();
-
-            StatisticGrid.Height = StatisticMenu.Height - Shilka.statisticGridMargins;
-            StatisticGrid.Width = StatisticMenu.Width - Shilka.statisticGridMargins;
 
             MoveCanvas(
                 StatisticMenu,

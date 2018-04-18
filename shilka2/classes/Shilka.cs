@@ -149,9 +149,13 @@ namespace shilka2
             File.AppendAllText("statistic.dat", stat);
         }
 
-        public static void LoadStatistic()
+        public static List<StatTable> LoadStatistic()
         {
-            if (!File.Exists(statisticFileName)) return;
+            if (!File.Exists(statisticFileName))
+            {
+                List<StatTable> emptyResult = new List<StatTable>(0);
+                return emptyResult;
+            }
 
             string statisticText = File.ReadAllText(statisticFileName);
             string[] statisticLines = statisticText.Split(new char[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
@@ -170,11 +174,7 @@ namespace shilka2
                 ));
             }
 
-            Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
-            {
-                MainWindow main = (MainWindow)Application.Current.MainWindow;
-                main.StatisticGrid.ItemsSource = result;
-            }));
+            return result;
         }
 
         public static void StatisticShow(object obj, ElapsedEventArgs e)
