@@ -71,7 +71,7 @@ namespace shilka2
                 StartMenu.Margin.Top,
                 StartMenu.Margin.Right,
                 StartMenu.Margin.Bottom,
-                1
+                0.6
             );
 
             Game.Enabled = true;
@@ -124,7 +124,7 @@ namespace shilka2
                 StatisticMenu.Margin.Top - StatisticMenu.ActualHeight,
                 StatisticMenu.Margin.Right,
                 StatisticMenu.Margin.Bottom,
-                1
+                0.5
             );
         }
 
@@ -136,7 +136,7 @@ namespace shilka2
                 StatisticMenu.Margin.Top + StatisticMenu.ActualHeight,
                 StatisticMenu.Margin.Right,
                 StatisticMenu.Margin.Bottom,
-                1
+                0.5
             );
 
             if (StartMenu.Margin.Left < 0 && !Pause)
