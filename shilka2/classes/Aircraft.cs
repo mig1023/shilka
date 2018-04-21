@@ -187,7 +187,7 @@ namespace shilka2
                                 aircraftName: "f117",
                                 hitPoint: 50,
                                 aircraftWidth: 270,
-                                aircraftHeight: 48,
+                                aircraftHeight: 47,
                                 price: 111,
                                 speed: 10
                             ); break;
@@ -350,7 +350,7 @@ namespace shilka2
                                 aircraftName: "mig23",
                                 hitPoint: 80,
                                 aircraftWidth: 270,
-                                aircraftHeight: 79,
+                                aircraftHeight: 71,
                                 price: 0,
                                 speed: 10,
                                 friend: true
@@ -370,7 +370,7 @@ namespace shilka2
                                 aircraftName: "mig31",
                                 hitPoint: 80,
                                 aircraftWidth: 270,
-                                aircraftHeight: 74,
+                                aircraftHeight: 63,
                                 price: 0,
                                 speed: 14,
                                 friend: true
