@@ -9,10 +9,11 @@ using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using System.Resources;
 using System.Timers;
+using shilka2.classes;
 
 namespace shilka2
 {
-    class Aircraft
+    class Aircraft : FlyObject
     {
         public const int MAX_FLIGHT_HEIGHT = 75;
         public const int AIRCRAFT_AVERAGE_PRICE = 81;
@@ -24,10 +25,7 @@ namespace shilka2
         public static int maxFlightHeight { get; set; }
         public static int minFlightHeight { get; set; }
         enum FlightDirectionType { Left, Right };
-        static Random rand;
 
-        public double x { get; set; }
-        public double y { get; set; }
         public double tangage { get; set; }
         int tangage_delay = 0;
 
@@ -38,20 +36,18 @@ namespace shilka2
         public int speed;
 
         public Boolean dead = false;
-        public Boolean fly = true;
         public Boolean friend = false;
         public Boolean cloud = false;
         public Boolean cantEscape = false;
 
         FlightDirectionType flightDirection;
 
-       public Image aircraftImage;
+        public Image aircraftImage;
 
         public static List<Aircraft> aircrafts = new List<Aircraft>();
 
         static Aircraft()
         {
-            rand = new Random();
             maxFlightHeight = MAX_FLIGHT_HEIGHT;
         }
 
@@ -493,6 +489,7 @@ namespace shilka2
                 newAircraft.friend = friend;
                 newAircraft.cloud = cloud;
                 newAircraft.cantEscape = cantEscape;
+                newAircraft.fly = true;
 
                 if (!friend)
                 {

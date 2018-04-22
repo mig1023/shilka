@@ -11,11 +11,12 @@ using System.Windows.Media;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using System.Windows.Media.Animation;
+using shilka2.classes;
 
 namespace shilka2
 {
 
-    class Shell
+    class Shell : FlyObject
     {
         const int SHELL_LENGTH = 3;
         const int SHELL_SPEED = 25;
@@ -28,11 +29,6 @@ namespace shilka2
         public const int FIRE_HEIGHT_CORRECTION = 30;
         public const int FIRE_HEIGHT_POINT_CORRECTION = 70;
 
-        public double x { get; set; }
-        public double y { get; set; }
-        public double sin { get; set; }
-        public double cos { get; set; }
-        public bool fly { get; set; }
         public bool flash { get; set; }
         public int delay { get; set; }
         public static double ptX { get; set; }
@@ -49,15 +45,8 @@ namespace shilka2
 
         static int FireMutex = 0;
         
-        static Random rand;
-
         static List<Shell> shells = new List<Shell>();
         public static List<Line> allLines = new List<Line>();
-
-        static Shell()
-        {
-            rand = new Random();
-        }
 
         public static void ShellsFly(object obj, ElapsedEventArgs e)
         {

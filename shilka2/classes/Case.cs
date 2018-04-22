@@ -9,10 +9,11 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
+using shilka2.classes;
 
 namespace shilka2
 {
-    class Case
+    class Case : FlyObject
     {
         const int CASE_LENGTH = 5;
         const double MIN_FRAGM_SIN = 0.2;
@@ -23,11 +24,6 @@ namespace shilka2
         const int MAX_SPEED = 12;
         const int EXTR_HEIGHT_CORRECTION = 18; 
 
-        public double x { get; set; }
-        public double y { get; set; }
-        public double sin { get; set; }
-        public double cos { get; set; }
-        public bool fly { get; set; }
         public int speed { get; set; }
 
         public static List<Case> cases = new List<Case>();
@@ -35,13 +31,6 @@ namespace shilka2
 
         static int CaseMutex = 0;
         static bool caseLimiter = false;
-
-        static Random rand;
-
-        static Case()
-        {
-            rand = new Random();
-        }
 
         public static void CaseExtractor()
         {
