@@ -106,8 +106,9 @@ namespace shilka2
                                 int priceOfDamage = aircraft.price - (int)residualValue;
                                 Shilka.statisticAmountOfDamage += priceOfDamage;
 
-                                Shilka.statisticLastDamage = String.Format(" ( +{0:f2} млн $ повреждён ", priceOfDamage) + 
-                                    aircraft.aircraftType + " )";
+                                Shilka.statisticShutdownFlag = false;
+                                Shilka.statisticLastDamagePrice = priceOfDamage;
+                                Shilka.statisticLastDamageType = aircraft.aircraftType;
                             }
                             
                         } 

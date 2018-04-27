@@ -29,7 +29,10 @@ namespace shilka2
         public static int statisticDamaged = 0;
         public static int statisticFriendDamage = 0;
         public static int statisticAmountOfDamage = 0;
-        public static string statisticLastDamage;
+
+        public static int statisticLastDamagePrice;
+        public static bool statisticShutdownFlag = false;
+        public static string statisticLastDamageType;
 
         public static int degreeOfHeatingGunBurrels = 30;
         public static bool reheatingGunBurrels = false;
@@ -222,7 +225,14 @@ namespace shilka2
                 else
                     AmountOfDamage = String.Format("{0:f2}", (double)statisticAmountOfDamage / 1000000) + " трлн $";
 
-                stat += "Нанесён ущерб: " + AmountOfDamage + statisticLastDamage + "\n";
+                stat += "Нанесён ущерб: " + AmountOfDamage;
+
+                if (statisticShutdownFlag)
+                    stat += " ( +" + statisticLastDamagePrice + " млн $ сбит " + statisticLastDamageType + " )";
+                else
+                    stat += String.Format(" ( +{0:f2} млн $ повреждён ", statisticLastDamagePrice) + statisticLastDamageType + " )";
+
+                stat += "\n";
             }
                    
             if (statisticFriendDamage > 0) stat += "Повреждено своих: " + statisticFriendDamage + "\n";

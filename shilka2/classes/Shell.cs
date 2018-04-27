@@ -104,8 +104,10 @@ namespace shilka2
                                     {
                                         Shilka.staticticAircraftShutdown++;
                                         Shilka.statisticAmountOfDamage += aircraft.price;
-                                        Shilka.statisticLastDamage = " ( +" + aircraft.price + " млн $ сбит " + 
-                                            aircraft.aircraftType + " )";
+
+                                        Shilka.statisticShutdownFlag = true;
+                                        Shilka.statisticLastDamagePrice = aircraft.price;
+                                        Shilka.statisticLastDamageType = aircraft.aircraftType;
                                     }
                                     else
                                         main.EndGame("Вы подбили своего!\nИгра окончена.\nСохранить статистику?", "#FF7E1C25");
