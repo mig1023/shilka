@@ -198,10 +198,9 @@ namespace shilka2
             {
                 stat += "Сбито: " + staticticAircraftShutdown + " ( " + shutdownPercent + "% )";
 
-                if (statisticDamaged > 0)
-                    stat += " + повреждён: " + statisticDamaged + " ( " + damagedPercent + "% )\n";
-                else
-                    stat += "\n";
+                if (statisticDamaged > 0) stat += " + повреждён: " + statisticDamaged + " ( " + damagedPercent + "% )";
+
+                stat += "\n";
             }
                 
             if (statisticHasGone > 0)
@@ -243,8 +242,7 @@ namespace shilka2
             {
                 stat += "Температура стволов: " + degreeOfHeatingGunBurrels + "°C";
 
-                if (reheatingGunBurrels)
-                    stat += " -- перегрев стволов!\n";
+                if (reheatingGunBurrels) stat += " -- перегрев стволов!\n";
 
                 stat += "\n";
             }
