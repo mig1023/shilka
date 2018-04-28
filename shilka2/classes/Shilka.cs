@@ -106,18 +106,26 @@ namespace shilka2
                     {
                         Line flash = new Line();
                         flash.X1 = gun.X2;
-                        flash.Y1 = gun.Y2;
+                        flash.Y1 = gun.Y2;  
                         flash.X2 = gun.X2 + 5 * Shell.LastCos;
                         flash.Y2 = gun.Y2 - 5 * Shell.LastSin;
-                        flash.Stroke = Brushes.Red;
-                        flash.StrokeThickness = 5;
+
+                        int flashColor = rand.Next(4);
+                        if (flashColor == 0)
+                            flash.Stroke = Brushes.Red;
+                        else if (flashColor == 1)
+                            flash.Stroke = Brushes.DarkRed;
+                        else if (flashColor == 2)
+                            flash.Stroke = Brushes.Firebrick;
+                        else if (flashColor == 3)
+                            flash.Stroke = Brushes.Maroon;
+
+                        flash.StrokeThickness = rand.Next(2) + 4;
                         main.firePlace.Children.Add(flash);
                         Canvas.SetZIndex(flash, 210);
                         Shell.allLines.Add(flash);
                     }
                 }
-
-
             }
         }
 
@@ -167,13 +175,11 @@ namespace shilka2
 
             foreach (string statLine in statisticLines)
             {
-                string[] statElements = statLine.Split('|');
+                string[] stat = statLine.Split('|');
 
                 result.Add(new StatTable(
-                    statElements[0], statElements[1], statElements[2], statElements[3],
-                    statElements[4], statElements[5], statElements[6], statElements[7],
-                    statElements[8], statElements[9], statElements[10], statElements[11],
-                    statElements[12]
+                    stat[0], stat[1], stat[2], stat[3], stat[4], stat[5], stat[6],
+                    stat[7], stat[8], stat[9], stat[10], stat[11], stat[12]
                 ));
             }
 
@@ -215,16 +221,14 @@ namespace shilka2
 
             if (statisticAmountOfDamage > 0)
             {
-                string AmountOfDamage;
+                stat += "Нанесён ущерб: ";
 
                 if (statisticAmountOfDamage < 1000)
-                    AmountOfDamage = statisticAmountOfDamage + " млн $";
+                    stat += statisticAmountOfDamage + " млн $";
                 else if (statisticAmountOfDamage < 1000000)
-                    AmountOfDamage = String.Format("{0:f2}", (double)statisticAmountOfDamage / 1000) + " млрд $";
+                    stat += String.Format("{0:f2}", (double)statisticAmountOfDamage / 1000) + " млрд $";
                 else
-                    AmountOfDamage = String.Format("{0:f2}", (double)statisticAmountOfDamage / 1000000) + " трлн $";
-
-                stat += "Нанесён ущерб: " + AmountOfDamage;
+                    stat += String.Format("{0:f2}", (double)statisticAmountOfDamage / 1000000) + " трлн $";
 
                 if (statisticShutdownFlag)
                     stat += " ( +" + statisticLastDamagePrice + " млн $ сбит " + statisticLastDamageType + " )";

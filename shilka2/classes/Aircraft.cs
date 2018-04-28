@@ -110,7 +110,6 @@ namespace shilka2
                                 Shilka.statisticLastDamagePrice = priceOfDamage;
                                 Shilka.statisticLastDamageType = aircraft.aircraftType;
                             }
-                            
                         } 
                         else if ( (aircraft.hitpoint < aircraft.hitpointMax) && aircraft.friend) Shilka.statisticFriendDamage++;
                     }
