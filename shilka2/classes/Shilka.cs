@@ -96,21 +96,24 @@ namespace shilka2
                 if (Shell.Fire)
                 {
                     flash_count++;
-                    if (flash_count >= 20)
-                        flash_count = 0;
-                    else
-                        flash_count++;
+                    if (flash_count >= 10) flash_count = 0;
 
-                    if (((flash_count >= 5) && (flash_count < 10) && (num_guns == 0)) ||
-                        ((flash_count >= 15) && (num_guns == 1)))
-                    {
+                    if (
+                        ( (flash_count >= 2) && (flash_count < 5) && (num_guns == 0) )
+                        ||
+                        ( (flash_count >= 7) && (num_guns == 1) )
+                    ) {
                         Line flash = new Line();
                         flash.X1 = gun.X2;
-                        flash.Y1 = gun.Y2;  
-                        flash.X2 = gun.X2 + 5 * Shell.LastCos;
-                        flash.Y2 = gun.Y2 - 5 * Shell.LastSin;
+                        flash.Y1 = gun.Y2;
+
+                        int flashSize = rand.Next(8) + 5;
+
+                        flash.X2 = gun.X2 + flashSize * Shell.LastCos;
+                        flash.Y2 = gun.Y2 - flashSize * Shell.LastSin;
 
                         int flashColor = rand.Next(4);
+
                         if (flashColor == 0)
                             flash.Stroke = Brushes.Red;
                         else if (flashColor == 1)
