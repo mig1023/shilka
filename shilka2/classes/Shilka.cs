@@ -107,7 +107,7 @@ namespace shilka2
                         flash.X1 = gun.X2;
                         flash.Y1 = gun.Y2;
 
-                        int flashSize = rand.Next(8) + 5;
+                        int flashSize = rand.Next(3) + 5;
 
                         flash.X2 = gun.X2 + flashSize * Shell.LastCos;
                         flash.Y2 = gun.Y2 - flashSize * Shell.LastSin;
@@ -204,20 +204,19 @@ namespace shilka2
                 stat += "Попаданий: " + staticticInTarget + " ( " + inTargetPercent + "% )\n";
 
             if (staticticAircraftShutdown > 0)
-            {
                 stat += "Сбито: " + staticticAircraftShutdown + " ( " + shutdownPercent + "% )";
 
-                if (statisticDamaged > 0) stat += " + повреждён: " + statisticDamaged + " ( " + damagedPercent + "% )";
-
+            if (statisticDamaged > 0)
+                stat += (staticticAircraftShutdown == 0 ? "П" : " +п") + "овреждено: " + statisticDamaged + " ( " + damagedPercent + "% )\n";
+            else if (staticticAircraftShutdown > 0)
                 stat += "\n";
-            }
                 
             if (statisticHasGone > 0)
             {
                 stat += "Упущено: " + statisticHasGone + " ( " + (statisticHasGone * baseForPercent) + "% )";
 
                 if (statisticDamaged < statisticHasGone)
-                    stat += " в том числе неповредённых: " + (statisticHasGone - statisticDamaged) + " ( " + statisticWithoutDamage + "% )";
+                    stat += ", в том числе неповредённых: " + (statisticHasGone - statisticDamaged) + " ( " + statisticWithoutDamage + "% )";
 
                 stat += "\n";
             }

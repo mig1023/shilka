@@ -66,12 +66,9 @@ namespace shilka2
         public void StartGame()
         {
             MoveCanvas(
-                StartMenu,
-                StartMenu.Margin.Left - StartMenu.ActualWidth,
-                StartMenu.Margin.Top,
-                StartMenu.Margin.Right,
-                StartMenu.Margin.Bottom,
-                0.6
+                moveCanvas: StartMenu,
+                left: StartMenu.Margin.Left - StartMenu.ActualWidth,
+                speed: 0.6
             );
 
             Game.Enabled = true;
@@ -101,12 +98,9 @@ namespace shilka2
             EndMenu.Background = (Brush)converter.ConvertFrom(bgColor);
 
             MoveCanvas(
-                EndMenu,
-                EndMenu.Margin.Left - EndMenu.ActualWidth,
-                EndMenu.Margin.Top,
-                EndMenu.Margin.Right,
-                EndMenu.Margin.Bottom,
-                0.2
+                moveCanvas: EndMenu,
+                left: EndMenu.Margin.Left - EndMenu.ActualWidth,
+                speed: 0.2
             );
         }
 
@@ -119,24 +113,18 @@ namespace shilka2
             }
 
             MoveCanvas(
-                StatisticMenu,
-                StatisticMenu.Margin.Left,
-                StatisticMenu.Margin.Top - StatisticMenu.ActualHeight,
-                StatisticMenu.Margin.Right,
-                StatisticMenu.Margin.Bottom,
-                0.5
+                moveCanvas: StatisticMenu,
+                top: StatisticMenu.Margin.Top - StatisticMenu.ActualHeight,
+                speed: 0.5
             );
         }
 
         public void ReturnStatisticShow()
         {
             MoveCanvas(
-                StatisticMenu,
-                StatisticMenu.Margin.Left,
-                StatisticMenu.Margin.Top + StatisticMenu.ActualHeight,
-                StatisticMenu.Margin.Right,
-                StatisticMenu.Margin.Bottom,
-                0.5
+                moveCanvas: StatisticMenu,
+                top: StatisticMenu.Margin.Top + StatisticMenu.ActualHeight,
+                speed: 0.5
             );
 
             if (StartMenu.Margin.Left < 0 && !Pause)
@@ -146,12 +134,18 @@ namespace shilka2
             }
         }
 
-        public void MoveCanvas(Canvas moveCanvas, double l, double t, double r, double b, double speed)
+        public void MoveCanvas(Canvas moveCanvas,
+            double left = -1, double top = -1, double right = -1, double bottom = -1, double speed = 1)
         {
+            left = (left == -1 ? moveCanvas.Margin.Left : left);
+            top = (top == -1 ? moveCanvas.Margin.Top : top);
+            right = (right == -1 ? moveCanvas.Margin.Right : right);
+            bottom = (bottom == -1 ? moveCanvas.Margin.Bottom : bottom);
+
             ThicknessAnimation move = new ThicknessAnimation();
             move.Duration = TimeSpan.FromSeconds(speed);
             move.From = moveCanvas.Margin;
-            move.To = new Thickness(l, t, r, b);
+            move.To = new Thickness(left, top, right, bottom);
             moveCanvas.BeginAnimation(Border.MarginProperty, move);
         }
 
@@ -169,14 +163,12 @@ namespace shilka2
 
         private void Window_MouseMove(object sender, MouseEventArgs e)
         {
-            if (Shell.Fire)
-                Shilka.SetNewTergetPoint(e.GetPosition((Window)sender), sender);
+            if (Shell.Fire) Shilka.SetNewTergetPoint(e.GetPosition((Window)sender), sender);
         }
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!endGameAlready)
-                EndGame("Выход из игры.\nСохранить статистику?", "#FF0F0570");
+            if (!endGameAlready) EndGame("Выход из игры.\nСохранить статистику?", "#FF0F0570");
         }
 
         private void pauseButton_Click(object sender, RoutedEventArgs e)
@@ -212,10 +204,7 @@ namespace shilka2
 
         private void PlayerName_KeyUp(object sender, KeyEventArgs e)
         {
-            if (PlayerName.Text == "")
-                GameOverWithSave.IsEnabled = false;
-            else
-                GameOverWithSave.IsEnabled = true;
+            GameOverWithSave.IsEnabled = (PlayerName.Text == "" ? false : true);
         }
 
         private void statisticButton_Click(object sender, RoutedEventArgs e)
