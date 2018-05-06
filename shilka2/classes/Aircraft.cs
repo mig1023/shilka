@@ -138,7 +138,6 @@ namespace shilka2
                         hitPoint: 10,
                         aircraftWidth: (int)(rand.Next(300) + 200),
                         aircraftHeight: (int)(rand.Next(100) + 70),
-                        price: 0,
                         speed: 5,
                         friend: true,
                         cloud: true
@@ -186,8 +185,7 @@ namespace shilka2
                                 hitPoint: 50,
                                 aircraftWidth: 270,
                                 aircraftHeight: 47,
-                                price: 111,
-                                speed: 10
+                                price: 111
                             ); break;
                         case 5:
                             createNewAircraft(
@@ -195,8 +193,7 @@ namespace shilka2
                                 hitPoint: 120,
                                 aircraftWidth: 275,
                                 aircraftHeight: 67,
-                                price: 38,
-                                speed: 10
+                                price: 38
                             ); break;
                         case 6:
                             createNewAircraft(
@@ -204,8 +201,7 @@ namespace shilka2
                                 hitPoint: 120,
                                 aircraftWidth: 270,
                                 aircraftHeight: 61,
-                                price: 29,
-                                speed: 10
+                                price: 29
                             ); break;
                         case 7:
                             createNewAircraft(
@@ -213,8 +209,7 @@ namespace shilka2
                                 hitPoint: 120,
                                 aircraftWidth: 270,
                                 aircraftHeight: 84,
-                                price: 34,
-                                speed: 10
+                                price: 34
                             ); break;
                         case 8:
                             createNewAircraft(
@@ -231,8 +226,7 @@ namespace shilka2
                                 hitPoint: 120,
                                 aircraftWidth: 270,
                                 aircraftHeight: 62,
-                                price: 29,
-                                speed: 10
+                                price: 29
                             ); break;
                         case 10:
                             createNewAircraft(
@@ -249,8 +243,7 @@ namespace shilka2
                                 hitPoint: 100,
                                 aircraftWidth: 270,
                                 aircraftHeight: 72,
-                                price: 111,
-                                speed: 10
+                                price: 111
                             ); break;
                         case 12:
                             createNewAircraft(
@@ -278,8 +271,7 @@ namespace shilka2
                                 hitPoint: 90,
                                 aircraftWidth: 270,
                                 aircraftHeight: 76,
-                                price: 83,
-                                speed: 10
+                                price: 83
                             ); break;
                         case 15:
                             createNewAircraft(
@@ -296,8 +288,7 @@ namespace shilka2
                                 hitPoint: 100,
                                 aircraftWidth: 270,
                                 aircraftHeight: 77,
-                                price: 123,
-                                speed: 10
+                                price: 123
                             ); break;
                         case 17:
                             createNewAircraft(
@@ -349,8 +340,6 @@ namespace shilka2
                                 hitPoint: 80,
                                 aircraftWidth: 270,
                                 aircraftHeight: 71,
-                                price: 0,
-                                speed: 10,
                                 friend: true
                             ); break;
                         case 2:
@@ -359,8 +348,6 @@ namespace shilka2
                                 hitPoint: 80,
                                 aircraftWidth: 270,
                                 aircraftHeight: 65,
-                                price: 0,
-                                speed: 10,
                                 friend: true
                             ); break;
                         case 3:
@@ -369,7 +356,6 @@ namespace shilka2
                                 hitPoint: 80,
                                 aircraftWidth: 270,
                                 aircraftHeight: 63,
-                                price: 0,
                                 speed: 14,
                                 friend: true
                             ); break;
@@ -379,7 +365,6 @@ namespace shilka2
                                 hitPoint: 80,
                                 aircraftWidth: 270,
                                 aircraftHeight: 61,
-                                price: 0,
                                 speed: 5,
                                 friend: true
                             ); break;
@@ -389,7 +374,6 @@ namespace shilka2
                                 hitPoint: 80,
                                 aircraftWidth: 270,
                                 aircraftHeight: 67,
-                                price: 0,
                                 speed: 8,
                                 friend: true
                             ); break;
@@ -399,7 +383,6 @@ namespace shilka2
                                 hitPoint: 180,
                                 aircraftWidth: 270,
                                 aircraftHeight: 81,
-                                price: 0,
                                 speed: 5,
                                 friend: true,
                                 cantEscape: true
@@ -410,8 +393,6 @@ namespace shilka2
                                 hitPoint: 80,
                                 aircraftWidth: 270,
                                 aircraftHeight: 77,
-                                price: 0,
-                                speed: 10,
                                 friend: true
                             ); break;
                         case 8:
@@ -420,8 +401,6 @@ namespace shilka2
                                 hitPoint: 100,
                                 aircraftWidth: 275,
                                 aircraftHeight: 56,
-                                price: 0,
-                                speed: 10,
                                 friend: true
                             ); break;
                         case 9:
@@ -430,7 +409,6 @@ namespace shilka2
                                 hitPoint: 80,
                                 aircraftWidth: 270,
                                 aircraftHeight: 57,
-                                price: 0,
                                 speed: 12,
                                 friend: true
                             ); break;
@@ -440,7 +418,6 @@ namespace shilka2
                                 hitPoint: 120,
                                 aircraftWidth: 510,
                                 aircraftHeight: 108,
-                                price: 0,
                                 speed: 18,
                                 friend: true
                             ); break;
@@ -449,8 +426,8 @@ namespace shilka2
             }
         }
 
-        static void createNewAircraft(string aircraftName, int hitPoint, int aircraftWidth, int aircraftHeight, int price, 
-            int speed, Boolean friend = false, Boolean cloud = false, Boolean cantEscape = false)
+        static void createNewAircraft(string aircraftName, int hitPoint, int aircraftWidth, int aircraftHeight, 
+            int speed = 10, Boolean friend = false, Boolean cloud = false, Boolean cantEscape = false, int price = 0)
         {
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {
