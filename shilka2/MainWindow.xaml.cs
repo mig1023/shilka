@@ -14,7 +14,8 @@ namespace shilka2
     public partial class MainWindow : Window
     {
         public System.Timers.Timer Game = new System.Timers.Timer(30);
-        public System.Timers.Timer Aircrafts;
+        public System.Timers.Timer HandMove = new System.Timers.Timer(550);
+        public System.Timers.Timer Aircrafts = new System.Timers.Timer(2000);
         bool Pause = false;
         bool endGameAlready = false;
 
@@ -61,6 +62,7 @@ namespace shilka2
             StartMenu.Background = (Brush)converter.ConvertFrom("#FF343333");
 
             ShilkaImg.Margin = new Thickness(0, heightForShilka, 0, 0);
+            HandImg.Margin = new Thickness(65, (heightForShilka - 105), 0, 0);
         }
 
         public void StartGame()
@@ -71,6 +73,10 @@ namespace shilka2
                 speed: 0.6
             );
 
+            HandMove.Enabled = true;
+            HandMove.Elapsed += new ElapsedEventHandler(HideHand);
+            HandMove.Start();
+
             Game.Enabled = true;
             Game.Elapsed += new ElapsedEventHandler(Shell.ShellsFire);
             Game.Elapsed += new ElapsedEventHandler(Shell.ShellsFly);
@@ -79,10 +85,30 @@ namespace shilka2
             Game.Elapsed += new ElapsedEventHandler(Shilka.StatisticShow);
             Game.Start();
 
-            Aircrafts = new System.Timers.Timer(2000);
             Aircrafts.Enabled = true;
             Aircrafts.Elapsed += new ElapsedEventHandler(Aircraft.AircraftStart);
             Aircrafts.Start();
+        }
+
+        public static void HideHand(object obj, ElapsedEventArgs e)
+        {
+            Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
+            {
+                MainWindow main = (MainWindow)Application.Current.MainWindow;
+                main.HandMove.Enabled = false;
+                main.HandMove.Stop();
+
+                ThicknessAnimation move = new ThicknessAnimation();
+                move.Duration = TimeSpan.FromSeconds(2);
+                move.From = main.HandImg.Margin;
+                move.To = new Thickness(
+                    ( System.Windows.SystemParameters.PrimaryScreenHeight / 2 ),
+                    System.Windows.SystemParameters.PrimaryScreenHeight,
+                    0,
+                    0
+                );
+                main.HandImg.BeginAnimation(Border.MarginProperty, move);
+            }));
         }
 
         public void EndGame(string endText, string bgColor)
@@ -148,6 +174,8 @@ namespace shilka2
             move.To = new Thickness(left, top, right, bottom);
             moveCanvas.BeginAnimation(Border.MarginProperty, move);
         }
+
+
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {

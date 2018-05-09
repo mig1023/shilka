@@ -142,6 +142,7 @@
     <Resource Include="images\globalhawk.png" />
     <Resource Include="images\shilka-art.jpg" />
     <Resource Include="images\tomahawk.png" />
+    <Resource Include="images\hand.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
