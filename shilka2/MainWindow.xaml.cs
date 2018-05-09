@@ -14,7 +14,7 @@ namespace shilka2
     public partial class MainWindow : Window
     {
         public System.Timers.Timer Game = new System.Timers.Timer(30);
-        public System.Timers.Timer HandMove = new System.Timers.Timer(550);
+        public System.Timers.Timer HandMove = new System.Timers.Timer(600);
         public System.Timers.Timer Aircrafts = new System.Timers.Timer(2000);
         bool Pause = false;
         bool endGameAlready = false;
@@ -62,7 +62,7 @@ namespace shilka2
             StartMenu.Background = (Brush)converter.ConvertFrom("#FF343333");
 
             ShilkaImg.Margin = new Thickness(0, heightForShilka, 0, 0);
-            HandImg.Margin = new Thickness(65, (heightForShilka - 105), 0, 0);
+            HandImg.Margin = new Thickness(65, (heightForShilka - 120), 0, 0);
         }
 
         public void StartGame()
@@ -99,13 +99,12 @@ namespace shilka2
                 main.HandMove.Stop();
 
                 ThicknessAnimation move = new ThicknessAnimation();
-                move.Duration = TimeSpan.FromSeconds(2);
+                move.Duration = TimeSpan.FromSeconds(1.5);
                 move.From = main.HandImg.Margin;
                 move.To = new Thickness(
                     ( System.Windows.SystemParameters.PrimaryScreenHeight / 2 ),
                     System.Windows.SystemParameters.PrimaryScreenHeight,
-                    0,
-                    0
+                    0, 0
                 );
                 main.HandImg.BeginAnimation(Border.MarginProperty, move);
             }));
