@@ -208,7 +208,7 @@ namespace shilka2
                                 aircraftName: "f16",
                                 hitPoint: 120,
                                 aircraftWidth: 270,
-                                aircraftHeight: 84,
+                                aircraftHeight: 89,
                                 price: 34
                             ); break;
                         case 8:
