@@ -278,7 +278,7 @@ namespace shilka2
                                 aircraftName: "e3",
                                 hitPoint: 150,
                                 aircraftWidth: 581,
-                                aircraftHeight: 159,
+                                aircraftHeight: 164,
                                 price: 270,
                                 speed: 8
                             ); break;
