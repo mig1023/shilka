@@ -233,7 +233,7 @@ namespace shilka2
                                 aircraftName: "f4",
                                 hitPoint: 150,
                                 aircraftWidth: 270,
-                                aircraftHeight: 66,
+                                aircraftHeight: 64,
                                 price: 3,
                                 speed: 8
                             ); break;
