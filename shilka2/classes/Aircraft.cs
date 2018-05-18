@@ -22,8 +22,9 @@ namespace shilka2
         const int TANGAGE_SPEED = 4;
         const int TANGAGE_DEAD_SPEED = 10;
 
-        public static int maxFlightHeight { get; set; }
-        public static int minFlightHeight { get; set; }
+        public static int maxAltitudeGlobal = MAX_FLIGHT_HEIGHT;
+        public static int minAltitudeGlobal { get; set; }
+        public static int minAltitudeForLargeAircraft = (int)System.Windows.SystemParameters.PrimaryScreenHeight / 2;
         enum FlightDirectionType { Left, Right };
 
         public double tangage { get; set; }
@@ -34,6 +35,7 @@ namespace shilka2
         public int hitpoint;
         public int hitpointMax;
         public int speed;
+        public int minAltitude;
 
         public Boolean dead = false;
         public Boolean friend = false;
@@ -45,11 +47,6 @@ namespace shilka2
         public Image aircraftImage;
 
         public static List<Aircraft> aircrafts = new List<Aircraft>();
-
-        static Aircraft()
-        {
-            maxFlightHeight = MAX_FLIGHT_HEIGHT;
-        }
 
         public static void AircraftFly(object obj, ElapsedEventArgs e)
         {
@@ -82,10 +79,10 @@ namespace shilka2
                             }
                             aircraft.y += aircraft.tangage;
 
-                            if (aircraft.y > Aircraft.minFlightHeight) aircraft.y = Aircraft.minFlightHeight;
+                            if (aircraft.y > aircraft.minAltitude) aircraft.y = aircraft.minAltitude;
                         }
 
-                    if (aircraft.y < maxFlightHeight) aircraft.y = maxFlightHeight;
+                    if (aircraft.y < maxAltitudeGlobal) aircraft.y = maxAltitudeGlobal;
 
                     if (
                         ((aircraft.x + aircraft.aircraftImage.Width) < 0) && (aircraft.flightDirection == FlightDirectionType.Left)
@@ -177,6 +174,7 @@ namespace shilka2
                                 aircraftHeight: 155,
                                 price: 53,
                                 speed: 8,
+                                minAltitude: minAltitudeForLargeAircraft,
                                 cantEscape: true
                             ); break;
                         case 4:
@@ -280,7 +278,8 @@ namespace shilka2
                                 aircraftWidth: 581,
                                 aircraftHeight: 164,
                                 price: 270,
-                                speed: 8
+                                speed: 8,
+                                minAltitude: minAltitudeForLargeAircraft
                             ); break;
                         case 16:
                             createNewAircraft(
@@ -419,6 +418,7 @@ namespace shilka2
                                 aircraftWidth: 510,
                                 aircraftHeight: 108,
                                 speed: 18,
+                                minAltitude: minAltitudeForLargeAircraft,
                                 friend: true
                             ); break;
                     }
@@ -427,7 +427,8 @@ namespace shilka2
         }
 
         static void createNewAircraft(string aircraftName, int hitPoint, int aircraftWidth, int aircraftHeight, 
-            int speed = 10, Boolean friend = false, Boolean cloud = false, Boolean cantEscape = false, int price = 0)
+            int speed = 10, int minAltitude = -1, Boolean friend = false, Boolean cloud = false, Boolean cantEscape = false,
+            int price = 0)
         {
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {
@@ -440,7 +441,7 @@ namespace shilka2
 
                 Aircraft newAircraft = new Aircraft();
 
-                newAircraft.y = rand.Next(Aircraft.maxFlightHeight, Aircraft.minFlightHeight);
+                newAircraft.y = rand.Next(Aircraft.maxAltitudeGlobal, Aircraft.minAltitudeGlobal);
 
                 if (rand.Next(2) == 1)
                 {
@@ -465,10 +466,13 @@ namespace shilka2
                 newAircraft.hitpointMax = hitPoint;
                 newAircraft.price = price;
                 newAircraft.speed = speed;
+                newAircraft.minAltitude = minAltitude;
                 newAircraft.friend = friend;
                 newAircraft.cloud = cloud;
                 newAircraft.cantEscape = cantEscape;
                 newAircraft.fly = true;
+
+                if (newAircraft.minAltitude == -1) newAircraft.minAltitude = minAltitudeGlobal;
 
                 if (!friend)
                 {
