@@ -152,7 +152,7 @@ namespace shilka2
                 speed: 0.5
             );
 
-            if (StartMenu.Margin.Left < 0 && !Pause)
+            if (StartMenu.Margin.Left < 0 && !Pause && !endGameAlready)
             {
                 Game.Start();
                 Aircrafts.Start();
@@ -173,8 +173,6 @@ namespace shilka2
             move.To = new Thickness(left, top, right, bottom);
             moveCanvas.BeginAnimation(Border.MarginProperty, move);
         }
-
-
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
