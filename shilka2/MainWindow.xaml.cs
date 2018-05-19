@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Shapes;
 using System.Threading;
 using System.Timers;
 using System.Windows.Controls;
@@ -23,20 +21,19 @@ namespace shilka2
         {
             InitializeComponent();
 
-            this.WindowState = System.Windows.WindowState.Maximized;
-            this.WindowStyle = System.Windows.WindowStyle.None;
+            this.WindowState = WindowState.Maximized;
+            this.WindowStyle = WindowStyle.None;
 
-            double heightForShilka =
-                System.Windows.SystemParameters.PrimaryScreenHeight - ShilkaImg.Height;
+            double heightForShilka = SystemParameters.PrimaryScreenHeight - ShilkaImg.Height;
 
             Aircraft.minAltitudeGlobal = (int)(heightForShilka - ShilkaImg.Height);
 
-            EndMenu.Height = System.Windows.SystemParameters.PrimaryScreenHeight;
-            EndMenu.Margin = new Thickness(System.Windows.SystemParameters.PrimaryScreenWidth, 0, 0, 0);
+            EndMenu.Height = SystemParameters.PrimaryScreenHeight;
+            EndMenu.Margin = new Thickness(SystemParameters.PrimaryScreenWidth, 0, 0, 0);
 
-            StatisticMenu.Height = System.Windows.SystemParameters.PrimaryScreenHeight;
-            StatisticMenu.Width = System.Windows.SystemParameters.PrimaryScreenWidth;
-            StatisticMenu.Margin = new Thickness(0, System.Windows.SystemParameters.PrimaryScreenHeight, 0, 0);
+            StatisticMenu.Height = SystemParameters.PrimaryScreenHeight;
+            StatisticMenu.Width = SystemParameters.PrimaryScreenWidth;
+            StatisticMenu.Margin = new Thickness(0, SystemParameters.PrimaryScreenHeight, 0, 0);
 
             var converter = new BrushConverter();
             StatisticMenu.Background = (Brush)converter.ConvertFrom("#FF001B36");
@@ -102,8 +99,8 @@ namespace shilka2
                 move.Duration = TimeSpan.FromSeconds(1.5);
                 move.From = main.HandImg.Margin;
                 move.To = new Thickness(
-                    ( System.Windows.SystemParameters.PrimaryScreenHeight / 2 ),
-                    System.Windows.SystemParameters.PrimaryScreenHeight,
+                    ( SystemParameters.PrimaryScreenHeight / 2 ),
+                    SystemParameters.PrimaryScreenHeight,
                     0, 0
                 );
                 main.HandImg.BeginAnimation(Border.MarginProperty, move);

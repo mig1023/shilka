@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
-using System.Resources;
 using System.Timers;
 using shilka2.classes;
 
@@ -24,7 +20,7 @@ namespace shilka2
 
         public static int maxAltitudeGlobal = MAX_FLIGHT_HEIGHT;
         public static int minAltitudeGlobal { get; set; }
-        public static int minAltitudeForLargeAircraft = (int)System.Windows.SystemParameters.PrimaryScreenHeight / 2;
+        public static int minAltitudeForLargeAircraft = (int)SystemParameters.PrimaryScreenHeight / 2;
         enum FlightDirectionType { Left, Right };
 
         public double tangage { get; set; }
@@ -457,7 +453,7 @@ namespace shilka2
                 newAircraftImage.Source = new BitmapImage(new Uri("images/"+aircraftName+".png", UriKind.Relative)) { };
 
                 if ( ( (newAircraft.flightDirection == FlightDirectionType.Left) && !cloud ) || (rand.Next(2) == 1) && cloud )
-                    newAircraftImage.FlowDirection = System.Windows.FlowDirection.RightToLeft;
+                    newAircraftImage.FlowDirection = FlowDirection.RightToLeft;
 
                 newAircraftImage.Margin = new Thickness(newAircraft.x, newAircraft.y, 0, 0);
 
