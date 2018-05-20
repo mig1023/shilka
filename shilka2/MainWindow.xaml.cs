@@ -6,6 +6,7 @@ using System.Threading;
 using System.Timers;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
+using System.Windows.Data;
 
 namespace shilka2
 {
@@ -16,6 +17,7 @@ namespace shilka2
         public System.Timers.Timer Aircrafts = new System.Timers.Timer(2000);
         bool Pause = false;
         bool endGameAlready = false;
+        bool startMenuShowYet = true;
 
         public MainWindow()
         {
@@ -30,6 +32,7 @@ namespace shilka2
 
             EndMenu.Height = SystemParameters.PrimaryScreenHeight;
             EndMenu.Margin = new Thickness(SystemParameters.PrimaryScreenWidth, 0, 0, 0);
+            firePlaceDock.Margin = new Thickness(SystemParameters.PrimaryScreenWidth, 0, 0, 0);
 
             StatisticMenu.Height = SystemParameters.PrimaryScreenHeight;
             StatisticMenu.Width = SystemParameters.PrimaryScreenWidth;
@@ -64,8 +67,11 @@ namespace shilka2
 
         public void StartGame()
         {
+            startMenuShowYet = false;
+
             MoveCanvas(
                 moveCanvas: StartMenu,
+                prevCanvas: firePlaceDock,
                 left: StartMenu.Margin.Left - StartMenu.ActualWidth,
                 speed: 0.6
             );
@@ -121,6 +127,7 @@ namespace shilka2
 
             MoveCanvas(
                 moveCanvas: EndMenu,
+                prevCanvas: firePlaceDock,
                 left: EndMenu.Margin.Left - EndMenu.ActualWidth,
                 speed: 0.2
             );
@@ -136,6 +143,7 @@ namespace shilka2
 
             MoveCanvas(
                 moveCanvas: StatisticMenu,
+                prevCanvas: (startMenuShowYet ? StartMenu : firePlaceDock),
                 top: StatisticMenu.Margin.Top - StatisticMenu.ActualHeight,
                 speed: 0.5
             );
@@ -145,6 +153,7 @@ namespace shilka2
         {
             MoveCanvas(
                 moveCanvas: StatisticMenu,
+                prevCanvas: (startMenuShowYet ? StartMenu : firePlaceDock),
                 top: StatisticMenu.Margin.Top + StatisticMenu.ActualHeight,
                 speed: 0.5
             );
@@ -156,7 +165,7 @@ namespace shilka2
             }
         }
 
-        public void MoveCanvas(Canvas moveCanvas,
+        public void MoveCanvas(Canvas moveCanvas, Canvas prevCanvas,
             double left = -1, double top = -1, double right = -1, double bottom = -1, double speed = 1)
         {
             left = (left == -1 ? moveCanvas.Margin.Left : left);
@@ -169,6 +178,15 @@ namespace shilka2
             move.From = moveCanvas.Margin;
             move.To = new Thickness(left, top, right, bottom);
             moveCanvas.BeginAnimation(Border.MarginProperty, move);
+
+            left = prevCanvas.Margin.Left - (moveCanvas.Margin.Left - left);
+            top = prevCanvas.Margin.Top - (moveCanvas.Margin.Top - top);
+            right = prevCanvas.Margin.Right - (moveCanvas.Margin.Right - right);
+            bottom = prevCanvas.Margin.Bottom - (moveCanvas.Margin.Bottom - bottom);
+
+            move.From = prevCanvas.Margin;
+            move.To = new Thickness(left, top, right, bottom);
+            prevCanvas.BeginAnimation(Border.MarginProperty, move);
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

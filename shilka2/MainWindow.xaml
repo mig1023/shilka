@@ -7,15 +7,17 @@
         mc:Ignorable="d"
         Title="Shilka Antiaircraft" Height="350" Width="525" MouseLeftButtonDown="Window_MouseLeftButtonDown" MouseLeftButtonUp="Window_MouseLeftButtonUp" MouseMove="Window_MouseMove" Background="White">
     <Grid x:Name="gridFirePlace">
-        <Canvas x:Name="firePlace" Margin="0,-50,0,50" HorizontalAlignment="Left" VerticalAlignment="Top">
-            <Image Source="images/background.png" Width="{Binding Path=ActualWidth, ElementName=gridFirePlace}" Height="{Binding Path=ActualHeight, ElementName=gridFirePlace}" Stretch="Fill" Canvas.Top="52"/>
+        <Canvas x:Name="firePlaceDock">
+            <Canvas x:Name="firePlace" Margin="0,-50,0,50" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Image Source="images/background.png" Width="{Binding Path=ActualWidth, ElementName=gridFirePlace}" Height="{Binding Path=ActualHeight, ElementName=gridFirePlace}" Stretch="Fill" Canvas.Top="52"/>
+            </Canvas>
+            <Button x:Name="closeButton" Content="✖" HorizontalAlignment="Left" Height="23" Margin="10,15,0,0" VerticalAlignment="Top" Width="30" Click="closeButton_Click"/>
+            <Image x:Name="ShilkaImg" HorizontalAlignment="Left" Height="111" Margin="237,10,0,0" VerticalAlignment="Top" Width="185" Source="images/shilka.png"/>
+            <Image x:Name="HandImg" HorizontalAlignment="Left" Height="231" Margin="237,155,-176,-249" VerticalAlignment="Top" Width="520" Source="images/hand.png"/>
+            <Label x:Name="statShells" HorizontalAlignment="Left" Height="183" Margin="45,10,0,0" VerticalAlignment="Top" Width="450"/>
+            <ToggleButton x:Name="pauseButton" Content="❚❚" HorizontalAlignment="Left" Height="23" Margin="10,43,0,0" VerticalAlignment="Top" Width="30" Click="pauseButton_Click"/>
+            <Button x:Name="statisticButton" Content="★" HorizontalAlignment="Left" Height="23" Margin="10,71,0,0" VerticalAlignment="Top" Width="30" Click="statisticButton_Click" FontSize="13"/>
         </Canvas>
-        <Button x:Name="closeButton" Content="✖" HorizontalAlignment="Left" Height="23" Margin="10,15,0,0" VerticalAlignment="Top" Width="30" Click="closeButton_Click"/>
-        <Image x:Name="ShilkaImg" HorizontalAlignment="Left" Height="111" Margin="237,10,0,0" VerticalAlignment="Top" Width="185" Source="images/shilka.png"/>
-        <Image x:Name="HandImg" HorizontalAlignment="Left" Height="231" Margin="237,155,-176,-249" VerticalAlignment="Top" Width="520" Source="images/hand.png"/>
-        <Label x:Name="statShells" HorizontalAlignment="Left" Height="183" Margin="45,10,0,0" VerticalAlignment="Top" Width="450"/>
-        <ToggleButton x:Name="pauseButton" Content="❚❚" HorizontalAlignment="Left" Height="23" Margin="10,43,0,0" VerticalAlignment="Top" Width="30" Click="pauseButton_Click"/>
-        <Button x:Name="statisticButton" Content="★" HorizontalAlignment="Left" Height="23" Margin="10,71,0,0" VerticalAlignment="Top" Width="30" Click="statisticButton_Click" FontSize="13"/>
         <Canvas x:Name="EndMenu" HorizontalAlignment="Left" Height="320" Margin="513,0,-511,0" VerticalAlignment="Top" Width="515">
             <Label x:Name="EndText" Content="" Height="131" Canvas.Left="24" Canvas.Top="15" Width="446" Foreground="White" FontSize="32" FontFamily="Arial Narrow"/>
             <TextBox x:Name="PlayerName" Height="33" Canvas.Left="24" TextWrapping="Wrap" Text="" Canvas.Top="172" Width="434" FontSize="18.667" KeyUp="PlayerName_KeyUp"/>
