@@ -23,8 +23,11 @@ namespace shilka2
         public static int minAltitudeForLargeAircraft = (int)SystemParameters.PrimaryScreenHeight / 2;
         enum FlightDirectionType { Left, Right };
 
+        public static int[] scriptAircraft;
+        public static int[] scriptAircraftFriend;
+
         public double tangage { get; set; }
-        int tangage_delay = 0;
+        private int tangageDelay = 0;
 
         public string aircraftType;
         public int price;
@@ -67,10 +70,10 @@ namespace shilka2
                     else
                         if (!aircraft.cloud)
                         {
-                            aircraft.tangage_delay++;
-                            if (aircraft.tangage_delay > TANGAGE_DELAY)
+                            aircraft.tangageDelay++;
+                            if (aircraft.tangageDelay > TANGAGE_DELAY)
                             {
-                                aircraft.tangage_delay = 0;
+                                aircraft.tangageDelay = 0;
                                 aircraft.tangage = TANGAGE_SPEED * (rand.NextDouble() * 2 - 1);
                             }
                             aircraft.y += aircraft.tangage;
@@ -116,9 +119,20 @@ namespace shilka2
             }));
         }
 
+        private static bool aircraftInList(int[] scriptAircraft, int aircraft)
+        {
+            bool inList = false;
+
+            foreach (int aircraftInList in scriptAircraft)
+                if (aircraftInList == aircraft) inList = true;
+
+            return inList;
+        }
+
         public static void AircraftStart(object obj, ElapsedEventArgs e)
         {
             int newAircraft = rand.Next(10)+1;
+            int dice;
 
             switch (newAircraft)
             {
@@ -141,7 +155,14 @@ namespace shilka2
                 case 7:
                 case 8:
                 case 9:
-                    switch ((int)(rand.Next(20) + 1))
+
+                    do
+                    {
+                        dice = (int)(rand.Next(20) + 1);
+                    }
+                    while (!aircraftInList(scriptAircraft, dice));
+
+                    switch (dice)
                     {
                         case 1:
                             createNewAircraft(
@@ -327,7 +348,14 @@ namespace shilka2
                     break;
 
                 case 10:
-                    switch ((int)(rand.Next(10) + 1))
+
+                    do
+                    {
+                        dice = (int)(rand.Next(10) + 1);
+                    }
+                    while (!aircraftInList(scriptAircraftFriend, dice));
+
+                    switch (dice)
                     {
                         case 1:
                             createNewAircraft(

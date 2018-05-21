@@ -51,13 +51,15 @@ namespace shilka2
             StartMenu.Margin = new Thickness(0, 0, 0, 0);
 
             Thickness buttonMargin = new Thickness(
-                (StartMenu.Width / 2 - startButton.Width), (StartMenu.Height / 2 - (startButton.Height + shilkaArt.Height ) / 2), 0, 0
+                (StartMenu.Width / 2 - startSimple.Width), (StartMenu.Height / 2 - (startSimple.Height + shilkaArt.Height ) / 2), 0, 0
             );
 
-            startButton.Margin = buttonMargin;
+            startSimple.Margin = buttonMargin;
             resultButton.Margin = buttonMargin;
             exitButton.Margin = buttonMargin;
             shilkaArt.Margin = buttonMargin;
+            startVietnam.Margin = buttonMargin;
+            startDesertStorm.Margin = buttonMargin;
 
             StartMenu.Background = (Brush)converter.ConvertFrom("#FF343333");
 
@@ -65,9 +67,12 @@ namespace shilka2
             HandImg.Margin = new Thickness(65, (heightForShilka - 120), 0, 0);
         }
 
-        public void StartGame()
+        public void StartGame(int[] scriptAircraft, int[] scriptAircraftFriend)
         {
             startMenuShowYet = false;
+
+            Aircraft.scriptAircraft = scriptAircraft;
+            Aircraft.scriptAircraftFriend = scriptAircraftFriend;
 
             MoveCanvas(
                 moveCanvas: StartMenu,
@@ -257,9 +262,28 @@ namespace shilka2
             ReturnStatisticShow();
         }
 
-        private void startButton_Click(object sender, RoutedEventArgs e)
+        private void startSimple_Click(object sender, RoutedEventArgs e)
         {
-            StartGame();
+            int[] aircraft = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
+            int[] aircraftFriend = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+            StartGame(aircraft, aircraftFriend);
+        }
+
+        private void startVietnam_Click(object sender, RoutedEventArgs e)
+        {
+            int[] aircraft = new int[] { 3, 5, 10 };
+            int[] aircraftFriend = new int[] { 4 };
+
+            StartGame(aircraft, aircraftFriend);
+        }
+
+        private void startDesertStorm_Click(object sender, RoutedEventArgs e)
+        {
+            int[] aircraft = new int[] { 1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 15, 18, 20 };
+            int[] aircraftFriend = new int[] { 1, 2, 6 };
+
+            StartGame(aircraft, aircraftFriend);
         }
     }
 }
