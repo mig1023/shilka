@@ -265,7 +265,7 @@ namespace shilka2
         private void startSimple_Click(object sender, RoutedEventArgs e)
         {
             int[] aircraft = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
-            int[] aircraftFriend = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            int[] aircraftFriend = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
 
             StartGame(aircraft, aircraftFriend);
         }
@@ -273,7 +273,7 @@ namespace shilka2
         private void startVietnam_Click(object sender, RoutedEventArgs e)
         {
             int[] aircraft = new int[] { 3, 5, 10 };
-            int[] aircraftFriend = new int[] { 4 };
+            int[] aircraftFriend = new int[] { 4, 11, 12 };
 
             StartGame(aircraft, aircraftFriend);
         }
