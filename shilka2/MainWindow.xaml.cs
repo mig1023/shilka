@@ -278,7 +278,8 @@ namespace shilka2
                 10,     // <-- f4
                 21,     // <-- f8
                 22,     // <-- ac130
-                23      // <-- a6
+                23,     // <-- a6
+                24     // <-- f111
             };
             int[] aircraftFriend = new int[] {
                 4,      // <-- su17
@@ -306,7 +307,8 @@ namespace shilka2
                 18,    // <-- b2
                 20,    // <-- tomahawk
                 22,    // <-- ac130
-                23     // <-- a6
+                23,    // <-- a6
+                24     // <-- f111
             };
             int[] aircraftFriend = new int[] {
                 1,     // <-- mig23
