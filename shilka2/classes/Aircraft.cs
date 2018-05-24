@@ -121,6 +121,8 @@ namespace shilka2
 
         private static bool aircraftInList(int[] scriptAircraft, int aircraft)
         {
+            if (scriptAircraft.Length == 0) return true;
+
             bool inList = false;
 
             foreach (int aircraftInList in scriptAircraft)

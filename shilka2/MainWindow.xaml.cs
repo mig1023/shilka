@@ -264,24 +264,56 @@ namespace shilka2
 
         private void startSimple_Click(object sender, RoutedEventArgs e)
         {
-            int[] aircraft = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 };
-            int[] aircraftFriend = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 };
+            int[] aircraft = new int[] {};
+            int[] aircraftFriend = new int[] {};
 
             StartGame(aircraft, aircraftFriend);
         }
 
         private void startVietnam_Click(object sender, RoutedEventArgs e)
         {
-            int[] aircraft = new int[] { 3, 5, 10, 21, 22, 23 };
-            int[] aircraftFriend = new int[] { 4, 11, 12 };
+            int[] aircraft = new int[] {
+                3,      // <-- b52
+                5,      // <-- f14
+                10,     // <-- f4
+                21,     // <-- f8
+                22,     // <-- ac130
+                23      // <-- a6
+            };
+            int[] aircraftFriend = new int[] {
+                4,      // <-- su17
+                11,     // <-- mig19
+                12      // <-- mig21
+            };
 
             StartGame(aircraft, aircraftFriend);
         }
 
         private void startDesertStorm_Click(object sender, RoutedEventArgs e)
         {
-            int[] aircraft = new int[] { 1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 15, 18, 20, 22, 23 };
-            int[] aircraftFriend = new int[] { 1, 2, 6, 13 };
+            int[] aircraft = new int[] {
+                1,     // <-- a10
+                2,     // <-- b1
+                3,     // <-- b52
+                4,     // <-- f117
+                5,     // <-- f14
+                6,     // <-- f18
+                7,     // <-- f16
+                9,     // <-- f15
+                10,    // <-- f4
+                11,    // <-- tornado
+                15,    // <-- e3
+                18,    // <-- b2
+                20,    // <-- tomahawk
+                22,    // <-- ac130
+                23     // <-- a6
+            };
+            int[] aircraftFriend = new int[] {
+                1,     // <-- mig23
+                2,     // <-- mig29
+                6,     // <-- su25
+                13     // <-- mig25
+            };
 
             StartGame(aircraft, aircraftFriend);
         }

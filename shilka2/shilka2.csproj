@@ -148,8 +148,6 @@
     <Resource Include="images\mig25.png" />
     <Resource Include="images\f8.png" />
     <Resource Include="images\ac130.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="images\a6.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
