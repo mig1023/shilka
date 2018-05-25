@@ -25,12 +25,14 @@
             <Button x:Name="GameOverWithoutSave" Content="Не сохранять" Height="41" Canvas.Left="23" Canvas.Top="223" Width="212" Click="GameOverWithoutSave_Click" FontFamily="Arial Narrow" FontSize="16"/>
         </Canvas>
         <Canvas x:Name="StartMenu" HorizontalAlignment="Left" Height="499" VerticalAlignment="Top" Width="452" Margin="-452,0,0,-179">
-            <Button x:Name="startSimple" Content="Быстрая игра" Height="87" Canvas.Left="10" Canvas.Top="358" Width="215" Click="startSimple_Click" FontFamily="Arial Narrow" FontSize="20"/>
-            <Button x:Name="resultButton" Content="Результаты" Height="41" Canvas.Left="230" Canvas.Top="358" Width="215" FontFamily="Arial Narrow" FontSize="20" Click="statisticButton_Click"/>
-            <Button x:Name="exitButton" Content="Выход" Height="41" Canvas.Left="230" Canvas.Top="404" Width="215" FontFamily="Arial Narrow" FontSize="20" Click="GameOverWithoutSave_Click"/>
-            <Image x:Name="shilkaArt" Height="348" Canvas.Left="10" Canvas.Top="5" Width="435"  Source="images/shilka-art.jpg"/>
-            <Button x:Name="startVietnam" Content="Вьетнамская война" Height="41" Canvas.Left="10" Canvas.Top="450" Width="215" Click="startVietnam_Click"/>
-            <Button x:Name="startDesertStorm" Content="Буря в пустыне" Height="41" Canvas.Left="230" Canvas.Top="450" Width="215" Click="startDesertStorm_Click"/>
+            <Canvas x:Name="StartMenuButtons" Height="499" Width="452">
+                <Button x:Name="startSimple" Content="Быстрая игра" Height="87" Canvas.Left="10" Canvas.Top="358" Width="215" Click="startSimple_Click" FontFamily="Arial Narrow" FontSize="20"/>
+                <Button x:Name="resultButton" Content="Результаты" Height="41" Canvas.Left="230" Canvas.Top="358" Width="215" FontFamily="Arial Narrow" FontSize="20" Click="statisticButton_Click"/>
+                <Button x:Name="exitButton" Content="Выход" Height="41" Canvas.Left="230" Canvas.Top="404" Width="215" FontFamily="Arial Narrow" FontSize="20" Click="GameOverWithoutSave_Click"/>
+                <Image x:Name="shilkaArt" Height="348" Canvas.Left="10" Canvas.Top="5" Width="435"  Source="images/shilka-art.jpg"/>
+                <Button x:Name="startVietnam" Content="Вьетнамская война" Height="41" Canvas.Left="10" Canvas.Top="450" Width="215" Click="startVietnam_Click"/>
+                <Button x:Name="startDesertStorm" Content="Буря в пустыне" Height="41" Canvas.Left="230" Canvas.Top="450" Width="215" Click="startDesertStorm_Click"/>
+            </Canvas>
         </Canvas>
         <Canvas x:Name="StatisticMenu" HorizontalAlignment="Left" Height="174" Margin="0,325,-1,-179" VerticalAlignment="Top" Width="518">
             <Button x:Name="returnButton" Content="✖" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="30" Canvas.Left="10" Canvas.Top="15" Click="returnButton_Click"/>
