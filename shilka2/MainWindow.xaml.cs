@@ -314,5 +314,33 @@ namespace shilka2
 
             StartGame(aircraft, aircraftFriend);
         }
+
+        private void startYugoslavia_Click(object sender, RoutedEventArgs e)
+        {
+            int[] aircraft = new int[] {
+                1,     // <-- a10
+                2,     // <-- b1
+                3,     // <-- b52
+                4,     // <-- f117
+                5,     // <-- f14
+                6,     // <-- f18
+                7,     // <-- f16
+                9,     // <-- f15
+                10,    // <-- f4
+                11,    // <-- tornado
+                12,    // <-- predator
+                15,    // <-- e3
+                18,    // <-- b2
+                20,    // <-- tomahawk
+            };
+            int[] aircraftFriend = new int[] {
+                1,     // <-- mig23
+                2,     // <-- mig29
+                12,    // <-- mig21
+                13     // <-- mig25
+            };
+
+            StartGame(aircraft, aircraftFriend);
+        }
     }
 }
