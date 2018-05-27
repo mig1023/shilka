@@ -245,7 +245,7 @@ namespace shilka2
             {
                 stat += "Температура стволов: " + degreeOfHeatingGunBurrels + "°C";
 
-                if (reheatingGunBurrels) stat += " -- перегрев стволов!\n";
+                if (reheatingGunBurrels) stat += " - перегрев стволов!\n";
 
                 stat += "\n";
             }

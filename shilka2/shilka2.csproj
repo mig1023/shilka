@@ -58,6 +58,7 @@
     <Compile Include="classes\Aircraft.cs" />
     <Compile Include="classes\Case.cs" />
     <Compile Include="classes\FlyObject.cs" />
+    <Compile Include="classes\Scripts.cs" />
     <Compile Include="classes\Shell.cs" />
     <Compile Include="classes\Shilka.cs" />
     <Compile Include="classes\StatTable.cs" />

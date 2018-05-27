@@ -24,8 +24,8 @@ namespace shilka2
         public const int FIRE_HEIGHT_CORRECTION = 30;
         public const int FIRE_HEIGHT_POINT_CORRECTION = 70;
 
-        public bool flash { get; set; }
-        public int delay { get; set; }
+        bool flash { get; set; }
+        int delay { get; set; }
         public static double ptX { get; set; }
         public static double ptY { get; set; }
 

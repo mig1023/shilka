@@ -23,10 +23,10 @@ namespace shilka2
         const int EXTR_HEIGHT_CORRECTION = 18;
         const double FREE_FALL_SPEED = 0.05;
 
-        public int speed { get; set; }
+        int speed { get; set; }
 
-        public static List<Case> cases = new List<Case>();
-        public static List<Line> allLines = new List<Line>();
+        static List<Case> cases = new List<Case>();
+        static List<Line> allLines = new List<Line>();
 
         static int CaseMutex = 0;
         static bool caseLimiter = false;

@@ -11,23 +11,23 @@ namespace shilka2
 {
     class Aircraft : FlyObject
     {
-        public const int MAX_FLIGHT_HEIGHT = 75;
+        const int MAX_FLIGHT_HEIGHT = 75;
         public const int AIRCRAFT_AVERAGE_PRICE = 81;
         const double ESCAPE_COEFFICIENT = 1.6;
         const int TANGAGE_DELAY = 12;
         const int TANGAGE_SPEED = 4;
         const int TANGAGE_DEAD_SPEED = 10;
 
-        public static int maxAltitudeGlobal = MAX_FLIGHT_HEIGHT;
+        static int maxAltitudeGlobal = MAX_FLIGHT_HEIGHT;
         public static int minAltitudeGlobal { get; set; }
-        public static int minAltitudeForLargeAircraft = (int)SystemParameters.PrimaryScreenHeight / 2;
+        static int minAltitudeForLargeAircraft = (int)SystemParameters.PrimaryScreenHeight / 2;
         enum FlightDirectionType { Left, Right };
 
         public static int[] scriptAircraft;
         public static int[] scriptAircraftFriend;
 
-        public double tangage { get; set; }
-        private int tangageDelay = 0;
+        double tangage { get; set; }
+        int tangageDelay = 0;
 
         public string aircraftType;
         public int price;
