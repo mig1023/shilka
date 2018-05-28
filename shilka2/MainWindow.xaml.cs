@@ -284,5 +284,10 @@ namespace shilka2
         {
             startScript(Scripts.scriptsNames.Yugoslavia);
         }
+
+        private void startIranIraq_Click(object sender, RoutedEventArgs e)
+        {
+            startScript(Scripts.scriptsNames.IranIraq);
+        }
     }
 }
