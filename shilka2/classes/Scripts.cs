@@ -7,7 +7,8 @@
             Vietnam,
             DesertStorm,
             Yugoslavia,
-            IranIraq
+            IranIraq,
+            Syria
         };
 
         public static int[] scriptFriendAircrafts(scriptsNames script)
@@ -42,6 +43,13 @@
                     4,     // <-- su17
                     11,    // <-- mig19
                     13     // <-- mig25
+                };
+
+            if (script == scriptsNames.Syria)
+                return new int[] {
+                    1,     // <-- mig23
+                    2,     // <-- mig29
+                    4,     // <-- su17
                 };
 
             return new int[] { };
@@ -101,9 +109,16 @@
 
             if (script == scriptsNames.IranIraq)
                 return new int[] {
-                        10,    // <-- f4
                         5,     // <-- f14
+                        10,    // <-- f4
                         22,    // <-- ac130
+                    };
+
+            if (script == scriptsNames.Syria)
+                return new int[] {
+                        20,    // <-- tomahawk
+                        12,    // <-- predator
+                        13,    // <-- reaper
                     };
 
             return new int[] { };

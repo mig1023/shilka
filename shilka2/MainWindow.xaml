@@ -34,6 +34,7 @@
                 <Button x:Name="startDesertStorm" Content="Буря в пустыне" Height="41" Canvas.Left="149" Canvas.Top="450" Width="115" Click="startDesertStorm_Click"/>
                 <Button x:Name="startYugoslavia" Content="Бомбардировки Югославии" Height="41" Canvas.Left="269" Canvas.Top="450" Width="176" Click="startYugoslavia_Click"/>
                 <Button x:Name="startIranIraq" Content="Ирано-Иракская война" Height="41" Canvas.Left="10" Canvas.Top="496" Width="172" Click="startIranIraq_Click"/>
+                <Button x:Name="startSyria" Content="Гражданская война в Сирии" Height="41" Canvas.Left="187" Canvas.Top="496" Width="255" Click="startSyria_Click"/>
             </Canvas>
         </Canvas>
         <Canvas x:Name="StatisticMenu" HorizontalAlignment="Left" Height="174" Margin="0,325,-1,-179" VerticalAlignment="Top" Width="518">
