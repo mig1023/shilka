@@ -50,11 +50,9 @@ namespace shilka2
             StartMenu.Width = StatisticMenu.Width;
             StartMenu.Margin = new Thickness(0, 0, 0, 0);
 
-            Thickness buttonMargin = new Thickness(
+            StartMenuButtons.Margin = new Thickness(
                 (StartMenu.Width / 2 - StartMenuButtons.Width / 2), (StartMenu.Height / 2 - StartMenuButtons.Height / 2), 0, 0
             );
-
-            StartMenuButtons.Margin = buttonMargin;
 
             StartMenu.Background = (Brush)converter.ConvertFrom("#FF343333");
 

@@ -61,9 +61,9 @@ namespace shilka2
                         escapeFromFireCoefficient = ESCAPE_COEFFICIENT;
 
                     if (aircraft.flightDirection == FlightDirectionType.Left)
-                        aircraft.x -= aircraft.speed * escapeFromFireCoefficient;
-                    else
-                        aircraft.x += aircraft.speed * escapeFromFireCoefficient;
+                        escapeFromFireCoefficient *= -1;
+
+                    aircraft.x += aircraft.speed * escapeFromFireCoefficient;
 
                     if (aircraft.dead)
                         aircraft.y += TANGAGE_DEAD_SPEED * (rand.NextDouble() * 2 - 1) + 4;

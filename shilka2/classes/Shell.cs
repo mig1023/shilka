@@ -168,10 +168,10 @@ namespace shilka2
                 }
                 FireMutex--;
 
-                Shilka.HeatingOfGuns(true);
+                Shilka.HeatingOfGuns(shooting: true);
             }
             else
-                Shilka.HeatingOfGuns(false);
+                Shilka.HeatingOfGuns(shooting: false);
         }
     }
 }

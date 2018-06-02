@@ -12,7 +12,7 @@ namespace shilka2
 {
     class Shilka
     {
-        static int flash_count = 0;
+        static int flashСount = 0;
 
         static string statisticFileName = "statistic.dat";
         public static int statisticGridMargins = 120;
@@ -77,11 +77,11 @@ namespace shilka2
             double currentHeight = Shell.currentHeight;
             if (currentHeight < 0) currentHeight = main.ActualHeight;
 
-            for (int num_guns = 0; num_guns <= 1; num_guns++)
+            for (int numGuns = 0; numGuns <= 1; numGuns++)
             {
                 Line gun = new Line();
-                gun.X1 = Shell.FIRE_WIDTH_CORRECTION - 3 - (12 * num_guns);
-                gun.Y1 = currentHeight - Shell.FIRE_HEIGHT_CORRECTION + 5 - (9 * num_guns);
+                gun.X1 = Shell.FIRE_WIDTH_CORRECTION - 3 - (12 * numGuns);
+                gun.Y1 = currentHeight - Shell.FIRE_HEIGHT_CORRECTION + 5 - (9 * numGuns);
                 gun.X2 = gun.X1 + 30 * Shell.LastCos;
                 gun.Y2 = gun.Y1 - 30 * Shell.LastSin;
                 gun.Stroke = Brushes.Black;
@@ -92,13 +92,13 @@ namespace shilka2
 
                 if (Shell.Fire)
                 {
-                    flash_count++;
-                    if (flash_count >= 10) flash_count = 0;
+                    flashСount++;
+                    if (flashСount >= 10) flashСount = 0;
 
                     if (
-                        ( (flash_count >= 2) && (flash_count < 5) && (num_guns == 0) )
+                        ( (flashСount >= 2) && (flashСount < 5) && (numGuns == 0) )
                         ||
-                        ( (flash_count >= 7) && (num_guns == 1) )
+                        ( (flashСount >= 7) && (numGuns == 1) )
                     ) {
                         Line flash = new Line();
                         flash.X1 = gun.X2;
