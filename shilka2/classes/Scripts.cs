@@ -122,6 +122,7 @@
                         20,    // <-- tomahawk
                         12,    // <-- predator
                         13,    // <-- reaper
+                        26,    // <-- scalp
                     };
 
             return new int[] { };
