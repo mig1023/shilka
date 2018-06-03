@@ -30,6 +30,7 @@ namespace shilka2
         public static int statisticLastDamagePrice;
         public static bool statisticShutdownFlag = false;
         public static string statisticLastDamageType;
+        public static string currentScript;
 
         public static int degreeOfHeatingGunBurrels = 30;
         public static bool reheatingGunBurrels = false;
@@ -151,9 +152,9 @@ namespace shilka2
             Statistic(out baseForPercent, out shutdownPercent, out damagedPercent, out statisticWithoutDamage,
                 out chance, out inTargetPercent);
 
-            string stat = String.Format("{0}|{1}|{2}|{3}|{4}|{5}|{6}|{7}|{8}|{9}|{10}|{11}|{12}\n",
-                  player, statisticShellsFired, staticticInTarget, staticticAircraftShutdown, inTargetPercent,
-                  shutdownPercent, statisticDamaged, damagedPercent, statisticHasGone,
+            string stat = String.Format("{0}|{1}|{2}|{3}|{4}|{5}|{6}|{7}|{8}|{9}|{10}|{11}|{12}|{13}\n",
+                  player, currentScript, statisticShellsFired, staticticInTarget, staticticAircraftShutdown,
+                  inTargetPercent, shutdownPercent, statisticDamaged, damagedPercent, statisticHasGone,
                   statisticWithoutDamage, statisticAmountOfDamage, statisticFriendDamage, chance
             );
 
@@ -179,7 +180,7 @@ namespace shilka2
 
                 result.Add(new StatTable(
                     stat[0], stat[1], stat[2], stat[3], stat[4], stat[5], stat[6],
-                    stat[7], stat[8], stat[9], stat[10], stat[11], stat[12]
+                    stat[7], stat[8], stat[9], stat[10], stat[11], stat[12], stat[13]
                 ));
             }
 

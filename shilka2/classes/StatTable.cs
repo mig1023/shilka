@@ -3,6 +3,7 @@
     class StatTable
     {
         public string name { get; set; }
+        public string script { get; set; }
         public int shellsFired { get; set; }
         public int inTarget { get; set; }
         public int Shutdown { get; set; }
@@ -16,13 +17,14 @@
         public int friendDamage { get; set; }
         public float chance { get; set; }
 
-        public StatTable(string name, string shellsFired, string inTarget,
+        public StatTable(string name, string script, string shellsFired, string inTarget,
               string aircraftShutdown, string inTargetPercent, string shutdownPercent,
               string damaged, string damagedPercent, string hasGone,
               string withoutDamage, string amountOfDamage, string friendDamage,
               string chance)
         {
             this.name = name;
+            this.script = script;
             this.shellsFired = int.Parse(shellsFired);
             this.inTarget = int.Parse(inTarget);
             this.Shutdown = int.Parse(aircraftShutdown);
