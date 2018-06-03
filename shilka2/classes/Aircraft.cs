@@ -160,7 +160,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = (int)(rand.Next(24) + 1);
+                        dice = (int)(rand.Next(25) + 1);
                     }
                     while (!aircraftInList(scriptAircraft, dice));
 
@@ -382,6 +382,15 @@ namespace shilka2
                                 aircraftWidth: 285,
                                 aircraftHeight: 59,
                                 price: 72
+                            ); break;
+                        case 25:
+                            createNewAircraft(
+                                aircraftName: "f5",
+                                hitPoint: 80,
+                                aircraftWidth: 270,
+                                aircraftHeight: 58,
+                                price: 2,
+                                speed: 10
                             ); break;
                     }
                     break;

@@ -151,6 +151,7 @@
     <Resource Include="images\ac130.png" />
     <Resource Include="images\a6.png" />
     <Resource Include="images\f111.png" />
+    <Resource Include="images\f5.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

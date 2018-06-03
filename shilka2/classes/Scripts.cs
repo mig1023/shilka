@@ -18,7 +18,7 @@
                 return new int[] {
                     4,      // <-- su17
                     11,     // <-- mig19
-                    12      // <-- mig21
+                    12,     // <-- mig21
                 };
 
             if (script == scriptsNames.Yugoslavia)
@@ -26,7 +26,7 @@
                     1,     // <-- mig23
                     2,     // <-- mig29
                     12,    // <-- mig21
-                    13     // <-- mig25
+                    13,    // <-- mig25
                 };
 
             if (script == scriptsNames.DesertStorm)
@@ -34,7 +34,7 @@
                     1,     // <-- mig23
                     2,     // <-- mig29
                     6,     // <-- su25
-                    13     // <-- mig25
+                    13,    // <-- mig25
                 };
 
             if (script == scriptsNames.IranIraq)
@@ -66,7 +66,8 @@
                         21,     // <-- f8
                         22,     // <-- ac130
                         23,     // <-- a6
-                        24      // <-- f111
+                        24,     // <-- f111
+                        25,     // <-- f5
                     };
 
             if (script == scriptsNames.Yugoslavia)
@@ -104,7 +105,8 @@
                         20,    // <-- tomahawk
                         22,    // <-- ac130
                         23,    // <-- a6
-                        24     // <-- f111
+                        24,    // <-- f111
+                        25,     // <-- f5
                     };
 
             if (script == scriptsNames.IranIraq)
@@ -112,6 +114,7 @@
                         5,     // <-- f14
                         10,    // <-- f4
                         22,    // <-- ac130
+                        25,    // <-- f5
                     };
 
             if (script == scriptsNames.Syria)
