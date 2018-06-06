@@ -396,8 +396,8 @@ namespace shilka2
                             createNewAircraft(
                                 aircraftName: "scalp",
                                 hitPoint: 20,
-                                aircraftWidth: 140,
-                                aircraftHeight: 28,
+                                aircraftWidth: 115,
+                                aircraftHeight: 23,
                                 price: 2,
                                 speed: 5,
                                 cantEscape: true
