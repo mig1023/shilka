@@ -12,6 +12,7 @@
                 <Image Source="images/background.png" Width="{Binding Path=ActualWidth, ElementName=gridFirePlace}" Height="{Binding Path=ActualHeight, ElementName=gridFirePlace}" Stretch="Fill" Canvas.Top="52"/>
             </Canvas>
             <Button x:Name="closeButton" Content="✖" HorizontalAlignment="Left" Height="23" Margin="10,15,0,0" VerticalAlignment="Top" Width="30" Click="closeButton_Click"/>
+            <Image x:Name="RadarImg" Source="images/radar.png" HorizontalAlignment="Left" Height="33" Margin="47,173,0,0" VerticalAlignment="Top" Width="25"/>
             <Image x:Name="ShilkaImg" HorizontalAlignment="Left" Height="111" Margin="237,10,0,0" VerticalAlignment="Top" Width="185" Source="images/shilka.png"/>
             <Image x:Name="HandImg" HorizontalAlignment="Left" Height="231" Margin="237,155,-176,-249" VerticalAlignment="Top" Width="520" Source="images/hand.png"/>
             <Label x:Name="statShells" HorizontalAlignment="Left" Height="183" Margin="45,10,0,0" VerticalAlignment="Top" Width="450"/>
