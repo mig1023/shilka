@@ -202,15 +202,10 @@ namespace shilka2
 
         private void Window_MouseMove(object sender, MouseEventArgs e)
         {
-            if (Shell.Fire)
-            {
-                Shilka.SetNewTergetPoint(e.GetPosition((Window)sender), sender);
+            Shilka.SetNewTergetPoint(e.GetPosition((Window)sender), sender);
 
-                double degree = Math.Asin(Shell.LastSin)  * (180 / Math.PI) * -1;
-                RotateTransform rotate = new RotateTransform(degree, 4, 20);
-                RadarImg.RenderTransform = rotate;
-            }
-
+            RotateTransform rotate = new RotateTransform(Shilka.lastDegree, 4, 20);
+            RadarImg.RenderTransform = rotate;
         }
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
