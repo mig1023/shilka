@@ -38,6 +38,7 @@ namespace shilka2
 
         public Boolean dead = false;
         public Boolean friend = false;
+        public Boolean airliner = false;
         public Boolean cloud = false;
         public Boolean cantEscape = false;
 
@@ -90,7 +91,7 @@ namespace shilka2
                     ) {
                         aircraft.fly = false;
 
-                        if ((!aircraft.dead) && (!aircraft.friend))
+                        if ((!aircraft.dead) && (!aircraft.friend) && (!aircraft.airliner))
                         {
                             Shilka.statisticHasGone++;
 
@@ -133,7 +134,7 @@ namespace shilka2
 
         public static void AircraftStart(object obj, ElapsedEventArgs e)
         {
-            int newAircraft = rand.Next(10)+1;
+            int newAircraft = rand.Next(11)+1;
             int dice;
 
             switch (newAircraft)
@@ -539,12 +540,24 @@ namespace shilka2
                             ); break;
                     }
                     break;
+
+                case 11:
+
+                    createNewAircraft(
+                        aircraftName: "a320",
+                        hitPoint: 60,
+                        aircraftWidth: 565,
+                        aircraftHeight: 173,
+                        speed: 5,
+                        airliner: true
+                    );
+                    break;
             }
         }
 
         static void createNewAircraft(string aircraftName, int hitPoint, int aircraftWidth, int aircraftHeight, 
-            int speed = 10, int minAltitude = -1, Boolean friend = false, Boolean cloud = false, Boolean cantEscape = false,
-            int price = 0)
+            int speed = 10, int minAltitude = -1, Boolean friend = false, Boolean airliner = false,
+            Boolean cloud = false, Boolean cantEscape = false, int price = 0)
         {
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {
@@ -584,13 +597,14 @@ namespace shilka2
                 newAircraft.speed = speed;
                 newAircraft.minAltitude = minAltitude;
                 newAircraft.friend = friend;
+                newAircraft.airliner = airliner;
                 newAircraft.cloud = cloud;
                 newAircraft.cantEscape = cantEscape;
                 newAircraft.fly = true;
 
                 if (newAircraft.minAltitude == -1) newAircraft.minAltitude = minAltitudeGlobal;
 
-                if (!friend)
+                if (!friend && !airliner)
                 {
                     Shilka.statisticAllAircraft++;
                     Shilka.statisticPriceOfAllAircrafts += price;

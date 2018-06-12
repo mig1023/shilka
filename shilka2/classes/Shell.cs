@@ -95,7 +95,13 @@ namespace shilka2
                             {
                                 if (aircraft.dead == false)
                                 {
-                                    if (!aircraft.friend)
+                                    if (aircraft.friend)
+                                        main.EndGame("Вы сбили своего!\nИгра окончена.\nСохранить статистику?", "#FF7E1C25");
+
+                                    else if (aircraft.airliner)
+                                        main.EndGame("Вы сбили пассажирский самолёт!\nИгра окончена.\nСохранить статистику?", "#FF7E1C25");
+
+                                    else
                                     {
                                         Shilka.staticticAircraftShutdown++;
                                         Shilka.statisticAmountOfDamage += aircraft.price;
@@ -104,8 +110,6 @@ namespace shilka2
                                         Shilka.statisticLastDamagePrice = aircraft.price;
                                         Shilka.statisticLastDamageType = aircraft.aircraftType;
                                     }
-                                    else
-                                        main.EndGame("Вы подбили своего!\nИгра окончена.\nСохранить статистику?", "#FF7E1C25");
                                 }
                                 aircraft.dead = true;
                             }
