@@ -57,6 +57,7 @@
     </ApplicationDefinition>
     <Compile Include="classes\Aircraft.cs" />
     <Compile Include="classes\Case.cs" />
+    <Compile Include="classes\DynamicElement.cs" />
     <Compile Include="classes\FlyObject.cs" />
     <Compile Include="classes\Scripts.cs" />
     <Compile Include="classes\Shell.cs" />
@@ -156,6 +157,9 @@
     <Resource Include="images\ea6.png" />
     <Resource Include="images\radar.png" />
     <Resource Include="images\a320.png" />
+    <Resource Include="images\ah64.png" />
+    <Resource Include="images\ah64_main.png" />
+    <Resource Include="images\ah64_suppl.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

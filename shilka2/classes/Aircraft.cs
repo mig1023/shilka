@@ -6,6 +6,7 @@ using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using System.Timers;
 using shilka2.classes;
+using System.Windows.Media;
 
 namespace shilka2
 {
@@ -36,15 +37,17 @@ namespace shilka2
         public int speed;
         public int minAltitude;
 
-        public Boolean dead = false;
-        public Boolean friend = false;
-        public Boolean airliner = false;
-        public Boolean cloud = false;
-        public Boolean cantEscape = false;
+        public bool dead = false;
+        public bool friend = false;
+        public bool airliner = false;
+        public bool cloud = false;
+        public bool cantEscape = false;
 
         FlightDirectionType flightDirection;
 
         public Image aircraftImage;
+
+        public List<DynamicElement> dynamicElemets = new List<DynamicElement>(); 
 
         public static List<Aircraft> aircrafts = new List<Aircraft>();
 
@@ -112,6 +115,32 @@ namespace shilka2
                     }
 
                     aircraft.aircraftImage.Margin = new Thickness(aircraft.x, aircraft.y, 0, 0);
+
+                    foreach (DynamicElement d in aircraft.dynamicElemets)
+                    {
+                        if (aircraft.flightDirection == FlightDirectionType.Left)
+                            d.element.Margin = new Thickness(aircraft.x + d.x_left, aircraft.y + d.y, 0, 0);
+                        else
+                            d.element.Margin = new Thickness(aircraft.x + d.x_right, aircraft.y + d.y, 0, 0);
+
+                        if (d.movingType == DynamicElement.MovingType.verticalRotate)
+                        {
+                            d.rotateDegreeCurrent += 25;
+                            if (d.rotateDegreeCurrent > 180) d.rotateDegreeCurrent = 0;
+
+                            d.element.RenderTransform = new RotateTransform(d.rotateDegreeCurrent, (d.element.ActualWidth / 2), (d.element.ActualHeight / 2));
+                        }
+
+                        if (d.movingType == DynamicElement.MovingType.horizontalRotate)
+                        {
+                            d.rotateDegreeCurrent -= 0.2;
+                            if (d.rotateDegreeCurrent < 0.2) d.rotateDegreeCurrent = 1;
+
+                            d.element.RenderTransform = new ScaleTransform(d.rotateDegreeCurrent, 1, (d.element.ActualWidth/2), 0);
+
+                        }
+                    }
+                        
                 }
 
                 for (int x = 0; x < Aircraft.aircrafts.Count; x++)
@@ -134,7 +163,8 @@ namespace shilka2
 
         public static void AircraftStart(object obj, ElapsedEventArgs e)
         {
-            int newAircraft = rand.Next(11)+1;
+            int newAircraft = rand.Next(12)+1;
+
             int dice;
 
             switch (newAircraft)
@@ -161,7 +191,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = (int)(rand.Next(27) + 1);
+                        dice = (int)(rand.Next(28) + 1);
                     }
                     while (!aircraftInList(scriptAircraft, dice));
 
@@ -412,6 +442,31 @@ namespace shilka2
                                 price: 52,
                                 speed: 7
                             ); break;
+                        case 28:
+                            createNewAircraft(
+                                aircraftName: "ah64",
+                                hitPoint: 100,
+                                aircraftWidth: 209,
+                                aircraftHeight: 63,
+                                speed: 5,
+                                elements: new List<DynamicElement> {
+                                    new DynamicElement {
+                                        elementName = "_main",
+                                        y = -8,
+                                        x_left = -41,
+                                        x_right = 27,
+                                        movingType = DynamicElement.MovingType.horizontalRotate,
+                                        width = 170
+                                    },
+                                    new DynamicElement {
+                                        elementName = "_suppl",
+                                        y = -5,
+                                        x_left = 170,
+                                        x_right = -10,
+                                        movingType = DynamicElement.MovingType.verticalRotate
+                                    }
+                                }
+                            );  break;
                     }
                     break;
 
@@ -550,14 +605,23 @@ namespace shilka2
                         aircraftHeight: 173,
                         speed: 5,
                         airliner: true
-                    );
-                    break;
+                    ); break;
             }
         }
 
-        static void createNewAircraft(string aircraftName, int hitPoint, int aircraftWidth, int aircraftHeight, 
-            int speed = 10, int minAltitude = -1, Boolean friend = false, Boolean airliner = false,
-            Boolean cloud = false, Boolean cantEscape = false, int price = 0)
+        static void createNewAircraft(string aircraftName, int hitPoint, int aircraftWidth, int aircraftHeight,
+            int speed = 10, int minAltitude = -1, bool friend = false, bool airliner = false,
+            bool cloud = false, bool cantEscape = false, int price = 0)
+        {
+            List<DynamicElement> elements = new List<DynamicElement>();
+
+            createNewAircraft(aircraftName, hitPoint, aircraftWidth, aircraftHeight, elements, speed,
+                minAltitude, friend, airliner, cloud, cantEscape, price);
+        }
+
+        static void createNewAircraft(string aircraftName, int hitPoint, int aircraftWidth, int aircraftHeight,
+            List<DynamicElement> elements,  int speed = 10, int minAltitude = -1, bool friend = false,
+            bool airliner = false, bool cloud = false, bool cantEscape = false, int price = 0)
         {
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {
@@ -570,7 +634,7 @@ namespace shilka2
 
                 Aircraft newAircraft = new Aircraft();
 
-                newAircraft.y = rand.Next(Aircraft.maxAltitudeGlobal, Aircraft.minAltitudeGlobal);
+                newAircraft.y = rand.Next(maxAltitudeGlobal, minAltitudeGlobal);
 
                 if (rand.Next(2) == 1)
                 {
@@ -589,6 +653,24 @@ namespace shilka2
                     newAircraftImage.FlowDirection = FlowDirection.RightToLeft;
 
                 newAircraftImage.Margin = new Thickness(newAircraft.x, newAircraft.y, 0, 0);
+
+                foreach (DynamicElement d in elements)
+                {
+                    d.element = new Image();
+                    d.element.Source = new BitmapImage(new Uri("images/" + aircraftName + d.elementName + ".png", UriKind.Relative)) { };
+
+                    if (d.movingType == DynamicElement.MovingType.horizontalRotate)
+                        d.rotateDegreeCurrent = 1;
+
+                    newAircraft.dynamicElemets.Add(d);
+
+                    if (newAircraft.flightDirection == FlightDirectionType.Left)
+                        Canvas.SetZIndex(d.element, 60);
+                    else
+                        Canvas.SetZIndex(d.element, 40);
+
+                    main.firePlace.Children.Add(d.element);
+                }
 
                 newAircraft.aircraftType = aircraftName;
                 newAircraft.hitpoint = hitPoint;

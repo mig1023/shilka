@@ -86,6 +86,7 @@
                         15,    // <-- e3
                         18,    // <-- b2
                         20,    // <-- tomahawk
+                        28,    // <-- ah64
                     };
 
             if (script == scriptsNames.DesertStorm)
@@ -108,6 +109,7 @@
                         24,    // <-- f111
                         25,    // <-- f5
                         27,    // <-- ea6
+                        28,    // <-- ah64
                     };
 
             if (script == scriptsNames.IranIraq)
