@@ -25,7 +25,9 @@ namespace shilka2
         enum FlightDirectionType { Left, Right };
 
         public static int[] scriptAircraft;
+        public static int[] scriptHelicopters;
         public static int[] scriptAircraftFriend;
+        public static int[] scriptHelicoptersFriend;
 
         double tangage { get; set; }
         int tangageDelay = 0;
@@ -163,7 +165,7 @@ namespace shilka2
 
         public static void AircraftStart(object obj, ElapsedEventArgs e)
         {
-            int newAircraft = rand.Next(11)+1;
+            int newAircraft = rand.Next(17)+1;
 
             int dice;
 
@@ -191,7 +193,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = (int)(rand.Next(31) + 1);
+                        dice = (int)(rand.Next(27) + 1);
                     }
                     while (!aircraftInList(scriptAircraft, dice));
 
@@ -442,7 +444,26 @@ namespace shilka2
                                 price: 52,
                                 speed: 7
                             ); break;
-                        case 28:
+
+                    }
+                    break;
+
+                case 10:
+                case 11:
+                case 12:
+                case 13:
+                case 14:
+
+                    do
+                    {
+                        dice = (int)(rand.Next(4) + 1);
+                    }
+                    while (!aircraftInList(scriptHelicopters, dice));
+
+                    switch (dice)
+                    {
+
+                        case 1:
                             createNewAircraft(
                                 aircraftName: "ah64",
                                 hitPoint: 100,
@@ -468,7 +489,7 @@ namespace shilka2
                                     }
                                 }
                             );  break;
-                        case 29:
+                        case 2:
                             createNewAircraft(
                                 aircraftName: "ah1",
                                 hitPoint: 100,
@@ -494,7 +515,7 @@ namespace shilka2
                                     }
                                 }
                             ); break;
-                        case 30:
+                        case 3:
                             createNewAircraft(
                                 aircraftName: "uh60",
                                 hitPoint: 100,
@@ -520,7 +541,7 @@ namespace shilka2
                                     }
                                 }
                             ); break;
-                        case 31:
+                        case 4:
                             createNewAircraft(
                                 aircraftName: "uh1",
                                 hitPoint: 100,
@@ -549,11 +570,11 @@ namespace shilka2
                     }
                     break;
 
-                case 10:
+                case 15:
 
                     do
                     {
-                        dice = (int)(rand.Next(16) + 1);
+                        dice = (int)(rand.Next(13) + 1);
                     }
                     while (!aircraftInList(scriptAircraftFriend, dice));
 
@@ -672,7 +693,22 @@ namespace shilka2
                                 speed: 14,
                                 friend: true
                             ); break;
-                        case 14:
+                        
+                        }
+                    break;
+
+                case 16:
+
+                    do
+                    {
+                        dice = (int)(rand.Next(3) + 1);
+                    }
+                    while (!aircraftInList(scriptHelicopters, dice));
+
+                    switch (dice)
+                    {
+
+                        case 1:
                             createNewAircraft(
                                 aircraftName: "mi28",
                                 hitPoint: 100,
@@ -698,7 +734,7 @@ namespace shilka2
                                     }
                                 }
                             ); break;
-                        case 15:
+                        case 2:
                             createNewAircraft(
                                 aircraftName: "mi24",
                                 hitPoint: 100,
@@ -724,7 +760,7 @@ namespace shilka2
                                     }
                                 }
                             ); break;
-                        case 16:
+                        case 3:
                             createNewAircraft(
                                 aircraftName: "mi8",
                                 hitPoint: 100,
@@ -750,10 +786,11 @@ namespace shilka2
                                     }
                                  }
                             ); break;
-                        }
+                    }
                     break;
 
-                case 11:
+
+                case 17:
 
                     createNewAircraft(
                         aircraftName: "a320",

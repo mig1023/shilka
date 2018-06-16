@@ -61,12 +61,15 @@ namespace shilka2
             HandImg.Margin = new Thickness(65, (heightForShilka - 120), 0, 0);
         }
 
-        public void StartGame(int[] scriptAircraft, int[] scriptAircraftFriend)
+        public void StartGame(int[] scriptAircraft, int[] scriptHelicopters,
+            int[] scriptAircraftFriend, int[] scriptHelicoptersFriend)
         {
             startMenuShowYet = false;
 
             Aircraft.scriptAircraft = scriptAircraft;
+            Aircraft.scriptHelicopters = scriptHelicopters;
             Aircraft.scriptAircraftFriend = scriptAircraftFriend;
+            Aircraft.scriptHelicoptersFriend = scriptHelicoptersFriend;
 
             MoveCanvas(
                 moveCanvas: StartMenu,
@@ -284,7 +287,9 @@ namespace shilka2
 
             StartGame(
                 Scripts.scriptEnemyAircrafts(script),
-                Scripts.scriptFriendAircrafts(script)
+                Scripts.scriptEnemyHelicopters(script),
+                Scripts.scriptFriendAircrafts(script),
+                Scripts.scriptFriendHelicopterss(script)
             );
         }
 
