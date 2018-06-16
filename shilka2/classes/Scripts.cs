@@ -27,6 +27,8 @@
                     2,     // <-- mig29
                     12,    // <-- mig21
                     13,    // <-- mig25
+                    15,    // <-- mi24
+                    16,    // <-- mi8
                 };
 
             if (script == scriptsNames.DesertStorm)
@@ -35,6 +37,8 @@
                     2,     // <-- mig29
                     6,     // <-- su25
                     13,    // <-- mig25
+                    15,    // <-- mi24
+                    16,    // <-- mi8
                 };
 
             if (script == scriptsNames.IranIraq)
@@ -42,7 +46,9 @@
                     1,     // <-- mig23
                     4,     // <-- su17
                     11,    // <-- mig19
-                    13     // <-- mig25
+                    13,    // <-- mig25
+                    15,    // <-- mi24
+                    16,    // <-- mi8
                 };
 
             if (script == scriptsNames.Syria)
@@ -50,6 +56,9 @@
                     1,     // <-- mig23
                     2,     // <-- mig29
                     4,     // <-- su17
+                    14,    // <-- mi28
+                    15,    // <-- mi24
+                    16,    // <-- mi8
                 };
 
             return new int[] { };
@@ -68,6 +77,8 @@
                         23,     // <-- a6
                         24,     // <-- f111
                         25,     // <-- f5
+                        29,     // <-- ah1
+                        31,     // <-- uh1
                     };
 
             if (script == scriptsNames.Yugoslavia)
@@ -87,6 +98,9 @@
                         18,    // <-- b2
                         20,    // <-- tomahawk
                         28,    // <-- ah64
+                        29,    // <-- ah1
+                        30,    // <-- uh60
+                        31,    // <-- uh1
                     };
 
             if (script == scriptsNames.DesertStorm)
@@ -110,6 +124,9 @@
                         25,    // <-- f5
                         27,    // <-- ea6
                         28,    // <-- ah64
+                        29,    // <-- ah1
+                        30,    // <-- uh60
+                        31,    // <-- uh1
                     };
 
             if (script == scriptsNames.IranIraq)
@@ -118,6 +135,7 @@
                         10,    // <-- f4
                         22,    // <-- ac130
                         25,    // <-- f5
+                        29,    // <-- ah1
                     };
 
             if (script == scriptsNames.Syria)

@@ -158,8 +158,17 @@
     <Resource Include="images\radar.png" />
     <Resource Include="images\a320.png" />
     <Resource Include="images\ah64.png" />
-    <Resource Include="images\ah64_main.png" />
-    <Resource Include="images\ah64_suppl.png" />
+    <Resource Include="images\prop_main.png" />
+    <Resource Include="images\x_suppl.png" />
+    <Resource Include="images\ah1.png" />
+    <Resource Include="images\i_suppl.png" />
+    <Resource Include="images\mi24.png" />
+    <Resource Include="images\mi28.png" />
+    <Resource Include="images\mi8.png" />
+    <Resource Include="images\t_suppl.png" />
+    <Resource Include="images\uh1.png" />
+    <Resource Include="images\uh60.png" />
+    <Resource Include="images\y_suppl.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -163,7 +163,7 @@ namespace shilka2
 
         public static void AircraftStart(object obj, ElapsedEventArgs e)
         {
-            int newAircraft = rand.Next(12)+1;
+            int newAircraft = rand.Next(11)+1;
 
             int dice;
 
@@ -191,7 +191,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = (int)(rand.Next(28) + 1);
+                        dice = (int)(rand.Next(31) + 1);
                     }
                     while (!aircraftInList(scriptAircraft, dice));
 
@@ -449,9 +449,10 @@ namespace shilka2
                                 aircraftWidth: 209,
                                 aircraftHeight: 63,
                                 speed: 5,
+                                price: 61,
                                 elements: new List<DynamicElement> {
                                     new DynamicElement {
-                                        elementName = "_main",
+                                        elementName = "prop_main",
                                         y = -8,
                                         x_left = -41,
                                         x_right = 27,
@@ -459,7 +460,7 @@ namespace shilka2
                                         width = 170
                                     },
                                     new DynamicElement {
-                                        elementName = "_suppl",
+                                        elementName = "x_suppl",
                                         y = -5,
                                         x_left = 170,
                                         x_right = -10,
@@ -467,6 +468,84 @@ namespace shilka2
                                     }
                                 }
                             );  break;
+                        case 29:
+                            createNewAircraft(
+                                aircraftName: "ah1",
+                                hitPoint: 100,
+                                aircraftWidth: 209,
+                                aircraftHeight: 54,
+                                speed: 5,
+                                price: 11,
+                                elements: new List<DynamicElement> {
+                                    new DynamicElement {
+                                        elementName = "prop_main",
+                                        y = -22,
+                                        x_left = -41,
+                                        x_right = 27,
+                                        movingType = DynamicElement.MovingType.horizontalRotate,
+                                        width = 170
+                                    },
+                                    new DynamicElement {
+                                        elementName = "i_suppl",
+                                        y = -9,
+                                        x_left = 175,
+                                        x_right = -12,
+                                        movingType = DynamicElement.MovingType.verticalRotate
+                                    }
+                                }
+                            ); break;
+                        case 30:
+                            createNewAircraft(
+                                aircraftName: "uh60",
+                                hitPoint: 100,
+                                aircraftWidth: 210,
+                                aircraftHeight: 65,
+                                speed: 5,
+                                price: 21,
+                                elements: new List<DynamicElement> {
+                                    new DynamicElement {
+                                        elementName = "prop_main",
+                                        y = -5,
+                                        x_left = -48,
+                                        x_right = 36,
+                                        movingType = DynamicElement.MovingType.horizontalRotate,
+                                        width = 170
+                                    },
+                                    new DynamicElement {
+                                        elementName = "t_suppl",
+                                        y = -11,
+                                        x_left = 175,
+                                        x_right = -12,
+                                        movingType = DynamicElement.MovingType.verticalRotate
+                                    }
+                                }
+                            ); break;
+                        case 31:
+                            createNewAircraft(
+                                aircraftName: "uh1",
+                                hitPoint: 100,
+                                aircraftWidth: 210,
+                                aircraftHeight: 65,
+                                speed: 5,
+                                price: 5,
+                                elements: new List<DynamicElement> {
+                                    new DynamicElement {
+                                        elementName = "prop_main",
+                                        y = -13,
+                                        x_left = -39,
+                                        x_right = 25,
+                                        movingType = DynamicElement.MovingType.horizontalRotate,
+                                        width = 170
+                                    },
+                                    new DynamicElement {
+                                        elementName = "i_suppl",
+                                        y = -11,
+                                        x_left = 175,
+                                        x_right = -12,
+                                        movingType = DynamicElement.MovingType.verticalRotate
+                                    }
+                                }
+                            ); break;
                     }
                     break;
 
@@ -474,7 +553,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = (int)(rand.Next(13) + 1);
+                        dice = (int)(rand.Next(16) + 1);
                     }
                     while (!aircraftInList(scriptAircraftFriend, dice));
 
@@ -593,7 +672,85 @@ namespace shilka2
                                 speed: 14,
                                 friend: true
                             ); break;
-                    }
+                        case 14:
+                            createNewAircraft(
+                                aircraftName: "mi28",
+                                hitPoint: 100,
+                                aircraftWidth: 209,
+                                aircraftHeight: 62,
+                                speed: 5,
+                                friend: true,
+                                elements: new List<DynamicElement> {
+                                    new DynamicElement {
+                                        elementName = "prop_main",
+                                        y = -7,
+                                        x_left = -39,
+                                        x_right = 25,
+                                        movingType = DynamicElement.MovingType.horizontalRotate,
+                                        width = 170
+                                    },
+                                    new DynamicElement {
+                                        elementName = "x_suppl",
+                                        y = -11,
+                                        x_left = 165,
+                                        x_right = -8,
+                                        movingType = DynamicElement.MovingType.verticalRotate
+                                    }
+                                }
+                            ); break;
+                        case 15:
+                            createNewAircraft(
+                                aircraftName: "mi24",
+                                hitPoint: 100,
+                                aircraftWidth: 210,
+                                aircraftHeight: 57,
+                                speed: 5,
+                                friend: true,
+                                elements: new List<DynamicElement> {
+                                    new DynamicElement {
+                                        elementName = "prop_main",
+                                        y = -11,
+                                        x_left = -39,
+                                        x_right = 25,
+                                        movingType = DynamicElement.MovingType.horizontalRotate,
+                                        width = 170
+                                    },
+                                    new DynamicElement {
+                                        elementName = "y_suppl",
+                                        y = -15,
+                                        x_left = 180,
+                                        x_right = -10,
+                                        movingType = DynamicElement.MovingType.verticalRotate
+                                    }
+                                }
+                            ); break;
+                        case 16:
+                            createNewAircraft(
+                                aircraftName: "mi8",
+                                hitPoint: 100,
+                                aircraftWidth: 220,
+                                aircraftHeight: 62,
+                                speed: 5,
+                                friend: true,
+                                elements: new List<DynamicElement> {
+                                    new DynamicElement {
+                                        elementName = "prop_main",
+                                        y = -11,
+                                        x_left = -47,
+                                        x_right = 40,
+                                        movingType = DynamicElement.MovingType.horizontalRotate,
+                                        width = 170
+                                    },
+                                    new DynamicElement {
+                                        elementName = "y_suppl",
+                                        y = -19,
+                                        x_left = 190,
+                                        x_right = -15,
+                                        movingType = DynamicElement.MovingType.verticalRotate
+                                    }
+                                 }
+                            ); break;
+                        }
                     break;
 
                 case 11:
@@ -603,7 +760,9 @@ namespace shilka2
                         hitPoint: 60,
                         aircraftWidth: 565,
                         aircraftHeight: 173,
-                        speed: 5,
+                        speed: 8,
+                        minAltitude: minAltitudeForLargeAircraft,
+                        cantEscape: true,
                         airliner: true
                     ); break;
             }
@@ -657,7 +816,7 @@ namespace shilka2
                 foreach (DynamicElement d in elements)
                 {
                     d.element = new Image();
-                    d.element.Source = new BitmapImage(new Uri("images/" + aircraftName + d.elementName + ".png", UriKind.Relative)) { };
+                    d.element.Source = new BitmapImage(new Uri("images/" + d.elementName + ".png", UriKind.Relative)) { };
 
                     if (d.movingType == DynamicElement.MovingType.horizontalRotate)
                         d.rotateDegreeCurrent = 1;
