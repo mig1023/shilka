@@ -139,7 +139,6 @@ namespace shilka2
                             if (d.rotateDegreeCurrent < 0.2) d.rotateDegreeCurrent = 1;
 
                             d.element.RenderTransform = new ScaleTransform(d.rotateDegreeCurrent, 1, (d.element.ActualWidth/2), 0);
-
                         }
                     }
                         
@@ -147,7 +146,14 @@ namespace shilka2
 
                 for (int x = 0; x < Aircraft.aircrafts.Count; x++)
                     if (Aircraft.aircrafts[x].fly == false)
+                    {
+                        main.firePlace.Children.Remove(Aircraft.aircrafts[x].aircraftImage);
+
+                        foreach (DynamicElement d in Aircraft.aircrafts[x].dynamicElemets)
+                            main.firePlace.Children.Remove(d.element);
+
                         Aircraft.aircrafts.RemoveAt(x);
+                    }
             }));
         }
 
