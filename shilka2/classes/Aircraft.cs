@@ -25,10 +25,10 @@ namespace shilka2
         static int maxAltitudeForHelicopters = minAltitudeForLargeAircraft;
         enum FlightDirectionType { Left, Right };
 
-        public static int[] scriptAircraft;
-        public static int[] scriptHelicopters;
-        public static int[] scriptAircraftFriend;
-        public static int[] scriptHelicoptersFriend;
+        public static int?[] scriptAircraft;
+        public static int?[] scriptHelicopters;
+        public static int?[] scriptAircraftFriend;
+        public static int?[] scriptHelicoptersFriend;
 
         double tangage { get; set; }
         int tangageDelay = 0;
@@ -167,8 +167,10 @@ namespace shilka2
             }));
         }
 
-        private static bool aircraftInList(int[] scriptAircraft, int aircraft)
+        private static bool aircraftInList(int?[] scriptAircraft, int aircraft)
         {
+            if (scriptAircraft == null) return false;
+
             if (scriptAircraft.Length == 0) return true;
 
             bool inList = false;
@@ -207,6 +209,8 @@ namespace shilka2
                 case 7:
                 case 8:
                 case 9:
+
+                    if (scriptAircraft == null) goto case 1;
 
                     do
                     {
@@ -487,6 +491,8 @@ namespace shilka2
                 case 11:
                 case 12:
 
+                    if (scriptHelicopters == null) goto case 5;
+
                     do
                     {
                         dice = (int)(rand.Next(4) + 1);
@@ -499,7 +505,7 @@ namespace shilka2
                         case 1:
                             createNewAircraft(
                                 aircraftName: "ah64",
-                                hitPoint: 100,
+                                hitPoint: 120,
                                 aircraftWidth: 209,
                                 aircraftHeight: 63,
                                 speed: 5,
@@ -553,7 +559,7 @@ namespace shilka2
                         case 3:
                             createNewAircraft(
                                 aircraftName: "uh60",
-                                hitPoint: 100,
+                                hitPoint: 80,
                                 aircraftWidth: 210,
                                 aircraftHeight: 65,
                                 speed: 5,
@@ -580,7 +586,7 @@ namespace shilka2
                         case 4:
                             createNewAircraft(
                                 aircraftName: "uh1",
-                                hitPoint: 100,
+                                hitPoint: 80,
                                 aircraftWidth: 210,
                                 aircraftHeight: 65,
                                 speed: 5,
@@ -608,6 +614,8 @@ namespace shilka2
                     break;
 
                 case 13:
+
+                    if (scriptAircraftFriend == null) goto case 1;
 
                     do
                     {
@@ -736,6 +744,8 @@ namespace shilka2
 
                 case 14:
 
+                    if (scriptAircraftFriend == null) goto case 13;
+
                     do
                     {
                         dice = (int)(rand.Next(3) + 1);
@@ -748,7 +758,7 @@ namespace shilka2
                         case 1:
                             createNewAircraft(
                                 aircraftName: "mi28",
-                                hitPoint: 100,
+                                hitPoint: 120,
                                 aircraftWidth: 209,
                                 aircraftHeight: 62,
                                 speed: 5,
@@ -775,7 +785,7 @@ namespace shilka2
                         case 2:
                             createNewAircraft(
                                 aircraftName: "mi24",
-                                hitPoint: 100,
+                                hitPoint: 120,
                                 aircraftWidth: 210,
                                 aircraftHeight: 57,
                                 speed: 5,
@@ -802,7 +812,7 @@ namespace shilka2
                         case 3:
                             createNewAircraft(
                                 aircraftName: "mi8",
-                                hitPoint: 100,
+                                hitPoint: 80,
                                 aircraftWidth: 220,
                                 aircraftHeight: 62,
                                 speed: 5,
@@ -833,7 +843,7 @@ namespace shilka2
 
                     createNewAircraft(
                         aircraftName: "a320",
-                        hitPoint: 60,
+                        hitPoint: 100,
                         aircraftWidth: 565,
                         aircraftHeight: 173,
                         speed: 8,

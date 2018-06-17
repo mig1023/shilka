@@ -61,8 +61,8 @@ namespace shilka2
             HandImg.Margin = new Thickness(65, (heightForShilka - 120), 0, 0);
         }
 
-        public void StartGame(int[] scriptAircraft, int[] scriptHelicopters,
-            int[] scriptAircraftFriend, int[] scriptHelicoptersFriend)
+        public void StartGame(int?[] scriptAircraft, int?[] scriptHelicopters,
+            int?[] scriptAircraftFriend, int?[] scriptHelicoptersFriend)
         {
             startMenuShowYet = false;
 
@@ -263,27 +263,7 @@ namespace shilka2
 
         public void startScript(Scripts.scriptsNames script)
         {
-            switch(script)
-            {
-                case Scripts.scriptsNames.noScript:
-                    Shilka.currentScript = "быстрая игра";
-                    break;
-                case Scripts.scriptsNames.Vietnam:
-                    Shilka.currentScript = "Вьетнам";
-                    break;
-                case Scripts.scriptsNames.IranIraq:
-                    Shilka.currentScript = "Ирано-Иракская";
-                    break;
-                case Scripts.scriptsNames.DesertStorm:
-                    Shilka.currentScript = "Буря в пустыни";
-                    break;
-                case Scripts.scriptsNames.Syria:
-                    Shilka.currentScript = "Сирия";
-                    break;
-                case Scripts.scriptsNames.Yugoslavia:
-                    Shilka.currentScript = "Югославия";
-                    break;
-            }
+            Shilka.currentScript = script;
 
             StartGame(
                 Scripts.scriptEnemyAircrafts(script),

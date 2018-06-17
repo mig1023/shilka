@@ -30,7 +30,7 @@ namespace shilka2
         public static int statisticLastDamagePrice;
         public static bool statisticShutdownFlag = false;
         public static string statisticLastDamageType;
-        public static string currentScript;
+        public static Scripts.scriptsNames currentScript;
 
         public static int degreeOfHeatingGunBurrels = 30;
         public static bool reheatingGunBurrels = false;
@@ -152,13 +152,28 @@ namespace shilka2
         public static void StatisticSave(string player)
         {
             int baseForPercent, shutdownPercent, damagedPercent, statisticWithoutDamage, inTargetPercent;
+
             double chance;
+            string currentScriptName = "";
 
             Statistic(out baseForPercent, out shutdownPercent, out damagedPercent, out statisticWithoutDamage,
                 out chance, out inTargetPercent);
 
+            if (currentScript == Scripts.scriptsNames.noScript)
+                currentScriptName = "быстрая игра";
+            else if (currentScript == Scripts.scriptsNames.Vietnam)
+                currentScriptName = "Вьетнам";
+            else if (currentScript == Scripts.scriptsNames.IranIraq)
+                currentScriptName = "Ирано-Иракская";
+            else if (currentScript == Scripts.scriptsNames.DesertStorm)
+                currentScriptName = "Буря в пустыни";
+            else if (currentScript == Scripts.scriptsNames.Syria)
+                currentScriptName = "Сирия";
+            else if (currentScript == Scripts.scriptsNames.Yugoslavia)
+                currentScriptName = "Югославия";
+
             string stat = String.Format("{0}|{1}|{2}|{3}|{4}|{5}|{6}|{7}|{8}|{9}|{10}|{11}|{12}|{13}\n",
-                  player, currentScript, statisticShellsFired, staticticInTarget, staticticAircraftShutdown,
+                  player, currentScriptName, statisticShellsFired, staticticInTarget, staticticAircraftShutdown,
                   inTargetPercent, shutdownPercent, statisticDamaged, damagedPercent, statisticHasGone,
                   statisticWithoutDamage, statisticAmountOfDamage, statisticFriendDamage, chance
             );
