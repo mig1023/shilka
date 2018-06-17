@@ -9,7 +9,7 @@ namespace shilka2.classes
 {
     class DynamicElement
     {
-        public enum MovingType { verticalRotate, horizontalRotate };
+        public enum MovingType { zRotate, xRotate, yRotate };
         public MovingType movingType;
 
         public Image element;

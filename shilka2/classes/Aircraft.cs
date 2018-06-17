@@ -125,20 +125,25 @@ namespace shilka2
                         else
                             d.element.Margin = new Thickness(aircraft.x + d.x_right, aircraft.y + d.y, 0, 0);
 
-                        if (d.movingType == DynamicElement.MovingType.verticalRotate)
+                        if (d.movingType == DynamicElement.MovingType.zRotate)
                         {
                             d.rotateDegreeCurrent += 25;
                             if (d.rotateDegreeCurrent > 180) d.rotateDegreeCurrent = 0;
-
                             d.element.RenderTransform = new RotateTransform(d.rotateDegreeCurrent, (d.element.ActualWidth / 2), (d.element.ActualHeight / 2));
                         }
 
-                        if (d.movingType == DynamicElement.MovingType.horizontalRotate)
+                        if (d.movingType == DynamicElement.MovingType.xRotate)
                         {
                             d.rotateDegreeCurrent -= 0.2;
                             if (d.rotateDegreeCurrent < 0.2) d.rotateDegreeCurrent = 1;
-
                             d.element.RenderTransform = new ScaleTransform(d.rotateDegreeCurrent, 1, (d.element.ActualWidth/2), 0);
+                        }
+
+                        if (d.movingType == DynamicElement.MovingType.yRotate)
+                        {
+                            d.rotateDegreeCurrent -= 0.2;
+                            if (d.rotateDegreeCurrent < 0.2) d.rotateDegreeCurrent = 1;
+                            d.element.RenderTransform = new ScaleTransform(1, d.rotateDegreeCurrent, 0, (d.element.ActualHeight / 2));
                         }
                     }
                         
@@ -199,7 +204,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = (int)(rand.Next(27) + 1);
+                        dice = (int)(rand.Next(28) + 1);
                     }
                     while (!aircraftInList(scriptAircraft, dice));
 
@@ -450,7 +455,25 @@ namespace shilka2
                                 price: 52,
                                 speed: 7
                             ); break;
-
+                        case 28:
+                            createNewAircraft(
+                                aircraftName: "hawkeye",
+                                hitPoint: 100,
+                                aircraftWidth: 324,
+                                aircraftHeight: 96,
+                                speed: 8,
+                                minAltitude: minAltitudeForLargeAircraft,
+                                cantEscape: true,
+                                elements: new List<DynamicElement> {
+                                    new DynamicElement {
+                                        elementName = "air_prop",
+                                        y = 13,
+                                        x_left = 75,
+                                        x_right = 225,
+                                        movingType = DynamicElement.MovingType.yRotate
+                                    }
+                                }
+                            ); break;
                     }
                     break;
 
@@ -483,7 +506,7 @@ namespace shilka2
                                         y = -8,
                                         x_left = -41,
                                         x_right = 27,
-                                        movingType = DynamicElement.MovingType.horizontalRotate,
+                                        movingType = DynamicElement.MovingType.xRotate,
                                         width = 170
                                     },
                                     new DynamicElement {
@@ -491,7 +514,7 @@ namespace shilka2
                                         y = -5,
                                         x_left = 170,
                                         x_right = -10,
-                                        movingType = DynamicElement.MovingType.verticalRotate
+                                        movingType = DynamicElement.MovingType.zRotate
                                     }
                                 }
                             );  break;
@@ -509,7 +532,7 @@ namespace shilka2
                                         y = -22,
                                         x_left = -41,
                                         x_right = 27,
-                                        movingType = DynamicElement.MovingType.horizontalRotate,
+                                        movingType = DynamicElement.MovingType.xRotate,
                                         width = 170
                                     },
                                     new DynamicElement {
@@ -517,7 +540,7 @@ namespace shilka2
                                         y = -9,
                                         x_left = 175,
                                         x_right = -12,
-                                        movingType = DynamicElement.MovingType.verticalRotate
+                                        movingType = DynamicElement.MovingType.zRotate
                                     }
                                 }
                             ); break;
@@ -535,7 +558,7 @@ namespace shilka2
                                         y = -5,
                                         x_left = -48,
                                         x_right = 36,
-                                        movingType = DynamicElement.MovingType.horizontalRotate,
+                                        movingType = DynamicElement.MovingType.xRotate,
                                         width = 170
                                     },
                                     new DynamicElement {
@@ -543,7 +566,7 @@ namespace shilka2
                                         y = -11,
                                         x_left = 175,
                                         x_right = -12,
-                                        movingType = DynamicElement.MovingType.verticalRotate
+                                        movingType = DynamicElement.MovingType.zRotate
                                     }
                                 }
                             ); break;
@@ -561,7 +584,7 @@ namespace shilka2
                                         y = -13,
                                         x_left = -39,
                                         x_right = 25,
-                                        movingType = DynamicElement.MovingType.horizontalRotate,
+                                        movingType = DynamicElement.MovingType.xRotate,
                                         width = 170
                                     },
                                     new DynamicElement {
@@ -569,7 +592,7 @@ namespace shilka2
                                         y = -11,
                                         x_left = 175,
                                         x_right = -12,
-                                        movingType = DynamicElement.MovingType.verticalRotate
+                                        movingType = DynamicElement.MovingType.zRotate
                                     }
                                 }
                             ); break;
@@ -728,7 +751,7 @@ namespace shilka2
                                         y = -7,
                                         x_left = -39,
                                         x_right = 25,
-                                        movingType = DynamicElement.MovingType.horizontalRotate,
+                                        movingType = DynamicElement.MovingType.xRotate,
                                         width = 170
                                     },
                                     new DynamicElement {
@@ -736,7 +759,7 @@ namespace shilka2
                                         y = -11,
                                         x_left = 165,
                                         x_right = -8,
-                                        movingType = DynamicElement.MovingType.verticalRotate
+                                        movingType = DynamicElement.MovingType.zRotate
                                     }
                                 }
                             ); break;
@@ -754,7 +777,7 @@ namespace shilka2
                                         y = -11,
                                         x_left = -39,
                                         x_right = 25,
-                                        movingType = DynamicElement.MovingType.horizontalRotate,
+                                        movingType = DynamicElement.MovingType.xRotate,
                                         width = 170
                                     },
                                     new DynamicElement {
@@ -762,7 +785,7 @@ namespace shilka2
                                         y = -15,
                                         x_left = 180,
                                         x_right = -10,
-                                        movingType = DynamicElement.MovingType.verticalRotate
+                                        movingType = DynamicElement.MovingType.zRotate
                                     }
                                 }
                             ); break;
@@ -780,7 +803,7 @@ namespace shilka2
                                         y = -11,
                                         x_left = -47,
                                         x_right = 40,
-                                        movingType = DynamicElement.MovingType.horizontalRotate,
+                                        movingType = DynamicElement.MovingType.xRotate,
                                         width = 170
                                     },
                                     new DynamicElement {
@@ -788,13 +811,12 @@ namespace shilka2
                                         y = -19,
                                         x_left = 190,
                                         x_right = -15,
-                                        movingType = DynamicElement.MovingType.verticalRotate
+                                        movingType = DynamicElement.MovingType.zRotate
                                     }
-                                 }
+                                }
                             ); break;
                     }
                     break;
-
 
                 case 17:
 
@@ -861,15 +883,18 @@ namespace shilka2
                     d.element = new Image();
                     d.element.Source = new BitmapImage(new Uri("images/" + d.elementName + ".png", UriKind.Relative)) { };
 
-                    if (d.movingType == DynamicElement.MovingType.horizontalRotate)
+                    if (newAircraft.flightDirection == FlightDirectionType.Right)
+                        d.element.FlowDirection = FlowDirection.RightToLeft;
+
+                    if (d.movingType == DynamicElement.MovingType.xRotate)
                         d.rotateDegreeCurrent = 1;
 
                     newAircraft.dynamicElemets.Add(d);
 
-                    if (newAircraft.flightDirection == FlightDirectionType.Left)
-                        Canvas.SetZIndex(d.element, 60);
-                    else
+                    if ((newAircraft.flightDirection == FlightDirectionType.Right) && d.movingType != DynamicElement.MovingType.yRotate)
                         Canvas.SetZIndex(d.element, 40);
+                    else
+                        Canvas.SetZIndex(d.element, 60);
 
                     main.firePlace.Children.Add(d.element);
                 }
