@@ -22,6 +22,7 @@ namespace shilka2
         static int maxAltitudeGlobal = MAX_FLIGHT_HEIGHT;
         public static int minAltitudeGlobal { get; set; }
         static int minAltitudeForLargeAircraft = (int)SystemParameters.PrimaryScreenHeight / 2;
+        static int maxAltitudeForHelicopters = minAltitudeForLargeAircraft;
         enum FlightDirectionType { Left, Right };
 
         public static int[] scriptAircraft;
@@ -38,6 +39,7 @@ namespace shilka2
         public int hitpointMax;
         public int speed;
         public int minAltitude;
+        public int maxAltitude;
 
         public bool dead = false;
         public bool friend = false;
@@ -87,7 +89,10 @@ namespace shilka2
                             if (aircraft.y > aircraft.minAltitude) aircraft.y = aircraft.minAltitude;
                         }
 
-                    if (aircraft.y < maxAltitudeGlobal) aircraft.y = maxAltitudeGlobal;
+                    if ((aircraft.maxAltitude >= 0) && (aircraft.y < aircraft.maxAltitude))
+                        aircraft.y = aircraft.maxAltitude;
+                    else if (aircraft.y < maxAltitudeGlobal)
+                        aircraft.y = maxAltitudeGlobal;
 
                     if (
                         ((aircraft.x + aircraft.aircraftImage.Width) < 0) && (aircraft.flightDirection == FlightDirectionType.Left)
@@ -176,7 +181,7 @@ namespace shilka2
 
         public static void AircraftStart(object obj, ElapsedEventArgs e)
         {
-            int newAircraft = rand.Next(17)+1;
+            int newAircraft = rand.Next(15)+1;
 
             int dice;
 
@@ -196,6 +201,7 @@ namespace shilka2
                         cloud: true
                     );
                     break;
+
                 case 5:
                 case 6:
                 case 7:
@@ -480,8 +486,6 @@ namespace shilka2
                 case 10:
                 case 11:
                 case 12:
-                case 13:
-                case 14:
 
                     do
                     {
@@ -499,6 +503,7 @@ namespace shilka2
                                 aircraftWidth: 209,
                                 aircraftHeight: 63,
                                 speed: 5,
+                                maxAltitude: maxAltitudeForHelicopters,
                                 price: 61,
                                 elements: new List<DynamicElement> {
                                     new DynamicElement {
@@ -525,6 +530,7 @@ namespace shilka2
                                 aircraftWidth: 209,
                                 aircraftHeight: 54,
                                 speed: 5,
+                                maxAltitude: maxAltitudeForHelicopters,
                                 price: 11,
                                 elements: new List<DynamicElement> {
                                     new DynamicElement {
@@ -551,6 +557,7 @@ namespace shilka2
                                 aircraftWidth: 210,
                                 aircraftHeight: 65,
                                 speed: 5,
+                                maxAltitude: maxAltitudeForHelicopters,
                                 price: 21,
                                 elements: new List<DynamicElement> {
                                     new DynamicElement {
@@ -577,6 +584,7 @@ namespace shilka2
                                 aircraftWidth: 210,
                                 aircraftHeight: 65,
                                 speed: 5,
+                                maxAltitude: maxAltitudeForHelicopters,
                                 price: 5,
                                 elements: new List<DynamicElement> {
                                     new DynamicElement {
@@ -599,7 +607,7 @@ namespace shilka2
                     }
                     break;
 
-                case 15:
+                case 13:
 
                     do
                     {
@@ -726,7 +734,7 @@ namespace shilka2
                         }
                     break;
 
-                case 16:
+                case 14:
 
                     do
                     {
@@ -744,6 +752,7 @@ namespace shilka2
                                 aircraftWidth: 209,
                                 aircraftHeight: 62,
                                 speed: 5,
+                                maxAltitude: maxAltitudeForHelicopters,
                                 friend: true,
                                 elements: new List<DynamicElement> {
                                     new DynamicElement {
@@ -770,6 +779,7 @@ namespace shilka2
                                 aircraftWidth: 210,
                                 aircraftHeight: 57,
                                 speed: 5,
+                                maxAltitude: maxAltitudeForHelicopters,
                                 friend: true,
                                 elements: new List<DynamicElement> {
                                     new DynamicElement {
@@ -796,6 +806,7 @@ namespace shilka2
                                 aircraftWidth: 220,
                                 aircraftHeight: 62,
                                 speed: 5,
+                                maxAltitude: maxAltitudeForHelicopters,
                                 friend: true,
                                 elements: new List<DynamicElement> {
                                     new DynamicElement {
@@ -818,7 +829,7 @@ namespace shilka2
                     }
                     break;
 
-                case 17:
+                case 15:
 
                     createNewAircraft(
                         aircraftName: "a320",
@@ -834,17 +845,17 @@ namespace shilka2
         }
 
         static void createNewAircraft(string aircraftName, int hitPoint, int aircraftWidth, int aircraftHeight,
-            int speed = 10, int minAltitude = -1, bool friend = false, bool airliner = false,
+            int speed = 10, int minAltitude = -1, int maxAltitude = -1, bool friend = false, bool airliner = false,
             bool cloud = false, bool cantEscape = false, int price = 0)
         {
             List<DynamicElement> elements = new List<DynamicElement>();
 
             createNewAircraft(aircraftName, hitPoint, aircraftWidth, aircraftHeight, elements, speed,
-                minAltitude, friend, airliner, cloud, cantEscape, price);
+                minAltitude, maxAltitude, friend, airliner, cloud, cantEscape, price);
         }
 
         static void createNewAircraft(string aircraftName, int hitPoint, int aircraftWidth, int aircraftHeight,
-            List<DynamicElement> elements,  int speed = 10, int minAltitude = -1, bool friend = false,
+            List<DynamicElement> elements,  int speed = 10, int minAltitude = -1, int maxAltitude = -1, bool friend = false,
             bool airliner = false, bool cloud = false, bool cantEscape = false, int price = 0)
         {
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
@@ -905,6 +916,7 @@ namespace shilka2
                 newAircraft.price = price;
                 newAircraft.speed = speed;
                 newAircraft.minAltitude = minAltitude;
+                newAircraft.maxAltitude = maxAltitude;
                 newAircraft.friend = friend;
                 newAircraft.airliner = airliner;
                 newAircraft.cloud = cloud;
