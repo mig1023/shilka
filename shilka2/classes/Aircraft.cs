@@ -13,7 +13,7 @@ namespace shilka2
     class Aircraft : FlyObject
     {
         const int MAX_FLIGHT_HEIGHT = 75;
-        public const int AIRCRAFT_AVERAGE_PRICE = 81;
+        public const int AIRCRAFT_AVERAGE_PRICE = 72;
         const double ESCAPE_COEFFICIENT = 1.6;
         const int TANGAGE_DELAY = 12;
         const int TANGAGE_SPEED = 4;
@@ -471,6 +471,7 @@ namespace shilka2
                                 hitPoint: 100,
                                 aircraftWidth: 324,
                                 aircraftHeight: 96,
+                                price: 80,
                                 speed: 8,
                                 minAltitude: minAltitudeForLargeAircraft,
                                 cantEscape: true,
