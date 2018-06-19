@@ -34,6 +34,7 @@ namespace shilka2
         int tangageDelay = 0;
 
         public string aircraftType;
+        public string aircraftName;
         public int price;
         public int hitpoint;
         public int hitpointMax;
@@ -115,7 +116,7 @@ namespace shilka2
 
                                 Shilka.statisticShutdownFlag = false;
                                 Shilka.statisticLastDamagePrice = priceOfDamage;
-                                Shilka.statisticLastDamageType = aircraft.aircraftType;
+                                Shilka.statisticLastDamageType = aircraft.aircraftName;
                             }
                         } 
                         else if ( (aircraft.hitpoint < aircraft.hitpointMax) && aircraft.friend) Shilka.statisticFriendDamage++;
@@ -194,7 +195,7 @@ namespace shilka2
                 case 3:
                 case 4:
                     createNewAircraft(
-                        aircraftName: "cloud" + (int)(rand.Next(7) + 1),
+                        aircraftType: "cloud" + (int)(rand.Next(7) + 1),
                         hitPoint: 10,
                         aircraftWidth: (int)(rand.Next(300) + 200),
                         aircraftHeight: (int)(rand.Next(100) + 70),
@@ -222,7 +223,8 @@ namespace shilka2
                     {
                         case 1:
                             createNewAircraft(
-                                aircraftName: "a10",
+                                aircraftType: "a10",
+                                aircraftName: "A-10 Thunderbolt",
                                 hitPoint: 200,
                                 aircraftWidth: 270,
                                 aircraftHeight: 68,
@@ -232,7 +234,8 @@ namespace shilka2
                             ); break;
                         case 2:
                             createNewAircraft(
-                                aircraftName: "b1",
+                                aircraftType: "b1",
+                                aircraftName: "B-1 Lancer",
                                 hitPoint: 90,
                                 aircraftWidth: 510,
                                 aircraftHeight: 108,
@@ -241,7 +244,8 @@ namespace shilka2
                             ); break;
                         case 3:
                             createNewAircraft(
-                                aircraftName: "b52",
+                                aircraftType: "b52",
+                                aircraftName: "B-52 Stratofortress",
                                 hitPoint: 120,
                                 aircraftWidth: 565,
                                 aircraftHeight: 155,
@@ -252,7 +256,8 @@ namespace shilka2
                             ); break;
                         case 4:
                             createNewAircraft(
-                                aircraftName: "f117",
+                                aircraftType: "f117",
+                                aircraftName: "F-117 Nighthawk",
                                 hitPoint: 50,
                                 aircraftWidth: 270,
                                 aircraftHeight: 47,
@@ -260,7 +265,8 @@ namespace shilka2
                             ); break;
                         case 5:
                             createNewAircraft(
-                                aircraftName: "f14",
+                                aircraftType: "f14",
+                                aircraftName: "F-14 Tomcat",
                                 hitPoint: 120,
                                 aircraftWidth: 275,
                                 aircraftHeight: 67,
@@ -268,7 +274,8 @@ namespace shilka2
                             ); break;
                         case 6:
                             createNewAircraft(
-                                aircraftName: "f18",
+                                aircraftType: "f18",
+                                aircraftName: "F-18 Hornet",
                                 hitPoint: 120,
                                 aircraftWidth: 270,
                                 aircraftHeight: 61,
@@ -276,7 +283,8 @@ namespace shilka2
                             ); break;
                         case 7:
                             createNewAircraft(
-                                aircraftName: "f16",
+                                aircraftType: "f16",
+                                aircraftName: "F-16 Fighting Falcon",
                                 hitPoint: 120,
                                 aircraftWidth: 270,
                                 aircraftHeight: 89,
@@ -284,7 +292,8 @@ namespace shilka2
                             ); break;
                         case 8:
                             createNewAircraft(
-                                aircraftName: "f22",
+                                aircraftType: "f22",
+                                aircraftName: "F-22 Raptor",
                                 hitPoint: 90,
                                 aircraftWidth: 270,
                                 aircraftHeight: 73,
@@ -293,7 +302,8 @@ namespace shilka2
                             ); break;
                         case 9:
                             createNewAircraft(
-                                aircraftName: "f15",
+                                aircraftType: "f15",
+                                aircraftName: "F-15 Eagle",
                                 hitPoint: 120,
                                 aircraftWidth: 270,
                                 aircraftHeight: 62,
@@ -301,7 +311,8 @@ namespace shilka2
                             ); break;
                         case 10:
                             createNewAircraft(
-                                aircraftName: "f4",
+                                aircraftType: "f4",
+                                aircraftName: "F-4 Fantom",
                                 hitPoint: 150,
                                 aircraftWidth: 270,
                                 aircraftHeight: 64,
@@ -310,7 +321,8 @@ namespace shilka2
                             ); break;
                         case 11:
                             createNewAircraft(
-                                aircraftName: "tornado",
+                                aircraftType: "tornado",
+                                aircraftName: "Panavia Tornado",
                                 hitPoint: 100,
                                 aircraftWidth: 270,
                                 aircraftHeight: 72,
@@ -318,7 +330,8 @@ namespace shilka2
                             ); break;
                         case 12:
                             createNewAircraft(
-                                aircraftName: "predator",
+                                aircraftType: "predator",
+                                aircraftName: "MQ-1 Predator",
                                 hitPoint: 30,
                                 aircraftWidth: 140,
                                 aircraftHeight: 44,
@@ -328,7 +341,8 @@ namespace shilka2
                             ); break;
                         case 13:
                             createNewAircraft(
-                                aircraftName: "reaper",
+                                aircraftType: "reaper",
+                                aircraftName: "MQ-9 Reaper",
                                 hitPoint: 50,
                                 aircraftWidth: 161,
                                 aircraftHeight: 52,
@@ -338,7 +352,8 @@ namespace shilka2
                             ); break;
                         case 14:
                             createNewAircraft(
-                                aircraftName: "f35",
+                                aircraftType: "f35",
+                                aircraftName: "F-35 Lightning II",
                                 hitPoint: 90,
                                 aircraftWidth: 270,
                                 aircraftHeight: 76,
@@ -346,7 +361,8 @@ namespace shilka2
                             ); break;
                         case 15:
                             createNewAircraft(
-                                aircraftName: "e3",
+                                aircraftType: "e3",
+                                aircraftName: "E-3 Centry",
                                 hitPoint: 150,
                                 aircraftWidth: 581,
                                 aircraftHeight: 164,
@@ -356,7 +372,8 @@ namespace shilka2
                             ); break;
                         case 16:
                             createNewAircraft(
-                                aircraftName: "eurofighter",
+                                aircraftType: "eurofighter",
+                                aircraftName: "Eurofighter Typhoon",
                                 hitPoint: 100,
                                 aircraftWidth: 270,
                                 aircraftHeight: 77,
@@ -364,7 +381,8 @@ namespace shilka2
                             ); break;
                         case 17:
                             createNewAircraft(
-                                aircraftName: "rafale",
+                                aircraftType: "rafale",
+                                aircraftName: "Rafale",
                                 hitPoint: 90,
                                 aircraftWidth: 270,
                                 aircraftHeight: 86,
@@ -373,7 +391,8 @@ namespace shilka2
                             ); break;
                         case 18:
                             createNewAircraft(
-                                aircraftName: "b2",
+                                aircraftType: "b2",
+                                aircraftName: "B-2 Spirit",
                                 hitPoint: 125,
                                 aircraftWidth: 332,
                                 aircraftHeight: 76,
@@ -382,7 +401,8 @@ namespace shilka2
                             ); break;
                         case 19:
                             createNewAircraft(
-                                aircraftName: "globalhawk",
+                                aircraftType: "globalhawk",
+                                aircraftName: "RQ-4 Global Hawk",
                                 hitPoint: 125,
                                 aircraftWidth: 265,
                                 aircraftHeight: 85,
@@ -392,7 +412,8 @@ namespace shilka2
                             ); break;
                         case 20:
                             createNewAircraft(
-                                aircraftName: "tomahawk",
+                                aircraftType: "tomahawk",
+                                aircraftName: "Tomahawk",
                                 hitPoint: 20,
                                 aircraftWidth: 125,
                                 aircraftHeight: 29,
@@ -402,7 +423,8 @@ namespace shilka2
                             ); break;
                         case 21:
                             createNewAircraft(
-                                aircraftName: "f8",
+                                aircraftType: "f8",
+                                aircraftName: "F-8 Crusader",
                                 hitPoint: 80,
                                 aircraftWidth: 270,
                                 aircraftHeight: 81,
@@ -411,7 +433,8 @@ namespace shilka2
                             ); break;
                         case 22:
                             createNewAircraft(
-                                aircraftName: "ac130",
+                                aircraftType: "ac130",
+                                aircraftName: "AC-130 Spectre",
                                 hitPoint: 120,
                                 aircraftWidth: 400,
                                 aircraftHeight: 154,
@@ -422,7 +445,8 @@ namespace shilka2
                             ); break;
                         case 23:
                             createNewAircraft(
-                                aircraftName: "a6",
+                                aircraftType: "a6",
+                                aircraftName: "A-6 Intruder",
                                 hitPoint: 80,
                                 aircraftWidth: 270,
                                 aircraftHeight: 78,
@@ -431,7 +455,8 @@ namespace shilka2
                             ); break;
                         case 24:
                             createNewAircraft(
-                                aircraftName: "f111",
+                                aircraftType: "f111",
+                                aircraftName: "F-111",
                                 hitPoint: 80,
                                 aircraftWidth: 285,
                                 aircraftHeight: 59,
@@ -439,7 +464,8 @@ namespace shilka2
                             ); break;
                         case 25:
                             createNewAircraft(
-                                aircraftName: "f5",
+                                aircraftType: "f5",
+                                aircraftName: "F-5 Tiger",
                                 hitPoint: 80,
                                 aircraftWidth: 270,
                                 aircraftHeight: 58,
@@ -448,7 +474,8 @@ namespace shilka2
                             ); break;
                         case 26:
                             createNewAircraft(
-                                aircraftName: "scalp",
+                                aircraftType: "scalp",
+                                aircraftName: "SCALP",
                                 hitPoint: 20,
                                 aircraftWidth: 115,
                                 aircraftHeight: 23,
@@ -458,7 +485,8 @@ namespace shilka2
                             ); break;
                         case 27:
                             createNewAircraft(
-                                aircraftName: "ea6",
+                                aircraftType: "ea6",
+                                aircraftName: "EA-6 Prowler",
                                 hitPoint: 80,
                                 aircraftWidth: 285,
                                 aircraftHeight: 66,
@@ -467,7 +495,8 @@ namespace shilka2
                             ); break;
                         case 28:
                             createNewAircraft(
-                                aircraftName: "hawkeye",
+                                aircraftType: "hawkeye",
+                                aircraftName: "E-2 Hawkeye",
                                 hitPoint: 100,
                                 aircraftWidth: 324,
                                 aircraftHeight: 96,
@@ -505,7 +534,8 @@ namespace shilka2
 
                         case 1:
                             createNewAircraft(
-                                aircraftName: "ah64",
+                                aircraftType: "ah64",
+                                aircraftName: "AH-64 Apache",
                                 hitPoint: 120,
                                 aircraftWidth: 209,
                                 aircraftHeight: 63,
@@ -532,7 +562,8 @@ namespace shilka2
                             );  break;
                         case 2:
                             createNewAircraft(
-                                aircraftName: "ah1",
+                                aircraftType: "ah1",
+                                aircraftName: "AH-1 Cobra",
                                 hitPoint: 100,
                                 aircraftWidth: 209,
                                 aircraftHeight: 54,
@@ -559,7 +590,8 @@ namespace shilka2
                             ); break;
                         case 3:
                             createNewAircraft(
-                                aircraftName: "uh60",
+                                aircraftType: "uh60",
+                                aircraftName: "UH-60 Black Hawk",
                                 hitPoint: 80,
                                 aircraftWidth: 210,
                                 aircraftHeight: 65,
@@ -586,7 +618,8 @@ namespace shilka2
                             ); break;
                         case 4:
                             createNewAircraft(
-                                aircraftName: "uh1",
+                                aircraftType: "uh1",
+                                aircraftName: "UH-1 Iroquois",
                                 hitPoint: 80,
                                 aircraftWidth: 210,
                                 aircraftHeight: 65,
@@ -628,7 +661,8 @@ namespace shilka2
                     {
                         case 1:
                             createNewAircraft(
-                                aircraftName: "mig23",
+                                aircraftType: "mig23",
+                                aircraftName: "МиГ-23",
                                 hitPoint: 80,
                                 aircraftWidth: 270,
                                 aircraftHeight: 71,
@@ -636,7 +670,8 @@ namespace shilka2
                             ); break;
                         case 2:
                             createNewAircraft(
-                                aircraftName: "mig29",
+                                aircraftType: "mig29",
+                                aircraftName: "МиГ-29",
                                 hitPoint: 80,
                                 aircraftWidth: 270,
                                 aircraftHeight: 65,
@@ -644,7 +679,8 @@ namespace shilka2
                             ); break;
                         case 3:
                             createNewAircraft(
-                                aircraftName: "mig31",
+                                aircraftType: "mig31",
+                                aircraftName: "МиГ-31",
                                 hitPoint: 80,
                                 aircraftWidth: 270,
                                 aircraftHeight: 63,
@@ -653,7 +689,8 @@ namespace shilka2
                             ); break;
                         case 4:
                             createNewAircraft(
-                                aircraftName: "su17",
+                                aircraftType: "su17",
+                                aircraftName: "Су-17",
                                 hitPoint: 80,
                                 aircraftWidth: 270,
                                 aircraftHeight: 61,
@@ -662,7 +699,8 @@ namespace shilka2
                             ); break;
                         case 5:
                             createNewAircraft(
-                                aircraftName: "su24",
+                                aircraftType: "su24",
+                                aircraftName: "Су-24",
                                 hitPoint: 80,
                                 aircraftWidth: 270,
                                 aircraftHeight: 67,
@@ -671,7 +709,8 @@ namespace shilka2
                             ); break;
                         case 6:
                             createNewAircraft(
-                                aircraftName: "su25",
+                                aircraftType: "su25",
+                                aircraftName: "Су-25",
                                 hitPoint: 180,
                                 aircraftWidth: 270,
                                 aircraftHeight: 81,
@@ -681,7 +720,8 @@ namespace shilka2
                             ); break;
                         case 7:
                             createNewAircraft(
-                                aircraftName: "su27",
+                                aircraftType: "su27",
+                                aircraftName: "Су-27",
                                 hitPoint: 80,
                                 aircraftWidth: 270,
                                 aircraftHeight: 77,
@@ -689,7 +729,8 @@ namespace shilka2
                             ); break;
                         case 8:
                             createNewAircraft(
-                                aircraftName: "su34",
+                                aircraftType: "su34",
+                                aircraftName: "Су-34",
                                 hitPoint: 100,
                                 aircraftWidth: 275,
                                 aircraftHeight: 56,
@@ -697,7 +738,8 @@ namespace shilka2
                             ); break;
                         case 9:
                             createNewAircraft(
-                                aircraftName: "pakfa",
+                                aircraftType: "pakfa",
+                                aircraftName: "Су-57",
                                 hitPoint: 80,
                                 aircraftWidth: 270,
                                 aircraftHeight: 57,
@@ -706,7 +748,8 @@ namespace shilka2
                             ); break;
                         case 10:
                             createNewAircraft(
-                                aircraftName: "tu160",
+                                aircraftType: "tu160",
+                                aircraftName: "Ту-160",
                                 hitPoint: 120,
                                 aircraftWidth: 510,
                                 aircraftHeight: 108,
@@ -716,7 +759,8 @@ namespace shilka2
                             ); break;
                         case 11:
                             createNewAircraft(
-                                aircraftName: "mig19",
+                                aircraftType: "mig19",
+                                aircraftName: "МиГ-19",
                                 hitPoint: 80,
                                 aircraftWidth: 270,
                                 aircraftHeight: 81,
@@ -724,7 +768,8 @@ namespace shilka2
                             ); break;
                         case 12:
                             createNewAircraft(
-                                aircraftName: "mig21",
+                                aircraftType: "mig21",
+                                aircraftName: "МиГ-21",
                                 hitPoint: 80,
                                 aircraftWidth: 270,
                                 aircraftHeight: 62,
@@ -732,7 +777,8 @@ namespace shilka2
                             ); break;
                         case 13:
                             createNewAircraft(
-                                aircraftName: "mig25",
+                                aircraftType: "mig25",
+                                aircraftName: "МиГ-25",
                                 hitPoint: 80,
                                 aircraftWidth: 270,
                                 aircraftHeight: 64,
@@ -741,7 +787,8 @@ namespace shilka2
                             ); break;
                         case 14:
                             createNewAircraft(
-                                aircraftName: "a50",
+                                aircraftType: "a50",
+                                aircraftName: "А-50",
                                 hitPoint: 150,
                                 aircraftWidth: 570,
                                 aircraftHeight: 175,
@@ -768,7 +815,8 @@ namespace shilka2
 
                         case 1:
                             createNewAircraft(
-                                aircraftName: "mi28",
+                                aircraftType: "mi28",
+                                aircraftName: "Ми-28",
                                 hitPoint: 120,
                                 aircraftWidth: 209,
                                 aircraftHeight: 62,
@@ -795,7 +843,8 @@ namespace shilka2
                             ); break;
                         case 2:
                             createNewAircraft(
-                                aircraftName: "mi24",
+                                aircraftType: "mi24",
+                                aircraftName: "Ми-24",
                                 hitPoint: 120,
                                 aircraftWidth: 210,
                                 aircraftHeight: 57,
@@ -822,7 +871,8 @@ namespace shilka2
                             ); break;
                         case 3:
                             createNewAircraft(
-                                aircraftName: "mi8",
+                                aircraftType: "mi8",
+                                aircraftName: "Ми-8",
                                 hitPoint: 80,
                                 aircraftWidth: 220,
                                 aircraftHeight: 62,
@@ -853,7 +903,8 @@ namespace shilka2
                 case 15:
 
                     createNewAircraft(
-                        aircraftName: "a320",
+                        aircraftType: "a320",
+                        aircraftName: "Аэробус А320",
                         hitPoint: 100,
                         aircraftWidth: 565,
                         aircraftHeight: 173,
@@ -866,19 +917,20 @@ namespace shilka2
             }
         }
 
-        static void createNewAircraft(string aircraftName, int hitPoint, int aircraftWidth, int aircraftHeight,
-            int speed = 10, int minAltitude = -1, int maxAltitude = -1, bool friend = false, bool airliner = false,
-            bool cloud = false, bool cantEscape = false, int price = 0)
+        static void createNewAircraft(string aircraftType, int hitPoint, int aircraftWidth, int aircraftHeight,
+            string aircraftName = "", int speed = 10, int minAltitude = -1, int maxAltitude = -1, bool friend = false,
+            bool airliner = false, bool cloud = false, bool cantEscape = false, int price = 0)
         {
             List<DynamicElement> elements = new List<DynamicElement>();
 
-            createNewAircraft(aircraftName, hitPoint, aircraftWidth, aircraftHeight, elements, speed,
-                minAltitude, maxAltitude, friend, airliner, cloud, cantEscape, price);
+            createNewAircraft(aircraftType, hitPoint, aircraftWidth, aircraftHeight, elements, aircraftName,
+                speed, minAltitude, maxAltitude, friend, airliner, cloud, cantEscape, price);
         }
 
-        static void createNewAircraft(string aircraftName, int hitPoint, int aircraftWidth, int aircraftHeight,
-            List<DynamicElement> elements,  int speed = 10, int minAltitude = -1, int maxAltitude = -1, bool friend = false,
-            bool airliner = false, bool cloud = false, bool cantEscape = false, int price = 0)
+        static void createNewAircraft(string aircraftType, int hitPoint, int aircraftWidth, int aircraftHeight,
+            List<DynamicElement> elements, string aircraftName = "", int speed = 10, int minAltitude = -1,
+            int maxAltitude = -1, bool friend = false, bool airliner = false, bool cloud = false,
+            bool cantEscape = false, int price = 0)
         {
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {
@@ -904,7 +956,7 @@ namespace shilka2
                     newAircraft.x = Application.Current.MainWindow.Width;
                 }
 
-                newAircraftImage.Source = new BitmapImage(new Uri("images/"+aircraftName+".png", UriKind.Relative)) { };
+                newAircraftImage.Source = new BitmapImage(new Uri("images/"+aircraftType+".png", UriKind.Relative)) { };
 
                 if ( ( (newAircraft.flightDirection == FlightDirectionType.Left) && !cloud ) || (rand.Next(2) == 1) && cloud )
                     newAircraftImage.FlowDirection = FlowDirection.RightToLeft;
@@ -932,7 +984,8 @@ namespace shilka2
                     main.firePlace.Children.Add(d.element);
                 }
 
-                newAircraft.aircraftType = aircraftName;
+                newAircraft.aircraftType = aircraftType;
+                newAircraft.aircraftName = aircraftName;
                 newAircraft.hitpoint = hitPoint;
                 newAircraft.hitpointMax = hitPoint;
                 newAircraft.price = price;
