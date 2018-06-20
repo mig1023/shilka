@@ -36,6 +36,7 @@ namespace shilka2
         public static bool reheatingGunBurrels = false;
 
         public static double lastDegree = 0;
+        static double lastDegreeCorrection = 10;
 
         static Random rand;
 
@@ -56,6 +57,9 @@ namespace shilka2
 
             double LastSin = Shell.ptY / Math.Sqrt((Shell.ptX * Shell.ptX) + (Shell.ptY * Shell.ptY));
             lastDegree = Math.Asin(LastSin) * (180 / Math.PI) * -1;
+
+            lastDegree += lastDegreeCorrection;
+            if (lastDegree > 0) lastDegree = 0;
         }
 
         public static void HeatingOfGuns(bool shooting)
