@@ -917,6 +917,11 @@ namespace shilka2
             }
         }
 
+        static ImageSource imageFromResources(string imageName)
+        {
+            return new BitmapImage(new Uri("images/" + imageName + ".png", UriKind.Relative)) { };
+        }
+
         static void createNewAircraft(string aircraftType, int hitPoint, int aircraftWidth, int aircraftHeight,
             string aircraftName = "", int speed = 10, int minAltitude = -1, int maxAltitude = -1, bool friend = false,
             bool airliner = false, bool cloud = false, bool cantEscape = false, int price = 0)
@@ -956,7 +961,7 @@ namespace shilka2
                     newAircraft.x = Application.Current.MainWindow.Width;
                 }
 
-                newAircraftImage.Source = new BitmapImage(new Uri("images/"+aircraftType+".png", UriKind.Relative)) { };
+                newAircraftImage.Source = imageFromResources(aircraftType);
 
                 if ( ( (newAircraft.flightDirection == FlightDirectionType.Left) && !cloud ) || (rand.Next(2) == 1) && cloud )
                     newAircraftImage.FlowDirection = FlowDirection.RightToLeft;
@@ -966,7 +971,7 @@ namespace shilka2
                 foreach (DynamicElement d in elements)
                 {
                     d.element = new Image();
-                    d.element.Source = new BitmapImage(new Uri("images/" + d.elementName + ".png", UriKind.Relative)) { };
+                    d.element.Source = imageFromResources(d.elementName);
 
                     if (newAircraft.flightDirection == FlightDirectionType.Right)
                         d.element.FlowDirection = FlowDirection.RightToLeft;

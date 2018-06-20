@@ -12,6 +12,9 @@ namespace shilka2
 {
     class Shilka
     {
+        const double LAST_DEGREE_CORRECTION = 10;
+        const int GUNS_LENGTH = 30;
+
         static int flashСount = 0;
 
         static string statisticFileName = "statistic.dat";
@@ -36,7 +39,6 @@ namespace shilka2
         public static bool reheatingGunBurrels = false;
 
         public static double lastDegree = 0;
-        static double lastDegreeCorrection = 10;
 
         static Random rand;
 
@@ -58,7 +60,7 @@ namespace shilka2
             double LastSin = Shell.ptY / Math.Sqrt((Shell.ptX * Shell.ptX) + (Shell.ptY * Shell.ptY));
             lastDegree = Math.Asin(LastSin) * (180 / Math.PI) * -1;
 
-            lastDegree += lastDegreeCorrection;
+            lastDegree += LAST_DEGREE_CORRECTION;
             if (lastDegree > 0) lastDegree = 0;
         }
 
@@ -84,6 +86,7 @@ namespace shilka2
 
         public static void DrawGuns(MainWindow main)
         {
+
             double currentHeight = Shell.currentHeight;
             if (currentHeight < 0) currentHeight = main.ActualHeight;
 
@@ -92,8 +95,8 @@ namespace shilka2
                 Line gun = new Line();
                 gun.X1 = Shell.FIRE_WIDTH_CORRECTION - 3 - (12 * numGuns);
                 gun.Y1 = currentHeight - Shell.FIRE_HEIGHT_CORRECTION + 5 - (9 * numGuns);
-                gun.X2 = gun.X1 + 30 * Shell.LastCos;
-                gun.Y2 = gun.Y1 - 30 * Shell.LastSin;
+                gun.X2 = gun.X1 + GUNS_LENGTH * Shell.LastCos;
+                gun.Y2 = gun.Y1 - GUNS_LENGTH * Shell.LastSin;
                 gun.Stroke = Brushes.Black;
                 gun.StrokeThickness = 3;
                 main.firePlace.Children.Add(gun);
