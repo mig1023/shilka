@@ -62,7 +62,7 @@ namespace shilka2
             {
                 MainWindow main = (MainWindow)Application.Current.MainWindow;
 
-                foreach (var aircraft in Aircraft.aircrafts)
+                foreach (var aircraft in aircrafts)
                 {
                     double escapeFromFireCoefficient = 1;
 
@@ -155,15 +155,15 @@ namespace shilka2
                         
                 }
 
-                for (int x = 0; x < Aircraft.aircrafts.Count; x++)
-                    if (Aircraft.aircrafts[x].fly == false)
+                for (int x = 0; x < aircrafts.Count; x++)
+                    if (aircrafts[x].fly == false)
                     {
-                        main.firePlace.Children.Remove(Aircraft.aircrafts[x].aircraftImage);
+                        main.firePlace.Children.Remove(aircrafts[x].aircraftImage);
 
-                        foreach (DynamicElement d in Aircraft.aircrafts[x].dynamicElemets)
+                        foreach (DynamicElement d in aircrafts[x].dynamicElemets)
                             main.firePlace.Children.Remove(d.element);
 
-                        Aircraft.aircrafts.RemoveAt(x);
+                        aircrafts.RemoveAt(x);
                     }
             }));
         }
@@ -1015,7 +1015,7 @@ namespace shilka2
 
                 newAircraft.aircraftImage = newAircraftImage;
                 main.firePlace.Children.Add(newAircraftImage);
-                Aircraft.aircrafts.Add(newAircraft);
+                aircrafts.Add(newAircraft);
             }));
         }
     }

@@ -74,7 +74,7 @@ namespace shilka2
                 degreeOfHeatingGunBurrels--;
 
             if (degreeOfHeatingGunBurrels < 30)
-                Shilka.degreeOfHeatingGunBurrels = 30;
+                degreeOfHeatingGunBurrels = 30;
             else if (degreeOfHeatingGunBurrels > 350)
             {
                 reheatingGunBurrels = true;
@@ -179,7 +179,7 @@ namespace shilka2
             else if (currentScript == Scripts.scriptsNames.Yugoslavia)
                 currentScriptName = "Югославия";
 
-            string stat = String.Format("{0}|{1}|{2}|{3}|{4}|{5}|{6}|{7}|{8}|{9}|{10}|{11}|{12}|{13}\n",
+            string stat = string.Format("{0}|{1}|{2}|{3}|{4}|{5}|{6}|{7}|{8}|{9}|{10}|{11}|{12}|{13}\n",
                   player, currentScriptName, statisticShellsFired, staticticInTarget, staticticAircraftShutdown,
                   inTargetPercent, shutdownPercent, statisticDamaged, damagedPercent, statisticHasGone,
                   statisticWithoutDamage, statisticAmountOfDamage, statisticFriendDamage, chance
@@ -253,21 +253,21 @@ namespace shilka2
                 if (statisticAmountOfDamage < 1000)
                     stat += statisticAmountOfDamage + " млн $";
                 else if (statisticAmountOfDamage < 1000000)
-                    stat += String.Format("{0:f2}", (double)statisticAmountOfDamage / 1000) + " млрд $";
+                    stat += string.Format("{0:f2}", (double)statisticAmountOfDamage / 1000) + " млрд $";
                 else
-                    stat += String.Format("{0:f2}", (double)statisticAmountOfDamage / 1000000) + " трлн $";
+                    stat += string.Format("{0:f2}", (double)statisticAmountOfDamage / 1000000) + " трлн $";
 
                 if (statisticShutdownFlag)
                     stat += " ( +" + statisticLastDamagePrice + " млн $ сбит " + statisticLastDamageType + " )";
                 else
-                    stat += String.Format(" ( +{0:f2} млн $ повреждён ", statisticLastDamagePrice) + statisticLastDamageType + " )";
+                    stat += string.Format(" ( +{0:f2} млн $ повреждён ", statisticLastDamagePrice) + statisticLastDamageType + " )";
 
                 stat += "\n";
             }
                    
             if (statisticFriendDamage > 0) stat += "Повреждено своих: " + statisticFriendDamage + "\n";
 
-            if (statisticAllAircraft > 0) stat += String.Format("Удача: {0:f2}", chance ) + "\n";
+            if (statisticAllAircraft > 0) stat += string.Format("Удача: {0:f2}", chance ) + "\n";
 
             if (statisticShellsFired > 0)
             {
