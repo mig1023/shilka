@@ -902,18 +902,37 @@ namespace shilka2
 
                 case 15:
 
-                    createNewAircraft(
-                        aircraftType: "a320",
-                        aircraftName: "Аэробус А320",
-                        hitPoint: 100,
-                        aircraftWidth: 565,
-                        aircraftHeight: 173,
-                        speed: 8,
-                        minAltitude: minAltitudeForLargeAircraft,
-                        cantEscape: true,
-                        airliner: true
-                    ); break;
+                    dice = (int)(rand.Next(2) + 1);
 
+                    switch (dice)
+                    {
+                        case 1:
+                            createNewAircraft(
+                                aircraftType: "a320",
+                                aircraftName: "Аэробус А320",
+                                hitPoint: 100,
+                                aircraftWidth: 565,
+                                aircraftHeight: 173,
+                                speed: 8,
+                                minAltitude: minAltitudeForLargeAircraft,
+                                cantEscape: true,
+                                airliner: true
+                            ); break;
+
+                        case 2:
+                            createNewAircraft(
+                                aircraftType: "boeing747",
+                                aircraftName: "Боинг 747",
+                                hitPoint: 100,
+                                aircraftWidth: 565,
+                                aircraftHeight: 158,
+                                speed: 8,
+                                minAltitude: minAltitudeForLargeAircraft,
+                                cantEscape: true,
+                                airliner: true
+                            ); break;
+                    }
+                    break;
             }
         }
 
