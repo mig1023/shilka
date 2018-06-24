@@ -177,6 +177,7 @@
                 return new int?[] {
                     2,     // <-- ah1
                     4,     // <-- uh1
+                    5,     // <-- ch46
                 };
 
             if (script == scriptsNames.Yugoslavia)
@@ -185,6 +186,7 @@
                     2,     // <-- ah1
                     3,     // <-- uh60
                     4,     // <-- uh1
+                    5,     // <-- ch46
                 };
 
             if (script == scriptsNames.DesertStorm)
@@ -193,11 +195,13 @@
                     2,     // <-- ah1
                     3,     // <-- uh60
                     4,     // <-- uh1
+                    5,     // <-- ch46
                 };
 
             if (script == scriptsNames.IranIraq)
                 return new int?[] {
                     2,     // <-- ah1
+                    5,     // <-- ch46
                 };
 
             if (script == scriptsNames.Syria)

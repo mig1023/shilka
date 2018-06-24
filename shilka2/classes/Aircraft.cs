@@ -152,7 +152,6 @@ namespace shilka2
                             d.element.RenderTransform = new ScaleTransform(1, d.rotateDegreeCurrent, 0, (d.element.ActualHeight / 2));
                         }
                     }
-                        
                 }
 
                 for (int x = 0; x < aircrafts.Count; x++)
@@ -525,7 +524,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = (int)(rand.Next(4) + 1);
+                        dice = (int)(rand.Next(5) + 1);
                     }
                     while (!aircraftInList(scriptHelicopters, dice));
 
@@ -549,7 +548,6 @@ namespace shilka2
                                         x_left = -41,
                                         x_right = 27,
                                         movingType = DynamicElement.MovingType.xRotate,
-                                        width = 170
                                     },
                                     new DynamicElement {
                                         elementName = "x_suppl",
@@ -577,7 +575,6 @@ namespace shilka2
                                         x_left = -41,
                                         x_right = 27,
                                         movingType = DynamicElement.MovingType.xRotate,
-                                        width = 170
                                     },
                                     new DynamicElement {
                                         elementName = "i_suppl",
@@ -605,7 +602,6 @@ namespace shilka2
                                         x_left = -48,
                                         x_right = 36,
                                         movingType = DynamicElement.MovingType.xRotate,
-                                        width = 170
                                     },
                                     new DynamicElement {
                                         elementName = "t_suppl",
@@ -633,7 +629,6 @@ namespace shilka2
                                         x_left = -39,
                                         x_right = 25,
                                         movingType = DynamicElement.MovingType.xRotate,
-                                        width = 170
                                     },
                                     new DynamicElement {
                                         elementName = "i_suppl",
@@ -642,6 +637,33 @@ namespace shilka2
                                         x_right = -12,
                                         movingType = DynamicElement.MovingType.zRotate
                                     }
+                                }
+                            ); break;
+                        case 5:
+                            createNewAircraft(
+                                aircraftType: "ch47",
+                                aircraftName: "CH-47 Chinook",
+                                hitPoint: 80,
+                                aircraftWidth: 320,
+                                aircraftHeight: 120,
+                                speed: 5,
+                                maxAltitude: maxAltitudeForHelicopters,
+                                price: 29,
+                                elements: new List<DynamicElement> {
+                                    new DynamicElement {
+                                        elementName = "prop_main",
+                                        y = 8,
+                                        x_left = -62,
+                                        x_right = 155,
+                                        movingType = DynamicElement.MovingType.xRotate,
+                                    },
+                                    new DynamicElement {
+                                        elementName = "prop_main",
+                                        y = -20,
+                                        x_left = 165,
+                                        x_right = -70,
+                                        movingType = DynamicElement.MovingType.xRotate,
+                                    },
                                 }
                             ); break;
                     }
@@ -830,7 +852,6 @@ namespace shilka2
                                         x_left = -39,
                                         x_right = 25,
                                         movingType = DynamicElement.MovingType.xRotate,
-                                        width = 170
                                     },
                                     new DynamicElement {
                                         elementName = "x_suppl",
@@ -858,7 +879,6 @@ namespace shilka2
                                         x_left = -39,
                                         x_right = 25,
                                         movingType = DynamicElement.MovingType.xRotate,
-                                        width = 170
                                     },
                                     new DynamicElement {
                                         elementName = "y_suppl",
@@ -886,7 +906,6 @@ namespace shilka2
                                         x_left = -47,
                                         x_right = 40,
                                         movingType = DynamicElement.MovingType.xRotate,
-                                        width = 170
                                     },
                                     new DynamicElement {
                                         elementName = "y_suppl",
@@ -933,6 +952,7 @@ namespace shilka2
                             ); break;
                     }
                     break;
+
             }
         }
 
