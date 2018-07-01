@@ -521,7 +521,9 @@ namespace shilka2
                                 aircraftWidth: 528,
                                 aircraftHeight: 185,
                                 price: 90,
-                                speed: 8
+                                speed: 8,
+                                minAltitude: minAltitudeForLargeAircraft,
+                                cantEscape: true
                             ); break;
                         case 30:
                             createNewAircraft(
@@ -531,7 +533,9 @@ namespace shilka2
                                 aircraftWidth: 355,
                                 aircraftHeight: 103,
                                 price: 6,
-                                speed: 8
+                                speed: 8,
+                                minAltitude: minAltitudeForLargeAircraft,
+                                cantEscape: true
                             ); break;
                     }
                     break;
