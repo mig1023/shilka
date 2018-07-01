@@ -178,6 +178,8 @@ namespace shilka2
                 currentScriptName = "Сирия";
             else if (currentScript == Scripts.scriptsNames.Yugoslavia)
                 currentScriptName = "Югославия";
+            else if (currentScript == Scripts.scriptsNames.KoreanBoeing)
+                currentScriptName = "корейский Боинг";
 
             string stat = string.Format("{0}|{1}|{2}|{3}|{4}|{5}|{6}|{7}|{8}|{9}|{10}|{11}|{12}|{13}\n",
                   player, currentScriptName, statisticShellsFired, staticticInTarget, staticticAircraftShutdown,

@@ -214,7 +214,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = (int)(rand.Next(28) + 1);
+                        dice = (int)(rand.Next(30) + 1);
                     }
                     while (!aircraftInList(scriptAircraft, dice));
 
@@ -512,6 +512,26 @@ namespace shilka2
                                         movingType = DynamicElement.MovingType.yRotate
                                     }
                                 }
+                            ); break;
+                        case 29:
+                            createNewAircraft(
+                                aircraftType: "rc135",
+                                aircraftName: "RC-135",
+                                hitPoint: 120,
+                                aircraftWidth: 528,
+                                aircraftHeight: 185,
+                                price: 90,
+                                speed: 8
+                            ); break;
+                        case 30:
+                            createNewAircraft(
+                                aircraftType: "u2",
+                                aircraftName: "U-2",
+                                hitPoint: 80,
+                                aircraftWidth: 355,
+                                aircraftHeight: 103,
+                                price: 6,
+                                speed: 8
                             ); break;
                     }
                     break;

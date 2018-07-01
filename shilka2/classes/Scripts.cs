@@ -5,6 +5,7 @@
         public enum scriptsNames {
             noScript,
             Vietnam,
+            KoreanBoeing,
             DesertStorm,
             Yugoslavia,
             IranIraq,
@@ -62,6 +63,9 @@
                     16,    // <-- mi8
                 };
 
+            if (script == scriptsNames.KoreanBoeing)
+                return null;
+
             return new int?[] { };
         }
 
@@ -92,6 +96,9 @@
                     2,     // <-- mi24
                     3,     // <-- mi8
                 };
+
+            if (script == scriptsNames.KoreanBoeing)
+                return null;
 
             return new int?[] { };
         }
@@ -167,6 +174,12 @@
                     26,    // <-- scalp
                 };
 
+            if (script == scriptsNames.KoreanBoeing)
+                return new int?[] {
+                    29,    // <-- rc135
+                    30,    // <-- u2
+                };
+
             return new int?[] { };
         }
 
@@ -205,6 +218,9 @@
                 };
 
             if (script == scriptsNames.Syria)
+                return null;
+
+            if (script == scriptsNames.KoreanBoeing)
                 return null;
 
             return new int?[] { };

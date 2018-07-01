@@ -302,5 +302,10 @@ namespace shilka2
         {
             startScript(Scripts.scriptsNames.Syria);
         }
+
+        private void startKorean_Click(object sender, RoutedEventArgs e)
+        {
+            startScript(Scripts.scriptsNames.KoreanBoeing);
+        }
     }
 }

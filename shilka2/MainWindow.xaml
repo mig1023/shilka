@@ -25,17 +25,18 @@
             <Button x:Name="GameOverWithSave" Content="Сохранить" Height="41" Canvas.Left="246" Canvas.Top="223" Width="212" Click="GameOverWithSave_Click" IsEnabled="False" FontFamily="Arial Narrow" FontSize="16"/>
             <Button x:Name="GameOverWithoutSave" Content="Не сохранять" Height="41" Canvas.Left="23" Canvas.Top="223" Width="212" Click="GameOverWithoutSave_Click" FontFamily="Arial Narrow" FontSize="16"/>
         </Canvas>
-        <Canvas x:Name="StartMenu" HorizontalAlignment="Left" Height="544" VerticalAlignment="Top" Width="452" Margin="-452,0,0,-179">
-            <Canvas x:Name="StartMenuButtons" Height="544" Width="452">
+        <Canvas x:Name="StartMenu" HorizontalAlignment="Left" Height="591" VerticalAlignment="Top" Width="452" Margin="-452,0,0,-271">
+            <Canvas x:Name="StartMenuButtons" Height="593" Width="452">
                 <Button x:Name="startSimple" Content="Быстрая игра" Height="87" Canvas.Left="10" Canvas.Top="358" Width="215" Click="startSimple_Click" FontFamily="Arial Narrow" FontSize="20"/>
                 <Button x:Name="exitButton" Content="Выход" Height="41" Canvas.Left="230" Canvas.Top="358" Width="215" FontFamily="Arial Narrow" FontSize="20" Click="GameOverWithoutSave_Click"/>
                 <Button x:Name="resultButton" Content="Результаты" Height="41" Canvas.Left="230" Canvas.Top="404" Width="215" FontFamily="Arial Narrow" FontSize="20" Click="statisticButton_Click"/>
                 <Image x:Name="shilkaArt" Height="348" Canvas.Left="10" Canvas.Top="5" Width="435"  Source="images/shilka-art.jpg"/>
                 <Button x:Name="startVietnam" Content="Вьетнамская война" Height="41" Canvas.Left="10" Canvas.Top="450" Width="134" Click="startVietnam_Click"/>
-                <Button x:Name="startDesertStorm" Content="Буря в пустыне" Height="41" Canvas.Left="149" Canvas.Top="450" Width="115" Click="startDesertStorm_Click"/>
-                <Button x:Name="startYugoslavia" Content="Бомбардировки Югославии" Height="41" Canvas.Left="269" Canvas.Top="450" Width="176" Click="startYugoslavia_Click"/>
-                <Button x:Name="startIranIraq" Content="Ирано-Иракская война" Height="41" Canvas.Left="10" Canvas.Top="496" Width="172" Click="startIranIraq_Click"/>
-                <Button x:Name="startSyria" Content="Гражданская война в Сирии" Height="41" Canvas.Left="187" Canvas.Top="496" Width="258" Click="startSyria_Click"/>
+                <Button x:Name="startDesertStorm" Content="Буря в пустыне" Height="41" Canvas.Left="149" Canvas.Top="450" Width="131" Click="startDesertStorm_Click"/>
+                <Button x:Name="startYugoslavia" Content="Бомбардировки Югославии" Height="41" Canvas.Top="496" Width="273" Click="startYugoslavia_Click" Canvas.Left="172"/>
+                <Button x:Name="startIranIraq" Content="Ирано-Иракская война" Height="41" Canvas.Left="10" Canvas.Top="496" Width="157" Click="startIranIraq_Click"/>
+                <Button x:Name="startSyria" Content="Гражданская война в Сирии" Height="41" Canvas.Left="10" Canvas.Top="542" Width="435" Click="startSyria_Click"/>
+                <Button x:Name="startKorean" Content="Корейский Боинг" Height="41" Canvas.Left="285" Canvas.Top="450" Width="160" Click="startKorean_Click"/>
             </Canvas>
         </Canvas>
         <Canvas x:Name="StatisticMenu" HorizontalAlignment="Left" Height="174" Margin="0,325,-1,-179" VerticalAlignment="Top" Width="518">
