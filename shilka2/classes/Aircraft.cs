@@ -214,7 +214,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = (int)(rand.Next(30) + 1);
+                        dice = (int)(rand.Next(31) + 1);
                     }
                     while (!aircraftInList(scriptAircraft, dice));
 
@@ -536,6 +536,17 @@ namespace shilka2
                                 speed: 8,
                                 minAltitude: minAltitudeForLargeAircraft,
                                 cantEscape: true
+                            ); break;
+                        case 31:
+                            createNewAircraft(
+                                aircraftType: "sr71",
+                                aircraftName: "SR-71 Blackbird",
+                                hitPoint: 80,
+                                aircraftWidth: 450,
+                                aircraftHeight: 71,
+                                price: 34,
+                                speed: 14,
+                                minAltitude: minAltitudeForLargeAircraft
                             ); break;
                     }
                     break;

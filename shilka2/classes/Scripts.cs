@@ -156,6 +156,7 @@
                     24,    // <-- f111
                     25,    // <-- f5
                     27,    // <-- ea6
+                    31,    // <-- sr71
                 };
 
             if (script == scriptsNames.IranIraq)
@@ -178,6 +179,7 @@
                 return new int?[] {
                     29,    // <-- rc135
                     30,    // <-- u2
+                    31,    // <-- sr71
                 };
 
             return new int?[] { };
