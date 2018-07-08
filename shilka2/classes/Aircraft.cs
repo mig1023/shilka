@@ -133,23 +133,23 @@ namespace shilka2
 
                         if (d.movingType == DynamicElement.MovingType.zRotate)
                         {
-                            d.rotateDegreeCurrent += 25;
-                            if (d.rotateDegreeCurrent > 180) d.rotateDegreeCurrent = 0;
+                            int direction = (aircraft.flightDirection == FlightDirectionType.Left ? 1 : -1);
+
+                            d.rotateDegreeCurrent += (25 * direction);
+                            if (d.rotateDegreeCurrent < -180 || d.rotateDegreeCurrent > 180) d.rotateDegreeCurrent = 0;
+                                
                             d.element.RenderTransform = new RotateTransform(d.rotateDegreeCurrent, (d.element.ActualWidth / 2), (d.element.ActualHeight / 2));
                         }
 
-                        if (d.movingType == DynamicElement.MovingType.xRotate)
+                        if (d.movingType == DynamicElement.MovingType.xRotate || d.movingType == DynamicElement.MovingType.yRotate)
                         {
                             d.rotateDegreeCurrent -= 0.2;
                             if (d.rotateDegreeCurrent < 0.2) d.rotateDegreeCurrent = 1;
-                            d.element.RenderTransform = new ScaleTransform(d.rotateDegreeCurrent, 1, (d.element.ActualWidth/2), 0);
-                        }
 
-                        if (d.movingType == DynamicElement.MovingType.yRotate)
-                        {
-                            d.rotateDegreeCurrent -= 0.2;
-                            if (d.rotateDegreeCurrent < 0.2) d.rotateDegreeCurrent = 1;
-                            d.element.RenderTransform = new ScaleTransform(1, d.rotateDegreeCurrent, 0, (d.element.ActualHeight / 2));
+                            if (d.movingType == DynamicElement.MovingType.xRotate)
+                                d.element.RenderTransform = new ScaleTransform(d.rotateDegreeCurrent, 1, (d.element.ActualWidth/2), 0);
+                            else
+                                d.element.RenderTransform = new ScaleTransform(1, d.rotateDegreeCurrent, 0, (d.element.ActualHeight / 2));
                         }
                     }
                 }
