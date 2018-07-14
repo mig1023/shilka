@@ -9,7 +9,8 @@
             DesertStorm,
             Yugoslavia,
             IranIraq,
-            Syria
+            Syria,
+            Libya
         };
 
         public static int?[] scriptFriendAircrafts(scriptsNames script)
@@ -20,7 +21,6 @@
                     4,      // <-- su17
                     11,     // <-- mig19
                     12,     // <-- mig21
-                    16,     // <-- mi8
                 };
 
             if (script == scriptsNames.Yugoslavia)
@@ -29,8 +29,6 @@
                     2,     // <-- mig29
                     12,    // <-- mig21
                     13,    // <-- mig25
-                    15,    // <-- mi24
-                    16,    // <-- mi8
                 };
 
             if (script == scriptsNames.DesertStorm)
@@ -39,8 +37,6 @@
                     2,     // <-- mig29
                     6,     // <-- su25
                     13,    // <-- mig25
-                    15,    // <-- mi24
-                    16,    // <-- mi8
                 };
 
             if (script == scriptsNames.IranIraq)
@@ -49,8 +45,6 @@
                     4,     // <-- su17
                     11,    // <-- mig19
                     13,    // <-- mig25
-                    15,    // <-- mi24
-                    16,    // <-- mi8
                 };
 
             if (script == scriptsNames.Syria)
@@ -59,12 +53,18 @@
                     2,     // <-- mig29
                     4,     // <-- su17
                     14,    // <-- mi28
-                    15,    // <-- mi24
-                    16,    // <-- mi8
                 };
 
             if (script == scriptsNames.KoreanBoeing)
                 return null;
+
+            if (script == scriptsNames.Libya)
+                return new int?[] {
+                    1,     // <-- mig23
+                    4,     // <-- su17
+                    5,     // <-- su24
+                    13,    // <-- mig25
+                };
 
             return new int?[] { };
         }
@@ -93,6 +93,12 @@
             if (script == scriptsNames.Syria)
                 return new int?[] {
                     1,     // <-- mi28
+                    2,     // <-- mi24
+                    3,     // <-- mi8
+                };
+
+            if (script == scriptsNames.Libya)
+                return new int?[] {
                     2,     // <-- mi24
                     3,     // <-- mi8
                 };
@@ -182,6 +188,20 @@
                     31,    // <-- sr71
                 };
 
+            if (script == scriptsNames.Libya)
+                return new int?[] {
+                    1,     // <-- a10
+                    3,     // <-- b52
+                    6,     // <-- f18
+                    7,     // <-- f16
+                    9,     // <-- f15
+                    11,    // <-- tornado
+                    15,    // <-- e3
+                    20,    // <-- tomahawk
+                    23,    // <-- a6
+                    27,    // <-- ea6
+                };
+
             return new int?[] { };
         }
 
@@ -221,6 +241,13 @@
 
             if (script == scriptsNames.Syria)
                 return null;
+
+            if (script == scriptsNames.Libya)
+                return new int?[] {
+                    1,     // <-- ah64
+                    3,     // <-- uh60
+                    5,     // <-- ch46
+                };
 
             if (script == scriptsNames.KoreanBoeing)
                 return null;

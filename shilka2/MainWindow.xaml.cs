@@ -307,5 +307,10 @@ namespace shilka2
         {
             startScript(Scripts.scriptsNames.KoreanBoeing);
         }
+
+        private void startLibya_Click(object sender, RoutedEventArgs e)
+        {
+            startScript(Scripts.scriptsNames.Libya);
+        }
     }
 }
