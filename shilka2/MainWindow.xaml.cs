@@ -39,7 +39,7 @@ namespace shilka2
             StatisticMenu.Margin = new Thickness(0, SystemParameters.PrimaryScreenHeight, 0, 0);
 
             var converter = new BrushConverter();
-            StatisticMenu.Background = (Brush)converter.ConvertFrom("#FF001B36");
+            StatisticMenu.Background = (Brush)converter.ConvertFrom("#FF5B5B5B");
 
             StatisticGrid.ItemsSource = Shilka.LoadStatistic();
 
