@@ -181,6 +181,108 @@ namespace shilka2
             return inList;
         }
 
+        static ImageSource imageFromResources(string imageName)
+        {
+            return new BitmapImage(new Uri("images/" + imageName + ".png", UriKind.Relative)) { };
+        }
+
+        static void createNewAircraft(string aircraftType, int hitPoint, int aircraftWidth, int aircraftHeight,
+            string aircraftName = "", int speed = 10, int minAltitude = -1, int maxAltitude = -1, bool friend = false,
+            bool airliner = false, bool cloud = false, bool cantEscape = false, int price = 0)
+        {
+            List<DynamicElement> elements = new List<DynamicElement>();
+
+            createNewAircraft(aircraftType, hitPoint, aircraftWidth, aircraftHeight, elements, aircraftName,
+                speed, minAltitude, maxAltitude, friend, airliner, cloud, cantEscape, price);
+        }
+
+        static void createNewAircraft(string aircraftType, int hitPoint, int aircraftWidth, int aircraftHeight,
+            List<DynamicElement> elements, string aircraftName = "", int speed = 10, int minAltitude = -1,
+            int maxAltitude = -1, bool friend = false, bool airliner = false, bool cloud = false,
+            bool cantEscape = false, int price = 0)
+        {
+            Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
+            {
+                MainWindow main = (MainWindow)Application.Current.MainWindow;
+
+                Image newAircraftImage = new Image();
+
+                newAircraftImage.Width = aircraftWidth;
+                newAircraftImage.Height = aircraftHeight;
+
+                Aircraft newAircraft = new Aircraft();
+
+                newAircraft.y = rand.Next(maxAltitudeGlobal, minAltitudeGlobal);
+
+                if (rand.Next(2) == 1)
+                {
+                    newAircraft.flightDirection = FlightDirectionType.Right;
+                    newAircraft.x = -1 * newAircraftImage.Width;
+                }
+                else
+                {
+                    newAircraft.flightDirection = FlightDirectionType.Left;
+                    newAircraft.x = Application.Current.MainWindow.Width;
+                }
+
+                newAircraftImage.Source = imageFromResources(aircraftType);
+
+                if (((newAircraft.flightDirection == FlightDirectionType.Left) && !cloud) || (rand.Next(2) == 1) && cloud)
+                    newAircraftImage.FlowDirection = FlowDirection.RightToLeft;
+
+                newAircraftImage.Margin = new Thickness(newAircraft.x, newAircraft.y, 0, 0);
+
+                foreach (DynamicElement d in elements)
+                {
+                    d.element = new Image();
+                    d.element.Source = imageFromResources(d.elementName);
+
+                    if (newAircraft.flightDirection == FlightDirectionType.Right)
+                        d.element.FlowDirection = FlowDirection.RightToLeft;
+
+                    if (d.movingType == DynamicElement.MovingType.xRotate)
+                        d.rotateDegreeCurrent = 1;
+
+                    newAircraft.dynamicElemets.Add(d);
+
+                    if ((newAircraft.flightDirection == FlightDirectionType.Right) && d.movingType != DynamicElement.MovingType.yRotate)
+                        Canvas.SetZIndex(d.element, 40);
+                    else
+                        Canvas.SetZIndex(d.element, 60);
+
+                    main.firePlace.Children.Add(d.element);
+                }
+
+                newAircraft.aircraftType = aircraftType;
+                newAircraft.aircraftName = aircraftName;
+                newAircraft.hitpoint = hitPoint;
+                newAircraft.hitpointMax = hitPoint;
+                newAircraft.price = price;
+                newAircraft.speed = speed;
+                newAircraft.minAltitude = minAltitude;
+                newAircraft.maxAltitude = maxAltitude;
+                newAircraft.friend = friend;
+                newAircraft.airliner = airliner;
+                newAircraft.cloud = cloud;
+                newAircraft.cantEscape = cantEscape;
+                newAircraft.fly = true;
+
+                if (newAircraft.minAltitude == -1) newAircraft.minAltitude = minAltitudeGlobal;
+
+                if (!friend && !airliner)
+                {
+                    Shilka.statisticAllAircraft++;
+                    Shilka.statisticPriceOfAllAircrafts += price;
+                }
+
+                Canvas.SetZIndex(newAircraftImage, (cloud ? 100 : 50));
+
+                newAircraft.aircraftImage = newAircraftImage;
+                main.firePlace.Children.Add(newAircraftImage);
+                aircrafts.Add(newAircraft);
+            }));
+        }
+
         public static void AircraftStart(object obj, ElapsedEventArgs e)
         {
             int newAircraft = rand.Next(15)+1;
@@ -440,7 +542,16 @@ namespace shilka2
                                 price: 190,
                                 speed: 7,
                                 minAltitude: minAltitudeForLargeAircraft,
-                                cantEscape: true
+                                cantEscape: true,
+                                elements: new List<DynamicElement> {
+                                    new DynamicElement {
+                                        elementName = "air_prop",
+                                        y = 50,
+                                        x_left = 105,
+                                        x_right = 275,
+                                        movingType = DynamicElement.MovingType.yRotate
+                                    }
+                                }
                             ); break;
                         case 23:
                             createNewAircraft(
@@ -679,24 +790,24 @@ namespace shilka2
                                 aircraftType: "ch47",
                                 aircraftName: "CH-47 Chinook",
                                 hitPoint: 80,
-                                aircraftWidth: 320,
-                                aircraftHeight: 120,
+                                aircraftWidth: 270,
+                                aircraftHeight: 101,
                                 speed: 5,
                                 maxAltitude: maxAltitudeForHelicopters,
                                 price: 29,
                                 elements: new List<DynamicElement> {
                                     new DynamicElement {
                                         elementName = "prop_main",
-                                        y = 8,
-                                        x_left = -62,
-                                        x_right = 155,
+                                        y = 6,
+                                        x_left = -68,
+                                        x_right = 110,
                                         movingType = DynamicElement.MovingType.xRotate,
                                     },
                                     new DynamicElement {
                                         elementName = "prop_main",
                                         y = -20,
-                                        x_left = 165,
-                                        x_right = -70,
+                                        x_left = 125,
+                                        x_right = -78,
                                         movingType = DynamicElement.MovingType.xRotate,
                                     },
                                 }
@@ -987,110 +1098,7 @@ namespace shilka2
                             ); break;
                     }
                     break;
-
             }
-        }
-
-        static ImageSource imageFromResources(string imageName)
-        {
-            return new BitmapImage(new Uri("images/" + imageName + ".png", UriKind.Relative)) { };
-        }
-
-        static void createNewAircraft(string aircraftType, int hitPoint, int aircraftWidth, int aircraftHeight,
-            string aircraftName = "", int speed = 10, int minAltitude = -1, int maxAltitude = -1, bool friend = false,
-            bool airliner = false, bool cloud = false, bool cantEscape = false, int price = 0)
-        {
-            List<DynamicElement> elements = new List<DynamicElement>();
-
-            createNewAircraft(aircraftType, hitPoint, aircraftWidth, aircraftHeight, elements, aircraftName,
-                speed, minAltitude, maxAltitude, friend, airliner, cloud, cantEscape, price);
-        }
-
-        static void createNewAircraft(string aircraftType, int hitPoint, int aircraftWidth, int aircraftHeight,
-            List<DynamicElement> elements, string aircraftName = "", int speed = 10, int minAltitude = -1,
-            int maxAltitude = -1, bool friend = false, bool airliner = false, bool cloud = false,
-            bool cantEscape = false, int price = 0)
-        {
-            Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
-            {
-                MainWindow main = (MainWindow)Application.Current.MainWindow;
-
-                Image newAircraftImage = new Image();
-
-                newAircraftImage.Width = aircraftWidth;
-                newAircraftImage.Height = aircraftHeight;
-
-                Aircraft newAircraft = new Aircraft();
-
-                newAircraft.y = rand.Next(maxAltitudeGlobal, minAltitudeGlobal);
-
-                if (rand.Next(2) == 1)
-                {
-                    newAircraft.flightDirection = FlightDirectionType.Right;
-                    newAircraft.x = -1 * newAircraftImage.Width;
-                }
-                else
-                {
-                    newAircraft.flightDirection = FlightDirectionType.Left;
-                    newAircraft.x = Application.Current.MainWindow.Width;
-                }
-
-                newAircraftImage.Source = imageFromResources(aircraftType);
-
-                if ( ( (newAircraft.flightDirection == FlightDirectionType.Left) && !cloud ) || (rand.Next(2) == 1) && cloud )
-                    newAircraftImage.FlowDirection = FlowDirection.RightToLeft;
-
-                newAircraftImage.Margin = new Thickness(newAircraft.x, newAircraft.y, 0, 0);
-
-                foreach (DynamicElement d in elements)
-                {
-                    d.element = new Image();
-                    d.element.Source = imageFromResources(d.elementName);
-
-                    if (newAircraft.flightDirection == FlightDirectionType.Right)
-                        d.element.FlowDirection = FlowDirection.RightToLeft;
-
-                    if (d.movingType == DynamicElement.MovingType.xRotate)
-                        d.rotateDegreeCurrent = 1;
-
-                    newAircraft.dynamicElemets.Add(d);
-
-                    if ((newAircraft.flightDirection == FlightDirectionType.Right) && d.movingType != DynamicElement.MovingType.yRotate)
-                        Canvas.SetZIndex(d.element, 40);
-                    else
-                        Canvas.SetZIndex(d.element, 60);
-
-                    main.firePlace.Children.Add(d.element);
-                }
-
-                newAircraft.aircraftType = aircraftType;
-                newAircraft.aircraftName = aircraftName;
-                newAircraft.hitpoint = hitPoint;
-                newAircraft.hitpointMax = hitPoint;
-                newAircraft.price = price;
-                newAircraft.speed = speed;
-                newAircraft.minAltitude = minAltitude;
-                newAircraft.maxAltitude = maxAltitude;
-                newAircraft.friend = friend;
-                newAircraft.airliner = airliner;
-                newAircraft.cloud = cloud;
-                newAircraft.cantEscape = cantEscape;
-                newAircraft.fly = true;
-
-                if (newAircraft.minAltitude == -1) newAircraft.minAltitude = minAltitudeGlobal;
-
-                if (!friend && !airliner)
-                {
-                    Shilka.statisticAllAircraft++;
-                    Shilka.statisticPriceOfAllAircrafts += price;
-                }
-
-                Canvas.SetZIndex(newAircraftImage, ( cloud ? 100 : 50) );
-
-                newAircraft.aircraftImage = newAircraftImage;
-                main.firePlace.Children.Add(newAircraftImage);
-                aircrafts.Add(newAircraft);
-            }));
         }
     }
 }
