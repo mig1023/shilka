@@ -95,6 +95,7 @@
                     1,     // <-- mi28
                     2,     // <-- mi24
                     3,     // <-- mi8
+                    4,     // <-- ka52
                 };
 
             if (script == scriptsNames.Libya)
