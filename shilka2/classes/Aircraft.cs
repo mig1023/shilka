@@ -25,11 +25,6 @@ namespace shilka2
         static int maxAltitudeForHelicopters = minAltitudeForLargeAircraft;
         enum FlightDirectionType { Left, Right };
 
-        public static int?[] scriptAircraft;
-        public static int?[] scriptHelicopters;
-        public static int?[] scriptAircraftFriend;
-        public static int?[] scriptHelicoptersFriend;
-
         double tangage { get; set; }
         int tangageDelay = 0;
 
@@ -312,13 +307,13 @@ namespace shilka2
                 case 8:
                 case 9:
 
-                    if (scriptAircraft == null) goto case 1;
+                    if (Scripts.scriptAircraft == null) goto case 1;
 
                     do
                     {
                         dice = (int)(rand.Next(31) + 1);
                     }
-                    while (!aircraftInList(scriptAircraft, dice));
+                    while (!aircraftInList(Scripts.scriptAircraft, dice));
 
                     switch (dice)
                     {
@@ -666,13 +661,13 @@ namespace shilka2
                 case 11:
                 case 12:
 
-                    if (scriptHelicopters == null) goto case 5;
+                    if (Scripts.scriptHelicopters == null) goto case 5;
 
                     do
                     {
                         dice = (int)(rand.Next(5) + 1);
                     }
-                    while (!aircraftInList(scriptHelicopters, dice));
+                    while (!aircraftInList(Scripts.scriptHelicopters, dice));
 
                     switch (dice)
                     {
@@ -817,13 +812,13 @@ namespace shilka2
 
                 case 13:
 
-                    if (scriptAircraftFriend == null) goto case 1;
+                    if (Scripts.scriptAircraftFriend == null) goto case 1;
 
                     do
                     {
                         dice = (int)(rand.Next(14) + 1);
                     }
-                    while (!aircraftInList(scriptAircraftFriend, dice));
+                    while (!aircraftInList(Scripts.scriptAircraftFriend, dice));
 
                     switch (dice)
                     {
@@ -970,13 +965,13 @@ namespace shilka2
 
                 case 14:
 
-                    if (scriptAircraftFriend == null) goto case 13;
+                    if (Scripts.scriptHelicoptersFriend == null) goto case 13;
 
                     do
                     {
                         dice = (int)(rand.Next(4) + 1);
                     }
-                    while (!aircraftInList(scriptHelicopters, dice));
+                    while (!aircraftInList(Scripts.scriptHelicoptersFriend, dice));
 
                     switch (dice)
                     {

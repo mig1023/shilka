@@ -66,10 +66,10 @@ namespace shilka2
         {
             startMenuShowYet = false;
 
-            Aircraft.scriptAircraft = scriptAircraft;
-            Aircraft.scriptHelicopters = scriptHelicopters;
-            Aircraft.scriptAircraftFriend = scriptAircraftFriend;
-            Aircraft.scriptHelicoptersFriend = scriptHelicoptersFriend;
+            Scripts.scriptAircraft = scriptAircraft;
+            Scripts.scriptHelicopters = scriptHelicopters;
+            Scripts.scriptAircraftFriend = scriptAircraftFriend;
+            Scripts.scriptHelicoptersFriend = scriptHelicoptersFriend;
 
             MoveCanvas(
                 moveCanvas: StartMenu,

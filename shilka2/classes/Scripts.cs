@@ -13,6 +13,11 @@
             Libya
         };
 
+        public static int?[] scriptAircraft;
+        public static int?[] scriptHelicopters;
+        public static int?[] scriptAircraftFriend;
+        public static int?[] scriptHelicoptersFriend;
+
         public static int?[] scriptFriendAircrafts(scriptsNames script)
         {
 
