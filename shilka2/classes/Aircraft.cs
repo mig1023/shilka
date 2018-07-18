@@ -433,7 +433,16 @@ namespace shilka2
                                 aircraftHeight: 44,
                                 price: 4,
                                 speed: 5,
-                                cantEscape: true
+                                cantEscape: true,
+                                elements: new List<DynamicElement> {
+                                    new DynamicElement {
+                                        elementName = "ltl_prop",
+                                        y = -15,
+                                        x_left = 130,
+                                        x_right = -5,
+                                        movingType = DynamicElement.MovingType.yRotate
+                                    }
+                                }
                             ); break;
                         case 13:
                             createNewAircraft(
