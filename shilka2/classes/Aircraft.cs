@@ -987,7 +987,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = (int)(rand.Next(4) + 1);
+                        dice = (int)(rand.Next(5) + 1);
                     }
                     while (!aircraftInList(Scripts.scriptHelicoptersFriend, dice));
 
@@ -1099,6 +1099,34 @@ namespace shilka2
                                         y = -2,
                                         x_left = -30,
                                         x_right = 30,
+                                        movingType = DynamicElement.MovingType.xRotate,
+                                    },
+                                }
+                            ); break;
+                        case 5:
+                            createNewAircraft(
+                                aircraftType: "ka27",
+                                aircraftName: "Ка-27",
+                                hitPoint: 80,
+                                aircraftWidth: 197,
+                                aircraftHeight: 63,
+                                speed: 5,
+                                maxAltitude: maxAltitudeForHelicopters,
+                                friend: true,
+                                elements: new List<DynamicElement> {
+                                    new DynamicElement {
+                                        elementName = "prop_main",
+                                        y = -32,
+                                        x_left = -30,
+                                        x_right = 0,
+                                        movingType = DynamicElement.MovingType.xRotate,
+                                        startDegree = 0.5,
+                                    },
+                                    new DynamicElement {
+                                        elementName = "prop_main",
+                                        y = -21,
+                                        x_left = -30,
+                                        x_right = 0,
                                         movingType = DynamicElement.MovingType.xRotate,
                                     },
                                 }

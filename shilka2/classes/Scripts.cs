@@ -57,7 +57,7 @@
                     1,     // <-- mig23
                     2,     // <-- mig29
                     4,     // <-- su17
-                    14,    // <-- mi28
+                    14,    // <-- a50
                 };
 
             if (script == scriptsNames.KoreanBoeing)
@@ -101,6 +101,7 @@
                     2,     // <-- mi24
                     3,     // <-- mi8
                     4,     // <-- ka52
+                    5,     // <-- ka27
                 };
 
             if (script == scriptsNames.Libya)
