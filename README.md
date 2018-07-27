@@ -51,7 +51,7 @@ The game is about an anti-aircraft vahicle in the school notebook
 | Helicopter | Helicopter | Helicopter |
 | ------------- | ------------- | ------------- |
 | Mi-28 | Mi-24 | Mi-8 |
-| Ka-52 | | |
+| Ka-52 | Ka-27 | |
 
 ### Airliners:
 
