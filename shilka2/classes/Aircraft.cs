@@ -24,6 +24,7 @@ namespace shilka2
         static int minAltitudeForLargeAircraft = (int)SystemParameters.PrimaryScreenHeight / 2;
         static int maxAltitudeForHelicopters = minAltitudeForLargeAircraft;
         enum FlightDirectionType { Left, Right };
+        enum zIndexType { inFront, Behind };
 
         double tangage { get; set; }
         int tangageDelay = 0;
@@ -200,6 +201,8 @@ namespace shilka2
             {
                 MainWindow main = (MainWindow)Application.Current.MainWindow;
 
+                zIndexType? zIndex = null;
+
                 Image newAircraftImage = new Image();
 
                 newAircraftImage.Width = aircraftWidth;
@@ -227,6 +230,9 @@ namespace shilka2
 
                 newAircraftImage.Margin = new Thickness(newAircraft.x, newAircraft.y, 0, 0);
 
+                if (elements.Count > 0)
+                    zIndex = (rand.Next(2) > 0 ? zIndexType.inFront : zIndexType.Behind);
+
                 foreach (DynamicElement d in elements)
                 {
                     d.element = new Image();
@@ -241,9 +247,9 @@ namespace shilka2
                     newAircraft.dynamicElemets.Add(d);
 
                     if ((newAircraft.flightDirection == FlightDirectionType.Right) && d.movingType != DynamicElement.MovingType.yRotate)
-                        Canvas.SetZIndex(d.element, 40);
+                        Canvas.SetZIndex(d.element, (zIndex == zIndexType.inFront ? 60 : 20));
                     else
-                        Canvas.SetZIndex(d.element, 60);
+                        Canvas.SetZIndex(d.element, (zIndex == zIndexType.inFront ? 80 : 40));
 
                     main.firePlace.Children.Add(d.element);
                 }
@@ -270,7 +276,10 @@ namespace shilka2
                     Shilka.statisticPriceOfAllAircrafts += price;
                 }
 
-                Canvas.SetZIndex(newAircraftImage, (cloud ? 100 : 50));
+                if (zIndex != null)
+                    Canvas.SetZIndex(newAircraftImage, (zIndex == zIndexType.inFront ? 70 : 30));
+                else
+                    Canvas.SetZIndex(newAircraftImage, (cloud ? 100 : 50));
 
                 newAircraft.aircraftImage = newAircraftImage;
                 main.firePlace.Children.Add(newAircraftImage);
