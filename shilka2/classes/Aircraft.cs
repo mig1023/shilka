@@ -692,7 +692,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = (int)(rand.Next(5) + 1);
+                        dice = (int)(rand.Next(6) + 1);
                     }
                     while (!aircraftInList(Scripts.scriptHelicopters, dice));
 
@@ -831,6 +831,26 @@ namespace shilka2
                                         x_left = 125,
                                         x_right = -78,
                                         movingType = DynamicElement.MovingType.xRotate,
+                                    },
+                                }
+                            ); break;
+                        case 6:
+                            createNewAircraft(
+                                aircraftType: "v22",
+                                aircraftName: "V-22 Ospray",
+                                hitPoint: 80,
+                                aircraftWidth: 282,
+                                aircraftHeight: 103,
+                                speed: 7,
+                                maxAltitude: maxAltitudeForHelicopters,
+                                elements: new List<DynamicElement> {
+                                    new DynamicElement {
+                                        elementName = "prop_main",
+                                        y = -18,
+                                        x_left = -5,
+                                        x_right = 60,
+                                        movingType = DynamicElement.MovingType.xRotate,
+                                        startDegree = 0.5,
                                     },
                                 }
                             ); break;
