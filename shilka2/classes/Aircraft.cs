@@ -550,7 +550,7 @@ namespace shilka2
                                 aircraftName: "F-8 Crusader",
                                 hitPoint: 80,
                                 aircraftWidth: 270,
-                                aircraftHeight: 81,
+                                aircraftHeight: 93,
                                 price: 6,
                                 speed: 8
                             ); break;
