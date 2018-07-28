@@ -181,6 +181,7 @@
     <Resource Include="images\ltl_prop.png" />
     <Resource Include="images\ka27.png" />
     <Resource Include="images\v22.png" />
+    <Resource Include="images\md11.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1165,7 +1165,7 @@ namespace shilka2
 
                 case 15:
 
-                    dice = (int)(rand.Next(2) + 1);
+                    dice = (int)(rand.Next(3) + 1);
 
                     switch (dice)
                     {
@@ -1181,7 +1181,6 @@ namespace shilka2
                                 cantEscape: true,
                                 airliner: true
                             ); break;
-
                         case 2:
                             createNewAircraft(
                                 aircraftType: "boeing747",
@@ -1189,6 +1188,18 @@ namespace shilka2
                                 hitPoint: 100,
                                 aircraftWidth: 565,
                                 aircraftHeight: 158,
+                                speed: 8,
+                                minAltitude: minAltitudeForLargeAircraft,
+                                cantEscape: true,
+                                airliner: true
+                            ); break;
+                        case 3:
+                            createNewAircraft(
+                                aircraftType: "md11",
+                                aircraftName: "MD-11",
+                                hitPoint: 100,
+                                aircraftWidth: 560,
+                                aircraftHeight: 153,
                                 speed: 8,
                                 minAltitude: minAltitudeForLargeAircraft,
                                 cantEscape: true,
