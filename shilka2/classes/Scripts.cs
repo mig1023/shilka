@@ -186,6 +186,7 @@
                     12,    // <-- predator
                     13,    // <-- reaper
                     26,    // <-- scalp
+                    32,    // <-- x47b
                 };
 
             if (script == scriptsNames.KoreanBoeing)
