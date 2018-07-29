@@ -27,14 +27,14 @@ The game is about an anti-aircraft vahicle in the school notebook
 | AC-130 Spectre | A-6 Intruder | F-111 |
 | F-5 Tiger | SCALP | EA-6 Prowler |
 | E-2 Hawkeye | RC-135 | U-2 |
-| SR-71 Blackbird | | |
+| SR-71 Blackbird | X-47B | |
 
 ### Enemy helicopters:
 
 | Helicopter | Helicopter | Helicopter |
 | ------------- | ------------- | ------------- |
 | AH-64 Apache | AH-1 Cobra | UH-60 Black Hawk |
-| UH-1 Iroquois | CH-47 Chinook | |
+| UH-1 Iroquois | CH-47 Chinook | V-22 Ospray |
 
 ### Friend aircrafts:
 
@@ -55,6 +55,6 @@ The game is about an anti-aircraft vahicle in the school notebook
 
 ### Airliners:
 
-| Airliner | Airliner |
-| ------------- | ------------- |
-| Аirbus A320 | Boeing 747 |
+| Airliner | Airliner | Airliner |
+| ------------- | ------------- | ------------- |
+| Аirbus A320 | Boeing 747 | McDonnell Douglas MD-11 |
