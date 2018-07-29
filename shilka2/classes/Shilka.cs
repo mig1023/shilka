@@ -152,8 +152,10 @@ namespace shilka2
             shutdownPercent = (staticticAircraftShutdown * baseForPercent) | 0;
             damagedPercent = (statisticDamaged * baseForPercent);
             statisticWithoutDamage = ((statisticHasGone - statisticDamaged) * baseForPercent);
-            chance = (double)statisticPriceOfAllAircrafts / (statisticAllAircraft * (double)Aircraft.AIRCRAFT_AVERAGE_PRICE);
             inTargetPercent = ( (statisticShellsFired > 0) ? staticticInTarget * 100 / statisticShellsFired : 0 );
+
+            chance = (double)statisticPriceOfAllAircrafts / (statisticAllAircraft * (double)Aircraft.AIRCRAFT_AVERAGE_PRICE);
+            if (double.IsNaN(chance)) chance = 0;
         }
 
         public static void StatisticSave(string player)
