@@ -366,7 +366,7 @@ namespace shilka2
                                 hitPoint: 50,
                                 aircraftWidth: 270,
                                 aircraftHeight: 47,
-                                price: 111
+                                price: 112
                             ); break;
                         case 5:
                             createNewAircraft(
@@ -384,7 +384,7 @@ namespace shilka2
                                 hitPoint: 120,
                                 aircraftWidth: 270,
                                 aircraftHeight: 61,
-                                price: 29
+                                price: 57
                             ); break;
                         case 7:
                             createNewAircraft(
@@ -402,7 +402,7 @@ namespace shilka2
                                 hitPoint: 90,
                                 aircraftWidth: 270,
                                 aircraftHeight: 73,
-                                price: 142,
+                                price: 146,
                                 speed: 14
                             ); break;
                         case 9:
@@ -480,7 +480,7 @@ namespace shilka2
                                 hitPoint: 90,
                                 aircraftWidth: 270,
                                 aircraftHeight: 76,
-                                price: 83
+                                price: 108
                             ); break;
                         case 15:
                             createNewAircraft(
@@ -772,7 +772,7 @@ namespace shilka2
                                 aircraftHeight: 65,
                                 speed: 5,
                                 maxAltitude: maxAltitudeForHelicopters,
-                                price: 21,
+                                price: 25,
                                 elements: new List<DynamicElement> {
                                     new DynamicElement {
                                         elementName = "prop_main",
@@ -826,7 +826,7 @@ namespace shilka2
                                 aircraftHeight: 101,
                                 speed: 5,
                                 maxAltitude: maxAltitudeForHelicopters,
-                                price: 29,
+                                price: 30,
                                 elements: new List<DynamicElement> {
                                     new DynamicElement {
                                         elementName = "prop_main",
