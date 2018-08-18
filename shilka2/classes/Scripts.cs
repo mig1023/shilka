@@ -147,6 +147,7 @@
                     15,    // <-- e3
                     18,    // <-- b2
                     20,    // <-- tomahawk
+                    33,    // <-- harrier
                 };
 
             if (script == scriptsNames.DesertStorm)
@@ -170,6 +171,7 @@
                     25,    // <-- f5
                     27,    // <-- ea6
                     31,    // <-- sr71
+                    33,    // <-- harrier
                 };
 
             if (script == scriptsNames.IranIraq)
@@ -208,6 +210,7 @@
                     20,    // <-- tomahawk
                     23,    // <-- a6
                     27,    // <-- ea6
+                    33,    // <-- harrier
                 };
 
             return new int?[] { };
