@@ -702,7 +702,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = (int)(rand.Next(6) + 1);
+                        dice = (int)(rand.Next(7) + 1);
                     }
                     while (!aircraftInList(Scripts.scriptHelicopters, dice));
 
@@ -853,6 +853,7 @@ namespace shilka2
                                 aircraftHeight: 103,
                                 speed: 7,
                                 maxAltitude: maxAltitudeForHelicopters,
+                                price: 116,
                                 elements: new List<DynamicElement> {
                                     new DynamicElement {
                                         elementName = "prop_main",
@@ -864,6 +865,33 @@ namespace shilka2
                                     },
                                 }
                             ); break;
+                        case 7:
+                            createNewAircraft(
+                               aircraftType: "tiger",
+                               aircraftName: "Eurocopter Tiger",
+                               hitPoint: 80,
+                               aircraftWidth: 209,
+                               aircraftHeight: 76,
+                               speed: 5,
+                               maxAltitude: maxAltitudeForHelicopters,
+                               price: 39,
+                               elements: new List<DynamicElement> {
+                                    new DynamicElement {
+                                        elementName = "prop_main",
+                                        y = -3,
+                                        x_left = -35,
+                                        x_right = 20,
+                                        movingType = DynamicElement.MovingType.xRotate,
+                                    },
+                                    new DynamicElement {
+                                        elementName = "y_suppl",
+                                        y = 5,
+                                        x_left = 170,
+                                        x_right = -7,
+                                        movingType = DynamicElement.MovingType.zRotate
+                                    }
+                               }
+                           ); break;
                     }
                     break;
 
