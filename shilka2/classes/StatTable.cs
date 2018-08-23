@@ -13,7 +13,7 @@
         public int damagedPercent { get; set; }
         public int hasGone { get; set; }
         public int withoutDamage { get; set; }
-        public int amountOfDamage { get; set; }
+        public double amountOfDamage { get; set; }
         public int friendDamage { get; set; }
         public float chance { get; set; }
 
@@ -34,7 +34,7 @@
             this.damagedPercent = int.Parse(damagedPercent);
             this.hasGone = int.Parse(hasGone);
             this.withoutDamage = int.Parse(withoutDamage);
-            this.amountOfDamage = int.Parse(amountOfDamage);
+            this.amountOfDamage = double.Parse(amountOfDamage);
             this.friendDamage = int.Parse(friendDamage);
             this.chance = float.Parse(string.Format("{0:f2}", float.Parse(chance)));
         }

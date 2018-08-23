@@ -31,7 +31,7 @@ namespace shilka2
 
         public string aircraftType;
         public string aircraftName;
-        public int price;
+        public double price;
         public int hitpoint;
         public int hitpointMax;
         public int speed;
@@ -107,7 +107,7 @@ namespace shilka2
                                 Shilka.statisticDamaged++;
 
                                 double residualValue =  aircraft.price * (double)aircraft.hitpoint / (double)aircraft.hitpointMax;
-                                int priceOfDamage = aircraft.price - (int)residualValue;
+                                double priceOfDamage = aircraft.price - residualValue;
                                 Shilka.statisticAmountOfDamage += priceOfDamage;
 
                                 Shilka.statisticShutdownFlag = false;
@@ -195,7 +195,7 @@ namespace shilka2
         static void createNewAircraft(string aircraftType, int hitPoint, int aircraftWidth, int aircraftHeight,
             List<DynamicElement> elements, string aircraftName = "", int speed = 10, int minAltitude = -1,
             int maxAltitude = -1, bool friend = false, bool airliner = false, bool cloud = false,
-            bool cantEscape = false, int price = 0)
+            bool cantEscape = false, double price = 0)
         {
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {
@@ -712,7 +712,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = (int)(rand.Next(7) + 1);
+                        dice = (int)(rand.Next(8) + 1);
                     }
                     while (!aircraftInList(Scripts.scriptHelicopters, dice));
 
@@ -902,6 +902,34 @@ namespace shilka2
                                     }
                                }
                            ); break;
+                        case 8:
+                            createNewAircraft(
+                                aircraftType: "drone",
+                                aircraftName: "дрон-разведчик",
+                                hitPoint: 1,
+                                aircraftWidth: 26,
+                                aircraftHeight: 9,
+                                speed: 3,
+                                maxAltitude: maxAltitudeForHelicopters,
+                                price: 0.01,
+                                elements: new List<DynamicElement> {
+                                    new DynamicElement {
+                                        elementName = "micro_prop",
+                                        y = -5,
+                                        x_left = -6,
+                                        x_right = -6,
+                                        movingType = DynamicElement.MovingType.xRotate,
+                                        startDegree = 0.5,
+                                    },
+                                    new DynamicElement {
+                                        elementName = "micro_prop",
+                                        y = -5,
+                                        x_left = 15,
+                                        x_right = 15,
+                                        movingType = DynamicElement.MovingType.xRotate,
+                                    },
+                                }
+                            ); break;
                     }
                     break;
 

@@ -23,14 +23,14 @@ namespace shilka2
         public static int statisticShellsFired = 0;
         public static int staticticInTarget = 0;
         public static int statisticAllAircraft = 0;
-        public static int statisticPriceOfAllAircrafts = 0;
+        public static double statisticPriceOfAllAircrafts = 0;
         public static int staticticAircraftShutdown = 0;
         public static int statisticHasGone = 0;
         public static int statisticDamaged = 0;
         public static int statisticFriendDamage = 0;
-        public static int statisticAmountOfDamage = 0;
+        public static double statisticAmountOfDamage = 0;
 
-        public static int statisticLastDamagePrice;
+        public static double statisticLastDamagePrice;
         public static bool statisticShutdownFlag = false;
         public static string statisticLastDamageType;
         public static Scripts.scriptsNames currentScript;
