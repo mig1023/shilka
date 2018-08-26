@@ -207,7 +207,7 @@ namespace shilka2
         {
             Shilka.SetNewTergetPoint(e.GetPosition((Window)sender), sender);
 
-            RadarImg.RenderTransform = new RotateTransform(Shilka.lastDegree, 4, 20);
+            if (!Pause) RadarImg.RenderTransform = new RotateTransform(Shilka.lastDegree, 4, 20);
         }
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
