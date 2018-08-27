@@ -143,6 +143,8 @@ namespace shilka2
 
         public static void ShellsFire(object obj, ElapsedEventArgs e)
         {
+            int currentFragmentation = FRAGMENTATION + ( ( Shilka.degreeOfHeatingGunBurrels - 30 ) / 25 );
+
             if (Fire && !Shilka.reheatingGunBurrels)
             {
                 FireMutex++;
@@ -158,8 +160,8 @@ namespace shilka2
                     newShell.fly = true;
                     newShell.delay = 0;
 
-                    newShell.x = rand.Next( (-1 * FRAGMENTATION) , FRAGMENTATION) + FIRE_WIDTH_CORRECTION;
-                    newShell.y = currentHeight + rand.Next( (-1 * FRAGMENTATION), FRAGMENTATION) - FIRE_HEIGHT_CORRECTION;
+                    newShell.x = rand.Next( (-1 * currentFragmentation), currentFragmentation) + FIRE_WIDTH_CORRECTION;
+                    newShell.y = currentHeight + rand.Next( (-1 * currentFragmentation), currentFragmentation) - FIRE_HEIGHT_CORRECTION;
 
                     double e1 = Math.Sqrt((ptX * ptX) + (ptY * ptY));
                     newShell.cos = ptX / e1;
