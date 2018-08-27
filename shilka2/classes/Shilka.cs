@@ -257,7 +257,7 @@ namespace shilka2
                 stat += "Нанесён ущерб: ";
 
                 if (statisticAmountOfDamage < 1000)
-                    stat += statisticAmountOfDamage + " млн $";
+                    stat += string.Format("{0:f2}", statisticAmountOfDamage) + " млн $";
                 else if (statisticAmountOfDamage < 1000000)
                     stat += string.Format("{0:f2}", (double)statisticAmountOfDamage / 1000) + " млрд $";
                 else
