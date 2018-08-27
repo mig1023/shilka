@@ -24,6 +24,8 @@ namespace shilka2
         public const int FIRE_HEIGHT_CORRECTION = 30;
         public const int FIRE_HEIGHT_POINT_CORRECTION = 70;
 
+        static string EndColor = "#FF7E1C25";
+
         bool flash { get; set; }
         int delay { get; set; }
         public static double ptX { get; set; }
@@ -97,11 +99,11 @@ namespace shilka2
                                 {
                                     if (aircraft.friend)
                                         main.EndGame("Вы сбили свой "+aircraft.aircraftName+
-                                            "!\nИгра окончена.\nСохранить статистику?", "#FF7E1C25");
+                                            "!\nИгра окончена.\nСохранить статистику?", EndColor);
 
                                     else if (aircraft.airliner)
                                         main.EndGame("Вы сбили пассажирский самолёт"+
-                                            "!\nИгра окончена.\nСохранить статистику?", "#FF7E1C25");
+                                            "!\nИгра окончена.\nСохранить статистику?", EndColor);
 
                                     else
                                     {

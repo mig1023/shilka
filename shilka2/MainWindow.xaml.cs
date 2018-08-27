@@ -19,6 +19,10 @@ namespace shilka2
         bool endGameAlready = false;
         bool startMenuShowYet = true;
 
+        string StatisticColor = "#FF5B5B5B";
+        string StartColor = "#FF343333";
+        string EndColor = "#FF0F0570";
+
         public MainWindow()
         {
             InitializeComponent();
@@ -39,7 +43,7 @@ namespace shilka2
             StatisticMenu.Margin = new Thickness(0, SystemParameters.PrimaryScreenHeight, 0, 0);
 
             var converter = new BrushConverter();
-            StatisticMenu.Background = (Brush)converter.ConvertFrom("#FF5B5B5B");
+            StatisticMenu.Background = (Brush)converter.ConvertFrom(StatisticColor);
 
             StatisticGrid.ItemsSource = Shilka.LoadStatistic();
 
@@ -54,7 +58,7 @@ namespace shilka2
                 (StartMenu.Width / 2 - StartMenuButtons.Width / 2), (StartMenu.Height / 2 - StartMenuButtons.Height / 2), 0, 0
             );
 
-            StartMenu.Background = (Brush)converter.ConvertFrom("#FF343333");
+            StartMenu.Background = (Brush)converter.ConvertFrom(StartColor);
 
             ShilkaImg.Margin = new Thickness(0, heightForShilka, 0, 0);
             RadarImg.Margin = new Thickness(62, heightForShilka, 0, 0);
@@ -212,7 +216,7 @@ namespace shilka2
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!endGameAlready) EndGame("Выход из игры.\nСохранить статистику?", "#FF0F0570");
+            if (!endGameAlready) EndGame("Выход из игры.\nСохранить статистику?", EndColor);
         }
 
         private void pauseButton_Click(object sender, RoutedEventArgs e)
