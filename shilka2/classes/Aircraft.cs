@@ -320,7 +320,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = (int)(rand.Next(33) + 1);
+                        dice = (int)(rand.Next(32) + 1);
                     }
                     while (!aircraftInList(Scripts.scriptAircraft, dice));
 
@@ -682,16 +682,6 @@ namespace shilka2
                                 minAltitude: minAltitudeForLargeAircraft
                             ); break;
                         case 32:
-                            createNewAircraft(
-                                aircraftType: "x47b",
-                                aircraftName: "X-47B",
-                                hitPoint: 50,
-                                aircraftWidth: 261,
-                                aircraftHeight: 55,
-                                price: 100,
-                                speed: 8
-                            ); break;
-                        case 33:
                             createNewAircraft(
                                 aircraftType: "harrier",
                                 aircraftName: "BAE Sea Harrier",
