@@ -115,7 +115,7 @@ namespace shilka2
                     SystemParameters.PrimaryScreenHeight,
                     0, 0
                 );
-                main.HandImg.BeginAnimation(Border.MarginProperty, move);
+                main.HandImg.BeginAnimation(MarginProperty, move);
             }));
         }
 
@@ -183,7 +183,7 @@ namespace shilka2
             move.Duration = TimeSpan.FromSeconds(speed);
             move.From = moveCanvas.Margin;
             move.To = new Thickness(left, top, right, bottom);
-            moveCanvas.BeginAnimation(Border.MarginProperty, move);
+            moveCanvas.BeginAnimation(MarginProperty, move);
 
             left = prevCanvas.Margin.Left - (moveCanvas.Margin.Left - left);
             top = prevCanvas.Margin.Top - (moveCanvas.Margin.Top - top);
@@ -192,7 +192,7 @@ namespace shilka2
 
             move.From = prevCanvas.Margin;
             move.To = new Thickness(left, top, right, bottom);
-            prevCanvas.BeginAnimation(Border.MarginProperty, move);
+            prevCanvas.BeginAnimation(MarginProperty, move);
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

@@ -300,10 +300,10 @@ namespace shilka2
                 case 3:
                 case 4:
                     createNewAircraft(
-                        aircraftType: "cloud" + (int)(rand.Next(7) + 1),
+                        aircraftType: "cloud" + rand.Next(7) + 1,
                         hitPoint: 10,
-                        aircraftWidth: (int)(rand.Next(300) + 200),
-                        aircraftHeight: (int)(rand.Next(100) + 70),
+                        aircraftWidth: rand.Next(300) + 200,
+                        aircraftHeight: rand.Next(100) + 70,
                         speed: 5,
                         friend: true,
                         cloud: true
@@ -320,7 +320,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = (int)(rand.Next(32) + 1);
+                        dice = rand.Next(32) + 1;
                     }
                     while (!aircraftInList(Scripts.scriptAircraft, dice));
 
@@ -336,7 +336,9 @@ namespace shilka2
                                 price: 12,
                                 speed: 5,
                                 cantEscape: true
-                            ); break;
+                            );
+                            break;
+
                         case 2:
                             createNewAircraft(
                                 aircraftType: "b1",
@@ -346,7 +348,9 @@ namespace shilka2
                                 aircraftHeight: 108,
                                 price: 283,
                                 speed: 12
-                            ); break;
+                            );
+                            break;
+
                         case 3:
                             createNewAircraft(
                                 aircraftType: "b52",
@@ -358,7 +362,9 @@ namespace shilka2
                                 speed: 8,
                                 minAltitude: minAltitudeForLargeAircraft,
                                 cantEscape: true
-                            ); break;
+                            );
+                            break;
+
                         case 4:
                             createNewAircraft(
                                 aircraftType: "f117",
@@ -367,7 +373,9 @@ namespace shilka2
                                 aircraftWidth: 270,
                                 aircraftHeight: 47,
                                 price: 112
-                            ); break;
+                            );
+                            break;
+
                         case 5:
                             createNewAircraft(
                                 aircraftType: "f14",
@@ -376,7 +384,9 @@ namespace shilka2
                                 aircraftWidth: 275,
                                 aircraftHeight: 67,
                                 price: 38
-                            ); break;
+                            );
+                            break;
+
                         case 6:
                             createNewAircraft(
                                 aircraftType: "f18",
@@ -385,7 +395,9 @@ namespace shilka2
                                 aircraftWidth: 270,
                                 aircraftHeight: 61,
                                 price: 57
-                            ); break;
+                            );
+                            break;
+
                         case 7:
                             createNewAircraft(
                                 aircraftType: "f16",
@@ -394,7 +406,9 @@ namespace shilka2
                                 aircraftWidth: 270,
                                 aircraftHeight: 89,
                                 price: 34
-                            ); break;
+                            );
+                            break;
+
                         case 8:
                             createNewAircraft(
                                 aircraftType: "f22",
@@ -404,7 +418,9 @@ namespace shilka2
                                 aircraftHeight: 73,
                                 price: 146,
                                 speed: 14
-                            ); break;
+                            );
+                            break;
+
                         case 9:
                             createNewAircraft(
                                 aircraftType: "f15",
@@ -413,7 +429,9 @@ namespace shilka2
                                 aircraftWidth: 270,
                                 aircraftHeight: 62,
                                 price: 29
-                            ); break;
+                            );
+                            break;
+
                         case 10:
                             createNewAircraft(
                                 aircraftType: "f4",
@@ -423,7 +441,9 @@ namespace shilka2
                                 aircraftHeight: 64,
                                 price: 3,
                                 speed: 8
-                            ); break;
+                            );
+                            break;
+
                         case 11:
                             createNewAircraft(
                                 aircraftType: "tornado",
@@ -432,7 +452,9 @@ namespace shilka2
                                 aircraftWidth: 270,
                                 aircraftHeight: 72,
                                 price: 111
-                            ); break;
+                            );
+                            break;
+
                         case 12:
                             createNewAircraft(
                                 aircraftType: "predator",
@@ -452,7 +474,9 @@ namespace shilka2
                                         movingType = DynamicElement.MovingType.yRotate
                                     }
                                 }
-                            ); break;
+                            );
+                            break;
+
                         case 13:
                             createNewAircraft(
                                 aircraftType: "reaper",
@@ -472,7 +496,9 @@ namespace shilka2
                                         movingType = DynamicElement.MovingType.yRotate
                                     }
                                 }
-                            ); break;
+                            );
+                            break;
+
                         case 14:
                             createNewAircraft(
                                 aircraftType: "f35",
@@ -481,7 +507,9 @@ namespace shilka2
                                 aircraftWidth: 270,
                                 aircraftHeight: 76,
                                 price: 108
-                            ); break;
+                            );
+                            break;
+
                         case 15:
                             createNewAircraft(
                                 aircraftType: "e3",
@@ -492,7 +520,9 @@ namespace shilka2
                                 price: 270,
                                 speed: 8,
                                 minAltitude: minAltitudeForLargeAircraft
-                            ); break;
+                            );
+                            break;
+
                         case 16:
                             createNewAircraft(
                                 aircraftType: "eurofighter",
@@ -501,7 +531,9 @@ namespace shilka2
                                 aircraftWidth: 270,
                                 aircraftHeight: 77,
                                 price: 123
-                            ); break;
+                            );
+                            break;
+
                         case 17:
                             createNewAircraft(
                                 aircraftType: "rafale",
@@ -511,7 +543,9 @@ namespace shilka2
                                 aircraftHeight: 86,
                                 price: 85,
                                 speed: 11
-                            ); break;
+                            );
+                            break;
+
                         case 18:
                             createNewAircraft(
                                 aircraftType: "b2",
@@ -521,7 +555,9 @@ namespace shilka2
                                 aircraftHeight: 76,
                                 price: 2100,
                                 speed: 18
-                            ); break;
+                            );
+                            break;
+
                         case 19:
                             createNewAircraft(
                                 aircraftType: "globalhawk",
@@ -532,7 +568,9 @@ namespace shilka2
                                 price: 70,
                                 speed: 7,
                                 cantEscape: true
-                            ); break;
+                            );
+                            break;
+
                         case 20:
                             createNewAircraft(
                                 aircraftType: "tomahawk",
@@ -543,7 +581,9 @@ namespace shilka2
                                 price: 2,
                                 speed: 5,
                                 cantEscape: true
-                            ); break;
+                            );
+                            break;
+
                         case 21:
                             createNewAircraft(
                                 aircraftType: "f8",
@@ -553,7 +593,9 @@ namespace shilka2
                                 aircraftHeight: 93,
                                 price: 6,
                                 speed: 8
-                            ); break;
+                            );
+                            break;
+
                         case 22:
                             createNewAircraft(
                                 aircraftType: "ac130",
@@ -574,7 +616,9 @@ namespace shilka2
                                         movingType = DynamicElement.MovingType.yRotate
                                     }
                                 }
-                            ); break;
+                            );
+                            break;
+
                         case 23:
                             createNewAircraft(
                                 aircraftType: "a6",
@@ -584,7 +628,9 @@ namespace shilka2
                                 aircraftHeight: 78,
                                 price: 43,
                                 speed: 7
-                            ); break;
+                            );
+                            break;
+
                         case 24:
                             createNewAircraft(
                                 aircraftType: "f111",
@@ -593,7 +639,9 @@ namespace shilka2
                                 aircraftWidth: 285,
                                 aircraftHeight: 59,
                                 price: 72
-                            ); break;
+                            );
+                            break;
+
                         case 25:
                             createNewAircraft(
                                 aircraftType: "f5",
@@ -603,7 +651,9 @@ namespace shilka2
                                 aircraftHeight: 58,
                                 price: 2,
                                 speed: 10
-                            ); break;
+                            );
+                            break;
+
                         case 26:
                             createNewAircraft(
                                 aircraftType: "scalp",
@@ -614,7 +664,9 @@ namespace shilka2
                                 price: 2,
                                 speed: 5,
                                 cantEscape: true
-                            ); break;
+                            );
+                            break;
+
                         case 27:
                             createNewAircraft(
                                 aircraftType: "ea6",
@@ -624,7 +676,9 @@ namespace shilka2
                                 aircraftHeight: 66,
                                 price: 52,
                                 speed: 7
-                            ); break;
+                            );
+                            break;
+
                         case 28:
                             createNewAircraft(
                                 aircraftType: "hawkeye",
@@ -645,7 +699,9 @@ namespace shilka2
                                         movingType = DynamicElement.MovingType.yRotate
                                     }
                                 }
-                            ); break;
+                            );
+                            break;
+
                         case 29:
                             createNewAircraft(
                                 aircraftType: "rc135",
@@ -657,7 +713,9 @@ namespace shilka2
                                 speed: 8,
                                 minAltitude: minAltitudeForLargeAircraft,
                                 cantEscape: true
-                            ); break;
+                            );
+                            break;
+
                         case 30:
                             createNewAircraft(
                                 aircraftType: "u2",
@@ -669,7 +727,9 @@ namespace shilka2
                                 speed: 8,
                                 minAltitude: minAltitudeForLargeAircraft,
                                 cantEscape: true
-                            ); break;
+                            );
+                            break;
+
                         case 31:
                             createNewAircraft(
                                 aircraftType: "sr71",
@@ -680,7 +740,9 @@ namespace shilka2
                                 price: 34,
                                 speed: 14,
                                 minAltitude: minAltitudeForLargeAircraft
-                            ); break;
+                            );
+                            break;
+
                         case 32:
                             createNewAircraft(
                                 aircraftType: "harrier",
@@ -690,7 +752,8 @@ namespace shilka2
                                 aircraftHeight: 81,
                                 price: 24,
                                 speed: 7
-                            ); break;
+                            );
+                            break;
                     }
                     break;
 
@@ -702,7 +765,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = (int)(rand.Next(8) + 1);
+                        dice = rand.Next(8) + 1;
                     }
                     while (!aircraftInList(Scripts.scriptHelicopters, dice));
 
@@ -735,7 +798,9 @@ namespace shilka2
                                         movingType = DynamicElement.MovingType.zRotate
                                     }
                                 }
-                            );  break;
+                            );
+                            break;
+
                         case 2:
                             createNewAircraft(
                                 aircraftType: "ah1",
@@ -762,7 +827,9 @@ namespace shilka2
                                         movingType = DynamicElement.MovingType.zRotate
                                     }
                                 }
-                            ); break;
+                            );
+                            break;
+
                         case 3:
                             createNewAircraft(
                                 aircraftType: "uh60",
@@ -789,7 +856,9 @@ namespace shilka2
                                         movingType = DynamicElement.MovingType.zRotate
                                     }
                                 }
-                            ); break;
+                            );
+                            break;
+
                         case 4:
                             createNewAircraft(
                                 aircraftType: "uh1",
@@ -816,7 +885,9 @@ namespace shilka2
                                         movingType = DynamicElement.MovingType.zRotate
                                     }
                                 }
-                            ); break;
+                            );
+                            break;
+
                         case 5:
                             createNewAircraft(
                                 aircraftType: "ch47",
@@ -843,7 +914,9 @@ namespace shilka2
                                         movingType = DynamicElement.MovingType.xRotate,
                                     },
                                 }
-                            ); break;
+                            );
+                            break;
+
                         case 6:
                             createNewAircraft(
                                 aircraftType: "v22",
@@ -864,7 +937,9 @@ namespace shilka2
                                         startDegree = 0.5,
                                     },
                                 }
-                            ); break;
+                            );
+                            break;
+
                         case 7:
                             createNewAircraft(
                                aircraftType: "tiger",
@@ -891,7 +966,9 @@ namespace shilka2
                                         movingType = DynamicElement.MovingType.zRotate
                                     }
                                }
-                           ); break;
+                           );
+                            break;
+
                         case 8:
                             createNewAircraft(
                                 aircraftType: "drone",
@@ -919,7 +996,8 @@ namespace shilka2
                                         movingType = DynamicElement.MovingType.xRotate,
                                     },
                                 }
-                            ); break;
+                            );
+                            break;
                     }
                     break;
 
@@ -929,7 +1007,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = (int)(rand.Next(14) + 1);
+                        dice = rand.Next(14) + 1;
                     }
                     while (!aircraftInList(Scripts.scriptAircraftFriend, dice));
 
@@ -943,7 +1021,9 @@ namespace shilka2
                                 aircraftWidth: 270,
                                 aircraftHeight: 71,
                                 friend: true
-                            ); break;
+                            );
+                            break;
+
                         case 2:
                             createNewAircraft(
                                 aircraftType: "mig29",
@@ -952,7 +1032,9 @@ namespace shilka2
                                 aircraftWidth: 270,
                                 aircraftHeight: 65,
                                 friend: true
-                            ); break;
+                            );
+                            break;
+
                         case 3:
                             createNewAircraft(
                                 aircraftType: "mig31",
@@ -962,7 +1044,9 @@ namespace shilka2
                                 aircraftHeight: 63,
                                 speed: 14,
                                 friend: true
-                            ); break;
+                            );
+                            break;
+
                         case 4:
                             createNewAircraft(
                                 aircraftType: "su17",
@@ -972,7 +1056,9 @@ namespace shilka2
                                 aircraftHeight: 61,
                                 speed: 5,
                                 friend: true
-                            ); break;
+                            );
+                            break;
+
                         case 5:
                             createNewAircraft(
                                 aircraftType: "su24",
@@ -982,7 +1068,9 @@ namespace shilka2
                                 aircraftHeight: 67,
                                 speed: 8,
                                 friend: true
-                            ); break;
+                            );
+                            break;
+
                         case 6:
                             createNewAircraft(
                                 aircraftType: "su25",
@@ -993,7 +1081,9 @@ namespace shilka2
                                 speed: 5,
                                 friend: true,
                                 cantEscape: true
-                            ); break;
+                            );
+                            break;
+
                         case 7:
                             createNewAircraft(
                                 aircraftType: "su27",
@@ -1002,7 +1092,9 @@ namespace shilka2
                                 aircraftWidth: 270,
                                 aircraftHeight: 77,
                                 friend: true
-                            ); break;
+                            );
+                            break;
+
                         case 8:
                             createNewAircraft(
                                 aircraftType: "su34",
@@ -1011,7 +1103,9 @@ namespace shilka2
                                 aircraftWidth: 275,
                                 aircraftHeight: 56,
                                 friend: true
-                            ); break;
+                            );
+                            break;
+
                         case 9:
                             createNewAircraft(
                                 aircraftType: "pakfa",
@@ -1021,7 +1115,9 @@ namespace shilka2
                                 aircraftHeight: 57,
                                 speed: 12,
                                 friend: true
-                            ); break;
+                            );
+                            break;
+
                         case 10:
                             createNewAircraft(
                                 aircraftType: "tu160",
@@ -1032,7 +1128,9 @@ namespace shilka2
                                 speed: 18,
                                 minAltitude: minAltitudeForLargeAircraft,
                                 friend: true
-                            ); break;
+                            );
+                            break;
+
                         case 11:
                             createNewAircraft(
                                 aircraftType: "mig19",
@@ -1041,7 +1139,9 @@ namespace shilka2
                                 aircraftWidth: 270,
                                 aircraftHeight: 81,
                                 friend: true
-                            ); break;
+                            );
+                            break;
+
                         case 12:
                             createNewAircraft(
                                 aircraftType: "mig21",
@@ -1050,7 +1150,9 @@ namespace shilka2
                                 aircraftWidth: 270,
                                 aircraftHeight: 62,
                                 friend: true
-                            ); break;
+                            );
+                            break;
+
                         case 13:
                             createNewAircraft(
                                 aircraftType: "mig25",
@@ -1060,7 +1162,9 @@ namespace shilka2
                                 aircraftHeight: 64,
                                 speed: 14,
                                 friend: true
-                            ); break;
+                            );
+                            break;
+
                         case 14:
                             createNewAircraft(
                                 aircraftType: "a50",
@@ -1072,7 +1176,8 @@ namespace shilka2
                                 minAltitude: minAltitudeForLargeAircraft,
                                 cantEscape: true,
                                 friend: true
-                            ); break;
+                            );
+                            break;
                     }
                     break;
 
@@ -1082,7 +1187,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = (int)(rand.Next(5) + 1);
+                        dice = rand.Next(5) + 1;
                     }
                     while (!aircraftInList(Scripts.scriptHelicoptersFriend, dice));
 
@@ -1115,7 +1220,9 @@ namespace shilka2
                                         movingType = DynamicElement.MovingType.zRotate
                                     }
                                 }
-                            ); break;
+                            );
+                            break;
+
                         case 2:
                             createNewAircraft(
                                 aircraftType: "mi24",
@@ -1142,7 +1249,9 @@ namespace shilka2
                                         movingType = DynamicElement.MovingType.zRotate
                                     }
                                 }
-                            ); break;
+                            );
+                            break;
+
                         case 3:
                             createNewAircraft(
                                 aircraftType: "mi8",
@@ -1169,7 +1278,9 @@ namespace shilka2
                                         movingType = DynamicElement.MovingType.zRotate
                                     }
                                 }
-                            ); break;
+                            );
+                            break;
+
                         case 4:
                             createNewAircraft(
                                 aircraftType: "ka52",
@@ -1197,7 +1308,9 @@ namespace shilka2
                                         movingType = DynamicElement.MovingType.xRotate,
                                     },
                                 }
-                            ); break;
+                            );
+                            break;
+
                         case 5:
                             createNewAircraft(
                                 aircraftType: "ka27",
@@ -1225,13 +1338,14 @@ namespace shilka2
                                         movingType = DynamicElement.MovingType.xRotate,
                                     },
                                 }
-                            ); break;
+                            );
+                            break;
                     }
                     break;
 
                 case 15:
 
-                    dice = (int)(rand.Next(3) + 1);
+                    dice = rand.Next(3) + 1;
 
                     switch (dice)
                     {
@@ -1246,7 +1360,9 @@ namespace shilka2
                                 minAltitude: minAltitudeForLargeAircraft,
                                 cantEscape: true,
                                 airliner: true
-                            ); break;
+                            );
+                            break;
+
                         case 2:
                             createNewAircraft(
                                 aircraftType: "boeing747",
@@ -1258,7 +1374,9 @@ namespace shilka2
                                 minAltitude: minAltitudeForLargeAircraft,
                                 cantEscape: true,
                                 airliner: true
-                            ); break;
+                            );
+                            break;
+
                         case 3:
                             createNewAircraft(
                                 aircraftType: "md11",
@@ -1270,7 +1388,8 @@ namespace shilka2
                                 minAltitude: minAltitudeForLargeAircraft,
                                 cantEscape: true,
                                 airliner: true
-                            ); break;
+                            );
+                            break;
                     }
                     break;
             }

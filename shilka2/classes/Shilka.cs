@@ -168,24 +168,36 @@ namespace shilka2
             Statistic(out baseForPercent, out shutdownPercent, out damagedPercent, out statisticWithoutDamage,
                 out chance, out inTargetPercent);
 
-            if (currentScript == Scripts.scriptsNames.noScript)
-                currentScriptName = "быстрая игра";
-            else if (currentScript == Scripts.scriptsNames.Vietnam)
-                currentScriptName = "Вьетнам";
-            else if (currentScript == Scripts.scriptsNames.IranIraq)
-                currentScriptName = "Ирано-Иракская";
-            else if (currentScript == Scripts.scriptsNames.DesertStorm)
-                currentScriptName = "Буря в пустыни";
-            else if (currentScript == Scripts.scriptsNames.Syria)
-                currentScriptName = "Сирия";
-            else if (currentScript == Scripts.scriptsNames.Yugoslavia)
-                currentScriptName = "Югославия";
-            else if (currentScript == Scripts.scriptsNames.KoreanBoeing)
-                currentScriptName = "корейский Боинг";
-            else if (currentScript == Scripts.scriptsNames.Libya)
-                currentScriptName = "Ливия";
-            else if (currentScript == Scripts.scriptsNames.Yemen)
-                currentScriptName = "Йемен";
+            switch (currentScript)
+            {
+                case Scripts.scriptsNames.noScript:
+                    currentScriptName = "быстрая игра";
+                    break;
+                case Scripts.scriptsNames.Vietnam:
+                    currentScriptName = "Вьетнам";
+                    break;
+                case Scripts.scriptsNames.IranIraq:
+                    currentScriptName = "Ирано-Иракская";
+                    break;
+                case Scripts.scriptsNames.DesertStorm:
+                    currentScriptName = "Буря в пустыни";
+                    break;
+                case Scripts.scriptsNames.Syria:
+                    currentScriptName = "Сирия";
+                    break;
+                case Scripts.scriptsNames.Yugoslavia:
+                    currentScriptName = "Югославия";
+                    break;
+                case Scripts.scriptsNames.KoreanBoeing:
+                    currentScriptName = "корейский Боинг";
+                    break;
+                case Scripts.scriptsNames.Libya:
+                    currentScriptName = "Ливия";
+                    break;
+                case Scripts.scriptsNames.Yemen:
+                    currentScriptName = "Йемен";
+                    break;
+            };
 
             double statisticAmountOfDamageRound = double.Parse(string.Format("{0:f2}", statisticAmountOfDamage));
 
