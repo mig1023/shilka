@@ -317,6 +317,11 @@ namespace shilka2
             startScript(Scripts.scriptsNames.Libya);
         }
 
+        private void startYemen_Click(object sender, RoutedEventArgs e)
+        {
+            startScript(Scripts.scriptsNames.Yemen);
+        }
+
         private void StatisticGrid_LoadingRow(object sender, DataGridRowEventArgs e)
         {
             e.Row.Header = (e.Row.GetIndex()+1).ToString();

@@ -184,11 +184,15 @@ namespace shilka2
                 currentScriptName = "корейский Боинг";
             else if (currentScript == Scripts.scriptsNames.Libya)
                 currentScriptName = "Ливия";
+            else if (currentScript == Scripts.scriptsNames.Yemen)
+                currentScriptName = "Йемен";
+
+            double statisticAmountOfDamageRound = double.Parse(string.Format("{0:f2}", statisticAmountOfDamage));
 
             string stat = string.Format("{0}|{1}|{2}|{3}|{4}|{5}|{6}|{7}|{8}|{9}|{10}|{11}|{12}|{13}\n",
                   player, currentScriptName, statisticShellsFired, staticticInTarget, staticticAircraftShutdown,
                   inTargetPercent, shutdownPercent, statisticDamaged, damagedPercent, statisticHasGone,
-                  statisticWithoutDamage, statisticAmountOfDamage, statisticFriendDamage, chance
+                  statisticWithoutDamage, statisticAmountOfDamageRound, statisticFriendDamage, chance
             );
 
             File.AppendAllText("statistic.dat", stat);

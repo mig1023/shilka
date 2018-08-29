@@ -10,7 +10,8 @@
             Yugoslavia,
             IranIraq,
             Syria,
-            Libya
+            Libya,
+            Yemen
         };
 
         public static int?[] scriptAircraft;
@@ -60,9 +61,6 @@
                     14,    // <-- a50
                 };
 
-            if (script == scriptsNames.KoreanBoeing)
-                return null;
-
             if (script == scriptsNames.Libya)
                 return new int?[] {
                     1,     // <-- mig23
@@ -70,6 +68,12 @@
                     5,     // <-- su24
                     13,    // <-- mig25
                 };
+
+            if (script == scriptsNames.KoreanBoeing)
+                return null;
+
+            if (script == scriptsNames.Yemen)
+                return null;
 
             return new int?[] { };
         }
@@ -111,6 +115,9 @@
                 };
 
             if (script == scriptsNames.KoreanBoeing)
+                return null;
+
+            if (script == scriptsNames.Yemen)
                 return null;
 
             return new int?[] { };
@@ -212,6 +219,17 @@
                     32,    // <-- harrier
                 };
 
+            if (script == scriptsNames.Yemen)
+                return new int?[] {
+                    7,     // <-- f16
+                    9,     // <-- f15
+                    11,    // <-- tornado
+                    15,    // <-- e3
+                    16,    // <-- eurofighter
+                    22,    // <-- ac130
+                    25,    // <-- f5
+                };
+
             return new int?[] { };
         }
 
@@ -261,6 +279,14 @@
 
             if (script == scriptsNames.KoreanBoeing)
                 return null;
+
+            if (script == scriptsNames.Yemen)
+                return new int?[] {
+                    1,     // <-- ah64
+                    2,     // <-- ah1
+                    3,     // <-- uh60
+                    5,     // <-- ch46
+                };
 
             return new int?[] { };
         }
