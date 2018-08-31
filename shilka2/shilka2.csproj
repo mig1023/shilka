@@ -186,6 +186,14 @@
     <Resource Include="images\harrier.png" />
     <Resource Include="images\micro_prop.png" />
     <Resource Include="images\drone.png" />
+    <Resource Include="images\si.png" />
+    <Resource Include="images\iq.png" />
+    <Resource Include="images\ir.png" />
+    <Resource Include="images\ki.png" />
+    <Resource Include="images\ly.png" />
+    <Resource Include="images\sy.png" />
+    <Resource Include="images\vn.png" />
+    <Resource Include="images\ye.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

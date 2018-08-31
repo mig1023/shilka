@@ -18,6 +18,7 @@
             <Label x:Name="statShells" HorizontalAlignment="Left" Height="183" Margin="45,10,0,0" VerticalAlignment="Top" Width="450"/>
             <ToggleButton x:Name="pauseButton" Content="❚❚" HorizontalAlignment="Left" Height="23" Margin="10,43,0,0" VerticalAlignment="Top" Width="30" Click="pauseButton_Click"/>
             <Button x:Name="statisticButton" Content="★" HorizontalAlignment="Left" Height="23" Margin="10,71,0,0" VerticalAlignment="Top" Width="30" Click="statisticButton_Click" FontSize="13"/>
+            <Image x:Name="scenarioFlag" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="32" Canvas.Left="9" Canvas.Top="95"/>
         </Canvas>
         <Canvas x:Name="EndMenu" HorizontalAlignment="Left" Height="320" Margin="513,0,-511,0" VerticalAlignment="Top" Width="515">
             <Label x:Name="EndText" Content="" Height="131" Canvas.Left="24" Canvas.Top="15" Width="446" Foreground="White" FontSize="32" FontFamily="Arial Narrow"/>
@@ -68,5 +69,6 @@
                 </DataGrid.Columns>
             </DataGrid>
         </Canvas>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="29" Margin="92,195,0,0" VerticalAlignment="Top" Width="25"/>
     </Grid>
 </Window>

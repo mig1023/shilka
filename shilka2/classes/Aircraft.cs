@@ -177,7 +177,7 @@ namespace shilka2
             return inList;
         }
 
-        static ImageSource imageFromResources(string imageName)
+        public static ImageSource imageFromResources(string imageName)
         {
             return new BitmapImage(new Uri("images/" + imageName + ".png", UriKind.Relative)) { };
         }

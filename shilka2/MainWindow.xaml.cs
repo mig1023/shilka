@@ -269,6 +269,38 @@ namespace shilka2
         {
             Shilka.currentScript = script;
 
+            string flagName = null;
+
+            switch (script)
+            {
+                case Scripts.scriptsNames.Vietnam:
+                    flagName = "vn";
+                    break;
+                case Scripts.scriptsNames.IranIraq:
+                    flagName = "in";
+                    break;
+                case Scripts.scriptsNames.DesertStorm:
+                    flagName = "iq";
+                    break;
+                case Scripts.scriptsNames.Syria:
+                    flagName = "sy";
+                    break;
+                case Scripts.scriptsNames.Yugoslavia:
+                    flagName = "si";
+                    break;
+                case Scripts.scriptsNames.KoreanBoeing:
+                    flagName = "ki";
+                    break;
+                case Scripts.scriptsNames.Libya:
+                    flagName = "ly";
+                    break;
+                case Scripts.scriptsNames.Yemen:
+                    flagName = "ye";
+                    break;
+            };
+
+            if (flagName != null) scenarioFlag.Source = Aircraft.imageFromResources(flagName);
+
             StartGame(
                 Scripts.scriptEnemyAircrafts(script),
                 Scripts.scriptEnemyHelicopters(script),
