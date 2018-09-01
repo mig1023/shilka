@@ -197,6 +197,7 @@ namespace shilka2
             int maxAltitude = -1, bool friend = false, bool airliner = false, bool cloud = false,
             bool cantEscape = false, double price = 0)
         {
+
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {
                 MainWindow main = (MainWindow)Application.Current.MainWindow;
@@ -302,7 +303,7 @@ namespace shilka2
                 case 3:
                 case 4:
                     createNewAircraft(
-                        aircraftType: "cloud" + rand.Next(7) + 1,
+                        aircraftType: "cloud" + (rand.Next(7) + 1),
                         hitPoint: 10,
                         aircraftWidth: rand.Next(300) + 200,
                         aircraftHeight: rand.Next(100) + 70,
