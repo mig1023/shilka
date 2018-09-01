@@ -197,6 +197,9 @@ namespace shilka2
                 case Scripts.scriptsNames.Yemen:
                     currentScriptName = "Йемен";
                     break;
+                case Scripts.scriptsNames.Rust:
+                    currentScriptName = "Матиас Руст";
+                    break;
             };
 
             double statisticAmountOfDamageRound = double.Parse(string.Format("{0:f2}", statisticAmountOfDamage));

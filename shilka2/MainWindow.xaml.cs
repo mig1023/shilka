@@ -354,6 +354,11 @@ namespace shilka2
             startScript(Scripts.scriptsNames.Yemen);
         }
 
+        private void startRust_Click(object sender, RoutedEventArgs e)
+        {
+            startScript(Scripts.scriptsNames.Rust);
+        }
+
         private void StatisticGrid_LoadingRow(object sender, DataGridRowEventArgs e)
         {
             e.Row.Header = (e.Row.GetIndex()+1).ToString();

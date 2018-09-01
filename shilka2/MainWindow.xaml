@@ -40,6 +40,7 @@
                 <Button x:Name="startKorean" Content="Корейский Боинг" Height="41" Canvas.Left="285" Canvas.Top="450" Width="160" Click="startKorean_Click"/>
                 <Button x:Name="startLibya" Content="Интервенция в Ливии" Height="41" Canvas.Left="230" Canvas.Top="542" Width="215" Click="startLibya_Click"/>
                 <Button x:Name="startYemen" Content="Интервенция в Йемен" Height="41" Canvas.Left="10" Canvas.Top="588" Width="168" Click="startYemen_Click"/>
+                <Button x:Name="startRust" Content="Полёт Матиаса Руста" Height="41" Canvas.Left="183" Canvas.Top="588" Width="262" Click="startRust_Click"/>
             </Canvas>
         </Canvas>
         <Canvas x:Name="StatisticMenu" HorizontalAlignment="Left" Height="174" Margin="0,325,-1,-179" VerticalAlignment="Top" Width="518">

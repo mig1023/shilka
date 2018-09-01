@@ -11,7 +11,8 @@
             IranIraq,
             Syria,
             Libya,
-            Yemen
+            Yemen,
+            Rust
         };
 
         public static int?[] scriptAircraft;
@@ -75,6 +76,9 @@
             if (script == scriptsNames.Yemen)
                 return null;
 
+            if (script == scriptsNames.Rust)
+                return null;
+
             return new int?[] { };
         }
 
@@ -118,6 +122,9 @@
                 return null;
 
             if (script == scriptsNames.Yemen)
+                return null;
+
+            if (script == scriptsNames.Rust)
                 return null;
 
             return new int?[] { };
@@ -230,6 +237,11 @@
                     25,    // <-- f5
                 };
 
+            if (script == scriptsNames.Rust)
+                return new int?[] {
+                    33,    // <-- cessna
+                };
+
             return new int?[] { };
         }
 
@@ -287,6 +299,9 @@
                     3,     // <-- uh60
                     5,     // <-- ch46
                 };
+
+            if (script == scriptsNames.Rust)
+                return null;
 
             return new int?[] { };
         }

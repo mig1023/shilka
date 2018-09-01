@@ -184,7 +184,7 @@ namespace shilka2
 
         static void createNewAircraft(string aircraftType, int hitPoint, int aircraftWidth, int aircraftHeight,
             string aircraftName = "", int speed = 10, int minAltitude = -1, int maxAltitude = -1, bool friend = false,
-            bool airliner = false, bool cloud = false, bool cantEscape = false, int price = 0)
+            bool airliner = false, bool cloud = false, bool cantEscape = false, double price = 0)
         {
             List<DynamicElement> elements = new List<DynamicElement>();
 
@@ -238,7 +238,9 @@ namespace shilka2
                     d.element = new Image();
                     d.element.Source = imageFromResources(d.elementName);
 
-                    if (newAircraft.flightDirection == FlightDirectionType.Right)
+                    if ((newAircraft.flightDirection == FlightDirectionType.Right) && !d.mirror)
+                        d.element.FlowDirection = FlowDirection.RightToLeft;
+                    else if ((newAircraft.flightDirection == FlightDirectionType.Left) && d.mirror)
                         d.element.FlowDirection = FlowDirection.RightToLeft;
 
                     if (d.movingType == DynamicElement.MovingType.xRotate)
@@ -320,7 +322,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = rand.Next(32) + 1;
+                        dice = rand.Next(33) + 1;
                     }
                     while (!aircraftInList(Scripts.scriptAircraft, dice));
 
@@ -752,6 +754,29 @@ namespace shilka2
                                 aircraftHeight: 81,
                                 price: 24,
                                 speed: 7
+                            );
+                            break;
+
+                        case 33:
+                            createNewAircraft(
+                                aircraftType: "cessna",
+                                aircraftName: "Cessna 172",
+                                hitPoint: 50,
+                                aircraftWidth: 170,
+                                aircraftHeight: 61,
+                                speed: 6,
+                                price: 0.3,
+                                cantEscape: true,
+                                elements: new List<DynamicElement> {
+                                    new DynamicElement {
+                                        elementName = "ltl_prop",
+                                        y = 2,
+                                        x_left = -6,
+                                        x_right = 164,
+                                        movingType = DynamicElement.MovingType.yRotate,
+                                        mirror = true
+                                    }
+                                }
                             );
                             break;
                     }

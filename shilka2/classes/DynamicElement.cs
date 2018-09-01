@@ -23,5 +23,7 @@ namespace shilka2.classes
         public double rotateDegreeCurrent = 0;
 
         public double startDegree = 1;
+
+        public bool mirror = false;
     }
 }
