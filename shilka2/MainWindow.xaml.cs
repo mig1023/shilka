@@ -286,7 +286,7 @@ namespace shilka2
                     flagName = "sy";
                     break;
                 case Scripts.scriptsNames.Yugoslavia:
-                    flagName = "si";
+                    flagName = "yu";
                     break;
                 case Scripts.scriptsNames.KoreanBoeing:
                     flagName = "ki";
@@ -296,6 +296,9 @@ namespace shilka2
                     break;
                 case Scripts.scriptsNames.Yemen:
                     flagName = "ye";
+                    break;
+                case Scripts.scriptsNames.Rust:
+                    flagName = "su";
                     break;
             };
 
