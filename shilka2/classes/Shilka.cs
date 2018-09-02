@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using System.IO;
+using System.Windows.Media.Imaging;
 
 namespace shilka2
 {
@@ -163,49 +164,14 @@ namespace shilka2
             int baseForPercent, shutdownPercent, damagedPercent, statisticWithoutDamage, inTargetPercent;
 
             double chance;
-            string currentScriptName = "";
 
             Statistic(out baseForPercent, out shutdownPercent, out damagedPercent, out statisticWithoutDamage,
                 out chance, out inTargetPercent);
 
-            switch (currentScript)
-            {
-                case Scripts.scriptsNames.noScript:
-                    currentScriptName = "быстрая игра";
-                    break;
-                case Scripts.scriptsNames.Vietnam:
-                    currentScriptName = "Вьетнам";
-                    break;
-                case Scripts.scriptsNames.IranIraq:
-                    currentScriptName = "Ирано-Иракская";
-                    break;
-                case Scripts.scriptsNames.DesertStorm:
-                    currentScriptName = "Буря в пустыни";
-                    break;
-                case Scripts.scriptsNames.Syria:
-                    currentScriptName = "Сирия";
-                    break;
-                case Scripts.scriptsNames.Yugoslavia:
-                    currentScriptName = "Югославия";
-                    break;
-                case Scripts.scriptsNames.KoreanBoeing:
-                    currentScriptName = "корейский Боинг";
-                    break;
-                case Scripts.scriptsNames.Libya:
-                    currentScriptName = "Ливия";
-                    break;
-                case Scripts.scriptsNames.Yemen:
-                    currentScriptName = "Йемен";
-                    break;
-                case Scripts.scriptsNames.Rust:
-                    currentScriptName = "Матиас Руст";
-                    break;
-            };
-
             double statisticAmountOfDamageRound = double.Parse(string.Format("{0:f2}", statisticAmountOfDamage));
 
             string stat = string.Format("{0}|{1}|{2}|{3}|{4}|{5}|{6}|{7}|{8}|{9}|{10}|{11}|{12}|{13}\n",
-                  player, currentScriptName, statisticShellsFired, staticticInTarget, staticticAircraftShutdown,
+                  player, currentScript, statisticShellsFired, staticticInTarget, staticticAircraftShutdown,
                   inTargetPercent, shutdownPercent, statisticDamaged, damagedPercent, statisticHasGone,
                   statisticWithoutDamage, statisticAmountOfDamageRound, statisticFriendDamage, chance
             );
@@ -230,9 +196,13 @@ namespace shilka2
             {
                 string[] stat = statLine.Split('|');
 
+                Scripts.scriptsNames scriptFullName = (Scripts.scriptsNames)Enum.Parse(typeof(Scripts.scriptsNames), stat[1]);
+
+                ImageSource flagSource = Aircraft.imageFromResources(Scripts.scriptFlagName(scriptFullName));
+
                 result.Add(new StatTable(
                     stat[0], stat[1], stat[2], stat[3], stat[4], stat[5], stat[6],
-                    stat[7], stat[8], stat[9], stat[10], stat[11], stat[12], stat[13]
+                    stat[7], stat[8], stat[9], stat[10], stat[11], stat[12], stat[13], flagSource
                 ));
             }
 

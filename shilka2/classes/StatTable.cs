@@ -1,9 +1,14 @@
-﻿namespace shilka2
+﻿using System;
+using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+
+namespace shilka2
 {
     class StatTable
     {
         public string name { get; set; }
-        public string script { get; set; }
+        public ImageSource scriptFlag { get; set; }
         public int shellsFired { get; set; }
         public int inTarget { get; set; }
         public int Shutdown { get; set; }
@@ -21,10 +26,9 @@
               string aircraftShutdown, string inTargetPercent, string shutdownPercent,
               string damaged, string damagedPercent, string hasGone,
               string withoutDamage, string amountOfDamage, string friendDamage,
-              string chance)
+              string chance, ImageSource flag)
         {
             this.name = name;
-            this.script = script;
             this.shellsFired = int.Parse(shellsFired);
             this.inTarget = int.Parse(inTarget);
             this.Shutdown = int.Parse(aircraftShutdown);
@@ -37,6 +41,7 @@
             this.amountOfDamage = double.Parse(amountOfDamage);
             this.friendDamage = int.Parse(friendDamage);
             this.chance = float.Parse(string.Format("{0:f2}", float.Parse(chance)));
+            this.scriptFlag = flag; 
         }
     }
 }

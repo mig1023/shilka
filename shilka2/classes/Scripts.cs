@@ -20,6 +20,44 @@
         public static int?[] scriptAircraftFriend;
         public static int?[] scriptHelicoptersFriend;
 
+        public static string scriptFlagName(scriptsNames script)
+        {
+            string flagName = null;
+
+            switch (script)
+            {
+                case Scripts.scriptsNames.Vietnam:
+                    flagName = "vn";
+                    break;
+                case Scripts.scriptsNames.IranIraq:
+                    flagName = "in";
+                    break;
+                case Scripts.scriptsNames.DesertStorm:
+                    flagName = "iq";
+                    break;
+                case Scripts.scriptsNames.Syria:
+                    flagName = "sy";
+                    break;
+                case Scripts.scriptsNames.Yugoslavia:
+                    flagName = "yu";
+                    break;
+                case Scripts.scriptsNames.KoreanBoeing:
+                    flagName = "ki";
+                    break;
+                case Scripts.scriptsNames.Libya:
+                    flagName = "ly";
+                    break;
+                case Scripts.scriptsNames.Yemen:
+                    flagName = "ye";
+                    break;
+                case Scripts.scriptsNames.Rust:
+                    flagName = "su";
+                    break;
+            };
+
+            return flagName;
+        }
+
         public static int?[] scriptFriendAircrafts(scriptsNames script)
         {
 
