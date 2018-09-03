@@ -262,7 +262,6 @@ namespace shilka2
                 newAircraft.hitpoint = hitPoint;
                 newAircraft.hitpointMax = hitPoint;
                 newAircraft.price = price;
-                newAircraft.speed = speed;
                 newAircraft.minAltitude = minAltitude;
                 newAircraft.maxAltitude = maxAltitude;
                 newAircraft.friend = friend;
@@ -270,6 +269,10 @@ namespace shilka2
                 newAircraft.cloud = cloud;
                 newAircraft.cantEscape = cantEscape;
                 newAircraft.fly = true;
+
+                int randomSpeed = (cloud ? 0 : rand.Next(3));
+
+                newAircraft.speed = speed + randomSpeed;
 
                 if (newAircraft.minAltitude == -1) newAircraft.minAltitude = minAltitudeGlobal;
 
