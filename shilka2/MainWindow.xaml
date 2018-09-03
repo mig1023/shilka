@@ -46,15 +46,18 @@
         <Canvas x:Name="StatisticMenu" HorizontalAlignment="Left" Height="174" Margin="0,325,-1,-179" VerticalAlignment="Top" Width="518">
             <Button x:Name="returnButton" Content="✖" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="30" Canvas.Left="10" Canvas.Top="15" Click="returnButton_Click"/>
             <Label x:Name="label" Content="Результаты" Height="50" Canvas.Left="61" Canvas.Top="14" Width="300" FontFamily="Arial Narrow" FontSize="36" Foreground="White"/>
-            <DataGrid x:Name="StatisticGrid" Height="50" Canvas.Top="85" Width="150" Canvas.Left="60" VerticalScrollBarVisibility="Hidden" BorderThickness="0" Background="#FF5B5B5B" AutoGenerateColumns="False" ColumnWidth="*" GridLinesVisibility="Horizontal" BorderBrush="#FF001B36" LoadingRow="StatisticGrid_LoadingRow" IsReadOnly="True">
+            <DataGrid x:Name="StatisticGrid" Height="50" FontSize="18" Canvas.Top="85" Width="150" Canvas.Left="60" VerticalScrollBarVisibility="Hidden" BorderThickness="0" Background="#FF5B5B5B" AutoGenerateColumns="False" ColumnWidth="*" GridLinesVisibility="Horizontal" BorderBrush="#FF001B36" LoadingRow="StatisticGrid_LoadingRow" IsReadOnly="True">
                 <DataGrid.Resources>
                     <Style TargetType="DataGridCell" x:Key="grayCell">
                         <Setter Property="Background" Value="#FFBFBFBF"/>
                     </Style>
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="FontSize" Value="12"/>
+                    </Style>
                 </DataGrid.Resources>
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Зенитчик" Binding="{Binding name}"/>
-                    <DataGridTemplateColumn Header="Сценарий">
+                    <DataGridTemplateColumn Width="45" Header="Сценарий">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <Image Width="32" Height="32" Source="{Binding scriptFlag}"/>
