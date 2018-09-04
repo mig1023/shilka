@@ -11,7 +11,8 @@ The game is about an anti-aircraft vahicle in the school notebook
 - Iran–Iraq war
 - Syrian civil war
 - Intervention in Libya
-
+- Intervention in Yemen
+- Mathias Rust flight
 
 ### Enemy aircrafts:
 
@@ -27,7 +28,7 @@ The game is about an anti-aircraft vahicle in the school notebook
 | AC-130 Spectre | A-6 Intruder | F-111 |
 | F-5 Tiger | SCALP | EA-6 Prowler |
 | E-2 Hawkeye | RC-135 | U-2 |
-| SR-71 Blackbird | X-47B | BAE Sea Harrier |
+| SR-71 Blackbird | BAE Sea Harrier | Cessna 172 |
 
 ### Enemy helicopters:
 
