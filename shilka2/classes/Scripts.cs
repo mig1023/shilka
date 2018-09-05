@@ -12,7 +12,8 @@
             Syria,
             Libya,
             Yemen,
-            Rust
+            Rust,
+            F117Hunt
         };
 
         public static int?[] scriptAircraft;
@@ -52,6 +53,9 @@
                     break;
                 case Scripts.scriptsNames.Rust:
                     flagName = "su";
+                    break;
+                case Scripts.scriptsNames.F117Hunt:
+                    flagName = "yu";
                     break;
             };
 
@@ -114,8 +118,13 @@
             if (script == scriptsNames.Yemen)
                 return null;
 
+            if (script == scriptsNames.F117Hunt)
+                return null;
+
             if (script == scriptsNames.Rust)
                 return null;
+
+
 
             return new int?[] { };
         }
@@ -160,6 +169,9 @@
                 return null;
 
             if (script == scriptsNames.Yemen)
+                return null;
+
+            if (script == scriptsNames.F117Hunt)
                 return null;
 
             if (script == scriptsNames.Rust)
@@ -275,6 +287,9 @@
                     25,    // <-- f5
                 };
 
+            if (script == scriptsNames.F117Hunt)
+                return new int?[] { };
+
             if (script == scriptsNames.Rust)
                 return new int?[] {
                     33,    // <-- cessna
@@ -337,6 +352,9 @@
                     3,     // <-- uh60
                     5,     // <-- ch46
                 };
+
+            if (script == scriptsNames.F117Hunt)
+                return null;
 
             if (script == scriptsNames.Rust)
                 return null;
