@@ -13,6 +13,7 @@ The game is about an anti-aircraft vahicle in the school notebook
 - Intervention in Libya
 - Intervention in Yemen
 - Mathias Rust flight
+- Hunt for F-117 in Yugoslavia
 
 ### Enemy aircrafts:
 
