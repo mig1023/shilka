@@ -27,8 +27,8 @@ The game is about an anti-aircraft vahicle in the school notebook
 | Eurofighter Typhoon | Rafale | B-2 Spirit |
 | RQ-4 Global Hawk | Tomahawk | F-8 Crusader |
 | AC-130 Spectre | A-6 Intruder | F-111 |
-| F-5 Tiger | SCALP | EA-6 Prowler |
-| E-2 Hawkeye | RC-135 | U-2 |
+| F-5 Tiger | Storm Shadow / SCALP | EA-6 Prowler |
+| E-2 Hawkeye | RC-135 | U-2 Dragon Lady |
 | SR-71 Blackbird | BAE Sea Harrier | Cessna 172 |
 
 ### Enemy helicopters:
