@@ -34,14 +34,14 @@
                 <Image x:Name="shilkaArt" Height="348" Canvas.Left="10" Canvas.Top="5" Width="435"  Source="images/shilka-art.jpg"/>
                 <Button x:Name="startVietnam" Content="Вьетнамская война" Height="41" Canvas.Left="10" Canvas.Top="450" Width="134" Click="startVietnam_Click"/>
                 <Button x:Name="startDesertStorm" Content="Буря в пустыне" Height="41" Canvas.Left="158" Canvas.Top="588" Width="131" Click="startDesertStorm_Click"/>
-                <Button x:Name="startYugoslavia" Content="Бомбардировки Югославии" Height="41" Canvas.Top="496" Width="273" Click="startYugoslavia_Click" Canvas.Left="10"/>
+                <Button x:Name="startYugoslavia" Content="Бомбардировки Югославии" Height="41" Canvas.Top="496" Width="253" Click="startYugoslavia_Click" Canvas.Left="10"/>
                 <Button x:Name="startIranIraq" Content="Ирано-Иракская война" Height="41" Canvas.Left="149" Canvas.Top="450" Width="157" Click="startIranIraq_Click"/>
                 <Button x:Name="startSyria" Content="Гражданская война в Сирии" Height="41" Canvas.Left="10" Canvas.Top="542" Width="215" Click="startSyria_Click"/>
                 <Button x:Name="startKorean" Content="Корейский Боинг" Height="41" Canvas.Left="311" Canvas.Top="450" Width="134" Click="startKorean_Click"/>
                 <Button x:Name="startLibya" Content="Интервенция в Ливии" Height="41" Canvas.Left="230" Canvas.Top="542" Width="215" Click="startLibya_Click"/>
                 <Button x:Name="startYemen" Content="Интервенция в Йемен" Height="41" Canvas.Left="10" Canvas.Top="588" Width="143" Click="startYemen_Click"/>
                 <Button x:Name="startRust" Content="Полёт Матиаса Руста" Height="41" Canvas.Left="294" Canvas.Top="588" Width="151" Click="startRust_Click"/>
-                <Button x:Name="startF117Hunt" Content="Охота на F-117" Height="41" Canvas.Left="288" Canvas.Top="496" Width="157" Click="startF117Hunt_Click"/>
+                <Button x:Name="startF117Hunt" Content="Охота на невидимку" Height="41" Canvas.Left="268" Canvas.Top="496" Width="177" Click="startF117Hunt_Click"/>
             </Canvas>
         </Canvas>
         <Canvas x:Name="StatisticMenu" HorizontalAlignment="Left" Height="174" Margin="0,325,-1,-179" VerticalAlignment="Top" Width="518">

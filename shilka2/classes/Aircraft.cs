@@ -1376,7 +1376,7 @@ namespace shilka2
 
                 case 15:
 
-                    dice = rand.Next(3) + 1;
+                    dice = rand.Next(4) + 1;
 
                     switch (dice)
                     {
@@ -1419,6 +1419,30 @@ namespace shilka2
                                 minAltitude: minAltitudeForLargeAircraft,
                                 cantEscape: true,
                                 airliner: true
+                            );
+                            break;
+
+                        case 4:
+                            createNewAircraft(
+                                aircraftType: "atr42",
+                                aircraftName: "ATR 42",
+                                hitPoint: 80,
+                                aircraftWidth: 320,
+                                aircraftHeight: 110,
+                                speed: 5,
+                                minAltitude: minAltitudeForLargeAircraft,
+                                cantEscape: true,
+                                airliner: true,
+                                elements: new List<DynamicElement> {
+                                    new DynamicElement {
+                                        elementName = "ltl_prop",
+                                        y = 34,
+                                        x_left = 95,
+                                        x_right = 212,
+                                        movingType = DynamicElement.MovingType.yRotate,
+                                        mirror = true
+                                    }
+                                }
                             );
                             break;
                     }
