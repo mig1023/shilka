@@ -61,3 +61,4 @@ The game is about an anti-aircraft vahicle in the school notebook
 | Airliner | Airliner | Airliner |
 | ------------- | ------------- | ------------- |
 | Аirbus A320 | Boeing 747 | McDonnell Douglas MD-11 |
+| ATR 42 | | |
