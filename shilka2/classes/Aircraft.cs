@@ -1376,7 +1376,7 @@ namespace shilka2
 
                 case 15:
 
-                    dice = rand.Next(5) + 1;
+                    dice = rand.Next(6) + 1;
 
                     switch (dice)
                     {
@@ -1450,12 +1450,13 @@ namespace shilka2
                             createNewAircraft(
                                 aircraftType: "dch8",
                                 aircraftName: "Bombardier DCH-8",
-                                hitPoint: 50,
+                                hitPoint: 80,
                                 aircraftWidth: 370,
                                 aircraftHeight: 90,
                                 speed: 5,
-                                price: 0.3,
+                                minAltitude: minAltitudeForLargeAircraft,
                                 cantEscape: true,
+                                airliner: true,
                                 elements: new List<DynamicElement> {
                                     new DynamicElement {
                                         elementName = "ltl_prop",
@@ -1466,6 +1467,20 @@ namespace shilka2
                                         mirror = true
                                     }
                                 }
+                            );
+                            break;
+
+                        case 6:
+                            createNewAircraft(
+                                aircraftType: "ssj100",
+                                aircraftName: "Sukhoi Superjet 100",
+                                hitPoint: 80,
+                                aircraftWidth: 355,
+                                aircraftHeight: 124,
+                                speed: 8,
+                                minAltitude: minAltitudeForLargeAircraft,
+                                cantEscape: true,
+                                airliner: true
                             );
                             break;
                     }
