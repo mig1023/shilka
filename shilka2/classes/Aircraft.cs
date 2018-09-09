@@ -1376,7 +1376,7 @@ namespace shilka2
 
                 case 15:
 
-                    dice = rand.Next(4) + 1;
+                    dice = rand.Next(5) + 1;
 
                     switch (dice)
                     {
@@ -1439,6 +1439,29 @@ namespace shilka2
                                         y = 34,
                                         x_left = 95,
                                         x_right = 212,
+                                        movingType = DynamicElement.MovingType.yRotate,
+                                        mirror = true
+                                    }
+                                }
+                            );
+                            break;
+
+                        case 5:
+                            createNewAircraft(
+                                aircraftType: "dch8",
+                                aircraftName: "Bombardier DCH-8",
+                                hitPoint: 50,
+                                aircraftWidth: 370,
+                                aircraftHeight: 90,
+                                speed: 5,
+                                price: 0.3,
+                                cantEscape: true,
+                                elements: new List<DynamicElement> {
+                                    new DynamicElement {
+                                        elementName = "ltl_prop",
+                                        y = 27,
+                                        x_left = 122,
+                                        x_right = 234,
                                         movingType = DynamicElement.MovingType.yRotate,
                                         mirror = true
                                     }
