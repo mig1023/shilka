@@ -244,7 +244,7 @@ namespace shilka2
                     else if ((newAircraft.flightDirection == FlightDirectionType.Left) && d.mirror)
                         d.element.FlowDirection = FlowDirection.RightToLeft;
 
-                    if (d.movingType == DynamicElement.MovingType.xRotate)
+                    if (d.movingType == DynamicElement.MovingType.xRotate || d.movingType == DynamicElement.MovingType.yRotate)
                         d.rotateDegreeCurrent = d.startDegree;
 
                     newAircraft.dynamicElemets.Add(d);
@@ -1038,7 +1038,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = rand.Next(14) + 1;
+                        dice = rand.Next(15) + 1;
                     }
                     while (!aircraftInList(Scripts.scriptAircraftFriend, dice));
 
@@ -1207,6 +1207,56 @@ namespace shilka2
                                 minAltitude: minAltitudeForLargeAircraft,
                                 cantEscape: true,
                                 friend: true
+                            );
+                            break;
+
+                        case 15:
+                            createNewAircraft(
+                                aircraftType: "tu95",
+                                aircraftName: "Ту-95",
+                                hitPoint: 120,
+                                aircraftWidth: 510,
+                                aircraftHeight: 116,
+                                speed: 5,
+                                minAltitude: minAltitudeForLargeAircraft,
+                                cantEscape: true,
+                                friend: true,
+                                elements: new List<DynamicElement> {
+                                    new DynamicElement {
+                                        elementName = "ltl_prop",
+                                        y = 68,
+                                        x_left = 118,
+                                        x_right = 340,
+                                        movingType = DynamicElement.MovingType.yRotate,
+                                        mirror = true
+                                    },
+                                    new DynamicElement {
+                                        elementName = "ltl_prop",
+                                        y = 68,
+                                        x_left = 111,
+                                        x_right = 347,
+                                        startDegree = 0.5,
+                                        movingType = DynamicElement.MovingType.yRotate,
+                                        mirror = true
+                                    },
+                                    new DynamicElement {
+                                        elementName = "ltl_prop",
+                                        y = 68,
+                                        x_left = 151,
+                                        x_right = 380,
+                                        movingType = DynamicElement.MovingType.yRotate,
+                                        mirror = true
+                                    },
+                                    new DynamicElement {
+                                        elementName = "ltl_prop",
+                                        y = 68,
+                                        x_left = 158,
+                                        x_right = 387,
+                                        startDegree = 0.5,
+                                        movingType = DynamicElement.MovingType.yRotate,
+                                        mirror = true
+                                    },
+                                }
                             );
                             break;
                     }

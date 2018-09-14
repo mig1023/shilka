@@ -102,6 +102,7 @@
                     2,     // <-- mig29
                     4,     // <-- su17
                     14,    // <-- a50
+                    16,    // <-- tu95
                 };
 
             if (script == scriptsNames.Libya)
