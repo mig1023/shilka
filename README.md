@@ -47,7 +47,7 @@ The game is about an anti-aircraft vahicle in the school notebook
 | MiG-25 | MiG-29 | MiG-31 |
 | Su-17 | Su-24 | Su-25 |
 | Su-27 | Su-34 | A-50 |
-| Su-57 | Tu-160 | |
+| Su-57 | Tu-160 | Tu-95 |
 
 ### Friend helicopters:
 
