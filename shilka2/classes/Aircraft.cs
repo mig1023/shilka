@@ -1290,7 +1290,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = rand.Next(5) + 1;
+                        dice = rand.Next(6) + 1;
                     }
                     while (!aircraftInList(Scripts.scriptHelicoptersFriend, dice));
 
@@ -1440,6 +1440,35 @@ namespace shilka2
                                         x_right = 0,
                                         movingType = DynamicElement.MovingType.xRotate,
                                     },
+                                }
+                            );
+                            break;
+
+                        case 6:
+                            createNewAircraft(
+                                aircraftType: "mi10",
+                                aircraftName: "Ми-10",
+                                hitPoint: 80,
+                                aircraftWidth: 300,
+                                aircraftHeight: 77,
+                                speed: 5,
+                                maxAltitude: maxAltitudeForHelicopters,
+                                friend: true,
+                                elements: new List<DynamicElement> {
+                                    new DynamicElement {
+                                        elementName = "prop_main",
+                                        y = -20,
+                                        x_left = -25,
+                                        x_right = 95,
+                                        movingType = DynamicElement.MovingType.xRotate,
+                                    },
+                                    new DynamicElement {
+                                        elementName = "t_suppl",
+                                        y = -15,
+                                        x_left = 260,
+                                        x_right = -15,
+                                        movingType = DynamicElement.MovingType.zRotate
+                                    }
                                 }
                             );
                             break;
