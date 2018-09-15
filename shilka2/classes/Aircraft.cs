@@ -796,7 +796,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = rand.Next(8) + 1;
+                        dice = rand.Next(9) + 1;
                     }
                     while (!aircraftInList(Scripts.scriptHelicopters, dice));
 
@@ -1026,6 +1026,28 @@ namespace shilka2
                                         x_right = 15,
                                         movingType = DynamicElement.MovingType.xRotate,
                                     },
+                                }
+                            );
+                            break;
+
+                        case 9:
+                            createNewAircraft(
+                                aircraftType: "gazelle",
+                                aircraftName: "Aerospatiale Gazelle",
+                                hitPoint: 60,
+                                aircraftWidth: 185,
+                                aircraftHeight: 64,
+                                speed: 5,
+                                maxAltitude: maxAltitudeForHelicopters,
+                                price: 0.5,
+                                elements: new List<DynamicElement> {
+                                    new DynamicElement {
+                                        elementName = "prop_main",
+                                        y = -3,
+                                        x_left = -53,
+                                        x_right = 12,
+                                        movingType = DynamicElement.MovingType.xRotate,
+                                    }
                                 }
                             );
                             break;
