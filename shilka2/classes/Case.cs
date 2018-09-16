@@ -25,8 +25,8 @@ namespace shilka2
 
         int speed { get; set; }
 
-        static List<Case> cases = new List<Case>();
-        static List<Line> allLines = new List<Line>();
+        public static List<Case> cases = new List<Case>();
+        public static List<Line> allLines = new List<Line>();
 
         static int CaseMutex = 0;
         static bool caseLimiter = false;

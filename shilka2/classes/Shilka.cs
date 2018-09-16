@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Shapes;
 using System.IO;
 using System.Windows.Media.Imaging;
+using shilka2.classes;
 
 namespace shilka2
 {
@@ -46,6 +47,54 @@ namespace shilka2
         static Shilka()
         {
             rand = new Random();
+        }
+
+        public static void endGameCleaning()
+        {
+            statisticShellsFired = 0;
+            staticticInTarget = 0;
+            statisticAllAircraft = 0;
+            statisticPriceOfAllAircrafts = 0;
+            staticticAircraftShutdown = 0;
+            statisticHasGone = 0;
+            statisticDamaged = 0;
+            statisticFriendDamage = 0;
+            statisticAmountOfDamage = 0;
+            statisticLastDamagePrice = 0;
+            statisticShutdownFlag = false;
+            statisticLastDamageType = "";
+            currentScript = Scripts.scriptsNames.noScript;
+            degreeOfHeatingGunBurrels = 30;
+            reheatingGunBurrels = false;
+            lastDegree = 0;
+
+
+            Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
+            {
+                MainWindow main = (MainWindow)Application.Current.MainWindow;
+
+                for (int x = 0; x < Shell.shells.Count; x++)
+                    Shell.shells.RemoveAt(x);
+
+                foreach (var line in Shell.allLines)
+                    main.firePlace.Children.Remove(line);
+
+                for (int x = 0; x < Case.cases.Count; x++)
+                    Case.cases.RemoveAt(x);
+
+                foreach (var line in Case.allLines)
+                    main.firePlace.Children.Remove(line);
+
+                for (int x = 0; x < Aircraft.aircrafts.Count; x++)
+                    {
+                        main.firePlace.Children.Remove(Aircraft.aircrafts[x].aircraftImage);
+
+                        foreach (DynamicElement d in Aircraft.aircrafts[x].dynamicElemets)
+                            main.firePlace.Children.Remove(d.element);
+
+                        Aircraft.aircrafts.RemoveAt(x);
+                    }
+            }));
         }
 
         public static void SetNewTergetPoint(Point pt, object sender)

@@ -17,6 +17,7 @@ namespace shilka2
         public System.Timers.Timer Aircrafts = new System.Timers.Timer(2000);
         bool Pause = false;
         bool endGameAlready = false;
+        bool startGameAlready = false;
         bool startMenuShowYet = true;
 
         string StatisticColor = "#FF5B5B5B";
@@ -82,21 +83,28 @@ namespace shilka2
                 speed: 0.6
             );
 
+            if (!startGameAlready)
+            {
+                HandMove.Elapsed += new ElapsedEventHandler(HideHand);
+
+                Game.Elapsed += new ElapsedEventHandler(Shell.ShellsFire);
+                Game.Elapsed += new ElapsedEventHandler(Shell.ShellsFly);
+                Game.Elapsed += new ElapsedEventHandler(Case.CasesFly);
+                Game.Elapsed += new ElapsedEventHandler(Aircraft.AircraftFly);
+                Game.Elapsed += new ElapsedEventHandler(Shilka.StatisticShow);
+
+                Aircrafts.Elapsed += new ElapsedEventHandler(Aircraft.AircraftStart);
+            }
             HandMove.Enabled = true;
-            HandMove.Elapsed += new ElapsedEventHandler(HideHand);
             HandMove.Start();
 
             Game.Enabled = true;
-            Game.Elapsed += new ElapsedEventHandler(Shell.ShellsFire);
-            Game.Elapsed += new ElapsedEventHandler(Shell.ShellsFly);
-            Game.Elapsed += new ElapsedEventHandler(Case.CasesFly);
-            Game.Elapsed += new ElapsedEventHandler(Aircraft.AircraftFly);
-            Game.Elapsed += new ElapsedEventHandler(Shilka.StatisticShow);
             Game.Start();
 
             Aircrafts.Enabled = true;
-            Aircrafts.Elapsed += new ElapsedEventHandler(Aircraft.AircraftStart);
             Aircrafts.Start();
+
+            startGameAlready = true;
         }
 
         public static void HideHand(object obj, ElapsedEventArgs e)
@@ -268,7 +276,9 @@ namespace shilka2
                 secondAnimation: new EventHandler(endGameSecAnimation)
             );
 
-            //this.Close();
+            Shilka.endGameCleaning();
+
+            endGameAlready = false;
         }
 
         private void GameOverWithoutSave_Click(object sender, RoutedEventArgs e)

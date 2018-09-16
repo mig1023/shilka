@@ -42,7 +42,7 @@ namespace shilka2
 
         static int FireMutex = 0;
         
-        static List<Shell> shells = new List<Shell>();
+        public static List<Shell> shells = new List<Shell>();
         public static List<Line> allLines = new List<Line>();
 
         public static void ShellsFly(object obj, ElapsedEventArgs e)
