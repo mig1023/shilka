@@ -172,7 +172,8 @@ namespace shilka2
         }
 
         public void MoveCanvas(Canvas moveCanvas, Canvas prevCanvas,
-            double left = -1, double top = -1, double right = -1, double bottom = -1, double speed = 1)
+            double left = -1, double top = -1, double right = -1, double bottom = -1, double speed = 1,
+            EventHandler secondAnimation = null)
         {
             left = (left == -1 ? moveCanvas.Margin.Left : left);
             top = (top == -1 ? moveCanvas.Margin.Top : top);
@@ -192,6 +193,9 @@ namespace shilka2
 
             move.From = prevCanvas.Margin;
             move.To = new Thickness(left, top, right, bottom);
+
+            if (secondAnimation != null) move.Completed += secondAnimation;
+
             prevCanvas.BeginAnimation(MarginProperty, move);
         }
 
@@ -212,6 +216,11 @@ namespace shilka2
             Shilka.SetNewTergetPoint(e.GetPosition((Window)sender), sender);
 
             if (!Pause) RadarImg.RenderTransform = new RotateTransform(Shilka.lastDegree, 4, 20);
+        }
+
+        private void exitButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
@@ -239,15 +248,38 @@ namespace shilka2
             }
         }
 
+        private void endGameSecAnimation(object Sender, EventArgs e)
+        {
+            MoveCanvas(
+                moveCanvas: StartMenu,
+                prevCanvas: firePlaceDock,
+                left: StartMenu.Margin.Left + StartMenu.ActualWidth,
+                speed: 0.6
+            );
+        }
+
+        private void GameOver()
+        {
+            MoveCanvas(
+                moveCanvas: firePlaceDock, 
+                prevCanvas: EndMenu,
+                left: firePlaceDock.Margin.Left + EndMenu.ActualWidth,
+                speed: 0.2,
+                secondAnimation: new EventHandler(endGameSecAnimation)
+            );
+
+            //this.Close();
+        }
+
         private void GameOverWithoutSave_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            GameOver();
         }
 
         private void GameOverWithSave_Click(object sender, RoutedEventArgs e)
         {
             Shilka.StatisticSave(PlayerName.Text);
-            this.Close();
+            GameOver();
         }
 
         private void PlayerName_KeyUp(object sender, KeyEventArgs e)
