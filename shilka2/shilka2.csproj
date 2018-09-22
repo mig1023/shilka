@@ -202,6 +202,10 @@
     <Resource Include="images\tu95.png" />
     <Resource Include="images\gazelle.png" />
     <Resource Include="images\mi10.png" />
+    <Resource Include="images\comanche.png" />
+    <Resource Include="images\f_suppl.png" />
+    <Resource Include="images\oh1.png" />
+    <Resource Include="images\mangusta.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

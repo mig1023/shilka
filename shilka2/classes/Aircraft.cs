@@ -796,7 +796,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = rand.Next(9) + 1;
+                        dice = rand.Next(12) + 1;
                     }
                     while (!aircraftInList(Scripts.scriptHelicopters, dice));
 
@@ -1032,21 +1032,115 @@ namespace shilka2
 
                         case 9:
                             createNewAircraft(
-                                aircraftType: "gazelle",
-                                aircraftName: "Aerospatiale Gazelle",
-                                hitPoint: 60,
-                                aircraftWidth: 185,
-                                aircraftHeight: 64,
-                                speed: 5,
-                                maxAltitude: maxAltitudeForHelicopters,
-                                price: 0.5,
-                                elements: new List<DynamicElement> {
+                                 aircraftType: "gazelle",
+                                 aircraftName: "Aerospatiale Gazelle",
+                                 hitPoint: 60,
+                                 aircraftWidth: 185,
+                                 aircraftHeight: 64,
+                                 speed: 5,
+                                 maxAltitude: maxAltitudeForHelicopters,
+                                 price: 0.5,
+                                 elements: new List<DynamicElement> {
                                     new DynamicElement {
                                         elementName = "prop_main",
                                         y = -3,
                                         x_left = -53,
                                         x_right = 12,
                                         movingType = DynamicElement.MovingType.xRotate,
+                                    },
+                                    new DynamicElement {
+                                        elementName = "f_suppl",
+                                        y = 19,
+                                        x_left = 155,
+                                        x_right = 7,
+                                        movingType = DynamicElement.MovingType.zRotate
+                                    }
+                                 }
+                             );
+                            break;
+
+                        case 10:
+                            createNewAircraft(
+                                aircraftType: "comanche",
+                                aircraftName: "RAH-66 Comanche",
+                                hitPoint: 80,
+                                aircraftWidth: 210,
+                                aircraftHeight: 61,
+                                speed: 6,
+                                maxAltitude: maxAltitudeForHelicopters,
+                                price: 100,
+                                elements: new List<DynamicElement> {
+                                    new DynamicElement {
+                                        elementName = "prop_main",
+                                        y = -10,
+                                        x_left = -29,
+                                        x_right = 12,
+                                        movingType = DynamicElement.MovingType.xRotate,
+                                    },
+                                    new DynamicElement {
+                                        elementName = "f_suppl",
+                                        y = 26,
+                                        x_left = 175,
+                                        x_right = 12,
+                                        movingType = DynamicElement.MovingType.zRotate
+                                    }
+                                }
+                            );
+                            break;
+
+                        case 11:
+                            createNewAircraft(
+                                aircraftType: "oh1",
+                                aircraftName: "OH-1 Ninja",
+                                hitPoint: 100,
+                                aircraftWidth: 205,
+                                aircraftHeight: 69,
+                                speed: 5,
+                                maxAltitude: maxAltitudeForHelicopters,
+                                price: 24,
+                                elements: new List<DynamicElement> {
+                                    new DynamicElement {
+                                        elementName = "prop_main",
+                                        y = -10,
+                                        x_left = -29,
+                                        x_right = 12,
+                                        movingType = DynamicElement.MovingType.xRotate,
+                                    },
+                                    new DynamicElement {
+                                        elementName = "f_suppl",
+                                        y = 34,
+                                        x_left = 172,
+                                        x_right = 10,
+                                        movingType = DynamicElement.MovingType.zRotate
+                                    }
+                                }
+                            );
+                            break;
+
+                        case 12:
+                            createNewAircraft(
+                                aircraftType: "mangusta",
+                                aircraftName: "T-129 Mangusta",
+                                hitPoint: 100,
+                                aircraftWidth: 215,
+                                aircraftHeight: 66,
+                                speed: 5,
+                                maxAltitude: maxAltitudeForHelicopters,
+                                price: 52,
+                                elements: new List<DynamicElement> {
+                                    new DynamicElement {
+                                        elementName = "prop_main",
+                                        y = -14,
+                                        x_left = -35,
+                                        x_right = 22,
+                                        movingType = DynamicElement.MovingType.xRotate,
+                                    },
+                                    new DynamicElement {
+                                        elementName = "i_suppl",
+                                        y = -14,
+                                        x_left = 179,
+                                        x_right = -4,
+                                        movingType = DynamicElement.MovingType.zRotate
                                     }
                                 }
                             );
