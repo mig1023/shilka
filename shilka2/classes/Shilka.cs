@@ -73,27 +73,13 @@ namespace shilka2
             {
                 MainWindow main = (MainWindow)Application.Current.MainWindow;
 
-                for (int x = 0; x < Shell.shells.Count; x++)
-                    Shell.shells.RemoveAt(x);
+                main.firePlace.Children.Clear();
 
-                foreach (var line in Shell.allLines)
-                    main.firePlace.Children.Remove(line);
+                Aircraft.aircrafts.Clear();
+                Case.cases.Clear();
+                Shell.shells.Clear();
 
-                for (int x = 0; x < Case.cases.Count; x++)
-                    Case.cases.RemoveAt(x);
-
-                foreach (var line in Case.allLines)
-                    main.firePlace.Children.Remove(line);
-
-                for (int x = 0; x < Aircraft.aircrafts.Count; x++)
-                    {
-                        main.firePlace.Children.Remove(Aircraft.aircrafts[x].aircraftImage);
-
-                        foreach (DynamicElement d in Aircraft.aircrafts[x].dynamicElemets)
-                            main.firePlace.Children.Remove(d.element);
-
-                        Aircraft.aircrafts.RemoveAt(x);
-                    }
+                
             }));
         }
 

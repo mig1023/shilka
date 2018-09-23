@@ -71,6 +71,8 @@ namespace shilka2
         {
             startMenuShowYet = false;
 
+            if (startGameAlready) Shilka.endGameCleaning();
+
             Scripts.scriptAircraft = scriptAircraft;
             Scripts.scriptHelicopters = scriptHelicopters;
             Scripts.scriptAircraftFriend = scriptAircraftFriend;
@@ -275,8 +277,6 @@ namespace shilka2
                 speed: 0.2,
                 secondAnimation: new EventHandler(endGameSecAnimation)
             );
-
-            Shilka.endGameCleaning();
 
             endGameAlready = false;
         }
