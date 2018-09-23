@@ -23,43 +23,21 @@
 
         public static string scriptFlagName(scriptsNames script)
         {
-            string flagName = null;
-
             switch (script)
             {
-                case Scripts.scriptsNames.Vietnam:
-                    flagName = "vn";
-                    break;
-                case Scripts.scriptsNames.IranIraq:
-                    flagName = "in";
-                    break;
-                case Scripts.scriptsNames.DesertStorm:
-                    flagName = "iq";
-                    break;
-                case Scripts.scriptsNames.Syria:
-                    flagName = "sy";
-                    break;
-                case Scripts.scriptsNames.Yugoslavia:
-                    flagName = "yu";
-                    break;
-                case Scripts.scriptsNames.KoreanBoeing:
-                    flagName = "ki";
-                    break;
-                case Scripts.scriptsNames.Libya:
-                    flagName = "ly";
-                    break;
-                case Scripts.scriptsNames.Yemen:
-                    flagName = "ye";
-                    break;
-                case Scripts.scriptsNames.Rust:
-                    flagName = "su";
-                    break;
-                case Scripts.scriptsNames.F117Hunt:
-                    flagName = "yu";
-                    break;
+                case Scripts.scriptsNames.Vietnam: return "vn";
+                case Scripts.scriptsNames.IranIraq: return "in";
+                case Scripts.scriptsNames.DesertStorm: return "iq";
+                case Scripts.scriptsNames.Syria: return "sy";
+                case Scripts.scriptsNames.Yugoslavia: return "yu";
+                case Scripts.scriptsNames.KoreanBoeing: return "ki";
+                case Scripts.scriptsNames.Libya: return "ly";
+                case Scripts.scriptsNames.Yemen: return "ye";
+                case Scripts.scriptsNames.Rust: return "su";
+                case Scripts.scriptsNames.F117Hunt: return "yu";
             };
 
-            return flagName;
+            return null;
         }
 
         public static int?[] scriptFriendAircrafts(scriptsNames script)

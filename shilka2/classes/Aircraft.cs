@@ -115,7 +115,8 @@ namespace shilka2
                                 Shilka.statisticLastDamageType = aircraft.aircraftName;
                             }
                         } 
-                        else if ( (aircraft.hitpoint < aircraft.hitpointMax) && aircraft.friend) Shilka.statisticFriendDamage++;
+                        else if ( (aircraft.hitpoint < aircraft.hitpointMax) && aircraft.friend)
+                            Shilka.statisticFriendDamage++;
                     }
 
                     aircraft.aircraftImage.Margin = new Thickness(aircraft.x, aircraft.y, 0, 0);
@@ -182,17 +183,17 @@ namespace shilka2
             return new BitmapImage(new Uri("images/" + imageName + ".png", UriKind.Relative)) { };
         }
 
-        static void createNewAircraft(string aircraftType, int hitPoint, int aircraftWidth, int aircraftHeight,
+        static void createNewAircraft(string aircraftType, int hitPoint, int[] size,
             string aircraftName = "", int speed = 10, int minAltitude = -1, int maxAltitude = -1, bool friend = false,
             bool airliner = false, bool cloud = false, bool cantEscape = false, double price = 0)
         {
             List<DynamicElement> elements = new List<DynamicElement>();
 
-            createNewAircraft(aircraftType, hitPoint, aircraftWidth, aircraftHeight, elements, aircraftName,
+            createNewAircraft(aircraftType, hitPoint, size, elements, aircraftName,
                 speed, minAltitude, maxAltitude, friend, airliner, cloud, cantEscape, price);
         }
 
-        static void createNewAircraft(string aircraftType, int hitPoint, int aircraftWidth, int aircraftHeight,
+        static void createNewAircraft(string aircraftType, int hitPoint, int[] size,
             List<DynamicElement> elements, string aircraftName = "", int speed = 10, int minAltitude = -1,
             int maxAltitude = -1, bool friend = false, bool airliner = false, bool cloud = false,
             bool cantEscape = false, double price = 0)
@@ -206,8 +207,8 @@ namespace shilka2
 
                 Image newAircraftImage = new Image();
 
-                newAircraftImage.Width = aircraftWidth;
-                newAircraftImage.Height = aircraftHeight;
+                newAircraftImage.Width = size[0];
+                newAircraftImage.Height = size[1];
 
                 Aircraft newAircraft = new Aircraft();
 
@@ -238,14 +239,12 @@ namespace shilka2
                 {
                     d.element = new Image();
                     d.element.Source = imageFromResources(d.elementName);
+                    d.rotateDegreeCurrent = d.startDegree;
 
                     if ((newAircraft.flightDirection == FlightDirectionType.Right) && !d.mirror)
                         d.element.FlowDirection = FlowDirection.RightToLeft;
                     else if ((newAircraft.flightDirection == FlightDirectionType.Left) && d.mirror)
                         d.element.FlowDirection = FlowDirection.RightToLeft;
-
-                    if (d.movingType == DynamicElement.MovingType.xRotate || d.movingType == DynamicElement.MovingType.yRotate)
-                        d.rotateDegreeCurrent = d.startDegree;
 
                     newAircraft.dynamicElemets.Add(d);
 
@@ -308,8 +307,7 @@ namespace shilka2
                     createNewAircraft(
                         aircraftType: "cloud" + (rand.Next(7) + 1),
                         hitPoint: 10,
-                        aircraftWidth: rand.Next(300) + 200,
-                        aircraftHeight: rand.Next(100) + 70,
+                        size: new int[] { rand.Next(300) + 200, rand.Next(100) + 70 },
                         speed: 5,
                         friend: true,
                         cloud: true
@@ -339,8 +337,7 @@ namespace shilka2
                                 aircraftType: "a10",
                                 aircraftName: "A-10 Thunderbolt",
                                 hitPoint: 200,
-                                aircraftWidth: 270,
-                                aircraftHeight: 68,
+                                size: new int[] { 270, 68 },
                                 price: 12,
                                 speed: 5,
                                 cantEscape: true
@@ -352,8 +349,7 @@ namespace shilka2
                                 aircraftType: "b1",
                                 aircraftName: "B-1 Lancer",
                                 hitPoint: 90,
-                                aircraftWidth: 510,
-                                aircraftHeight: 108,
+                                size: new int[] { 510, 108 },
                                 price: 283,
                                 speed: 12
                             );
@@ -364,8 +360,7 @@ namespace shilka2
                                 aircraftType: "b52",
                                 aircraftName: "B-52 Stratofortress",
                                 hitPoint: 120,
-                                aircraftWidth: 565,
-                                aircraftHeight: 155,
+                                size: new int[] { 565, 155 },
                                 price: 53,
                                 speed: 8,
                                 minAltitude: minAltitudeForLargeAircraft,
@@ -378,8 +373,7 @@ namespace shilka2
                                 aircraftType: "f117",
                                 aircraftName: "F-117 Nighthawk",
                                 hitPoint: 50,
-                                aircraftWidth: 270,
-                                aircraftHeight: 47,
+                                size: new int[] { 270, 47 },
                                 price: 112
                             );
                             break;
@@ -389,8 +383,7 @@ namespace shilka2
                                 aircraftType: "f14",
                                 aircraftName: "F-14 Tomcat",
                                 hitPoint: 120,
-                                aircraftWidth: 275,
-                                aircraftHeight: 67,
+                                size: new int[] { 275, 67 },
                                 price: 38
                             );
                             break;
@@ -400,8 +393,7 @@ namespace shilka2
                                 aircraftType: "f18",
                                 aircraftName: "F-18 Hornet",
                                 hitPoint: 120,
-                                aircraftWidth: 270,
-                                aircraftHeight: 61,
+                                size: new int[] { 270, 61 },
                                 price: 57
                             );
                             break;
@@ -411,8 +403,7 @@ namespace shilka2
                                 aircraftType: "f16",
                                 aircraftName: "F-16 Fighting Falcon",
                                 hitPoint: 120,
-                                aircraftWidth: 270,
-                                aircraftHeight: 89,
+                                size: new int[] { 270, 89 },
                                 price: 34
                             );
                             break;
@@ -422,8 +413,7 @@ namespace shilka2
                                 aircraftType: "f22",
                                 aircraftName: "F-22 Raptor",
                                 hitPoint: 90,
-                                aircraftWidth: 270,
-                                aircraftHeight: 73,
+                                size: new int[] { 270, 73 },
                                 price: 146,
                                 speed: 14
                             );
@@ -434,8 +424,7 @@ namespace shilka2
                                 aircraftType: "f15",
                                 aircraftName: "F-15 Eagle",
                                 hitPoint: 120,
-                                aircraftWidth: 270,
-                                aircraftHeight: 62,
+                                size: new int[] { 270, 62 },
                                 price: 29
                             );
                             break;
@@ -445,8 +434,7 @@ namespace shilka2
                                 aircraftType: "f4",
                                 aircraftName: "F-4 Fantom",
                                 hitPoint: 150,
-                                aircraftWidth: 270,
-                                aircraftHeight: 64,
+                                size: new int[] { 270, 64 },
                                 price: 3,
                                 speed: 8
                             );
@@ -457,8 +445,7 @@ namespace shilka2
                                 aircraftType: "tornado",
                                 aircraftName: "Panavia Tornado",
                                 hitPoint: 100,
-                                aircraftWidth: 270,
-                                aircraftHeight: 72,
+                                size: new int[] { 270, 72 },
                                 price: 111
                             );
                             break;
@@ -468,8 +455,7 @@ namespace shilka2
                                 aircraftType: "predator",
                                 aircraftName: "MQ-1 Predator",
                                 hitPoint: 30,
-                                aircraftWidth: 140,
-                                aircraftHeight: 44,
+                                size: new int[] { 140, 44 },
                                 price: 4,
                                 speed: 5,
                                 cantEscape: true,
@@ -490,8 +476,7 @@ namespace shilka2
                                 aircraftType: "reaper",
                                 aircraftName: "MQ-9 Reaper",
                                 hitPoint: 50,
-                                aircraftWidth: 161,
-                                aircraftHeight: 52,
+                                size: new int[] { 161, 52 },
                                 price: 16,
                                 speed: 5,
                                 cantEscape: true,
@@ -512,8 +497,7 @@ namespace shilka2
                                 aircraftType: "f35",
                                 aircraftName: "F-35 Lightning II",
                                 hitPoint: 90,
-                                aircraftWidth: 270,
-                                aircraftHeight: 76,
+                                size: new int[] { 270, 76 },
                                 price: 108
                             );
                             break;
@@ -523,8 +507,7 @@ namespace shilka2
                                 aircraftType: "e3",
                                 aircraftName: "E-3 Centry",
                                 hitPoint: 150,
-                                aircraftWidth: 581,
-                                aircraftHeight: 164,
+                                size: new int[] { 581, 164 },
                                 price: 270,
                                 speed: 8,
                                 minAltitude: minAltitudeForLargeAircraft
@@ -536,8 +519,7 @@ namespace shilka2
                                 aircraftType: "eurofighter",
                                 aircraftName: "Eurofighter Typhoon",
                                 hitPoint: 100,
-                                aircraftWidth: 270,
-                                aircraftHeight: 77,
+                                size: new int[] { 270, 77 },
                                 price: 123
                             );
                             break;
@@ -547,8 +529,7 @@ namespace shilka2
                                 aircraftType: "rafale",
                                 aircraftName: "Rafale",
                                 hitPoint: 90,
-                                aircraftWidth: 270,
-                                aircraftHeight: 86,
+                                size: new int[] { 270, 86 },
                                 price: 85,
                                 speed: 11
                             );
@@ -559,8 +540,7 @@ namespace shilka2
                                 aircraftType: "b2",
                                 aircraftName: "B-2 Spirit",
                                 hitPoint: 125,
-                                aircraftWidth: 332,
-                                aircraftHeight: 76,
+                                size: new int[] { 332, 76 },
                                 price: 2100,
                                 speed: 18
                             );
@@ -571,8 +551,7 @@ namespace shilka2
                                 aircraftType: "globalhawk",
                                 aircraftName: "RQ-4 Global Hawk",
                                 hitPoint: 125,
-                                aircraftWidth: 265,
-                                aircraftHeight: 85,
+                                size: new int[] { 265, 85 },
                                 price: 70,
                                 speed: 7,
                                 cantEscape: true
@@ -584,8 +563,7 @@ namespace shilka2
                                 aircraftType: "tomahawk",
                                 aircraftName: "Tomahawk",
                                 hitPoint: 20,
-                                aircraftWidth: 125,
-                                aircraftHeight: 29,
+                                size: new int[] { 125, 29 },
                                 price: 2,
                                 speed: 5,
                                 cantEscape: true
@@ -597,8 +575,7 @@ namespace shilka2
                                 aircraftType: "f8",
                                 aircraftName: "F-8 Crusader",
                                 hitPoint: 80,
-                                aircraftWidth: 270,
-                                aircraftHeight: 93,
+                                size: new int[] { 270, 93 },
                                 price: 6,
                                 speed: 8
                             );
@@ -609,8 +586,7 @@ namespace shilka2
                                 aircraftType: "ac130",
                                 aircraftName: "AC-130 Spectre",
                                 hitPoint: 120,
-                                aircraftWidth: 400,
-                                aircraftHeight: 154,
+                                size: new int[] { 400, 154 },
                                 price: 190,
                                 speed: 7,
                                 minAltitude: minAltitudeForLargeAircraft,
@@ -632,8 +608,7 @@ namespace shilka2
                                 aircraftType: "a6",
                                 aircraftName: "A-6 Intruder",
                                 hitPoint: 80,
-                                aircraftWidth: 270,
-                                aircraftHeight: 78,
+                                size: new int[] { 270, 78 },
                                 price: 43,
                                 speed: 7
                             );
@@ -644,8 +619,7 @@ namespace shilka2
                                 aircraftType: "f111",
                                 aircraftName: "F-111",
                                 hitPoint: 80,
-                                aircraftWidth: 285,
-                                aircraftHeight: 59,
+                                size: new int[] { 285, 59 },
                                 price: 72
                             );
                             break;
@@ -655,8 +629,7 @@ namespace shilka2
                                 aircraftType: "f5",
                                 aircraftName: "F-5 Tiger",
                                 hitPoint: 80,
-                                aircraftWidth: 270,
-                                aircraftHeight: 58,
+                                size: new int[] { 270, 58 },
                                 price: 2,
                                 speed: 10
                             );
@@ -667,8 +640,7 @@ namespace shilka2
                                 aircraftType: "scalp",
                                 aircraftName: "SCALP",
                                 hitPoint: 20,
-                                aircraftWidth: 115,
-                                aircraftHeight: 23,
+                                size: new int[] { 115, 23 },
                                 price: 2,
                                 speed: 5,
                                 cantEscape: true
@@ -680,8 +652,7 @@ namespace shilka2
                                 aircraftType: "ea6",
                                 aircraftName: "EA-6 Prowler",
                                 hitPoint: 80,
-                                aircraftWidth: 285,
-                                aircraftHeight: 66,
+                                size: new int[] { 285, 66 },
                                 price: 52,
                                 speed: 7
                             );
@@ -692,8 +663,7 @@ namespace shilka2
                                 aircraftType: "hawkeye",
                                 aircraftName: "E-2 Hawkeye",
                                 hitPoint: 100,
-                                aircraftWidth: 324,
-                                aircraftHeight: 96,
+                                size: new int[] { 324, 96 },
                                 price: 80,
                                 speed: 8,
                                 minAltitude: minAltitudeForLargeAircraft,
@@ -715,8 +685,7 @@ namespace shilka2
                                 aircraftType: "rc135",
                                 aircraftName: "RC-135",
                                 hitPoint: 120,
-                                aircraftWidth: 528,
-                                aircraftHeight: 185,
+                                size: new int[] { 528, 185 },
                                 price: 90,
                                 speed: 8,
                                 minAltitude: minAltitudeForLargeAircraft,
@@ -729,8 +698,7 @@ namespace shilka2
                                 aircraftType: "u2",
                                 aircraftName: "U-2",
                                 hitPoint: 80,
-                                aircraftWidth: 355,
-                                aircraftHeight: 103,
+                                size: new int[] { 355, 103 },
                                 price: 6,
                                 speed: 8,
                                 minAltitude: minAltitudeForLargeAircraft,
@@ -743,8 +711,7 @@ namespace shilka2
                                 aircraftType: "sr71",
                                 aircraftName: "SR-71 Blackbird",
                                 hitPoint: 80,
-                                aircraftWidth: 450,
-                                aircraftHeight: 71,
+                                size: new int[] { 450, 71 },
                                 price: 34,
                                 speed: 14,
                                 minAltitude: minAltitudeForLargeAircraft
@@ -756,8 +723,7 @@ namespace shilka2
                                 aircraftType: "harrier",
                                 aircraftName: "BAE Sea Harrier",
                                 hitPoint: 80,
-                                aircraftWidth: 275,
-                                aircraftHeight: 81,
+                                size: new int[] { 275, 81 },
                                 price: 24,
                                 speed: 7
                             );
@@ -768,8 +734,7 @@ namespace shilka2
                                 aircraftType: "cessna",
                                 aircraftName: "Cessna 172",
                                 hitPoint: 50,
-                                aircraftWidth: 170,
-                                aircraftHeight: 61,
+                                size: new int[] { 170, 61 },
                                 speed: 6,
                                 price: 0.3,
                                 cantEscape: true,
@@ -808,8 +773,7 @@ namespace shilka2
                                 aircraftType: "ah64",
                                 aircraftName: "AH-64 Apache",
                                 hitPoint: 120,
-                                aircraftWidth: 209,
-                                aircraftHeight: 63,
+                                size: new int[] { 209, 63 },
                                 speed: 5,
                                 maxAltitude: maxAltitudeForHelicopters,
                                 price: 61,
@@ -837,8 +801,7 @@ namespace shilka2
                                 aircraftType: "ah1",
                                 aircraftName: "AH-1 Cobra",
                                 hitPoint: 100,
-                                aircraftWidth: 209,
-                                aircraftHeight: 54,
+                                size: new int[] { 209, 54 },
                                 speed: 5,
                                 maxAltitude: maxAltitudeForHelicopters,
                                 price: 11,
@@ -866,8 +829,7 @@ namespace shilka2
                                 aircraftType: "uh60",
                                 aircraftName: "UH-60 Black Hawk",
                                 hitPoint: 80,
-                                aircraftWidth: 210,
-                                aircraftHeight: 65,
+                                size: new int[] { 210, 65 },
                                 speed: 5,
                                 maxAltitude: maxAltitudeForHelicopters,
                                 price: 25,
@@ -895,8 +857,7 @@ namespace shilka2
                                 aircraftType: "uh1",
                                 aircraftName: "UH-1 Iroquois",
                                 hitPoint: 80,
-                                aircraftWidth: 210,
-                                aircraftHeight: 65,
+                                size: new int[] { 210, 65 },
                                 speed: 5,
                                 maxAltitude: maxAltitudeForHelicopters,
                                 price: 5,
@@ -924,8 +885,7 @@ namespace shilka2
                                 aircraftType: "ch47",
                                 aircraftName: "CH-47 Chinook",
                                 hitPoint: 80,
-                                aircraftWidth: 270,
-                                aircraftHeight: 101,
+                                size: new int[] { 270, 101 },
                                 speed: 5,
                                 maxAltitude: maxAltitudeForHelicopters,
                                 price: 30,
@@ -953,8 +913,7 @@ namespace shilka2
                                 aircraftType: "v22",
                                 aircraftName: "V-22 Ospray",
                                 hitPoint: 80,
-                                aircraftWidth: 282,
-                                aircraftHeight: 103,
+                                size: new int[] { 282, 103 },
                                 speed: 7,
                                 maxAltitude: maxAltitudeForHelicopters,
                                 price: 116,
@@ -976,8 +935,7 @@ namespace shilka2
                                aircraftType: "tiger",
                                aircraftName: "Eurocopter Tiger",
                                hitPoint: 80,
-                               aircraftWidth: 209,
-                               aircraftHeight: 76,
+                               size: new int[] { 209, 76 },
                                speed: 5,
                                maxAltitude: maxAltitudeForHelicopters,
                                price: 39,
@@ -1005,8 +963,7 @@ namespace shilka2
                                 aircraftType: "drone",
                                 aircraftName: "дрон-разведчик",
                                 hitPoint: 1,
-                                aircraftWidth: 26,
-                                aircraftHeight: 9,
+                                size: new int[] { 26, 9 },
                                 speed: 3,
                                 maxAltitude: maxAltitudeForHelicopters,
                                 price: 0.01,
@@ -1035,8 +992,7 @@ namespace shilka2
                                  aircraftType: "gazelle",
                                  aircraftName: "Aerospatiale Gazelle",
                                  hitPoint: 60,
-                                 aircraftWidth: 185,
-                                 aircraftHeight: 64,
+                                 size: new int[] { 185, 64 },
                                  speed: 5,
                                  maxAltitude: maxAltitudeForHelicopters,
                                  price: 0.5,
@@ -1064,8 +1020,7 @@ namespace shilka2
                                 aircraftType: "comanche",
                                 aircraftName: "RAH-66 Comanche",
                                 hitPoint: 80,
-                                aircraftWidth: 210,
-                                aircraftHeight: 61,
+                                size: new int[] { 210, 61 },
                                 speed: 6,
                                 maxAltitude: maxAltitudeForHelicopters,
                                 price: 100,
@@ -1093,8 +1048,7 @@ namespace shilka2
                                 aircraftType: "oh1",
                                 aircraftName: "OH-1 Ninja",
                                 hitPoint: 100,
-                                aircraftWidth: 205,
-                                aircraftHeight: 69,
+                                size: new int[] { 205, 69 },
                                 speed: 5,
                                 maxAltitude: maxAltitudeForHelicopters,
                                 price: 24,
@@ -1122,8 +1076,7 @@ namespace shilka2
                                 aircraftType: "mangusta",
                                 aircraftName: "T-129 Mangusta",
                                 hitPoint: 100,
-                                aircraftWidth: 215,
-                                aircraftHeight: 66,
+                                size: new int[] { 215, 66 },
                                 speed: 5,
                                 maxAltitude: maxAltitudeForHelicopters,
                                 price: 52,
@@ -1165,8 +1118,7 @@ namespace shilka2
                                 aircraftType: "mig23",
                                 aircraftName: "МиГ-23",
                                 hitPoint: 80,
-                                aircraftWidth: 270,
-                                aircraftHeight: 71,
+                                size: new int[] { 270, 71 },
                                 friend: true
                             );
                             break;
@@ -1176,8 +1128,7 @@ namespace shilka2
                                 aircraftType: "mig29",
                                 aircraftName: "МиГ-29",
                                 hitPoint: 80,
-                                aircraftWidth: 270,
-                                aircraftHeight: 65,
+                                size: new int[] { 270, 65 },
                                 friend: true
                             );
                             break;
@@ -1187,8 +1138,7 @@ namespace shilka2
                                 aircraftType: "mig31",
                                 aircraftName: "МиГ-31",
                                 hitPoint: 80,
-                                aircraftWidth: 270,
-                                aircraftHeight: 63,
+                                size: new int[] { 270, 63 },
                                 speed: 14,
                                 friend: true
                             );
@@ -1199,8 +1149,7 @@ namespace shilka2
                                 aircraftType: "su17",
                                 aircraftName: "Су-17",
                                 hitPoint: 80,
-                                aircraftWidth: 270,
-                                aircraftHeight: 61,
+                                size: new int[] { 270, 61 },
                                 speed: 5,
                                 friend: true
                             );
@@ -1211,8 +1160,7 @@ namespace shilka2
                                 aircraftType: "su24",
                                 aircraftName: "Су-24",
                                 hitPoint: 80,
-                                aircraftWidth: 270,
-                                aircraftHeight: 67,
+                                size: new int[] { 270, 67 },
                                 speed: 8,
                                 friend: true
                             );
@@ -1223,8 +1171,7 @@ namespace shilka2
                                 aircraftType: "su25",
                                 aircraftName: "Су-25",
                                 hitPoint: 180,
-                                aircraftWidth: 270,
-                                aircraftHeight: 81,
+                                size: new int[] { 270, 81 },
                                 speed: 5,
                                 friend: true,
                                 cantEscape: true
@@ -1236,8 +1183,7 @@ namespace shilka2
                                 aircraftType: "su27",
                                 aircraftName: "Су-27",
                                 hitPoint: 80,
-                                aircraftWidth: 270,
-                                aircraftHeight: 77,
+                                size: new int[] { 270, 77 },
                                 friend: true
                             );
                             break;
@@ -1247,8 +1193,7 @@ namespace shilka2
                                 aircraftType: "su34",
                                 aircraftName: "Су-34",
                                 hitPoint: 100,
-                                aircraftWidth: 275,
-                                aircraftHeight: 56,
+                                size: new int[] { 275, 56 },
                                 friend: true
                             );
                             break;
@@ -1258,8 +1203,7 @@ namespace shilka2
                                 aircraftType: "pakfa",
                                 aircraftName: "Су-57",
                                 hitPoint: 80,
-                                aircraftWidth: 270,
-                                aircraftHeight: 57,
+                                size: new int[] { 270, 57 },
                                 speed: 12,
                                 friend: true
                             );
@@ -1270,8 +1214,7 @@ namespace shilka2
                                 aircraftType: "tu160",
                                 aircraftName: "Ту-160",
                                 hitPoint: 120,
-                                aircraftWidth: 510,
-                                aircraftHeight: 108,
+                                size: new int[] { 510, 108 },
                                 speed: 18,
                                 minAltitude: minAltitudeForLargeAircraft,
                                 friend: true
@@ -1283,8 +1226,7 @@ namespace shilka2
                                 aircraftType: "mig19",
                                 aircraftName: "МиГ-19",
                                 hitPoint: 80,
-                                aircraftWidth: 270,
-                                aircraftHeight: 81,
+                                size: new int[] { 270, 81 },
                                 friend: true
                             );
                             break;
@@ -1294,8 +1236,7 @@ namespace shilka2
                                 aircraftType: "mig21",
                                 aircraftName: "МиГ-21",
                                 hitPoint: 80,
-                                aircraftWidth: 270,
-                                aircraftHeight: 62,
+                                size: new int[] { 270, 62 },
                                 friend: true
                             );
                             break;
@@ -1305,8 +1246,7 @@ namespace shilka2
                                 aircraftType: "mig25",
                                 aircraftName: "МиГ-25",
                                 hitPoint: 80,
-                                aircraftWidth: 270,
-                                aircraftHeight: 64,
+                                size: new int[] { 270, 64 },
                                 speed: 14,
                                 friend: true
                             );
@@ -1317,8 +1257,7 @@ namespace shilka2
                                 aircraftType: "a50",
                                 aircraftName: "А-50",
                                 hitPoint: 150,
-                                aircraftWidth: 570,
-                                aircraftHeight: 175,
+                                size: new int[] { 570, 175 },
                                 speed: 8,
                                 minAltitude: minAltitudeForLargeAircraft,
                                 cantEscape: true,
@@ -1331,8 +1270,7 @@ namespace shilka2
                                 aircraftType: "tu95",
                                 aircraftName: "Ту-95",
                                 hitPoint: 120,
-                                aircraftWidth: 510,
-                                aircraftHeight: 116,
+                                size: new int[] { 510, 116 },
                                 speed: 5,
                                 minAltitude: minAltitudeForLargeAircraft,
                                 cantEscape: true,
@@ -1396,8 +1334,7 @@ namespace shilka2
                                 aircraftType: "mi28",
                                 aircraftName: "Ми-28",
                                 hitPoint: 120,
-                                aircraftWidth: 209,
-                                aircraftHeight: 62,
+                                size: new int[] { 209, 62 },
                                 speed: 5,
                                 maxAltitude: maxAltitudeForHelicopters,
                                 friend: true,
@@ -1425,8 +1362,7 @@ namespace shilka2
                                 aircraftType: "mi24",
                                 aircraftName: "Ми-24",
                                 hitPoint: 120,
-                                aircraftWidth: 210,
-                                aircraftHeight: 57,
+                                size: new int[] { 210, 57 },
                                 speed: 5,
                                 maxAltitude: maxAltitudeForHelicopters,
                                 friend: true,
@@ -1454,8 +1390,7 @@ namespace shilka2
                                 aircraftType: "mi8",
                                 aircraftName: "Ми-8",
                                 hitPoint: 80,
-                                aircraftWidth: 220,
-                                aircraftHeight: 62,
+                                size: new int[] { 220, 62 },
                                 speed: 5,
                                 maxAltitude: maxAltitudeForHelicopters,
                                 friend: true,
@@ -1483,8 +1418,7 @@ namespace shilka2
                                 aircraftType: "ka52",
                                 aircraftName: "Ка-52",
                                 hitPoint: 120,
-                                aircraftWidth: 232,
-                                aircraftHeight: 70,
+                                size: new int[] { 232, 70 },
                                 speed: 5,
                                 maxAltitude: maxAltitudeForHelicopters,
                                 friend: true,
@@ -1513,8 +1447,7 @@ namespace shilka2
                                 aircraftType: "ka27",
                                 aircraftName: "Ка-27",
                                 hitPoint: 80,
-                                aircraftWidth: 197,
-                                aircraftHeight: 63,
+                                size: new int[] { 197, 63 },
                                 speed: 5,
                                 maxAltitude: maxAltitudeForHelicopters,
                                 friend: true,
@@ -1543,8 +1476,7 @@ namespace shilka2
                                 aircraftType: "mi10",
                                 aircraftName: "Ми-10",
                                 hitPoint: 80,
-                                aircraftWidth: 300,
-                                aircraftHeight: 77,
+                                size: new int[] { 300, 77 },
                                 speed: 5,
                                 maxAltitude: maxAltitudeForHelicopters,
                                 friend: true,
@@ -1580,8 +1512,7 @@ namespace shilka2
                                 aircraftType: "a320",
                                 aircraftName: "Аэробус А320",
                                 hitPoint: 100,
-                                aircraftWidth: 565,
-                                aircraftHeight: 173,
+                                size: new int[] { 565, 173 },
                                 speed: 8,
                                 minAltitude: minAltitudeForLargeAircraft,
                                 cantEscape: true,
@@ -1594,8 +1525,7 @@ namespace shilka2
                                 aircraftType: "boeing747",
                                 aircraftName: "Боинг 747",
                                 hitPoint: 100,
-                                aircraftWidth: 565,
-                                aircraftHeight: 158,
+                                size: new int[] { 565, 158 },
                                 speed: 8,
                                 minAltitude: minAltitudeForLargeAircraft,
                                 cantEscape: true,
@@ -1608,8 +1538,7 @@ namespace shilka2
                                 aircraftType: "md11",
                                 aircraftName: "MD-11",
                                 hitPoint: 100,
-                                aircraftWidth: 560,
-                                aircraftHeight: 153,
+                                size: new int[] { 560, 153 },
                                 speed: 8,
                                 minAltitude: minAltitudeForLargeAircraft,
                                 cantEscape: true,
@@ -1622,8 +1551,7 @@ namespace shilka2
                                 aircraftType: "atr42",
                                 aircraftName: "ATR 42",
                                 hitPoint: 80,
-                                aircraftWidth: 320,
-                                aircraftHeight: 110,
+                                size: new int[] { 320, 110 },
                                 speed: 5,
                                 minAltitude: minAltitudeForLargeAircraft,
                                 cantEscape: true,
@@ -1646,8 +1574,7 @@ namespace shilka2
                                 aircraftType: "dch8",
                                 aircraftName: "Bombardier DCH-8",
                                 hitPoint: 80,
-                                aircraftWidth: 370,
-                                aircraftHeight: 90,
+                                size: new int[] { 370, 90 },
                                 speed: 5,
                                 minAltitude: minAltitudeForLargeAircraft,
                                 cantEscape: true,
@@ -1670,8 +1597,7 @@ namespace shilka2
                                 aircraftType: "ssj100",
                                 aircraftName: "Sukhoi Superjet 100",
                                 hitPoint: 80,
-                                aircraftWidth: 355,
-                                aircraftHeight: 124,
+                                size: new int[] { 355, 124 },
                                 speed: 8,
                                 minAltitude: minAltitudeForLargeAircraft,
                                 cantEscape: true,
