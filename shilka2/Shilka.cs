@@ -8,7 +8,6 @@ using System.Windows.Media;
 using System.Windows.Shapes;
 using System.IO;
 using System.Windows.Media.Imaging;
-using shilka2.classes;
 
 namespace shilka2
 {

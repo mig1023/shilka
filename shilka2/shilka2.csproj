@@ -55,14 +55,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="classes\Aircraft.cs" />
-    <Compile Include="classes\Case.cs" />
-    <Compile Include="classes\DynamicElement.cs" />
-    <Compile Include="classes\FlyObject.cs" />
-    <Compile Include="classes\Scripts.cs" />
-    <Compile Include="classes\Shell.cs" />
-    <Compile Include="classes\Shilka.cs" />
-    <Compile Include="classes\StatTable.cs" />
+    <Compile Include="Aircraft.cs" />
+    <Compile Include="Case.cs" />
+    <Compile Include="DynamicElement.cs" />
+    <Compile Include="FlyObject.cs" />
+    <Compile Include="Scripts.cs" />
+    <Compile Include="Shell.cs" />
+    <Compile Include="Shilka.cs" />
+    <Compile Include="StatTable.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

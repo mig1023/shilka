@@ -5,7 +5,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using System.Timers;
-using shilka2.classes;
 using System.Windows.Media;
 
 namespace shilka2

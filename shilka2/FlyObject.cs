@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace shilka2.classes
+namespace shilka2
 {
     class FlyObject
     {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
-namespace shilka2.classes
+namespace shilka2
 {
     class DynamicElement
     {
