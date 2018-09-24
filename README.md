@@ -38,6 +38,7 @@ The game is about an anti-aircraft vahicle in the school notebook
 | AH-64 Apache | AH-1 Cobra | UH-60 Black Hawk |
 | UH-1 Iroquois | CH-47 Chinook | V-22 Ospray |
 | Eurocopter Tiger | Drone | Aerospatiale Gazelle |
+| RAH-66 Comanche | Kawasaki OH-1 | A129 Mangusta |
 
 ### Friend aircrafts:
 
