@@ -132,7 +132,14 @@ namespace shilka2
                 gun.Y1 = currentHeight - Shell.FIRE_HEIGHT_CORRECTION + 5 - (9 * numGuns);
                 gun.X2 = gun.X1 + GUNS_LENGTH * Shell.LastCos;
                 gun.Y2 = gun.Y1 - GUNS_LENGTH * Shell.LastSin;
-                gun.Stroke = Brushes.Black;
+
+                 byte colorOfGuns = (degreeOfHeatingGunBurrels > 200 ? (byte)((degreeOfHeatingGunBurrels - 200) / 2) : (byte)0);
+
+                if (colorOfGuns == 0)
+                    gun.Stroke = Brushes.Black;
+                else
+                    gun.Stroke = new SolidColorBrush(Color.FromRgb((byte)(colorOfGuns - 200), 0, 0));
+
                 gun.StrokeThickness = 3;
                 main.firePlace.Children.Add(gun);
                 Canvas.SetZIndex(gun, 200);
