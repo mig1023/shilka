@@ -4,16 +4,16 @@ The game is about an anti-aircraft vahicle in the school notebook
 ![](https://s8.hostingkartinok.com/uploads/images/2018/06/e4b2be354e64b30273c7896a3671ecb2.png)
 
 ### Scripts:
-- Vietnam war
-- Korean Boeing incident
-- Operation Desert storm
-- NATO bombing of Yugoslavia
-- Iran–Iraq war
-- Syrian civil war
-- Intervention in Libya
-- Intervention in Yemen
-- Mathias Rust flight
-- Hunt for F-117 in Yugoslavia
+- Vietnam war (1965-1973)
+- Korean Boeing incident (1983)
+- Operation Desert storm (1991)
+- NATO bombing of Yugoslavia (1999)
+- Iran–Iraq war (1980-1988)
+- Syrian civil war (2011-2018)
+- Intervention in Libya (2011)
+- Intervention in Yemen (2015-2018)
+- Mathias Rust flight (1987)
+- Hunt for F-117 in Yugoslavia (1999)
 
 ### Enemy aircrafts:
 
