@@ -313,7 +313,10 @@ namespace shilka2
 
             string flagName = Scripts.scriptFlagName(script);
 
-            if (flagName != null) scenarioFlag.Source = Aircraft.imageFromResources(flagName);
+            if (flagName != null)
+                scenarioFlag.Source = Aircraft.imageFromResources(flagName);
+            else
+                scenarioFlag.Source = null;
 
             StartGame(
                 Scripts.scriptEnemyAircrafts(script),
