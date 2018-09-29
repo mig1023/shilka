@@ -39,6 +39,8 @@ namespace shilka2
         public static int degreeOfHeatingGunBurrels = 30;
         public static bool reheatingGunBurrels = false;
 
+        static int gunReturn = 0; 
+
         public static double lastDegree = 0;
 
         static Random rand;
@@ -52,9 +54,9 @@ namespace shilka2
         {
             statisticShellsFired = 0;
             staticticInTarget = 0;
-            statisticAllAircraft = 0;
+            statisticAllAircraft = 100;
             statisticPriceOfAllAircrafts = 0;
-            staticticAircraftShutdown = 0;
+            staticticAircraftShutdown = 100;
             statisticHasGone = 0;
             statisticDamaged = 0;
             statisticFriendDamage = 0;
@@ -119,19 +121,35 @@ namespace shilka2
                 reheatingGunBurrels = false;
         }
 
+        public static void ShilkaAction(object obj, ElapsedEventArgs e)
+        {
+            Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
+            {
+                DrawGuns((MainWindow)Application.Current.MainWindow);
+            }));
+        }
+
         public static void DrawGuns(MainWindow main)
         {
 
             double currentHeight = Shell.currentHeight;
             if (currentHeight < 0) currentHeight = main.ActualHeight;
 
+            if (Shell.Fire) gunReturn++;
+            if (gunReturn > 4) gunReturn = 0;
+
             for (int numGuns = 0; numGuns <= 1; numGuns++)
             {
                 Line gun = new Line();
                 gun.X1 = Shell.FIRE_WIDTH_CORRECTION - 3 - (12 * numGuns);
                 gun.Y1 = currentHeight - Shell.FIRE_HEIGHT_CORRECTION + 5 - (9 * numGuns);
-                gun.X2 = gun.X1 + GUNS_LENGTH * Shell.LastCos;
-                gun.Y2 = gun.Y1 - GUNS_LENGTH * Shell.LastSin;
+
+                int gunReturnLen = 0;
+                if (Shell.Fire && (gunReturn < 2 && numGuns == 0) || (gunReturn >= 2 && numGuns == 1))
+                    gunReturnLen = 5;
+
+                gun.X2 = gun.X1 + (GUNS_LENGTH - gunReturnLen) * Shell.LastCos;
+                gun.Y2 = gun.Y1 - (GUNS_LENGTH - gunReturnLen) * Shell.LastSin;
 
                  byte colorOfGuns = (degreeOfHeatingGunBurrels > 200 ? (byte)((degreeOfHeatingGunBurrels - 200) / 2) : (byte)0);
 

@@ -56,7 +56,6 @@ namespace shilka2
                     main.firePlace.Children.Remove(line);
        
                 allLines.Clear();
-                Shilka.DrawGuns(main);
 
                 FireMutex++;
 
