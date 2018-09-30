@@ -136,7 +136,7 @@ namespace shilka2
             if (currentHeight < 0) currentHeight = main.ActualHeight;
 
             if (Shell.Fire) gunReturn++;
-            if (gunReturn > 4) gunReturn = 0;
+            if (gunReturn > 3) gunReturn = 0;
 
             for (int numGuns = 0; numGuns <= 1; numGuns++)
             {
@@ -177,7 +177,7 @@ namespace shilka2
                         flash.X1 = gun.X2;
                         flash.Y1 = gun.Y2;
 
-                        int flashSize = rand.Next(3) + 5;
+                        int flashSize = rand.Next(3) + 1;
 
                         flash.X2 = gun.X2 + flashSize * Shell.LastCos;
                         flash.Y2 = gun.Y2 - flashSize * Shell.LastSin;
