@@ -121,14 +121,6 @@ namespace shilka2
                 reheatingGunBurrels = false;
         }
 
-        public static void ShilkaAction(object obj, ElapsedEventArgs e)
-        {
-            Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
-            {
-                DrawGuns((MainWindow)Application.Current.MainWindow);
-            }));
-        }
-
         public static void DrawGuns(MainWindow main)
         {
 
@@ -145,7 +137,7 @@ namespace shilka2
                 gun.Y1 = currentHeight - Shell.FIRE_HEIGHT_CORRECTION + 5 - (9 * numGuns);
 
                 int gunReturnLen = 0;
-                if (Shell.Fire && (gunReturn < 2 && numGuns == 0) || (gunReturn >= 2 && numGuns == 1))
+                if (Shell.Fire && ((gunReturn < 2 && numGuns == 0) || (gunReturn >= 2 && numGuns == 1)))
                     gunReturnLen = 5;
 
                 gun.X2 = gun.X1 + (GUNS_LENGTH - gunReturnLen) * Shell.LastCos;
