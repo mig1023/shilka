@@ -15,6 +15,7 @@ namespace shilka2
     {
         const double LAST_DEGREE_CORRECTION = 10;
         const int GUNS_LENGTH = 30;
+        const int GUN_NOUNT_LENGTH = 10;
 
         static int flashСount = 0;
 
@@ -128,6 +129,8 @@ namespace shilka2
             if (Shell.Fire) gunReturn++;
             if (gunReturn > 3) gunReturn = 0;
 
+            double[,] mountXY = new double[2, 2] { { 0, 0 }, { 0, 0 } };
+
             for (int numGuns = 0; numGuns <= 1; numGuns++)
             {
                 Line gun = new Line();
@@ -141,7 +144,10 @@ namespace shilka2
                 gun.X2 = gun.X1 + (GUNS_LENGTH - gunReturnLen) * Shell.LastCos;
                 gun.Y2 = gun.Y1 - (GUNS_LENGTH - gunReturnLen) * Shell.LastSin;
 
-                 byte colorOfGuns = (degreeOfHeatingGunBurrels > 200 ? (byte)((degreeOfHeatingGunBurrels - 200) / 2) : (byte)0);
+                mountXY[numGuns, 0] = gun.X1 + (GUNS_LENGTH - gunReturnLen - GUN_NOUNT_LENGTH) * Shell.LastCos;
+                mountXY[numGuns, 1] = gun.Y1 - (GUNS_LENGTH - gunReturnLen - GUN_NOUNT_LENGTH) * Shell.LastSin;
+
+                byte colorOfGuns = (degreeOfHeatingGunBurrels > 200 ? (byte)((degreeOfHeatingGunBurrels - 200) / 2) : (byte)0);
 
                 if (colorOfGuns == 0)
                     gun.Stroke = Brushes.Black;
@@ -190,6 +196,20 @@ namespace shilka2
                     }
                 }
             }
+
+            Line gunMount = new Line();
+
+            gunMount.X1 = mountXY[0, 0];
+            gunMount.Y1 = mountXY[0, 1];
+            gunMount.X2 = mountXY[1, 0];
+            gunMount.Y2 = mountXY[1, 1];
+
+            gunMount.StrokeThickness = 1;
+            gunMount.Stroke = Brushes.Black;
+
+            main.firePlace.Children.Add(gunMount);
+            Canvas.SetZIndex(gunMount, 200);
+            Shell.allLines.Add(gunMount);
         }
 
         static void Statistic(out double baseForPercent, out int shutdownPercent, out int damagedPercent,
