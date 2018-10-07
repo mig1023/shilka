@@ -712,7 +712,7 @@ namespace shilka2
                                 hitPoint: 80,
                                 size: new int[] { 450, 71 },
                                 price: 34,
-                                speed: 14,
+                                speed: 18,
                                 minAltitude: minAltitudeForLargeAircraft
                             );
                             break;
