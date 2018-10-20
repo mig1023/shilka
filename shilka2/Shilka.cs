@@ -69,7 +69,6 @@ namespace shilka2
             reheatingGunBurrels = false;
             lastDegree = 0;
 
-
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {
                 MainWindow main = (MainWindow)Application.Current.MainWindow;
@@ -119,6 +118,50 @@ namespace shilka2
                 reheatingGunBurrels = false;
         }
 
+        public static void DrawGansFlashs(MainWindow main, Line gun, int numGuns)
+        {
+            flashСount++;
+
+            if (flashСount >= 10) flashСount = 0;
+
+            if (
+                ((flashСount >= 2) && (flashСount < 5) && (numGuns == 0))
+                ||
+                ((flashСount >= 7) && (numGuns == 1))
+            )
+            {
+                Line flash = new Line();
+                flash.X1 = gun.X2;
+                flash.Y1 = gun.Y2;
+
+                int flashSize = rand.Next(3) + 1;
+
+                flash.X2 = gun.X2 + flashSize * Shell.LastCos;
+                flash.Y2 = gun.Y2 - flashSize * Shell.LastSin;
+
+                switch(rand.Next(4))
+                {
+                    case 0:
+                        flash.Stroke = Brushes.Red;
+                        break;
+                    case 1:
+                        flash.Stroke = Brushes.DarkRed;
+                        break;
+                    case 2:
+                        flash.Stroke = Brushes.Firebrick;
+                        break;
+                    case 3:
+                        flash.Stroke = Brushes.Maroon;
+                        break;
+                }
+
+                flash.StrokeThickness = rand.Next(2) + 4;
+                main.firePlace.Children.Add(flash);
+                Canvas.SetZIndex(flash, 210);
+                Shell.allLines.Add(flash);
+            }
+        }
+
         public static void DrawGuns(MainWindow main)
         {
 
@@ -158,42 +201,7 @@ namespace shilka2
                 Canvas.SetZIndex(gun, 200);
                 Shell.allLines.Add(gun);
 
-                if (Shell.Fire)
-                {
-                    flashСount++;
-                    if (flashСount >= 10) flashСount = 0;
-
-                    if (
-                        ( (flashСount >= 2) && (flashСount < 5) && (numGuns == 0) )
-                        ||
-                        ( (flashСount >= 7) && (numGuns == 1) )
-                    ) {
-                        Line flash = new Line();
-                        flash.X1 = gun.X2;
-                        flash.Y1 = gun.Y2;
-
-                        int flashSize = rand.Next(3) + 1;
-
-                        flash.X2 = gun.X2 + flashSize * Shell.LastCos;
-                        flash.Y2 = gun.Y2 - flashSize * Shell.LastSin;
-
-                        int flashColor = rand.Next(4);
-
-                        if (flashColor == 0)
-                            flash.Stroke = Brushes.Red;
-                        else if (flashColor == 1)
-                            flash.Stroke = Brushes.DarkRed;
-                        else if (flashColor == 2)
-                            flash.Stroke = Brushes.Firebrick;
-                        else if (flashColor == 3)
-                            flash.Stroke = Brushes.Maroon;
-
-                        flash.StrokeThickness = rand.Next(2) + 4;
-                        main.firePlace.Children.Add(flash);
-                        Canvas.SetZIndex(flash, 210);
-                        Shell.allLines.Add(flash);
-                    }
-                }
+                if (Shell.Fire) DrawGansFlashs(main, gun, numGuns);
             }
 
             Line gunMount = new Line();
