@@ -47,19 +47,19 @@ The game is about an anti-aircraft vahicle in the school notebook
 | MiG-19 | MiG-21 | MiG-23 |
 | MiG-25 | MiG-29 | MiG-31 |
 | Su-17 | Su-24 | Su-25 |
-| Su-27 | Su-34 | A-50 |
-| Su-57 | Tu-160 | Tu-95 |
+| Su-27 | Su-34 | Su-57 |
+| A-50 | Tu-95 | Tu-160 |
 
 ### Friend helicopters:
 
 | Helicopter | Helicopter | Helicopter |
 | ------------- | ------------- | ------------- |
 | Mi-28 | Mi-24 | Mi-8 |
-| Ka-52 | Ka-27 | Mi-10 |
+| Mi-10 | Ka-27 | Ka-52 |
 
 ### Airliners:
 
 | Airliner | Airliner | Airliner |
 | ------------- | ------------- | ------------- |
-| Аirbus A320 | Boeing 747 | McDonnell Douglas MD-11 |
-| ATR 42 | Bombardier DHC-8 | Sukhoi Superjet 100 |
+| Аirbus A320 | ATR 42 | Boeing 747 |
+| Bombardier DHC-8 | McDonnell Douglas MD-11 | Sukhoi Superjet 100 |
