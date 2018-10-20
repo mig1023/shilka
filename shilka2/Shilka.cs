@@ -65,7 +65,6 @@ namespace shilka2
             statisticLastDamagePrice = 0;
             statisticShutdownFlag = false;
             statisticLastDamageType = "";
-            currentScript = Scripts.scriptsNames.noScript;
             degreeOfHeatingGunBurrels = 30;
             reheatingGunBurrels = false;
             lastDegree = 0;
