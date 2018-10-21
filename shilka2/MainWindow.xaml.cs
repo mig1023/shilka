@@ -273,6 +273,7 @@ namespace shilka2
                 secondAnimation: new EventHandler(endGameSecAnimation)
             );
 
+            startMenuShowYet = true;
             endGameAlready = false;
         }
 
