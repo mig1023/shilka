@@ -181,28 +181,23 @@ namespace shilka2
             }
         }
 
-        public void MoveCanvas(Canvas moveCanvas, Canvas prevCanvas,
-            double left = -1, double top = -1, double right = -1, double bottom = -1, double speed = 1,
-            EventHandler secondAnimation = null)
+        public void MoveCanvas(Canvas moveCanvas, Canvas prevCanvas, double left = -1, double top = -1,
+            double speed = 1, EventHandler secondAnimation = null)
         {
             left = (left == -1 ? moveCanvas.Margin.Left : left);
             top = (top == -1 ? moveCanvas.Margin.Top : top);
-            right = (right == -1 ? moveCanvas.Margin.Right : right);
-            bottom = (bottom == -1 ? moveCanvas.Margin.Bottom : bottom);
 
             ThicknessAnimation move = new ThicknessAnimation();
             move.Duration = TimeSpan.FromSeconds(speed);
             move.From = moveCanvas.Margin;
-            move.To = new Thickness(left, top, right, bottom);
+            move.To = new Thickness(left, top, moveCanvas.Margin.Right, moveCanvas.Margin.Bottom);
             moveCanvas.BeginAnimation(MarginProperty, move);
 
             left = prevCanvas.Margin.Left - (moveCanvas.Margin.Left - left);
             top = prevCanvas.Margin.Top - (moveCanvas.Margin.Top - top);
-            right = prevCanvas.Margin.Right - (moveCanvas.Margin.Right - right);
-            bottom = prevCanvas.Margin.Bottom - (moveCanvas.Margin.Bottom - bottom);
 
             move.From = prevCanvas.Margin;
-            move.To = new Thickness(left, top, right, bottom);
+            move.To = new Thickness(left, top, moveCanvas.Margin.Right, moveCanvas.Margin.Bottom);
 
             if (secondAnimation != null) move.Completed += secondAnimation;
 
