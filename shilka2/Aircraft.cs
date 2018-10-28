@@ -329,6 +329,8 @@ namespace shilka2
 
                     if ((Shilka.currentScript == Scripts.scriptsNames.F117Hunt) && (dice != 4)) goto case 1;
 
+                    if (Shilka.currentScript == Scripts.scriptsNames.Khmeimim) goto case 10;
+
                     switch (dice)
                     {
                         case 1:

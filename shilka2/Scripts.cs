@@ -13,7 +13,8 @@
             Libya,
             Yemen,
             Rust,
-            F117Hunt
+            F117Hunt,
+            Khmeimim
         };
 
         public static int?[] scriptAircraft;
@@ -35,6 +36,7 @@
                 case Scripts.scriptsNames.Yemen: return "ye";
                 case Scripts.scriptsNames.Rust: return "su";
                 case Scripts.scriptsNames.F117Hunt: return "yu";
+                case Scripts.scriptsNames.Khmeimim: return "sy";
             };
 
             return null;
@@ -103,7 +105,19 @@
             if (script == scriptsNames.Rust)
                 return null;
 
-
+            if (script == scriptsNames.Khmeimim)
+                return new int?[] {
+                    2,     // <-- mig29
+                    3,     // <-- mig31
+                    5,     // <-- su24
+                    6,     // <-- su25
+                    7,     // <-- su27
+                    8,     // <-- su34
+                    9,     // <-- pakfa
+                    10,    // <-- tu160
+                    14,    // <-- a50
+                    15,    // <-- tu95
+                };
 
             return new int?[] { };
         }
@@ -155,6 +169,14 @@
 
             if (script == scriptsNames.Rust)
                 return null;
+
+            if (script == scriptsNames.Khmeimim)
+                return new int?[] {
+                    1,     // <-- mi28
+                    2,     // <-- mi24
+                    3,     // <-- mi8
+                    4,     // <-- ka52
+                };
 
             return new int?[] { };
         }
@@ -274,6 +296,9 @@
                     33,    // <-- cessna
                 };
 
+            if (script == scriptsNames.Khmeimim)
+                return new int?[] { };
+
             return new int?[] { };
         }
 
@@ -337,6 +362,11 @@
 
             if (script == scriptsNames.Rust)
                 return null;
+
+            if (script == scriptsNames.Khmeimim)
+                return new int?[] {
+                    8,     // <-- drone
+                };
 
             return new int?[] { };
         }

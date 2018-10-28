@@ -263,8 +263,10 @@ namespace shilka2
             );
         }
 
-        private void GameOver()
+        private void GameOver(string playerName = "")
         {
+            if (playerName != "") Shilka.StatisticSave(playerName);
+
             MoveCanvas(
                 moveCanvas: firePlaceDock, 
                 prevCanvas: EndMenu,
@@ -284,8 +286,7 @@ namespace shilka2
 
         private void GameOverWithSave_Click(object sender, RoutedEventArgs e)
         {
-            Shilka.StatisticSave(PlayerName.Text);
-            GameOver();
+            GameOver(PlayerName.Text);
         }
 
         private void PlayerName_KeyUp(object sender, KeyEventArgs e)
@@ -375,6 +376,11 @@ namespace shilka2
         private void startF117Hunt_Click(object sender, RoutedEventArgs e)
         {
             startScript(Scripts.scriptsNames.F117Hunt);
+        }
+
+        private void startKhmeimim_Click(object sender, RoutedEventArgs e)
+        {
+            startScript(Scripts.scriptsNames.Khmeimim);
         }
 
         private void StatisticGrid_LoadingRow(object sender, DataGridRowEventArgs e)
