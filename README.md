@@ -14,6 +14,7 @@ The game is about an anti-aircraft vahicle in the school notebook
 - Intervention in Yemen (2015-2018)
 - Mathias Rust flight (1987)
 - Hunt for F-117 in Yugoslavia (1999)
+- Siege of Kmeimim (2016-2018)
 
 ### Enemy aircrafts:
 
