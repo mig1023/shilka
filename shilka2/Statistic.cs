@@ -31,7 +31,7 @@ namespace shilka2
         public static string statisticLastDamageType;
 
         static void Calc(out double baseForPercent, out int shutdownPercent, out int damagedPercent,
-            out int statisticWithoutDamage, out double chance, out int inTargetPercent)
+            out int statisticWithoutDamage, out double chance, out int inTargetPercent, out int shellsForShutdown)
         {
             baseForPercent = (
                 (statisticHasGone > 0 || staticticAircraftShutdown > 0) ? (100 / (double)(statisticHasGone + staticticAircraftShutdown)) : 100
@@ -44,6 +44,8 @@ namespace shilka2
 
             chance = (double)statisticPriceOfAllAircrafts / (statisticAllAircraft * (double)Aircraft.AIRCRAFT_AVERAGE_PRICE);
             if (double.IsNaN(chance)) chance = 0;
+
+            shellsForShutdown = (staticticAircraftShutdown > 0 ? (int)statisticShellsFired / staticticAircraftShutdown : 0);
         }
 
         public static void Clean()
@@ -64,11 +66,11 @@ namespace shilka2
 
         public static void Save(string player)
         {
-            int shutdownPercent, damagedPercent, statisticWithoutDamage, inTargetPercent;
+            int shutdownPercent, damagedPercent, statisticWithoutDamage, inTargetPercent, shellsForShutdown;
             double chance, baseForPercent;
 
             Calc(out baseForPercent, out shutdownPercent, out damagedPercent, out statisticWithoutDamage,
-                out chance, out inTargetPercent);
+                out chance, out inTargetPercent, out shellsForShutdown);
 
             double statisticAmountOfDamageRound = double.Parse(string.Format("{0:f2}", statisticAmountOfDamage));
 
@@ -114,13 +116,21 @@ namespace shilka2
         public static void Show(object obj, ElapsedEventArgs e)
         {
             string stat = "";
-            int shutdownPercent, damagedPercent, statisticWithoutDamage, inTargetPercent;
+            int shutdownPercent, damagedPercent, statisticWithoutDamage, inTargetPercent, shellsForShutdown;
             double chance, baseForPercent;
 
             Calc(out baseForPercent, out shutdownPercent, out damagedPercent, out statisticWithoutDamage,
-                out chance, out inTargetPercent);
+                out chance, out inTargetPercent, out shellsForShutdown);
 
-            if (statisticShellsFired > 0) stat += "Выстрелов: " + statisticShellsFired + "\n";
+            if (statisticShellsFired > 0)
+            {
+                stat += "Выстрелов: " + statisticShellsFired;
+
+                if (staticticAircraftShutdown > 0)
+                    stat += " (" + shellsForShutdown + " выстр./сбитый)";
+
+                stat += "\n";
+            }
 
             if (staticticInTarget > 0)
                 stat += "Попаданий: " + staticticInTarget + " ( " + inTargetPercent + "% )\n";
