@@ -27,7 +27,7 @@
             switch (script)
             {
                 case Scripts.scriptsNames.Vietnam: return "vn";
-                case Scripts.scriptsNames.IranIraq: return "in";
+                case Scripts.scriptsNames.IranIraq: return "ir";
                 case Scripts.scriptsNames.DesertStorm: return "iq";
                 case Scripts.scriptsNames.Syria: return "sy";
                 case Scripts.scriptsNames.Yugoslavia: return "yu";
