@@ -90,7 +90,7 @@ namespace shilka2
 
                             aircraft.hitpoint -= 1;
 
-                            Shilka.staticticInTarget++;
+                            Statistic.staticticInTarget++;
 
                             if (aircraft.hitpoint <= 0)
                             {
@@ -106,12 +106,12 @@ namespace shilka2
 
                                     else
                                     {
-                                        Shilka.staticticAircraftShutdown++;
-                                        Shilka.statisticAmountOfDamage += aircraft.price;
+                                        Statistic.staticticAircraftShutdown++;
+                                        Statistic.statisticAmountOfDamage += aircraft.price;
 
-                                        Shilka.statisticShutdownFlag = true;
-                                        Shilka.statisticLastDamagePrice = aircraft.price;
-                                        Shilka.statisticLastDamageType = aircraft.aircraftName;
+                                        Statistic.statisticShutdownFlag = true;
+                                        Statistic.statisticLastDamagePrice = aircraft.price;
+                                        Statistic.statisticLastDamageType = aircraft.aircraftName;
                                     }
                                 }
                                 aircraft.dead = true;
@@ -169,7 +169,7 @@ namespace shilka2
                     LastCos = newShell.cos;
                     LastSin = newShell.sin;
 
-                    Shilka.statisticShellsFired++;
+                    Statistic.statisticShellsFired++;
 
                     shells.Add(newShell);
 

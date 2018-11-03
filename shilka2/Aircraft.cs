@@ -99,23 +99,23 @@ namespace shilka2
 
                         if ((!aircraft.dead) && (!aircraft.friend) && (!aircraft.airliner))
                         {
-                            Shilka.statisticHasGone++;
+                            Statistic.statisticHasGone++;
 
                             if (aircraft.hitpoint < aircraft.hitpointMax)
                             {
-                                Shilka.statisticDamaged++;
+                                Statistic.statisticDamaged++;
 
                                 double residualValue =  aircraft.price * (double)aircraft.hitpoint / (double)aircraft.hitpointMax;
                                 double priceOfDamage = aircraft.price - residualValue;
-                                Shilka.statisticAmountOfDamage += priceOfDamage;
+                                Statistic.statisticAmountOfDamage += priceOfDamage;
 
-                                Shilka.statisticShutdownFlag = false;
-                                Shilka.statisticLastDamagePrice = priceOfDamage;
-                                Shilka.statisticLastDamageType = aircraft.aircraftName;
+                                Statistic.statisticShutdownFlag = false;
+                                Statistic.statisticLastDamagePrice = priceOfDamage;
+                                Statistic.statisticLastDamageType = aircraft.aircraftName;
                             }
                         } 
                         else if ( (aircraft.hitpoint < aircraft.hitpointMax) && aircraft.friend)
-                            Shilka.statisticFriendDamage++;
+                            Statistic.statisticFriendDamage++;
                     }
 
                     aircraft.aircraftImage.Margin = new Thickness(aircraft.x, aircraft.y, 0, 0);
@@ -276,8 +276,8 @@ namespace shilka2
 
                 if (!friend && !airliner)
                 {
-                    Shilka.statisticAllAircraft++;
-                    Shilka.statisticPriceOfAllAircrafts += price;
+                    Statistic.statisticAllAircraft++;
+                    Statistic.statisticPriceOfAllAircrafts += price;
                 }
 
                 if (zIndex != null)

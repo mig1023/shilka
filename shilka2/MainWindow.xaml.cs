@@ -46,10 +46,10 @@ namespace shilka2
             var converter = new BrushConverter();
             StatisticMenu.Background = (Brush)converter.ConvertFrom(StatisticColor);
 
-            StatisticGrid.ItemsSource = Shilka.LoadStatistic();
+            StatisticGrid.ItemsSource = Statistic.Load();
 
-            StatisticGrid.Height = StatisticMenu.Height - Shilka.statisticGridMargins;
-            StatisticGrid.Width = StatisticMenu.Width - Shilka.statisticGridMargins;
+            StatisticGrid.Height = StatisticMenu.Height - Statistic.statisticGridMargins;
+            StatisticGrid.Width = StatisticMenu.Width - Statistic.statisticGridMargins;
 
             StartMenu.Height = StatisticMenu.Height;
             StartMenu.Width = StatisticMenu.Width;
@@ -93,7 +93,7 @@ namespace shilka2
                 Game.Elapsed += new ElapsedEventHandler(Shell.ShellsFly);
                 Game.Elapsed += new ElapsedEventHandler(Case.CasesFly);
                 Game.Elapsed += new ElapsedEventHandler(Aircraft.AircraftFly);
-                Game.Elapsed += new ElapsedEventHandler(Shilka.StatisticShow);
+                Game.Elapsed += new ElapsedEventHandler(Statistic.Show);
 
                 Aircrafts.Elapsed += new ElapsedEventHandler(Aircraft.AircraftStart);
             }
@@ -265,7 +265,7 @@ namespace shilka2
 
         private void GameOver(string playerName = "")
         {
-            if (playerName != "") Shilka.StatisticSave(playerName);
+            if (playerName != "") Statistic.Save(playerName);
 
             MoveCanvas(
                 moveCanvas: firePlaceDock, 
