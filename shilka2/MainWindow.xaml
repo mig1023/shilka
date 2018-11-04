@@ -73,7 +73,7 @@
                     <DataGridTextColumn Header="Повреждённых" Binding="{Binding damaged}" CellStyle="{StaticResource grayCell}"/>
                     <DataGridTextColumn Header="Повреждённых, %" Binding="{Binding damagedPercent}"/>
                     <DataGridTextColumn Header="Упущенных" Binding="{Binding hasGone}" CellStyle="{StaticResource grayCell}"/>
-                    <DataGridTextColumn Header="Из них без повреждений" Binding="{Binding withoutDamage}"/>
+                    <DataGridTextColumn Header="Из них без повреждений, %" Binding="{Binding withoutDamage}"/>
                     <DataGridTextColumn Header="Нанесён ущерб, млн" Binding="{Binding amountOfDamage}" CellStyle="{StaticResource grayCell}"/>
                     <DataGridTextColumn Header="Повреждено своих" Binding="{Binding Path=friendDamage}"/>
                     <DataGridTextColumn Header="Удача" Binding="{Binding chance}" CellStyle="{StaticResource grayCell}"/>
