@@ -76,10 +76,7 @@ namespace shilka2
         {
             if (rand.Next(2) == 1) return;
 
-            if (shooting)
-                degreeOfHeatingGunBurrels++;
-            else
-                degreeOfHeatingGunBurrels--;
+            degreeOfHeatingGunBurrels += (shooting ? 1 : -1);
 
             if (degreeOfHeatingGunBurrels < 30)
                 degreeOfHeatingGunBurrels = 30;
@@ -90,6 +87,17 @@ namespace shilka2
             }
             else if(degreeOfHeatingGunBurrels < 300)
                 reheatingGunBurrels = false;
+        }
+
+        public static Brush FlashesColor()
+        {
+            switch (rand.Next(4))
+            {
+                case 1:  return Brushes.DarkRed;
+                case 2:  return Brushes.Firebrick;
+                case 3:  return Brushes.Maroon;
+                default: return Brushes.Red;
+            }
         }
 
         public static void DrawGansFlashs(MainWindow main, Line gun, int numGuns)
@@ -113,21 +121,7 @@ namespace shilka2
                 flash.X2 = gun.X2 + flashSize * Shell.LastCos;
                 flash.Y2 = gun.Y2 - flashSize * Shell.LastSin;
 
-                switch(rand.Next(4))
-                {
-                    case 0:
-                        flash.Stroke = Brushes.Red;
-                        break;
-                    case 1:
-                        flash.Stroke = Brushes.DarkRed;
-                        break;
-                    case 2:
-                        flash.Stroke = Brushes.Firebrick;
-                        break;
-                    case 3:
-                        flash.Stroke = Brushes.Maroon;
-                        break;
-                }
+                flash.Stroke = FlashesColor();
 
                 flash.StrokeThickness = rand.Next(2) + 4;
                 main.firePlace.Children.Add(flash);

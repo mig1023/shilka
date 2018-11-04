@@ -323,64 +323,49 @@ namespace shilka2
             );
         }
 
-        private void startSimple_Click(object sender, RoutedEventArgs e)
+        private void startScript_Click(object sender, RoutedEventArgs e)
         {
-            startScript(Scripts.scriptsNames.noScript);
-        }
+            Button startButton = sender as Button;
 
-        private void startVietnam_Click(object sender, RoutedEventArgs e)
-        {
-            startScript(Scripts.scriptsNames.Vietnam);
-        }
-
-        private void startDesertStorm_Click(object sender, RoutedEventArgs e)
-        {
-            startScript(Scripts.scriptsNames.DesertStorm);
-        }
-
-        private void startYugoslavia_Click(object sender, RoutedEventArgs e)
-        {
-            startScript(Scripts.scriptsNames.Yugoslavia);
-        }
-
-        private void startIranIraq_Click(object sender, RoutedEventArgs e)
-        {
-            startScript(Scripts.scriptsNames.IranIraq);
-        }
-
-        private void startSyria_Click(object sender, RoutedEventArgs e)
-        {
-            startScript(Scripts.scriptsNames.Syria);
-        }
-
-        private void startKorean_Click(object sender, RoutedEventArgs e)
-        {
-            startScript(Scripts.scriptsNames.KoreanBoeing);
-        }
-
-        private void startLibya_Click(object sender, RoutedEventArgs e)
-        {
-            startScript(Scripts.scriptsNames.Libya);
-        }
-
-        private void startYemen_Click(object sender, RoutedEventArgs e)
-        {
-            startScript(Scripts.scriptsNames.Yemen);
-        }
-
-        private void startRust_Click(object sender, RoutedEventArgs e)
-        {
-            startScript(Scripts.scriptsNames.Rust);
-        }
-
-        private void startF117Hunt_Click(object sender, RoutedEventArgs e)
-        {
-            startScript(Scripts.scriptsNames.F117Hunt);
-        }
-
-        private void startKhmeimim_Click(object sender, RoutedEventArgs e)
-        {
-            startScript(Scripts.scriptsNames.Khmeimim);
+            switch (startButton.Name)
+            {
+                case "noScript":
+                    startScript(Scripts.scriptsNames.noScript);
+                    break;
+                case "Vietnam":
+                    startScript(Scripts.scriptsNames.Vietnam);
+                    break;
+                case "DesertStorm":
+                    startScript(Scripts.scriptsNames.DesertStorm);
+                    break;
+                case "Yugoslavia":
+                    startScript(Scripts.scriptsNames.Yugoslavia);
+                    break;
+                case "IranIraq":
+                    startScript(Scripts.scriptsNames.IranIraq);
+                    break;
+                case "Syria":
+                    startScript(Scripts.scriptsNames.Syria);
+                    break;
+                case "KoreanBoeing":
+                    startScript(Scripts.scriptsNames.KoreanBoeing);
+                    break;
+                case "Libya":
+                    startScript(Scripts.scriptsNames.Libya);
+                    break;
+                case "Yemen":
+                    startScript(Scripts.scriptsNames.Yemen);
+                    break;
+                case "Rust":
+                    startScript(Scripts.scriptsNames.Rust);
+                    break;
+                case "F117Hunt":
+                    startScript(Scripts.scriptsNames.F117Hunt);
+                    break;
+                case "Khmeimim":
+                    startScript(Scripts.scriptsNames.Khmeimim);
+                    break;
+            }
         }
 
         private void StatisticGrid_LoadingRow(object sender, DataGridRowEventArgs e)
