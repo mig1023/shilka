@@ -66,10 +66,12 @@ namespace shilka2
             if (Shell.ptY < 0) Shell.ptY = 0;
 
             double LastSin = Shell.ptY / Math.Sqrt((Shell.ptX * Shell.ptX) + (Shell.ptY * Shell.ptY));
-            lastDegree = Math.Asin(LastSin) * (180 / Math.PI) * -1;
+            double newLastDegree = Math.Asin(LastSin) * (180 / Math.PI) * -1;
 
-            lastDegree += LAST_DEGREE_CORRECTION;
-            if (lastDegree > 0) lastDegree = 0;
+            newLastDegree += LAST_DEGREE_CORRECTION;
+            if (newLastDegree > 0) newLastDegree = 0;
+
+            lastDegree = ( double.IsNaN(newLastDegree) ? lastDegree : newLastDegree );
         }
 
         public static void HeatingOfGuns(bool shooting)

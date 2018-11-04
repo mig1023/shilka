@@ -163,8 +163,12 @@ namespace shilka2
                     newShell.y = currentHeight + rand.Next( (-1 * currentFragmentation), currentFragmentation) - FIRE_HEIGHT_CORRECTION;
 
                     double e1 = Math.Sqrt((ptX * ptX) + (ptY * ptY));
-                    newShell.cos = ptX / e1;
-                    newShell.sin = ptY / e1;
+
+                    double tryCos = ptX / e1;
+                    double trySin = ptY / e1;
+
+                    newShell.cos = (double.IsNaN(tryCos) ? LastCos : tryCos);
+                    newShell.sin = (double.IsNaN(trySin) ? LastSin : trySin);
 
                     LastCos = newShell.cos;
                     LastSin = newShell.sin;
