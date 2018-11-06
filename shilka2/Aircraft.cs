@@ -122,10 +122,8 @@ namespace shilka2
 
                     foreach (DynamicElement d in aircraft.dynamicElemets)
                     {
-                        if (aircraft.flightDirection == FlightDirectionType.Left)
-                            d.element.Margin = new Thickness(aircraft.x + d.x_left, aircraft.y + d.y, 0, 0);
-                        else
-                            d.element.Margin = new Thickness(aircraft.x + d.x_right, aircraft.y + d.y, 0, 0);
+                        double xDirection = (aircraft.flightDirection == FlightDirectionType.Left ? d.x_left : d.x_right);
+                        d.element.Margin = new Thickness(aircraft.x + xDirection, aircraft.y + d.y, 0, 0);
 
                         if (d.movingType == DynamicElement.MovingType.zRotate)
                         {
@@ -143,7 +141,7 @@ namespace shilka2
                             if (d.rotateDegreeCurrent < 0.2) d.rotateDegreeCurrent = 1;
 
                             if (d.movingType == DynamicElement.MovingType.xRotate)
-                                d.element.RenderTransform = new ScaleTransform(d.rotateDegreeCurrent, 1, (d.element.ActualWidth/2), 0);
+                                d.element.RenderTransform = new ScaleTransform(d.rotateDegreeCurrent, 1, (d.element.ActualWidth / 2), 0);
                             else
                                 d.element.RenderTransform = new ScaleTransform(1, d.rotateDegreeCurrent, 0, (d.element.ActualHeight / 2));
                         }
