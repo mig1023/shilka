@@ -24,6 +24,7 @@ namespace shilka2
         public static int statisticHasGone = 0;
         public static int statisticDamaged = 0;
         public static int statisticFriendDamage = 0;
+        public static int statisticAirlinerDamage = 0;
         public static double statisticAmountOfDamage = 0;
 
         public static double statisticLastDamagePrice;
@@ -58,6 +59,7 @@ namespace shilka2
             statisticHasGone = 0;
             statisticDamaged = 0;
             statisticFriendDamage = 0;
+            statisticAirlinerDamage = 0;
             statisticAmountOfDamage = 0;
             statisticLastDamagePrice = 0;
             statisticShutdownFlag = false;
@@ -176,7 +178,12 @@ namespace shilka2
                 stat += "\n";
             }
 
-            if (statisticFriendDamage > 0) stat += "Повреждено своих: " + statisticFriendDamage + "\n";
+            if (statisticFriendDamage > 0) stat += "Повреждено своих: " + statisticFriendDamage;
+
+            if (statisticAirlinerDamage > 0)
+                stat += (statisticFriendDamage == 0 ? "П" : " +п") + "овреждено гражданских: " + statisticAirlinerDamage + "\n";
+            else if (statisticFriendDamage > 0)
+                stat += "\n";
 
             if (statisticAllAircraft > 0) stat += string.Format("Удача: {0:f2}", chance) + "\n";
 
