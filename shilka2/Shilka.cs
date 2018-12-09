@@ -47,11 +47,17 @@ namespace shilka2
             {
                 MainWindow main = (MainWindow)Application.Current.MainWindow;
 
+                Image noteImage = new Image();
+                noteImage = main.note;
+
                 main.firePlace.Children.Clear();
+                main.PlayerName.Text = "";
 
                 Aircraft.aircrafts.Clear();
                 Case.cases.Clear();
                 Shell.shells.Clear();
+
+                main.firePlace.Children.Add(noteImage);
             }));
         }
 

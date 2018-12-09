@@ -65,7 +65,6 @@ namespace shilka2
             RadarImg.Margin = new Thickness(62, heightForShilka, 0, 0);
             HandImg.Margin = new Thickness(65, (heightForShilka - 120), 0, 0);
 
-            Canvas.SetZIndex(note, 1);
             note.Margin = new Thickness(SystemParameters.PrimaryScreenWidth - 600, (heightForShilka - 120), 0, 0);
         }
 
