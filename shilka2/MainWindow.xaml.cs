@@ -73,7 +73,13 @@ namespace shilka2
         {
             startMenuShowYet = false;
 
-            if (startGameAlready) Shilka.endGameCleaning();
+            if (startGameAlready)
+            {
+                Shilka.endGameCleaning();
+                Pause = false;
+                pauseButton.IsChecked = false;
+                Shell.AnimationStop = false;
+            }
 
             Scripts.scriptAircraft = scriptAircraft;
             Scripts.scriptHelicopters = scriptHelicopters;
