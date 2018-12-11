@@ -78,7 +78,8 @@
                     <DataGridTextColumn Header="Из них без повреждений, %" Binding="{Binding withoutDamage}"/>
                     <DataGridTextColumn Header="Нанесён ущерб, млн" Binding="{Binding amountOfDamage}" CellStyle="{StaticResource grayCell}"/>
                     <DataGridTextColumn Header="Повреждено своих" Binding="{Binding Path=friendDamage}"/>
-                    <DataGridTextColumn Header="Удача" Binding="{Binding chance}" CellStyle="{StaticResource grayCell}"/>
+                    <DataGridTextColumn Header="Повреждено гражданских" Binding="{Binding Path=airlinerDamage}" CellStyle="{StaticResource grayCell}"/>
+                    <DataGridTextColumn Header="Удача" Binding="{Binding chance}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Canvas>

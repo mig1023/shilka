@@ -20,13 +20,14 @@ namespace shilka2
         public int withoutDamage { get; set; }
         public double amountOfDamage { get; set; }
         public int friendDamage { get; set; }
+        public int airlinerDamage { get; set; }
         public float chance { get; set; }
 
         public StatTable(string name, string script, string shellsFired, string inTarget,
               string aircraftShutdown, string inTargetPercent, string shutdownPercent,
               string damaged, string damagedPercent, string hasGone,
               string withoutDamage, string amountOfDamage, string friendDamage,
-              string chance, ImageSource flag)
+              string airlinerDamage, string chance, ImageSource flag)
         {
             this.name = name;
             this.shellsFired = int.Parse(shellsFired);
@@ -40,6 +41,7 @@ namespace shilka2
             this.withoutDamage = int.Parse(withoutDamage);
             this.amountOfDamage = double.Parse(amountOfDamage);
             this.friendDamage = int.Parse(friendDamage);
+            this.airlinerDamage = int.Parse(airlinerDamage);
             this.chance = float.Parse(string.Format("{0:f2}", float.Parse(chance)));
             this.scriptFlag = flag; 
         }

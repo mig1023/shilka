@@ -76,10 +76,11 @@ namespace shilka2
 
             double statisticAmountOfDamageRound = double.Parse(string.Format("{0:f2}", statisticAmountOfDamage));
 
-            string stat = string.Format("{0}|{1}|{2}|{3}|{4}|{5}|{6}|{7}|{8}|{9}|{10}|{11}|{12}|{13}\n",
+            string stat = string.Format("{0}|{1}|{2}|{3}|{4}|{5}|{6}|{7}|{8}|{9}|{10}|{11}|{12}|{13}|{14}\n",
                   player, Shilka.currentScript, statisticShellsFired, staticticInTarget, staticticAircraftShutdown,
                   inTargetPercent, shutdownPercent, statisticDamaged, damagedPercent, statisticHasGone,
-                  statisticWithoutDamage, statisticAmountOfDamageRound, statisticFriendDamage, chance
+                  statisticWithoutDamage, statisticAmountOfDamageRound, statisticFriendDamage, statisticAirlinerDamage,
+                  chance
             );
 
             File.AppendAllText("statistic.dat", stat);
@@ -108,7 +109,7 @@ namespace shilka2
 
                 result.Add(new StatTable(
                     stat[0], stat[1], stat[2], stat[3], stat[4], stat[5], stat[6],
-                    stat[7], stat[8], stat[9], stat[10], stat[11], stat[12], stat[13], flagSource
+                    stat[7], stat[8], stat[9], stat[10], stat[11], stat[12], stat[13], stat[14], flagSource
                 ));
             }
 
