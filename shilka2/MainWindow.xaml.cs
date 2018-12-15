@@ -15,7 +15,7 @@ namespace shilka2
         public System.Timers.Timer Game = new System.Timers.Timer(30);
         public System.Timers.Timer HandMove = new System.Timers.Timer(600);
         public System.Timers.Timer Aircrafts = new System.Timers.Timer(2000);
-        bool Pause = false;
+        bool pause = false;
         bool endGameAlready = false;
         bool startGameAlready = false;
         bool startMenuShowYet = true;
@@ -102,7 +102,7 @@ namespace shilka2
 
         public void ShowNote(Image note, string image, double width, double height, double x, double y)
         {
-            note.Source = Aircraft.imageFromResources(image);
+            note.Source = Aircraft.ImageFromResources(image);
             note.Width = width;
             note.Height = height;
             note.Margin = new Thickness(SystemParameters.PrimaryScreenWidth - x, (y - 120), 0, 0);
@@ -115,10 +115,10 @@ namespace shilka2
 
             if (startGameAlready)
             {
-                Shilka.endGameCleaning();
-                Pause = false;
+                Shilka.EndGameCleaning();
+                pause = false;
                 pauseButton.IsChecked = false;
-                Shell.AnimationStop = false;
+                Shell.animationStop = false;
             }
 
             Scripts.scriptAircraft = scriptAircraft;
@@ -222,7 +222,7 @@ namespace shilka2
                 speed: 0.5
             );
 
-            if (StartMenu.Margin.Left < 0 && !Pause && !endGameAlready)
+            if (StartMenu.Margin.Left < 0 && !pause && !endGameAlready)
             {
                 Game.Start();
                 Aircrafts.Start();
@@ -256,19 +256,19 @@ namespace shilka2
         {
             Shilka.SetNewTergetPoint(e.GetPosition((Window)sender), sender);
 
-            if (!Shilka.reheatingGunBurrels) Shell.Fire = true;
+            if (!Shilka.reheatingGunBurrels) Shell.fire = true;
         }
 
         private void Window_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Shell.Fire = false;
+            Shell.fire = false;
         }
 
         private void Window_MouseMove(object sender, MouseEventArgs e)
         {
             Shilka.SetNewTergetPoint(e.GetPosition((Window)sender), sender);
 
-            if (!Pause) RadarImg.RenderTransform = new RotateTransform(Shilka.lastDegree, 4, 20);
+            if (!pause) RadarImg.RenderTransform = new RotateTransform(Shilka.lastDegree, 4, 20);
         }
 
         private void exitButton_Click(object sender, RoutedEventArgs e)
@@ -285,23 +285,23 @@ namespace shilka2
         {
             if (endGameAlready) return;
 
-            if (Pause)
+            if (pause)
             {
-                Shell.AnimationStop = false;
+                Shell.animationStop = false;
                 Game.Start();
                 Aircrafts.Start();
-                Pause = false;
+                pause = false;
             }
             else
             {
-                Shell.AnimationStop = true;
+                Shell.animationStop = true;
                 Game.Stop();
                 Aircrafts.Stop();
-                Pause = true;
+                pause = true;
             }
         }
 
-        private void endGameSecAnimation(object Sender, EventArgs e)
+        private void EndGameSecAnimation(object Sender, EventArgs e)
         {
             MoveCanvas(
                 moveCanvas: StartMenu,
@@ -320,7 +320,7 @@ namespace shilka2
                 prevCanvas: EndMenu,
                 left: firePlaceDock.Margin.Left + EndMenu.ActualWidth,
                 speed: 0.2,
-                secondAnimation: new EventHandler(endGameSecAnimation)
+                secondAnimation: new EventHandler(EndGameSecAnimation)
             );
 
             startMenuShowYet = true;
@@ -352,22 +352,22 @@ namespace shilka2
             ReturnStatisticShow();
         }
 
-        public void startScript(Scripts.scriptsNames script)
+        public void StartScript(Scripts.scriptsNames script)
         {
             Shilka.currentScript = script;
 
-            string flagName = Scripts.scriptFlagName(script);
+            string flagName = Scripts.ScriptFlagName(script);
 
             if (flagName != null)
-                scenarioFlag.Source = Aircraft.imageFromResources(flagName);
+                scenarioFlag.Source = Aircraft.ImageFromResources(flagName);
             else
                 scenarioFlag.Source = null;
 
             StartGame(
-                Scripts.scriptEnemyAircrafts(script),
-                Scripts.scriptEnemyHelicopters(script),
-                Scripts.scriptFriendAircrafts(script),
-                Scripts.scriptFriendHelicopterss(script)
+                Scripts.ScriptEnemyAircrafts(script),
+                Scripts.ScriptEnemyHelicopters(script),
+                Scripts.ScriptFriendAircrafts(script),
+                Scripts.ScriptFriendHelicopterss(script)
             );
         }
 
@@ -378,40 +378,40 @@ namespace shilka2
             switch (startButton.Name)
             {
                 case "noScript":
-                    startScript(Scripts.scriptsNames.noScript);
+                    StartScript(Scripts.scriptsNames.noScript);
                     break;
                 case "Vietnam":
-                    startScript(Scripts.scriptsNames.Vietnam);
+                    StartScript(Scripts.scriptsNames.Vietnam);
                     break;
                 case "DesertStorm":
-                    startScript(Scripts.scriptsNames.DesertStorm);
+                    StartScript(Scripts.scriptsNames.DesertStorm);
                     break;
                 case "Yugoslavia":
-                    startScript(Scripts.scriptsNames.Yugoslavia);
+                    StartScript(Scripts.scriptsNames.Yugoslavia);
                     break;
                 case "IranIraq":
-                    startScript(Scripts.scriptsNames.IranIraq);
+                    StartScript(Scripts.scriptsNames.IranIraq);
                     break;
                 case "Syria":
-                    startScript(Scripts.scriptsNames.Syria);
+                    StartScript(Scripts.scriptsNames.Syria);
                     break;
                 case "KoreanBoeing":
-                    startScript(Scripts.scriptsNames.KoreanBoeing);
+                    StartScript(Scripts.scriptsNames.KoreanBoeing);
                     break;
                 case "Libya":
-                    startScript(Scripts.scriptsNames.Libya);
+                    StartScript(Scripts.scriptsNames.Libya);
                     break;
                 case "Yemen":
-                    startScript(Scripts.scriptsNames.Yemen);
+                    StartScript(Scripts.scriptsNames.Yemen);
                     break;
                 case "Rust":
-                    startScript(Scripts.scriptsNames.Rust);
+                    StartScript(Scripts.scriptsNames.Rust);
                     break;
                 case "F117Hunt":
-                    startScript(Scripts.scriptsNames.F117Hunt);
+                    StartScript(Scripts.scriptsNames.F117Hunt);
                     break;
                 case "Khmeimim":
-                    startScript(Scripts.scriptsNames.Khmeimim);
+                    StartScript(Scripts.scriptsNames.Khmeimim);
                     break;
             }
         }

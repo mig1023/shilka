@@ -23,7 +23,7 @@ namespace shilka2
         public const int FIRE_HEIGHT_CORRECTION = 30;
         public const int FIRE_HEIGHT_POINT_CORRECTION = 70;
 
-        static string EndColor = "#FF7E1C25";
+        static string endColor = "#FF7E1C25";
 
         bool flash { get; set; }
         int delay { get; set; }
@@ -33,13 +33,13 @@ namespace shilka2
         public static double currentHeight = -1;
         public static double currentWidth = -1;
 
-        public static bool Fire = false;
-        public static bool AnimationStop = false;
+        public static bool fire = false;
+        public static bool animationStop = false;
 
-        public static double LastSin = 0;
-        public static double LastCos = 1;
+        public static double lastSin = 0;
+        public static double lastCos = 1;
 
-        static int FireMutex = 0;
+        static int fireMutex = 0;
         
         public static List<Shell> shells = new List<Shell>();
         public static List<Line> allLines = new List<Line>();
@@ -50,7 +50,7 @@ namespace shilka2
             {
                 MainWindow main = (MainWindow)Application.Current.MainWindow;
 
-                if (AnimationStop) return;
+                if (animationStop) return;
 
                 foreach (var line in allLines)
                     main.firePlace.Children.Remove(line);
@@ -58,7 +58,7 @@ namespace shilka2
                 allLines.Clear();
                 Shilka.DrawGuns(main);
 
-                FireMutex++;
+                fireMutex++;
 
                 foreach (var shell in shells)
                 {
@@ -98,11 +98,11 @@ namespace shilka2
                                 {
                                     if (aircraft.friend)
                                         main.EndGame("Вы сбили свой "+aircraft.aircraftName+
-                                            "!\nИгра окончена.\nСохранить статистику?", EndColor);
+                                            "!\nИгра окончена.\nСохранить статистику?", endColor);
 
                                     else if (aircraft.airliner)
                                         main.EndGame("Вы сбили пассажирский самолёт"+
-                                            "!\nИгра окончена.\nСохранить статистику?", EndColor);
+                                            "!\nИгра окончена.\nСохранить статистику?", endColor);
 
                                     else
                                     {
@@ -136,7 +136,7 @@ namespace shilka2
                     if (shells[x].fly == false)
                         shells.RemoveAt(x);
 
-                FireMutex--;
+                fireMutex--;
             }));
         }
 
@@ -144,12 +144,12 @@ namespace shilka2
         {
             int currentFragmentation = FRAGMENTATION + ( ( Shilka.degreeOfHeatingGunBurrels - 30 ) / 25 );
 
-            if (Fire && !Shilka.reheatingGunBurrels)
+            if (fire && !Shilka.reheatingGunBurrels)
             {
-                FireMutex++;
-                if (FireMutex > 1)
+                fireMutex++;
+                if (fireMutex > 1)
                 {
-                    FireMutex--;
+                    fireMutex--;
                     return;
                 }
  
@@ -167,11 +167,11 @@ namespace shilka2
                     double tryCos = ptX / e1;
                     double trySin = ptY / e1;
 
-                    newShell.cos = (double.IsNaN(tryCos) ? LastCos : tryCos);
-                    newShell.sin = (double.IsNaN(trySin) ? LastSin : trySin);
+                    newShell.cos = (double.IsNaN(tryCos) ? lastCos : tryCos);
+                    newShell.sin = (double.IsNaN(trySin) ? lastSin : trySin);
 
-                    LastCos = newShell.cos;
-                    LastSin = newShell.sin;
+                    lastCos = newShell.cos;
+                    lastSin = newShell.sin;
 
                     Statistic.statisticShellsFired++;
 
@@ -179,7 +179,7 @@ namespace shilka2
 
                     Case.CaseExtractor();
                 }
-                FireMutex--;
+                fireMutex--;
 
                 Shilka.HeatingOfGuns(shooting: true);
             }

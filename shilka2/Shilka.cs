@@ -35,7 +35,7 @@ namespace shilka2
             rand = new Random();
         }
 
-        public static void endGameCleaning()
+        public static void EndGameCleaning()
         {
             Statistic.Clean();
 
@@ -91,7 +91,7 @@ namespace shilka2
             else if (degreeOfHeatingGunBurrels > 350)
             {
                 reheatingGunBurrels = true;
-                Shell.Fire = false;
+                Shell.fire = false;
             }
             else if(degreeOfHeatingGunBurrels < 300)
                 reheatingGunBurrels = false;
@@ -126,8 +126,8 @@ namespace shilka2
 
                 int flashSize = rand.Next(3) + 1;
 
-                flash.X2 = gun.X2 + flashSize * Shell.LastCos;
-                flash.Y2 = gun.Y2 - flashSize * Shell.LastSin;
+                flash.X2 = gun.X2 + flashSize * Shell.lastCos;
+                flash.Y2 = gun.Y2 - flashSize * Shell.lastSin;
 
                 flash.Stroke = FlashesColor();
 
@@ -144,7 +144,7 @@ namespace shilka2
             double currentHeight = Shell.currentHeight;
             if (currentHeight < 0) currentHeight = main.ActualHeight;
 
-            if (Shell.Fire) gunReturn++;
+            if (Shell.fire) gunReturn++;
             if (gunReturn > 3) gunReturn = 0;
 
             double[,] mountXY = new double[2, 2] { { 0, 0 }, { 0, 0 } };
@@ -156,14 +156,14 @@ namespace shilka2
                 gun.Y1 = currentHeight - Shell.FIRE_HEIGHT_CORRECTION + 5 - (9 * numGuns);
 
                 int gunReturnLen = 0;
-                if (Shell.Fire && ((gunReturn < 2 && numGuns == 0) || (gunReturn >= 2 && numGuns == 1)))
+                if (Shell.fire && ((gunReturn < 2 && numGuns == 0) || (gunReturn >= 2 && numGuns == 1)))
                     gunReturnLen = 5;
 
-                gun.X2 = gun.X1 + (GUNS_LENGTH - gunReturnLen) * Shell.LastCos;
-                gun.Y2 = gun.Y1 - (GUNS_LENGTH - gunReturnLen) * Shell.LastSin;
+                gun.X2 = gun.X1 + (GUNS_LENGTH - gunReturnLen) * Shell.lastCos;
+                gun.Y2 = gun.Y1 - (GUNS_LENGTH - gunReturnLen) * Shell.lastSin;
 
-                mountXY[numGuns, 0] = gun.X1 + (GUNS_LENGTH - gunReturnLen - GUN_NOUNT_LENGTH) * Shell.LastCos;
-                mountXY[numGuns, 1] = gun.Y1 - (GUNS_LENGTH - gunReturnLen - GUN_NOUNT_LENGTH) * Shell.LastSin;
+                mountXY[numGuns, 0] = gun.X1 + (GUNS_LENGTH - gunReturnLen - GUN_NOUNT_LENGTH) * Shell.lastCos;
+                mountXY[numGuns, 1] = gun.Y1 - (GUNS_LENGTH - gunReturnLen - GUN_NOUNT_LENGTH) * Shell.lastSin;
 
                 byte colorOfGuns = (degreeOfHeatingGunBurrels > 200 ? (byte)((degreeOfHeatingGunBurrels - 200) / 2) : (byte)0);
 
@@ -177,7 +177,7 @@ namespace shilka2
                 Canvas.SetZIndex(gun, 200);
                 Shell.allLines.Add(gun);
 
-                if (Shell.Fire) DrawGansFlashs(main, gun, numGuns);
+                if (Shell.fire) DrawGansFlashs(main, gun, numGuns);
             }
 
             Line gunMount = new Line();

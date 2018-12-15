@@ -11,7 +11,7 @@ namespace shilka2
         public ImageSource scriptFlag { get; set; }
         public int shellsFired { get; set; }
         public int inTarget { get; set; }
-        public int Shutdown { get; set; }
+        public int shutdown { get; set; }
         public int inTargetPercent { get; set; }
         public int shutdownPercent { get; set; }
         public int damaged { get; set; }
@@ -32,7 +32,7 @@ namespace shilka2
             this.name = name;
             this.shellsFired = int.Parse(shellsFired);
             this.inTarget = int.Parse(inTarget);
-            this.Shutdown = int.Parse(aircraftShutdown);
+            this.shutdown = int.Parse(aircraftShutdown);
             this.inTargetPercent = int.Parse(inTargetPercent);
             this.shutdownPercent = int.Parse(shutdownPercent);
             this.damaged = int.Parse(damaged);

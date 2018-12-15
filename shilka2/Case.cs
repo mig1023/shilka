@@ -10,8 +10,6 @@ namespace shilka2
 {
     class Case : FlyObject
     {
-        double fall = 0;
-
         const int CASE_LENGTH = 5;
         const double MIN_FRAGM_SIN = 0.2;
         const double MAX_FRAGM_SIN = 0.4;
@@ -22,12 +20,14 @@ namespace shilka2
         const int EXTR_HEIGHT_CORRECTION = 18;
         const double FREE_FALL_SPEED = 0.05;
 
+        double fall = 0;
+
         int speed { get; set; }
 
         public static List<Case> cases = new List<Case>();
         public static List<Line> allLines = new List<Line>();
 
-        static int CaseMutex = 0;
+        static int caseMutex = 0;
         static bool caseLimiter = false;
 
         public static void CaseExtractor()
@@ -40,10 +40,10 @@ namespace shilka2
             else
                 caseLimiter = true;
 
-            CaseMutex++;
-            if (CaseMutex > 1)
+            caseMutex++;
+            if (caseMutex > 1)
             {
-                CaseMutex--;
+                caseMutex--;
                 return;
             }
 
@@ -57,7 +57,7 @@ namespace shilka2
 
             Case.cases.Add(newCase);
 
-            CaseMutex--;
+            caseMutex--;
         }
 
         public static void CasesFly(object obj, ElapsedEventArgs e)
@@ -71,7 +71,7 @@ namespace shilka2
 
                 allLines.Clear();
 
-                CaseMutex++;
+                caseMutex++;
 
                 foreach (var c in cases)
                 {
@@ -99,10 +99,10 @@ namespace shilka2
                     }
                 }
 
-                CaseMutex--;
+                caseMutex--;
 
                 for (int x = 0; x < cases.Count; x++)
-                    if ((CaseMutex <= 0) && (cases[x].fly == false))
+                    if ((caseMutex <= 0) && (cases[x].fly == false))
                         cases.RemoveAt(x);
             }));
         }

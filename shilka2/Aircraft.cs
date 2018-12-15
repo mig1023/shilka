@@ -164,7 +164,7 @@ namespace shilka2
             }));
         }
 
-        private static bool aircraftInList(int?[] scriptAircraft, int aircraft)
+        private static bool AircraftInList(int?[] scriptAircraft, int aircraft)
         {
             if (scriptAircraft == null) return false;
 
@@ -178,22 +178,22 @@ namespace shilka2
             return inList;
         }
 
-        public static ImageSource imageFromResources(string imageName)
+        public static ImageSource ImageFromResources(string imageName)
         {
             return new BitmapImage(new Uri("images/" + imageName + ".png", UriKind.Relative)) { };
         }
 
-        static void createNewAircraft(string aircraftType, int hitPoint, int[] size,
+        static void CreateNewAircraft(string aircraftType, int hitPoint, int[] size,
             string aircraftName = "", int speed = 10, int minAltitude = -1, int maxAltitude = -1, bool friend = false,
             bool airliner = false, bool cloud = false, bool cantEscape = false, double price = 0)
         {
             List<DynamicElement> elements = new List<DynamicElement>();
 
-            createNewAircraft(aircraftType, hitPoint, size, elements, aircraftName,
+            CreateNewAircraft(aircraftType, hitPoint, size, elements, aircraftName,
                 speed, minAltitude, maxAltitude, friend, airliner, cloud, cantEscape, price);
         }
 
-        static void createNewAircraft(string aircraftType, int hitPoint, int[] size,
+        static void CreateNewAircraft(string aircraftType, int hitPoint, int[] size,
             List<DynamicElement> elements, string aircraftName = "", int speed = 10, int minAltitude = -1,
             int maxAltitude = -1, bool friend = false, bool airliner = false, bool cloud = false,
             bool cantEscape = false, double price = 0)
@@ -225,7 +225,7 @@ namespace shilka2
                     newAircraft.x = Application.Current.MainWindow.Width;
                 }
 
-                newAircraftImage.Source = imageFromResources(aircraftType);
+                newAircraftImage.Source = ImageFromResources(aircraftType);
 
                 if (((newAircraft.flightDirection == FlightDirectionType.Left) && !cloud) || (rand.Next(2) == 1) && cloud)
                     newAircraftImage.FlowDirection = FlowDirection.RightToLeft;
@@ -238,7 +238,7 @@ namespace shilka2
                 foreach (DynamicElement d in elements)
                 {
                     d.element = new Image();
-                    d.element.Source = imageFromResources(d.elementName);
+                    d.element.Source = ImageFromResources(d.elementName);
                     d.rotateDegreeCurrent = d.startDegree;
 
                     if ((newAircraft.flightDirection == FlightDirectionType.Right) && !d.mirror)
@@ -304,7 +304,7 @@ namespace shilka2
                 case 2:
                 case 3:
                 case 4:
-                    createNewAircraft(
+                    CreateNewAircraft(
                         aircraftType: "cloud" + (rand.Next(7) + 1),
                         hitPoint: 10,
                         size: new int[] { rand.Next(300) + 200, rand.Next(100) + 70 },
@@ -326,7 +326,7 @@ namespace shilka2
                     {
                         dice = rand.Next(33) + 1;
                     }
-                    while (!aircraftInList(Scripts.scriptAircraft, dice));
+                    while (!AircraftInList(Scripts.scriptAircraft, dice));
 
                     if ((Shilka.currentScript == Scripts.scriptsNames.F117Hunt) && (dice != 4)) goto case 1;
 
@@ -335,7 +335,7 @@ namespace shilka2
                     switch (dice)
                     {
                         case 1:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "a10",
                                 aircraftName: "A-10 Thunderbolt",
                                 hitPoint: 200,
@@ -347,7 +347,7 @@ namespace shilka2
                             break;
 
                         case 2:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "b1",
                                 aircraftName: "B-1 Lancer",
                                 hitPoint: 90,
@@ -358,7 +358,7 @@ namespace shilka2
                             break;
 
                         case 3:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "b52",
                                 aircraftName: "B-52 Stratofortress",
                                 hitPoint: 120,
@@ -371,7 +371,7 @@ namespace shilka2
                             break;
 
                         case 4:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "f117",
                                 aircraftName: "F-117 Nighthawk",
                                 hitPoint: 50,
@@ -381,7 +381,7 @@ namespace shilka2
                             break;
 
                         case 5:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "f14",
                                 aircraftName: "F-14 Tomcat",
                                 hitPoint: 120,
@@ -391,7 +391,7 @@ namespace shilka2
                             break;
 
                         case 6:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "f18",
                                 aircraftName: "F-18 Hornet",
                                 hitPoint: 120,
@@ -401,7 +401,7 @@ namespace shilka2
                             break;
 
                         case 7:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "f16",
                                 aircraftName: "F-16 Fighting Falcon",
                                 hitPoint: 120,
@@ -411,7 +411,7 @@ namespace shilka2
                             break;
 
                         case 8:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "f22",
                                 aircraftName: "F-22 Raptor",
                                 hitPoint: 90,
@@ -422,7 +422,7 @@ namespace shilka2
                             break;
 
                         case 9:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "f15",
                                 aircraftName: "F-15 Eagle",
                                 hitPoint: 120,
@@ -432,7 +432,7 @@ namespace shilka2
                             break;
 
                         case 10:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "f4",
                                 aircraftName: "F-4 Fantom",
                                 hitPoint: 150,
@@ -443,7 +443,7 @@ namespace shilka2
                             break;
 
                         case 11:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "tornado",
                                 aircraftName: "Panavia Tornado",
                                 hitPoint: 100,
@@ -453,7 +453,7 @@ namespace shilka2
                             break;
 
                         case 12:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "predator",
                                 aircraftName: "MQ-1 Predator",
                                 hitPoint: 30,
@@ -474,7 +474,7 @@ namespace shilka2
                             break;
 
                         case 13:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "reaper",
                                 aircraftName: "MQ-9 Reaper",
                                 hitPoint: 50,
@@ -495,7 +495,7 @@ namespace shilka2
                             break;
 
                         case 14:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "f35",
                                 aircraftName: "F-35 Lightning II",
                                 hitPoint: 90,
@@ -505,7 +505,7 @@ namespace shilka2
                             break;
 
                         case 15:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "e3",
                                 aircraftName: "E-3 Centry",
                                 hitPoint: 150,
@@ -517,7 +517,7 @@ namespace shilka2
                             break;
 
                         case 16:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "eurofighter",
                                 aircraftName: "Eurofighter Typhoon",
                                 hitPoint: 100,
@@ -527,7 +527,7 @@ namespace shilka2
                             break;
 
                         case 17:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "rafale",
                                 aircraftName: "Rafale",
                                 hitPoint: 90,
@@ -538,7 +538,7 @@ namespace shilka2
                             break;
 
                         case 18:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "b2",
                                 aircraftName: "B-2 Spirit",
                                 hitPoint: 125,
@@ -549,7 +549,7 @@ namespace shilka2
                             break;
 
                         case 19:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "globalhawk",
                                 aircraftName: "RQ-4 Global Hawk",
                                 hitPoint: 125,
@@ -561,7 +561,7 @@ namespace shilka2
                             break;
 
                         case 20:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "tomahawk",
                                 aircraftName: "Tomahawk",
                                 hitPoint: 20,
@@ -573,7 +573,7 @@ namespace shilka2
                             break;
 
                         case 21:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "f8",
                                 aircraftName: "F-8 Crusader",
                                 hitPoint: 80,
@@ -584,7 +584,7 @@ namespace shilka2
                             break;
 
                         case 22:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "ac130",
                                 aircraftName: "AC-130 Spectre",
                                 hitPoint: 120,
@@ -606,7 +606,7 @@ namespace shilka2
                             break;
 
                         case 23:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "a6",
                                 aircraftName: "A-6 Intruder",
                                 hitPoint: 80,
@@ -617,7 +617,7 @@ namespace shilka2
                             break;
 
                         case 24:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "f111",
                                 aircraftName: "F-111",
                                 hitPoint: 80,
@@ -627,7 +627,7 @@ namespace shilka2
                             break;
 
                         case 25:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "f5",
                                 aircraftName: "F-5 Tiger",
                                 hitPoint: 80,
@@ -638,7 +638,7 @@ namespace shilka2
                             break;
 
                         case 26:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "scalp",
                                 aircraftName: "SCALP",
                                 hitPoint: 20,
@@ -650,7 +650,7 @@ namespace shilka2
                             break;
 
                         case 27:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "ea6",
                                 aircraftName: "EA-6 Prowler",
                                 hitPoint: 80,
@@ -661,7 +661,7 @@ namespace shilka2
                             break;
 
                         case 28:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "hawkeye",
                                 aircraftName: "E-2 Hawkeye",
                                 hitPoint: 100,
@@ -683,7 +683,7 @@ namespace shilka2
                             break;
 
                         case 29:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "rc135",
                                 aircraftName: "RC-135",
                                 hitPoint: 120,
@@ -696,7 +696,7 @@ namespace shilka2
                             break;
 
                         case 30:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "u2",
                                 aircraftName: "U-2",
                                 hitPoint: 80,
@@ -709,7 +709,7 @@ namespace shilka2
                             break;
 
                         case 31:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "sr71",
                                 aircraftName: "SR-71 Blackbird",
                                 hitPoint: 80,
@@ -721,7 +721,7 @@ namespace shilka2
                             break;
 
                         case 32:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "harrier",
                                 aircraftName: "BAE Sea Harrier",
                                 hitPoint: 80,
@@ -732,7 +732,7 @@ namespace shilka2
                             break;
 
                         case 33:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "cessna",
                                 aircraftName: "Cessna 172",
                                 hitPoint: 50,
@@ -765,13 +765,13 @@ namespace shilka2
                     {
                         dice = rand.Next(12) + 1;
                     }
-                    while (!aircraftInList(Scripts.scriptHelicopters, dice));
+                    while (!AircraftInList(Scripts.scriptHelicopters, dice));
 
                     switch (dice)
                     {
 
                         case 1:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "ah64",
                                 aircraftName: "AH-64 Apache",
                                 hitPoint: 120,
@@ -799,7 +799,7 @@ namespace shilka2
                             break;
 
                         case 2:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "ah1",
                                 aircraftName: "AH-1 Cobra",
                                 hitPoint: 100,
@@ -827,7 +827,7 @@ namespace shilka2
                             break;
 
                         case 3:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "uh60",
                                 aircraftName: "UH-60 Black Hawk",
                                 hitPoint: 80,
@@ -855,7 +855,7 @@ namespace shilka2
                             break;
 
                         case 4:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "uh1",
                                 aircraftName: "UH-1 Iroquois",
                                 hitPoint: 80,
@@ -883,7 +883,7 @@ namespace shilka2
                             break;
 
                         case 5:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "ch47",
                                 aircraftName: "CH-47 Chinook",
                                 hitPoint: 80,
@@ -911,7 +911,7 @@ namespace shilka2
                             break;
 
                         case 6:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "v22",
                                 aircraftName: "V-22 Ospray",
                                 hitPoint: 80,
@@ -933,7 +933,7 @@ namespace shilka2
                             break;
 
                         case 7:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                aircraftType: "tiger",
                                aircraftName: "Eurocopter Tiger",
                                hitPoint: 80,
@@ -961,7 +961,7 @@ namespace shilka2
                             break;
 
                         case 8:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "drone",
                                 aircraftName: "дрон-разведчик",
                                 hitPoint: 1,
@@ -990,7 +990,7 @@ namespace shilka2
                             break;
 
                         case 9:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                  aircraftType: "gazelle",
                                  aircraftName: "Aerospatiale Gazelle",
                                  hitPoint: 60,
@@ -1018,7 +1018,7 @@ namespace shilka2
                             break;
 
                         case 10:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "comanche",
                                 aircraftName: "RAH-66 Comanche",
                                 hitPoint: 80,
@@ -1046,7 +1046,7 @@ namespace shilka2
                             break;
 
                         case 11:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "oh1",
                                 aircraftName: "OH-1 Ninja",
                                 hitPoint: 100,
@@ -1074,7 +1074,7 @@ namespace shilka2
                             break;
 
                         case 12:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "mangusta",
                                 aircraftName: "T-129 Mangusta",
                                 hitPoint: 100,
@@ -1111,12 +1111,12 @@ namespace shilka2
                     {
                         dice = rand.Next(15) + 1;
                     }
-                    while (!aircraftInList(Scripts.scriptAircraftFriend, dice));
+                    while (!AircraftInList(Scripts.scriptAircraftFriend, dice));
 
                     switch (dice)
                     {
                         case 1:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "mig23",
                                 aircraftName: "МиГ-23",
                                 hitPoint: 80,
@@ -1126,7 +1126,7 @@ namespace shilka2
                             break;
 
                         case 2:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "mig29",
                                 aircraftName: "МиГ-29",
                                 hitPoint: 80,
@@ -1136,7 +1136,7 @@ namespace shilka2
                             break;
 
                         case 3:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "mig31",
                                 aircraftName: "МиГ-31",
                                 hitPoint: 80,
@@ -1147,7 +1147,7 @@ namespace shilka2
                             break;
 
                         case 4:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "su17",
                                 aircraftName: "Су-17",
                                 hitPoint: 80,
@@ -1158,7 +1158,7 @@ namespace shilka2
                             break;
 
                         case 5:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "su24",
                                 aircraftName: "Су-24",
                                 hitPoint: 80,
@@ -1169,7 +1169,7 @@ namespace shilka2
                             break;
 
                         case 6:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "su25",
                                 aircraftName: "Су-25",
                                 hitPoint: 180,
@@ -1181,7 +1181,7 @@ namespace shilka2
                             break;
 
                         case 7:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "su27",
                                 aircraftName: "Су-27",
                                 hitPoint: 80,
@@ -1191,7 +1191,7 @@ namespace shilka2
                             break;
 
                         case 8:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "su34",
                                 aircraftName: "Су-34",
                                 hitPoint: 100,
@@ -1201,7 +1201,7 @@ namespace shilka2
                             break;
 
                         case 9:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "pakfa",
                                 aircraftName: "Су-57",
                                 hitPoint: 80,
@@ -1212,7 +1212,7 @@ namespace shilka2
                             break;
 
                         case 10:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "tu160",
                                 aircraftName: "Ту-160",
                                 hitPoint: 120,
@@ -1224,7 +1224,7 @@ namespace shilka2
                             break;
 
                         case 11:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "mig19",
                                 aircraftName: "МиГ-19",
                                 hitPoint: 80,
@@ -1234,7 +1234,7 @@ namespace shilka2
                             break;
 
                         case 12:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "mig21",
                                 aircraftName: "МиГ-21",
                                 hitPoint: 80,
@@ -1244,7 +1244,7 @@ namespace shilka2
                             break;
 
                         case 13:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "mig25",
                                 aircraftName: "МиГ-25",
                                 hitPoint: 80,
@@ -1255,7 +1255,7 @@ namespace shilka2
                             break;
 
                         case 14:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "a50",
                                 aircraftName: "А-50",
                                 hitPoint: 150,
@@ -1268,7 +1268,7 @@ namespace shilka2
                             break;
 
                         case 15:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "tu95",
                                 aircraftName: "Ту-95",
                                 hitPoint: 120,
@@ -1326,13 +1326,13 @@ namespace shilka2
                     {
                         dice = rand.Next(6) + 1;
                     }
-                    while (!aircraftInList(Scripts.scriptHelicoptersFriend, dice));
+                    while (!AircraftInList(Scripts.scriptHelicoptersFriend, dice));
 
                     switch (dice)
                     {
 
                         case 1:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "mi28",
                                 aircraftName: "Ми-28",
                                 hitPoint: 120,
@@ -1360,7 +1360,7 @@ namespace shilka2
                             break;
 
                         case 2:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "mi24",
                                 aircraftName: "Ми-24",
                                 hitPoint: 120,
@@ -1388,7 +1388,7 @@ namespace shilka2
                             break;
 
                         case 3:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "mi8",
                                 aircraftName: "Ми-8",
                                 hitPoint: 80,
@@ -1416,7 +1416,7 @@ namespace shilka2
                             break;
 
                         case 4:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "ka52",
                                 aircraftName: "Ка-52",
                                 hitPoint: 120,
@@ -1445,7 +1445,7 @@ namespace shilka2
                             break;
 
                         case 5:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "ka27",
                                 aircraftName: "Ка-27",
                                 hitPoint: 80,
@@ -1474,7 +1474,7 @@ namespace shilka2
                             break;
 
                         case 6:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "mi10",
                                 aircraftName: "Ми-10",
                                 hitPoint: 80,
@@ -1510,7 +1510,7 @@ namespace shilka2
                     switch (dice)
                     {
                         case 1:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "a320",
                                 aircraftName: "Аэробус А320",
                                 hitPoint: 100,
@@ -1523,7 +1523,7 @@ namespace shilka2
                             break;
 
                         case 2:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "boeing747",
                                 aircraftName: "Боинг 747",
                                 hitPoint: 100,
@@ -1536,7 +1536,7 @@ namespace shilka2
                             break;
 
                         case 3:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "md11",
                                 aircraftName: "MD-11",
                                 hitPoint: 100,
@@ -1549,7 +1549,7 @@ namespace shilka2
                             break;
 
                         case 4:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "atr42",
                                 aircraftName: "ATR 42",
                                 hitPoint: 80,
@@ -1572,7 +1572,7 @@ namespace shilka2
                             break;
 
                         case 5:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "dch8",
                                 aircraftName: "Bombardier DCH-8",
                                 hitPoint: 80,
@@ -1595,7 +1595,7 @@ namespace shilka2
                             break;
 
                         case 6:
-                            createNewAircraft(
+                            CreateNewAircraft(
                                 aircraftType: "ssj100",
                                 aircraftName: "Sukhoi Superjet 100",
                                 hitPoint: 80,

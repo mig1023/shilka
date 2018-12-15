@@ -22,7 +22,7 @@
         public static int?[] scriptAircraftFriend;
         public static int?[] scriptHelicoptersFriend;
 
-        public static string scriptFlagName(scriptsNames script)
+        public static string ScriptFlagName(scriptsNames script)
         {
             switch (script)
             {
@@ -42,7 +42,7 @@
             return null;
         }
 
-        public static int?[] scriptFriendAircrafts(scriptsNames script)
+        public static int?[] ScriptFriendAircrafts(scriptsNames script)
         {
 
             if (script == scriptsNames.Vietnam)
@@ -122,7 +122,7 @@
             return new int?[] { };
         }
 
-        public static int?[] scriptFriendHelicopterss(scriptsNames script)
+        public static int?[] ScriptFriendHelicopterss(scriptsNames script)
         {
 
             if (script == scriptsNames.Vietnam)
@@ -181,7 +181,7 @@
             return new int?[] { };
         }
 
-        public static int?[] scriptEnemyAircrafts(scriptsNames script)
+        public static int?[] ScriptEnemyAircrafts(scriptsNames script)
         {
 
             if (script == scriptsNames.Vietnam)
@@ -302,7 +302,7 @@
             return new int?[] { };
         }
 
-        public static int?[] scriptEnemyHelicopters(scriptsNames script)
+        public static int?[] ScriptEnemyHelicopters(scriptsNames script)
         {
 
             if (script == scriptsNames.Vietnam)

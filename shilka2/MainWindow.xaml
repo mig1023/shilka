@@ -70,7 +70,7 @@
                     <DataGridTextColumn Header="Выстрелов" Binding="{Binding shellsFired}"/>
                     <DataGridTextColumn Header="Из них в цель" Binding="{Binding inTarget}" CellStyle="{StaticResource grayCell}"/>
                     <DataGridTextColumn Header="Попаданий, %" Binding="{Binding inTargetPercent}"/>
-                    <DataGridTextColumn Header="Сбито" Binding="{Binding Shutdown}" CellStyle="{StaticResource grayCell}"/>
+                    <DataGridTextColumn Header="Сбито" Binding="{Binding shutdown}" CellStyle="{StaticResource grayCell}"/>
                     <DataGridTextColumn Header="Сбито, %" Binding="{Binding shutdownPercent}"/>
                     <DataGridTextColumn Header="Повреждённых" Binding="{Binding damaged}" CellStyle="{StaticResource grayCell}"/>
                     <DataGridTextColumn Header="Повреждённых, %" Binding="{Binding damagedPercent}"/>
