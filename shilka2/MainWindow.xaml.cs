@@ -68,7 +68,7 @@ namespace shilka2
             RadarImg.Margin = new Thickness(62, heightForShilka, 0, 0);
             HandImg.Margin = new Thickness(65, (heightForShilka - 120), 0, 0);
 
-            int dice = rand.Next(3);
+            int dice = rand.Next(10);
 
             switch (dice)
             {
