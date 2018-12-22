@@ -144,15 +144,20 @@ namespace shilka2
 
             EndText.Content = endText;
 
-            var converter = new BrushConverter();
-            EndMenu.Background = (Brush)converter.ConvertFrom(bgColor);
+            if (Shilka.school)
+                GameOver();
+            else
+            {
+                var converter = new BrushConverter();
+                EndMenu.Background = (Brush)converter.ConvertFrom(bgColor);
 
-            MoveCanvas(
-                moveCanvas: EndMenu,
-                prevCanvas: firePlaceDock,
-                left: EndMenu.Margin.Left - EndMenu.ActualWidth,
-                speed: 0.2
-            );
+                MoveCanvas(
+                    moveCanvas: EndMenu,
+                    prevCanvas: firePlaceDock,
+                    left: EndMenu.Margin.Left - EndMenu.ActualWidth,
+                    speed: 0.2
+                );
+            }
         }
 
         public void GameStatisticShow()
@@ -273,10 +278,12 @@ namespace shilka2
         {
             if (playerName != "") Statistic.Save(playerName);
 
+            double left = (Shilka.school ? firePlaceDock.Margin.Left : firePlaceDock.Margin.Left + EndMenu.ActualWidth);
+
             MoveCanvas(
                 moveCanvas: firePlaceDock, 
                 prevCanvas: EndMenu,
-                left: firePlaceDock.Margin.Left + EndMenu.ActualWidth,
+                left: left,
                 speed: 0.2,
                 secondAnimation: new EventHandler(EndGameSecAnimation)
             );
