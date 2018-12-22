@@ -118,7 +118,8 @@ namespace shilka2
 
         public static void Show(object obj, ElapsedEventArgs e)
         {
-            string stat = "";
+            string stat = ( Shilka.school ? "Обучающий режим\n" : "" );
+
             int shutdownPercent, damagedPercent, statisticWithoutDamage, inTargetPercent, shellsForShutdown;
             double chance, baseForPercent;
 

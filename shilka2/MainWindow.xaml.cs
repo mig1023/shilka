@@ -20,9 +20,9 @@ namespace shilka2
         bool startGameAlready = false;
         bool startMenuShowYet = true;
 
-        string StatisticColor = "#FF5B5B5B";
-        string StartColor = "#FF343333";
-        string EndColor = "#FF0F0570";
+        string statisticColor = "#FF5B5B5B";
+        string startColor = "#FF343333";
+        string endColor = "#FF0F0570";
 
         public MainWindow()
         {
@@ -44,7 +44,7 @@ namespace shilka2
             StatisticMenu.Margin = new Thickness(0, SystemParameters.PrimaryScreenHeight, 0, 0);
 
             var converter = new BrushConverter();
-            StatisticMenu.Background = (Brush)converter.ConvertFrom(StatisticColor);
+            StatisticMenu.Background = (Brush)converter.ConvertFrom(statisticColor);
 
             StatisticGrid.ItemsSource = Statistic.Load();
 
@@ -59,7 +59,7 @@ namespace shilka2
                 (StartMenu.Width / 2 - StartMenuButtons.Width / 2), (StartMenu.Height / 2 - StartMenuButtons.Height / 2), 0, 0
             );
 
-            StartMenu.Background = (Brush)converter.ConvertFrom(StartColor);
+            StartMenu.Background = (Brush)converter.ConvertFrom(startColor);
 
             ShilkaImg.Margin = new Thickness(0, heightForShilka, 0, 0);
             RadarImg.Margin = new Thickness(62, heightForShilka, 0, 0);
@@ -236,7 +236,7 @@ namespace shilka2
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!endGameAlready) EndGame("Выход из игры.\nСохранить статистику?", EndColor);
+            if (!endGameAlready) EndGame("Выход из игры.\nСохранить статистику?", endColor);
         }
 
         private void pauseButton_Click(object sender, RoutedEventArgs e)
@@ -331,13 +331,19 @@ namespace shilka2
 
         private void startScript_Click(object sender, RoutedEventArgs e)
         {
-            Button startButton = sender as Button;
+            string scriptName = "noScript";
 
-            switch (startButton.Name)
+            if (sender == null)
+                Shilka.school = true;
+            else
             {
-                case "noScript":
-                    StartScript(Scripts.scriptsNames.noScript);
-                    break;
+                Button startButton = sender as Button;
+                scriptName = startButton.Name;
+                Shilka.school = false;
+            }
+
+            switch (scriptName)
+            {
                 case "Vietnam":
                     StartScript(Scripts.scriptsNames.Vietnam);
                     break;
@@ -371,7 +377,15 @@ namespace shilka2
                 case "Khmeimim":
                     StartScript(Scripts.scriptsNames.Khmeimim);
                     break;
+                default:
+                    StartScript(Scripts.scriptsNames.noScript);
+                    break;
             }
+        }
+
+        private void schoolButton_Click(object sender, RoutedEventArgs e)
+        {
+            startScript_Click(null, null);
         }
 
         private void StatisticGrid_LoadingRow(object sender, DataGridRowEventArgs e)

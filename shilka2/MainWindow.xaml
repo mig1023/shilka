@@ -30,7 +30,8 @@
                 <Image x:Name="shilkaArt" Height="348" Canvas.Left="10" Canvas.Top="5" Width="435"  Source="images/shilka-art.jpg"/>
                 <Button x:Name="noScript" Content="Быстрая игра" Height="87" Canvas.Left="10" Canvas.Top="358" Width="215" Click="startScript_Click" FontFamily="Arial" FontSize="26"/>
                 <Button x:Name="exitButton" Content="Выход" Height="41" Canvas.Left="230" Canvas.Top="358" Width="215" FontFamily="Arial Narrow" FontSize="20" Click="exitButton_Click"/>
-                <Button x:Name="resultButton" Content="Результаты" Height="41" Canvas.Left="230" Canvas.Top="404" Width="215" FontFamily="Arial Narrow" FontSize="20" Click="statisticButton_Click"/>
+                <Button x:Name="schoolButton" Content="Обучение" Height="41" Canvas.Left="230" Canvas.Top="404" Width="93" FontFamily="Arial Narrow" FontSize="20" Click="schoolButton_Click"/>
+                <Button x:Name="resultButton" Content="Результаты" Height="41" Canvas.Left="329" Canvas.Top="404" Width="116" FontFamily="Arial Narrow" FontSize="20" Click="statisticButton_Click"/>
                 <Button x:Name="Vietnam" Content="Вьетнамская война" Height="41" Canvas.Left="10" Canvas.Top="450" Width="134" Click="startScript_Click" FontSize="12"/>
                 <Button x:Name="DesertStorm" Content="Буря в пустыне" Height="41" Canvas.Left="324" Canvas.Top="542" Width="121" Click="startScript_Click" FontSize="12"/>
                 <Button x:Name="Yugoslavia" Content="Бомбардировки Югославии" Height="41" Canvas.Left="10" Canvas.Top="496" Width="253" Click="startScript_Click" FontSize="12"/>

@@ -27,6 +27,7 @@ namespace shilka2
         static int gunReturn = 0; 
 
         public static double lastDegree = 0;
+        public static bool school = false;
 
         static Random rand;
 

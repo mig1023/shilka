@@ -47,6 +47,8 @@ namespace shilka2
 
         public Image aircraftImage;
 
+        public Label aircraftSchoolName;
+
         public List<DynamicElement> dynamicElemets = new List<DynamicElement>(); 
 
         public static List<Aircraft> aircrafts = new List<Aircraft>();
@@ -149,6 +151,12 @@ namespace shilka2
                                 d.element.RenderTransform = new ScaleTransform(1, d.rotateDegreeCurrent, 0, (d.element.ActualHeight / 2));
                         }
                     }
+
+                    if (Shilka.school)
+                    {
+                        double xPos = (aircraft.flightDirection == FlightDirectionType.Left ? 0 : aircraft.aircraftImage.Width - aircraft.aircraftSchoolName.ActualWidth);
+                        aircraft.aircraftSchoolName.Margin = new Thickness(aircraft.x + xPos, aircraft.y + aircraft.aircraftImage.Height, 0, 0);
+                    }
                 }
 
                 for (int x = 0; x < aircrafts.Count; x++)
@@ -158,6 +166,9 @@ namespace shilka2
 
                         foreach (DynamicElement d in aircrafts[x].dynamicElemets)
                             main.firePlace.Children.Remove(d.element);
+
+                        if (Shilka.school)
+                            main.firePlace.Children.Remove(aircrafts[x].aircraftSchoolName);
 
                         aircrafts.RemoveAt(x);
                     }
@@ -285,6 +296,14 @@ namespace shilka2
                     Canvas.SetZIndex(newAircraftImage, (zIndex == zIndexType.inFront ? 70 : 30));
                 else
                     Canvas.SetZIndex(newAircraftImage, (cloud ? 100 : 50));
+
+                if (Shilka.school)
+                {
+                    Label aircraftLabelName = new Label();
+                    aircraftLabelName.Content = newAircraft.aircraftName;
+                    newAircraft.aircraftSchoolName = aircraftLabelName;
+                    main.firePlace.Children.Add(aircraftLabelName);
+                } 
 
                 newAircraft.aircraftImage = newAircraftImage;
                 main.firePlace.Children.Add(newAircraftImage);
