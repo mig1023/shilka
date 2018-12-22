@@ -24,9 +24,6 @@ namespace shilka2
         string StartColor = "#FF343333";
         string EndColor = "#FF0F0570";
 
-        public static Random rand = new Random();
-
-
         public MainWindow()
         {
             InitializeComponent();
@@ -67,45 +64,6 @@ namespace shilka2
             ShilkaImg.Margin = new Thickness(0, heightForShilka, 0, 0);
             RadarImg.Margin = new Thickness(62, heightForShilka, 0, 0);
             HandImg.Margin = new Thickness(65, (heightForShilka - 120), 0, 0);
-
-            int dice = rand.Next(10);
-
-            switch (dice)
-            {
-                case 1:
-                    ShowNote(
-                        note: note,
-                        image: "note",
-                        width: 178,
-                        height: 143,
-                        x: 600,
-                        y: heightForShilka
-                    );
-                    break;
-
-                case 2:
-                    ShowNote(
-                        note: note,
-                        image: "note2",
-                        width: 536,
-                        height: 137,
-                        x: 900,
-                        y: heightForShilka
-                    );
-                    break;
-
-                default:
-                    note.Visibility = System.Windows.Visibility.Hidden;
-                    break;
-            }
-        }
-
-        public void ShowNote(Image note, string image, double width, double height, double x, double y)
-        {
-            note.Source = Aircraft.ImageFromResources(image);
-            note.Width = width;
-            note.Height = height;
-            note.Margin = new Thickness(SystemParameters.PrimaryScreenWidth - x, (y - 120), 0, 0);
         }
 
         public void StartGame(int?[] scriptAircraft, int?[] scriptHelicopters,
