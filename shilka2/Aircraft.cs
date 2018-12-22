@@ -302,6 +302,9 @@ namespace shilka2
                     Label aircraftLabelName = new Label();
                     aircraftLabelName.Content = newAircraft.aircraftName;
                     newAircraft.aircraftSchoolName = aircraftLabelName;
+                    newAircraft.aircraftSchoolName.Foreground = ((friend || airliner) ? Brushes.Green : Brushes.Red);
+
+
                     main.firePlace.Children.Add(aircraftLabelName);
                 } 
 
