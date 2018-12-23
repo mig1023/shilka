@@ -319,6 +319,7 @@
                     3,     // <-- uh60
                     4,     // <-- uh1
                     5,     // <-- ch46
+                    13,    // <-- puma
                 };
 
             if (script == scriptsNames.DesertStorm)
@@ -328,6 +329,7 @@
                     3,     // <-- uh60
                     4,     // <-- uh1
                     5,     // <-- ch46
+                    13,    // <-- puma
                 };
 
             if (script == scriptsNames.IranIraq)
