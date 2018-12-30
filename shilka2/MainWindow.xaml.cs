@@ -12,9 +12,14 @@ namespace shilka2
 {
     public partial class MainWindow : Window
     {
+        const double STAT_TEXT_TOP = 45;
+        const double STAT_TEXT_LEFT = 10;
+
         public System.Timers.Timer Game = new System.Timers.Timer(30);
         public System.Timers.Timer HandMove = new System.Timers.Timer(600);
         public System.Timers.Timer Aircrafts = new System.Timers.Timer(2000);
+        public System.Timers.Timer School = new System.Timers.Timer(800);
+
         bool pause = false;
         bool endGameAlready = false;
         bool startGameAlready = false;
@@ -23,6 +28,8 @@ namespace shilka2
         string statisticColor = "#FF5B5B5B";
         string startColor = "#FF343333";
         string endColor = "#FF0F0570";
+
+        static bool SchoolTicTac = false;
 
         public MainWindow()
         {
@@ -83,6 +90,8 @@ namespace shilka2
                 Shell.animationStop = false;
             }
 
+            statShells.Margin = new Thickness(STAT_TEXT_TOP, STAT_TEXT_LEFT + (Shilka.school ? 25 : 0), 0, 0);
+
             Scripts.scriptAircraft = scriptAircraft;
             Scripts.scriptHelicopters = scriptHelicopters;
             Scripts.scriptAircraftFriend = scriptAircraftFriend;
@@ -106,6 +115,8 @@ namespace shilka2
                 Game.Elapsed += new ElapsedEventHandler(Statistic.Show);
 
                 Aircrafts.Elapsed += new ElapsedEventHandler(Aircraft.AircraftStart);
+
+                School.Elapsed += new ElapsedEventHandler(SchoolShow);
             }
             HandMove.Enabled = true;
             HandMove.Start();
@@ -115,6 +126,13 @@ namespace shilka2
 
             Aircrafts.Enabled = true;
             Aircrafts.Start();
+
+            if (Shilka.school)
+            {
+                schoolLabel.Visibility = Visibility.Visible;
+                School.Enabled = true;
+                School.Start();
+            }
 
             startGameAlready = true;
         }
@@ -136,6 +154,27 @@ namespace shilka2
                     0, 0
                 );
                 main.HandImg.BeginAnimation(MarginProperty, move);
+            }));
+        }
+
+        public static void SchoolShow(object obj, ElapsedEventArgs e)
+        {
+            Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
+            {
+                MainWindow main = (MainWindow)Application.Current.MainWindow;
+                
+                if (SchoolTicTac)
+                {
+                    main.schoolLabel.Background = Brushes.Black;
+                    main.schoolLabel.Foreground = Brushes.White;
+                    SchoolTicTac = false;
+                }
+                else
+                {
+                    main.schoolLabel.Background = Brushes.Transparent;
+                    main.schoolLabel.Foreground = Brushes.Black;
+                    SchoolTicTac = true;
+                }
             }));
         }
 
