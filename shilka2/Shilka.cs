@@ -64,21 +64,26 @@ namespace shilka2
             Shell.currentHeight = (sender as Window).Height;
             Shell.currentWidth = (sender as Window).Width + Shell.FIRE_WIDTH_CORRECTION;
 
-            if (Shell.ptX < 0) Shell.ptX = 0;
-            if (Shell.ptY < 0) Shell.ptY = 0;
+            if (Shell.ptX < 0)
+                Shell.ptX = 0;
+
+            if (Shell.ptY < 0)
+                Shell.ptY = 0;
 
             double LastSin = Shell.ptY / Math.Sqrt((Shell.ptX * Shell.ptX) + (Shell.ptY * Shell.ptY));
             double newLastDegree = Math.Asin(LastSin) * (180 / Math.PI) * -1;
 
             newLastDegree += LAST_DEGREE_CORRECTION;
-            if (newLastDegree > 0) newLastDegree = 0;
+            if (newLastDegree > 0)
+                newLastDegree = 0;
 
             lastDegree = ( double.IsNaN(newLastDegree) ? lastDegree : newLastDegree );
         }
 
         public static void HeatingOfGuns(bool shooting)
         {
-            if (rand.Next(2) == 1) return;
+            if (rand.Next(2) == 1)
+                return;
 
             degreeOfHeatingGunBurrels += (shooting ? 1 : -1);
 
@@ -89,7 +94,7 @@ namespace shilka2
                 reheatingGunBurrels = true;
                 Shell.fire = false;
             }
-            else if(degreeOfHeatingGunBurrels < 300)
+            else if (degreeOfHeatingGunBurrels < 300)
                 reheatingGunBurrels = false;
         }
 
@@ -108,7 +113,8 @@ namespace shilka2
         {
             flashСount++;
 
-            if (flashСount >= 10) flashСount = 0;
+            if (flashСount >= 10)
+                flashСount = 0;
 
             if (
                 ((flashСount >= 2) && (flashСount < 5) && (numGuns == 0))
@@ -138,10 +144,14 @@ namespace shilka2
         {
 
             double currentHeight = Shell.currentHeight;
-            if (currentHeight < 0) currentHeight = main.ActualHeight;
+            if (currentHeight < 0)
+                currentHeight = main.ActualHeight;
 
-            if (Shell.fire) gunReturn++;
-            if (gunReturn > 3) gunReturn = 0;
+            if (Shell.fire)
+                gunReturn++;
+
+            if (gunReturn > 3)
+                gunReturn = 0;
 
             double[,] mountXY = new double[2, 2] { { 0, 0 }, { 0, 0 } };
 
@@ -173,7 +183,8 @@ namespace shilka2
                 Canvas.SetZIndex(gun, 200);
                 Shell.allLines.Add(gun);
 
-                if (Shell.fire) DrawGansFlashs(main, gun, numGuns);
+                if (Shell.fire)
+                    DrawGansFlashs(main, gun, numGuns);
             }
 
             Line gunMount = new Line();

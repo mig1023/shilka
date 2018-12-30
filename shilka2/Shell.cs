@@ -50,7 +50,8 @@ namespace shilka2
             {
                 MainWindow main = (MainWindow)Application.Current.MainWindow;
 
-                if (animationStop) return;
+                if (animationStop)
+                    return;
 
                 foreach (var line in allLines)
                     main.firePlace.Children.Remove(line);
@@ -82,7 +83,8 @@ namespace shilka2
                             (shell.x > (aircraft.aircraftImage.Margin.Left) ) &&
                             (shell.x < (aircraft.aircraftImage.Margin.Left + aircraft.aircraftImage.Width) )
                         ) {
-                            if (aircraft.cloud) continue;
+                            if (aircraft.cloud)
+                                continue;
 
                             shell.flash = true;
                             shellTrace.Stroke = Brushes.Red;
@@ -117,7 +119,8 @@ namespace shilka2
                                 aircraft.dead = true;
                             }
                         }
-                        else if (shell.flash) shell.fly = false;
+                        else if (shell.flash)
+                            shell.fly = false;
                             
 
                     if ((shell.y < 0) || (shell.x > currentWidth))

@@ -214,7 +214,8 @@ namespace shilka2
             move.From = prevCanvas.Margin;
             move.To = new Thickness(left, top, moveCanvas.Margin.Right, moveCanvas.Margin.Bottom);
 
-            if (secondAnimation != null) move.Completed += secondAnimation;
+            if (secondAnimation != null)
+                move.Completed += secondAnimation;
 
             prevCanvas.BeginAnimation(MarginProperty, move);
         }
@@ -223,7 +224,8 @@ namespace shilka2
         {
             Shilka.SetNewTergetPoint(e.GetPosition((Window)sender), sender);
 
-            if (!Shilka.reheatingGunBurrels) Shell.fire = true;
+            if (!Shilka.reheatingGunBurrels)
+                Shell.fire = true;
         }
 
         private void Window_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -235,7 +237,8 @@ namespace shilka2
         {
             Shilka.SetNewTergetPoint(e.GetPosition((Window)sender), sender);
 
-            if (!pause) RadarImg.RenderTransform = new RotateTransform(Shilka.lastDegree, 4, 20);
+            if (!pause)
+                RadarImg.RenderTransform = new RotateTransform(Shilka.lastDegree, 4, 20);
         }
 
         private void exitButton_Click(object sender, RoutedEventArgs e)
@@ -245,11 +248,10 @@ namespace shilka2
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
         {
+            string endText = (Shilka.school ? "Выход из обучения" : "Выход из игры.\nСохранить статистику?");
+
             if (!endGameAlready)
-                if (Shilka.school)
-                    EndGame("Выход из обучения", endColor); 
-                else
-                    EndGame("Выход из игры.\nСохранить статистику?", endColor);
+                EndGame(endText, endColor); 
         }
 
         private void GameOverTraining_Click(object sender, RoutedEventArgs e)
@@ -272,7 +274,8 @@ namespace shilka2
 
         private void pauseButton_Click(object sender, RoutedEventArgs e)
         {
-            if (endGameAlready) return;
+            if (endGameAlready)
+                return;
 
             if (pause)
             {

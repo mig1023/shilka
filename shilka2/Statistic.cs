@@ -44,7 +44,9 @@ namespace shilka2
             inTargetPercent = ((statisticShellsFired > 0) ? staticticInTarget * 100 / statisticShellsFired : 0);
 
             chance = (double)statisticPriceOfAllAircrafts / (statisticAllAircraft * (double)Aircraft.AIRCRAFT_AVERAGE_PRICE);
-            if (double.IsNaN(chance)) chance = 0;
+
+            if (double.IsNaN(chance))
+                chance = 0;
 
             shellsForShutdown = (staticticAircraftShutdown > 0 ? (int)statisticShellsFired / staticticAircraftShutdown : 0);
         }
@@ -151,7 +153,8 @@ namespace shilka2
             {
                 int hasGonePercent = (int)(statisticHasGone * baseForPercent);
 
-                if ((hasGonePercent == 0) && (statisticHasGone > 0)) hasGonePercent = 1;
+                if ((hasGonePercent == 0) && (statisticHasGone > 0))
+                    hasGonePercent = 1;
 
                 stat += "Упущено: " + statisticHasGone + " ( " + hasGonePercent + "% )";
 
@@ -180,20 +183,23 @@ namespace shilka2
                 stat += "\n";
             }
 
-            if (statisticFriendDamage > 0) stat += "Повреждено своих: " + statisticFriendDamage;
+            if (statisticFriendDamage > 0)
+                stat += "Повреждено своих: " + statisticFriendDamage;
 
             if (statisticAirlinerDamage > 0)
                 stat += (statisticFriendDamage == 0 ? "П" : " +п") + "овреждено гражданских: " + statisticAirlinerDamage + "\n";
             else if (statisticFriendDamage > 0)
                 stat += "\n";
 
-            if (statisticAllAircraft > 0) stat += string.Format("Удача: {0:f2}", chance) + "\n";
+            if (statisticAllAircraft > 0)
+                stat += string.Format("Удача: {0:f2}", chance) + "\n";
 
             if (statisticShellsFired > 0)
             {
                 stat += "Температура стволов: " + Shilka.degreeOfHeatingGunBurrels + "°C";
 
-                if (Shilka.reheatingGunBurrels) stat += " - перегрев стволов!\n";
+                if (Shilka.reheatingGunBurrels)
+                    stat += " - перегрев стволов!\n";
 
                 stat += "\n";
             }

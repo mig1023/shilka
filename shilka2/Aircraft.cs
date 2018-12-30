@@ -84,7 +84,8 @@ namespace shilka2
                             }
                             aircraft.y += aircraft.tangage;
 
-                            if (aircraft.y > aircraft.minAltitude) aircraft.y = aircraft.minAltitude;
+                            if (aircraft.y > aircraft.minAltitude)
+                            aircraft.y = aircraft.minAltitude;
                         }
 
                     if ((aircraft.maxAltitude >= 0) && (aircraft.y < aircraft.maxAltitude))
@@ -135,7 +136,9 @@ namespace shilka2
                             int direction = (aircraft.flightDirection == FlightDirectionType.Left ? 1 : -1);
 
                             d.rotateDegreeCurrent += (25 * direction);
-                            if (d.rotateDegreeCurrent < -180 || d.rotateDegreeCurrent > 180) d.rotateDegreeCurrent = 0;
+
+                            if (d.rotateDegreeCurrent < -180 || d.rotateDegreeCurrent > 180)
+                                d.rotateDegreeCurrent = 0;
                                 
                             d.element.RenderTransform = new RotateTransform(d.rotateDegreeCurrent, (d.element.ActualWidth / 2), (d.element.ActualHeight / 2));
                         }
@@ -143,7 +146,9 @@ namespace shilka2
                         if (d.movingType == DynamicElement.MovingType.xRotate || d.movingType == DynamicElement.MovingType.yRotate)
                         {
                             d.rotateDegreeCurrent -= 0.2;
-                            if (d.rotateDegreeCurrent < 0.2) d.rotateDegreeCurrent = 1;
+
+                            if (d.rotateDegreeCurrent < 0.2)
+                                d.rotateDegreeCurrent = 1;
 
                             if (d.movingType == DynamicElement.MovingType.xRotate)
                                 d.element.RenderTransform = new ScaleTransform(d.rotateDegreeCurrent, 1, (d.element.ActualWidth / 2), 0);
@@ -177,14 +182,17 @@ namespace shilka2
 
         private static bool AircraftInList(int?[] scriptAircraft, int aircraft)
         {
-            if (scriptAircraft == null) return false;
+            if (scriptAircraft == null)
+                return false;
 
-            if (scriptAircraft.Length == 0) return true;
+            if (scriptAircraft.Length == 0)
+                return true;
 
             bool inList = false;
 
             foreach (int aircraftInList in scriptAircraft)
-                if (aircraftInList == aircraft) inList = true;
+                if (aircraftInList == aircraft)
+                    inList = true;
 
             return inList;
         }
@@ -284,7 +292,8 @@ namespace shilka2
 
                 newAircraft.speed = speed + randomSpeed;
 
-                if (newAircraft.minAltitude == -1) newAircraft.minAltitude = minAltitudeGlobal;
+                if (newAircraft.minAltitude == -1)
+                    newAircraft.minAltitude = minAltitudeGlobal;
 
                 if (!friend && !airliner)
                 {
@@ -342,7 +351,8 @@ namespace shilka2
                 case 8:
                 case 9:
 
-                    if (Scripts.scriptAircraft == null) goto case 1;
+                    if (Scripts.scriptAircraft == null)
+                        goto case 1;
 
                     do
                     {
@@ -350,9 +360,11 @@ namespace shilka2
                     }
                     while (!AircraftInList(Scripts.scriptAircraft, dice));
 
-                    if ((Shilka.currentScript == Scripts.scriptsNames.F117Hunt) && (dice != 4)) goto case 1;
+                    if ((Shilka.currentScript == Scripts.scriptsNames.F117Hunt) && (dice != 4))
+                        goto case 1;
 
-                    if (Shilka.currentScript == Scripts.scriptsNames.Khmeimim) goto case 10;
+                    if (Shilka.currentScript == Scripts.scriptsNames.Khmeimim)
+                        goto case 10;
 
                     switch (dice)
                     {
@@ -781,7 +793,8 @@ namespace shilka2
                 case 11:
                 case 12:
 
-                    if (Scripts.scriptHelicopters == null) goto case 5;
+                    if (Scripts.scriptHelicopters == null)
+                        goto case 5;
 
                     do
                     {
@@ -1156,7 +1169,8 @@ namespace shilka2
 
                 case 13:
 
-                    if (Scripts.scriptAircraftFriend == null) goto case 1;
+                    if (Scripts.scriptAircraftFriend == null)
+                        goto case 1;
 
                     do
                     {
@@ -1371,7 +1385,8 @@ namespace shilka2
 
                 case 14:
 
-                    if (Scripts.scriptHelicoptersFriend == null) goto case 13;
+                    if (Scripts.scriptHelicoptersFriend == null)
+                        goto case 13;
 
                     do
                     {
