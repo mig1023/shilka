@@ -37,6 +37,10 @@ namespace shilka2
 
             EndMenu.Height = SystemParameters.PrimaryScreenHeight;
             EndMenu.Margin = new Thickness(SystemParameters.PrimaryScreenWidth, 0, 0, 0);
+
+            RestartTrainingMenu.Height = SystemParameters.PrimaryScreenHeight;
+            RestartTrainingMenu.Margin = new Thickness(SystemParameters.PrimaryScreenWidth, 0, 0, 0);
+
             firePlaceDock.Margin = new Thickness(SystemParameters.PrimaryScreenWidth, 0, 0, 0);
 
             StatisticMenu.Height = SystemParameters.PrimaryScreenHeight;
@@ -142,22 +146,22 @@ namespace shilka2
             Game.Stop();
             Aircrafts.Stop();
 
-            EndText.Content = endText;
+            Canvas newMenu = (Shilka.school ? RestartTrainingMenu : EndMenu);
+                            
+            var converter = new BrushConverter();
+            newMenu.Background = (Brush)converter.ConvertFrom(bgColor);
 
             if (Shilka.school)
-                GameOver();
+                RestartText.Content = endText;
             else
-            {
-                var converter = new BrushConverter();
-                EndMenu.Background = (Brush)converter.ConvertFrom(bgColor);
+                EndText.Content = endText;
 
-                MoveCanvas(
-                    moveCanvas: EndMenu,
-                    prevCanvas: firePlaceDock,
-                    left: EndMenu.Margin.Left - EndMenu.ActualWidth,
-                    speed: 0.2
-                );
-            }
+            MoveCanvas(
+                moveCanvas: newMenu,
+                prevCanvas: firePlaceDock,
+                left: newMenu.Margin.Left - newMenu.ActualWidth,
+                speed: 0.2
+            );
         }
 
         public void GameStatisticShow()
@@ -241,7 +245,29 @@ namespace shilka2
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!endGameAlready) EndGame("Выход из игры.\nСохранить статистику?", endColor);
+            if (!endGameAlready)
+                if (Shilka.school)
+                    EndGame("Выход из обучения", endColor); 
+                else
+                    EndGame("Выход из игры.\nСохранить статистику?", endColor);
+        }
+
+        private void GameOverTraining_Click(object sender, RoutedEventArgs e)
+        {
+            Shilka.EndGameCleaning();
+
+            MoveCanvas(
+                moveCanvas: firePlaceDock,
+                prevCanvas: RestartTrainingMenu,
+                left: 0,
+                speed: 0.2
+            );
+
+            endGameAlready = false;
+
+            Shell.animationStop = false;
+            Game.Start();
+            Aircrafts.Start();
         }
 
         private void pauseButton_Click(object sender, RoutedEventArgs e)
@@ -276,14 +302,15 @@ namespace shilka2
 
         private void GameOver(string playerName = "")
         {
-            if (playerName != "") Statistic.Save(playerName);
+            if (playerName != "")
+                Statistic.Save(playerName);
 
-            double left = (Shilka.school ? firePlaceDock.Margin.Left : firePlaceDock.Margin.Left + EndMenu.ActualWidth);
+            Canvas prevMenu = ( Shilka.school ? RestartTrainingMenu : EndMenu);
 
             MoveCanvas(
                 moveCanvas: firePlaceDock, 
-                prevCanvas: EndMenu,
-                left: left,
+                prevCanvas: prevMenu,
+                left: firePlaceDock.Margin.Left + EndMenu.ActualWidth,
                 speed: 0.2,
                 secondAnimation: new EventHandler(EndGameSecAnimation)
             );
