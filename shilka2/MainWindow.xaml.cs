@@ -133,6 +133,12 @@ namespace shilka2
                 School.Enabled = true;
                 School.Start();
             }
+            else
+            {
+                schoolLabel.Visibility = Visibility.Hidden;
+                School.Enabled = false;
+                School.Stop();
+            }
 
             startGameAlready = true;
         }

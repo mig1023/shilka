@@ -164,7 +164,7 @@ namespace shilka2
                 stat += "\n";
             }
 
-            if (statisticAmountOfDamage > 0)
+            if (statisticAmountOfDamage > 0 && !Shilka.school)
             {
                 stat += "Нанесён ущерб: ";
 
