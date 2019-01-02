@@ -310,6 +310,7 @@
                     2,     // <-- ah1
                     4,     // <-- uh1
                     5,     // <-- ch46
+                    14,    // <-- mh53
                 };
 
             if (script == scriptsNames.Yugoslavia)

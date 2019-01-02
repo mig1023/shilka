@@ -798,7 +798,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = rand.Next(13) + 1;
+                        dice = rand.Next(14) + 1;
                     }
                     while (!AircraftInList(Scripts.scriptHelicopters, dice));
 
@@ -1158,6 +1158,35 @@ namespace shilka2
                                         elementName = "t_suppl",
                                         y = -16,
                                         x_left = 177,
+                                        x_right = -11,
+                                        movingType = DynamicElement.MovingType.zRotate
+                                    }
+                                }
+                            );
+                            break;
+
+                        case 14:
+                            CreateNewAircraft(
+                                aircraftType: "mh53",
+                                aircraftName: "Sikorsky MH-53",
+                                hitPoint: 100,
+                                size: new int[] { 375, 84 },
+                                price: 53,
+                                speed: 5,
+                                minAltitude: maxAltitudeForHelicopters,
+                                cantEscape: true,
+                                elements: new List<DynamicElement> {
+                                    new DynamicElement {
+                                        elementName = "prop_main",
+                                        y = 5,
+                                        x_left = 60,
+                                        x_right = 89,
+                                        movingType = DynamicElement.MovingType.xRotate,
+                                    },
+                                    new DynamicElement {
+                                        elementName = "t_suppl",
+                                        y = -16,
+                                        x_left = 327,
                                         x_right = -11,
                                         movingType = DynamicElement.MovingType.zRotate
                                     }
