@@ -1177,10 +1177,10 @@ namespace shilka2
                                 cantEscape: true,
                                 elements: new List<DynamicElement> {
                                     new DynamicElement {
-                                        elementName = "prop_main",
+                                        elementName = "prop_main_big",
                                         y = 5,
-                                        x_left = 60,
-                                        x_right = 89,
+                                        x_left = 40,
+                                        x_right = 69,
                                         movingType = DynamicElement.MovingType.xRotate,
                                     },
                                     new DynamicElement {
@@ -1579,10 +1579,10 @@ namespace shilka2
                                 friend: true,
                                 elements: new List<DynamicElement> {
                                     new DynamicElement {
-                                        elementName = "prop_main",
+                                        elementName = "prop_main_big",
                                         y = -20,
-                                        x_left = -25,
-                                        x_right = 95,
+                                        x_left = -35,
+                                        x_right = 70,
                                         movingType = DynamicElement.MovingType.xRotate,
                                     },
                                     new DynamicElement {

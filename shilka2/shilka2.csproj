@@ -209,6 +209,7 @@
     <Resource Include="images\mangusta.png" />
     <Resource Include="images\puma.png" />
     <Resource Include="images\mh53.png" />
+    <Resource Include="images\prop_main_big.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
