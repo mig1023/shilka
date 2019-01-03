@@ -160,7 +160,9 @@ namespace shilka2
                     if (Shilka.school)
                     {
                         int hitpoint = (aircraft.hitpoint >= 0 ? aircraft.hitpoint/2 : 0);
-                        aircraft.aircraftSchoolName.Content = aircraft.aircraftName + " " + new string('|', hitpoint);
+
+                        if (!aircraft.cloud)
+                            aircraft.aircraftSchoolName.Content = aircraft.aircraftName + " " + new string('|', hitpoint);
 
                         aircraft.aircraftSchoolName.Margin = new Thickness(aircraft.x, aircraft.y + aircraft.aircraftImage.Height, 0, 0);
                     }
