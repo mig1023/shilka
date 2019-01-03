@@ -159,8 +159,10 @@ namespace shilka2
 
                     if (Shilka.school)
                     {
-                        double xPos = (aircraft.flightDirection == FlightDirectionType.Left ? 0 : aircraft.aircraftImage.Width - aircraft.aircraftSchoolName.ActualWidth);
-                        aircraft.aircraftSchoolName.Margin = new Thickness(aircraft.x + xPos, aircraft.y + aircraft.aircraftImage.Height, 0, 0);
+                        int hitpoint = (aircraft.hitpoint >= 0 ? aircraft.hitpoint/2 : 0);
+                        aircraft.aircraftSchoolName.Content = aircraft.aircraftName + " " + new string('|', hitpoint);
+
+                        aircraft.aircraftSchoolName.Margin = new Thickness(aircraft.x, aircraft.y + aircraft.aircraftImage.Height, 0, 0);
                     }
                 }
 
@@ -312,7 +314,6 @@ namespace shilka2
                     aircraftLabelName.Content = newAircraft.aircraftName;
                     newAircraft.aircraftSchoolName = aircraftLabelName;
                     newAircraft.aircraftSchoolName.Foreground = ((friend || airliner) ? Brushes.Green : Brushes.Red);
-
 
                     main.firePlace.Children.Add(aircraftLabelName);
                 } 
