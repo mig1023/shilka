@@ -1603,7 +1603,7 @@ namespace shilka2
 
                 case 15:
 
-                    dice = rand.Next(7) + 1;
+                    dice = rand.Next(8) + 1;
 
                     switch (dice)
                     {
@@ -1715,6 +1715,38 @@ namespace shilka2
                                 minAltitude: minAltitudeForLargeAircraft,
                                 cantEscape: true,
                                 airliner: true
+                            );
+                            break;
+                            
+                        case 8:
+                            CreateNewAircraft(
+                                aircraftType: "l1049",
+                                aircraftName: "Локхид L-1049",
+                                hitPoint: 60,
+                                size: new int[] { 414, 119 },
+                                speed: 6,
+                                minAltitude: minAltitudeForLargeAircraft,
+                                cantEscape: true,
+                                airliner: true,
+                                elements: new List<DynamicElement> {
+                                    new DynamicElement {
+                                        elementName = "ltl_prop",
+                                        y = 43,
+                                        x_left = 126,
+                                        x_right = 275,
+                                        movingType = DynamicElement.MovingType.yRotate,
+                                        mirror = true
+                                    },
+                                    new DynamicElement {
+                                        elementName = "ltl_prop",
+                                        y = 48,
+                                        x_left = 119,
+                                        x_right = 282,
+                                        movingType = DynamicElement.MovingType.yRotate,
+                                        mirror = true,
+                                        startDegree = 0.5,
+                                    }
+                                }
                             );
                             break;
                     }
