@@ -1603,7 +1603,7 @@ namespace shilka2
 
                 case 15:
 
-                    dice = rand.Next(8) + 1;
+                    dice = rand.Next(9) + 1;
 
                     switch (dice)
                     {
@@ -1717,7 +1717,7 @@ namespace shilka2
                                 airliner: true
                             );
                             break;
-                            
+
                         case 8:
                             CreateNewAircraft(
                                 aircraftType: "l1049",
@@ -1747,6 +1747,19 @@ namespace shilka2
                                         startDegree = 0.5,
                                     }
                                 }
+                            );
+                            break;
+
+                        case 9:
+                            CreateNewAircraft(
+                                aircraftType: "mc21",
+                                aircraftName: "Иркут МС-21",
+                                hitPoint: 80,
+                                size: new int[] { 560, 154 },
+                                speed: 8,
+                                minAltitude: minAltitudeForLargeAircraft,
+                                cantEscape: true,
+                                airliner: true
                             );
                             break;
                     }
