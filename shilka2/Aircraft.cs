@@ -1603,7 +1603,7 @@ namespace shilka2
 
                 case 15:
 
-                    dice = rand.Next(6) + 1;
+                    dice = rand.Next(7) + 1;
 
                     switch (dice)
                     {
@@ -1699,6 +1699,19 @@ namespace shilka2
                                 hitPoint: 80,
                                 size: new int[] { 355, 124 },
                                 speed: 8,
+                                minAltitude: minAltitudeForLargeAircraft,
+                                cantEscape: true,
+                                airliner: true
+                            );
+                            break;
+
+                        case 7:
+                            CreateNewAircraft(
+                                aircraftType: "boeing707",
+                                aircraftName: "Боинг 707",
+                                hitPoint: 80,
+                                size: new int[] { 470, 116 },
+                                speed: 9,
                                 minAltitude: minAltitudeForLargeAircraft,
                                 cantEscape: true,
                                 airliner: true
