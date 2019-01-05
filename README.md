@@ -65,3 +65,4 @@ The game is about a small anti-aircraft vahicle in the school notebook
 | ------------- | ------------- | ------------- |
 | Аirbus A320 | ATR 42 | Boeing 747 |
 | Bombardier DHC-8 | McDonnell Douglas MD-11 | Sukhoi Superjet 100 |
+| Boeing 707 | Lockheed L-1049 Super Constellation | Irkut MC-21 |
