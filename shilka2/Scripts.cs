@@ -122,7 +122,7 @@
             return new int?[] { };
         }
 
-        public static int?[] ScriptFriendHelicopterss(scriptsNames script)
+        public static int?[] ScriptFriendHelicopters(scriptsNames script)
         {
 
             if (script == scriptsNames.Vietnam)

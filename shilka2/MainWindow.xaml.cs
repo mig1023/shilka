@@ -407,7 +407,7 @@ namespace shilka2
                 Scripts.ScriptEnemyAircrafts(script),
                 Scripts.ScriptEnemyHelicopters(script),
                 Scripts.ScriptFriendAircrafts(script),
-                Scripts.ScriptFriendHelicopterss(script)
+                Scripts.ScriptFriendHelicopters(script)
             );
         }
 
