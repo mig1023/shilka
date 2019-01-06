@@ -1603,7 +1603,14 @@ namespace shilka2
 
                 case 15:
 
-                    dice = rand.Next(9) + 1;
+                    if (Scripts.scriptAirliners == null)
+                        goto case 1;
+
+                    do
+                    {
+                        dice = rand.Next(9) + 1;
+                    }
+                    while (!AircraftInList(Scripts.scriptAirliners, dice));
 
                     switch (dice)
                     {
