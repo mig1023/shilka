@@ -1678,8 +1678,8 @@ namespace shilka2
 
                         case 5:
                             CreateNewAircraft(
-                                aircraftType: "dch8",
-                                aircraftName: "Bombardier DCH-8",
+                                aircraftType: "dhc8",
+                                aircraftName: "Bombardier DHC-8",
                                 hitPoint: 80,
                                 size: new int[] { 370, 90 },
                                 speed: 5,
