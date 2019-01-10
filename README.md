@@ -25,8 +25,8 @@ The game is about a small anti-aircraft vahicle in the school notebook
 | F-16 Fighting Falcon | F-22 Raptor | F-15 Eagle |
 | F-4 Fantom | Panavia Tornado |MQ-1 Predator |
 | MQ-9 Reaper | F-35 Lightning II | E-3 Centry |
-| Eurofighter Typhoon | Rafale | B-2 Spirit |
-| RQ-4 Global Hawk | Tomahawk | F-8 Crusader |
+| Eurofighter Typhoon | Dassault Rafale | B-2 Spirit |
+| RQ-4 Global Hawk | BGM-109 Tomahawk | F-8 Crusader |
 | AC-130 Spectre | A-6 Intruder | F-111 |
 | F-5 Tiger | Storm Shadow / SCALP | EA-6 Prowler |
 | E-2 Hawkeye | RC-135 | U-2 Dragon Lady |
