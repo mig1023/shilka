@@ -214,6 +214,7 @@
                     18,    // <-- b2
                     20,    // <-- tomahawk
                     32,    // <-- harrier
+                    34,    // <-- hunter
                 };
 
             if (script == scriptsNames.DesertStorm)
@@ -254,6 +255,7 @@
                     12,    // <-- predator
                     13,    // <-- reaper
                     26,    // <-- scalp
+                    34,    // <-- hunter
                 };
 
             if (script == scriptsNames.KoreanBoeing)
@@ -276,6 +278,7 @@
                     23,    // <-- a6
                     27,    // <-- ea6
                     32,    // <-- harrier
+                    34,    // <-- hunter
                 };
 
             if (script == scriptsNames.Yemen)

@@ -271,7 +271,11 @@ namespace shilka2
 
                     newAircraft.dynamicElemets.Add(d);
 
-                    if ((newAircraft.flightDirection == FlightDirectionType.Right) && d.movingType != DynamicElement.MovingType.yRotate)
+                    if (
+                            ((newAircraft.flightDirection == FlightDirectionType.Right) && d.movingType != DynamicElement.MovingType.yRotate)
+                            ||
+                            d.background
+                    )
                         Canvas.SetZIndex(d.element, (zIndex == zIndexType.inFront ? 60 : 20));
                     else
                         Canvas.SetZIndex(d.element, (zIndex == zIndexType.inFront ? 80 : 40));
@@ -786,6 +790,28 @@ namespace shilka2
                                         x_right = 164,
                                         movingType = DynamicElement.MovingType.yRotate,
                                         mirror = true
+                                    }
+                                }
+                            );
+                            break;
+
+                        case 34:
+                            CreateNewAircraft(
+                                aircraftType: "hunter",
+                                aircraftName: "RQ-5 Hunter",
+                                hitPoint: 30,
+                                size: new int[] { 172, 49 },
+                                speed: 5,
+                                price: 2,
+                                cantEscape: true,
+                                elements: new List<DynamicElement> {
+                                    new DynamicElement {
+                                        elementName = "ltl_prop",
+                                        y = -10,
+                                        x_left = 105,
+                                        x_right = 53,
+                                        movingType = DynamicElement.MovingType.yRotate,
+                                        background = true
                                     }
                                 }
                             );

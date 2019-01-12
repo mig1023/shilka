@@ -25,5 +25,7 @@ namespace shilka2
         public double startDegree = 1;
 
         public bool mirror = false;
+
+        public bool background = false;
     }
 }
