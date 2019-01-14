@@ -214,6 +214,7 @@
     <Resource Include="images\mc21.png" />
     <Resource Include="images\dhc8.png" />
     <Resource Include="images\hunter.png" />
+    <Resource Include="images\a380.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
