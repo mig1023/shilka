@@ -1635,7 +1635,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = rand.Next(10) + 1;
+                        dice = rand.Next(11) + 1;
                     }
                     while (!AircraftInList(Scripts.scriptAirliners, dice));
 
@@ -1803,6 +1803,19 @@ namespace shilka2
                                 aircraftName: "Аэробус А380",
                                 hitPoint: 120,
                                 size: new int[] { 621, 191 },
+                                speed: 8,
+                                minAltitude: minAltitudeForLargeAircraft,
+                                cantEscape: true,
+                                airliner: true
+                            );
+                            break;
+
+                        case 11:
+                            CreateNewAircraft(
+                                aircraftType: "boeing777",
+                                aircraftName: "Боинг 777",
+                                hitPoint: 100,
+                                size: new int[] { 585, 164 },
                                 speed: 8,
                                 minAltitude: minAltitudeForLargeAircraft,
                                 cantEscape: true,
