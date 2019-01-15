@@ -1635,7 +1635,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = rand.Next(11) + 1;
+                        dice = rand.Next(12) + 1;
                     }
                     while (!AircraftInList(Scripts.scriptAirliners, dice));
 
@@ -1820,6 +1820,29 @@ namespace shilka2
                                 minAltitude: minAltitudeForLargeAircraft,
                                 cantEscape: true,
                                 airliner: true
+                            );
+                            break;
+
+                        case 12:
+                            CreateNewAircraft(
+                                aircraftType: "il114",
+                                aircraftName: "Ил-114",
+                                hitPoint: 80,
+                                size: new int[] { 420, 135 },
+                                speed: 5,
+                                minAltitude: minAltitudeForLargeAircraft,
+                                cantEscape: true,
+                                airliner: true,
+                                elements: new List<DynamicElement> {
+                                    new DynamicElement {
+                                        elementName = "ltl_prop",
+                                        y = 78,
+                                        x_left = 131,
+                                        x_right = 275,
+                                        movingType = DynamicElement.MovingType.yRotate,
+                                        mirror = true
+                                    }
+                                }
                             );
                             break;
                     }
