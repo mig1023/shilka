@@ -325,6 +325,7 @@
                     4,     // <-- uh1
                     5,     // <-- ch46
                     13,    // <-- puma
+                    15,    // <-- as565
                 };
 
             if (script == scriptsNames.DesertStorm)
@@ -335,6 +336,7 @@
                     4,     // <-- uh1
                     5,     // <-- ch46
                     13,    // <-- puma
+                    15,    // <-- as565
                 };
 
             if (script == scriptsNames.IranIraq)
@@ -351,6 +353,7 @@
                     1,     // <-- ah64
                     3,     // <-- uh60
                     5,     // <-- ch46
+                    15,    // <-- as565
                 };
 
             if (script == scriptsNames.KoreanBoeing)

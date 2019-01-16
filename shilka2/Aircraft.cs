@@ -828,7 +828,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = rand.Next(14) + 1;
+                        dice = rand.Next(15) + 1;
                     }
                     while (!AircraftInList(Scripts.scriptHelicopters, dice));
 
@@ -1219,6 +1219,35 @@ namespace shilka2
                                         x_left = 327,
                                         x_right = -11,
                                         movingType = DynamicElement.MovingType.zRotate
+                                    }
+                                }
+                            );
+                            break;
+
+                        case 15:
+                            CreateNewAircraft(
+                                aircraftType: "as565",
+                                aircraftName: "Eurocopter AS565",
+                                hitPoint: 100,
+                                size: new int[] { 199, 70 },
+                                speed: 5,
+                                maxAltitude: maxAltitudeForHelicopters,
+                                price: 10,
+                                elements: new List<DynamicElement> {
+                                    new DynamicElement {
+                                        elementName = "prop_main",
+                                        y = -4,
+                                        x_left = -33,
+                                        x_right = 3,
+                                        movingType = DynamicElement.MovingType.xRotate,
+                                    },
+                                    new DynamicElement {
+                                        elementName = "f_suppl",
+                                        y = 34,
+                                        x_left = 167,
+                                        x_right = 10,
+                                        movingType = DynamicElement.MovingType.zRotate,
+                                        background = true
                                     }
                                 }
                             );
