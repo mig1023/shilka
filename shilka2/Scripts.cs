@@ -376,6 +376,7 @@
             if (script == scriptsNames.Khmeimim)
                 return new int?[] {
                     8,     // <-- drone
+                    16,    // <-- drone2
                 };
 
             return new int?[] { };
