@@ -10,7 +10,7 @@ using System.Windows.Data;
 
 namespace shilka2
 {
-    public partial class MainWindow : Window
+    public partial class FirePlace : Window
     {
         const double STAT_TEXT_TOP = 45;
         const double STAT_TEXT_LEFT = 10;
@@ -31,7 +31,7 @@ namespace shilka2
 
         static bool SchoolTicTac = false;
 
-        public MainWindow()
+        public FirePlace()
         {
             InitializeComponent();
 
@@ -148,7 +148,7 @@ namespace shilka2
         {
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {
-                MainWindow main = (MainWindow)Application.Current.MainWindow;
+                FirePlace main = (FirePlace)Application.Current.MainWindow;
                 main.HandMove.Enabled = false;
                 main.HandMove.Stop();
 
@@ -168,7 +168,7 @@ namespace shilka2
         {
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {
-                MainWindow main = (MainWindow)Application.Current.MainWindow;
+                FirePlace main = (FirePlace)Application.Current.MainWindow;
                 
                 if (SchoolTicTac)
                 {

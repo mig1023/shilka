@@ -57,7 +57,7 @@ namespace shilka2
         {
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {
-                MainWindow main = (MainWindow)Application.Current.MainWindow;
+                FirePlace main = (FirePlace)Application.Current.MainWindow;
 
                 foreach (var aircraft in aircrafts)
                 {
@@ -224,7 +224,7 @@ namespace shilka2
 
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {
-                MainWindow main = (MainWindow)Application.Current.MainWindow;
+                FirePlace main = (FirePlace)Application.Current.MainWindow;
 
                 zIndexType? zIndex = null;
 

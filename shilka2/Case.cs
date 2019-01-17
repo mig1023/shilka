@@ -64,7 +64,7 @@ namespace shilka2
         {
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {
-                MainWindow main = (MainWindow)Application.Current.MainWindow;
+                FirePlace main = (FirePlace)Application.Current.MainWindow;
 
                 foreach (var line in allLines)
                     main.firePlace.Children.Remove(line);

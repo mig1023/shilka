@@ -46,7 +46,7 @@ namespace shilka2
 
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {
-                MainWindow main = (MainWindow)Application.Current.MainWindow;
+                FirePlace main = (FirePlace)Application.Current.MainWindow;
 
                 main.firePlace.Children.Clear();
                 main.PlayerName.Text = "";
@@ -109,7 +109,7 @@ namespace shilka2
             }
         }
 
-        public static void DrawGansFlashs(MainWindow main, Line gun, int numGuns)
+        public static void DrawGansFlashs(FirePlace main, Line gun, int numGuns)
         {
             flashСount++;
 
@@ -140,7 +140,7 @@ namespace shilka2
             }
         }
 
-        public static void DrawGuns(MainWindow main)
+        public static void DrawGuns(FirePlace main)
         {
 
             double currentHeight = Shell.currentHeight;
