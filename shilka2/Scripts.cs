@@ -279,6 +279,7 @@
                     27,    // <-- ea6
                     32,    // <-- harrier
                     34,    // <-- hunter
+                    35,    // <-- r99
                 };
 
             if (script == scriptsNames.Yemen)

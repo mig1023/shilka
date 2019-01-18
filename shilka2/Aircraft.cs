@@ -364,7 +364,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = rand.Next(33) + 1;
+                        dice = rand.Next(35) + 1;
                     }
                     while (!AircraftInList(Scripts.scriptAircraft, dice));
 
@@ -814,6 +814,19 @@ namespace shilka2
                                         background = true
                                     }
                                 }
+                            );
+                            break;
+
+                        case 35:
+                            CreateNewAircraft(
+                                aircraftType: "r99",
+                                aircraftName: "Embraer R-99",
+                                hitPoint: 100,
+                                size: new int[] { 350, 88 },
+                                price: 80,
+                                speed: 8,
+                                minAltitude: minAltitudeForLargeAircraft,
+                                cantEscape: true
                             );
                             break;
                     }
