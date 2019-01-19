@@ -316,6 +316,7 @@
                     4,     // <-- uh1
                     5,     // <-- ch46
                     14,    // <-- mh53
+                    17,    // <-- oh58
                 };
 
             if (script == scriptsNames.Yugoslavia)
@@ -338,12 +339,14 @@
                     5,     // <-- ch46
                     13,    // <-- puma
                     15,    // <-- as565
+                    17,    // <-- oh58
                 };
 
             if (script == scriptsNames.IranIraq)
                 return new int?[] {
                     2,     // <-- ah1
                     5,     // <-- ch46
+                    17,    // <-- oh58
                 };
 
             if (script == scriptsNames.Syria)
@@ -355,6 +358,7 @@
                     3,     // <-- uh60
                     5,     // <-- ch46
                     15,    // <-- as565
+                    17,    // <-- oh58
                 };
 
             if (script == scriptsNames.KoreanBoeing)

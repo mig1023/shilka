@@ -841,7 +841,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = rand.Next(16) + 1;
+                        dice = rand.Next(17) + 1;
                     }
                     while (!AircraftInList(Scripts.scriptHelicopters, dice));
 
@@ -1291,6 +1291,35 @@ namespace shilka2
                                         x_right = 19,
                                         movingType = DynamicElement.MovingType.xRotate,
                                     },
+                                }
+                            );
+                            break;
+
+                        case 17:
+                            CreateNewAircraft(
+                                aircraftType: "oh58d",
+                                aircraftName: "Bell OH-58D",
+                                hitPoint: 100,
+                                size: new int[] { 209, 83 },
+                                speed: 5,
+                                maxAltitude: maxAltitudeForHelicopters,
+                                price: 11,
+                                elements: new List<DynamicElement> {
+                                    new DynamicElement {
+                                        elementName = "prop_main",
+                                        y = 5,
+                                        x_left = -43,
+                                        x_right = 29,
+                                        movingType = DynamicElement.MovingType.xRotate,
+                                        background = true
+                                    },
+                                    new DynamicElement {
+                                        elementName = "i_suppl",
+                                        y = 15,
+                                        x_left = 160,
+                                        x_right = 5,
+                                        movingType = DynamicElement.MovingType.zRotate
+                                    }
                                 }
                             );
                             break;
