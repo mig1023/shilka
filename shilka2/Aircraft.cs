@@ -1314,10 +1314,10 @@ namespace shilka2
                                         background = true
                                     },
                                     new DynamicElement {
-                                        elementName = "i_suppl",
-                                        y = 15,
-                                        x_left = 160,
-                                        x_right = 5,
+                                        elementName = "ltl_suppl",
+                                        y = 24,
+                                        x_left = 165,
+                                        x_right = 14,
                                         movingType = DynamicElement.MovingType.zRotate
                                     }
                                 }
