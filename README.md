@@ -1,5 +1,5 @@
 # shilka
-The game is about a small anti-aircraft vahicle in the school notebook
+The game is about a small anti-aircraft vehicle in the school notebook
 
 ![](https://s8.hostingkartinok.com/uploads/images/2018/06/e4b2be354e64b30273c7896a3671ecb2.png)
 
