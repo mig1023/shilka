@@ -240,6 +240,7 @@
                     31,    // <-- sr71
                     32,    // <-- harrier
                     36,    // <-- m2000
+                    37,    // <-- m2000ed
                 };
 
             if (script == scriptsNames.IranIraq)
@@ -282,6 +283,7 @@
                     34,    // <-- hunter
                     35,    // <-- r99
                     36,    // <-- m2000
+                    37,    // <-- m2000ed
                 };
 
             if (script == scriptsNames.Yemen)
@@ -294,6 +296,7 @@
                     22,    // <-- ac130
                     25,    // <-- f5
                     36,    // <-- m2000
+                    37,    // <-- m2000ed
                 };
 
             if (script == scriptsNames.F117Hunt)
