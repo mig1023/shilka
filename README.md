@@ -31,7 +31,8 @@ The game is about a small anti-aircraft vehicle in the school notebook
 | F-5 Tiger | Storm Shadow / SCALP | EA-6 Prowler |
 | E-2 Hawkeye | RC-135 | U-2 Dragon Lady |
 | SR-71 Blackbird | BAE Sea Harrier | Cessna 172 |
-| RQ-5 Hunter | Embraer R-99 | |
+| RQ-5 Hunter | Embraer R-99 | Dassault Mirage 2000 |
+| Dassault Mirage 2000ED | | |
 
 ### Enemy helicopters:
 
