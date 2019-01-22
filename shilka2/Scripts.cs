@@ -258,6 +258,7 @@
                     13,    // <-- reaper
                     26,    // <-- scalp
                     34,    // <-- hunter
+                    38,    // <-- jassm
                 };
 
             if (script == scriptsNames.KoreanBoeing)
