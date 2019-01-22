@@ -43,7 +43,7 @@ The game is about a small anti-aircraft vehicle in the school notebook
 | Eurocopter Tiger | Drone | Aerospatiale Gazelle |
 | RAH-66 Comanche | Kawasaki OH-1 | A129 Mangusta |
 | Aerospatiale Puma | Sikorsky CH-53/MH-53 | Eurocopter AS565 Panther |
-| Bell OH-58 Kiowa | | |
+| Bell OH-58 Kiowa | AGM-158 JASSM | Saab JAS 39 Gripen |
 
 ### Friend aircrafts:
 
@@ -69,4 +69,4 @@ The game is about a small anti-aircraft vehicle in the school notebook
 | Аirbus A320 | ATR 42 | Boeing 747 |
 | Bombardier DHC-8 | McDonnell Douglas MD-11 | Sukhoi Superjet 100 |
 | Boeing 707 | Lockheed L-1049 Super Constellation | Irkut MC-21 |
-| Аirbus A380 | Boeing 777 | Il-114 |
+| Аirbus A380 | Boeing 777 | Ilyushin Il-114 |
