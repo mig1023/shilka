@@ -364,7 +364,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = rand.Next(38) + 1;
+                        dice = rand.Next(39) + 1;
                     }
                     while (!AircraftInList(Scripts.scriptAircraft, dice));
 
@@ -674,8 +674,7 @@ namespace shilka2
                                 aircraftName: "F-5 Tiger",
                                 hitPoint: 80,
                                 size: new int[] { 270, 58 },
-                                price: 2,
-                                speed: 10
+                                price: 2
                             );
                             break;
 
@@ -860,6 +859,16 @@ namespace shilka2
                                 price: 0.85,
                                 speed: 5,
                                 cantEscape: true
+                            );
+                            break;
+
+                        case 39:
+                            CreateNewAircraft(
+                                aircraftType: "gripen",
+                                aircraftName: "Saab Gripen",
+                                hitPoint: 100,
+                                size: new int[] { 247, 72 },
+                                price: 14
                             );
                             break;
                     }
