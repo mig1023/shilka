@@ -133,7 +133,7 @@ namespace shilka2
                 stat += "Выстрелов: " + statisticShellsFired;
 
                 if (staticticAircraftShutdown > 0)
-                    stat += " (" + shellsForShutdown + " выстр./сбитый)";
+                    stat += " ( " + shellsForShutdown + " выстр./сбитый )";
 
                 stat += "\n";
             }
