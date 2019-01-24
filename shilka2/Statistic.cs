@@ -43,7 +43,7 @@ namespace shilka2
             statisticWithoutDamage = (int)((statisticHasGone - statisticDamaged) * baseForPercent);
             inTargetPercent = ((statisticShellsFired > 0) ? staticticInTarget * 100 / statisticShellsFired : 0);
 
-            chance = (double)statisticPriceOfAllAircrafts / (statisticAllAircraft * (double)Aircraft.AIRCRAFT_AVERAGE_PRICE);
+            chance = (double)statisticPriceOfAllAircrafts / (statisticAllAircraft * (double)Constants.AIRCRAFT_AVERAGE_PRICE);
 
             if (double.IsNaN(chance))
                 chance = 0;

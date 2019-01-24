@@ -9,20 +9,8 @@ using System.Windows.Shapes;
 
 namespace shilka2
 {
-
     class Shell : FlyObject
     {
-        const int SHELL_LENGTH = 3;
-        const int SHELL_SPEED = 25;
-        const int SHELL_DELAY = 2;
-        const int FRAGMENTATION = 15;
-        const int VOLLEY = 3;
-        const int FLASH_SIZE = 4;
-
-        public const int FIRE_WIDTH_CORRECTION = 140;
-        public const int FIRE_HEIGHT_CORRECTION = 30;
-        public const int FIRE_HEIGHT_POINT_CORRECTION = 70;
-
         static string endColor = "#FF7E1C25";
 
         bool flash { get; set; }
@@ -67,13 +55,13 @@ namespace shilka2
 
                     shellTrace.X1 = shell.x + shell.cos;
                     shellTrace.Y1 = shell.y - shell.sin;
-                    shellTrace.X2 = shell.x + SHELL_LENGTH * shell.cos;
-                    shellTrace.Y2 = shell.y - SHELL_LENGTH * shell.sin;
+                    shellTrace.X2 = shell.x + Constants.SHELL_LENGTH * shell.cos;
+                    shellTrace.Y2 = shell.y - Constants.SHELL_LENGTH * shell.sin;
 
                     shellTrace.Stroke = Brushes.Black;
 
-                    shell.x = (shell.x + SHELL_SPEED * shell.cos);
-                    shell.y = (shell.y - SHELL_SPEED * shell.sin);
+                    shell.x = (shell.x + Constants.SHELL_SPEED * shell.cos);
+                    shell.y = (shell.y - Constants.SHELL_SPEED * shell.sin);
 
                     foreach (var aircraft in Aircraft.aircrafts)
                         if (
@@ -88,7 +76,7 @@ namespace shilka2
 
                             shell.flash = true;
                             shellTrace.Stroke = Brushes.Red;
-                            shellTrace.StrokeThickness = FLASH_SIZE;
+                            shellTrace.StrokeThickness = Constants.FLASH_SIZE;
 
                             aircraft.hitpoint -= 1;
 
@@ -125,7 +113,7 @@ namespace shilka2
 
                     if ((shell.y < 0) || (shell.x > currentWidth))
                         shell.fly = false;
-                    else if (shell.delay < SHELL_DELAY)
+                    else if (shell.delay < Constants.SHELL_DELAY)
                         shell.delay++;
                     else
                     {
@@ -145,7 +133,7 @@ namespace shilka2
 
         public static void ShellsFire(object obj, ElapsedEventArgs e)
         {
-            int currentFragmentation = FRAGMENTATION + ( ( Shilka.degreeOfHeatingGunBurrels - 30 ) / 25 );
+            int currentFragmentation = Constants.FRAGMENTATION + ( ( Shilka.degreeOfHeatingGunBurrels - 30 ) / 25 );
 
             if (fire && !Shilka.reheatingGunBurrels)
             {
@@ -156,14 +144,14 @@ namespace shilka2
                     return;
                 }
  
-                for (int a = 0; a < VOLLEY; a++)
+                for (int a = 0; a < Constants.VOLLEY; a++)
                 {
                     Shell newShell = new Shell();
                     newShell.fly = true;
                     newShell.delay = 0;
 
-                    newShell.x = rand.Next( (-1 * currentFragmentation), currentFragmentation) + FIRE_WIDTH_CORRECTION;
-                    newShell.y = currentHeight + rand.Next( (-1 * currentFragmentation), currentFragmentation) - FIRE_HEIGHT_CORRECTION;
+                    newShell.x = rand.Next( (-1 * currentFragmentation), currentFragmentation) + Constants.FIRE_WIDTH_CORRECTION;
+                    newShell.y = currentHeight + rand.Next( (-1 * currentFragmentation), currentFragmentation) - Constants.FIRE_HEIGHT_CORRECTION;
 
                     double e1 = Math.Sqrt((ptX * ptX) + (ptY * ptY));
 

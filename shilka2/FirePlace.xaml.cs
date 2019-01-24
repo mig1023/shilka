@@ -12,9 +12,6 @@ namespace shilka2
 {
     public partial class FirePlace : Window
     {
-        const double STAT_TEXT_TOP = 45;
-        const double STAT_TEXT_LEFT = 10;
-
         public System.Timers.Timer Game = new System.Timers.Timer(30);
         public System.Timers.Timer HandMove = new System.Timers.Timer(600);
         public System.Timers.Timer Aircrafts = new System.Timers.Timer(2000);
@@ -90,7 +87,7 @@ namespace shilka2
                 Shell.animationStop = false;
             }
 
-            statShells.Margin = new Thickness(STAT_TEXT_TOP, STAT_TEXT_LEFT + (Shilka.school ? 25 : 0), 0, 0);
+            statShells.Margin = new Thickness(Constants.STAT_TEXT_TOP, Constants.STAT_TEXT_LEFT + (Shilka.school ? 25 : 0), 0, 0);
 
             Scripts.scriptAircraft = scriptAircraft;
             Scripts.scriptHelicopters = scriptHelicopters;

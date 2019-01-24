@@ -11,14 +11,7 @@ namespace shilka2
 {
     class Aircraft : FlyObject
     {
-        const int MAX_FLIGHT_HEIGHT = 75;
-        public const int AIRCRAFT_AVERAGE_PRICE = 61;
-        const double ESCAPE_COEFFICIENT = 1.6;
-        const int TANGAGE_DELAY = 12;
-        const int TANGAGE_SPEED = 4;
-        const int TANGAGE_DEAD_SPEED = 10;
-
-        static int maxAltitudeGlobal = MAX_FLIGHT_HEIGHT;
+        static int maxAltitudeGlobal = Constants.MAX_FLIGHT_HEIGHT;
         public static int minAltitudeGlobal { get; set; }
         static int minAltitudeForLargeAircraft = (int)SystemParameters.PrimaryScreenHeight / 2;
         static int maxAltitudeForHelicopters = minAltitudeForLargeAircraft;
@@ -64,7 +57,7 @@ namespace shilka2
                     double escapeFromFireCoefficient = 1;
 
                     if ((aircraft.hitpoint < aircraft.hitpointMax) && !aircraft.cantEscape)
-                        escapeFromFireCoefficient = ESCAPE_COEFFICIENT;
+                        escapeFromFireCoefficient = Constants.ESCAPE_COEFFICIENT;
 
                     if (aircraft.flightDirection == FlightDirectionType.Left)
                         escapeFromFireCoefficient *= -1;
@@ -72,15 +65,15 @@ namespace shilka2
                     aircraft.x += aircraft.speed * escapeFromFireCoefficient;
 
                     if (aircraft.dead)
-                        aircraft.y += TANGAGE_DEAD_SPEED * (rand.NextDouble() * 2 - 1) + 4;
+                        aircraft.y += Constants.TANGAGE_DEAD_SPEED * (rand.NextDouble() * 2 - 1) + 4;
                     else
                         if (!aircraft.cloud)
                         {
                             aircraft.tangageDelay++;
-                            if (aircraft.tangageDelay > TANGAGE_DELAY)
+                            if (aircraft.tangageDelay > Constants.TANGAGE_DELAY)
                             {
                                 aircraft.tangageDelay = 0;
-                                aircraft.tangage = TANGAGE_SPEED * (rand.NextDouble() * 2 - 1);
+                                aircraft.tangage = Constants.TANGAGE_SPEED * (rand.NextDouble() * 2 - 1);
                             }
                             aircraft.y += aircraft.tangage;
 

@@ -13,10 +13,6 @@ namespace shilka2
 {
     class Shilka
     {
-        const double LAST_DEGREE_CORRECTION = 10;
-        const int GUNS_LENGTH = 30;
-        const int GUN_NOUNT_LENGTH = 10;
-
         static int flashСount = 0;
 
         public static Scripts.scriptsNames currentScript;
@@ -59,10 +55,10 @@ namespace shilka2
 
         public static void SetNewTergetPoint(Point pt, object sender)
         {
-            Shell.ptX = pt.X - Shell.FIRE_WIDTH_CORRECTION;
-            Shell.ptY = (sender as Window).Height - pt.Y - Shell.FIRE_HEIGHT_POINT_CORRECTION;
+            Shell.ptX = pt.X - Constants.FIRE_WIDTH_CORRECTION;
+            Shell.ptY = (sender as Window).Height - pt.Y - Constants.FIRE_HEIGHT_POINT_CORRECTION;
             Shell.currentHeight = (sender as Window).Height;
-            Shell.currentWidth = (sender as Window).Width + Shell.FIRE_WIDTH_CORRECTION;
+            Shell.currentWidth = (sender as Window).Width + Constants.FIRE_WIDTH_CORRECTION;
 
             if (Shell.ptX < 0)
                 Shell.ptX = 0;
@@ -73,7 +69,7 @@ namespace shilka2
             double LastSin = Shell.ptY / Math.Sqrt((Shell.ptX * Shell.ptX) + (Shell.ptY * Shell.ptY));
             double newLastDegree = Math.Asin(LastSin) * (180 / Math.PI) * -1;
 
-            newLastDegree += LAST_DEGREE_CORRECTION;
+            newLastDegree += Constants.LAST_DEGREE_CORRECTION;
             if (newLastDegree > 0)
                 newLastDegree = 0;
 
@@ -158,18 +154,18 @@ namespace shilka2
             for (int numGuns = 0; numGuns <= 1; numGuns++)
             {
                 Line gun = new Line();
-                gun.X1 = Shell.FIRE_WIDTH_CORRECTION - 3 - (12 * numGuns);
-                gun.Y1 = currentHeight - Shell.FIRE_HEIGHT_CORRECTION + 5 - (9 * numGuns);
+                gun.X1 = Constants.FIRE_WIDTH_CORRECTION - 3 - (12 * numGuns);
+                gun.Y1 = currentHeight - Constants.FIRE_HEIGHT_CORRECTION + 5 - (9 * numGuns);
 
                 int gunReturnLen = 0;
                 if (Shell.fire && ((gunReturn < 2 && numGuns == 0) || (gunReturn >= 2 && numGuns == 1)))
                     gunReturnLen = 5;
 
-                gun.X2 = gun.X1 + (GUNS_LENGTH - gunReturnLen) * Shell.lastCos;
-                gun.Y2 = gun.Y1 - (GUNS_LENGTH - gunReturnLen) * Shell.lastSin;
+                gun.X2 = gun.X1 + (Constants.GUNS_LENGTH - gunReturnLen) * Shell.lastCos;
+                gun.Y2 = gun.Y1 - (Constants.GUNS_LENGTH - gunReturnLen) * Shell.lastSin;
 
-                mountXY[numGuns, 0] = gun.X1 + (GUNS_LENGTH - gunReturnLen - GUN_NOUNT_LENGTH) * Shell.lastCos;
-                mountXY[numGuns, 1] = gun.Y1 - (GUNS_LENGTH - gunReturnLen - GUN_NOUNT_LENGTH) * Shell.lastSin;
+                mountXY[numGuns, 0] = gun.X1 + (Constants.GUNS_LENGTH - gunReturnLen - Constants.GUN_NOUNT_LENGTH) * Shell.lastCos;
+                mountXY[numGuns, 1] = gun.Y1 - (Constants.GUNS_LENGTH - gunReturnLen - Constants.GUN_NOUNT_LENGTH) * Shell.lastSin;
 
                 byte colorOfGuns = (degreeOfHeatingGunBurrels > 200 ? (byte)((degreeOfHeatingGunBurrels - 200) / 2) : (byte)0);
 

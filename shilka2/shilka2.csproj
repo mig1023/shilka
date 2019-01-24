@@ -57,6 +57,7 @@
     </ApplicationDefinition>
     <Compile Include="Aircraft.cs" />
     <Compile Include="Case.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="DynamicElement.cs" />
     <Compile Include="FlyObject.cs" />
     <Compile Include="Scripts.cs" />
