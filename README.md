@@ -32,7 +32,7 @@ The game is about a small anti-aircraft vehicle in the school notebook
 | E-2 Hawkeye | RC-135 | U-2 Dragon Lady |
 | SR-71 Blackbird | BAE Sea Harrier | Cessna 172 |
 | RQ-5 Hunter | Embraer R-99 | Dassault Mirage 2000 |
-| Dassault Mirage 2000ED | | |
+| Dassault Mirage 2000ED | AGM-158 JASSM | Saab JAS 39 Gripen |
 
 ### Enemy helicopters:
 
@@ -43,7 +43,7 @@ The game is about a small anti-aircraft vehicle in the school notebook
 | Eurocopter Tiger | Drone | Aerospatiale Gazelle |
 | RAH-66 Comanche | Kawasaki OH-1 | A129 Mangusta |
 | Aerospatiale Puma | Sikorsky CH-53/MH-53 | Eurocopter AS565 Panther |
-| Bell OH-58 Kiowa | AGM-158 JASSM | Saab JAS 39 Gripen |
+| Bell OH-58 Kiowa | Denel AH-2 Rooivalk |  |
 
 ### Friend aircrafts:
 
