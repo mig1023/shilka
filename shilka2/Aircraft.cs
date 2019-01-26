@@ -857,7 +857,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = rand.Next(18) + 1;
+                        dice = rand.Next(19) + 1;
                     }
                     while (!AircraftInList(Scripts.scriptHelicopters, dice));
 
@@ -1353,6 +1353,33 @@ namespace shilka2
                                         y = -2,
                                         x_left = 205,
                                         x_right = 10,
+                                        movingType = DynamicElement.MovingType.zRotate
+                                    }
+                                }
+                            );
+                            break;
+			    
+			case 19:
+                            CreateNewAircraft(
+                                aircraftType: "ah6",
+                                aircraftName: "Boeing AH-6",
+                                size: new int[] { 165, 68 },
+                                speed: 5,
+                                maxAltitude: maxAltitudeForHelicopters,
+                                price: 2,
+                                elements: new List<DynamicElement> {
+                                    new DynamicElement {
+                                        elementName = "prop_main",
+                                        y = -18,
+                                        x_left = -60,
+                                        x_right = -2,
+                                        movingType = DynamicElement.MovingType.xRotate,
+                                    },
+                                    new DynamicElement {
+                                        elementName = "ltl_suppl",
+                                        y = 11,
+                                        x_left = 138,
+                                        x_right = 0,
                                         movingType = DynamicElement.MovingType.zRotate
                                     }
                                 }
