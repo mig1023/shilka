@@ -229,6 +229,7 @@
     <Resource Include="images\gripen.png" />
     <Resource Include="images\rooivalk.png" />
     <Resource Include="images\ah6.png" />
+    <Resource Include="images\five_suppl.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1359,7 +1359,7 @@ namespace shilka2
                             );
                             break;
 			    
-			case 19:
+			            case 19:
                             CreateNewAircraft(
                                 aircraftType: "ah6",
                                 aircraftName: "Boeing AH-6",
@@ -1376,7 +1376,7 @@ namespace shilka2
                                         movingType = DynamicElement.MovingType.xRotate,
                                     },
                                     new DynamicElement {
-                                        elementName = "ltl_suppl",
+                                        elementName = "five_suppl",
                                         y = 11,
                                         x_left = 138,
                                         x_right = 0,
