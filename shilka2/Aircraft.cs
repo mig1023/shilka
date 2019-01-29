@@ -1349,7 +1349,7 @@ namespace shilka2
                                         background = true
                                     },
                                     new DynamicElement {
-                                        elementName = "t_suppl",
+                                        elementName = "five_suppl",
                                         y = -2,
                                         x_left = 205,
                                         x_right = 10,
@@ -1376,7 +1376,7 @@ namespace shilka2
                                         movingType = DynamicElement.MovingType.xRotate,
                                     },
                                     new DynamicElement {
-                                        elementName = "five_suppl",
+                                        elementName = "ltl_suppl",
                                         y = 11,
                                         x_left = 138,
                                         x_right = 0,
