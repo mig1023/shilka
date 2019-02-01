@@ -5,15 +5,15 @@ The game is about a small anti-aircraft vehicle ZSU-23-4 "Shilka" in the school 
 
 ### Scripts:
 - Vietnam war (1965-1973)
+- Iran–Iraq war (1980-1988)
 - Korean Boeing incident (1983)
+- Mathias Rust flight (1987)
 - Operation Desert storm (1991)
 - NATO bombing of Yugoslavia (1999)
-- Iran–Iraq war (1980-1988)
+- Hunt for F-117 in Yugoslavia (1999)
 - Syrian civil war (2011-2019)
 - Intervention in Libya (2011)
 - Intervention in Yemen (2015-2019)
-- Mathias Rust flight (1987)
-- Hunt for F-117 in Yugoslavia (1999)
 - Siege of Kmeimim (2016-2018)
 
 ### Enemy aircrafts:
@@ -69,4 +69,4 @@ The game is about a small anti-aircraft vehicle ZSU-23-4 "Shilka" in the school 
 | Аirbus A320 | Аirbus A380 | ATR 42 |
 | Boeing 707 | Boeing 747 | Boeing 777 |
 | Bombardier DHC-8 | Ilyushin Il-114 | Irkut MC-21 |
-| Lockheed L-1049 Super Constellation | McDonnell Douglas MD-11 | Sukhoi Superjet 100 |
+| L-1049 Super Constellation | McDonnell Douglas MD-11 | Sukhoi Superjet 100 |
