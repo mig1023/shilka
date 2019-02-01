@@ -59,14 +59,14 @@ The game is about a small anti-aircraft vehicle ZSU-23-4 "Shilka" in the school 
 
 | Helicopter | Helicopter | Helicopter |
 | ------------- | ------------- | ------------- |
-| Mi-28 | Mi-24 | Mi-8 |
-| Mi-10 | Ka-27 | Ka-52 |
+| Mi-8 | Mi-10 | Mi-24 |
+| Mi-28 | Ka-27 | Ka-52 |
 
 ### Airliners:
 
 | Airliner | Airliner | Airliner |
 | ------------- | ------------- | ------------- |
-| Аirbus A320 | ATR 42 | Boeing 747 |
-| Bombardier DHC-8 | McDonnell Douglas MD-11 | Sukhoi Superjet 100 |
-| Boeing 707 | Lockheed L-1049 Super Constellation | Irkut MC-21 |
-| Аirbus A380 | Boeing 777 | Ilyushin Il-114 |
+| Аirbus A320 | Аirbus A380 | ATR 42 |
+| Boeing 707 | Boeing 747 | Boeing 777 |
+| Bombardier DHC-8 | Ilyushin Il-114 | Irkut MC-21 |
+| Lockheed L-1049 Super Constellation | McDonnell Douglas MD-11 | Sukhoi Superjet 100 |
