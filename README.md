@@ -38,22 +38,22 @@ The game is about a small anti-aircraft vehicle ZSU-23-4 "Shilka" in the school 
 
 | Helicopter | Helicopter | Helicopter |
 | ------------- | ------------- | ------------- |
-| AH-64 Apache | AH-1 Cobra | UH-60 Black Hawk |
-| UH-1 Iroquois | CH-47 Chinook | V-22 Ospray |
-| Eurocopter Tiger | Drone | Aerospatiale Gazelle |
-| RAH-66 Comanche | Kawasaki OH-1 | A129 Mangusta |
-| Aerospatiale Puma | Sikorsky CH-53/MH-53 | Eurocopter AS565 Panther |
-| Bell OH-58 Kiowa | Denel AH-2 Rooivalk | Boeing AH-6 |
+| A129 Mangusta | Aerospatiale Gazelle | Aerospatiale Puma |
+| AH-1 Cobra | AH-6 Little Bird | AH-64 Apache |
+| CH-47 Chinook | Denel AH-2 Rooivalk | Eurocopter AS565 Panther |
+| Eurocopter Tiger | Kawasaki OH-1 | OH-58 Kiowa |
+| RAH-66 Comanche | Sikorsky CH-53/MH-53 | Spy / attack drone |
+| UH-1 Iroquois	 | UH-60 Black Hawk | V-22 Ospray |
 
 ### Friend aircrafts:
 
 | Aircraft | Aircraft | Aircraft |
 | ------------- | ------------- | ------------- |
-| MiG-19 | MiG-21 | MiG-23 |
-| MiG-25 | MiG-29 | MiG-31 |
-| Su-17 | Su-24 | Su-25 |
-| Su-27 | Su-34 | Su-57 |
-| A-50 | Tu-95 | Tu-160 |
+| A-50 | MiG-19 | MiG-21 |
+| MiG-23 | MiG-25 | MiG-29 |
+| MiG-31 | Su-17 | Su-24 |
+| Su-25 | Su-27 | Su-34 |
+| Su-57 | Tu-95 | Tu-160 |
 
 ### Friend helicopters:
 
