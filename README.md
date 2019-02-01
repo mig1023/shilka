@@ -20,19 +20,19 @@ The game is about a small anti-aircraft vehicle ZSU-23-4 "Shilka" in the school 
 
 | Aircraft | Aircraft | Aircraft |
 | ------------- | ------------- | ------------- |
-| A-10 Thunderbolt | B-1 Lancer | B-52 Stratofortress |
-| F-117 Nighthawk | F-14 Tomcat | F-18 Hornet |
-| F-16 Fighting Falcon | F-22 Raptor | F-15 Eagle |
-| F-4 Fantom | Panavia Tornado |MQ-1 Predator |
-| MQ-9 Reaper | F-35 Lightning II | E-3 Centry |
-| Eurofighter Typhoon | Dassault Rafale | B-2 Spirit |
-| RQ-4 Global Hawk | BGM-109 Tomahawk | F-8 Crusader |
-| AC-130 Spectre | A-6 Intruder | F-111 |
-| F-5 Tiger | Storm Shadow / SCALP | EA-6 Prowler |
-| E-2 Hawkeye | RC-135 | U-2 Dragon Lady |
-| SR-71 Blackbird | BAE Sea Harrier | Cessna 172 |
-| RQ-5 Hunter | Embraer R-99 | Dassault Mirage 2000 |
-| Dassault Mirage 2000ED | AGM-158 JASSM | Saab JAS 39 Gripen |
+| A-10 Thunderbolt | A-6 Intruder | AC-130 Spectre |
+| AGM-158 JASSM | B-1 Lancer | B-2 Spirit |
+| B-52 Stratofortress | BGM-109 Tomahawk | Cessna 172 |
+| E-2 Hawkeye | E-3 Centry | EA-6 Prowler |
+| Embraer R-99  | Eurofighter Typhoon | F-4 Fantom |
+| F-5 Tiger | F-8 Crusader | F-14 Tomcat |
+| F-15 Eagle | F-16 Fighting Falcon | F/A-18 Hornet |
+| F-22 Raptor | F-35 Lightning II | F-111 Aardvark |
+| F-117 Nighthawk | Mirage 2000 | Mirage 2000ED |
+| MQ-1 Predator | MQ-9 Reaper | Panavia Tornado |
+| Rafale | RC-135 | RQ-4 Global Hawk |
+| RQ-5 Hunter | Saab JAS 39 Gripen | Sea Harrier |
+| SR-71 Blackbird | Storm Shadow / SCALP | U-2 Dragon Lady |
 
 ### Enemy helicopters:
 
