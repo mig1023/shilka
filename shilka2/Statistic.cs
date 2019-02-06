@@ -130,7 +130,7 @@ namespace shilka2
 
             if (statisticShellsFired > 0)
             {
-                stat += "Выстрелов: " + statisticShellsFired;
+                stat += "выстрелов: " + statisticShellsFired;
 
                 if (staticticAircraftShutdown > 0)
                     stat += " ( " + shellsForShutdown + " выстр./сбитый )";
@@ -139,13 +139,13 @@ namespace shilka2
             }
 
             if (staticticInTarget > 0)
-                stat += "Попаданий: " + staticticInTarget + " ( " + inTargetPercent + "% )\n";
+                stat += "попаданий: " + staticticInTarget + " ( " + inTargetPercent + "% )\n";
 
             if (staticticAircraftShutdown > 0)
-                stat += "Сбито: " + staticticAircraftShutdown + " ( " + shutdownPercent + "% )";
+                stat += "сбито: " + staticticAircraftShutdown + " ( " + shutdownPercent + "% )";
 
             if (statisticDamaged > 0)
-                stat += (staticticAircraftShutdown == 0 ? "П" : " +п") + "овреждено: " + statisticDamaged + " ( " + damagedPercent + "% )\n";
+                stat += (staticticAircraftShutdown == 0 ? "" : " +") + "повреждено: " + statisticDamaged + " ( " + damagedPercent + "% )\n";
             else if (staticticAircraftShutdown > 0)
                 stat += "\n";
 
@@ -156,7 +156,7 @@ namespace shilka2
                 if ((hasGonePercent == 0) && (statisticHasGone > 0))
                     hasGonePercent = 1;
 
-                stat += "Упущено: " + statisticHasGone + " ( " + hasGonePercent + "% )";
+                stat += "упущено: " + statisticHasGone + " ( " + hasGonePercent + "% )";
 
                 if (statisticDamaged < statisticHasGone)
                     stat += ", в том числе неповредённых: " + (statisticHasGone - statisticDamaged) + " ( " + statisticWithoutDamage + "% )";
@@ -166,7 +166,7 @@ namespace shilka2
 
             if (statisticAmountOfDamage > 0 && !Shilka.school)
             {
-                stat += "Нанесён ущерб: ";
+                stat += "нанесён ущерб: ";
 
                 if (statisticAmountOfDamage < 1000)
                     stat += string.Format("{0:f2}", statisticAmountOfDamage) + " млн $";
@@ -184,7 +184,7 @@ namespace shilka2
             }
 
             if (statisticFriendDamage > 0)
-                stat += "Повреждено своих: " + statisticFriendDamage;
+                stat += "повреждено своих: " + statisticFriendDamage;
 
             if (statisticAirlinerDamage > 0)
                 stat += (statisticFriendDamage == 0 ? "П" : " +п") + "овреждено гражданских: " + statisticAirlinerDamage + "\n";
@@ -192,11 +192,11 @@ namespace shilka2
                 stat += "\n";
 
             if (statisticAllAircraft > 0)
-                stat += string.Format("Удача: {0:f2}", chance) + "\n";
+                stat += string.Format("удача: {0:f2}", chance) + "\n";
 
             if (statisticShellsFired > 0)
             {
-                stat += "Температура стволов: " + Shilka.degreeOfHeatingGunBurrels + "°C";
+                stat += "температура стволов: " + Shilka.degreeOfHeatingGunBurrels + "°C";
 
                 if (Shilka.reheatingGunBurrels)
                     stat += " - перегрев стволов!\n";
