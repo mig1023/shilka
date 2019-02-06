@@ -1219,7 +1219,7 @@ namespace shilka2
                         case 14:
                             CreateNewAircraft(
                                 aircraftType: "mh53",
-                                aircraftName: "Sikorsky MH-53",
+                                aircraftName: "Сикорский MH-53",
                                 hitPoint: 100,
                                 size: new int[] { 375, 84 },
                                 price: 53,
@@ -1305,7 +1305,7 @@ namespace shilka2
                         case 17:
                             CreateNewAircraft(
                                 aircraftType: "oh58d",
-                                aircraftName: "Bell OH-58D",
+                                aircraftName: "Белл OH-58D",
                                 size: new int[] { 209, 83 },
                                 speed: 5,
                                 maxAltitude: maxAltitudeForHelicopters,
@@ -1362,7 +1362,7 @@ namespace shilka2
 			            case 19:
                             CreateNewAircraft(
                                 aircraftType: "ah6",
-                                aircraftName: "Boeing AH-6",
+                                aircraftName: "Боинг AH-6",
                                 size: new int[] { 165, 68 },
                                 speed: 5,
                                 maxAltitude: maxAltitudeForHelicopters,
@@ -1876,7 +1876,7 @@ namespace shilka2
                         case 6:
                             CreateNewAircraft(
                                 aircraftType: "ssj100",
-                                aircraftName: "Sukhoi Superjet 100",
+                                aircraftName: "Суперджет 100",
                                 size: new int[] { 355, 124 },
                                 speed: 8,
                                 minAltitude: minAltitudeForLargeAircraft,
