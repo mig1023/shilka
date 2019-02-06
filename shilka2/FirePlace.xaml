@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:shilka2"
         mc:Ignorable="d"
-        Title="Shilka Antiaircraft" Height="350" Width="525" MouseLeftButtonDown="Window_MouseLeftButtonDown" MouseLeftButtonUp="Window_MouseLeftButtonUp" MouseMove="Window_MouseMove" Background="White">
+        Title="shilka antiaircraft" Height="350" Width="525" MouseLeftButtonDown="Window_MouseLeftButtonDown" MouseLeftButtonUp="Window_MouseLeftButtonUp" MouseMove="Window_MouseMove" Background="White">
     <Grid x:Name="gridFirePlace">
         <Canvas x:Name="firePlaceDock">
             <Image Source="images/background.png" Margin="0,-50,0,50" Width="{Binding Path=ActualWidth, ElementName=gridFirePlace}" Height="{Binding Path=ActualHeight, ElementName=gridFirePlace}" Stretch="Fill" Canvas.Top="52"/>
@@ -41,7 +41,7 @@
                 <Button x:Name="Vietnam" Content="вьетнамская война" Height="35" Canvas.Left="10" Canvas.Top="450" Width="134" Click="startScript_Click" FontSize="11" FontFamily="font/calibri.ttf"/>
                 <Button x:Name="DesertStorm" Content="буря в пустыне" Height="35" Canvas.Left="324" Canvas.Top="530" Width="121" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
                 <Button x:Name="Yugoslavia" Content="бомбардировки югославии" Height="35" Canvas.Left="10" Canvas.Top="490" Width="215" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
-                <Button x:Name="IranIraq" Content="ирано-Иракская война" Height="35" Canvas.Left="149" Canvas.Top="450" Width="157" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
+                <Button x:Name="IranIraq" Content="ирано-иракская война" Height="35" Canvas.Left="149" Canvas.Top="450" Width="157" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
                 <Button x:Name="Syria" Content="гражданская война в сирии" Height="35" Canvas.Left="10" Canvas.Top="530" Width="170" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
                 <Button x:Name="KoreanBoeing" Content="корейский боинг" Height="35" Canvas.Left="311" Canvas.Top="450" Width="134" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
                 <Button x:Name="Libya" Content="интервенция в ливии" Height="35" Canvas.Left="185" Canvas.Top="530" Width="134" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
