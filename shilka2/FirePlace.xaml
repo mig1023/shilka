@@ -88,6 +88,5 @@
                 </DataGrid.Columns>
             </DataGrid>
         </Canvas>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="29" Margin="92,195,0,0" VerticalAlignment="Top" Width="25"/>
     </Grid>
 </Window>
