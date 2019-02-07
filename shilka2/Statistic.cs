@@ -189,7 +189,7 @@ namespace shilka2
                 stat += "повреждено своих: " + statisticFriendDamage;
 
             if (statisticAirlinerDamage > 0)
-                stat += (statisticFriendDamage == 0 ? "П" : " +п") + "овреждено гражданских: " + statisticAirlinerDamage + "\n";
+                stat += (statisticFriendDamage > 0 ? " +" : "") + "повреждено гражданских: " + statisticAirlinerDamage + "\n";
             else if (statisticFriendDamage > 0)
                 stat += "\n";
 
