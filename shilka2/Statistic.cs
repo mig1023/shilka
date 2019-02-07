@@ -29,6 +29,7 @@ namespace shilka2
 
         public static double statisticLastDamagePrice;
         public static bool statisticShutdownFlag = false;
+        public static bool seriousDamage = false;
         public static string statisticLastDamageType;
 
         static void Calc(out double baseForPercent, out int shutdownPercent, out int damagedPercent,
@@ -178,7 +179,8 @@ namespace shilka2
                 if (statisticShutdownFlag)
                     stat += " ( +" + statisticLastDamagePrice + " млн $ сбит " + statisticLastDamageType + " )";
                 else
-                    stat += string.Format(" ( +{0:f2} млн $ повреждён ", statisticLastDamagePrice) + statisticLastDamageType + " )";
+                    stat += string.Format(" ( +{0:f2} млн $" + (seriousDamage ? " серьёзно" : "") + " повреждён ", statisticLastDamagePrice) +
+                        statisticLastDamageType + " )";
 
                 stat += "\n";
             }

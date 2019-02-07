@@ -101,13 +101,14 @@ namespace shilka2
                             {
                                 Statistic.statisticDamaged++;
 
-                                double residualValue =  aircraft.price * (double)aircraft.hitpoint / (double)aircraft.hitpointMax;
+                                double residualValue = aircraft.price * (double)aircraft.hitpoint / (double)aircraft.hitpointMax;
                                 double priceOfDamage = aircraft.price - residualValue;
                                 Statistic.statisticAmountOfDamage += priceOfDamage;
 
                                 Statistic.statisticShutdownFlag = false;
                                 Statistic.statisticLastDamagePrice = priceOfDamage;
                                 Statistic.statisticLastDamageType = aircraft.aircraftName;
+                                Statistic.seriousDamage = (aircraft.hitpoint < (aircraft.hitpointMax / 2) ? true : false);
                             }
                         } 
                         else if (aircraft.hitpoint < aircraft.hitpointMax)
