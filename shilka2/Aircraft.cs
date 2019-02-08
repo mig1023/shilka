@@ -20,6 +20,7 @@ namespace shilka2
 
         double tangage { get; set; }
         int tangageDelay = 0;
+        double angleOfAttack = 0;
 
         public string aircraftType;
         public string aircraftName;
@@ -65,7 +66,23 @@ namespace shilka2
                     aircraft.x += aircraft.speed * escapeFromFireCoefficient;
 
                     if (aircraft.dead)
+                    {
                         aircraft.y += Constants.TANGAGE_DEAD_SPEED * (rand.NextDouble() * 2 - 1) + 4;
+
+                        if (aircraft.dynamicElemets.Count == 0)
+                        {
+                            if (aircraft.angleOfAttack > 0)
+                                aircraft.angleOfAttack += 0.1;
+                            else if (aircraft.angleOfAttack < 0)
+                                aircraft.angleOfAttack -= 0.1;
+                            else
+                                aircraft.angleOfAttack += (rand.NextDouble() - 0.5) * 0.2;
+
+                            aircraft.aircraftImage.RenderTransform = new RotateTransform(
+                                aircraft.angleOfAttack, (aircraft.aircraftImage.ActualWidth / 2), (aircraft.aircraftImage.ActualHeight / 2)
+                            );
+                        }
+                    }
                     else
                         if (!aircraft.cloud)
                         {
