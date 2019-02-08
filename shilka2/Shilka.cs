@@ -70,6 +70,7 @@ namespace shilka2
             double newLastDegree = Math.Asin(LastSin) * (180 / Math.PI) * -1;
 
             newLastDegree += Constants.LAST_DEGREE_CORRECTION;
+
             if (newLastDegree > 0)
                 newLastDegree = 0;
 
@@ -119,6 +120,7 @@ namespace shilka2
             )
             {
                 Line flash = new Line();
+
                 flash.X1 = gun.X2;
                 flash.Y1 = gun.Y2;
 
@@ -138,8 +140,8 @@ namespace shilka2
 
         public static void DrawGuns(FirePlace main)
         {
-
             double currentHeight = Shell.currentHeight;
+
             if (currentHeight < 0)
                 currentHeight = main.ActualHeight;
 

@@ -87,16 +87,18 @@ namespace shilka2
                         if (!aircraft.cloud)
                         {
                             aircraft.tangageDelay++;
+
                             if (aircraft.tangageDelay > Constants.TANGAGE_DELAY)
                             {
                                 aircraft.tangageDelay = 0;
                                 aircraft.tangage = Constants.TANGAGE_SPEED * (rand.NextDouble() * 2 - 1);
                             }
-                            aircraft.y += aircraft.tangage;
 
-                            if (aircraft.y > aircraft.minAltitude)
-                            aircraft.y = aircraft.minAltitude;
+                            aircraft.y += aircraft.tangage;
                         }
+
+                    if (aircraft.y > aircraft.minAltitude)
+                        aircraft.y = aircraft.minAltitude;
 
                     if ((aircraft.maxAltitude >= 0) && (aircraft.y < aircraft.maxAltitude))
                         aircraft.y = aircraft.maxAltitude;
