@@ -21,7 +21,6 @@ namespace shilka2
         double tangage { get; set; }
         int tangageDelay = 0;
         double angleOfAttack = 0;
-        public int fullDestruction = 0;
 
         public string aircraftType;
         public string aircraftName;
@@ -69,12 +68,6 @@ namespace shilka2
                     if (aircraft.dead)
                     {
                         aircraft.y += Constants.TANGAGE_DEAD_SPEED * (rand.NextDouble() * 2 - 1) + 4;
-
-                        if (aircraft.fullDestruction > 0)
-                        {
-                            aircraft.y += aircraft.fullDestruction;
-                            aircraft.fullDestruction += 1;
-                        }
 
                         if (aircraft.dynamicElemets.Count == 0)
                         {
@@ -150,9 +143,6 @@ namespace shilka2
                     {
                         double xDirection = (aircraft.flightDirection == FlightDirectionType.Left ? d.x_left : d.x_right);
                         d.element.Margin = new Thickness(aircraft.x + xDirection, aircraft.y + d.y, 0, 0);
-
-                        if (aircraft.fullDestruction > 0)
-                            continue;
 
                         if (d.movingType == DynamicElement.MovingType.zRotate)
                         {
