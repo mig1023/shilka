@@ -773,7 +773,7 @@ namespace shilka2
                             CreateNewAircraft(
                                 aircraftType: "cessna",
                                 aircraftName: "Cessna 172",
-                                hitPoint: 50,
+                                hitPoint: 30,
                                 size: new int[] { 170, 61 },
                                 speed: 6,
                                 price: 0.3,
@@ -1804,7 +1804,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = rand.Next(12) + 1;
+                        dice = rand.Next(13) + 1;
                     }
                     while (!AircraftInList(Scripts.scriptAirliners, dice));
 
@@ -2010,8 +2010,21 @@ namespace shilka2
                                 }
                             );
                             break;
+
+                        case 13:
+                            CreateNewAircraft(
+                                aircraftType: "boeing737",
+                                aircraftName: "Боинг 737",
+                                size: new int[] { 565, 184 },
+                                speed: 8,
+                                minAltitude: minAltitudeForLargeAircraft,
+                                cantEscape: true,
+                                airliner: true
+                            );
+                            break;
                     }
                     break;
+
             }
         }
     }

@@ -402,6 +402,7 @@
                     2,     // <-- b747
                     7,     // <-- b707
                     8,     // <-- l1049
+                    13,    // <-- b737
                 };
 
             if (script == scriptsNames.Yugoslavia)
@@ -413,6 +414,7 @@
                     5,     // <-- dhc8
                     11,    // <-- b777
                     12,    // <-- il114
+                    13,    // <-- b737
                 };
 
             if (script == scriptsNames.DesertStorm)
@@ -422,6 +424,7 @@
                     3,     // <-- md11
                     4,     // <-- atr42
                     5,     // <-- dhc8
+                    13,    // <-- b737
                 };
 
             if (script == scriptsNames.IranIraq)
@@ -430,6 +433,7 @@
                     4,     // <-- atr42
                     5,     // <-- dhc8
                     7,     // <-- b707
+                    13,    // <-- b737
                 };
 
             if (script == scriptsNames.Syria)
@@ -443,6 +447,7 @@
                     10,    // <-- a380
                     11,    // <-- b777
                     12,    // <-- il114
+                    13,    // <-- b737
                 };
 
             if (script == scriptsNames.Libya)
@@ -456,6 +461,7 @@
                     10,    // <-- a380
                     11,    // <-- b777
                     12,    // <-- il114
+                    13,    // <-- b737
                 };
 
             if (script == scriptsNames.KoreanBoeing)
@@ -473,6 +479,7 @@
                     10,    // <-- a380
                     11,    // <-- b777
                     12,    // <-- il114
+                    13,    // <-- b737
                 };
 
             if (script == scriptsNames.F117Hunt)
@@ -484,6 +491,7 @@
                     5,     // <-- dhc8
                     11,    // <-- b777
                     12,    // <-- il114
+                    13,    // <-- b737
                 };
 
             if (script == scriptsNames.Rust)
@@ -491,6 +499,7 @@
                     2,     // <-- b747
                     4,     // <-- atr42
                     5,     // <-- dhc8
+                    13,    // <-- b737
                 };
 
             if (script == scriptsNames.Khmeimim)
@@ -504,6 +513,7 @@
                     10,    // <-- a380
                     11,    // <-- b777
                     12,    // <-- il114
+                    13,    // <-- b737
                 };
 
             return new int?[] { };
