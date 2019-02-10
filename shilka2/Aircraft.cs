@@ -1841,7 +1841,7 @@ namespace shilka2
                                 aircraftType: "md11",
                                 aircraftName: "MD-11",
                                 hitPoint: 100,
-                                size: new int[] { 560, 153 },
+                                size: new int[] { 560, 157 },
                                 speed: 8,
                                 minAltitude: minAltitudeForLargeAircraft,
                                 cantEscape: true,
@@ -2024,7 +2024,6 @@ namespace shilka2
                             break;
                     }
                     break;
-
             }
         }
     }
