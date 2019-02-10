@@ -1383,23 +1383,23 @@ namespace shilka2
                             CreateNewAircraft(
                                 aircraftType: "ah6",
                                 aircraftName: "Боинг AH-6",
-                                size: new int[] { 165, 68 },
+                                size: new int[] { 134, 58 },
                                 speed: 5,
                                 maxAltitude: maxAltitudeForHelicopters,
                                 price: 2,
                                 elements: new List<DynamicElement> {
                                     new DynamicElement {
-                                        elementName = "prop_main",
-                                        y = -18,
-                                        x_left = -60,
-                                        x_right = -2,
+                                        elementName = "prop_main_ltl",
+                                        y = -12,
+                                        x_left = -20,
+                                        x_right = 20,
                                         movingType = DynamicElement.MovingType.xRotate,
                                     },
                                     new DynamicElement {
                                         elementName = "ltl_suppl",
-                                        y = 11,
-                                        x_left = 138,
-                                        x_right = 0,
+                                        y = 7,
+                                        x_left = 110,
+                                        x_right = -3,
                                         movingType = DynamicElement.MovingType.zRotate
                                     }
                                 }
