@@ -403,6 +403,7 @@
                     7,     // <-- b707
                     8,     // <-- l1049
                     13,    // <-- b737
+                    15,    // <-- dc8
                 };
 
             if (script == scriptsNames.Yugoslavia)
@@ -416,6 +417,7 @@
                     12,    // <-- il114
                     13,    // <-- b737
                     14,    // <-- md90
+
                 };
 
             if (script == scriptsNames.DesertStorm)
@@ -426,6 +428,7 @@
                     4,     // <-- atr42
                     5,     // <-- dhc8
                     13,    // <-- b737
+                    15,    // <-- dc8
                 };
 
             if (script == scriptsNames.IranIraq)
@@ -435,6 +438,7 @@
                     5,     // <-- dhc8
                     7,     // <-- b707
                     13,    // <-- b737
+                    15,    // <-- dc8
                 };
 
             if (script == scriptsNames.Syria)
@@ -505,6 +509,7 @@
                     4,     // <-- atr42
                     5,     // <-- dhc8
                     13,    // <-- b737
+                    15,    // <-- dc8
                 };
 
             if (script == scriptsNames.Khmeimim)
