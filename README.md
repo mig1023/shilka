@@ -67,6 +67,7 @@ The game is about a small anti-aircraft vehicle ZSU-23-4 "Shilka" in the school 
 | Airliner | Airliner | Airliner |
 | ------------- | ------------- | ------------- |
 | Аirbus A320 | Аirbus A380 | ATR 42 |
-| Boeing 707 | Boeing 747 | Boeing 777 |
-| Bombardier DHC-8 | Ilyushin Il-114 | Irkut MC-21 |
-| L-1049 Super Constellation | McDonnell Douglas MD-11 | Sukhoi Superjet 100 |
+| Boeing 707 | Boeing 737 | Boeing 747 |
+| Boeing 777 | Bombardier DHC-8 | Douglas DC-8 |
+| Ilyushin Il-114 | Irkut MC-21 | L-1049 Super Constellation |
+| McDonnell Douglas MD-11 | McDonnell Douglas MD-90 | Sukhoi Superjet 100  |
