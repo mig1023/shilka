@@ -1804,7 +1804,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = rand.Next(13) + 1;
+                        dice = rand.Next(14) + 1;
                     }
                     while (!AircraftInList(Scripts.scriptAirliners, dice));
 
@@ -2022,8 +2022,22 @@ namespace shilka2
                                 airliner: true
                             );
                             break;
+
+                        case 14:
+                            CreateNewAircraft(
+                                aircraftType: "md90",
+                                aircraftName: "MD 90",
+                                size: new int[] { 580, 111 },
+                                speed: 8,
+                                minAltitude: minAltitudeForLargeAircraft,
+                                cantEscape: true,
+                                airliner: true
+                            );
+                            break;
                     }
                     break;
+
+
             }
         }
     }
