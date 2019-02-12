@@ -420,6 +420,7 @@
                     14,    // <-- md90
                     16,    // <-- l1011
                     17,    // <-- crj200
+                    18,    // <-- emb120
                 };
 
             if (script == scriptsNames.DesertStorm)
@@ -432,6 +433,7 @@
                     13,    // <-- b737
                     15,    // <-- dc8
                     16,    // <-- l1011
+                    18,    // <-- emb120
                 };
 
             if (script == scriptsNames.IranIraq)
@@ -459,6 +461,7 @@
                     13,    // <-- b737
                     14,    // <-- md90
                     17,    // <-- crj200
+                    18,    // <-- emb120
                 };
 
             if (script == scriptsNames.Libya)
@@ -475,6 +478,7 @@
                     13,    // <-- b737
                     14,    // <-- md90
                     17,    // <-- crj200
+                    18,    // <-- emb120
                 };
 
             if (script == scriptsNames.KoreanBoeing)
@@ -495,6 +499,7 @@
                     13,    // <-- b737
                     14,    // <-- md90
                     17,    // <-- crj200
+                    18,    // <-- emb120
                 };
 
             if (script == scriptsNames.F117Hunt)
@@ -510,6 +515,7 @@
                     14,    // <-- md90
                     16,    // <-- l1011
                     17,    // <-- crj200
+                    18,    // <-- emb120
                 };
 
             if (script == scriptsNames.Rust)
@@ -536,6 +542,7 @@
                     13,    // <-- b737
                     14,    // <-- md90
                     17,    // <-- crj200
+                    18,    // <-- emb120
                 };
 
             return new int?[] { };

@@ -1804,7 +1804,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = rand.Next(16) + 1;
+                        dice = rand.Next(18) + 1;
                     }
                     while (!AircraftInList(Scripts.scriptAirliners, dice));
 
@@ -2064,6 +2064,17 @@ namespace shilka2
                                 aircraftType: "crj200",
                                 aircraftName: "Bombardier CRJ200",
                                 size: new int[] { 400, 89 },
+                                minAltitude: minAltitudeForLargeAircraft,
+                                cantEscape: true,
+                                airliner: true
+                            );
+                            break;
+
+                        case 18:
+                            CreateNewAircraft(
+                                aircraftType: "emb120",
+                                aircraftName: "Embraer EMB 120",
+                                size: new int[] { 330, 94 },
                                 minAltitude: minAltitudeForLargeAircraft,
                                 cantEscape: true,
                                 airliner: true
