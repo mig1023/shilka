@@ -2058,6 +2058,17 @@ namespace shilka2
                                 airliner: true
                             );
                             break;
+
+                        case 17:
+                            CreateNewAircraft(
+                                aircraftType: "crj200",
+                                aircraftName: "Bombardier CRJ200",
+                                size: new int[] { 400, 89 },
+                                minAltitude: minAltitudeForLargeAircraft,
+                                cantEscape: true,
+                                airliner: true
+                            );
+                            break;
                     }
                     break;
             }
