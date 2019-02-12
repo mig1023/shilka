@@ -404,6 +404,7 @@
                     8,     // <-- l1049
                     13,    // <-- b737
                     15,    // <-- dc8
+                    16,    // <-- l1011
                 };
 
             if (script == scriptsNames.Yugoslavia)
@@ -417,7 +418,7 @@
                     12,    // <-- il114
                     13,    // <-- b737
                     14,    // <-- md90
-
+                    16,    // <-- l1011
                 };
 
             if (script == scriptsNames.DesertStorm)
@@ -429,6 +430,7 @@
                     5,     // <-- dhc8
                     13,    // <-- b737
                     15,    // <-- dc8
+                    16,    // <-- l1011
                 };
 
             if (script == scriptsNames.IranIraq)
@@ -439,6 +441,7 @@
                     7,     // <-- b707
                     13,    // <-- b737
                     15,    // <-- dc8
+                    16,    // <-- l1011
                 };
 
             if (script == scriptsNames.Syria)
@@ -501,6 +504,7 @@
                     12,    // <-- il114
                     13,    // <-- b737
                     14,    // <-- md90
+                    16,    // <-- l1011
                 };
 
             if (script == scriptsNames.Rust)
@@ -510,6 +514,7 @@
                     5,     // <-- dhc8
                     13,    // <-- b737
                     15,    // <-- dc8
+                    16,    // <-- l1011
                 };
 
             if (script == scriptsNames.Khmeimim)

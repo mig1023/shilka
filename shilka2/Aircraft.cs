@@ -1804,7 +1804,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = rand.Next(15) + 1;
+                        dice = rand.Next(16) + 1;
                     }
                     while (!AircraftInList(Scripts.scriptAirliners, dice));
 
@@ -2040,6 +2040,18 @@ namespace shilka2
                                 aircraftType: "dc8",
                                 aircraftName: "DC 8",
                                 size: new int[] { 580, 118 },
+                                speed: 8,
+                                minAltitude: minAltitudeForLargeAircraft,
+                                cantEscape: true,
+                                airliner: true
+                            );
+                            break;
+
+                        case 16:
+                            CreateNewAircraft(
+                                aircraftType: "l1011",
+                                aircraftName: "Локхид L-1011",
+                                size: new int[] { 500, 180 },
                                 speed: 8,
                                 minAltitude: minAltitudeForLargeAircraft,
                                 cantEscape: true,
