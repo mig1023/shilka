@@ -1621,7 +1621,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = rand.Next(6) + 1;
+                        dice = rand.Next(7) + 1;
                     }
                     while (!AircraftInList(Scripts.scriptHelicoptersFriend, dice));
 
@@ -1789,6 +1789,32 @@ namespace shilka2
                                         y = -15,
                                         x_left = 260,
                                         x_right = -15,
+                                        movingType = DynamicElement.MovingType.zRotate
+                                    }
+                                }
+                            );
+                            break;
+
+                        case 7:
+                            CreateNewAircraft(
+                                aircraftType: "mi26",
+                                aircraftName: "Ми-26",
+                                size: new int[] { 580, 146 },
+                                speed: 5,
+                                friend: true,
+                                elements: new List<DynamicElement> {
+                                    new DynamicElement {
+                                        elementName = "mi26_prop",
+                                        y = -3,
+                                        x_left = -35,
+                                        x_right = 95,
+                                        movingType = DynamicElement.MovingType.xRotate,
+                                    },
+                                    new DynamicElement {
+                                        elementName = "mi26_suppl",
+                                        y = -62,
+                                        x_left = 468,
+                                        x_right = -35,
                                         movingType = DynamicElement.MovingType.zRotate
                                     }
                                 }
