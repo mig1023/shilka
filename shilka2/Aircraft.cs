@@ -1807,13 +1807,13 @@ namespace shilka2
                                         elementName = "mi26_prop",
                                         y = -3,
                                         x_left = -35,
-                                        x_right = 95,
+                                        x_right = 105,
                                         movingType = DynamicElement.MovingType.xRotate,
                                     },
                                     new DynamicElement {
                                         elementName = "mi26_suppl",
-                                        y = -62,
-                                        x_left = 468,
+                                        y = -54,
+                                        x_left = 480,
                                         x_right = -35,
                                         movingType = DynamicElement.MovingType.zRotate
                                     }
