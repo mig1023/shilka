@@ -274,6 +274,8 @@ namespace shilka2
                 foreach (DynamicElement d in elements)
                 {
                     d.element = new Image();
+
+                    d.element.Margin = new Thickness(newAircraft.x, newAircraft.y, 0, 0);
                     d.element.Source = ImageFromResources(d.elementName);
                     d.rotateDegreeCurrent = d.startDegree;
 
