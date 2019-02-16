@@ -60,7 +60,8 @@ The game is about a small anti-aircraft vehicle ZSU-23-4 "Shilka" in the school 
 | Helicopter | Helicopter | Helicopter |
 | ------------- | ------------- | ------------- |
 | Mi-8 | Mi-10 | Mi-24 |
-| Mi-28 | Ka-27 | Ka-52 |
+| Mi-26 | Mi-28 | Ka-27 |
+| Ka-31 | Ka-52 | |
 
 ### Airliners:
 
