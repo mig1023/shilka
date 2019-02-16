@@ -151,6 +151,7 @@
                     3,     // <-- mi8
                     4,     // <-- ka52
                     5,     // <-- ka27
+                    8,     // <-- ka31
                 };
 
             if (script == scriptsNames.Libya)
@@ -177,6 +178,7 @@
                     2,     // <-- mi24
                     3,     // <-- mi8
                     4,     // <-- ka52
+                    8,     // <-- ka31
                 };
 
             return new int?[] { };

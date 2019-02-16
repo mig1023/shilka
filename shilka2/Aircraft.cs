@@ -83,21 +83,20 @@ namespace shilka2
                             );
                         }
                     }
-                    else
-                        if (!aircraft.cloud)
+                    else if (!aircraft.cloud)
+                    {
+                        aircraft.tangageDelay++;
+
+                        if (aircraft.tangageDelay > Constants.TANGAGE_DELAY)
                         {
-                            aircraft.tangageDelay++;
+                            aircraft.tangageDelay = 0;
+                            aircraft.tangage = Constants.TANGAGE_SPEED * (rand.NextDouble() * 2 - 1);
+                        }
 
-                            if (aircraft.tangageDelay > Constants.TANGAGE_DELAY)
-                            {
-                                aircraft.tangageDelay = 0;
-                                aircraft.tangage = Constants.TANGAGE_SPEED * (rand.NextDouble() * 2 - 1);
-                            }
+                        aircraft.y += aircraft.tangage;
 
-                            aircraft.y += aircraft.tangage;
-
-                            if (aircraft.y > aircraft.minAltitude)
-                                aircraft.y = aircraft.minAltitude;
+                        if (aircraft.y > aircraft.minAltitude)
+                            aircraft.y = aircraft.minAltitude;
                     }
 
                     if ((aircraft.maxAltitude >= 0) && (aircraft.y < aircraft.maxAltitude))
@@ -158,10 +157,20 @@ namespace shilka2
 
                         if (d.movingType == DynamicElement.MovingType.xRotate || d.movingType == DynamicElement.MovingType.yRotate)
                         {
-                            d.rotateDegreeCurrent -= 0.2;
+                            d.rotateDegreeCurrent -= (d.slowRotation ? 0.07 : 0.2);
 
                             if (d.rotateDegreeCurrent < 0.2)
+                            {
                                 d.rotateDegreeCurrent = 1;
+
+                                if (d.backSide && d.currentSide)
+                                    d.element.Source = ImageFromResources(d.elementName);
+                                else if (d.backSide)
+                                    d.element.Source = ImageFromResources(d.elementName + "_back");
+
+                                d.currentSide = !d.currentSide;
+                            }
+                               
 
                             if (d.movingType == DynamicElement.MovingType.xRotate)
                                 d.element.RenderTransform = new ScaleTransform(d.rotateDegreeCurrent, 1, (d.element.ActualWidth / 2), 0);
@@ -1623,7 +1632,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = rand.Next(7) + 1;
+                        dice = rand.Next(8) + 1;
                     }
                     while (!AircraftInList(Scripts.scriptHelicoptersFriend, dice));
 
@@ -1819,6 +1828,43 @@ namespace shilka2
                                         x_right = -35,
                                         movingType = DynamicElement.MovingType.zRotate
                                     }
+                                }
+                            );
+                            break;
+
+                        case 8:
+                            CreateNewAircraft(
+                                aircraftType: "ka31",
+                                aircraftName: "Ка-31",
+                                size: new int[] { 200, 50 },
+                                speed: 5,
+                                maxAltitude: maxAltitudeForHelicopters,
+                                friend: true,
+                                elements: new List<DynamicElement> {
+                                    new DynamicElement {
+                                        elementName = "prop_main",
+                                        y = -34,
+                                        x_left = -30,
+                                        x_right = 0,
+                                        movingType = DynamicElement.MovingType.xRotate,
+                                        startDegree = 0.5,
+                                    },
+                                    new DynamicElement {
+                                        elementName = "prop_main",
+                                        y = -23,
+                                        x_left = -30,
+                                        x_right = 0,
+                                        movingType = DynamicElement.MovingType.xRotate,
+                                    },
+                                    new DynamicElement {
+                                        elementName = "ka31rls",
+                                        y = 50,
+                                        x_left = 20,
+                                        x_right = 56,
+                                        movingType = DynamicElement.MovingType.xRotate,
+                                        slowRotation = true,
+                                        backSide = true,
+                                    },
                                 }
                             );
                             break;
@@ -2109,6 +2155,43 @@ namespace shilka2
                             );
                             break;
                     }
+                    break;
+
+                case 16:
+                    CreateNewAircraft(
+                        aircraftType: "ka31",
+                        aircraftName: "Ка-31",
+                        size: new int[] { 200, 50 },
+                        speed: 5,
+                        maxAltitude: maxAltitudeForHelicopters,
+                        friend: true,
+                        elements: new List<DynamicElement> {
+                                    new DynamicElement {
+                                        elementName = "prop_main",
+                                        y = -34,
+                                        x_left = -30,
+                                        x_right = 0,
+                                        movingType = DynamicElement.MovingType.xRotate,
+                                        startDegree = 0.5,
+                                    },
+                                    new DynamicElement {
+                                        elementName = "prop_main",
+                                        y = -23,
+                                        x_left = -30,
+                                        x_right = 0,
+                                        movingType = DynamicElement.MovingType.xRotate,
+                                    },
+                                    new DynamicElement {
+                                        elementName = "ka31rls",
+                                        y = 50,
+                                        x_left = 20,
+                                        x_right = 56,
+                                        movingType = DynamicElement.MovingType.xRotate,
+                                        slowRotation = true,
+                                        backSide = true,
+                                    },
+                        }
+                    );
                     break;
             }
         }

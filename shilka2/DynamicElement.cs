@@ -27,5 +27,11 @@ namespace shilka2
         public bool mirror = false;
 
         public bool background = false;
+
+        public bool slowRotation = false;
+
+        public bool backSide = false;
+
+        public bool currentSide = false;
     }
 }
