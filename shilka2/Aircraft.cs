@@ -1632,7 +1632,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = rand.Next(8) + 1;
+                        dice = rand.Next(9) + 1;
                     }
                     while (!AircraftInList(Scripts.scriptHelicoptersFriend, dice));
 
@@ -1864,6 +1864,34 @@ namespace shilka2
                                         movingType = DynamicElement.MovingType.xRotate,
                                         slowRotation = true,
                                         backSide = true,
+                                    },
+                                }
+                            );
+                            break;
+
+                        case 9:
+                            CreateNewAircraft(
+                                aircraftType: "ka26",
+                                aircraftName: "Ка-26",
+                                size: new int[] { 150, 56 },
+                                speed: 5,
+                                maxAltitude: maxAltitudeForHelicopters,
+                                friend: true,
+                                elements: new List<DynamicElement> {
+                                    new DynamicElement {
+                                        elementName = "prop_main_ltl",
+                                        y = -34,
+                                        x_left = -10,
+                                        x_right = 24,
+                                        movingType = DynamicElement.MovingType.xRotate,
+                                        startDegree = 0.5,
+                                    },
+                                    new DynamicElement {
+                                        elementName = "prop_main_ltl",
+                                        y = -23,
+                                        x_left = -10,
+                                        x_right = 24,
+                                        movingType = DynamicElement.MovingType.xRotate,
                                     },
                                 }
                             );
@@ -2155,43 +2183,6 @@ namespace shilka2
                             );
                             break;
                     }
-                    break;
-
-                case 16:
-                    CreateNewAircraft(
-                        aircraftType: "ka31",
-                        aircraftName: "Ка-31",
-                        size: new int[] { 200, 50 },
-                        speed: 5,
-                        maxAltitude: maxAltitudeForHelicopters,
-                        friend: true,
-                        elements: new List<DynamicElement> {
-                                    new DynamicElement {
-                                        elementName = "prop_main",
-                                        y = -34,
-                                        x_left = -30,
-                                        x_right = 0,
-                                        movingType = DynamicElement.MovingType.xRotate,
-                                        startDegree = 0.5,
-                                    },
-                                    new DynamicElement {
-                                        elementName = "prop_main",
-                                        y = -23,
-                                        x_left = -30,
-                                        x_right = 0,
-                                        movingType = DynamicElement.MovingType.xRotate,
-                                    },
-                                    new DynamicElement {
-                                        elementName = "ka31rls",
-                                        y = 50,
-                                        x_left = 20,
-                                        x_right = 56,
-                                        movingType = DynamicElement.MovingType.xRotate,
-                                        slowRotation = true,
-                                        backSide = true,
-                                    },
-                        }
-                    );
                     break;
             }
         }
