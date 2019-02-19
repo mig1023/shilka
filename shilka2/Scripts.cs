@@ -379,6 +379,8 @@
                     2,     // <-- ah1
                     3,     // <-- uh60
                     5,     // <-- ch46
+                    13,    // <-- puma
+                    15,    // <-- as565
                 };
 
             if (script == scriptsNames.F117Hunt)
