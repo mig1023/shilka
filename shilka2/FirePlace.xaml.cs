@@ -188,6 +188,7 @@ namespace shilka2
 
             Game.Stop();
             Aircrafts.Stop();
+            School.Stop();
 
             Canvas newMenu = (Shilka.school ? RestartTrainingMenu : EndMenu);
                             
@@ -313,6 +314,7 @@ namespace shilka2
             Shell.animationStop = false;
             Game.Start();
             Aircrafts.Start();
+            School.Start();
         }
 
         private void pauseButton_Click(object sender, RoutedEventArgs e)
