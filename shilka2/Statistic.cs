@@ -197,14 +197,8 @@ namespace shilka2
                 stat += string.Format("удача: {0:f2}", chance) + "\n";
 
             if (statisticShellsFired > 0)
-            {
-                stat += "температура стволов: " + Shilka.degreeOfHeatingGunBurrels + "°C";
-
-                if (Shilka.reheatingGunBurrels)
-                    stat += " - перегрев стволов!\n";
-
-                stat += "\n";
-            }
+                stat += "температура стволов: " + Shilka.degreeOfHeatingGunBurrels + "°C" +
+                    (Shilka.reheatingGunBurrels ? " - перегрев стволов!" : "");
 
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {
