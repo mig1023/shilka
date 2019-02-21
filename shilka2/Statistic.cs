@@ -66,7 +66,7 @@ namespace shilka2
             statisticAmountOfDamage = 0;
             statisticLastDamagePrice = 0;
             statisticShutdownFlag = false;
-            statisticLastDamageType = "";
+            statisticLastDamageType = String.Empty;
         }
 
         public static void Save(string player)
@@ -121,7 +121,7 @@ namespace shilka2
 
         public static void Show(object obj, ElapsedEventArgs e)
         {
-            string stat = "";
+            string stat = String.Empty;
 
             int shutdownPercent, damagedPercent, statisticWithoutDamage, inTargetPercent, shellsForShutdown;
             double chance, baseForPercent;
@@ -146,7 +146,7 @@ namespace shilka2
                 stat += "сбито: " + staticticAircraftShutdown + " ( " + shutdownPercent + "% )";
 
             if (statisticDamaged > 0)
-                stat += (staticticAircraftShutdown == 0 ? "" : " +") + "повреждено: " + statisticDamaged + " ( " + damagedPercent + "% )\n";
+                stat += (staticticAircraftShutdown == 0 ? String.Empty : " +") +"повреждено: " + statisticDamaged + " ( " + damagedPercent + "% )\n";
             else if (staticticAircraftShutdown > 0)
                 stat += "\n";
 
@@ -179,8 +179,8 @@ namespace shilka2
                 if (statisticShutdownFlag)
                     stat += " ( +" + statisticLastDamagePrice + " млн $ сбит " + statisticLastDamageType + " )";
                 else
-                    stat += string.Format(" ( +{0:f2} млн $" + (seriousDamage ? " серьёзно" : "") + " повреждён ", statisticLastDamagePrice) +
-                        statisticLastDamageType + " )";
+                    stat += string.Format(" ( +{0:f2} млн $" + (seriousDamage ? " серьёзно" : String.Empty) +
+                        " повреждён ", statisticLastDamagePrice) + statisticLastDamageType + " )";
 
                 stat += "\n";
             }
@@ -189,7 +189,7 @@ namespace shilka2
                 stat += "повреждено своих: " + statisticFriendDamage;
 
             if (statisticAirlinerDamage > 0)
-                stat += (statisticFriendDamage > 0 ? " +" : "") + "повреждено гражданских: " + statisticAirlinerDamage + "\n";
+                stat += (statisticFriendDamage > 0 ? " +" : String.Empty) + "повреждено гражданских: " + statisticAirlinerDamage + "\n";
             else if (statisticFriendDamage > 0)
                 stat += "\n";
 
@@ -198,7 +198,7 @@ namespace shilka2
 
             if (statisticShellsFired > 0)
                 stat += "температура стволов: " + Shilka.degreeOfHeatingGunBurrels + "°C" +
-                    (Shilka.reheatingGunBurrels ? " - перегрев стволов!" : "");
+                    (Shilka.reheatingGunBurrels ? " - перегрев стволов!" : String.Empty);
 
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {

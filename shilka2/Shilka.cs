@@ -45,7 +45,7 @@ namespace shilka2
                 FirePlace main = (FirePlace)Application.Current.MainWindow;
 
                 main.firePlace.Children.Clear();
-                main.PlayerName.Text = "";
+                main.PlayerName.Text = String.Empty;
 
                 Aircraft.aircrafts.Clear();
                 Case.cases.Clear();

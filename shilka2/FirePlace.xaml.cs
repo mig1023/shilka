@@ -350,7 +350,7 @@ namespace shilka2
 
         private void GameOver(string playerName = "")
         {
-            if (playerName != "")
+            if (playerName != String.Empty)
                 Statistic.Save(playerName);
 
             Canvas prevMenu = ( Shilka.school ? RestartTrainingMenu : EndMenu);
@@ -379,7 +379,7 @@ namespace shilka2
 
         private void PlayerName_KeyUp(object sender, KeyEventArgs e)
         {
-            GameOverWithSave.IsEnabled = (PlayerName.Text == "" ? false : true);
+            GameOverWithSave.IsEnabled = (PlayerName.Text == String.Empty ? false : true);
         }
 
         private void statisticButton_Click(object sender, RoutedEventArgs e)
