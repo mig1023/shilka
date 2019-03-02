@@ -87,12 +87,12 @@
                     <DataGridTextColumn Header="удача" Binding="{Binding chance}"/>
                 </DataGrid.Columns>
             </DataGrid>
-            <DataGrid x:Name="StatBoxTable" FontFamily="Arial Narrow" FontSize="32" HeadersVisibility="None" VerticalScrollBarVisibility="Hidden">
+            <DataGrid x:Name="StatBoxTable" FontFamily="Arial Narrow" Width="150" Height="50" FontSize="32" HeadersVisibility="None" GridLinesVisibility="None"  IsHitTestVisible="False" VerticalScrollBarVisibility="Hidden" Canvas.Left="61" Canvas.Top="44">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="column1" IsReadOnly="True" Binding="{Binding Path=Column1}" Width="*"/>
-                    <DataGridTextColumn Header="column2" IsReadOnly="True" Binding="{Binding Path=Column2}" Width="*"/>
-                    <DataGridTextColumn Header="column3" IsReadOnly="True" Binding="{Binding Path=Column3}" Width="*"/>
-                    <DataGridTextColumn Header="column4" IsReadOnly="True" Binding="{Binding Path=Column4}" Width="*"/>
+                    <DataGridTextColumn Header="column1" Foreground="White" IsReadOnly="True" Binding="{Binding Path=Column1}" Width="*"/>
+                    <DataGridTextColumn Header="column2" Foreground="White" IsReadOnly="True" Binding="{Binding Path=Column2}" Width="*"/>
+                    <DataGridTextColumn Header="column3" Foreground="White" IsReadOnly="True" Binding="{Binding Path=Column3}" Width="*"/>
+                    <DataGridTextColumn Header="column4" Foreground="White" IsReadOnly="True" Binding="{Binding Path=Column4}" Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Canvas>
