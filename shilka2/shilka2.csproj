@@ -63,6 +63,7 @@
     <Compile Include="Scripts.cs" />
     <Compile Include="Shell.cs" />
     <Compile Include="Shilka.cs" />
+    <Compile Include="StatBox.cs" />
     <Compile Include="Statistic.cs" />
     <Compile Include="StatTable.cs" />
     <Page Include="FirePlace.xaml">

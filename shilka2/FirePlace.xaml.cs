@@ -53,11 +53,14 @@ namespace shilka2
 
             var converter = new BrushConverter();
             StatisticMenu.Background = (Brush)converter.ConvertFrom(statisticColor);
-
             StatisticGrid.ItemsSource = Statistic.Load();
-
-            StatisticGrid.Height = StatisticMenu.Height - Statistic.statisticGridMargins;
+            StatisticGrid.Margin = new Thickness(0, 280, 0, 0);
+            StatisticGrid.Height = StatisticMenu.Height - Statistic.statisticGridMargins - 280;
             StatisticGrid.Width = StatisticMenu.Width - Statistic.statisticGridMargins;
+
+            StatBoxTable.Margin = new Thickness(300, 30, 0, 0);
+            StatBoxTable.Height = 280;
+            StatBoxTable.Width = StatisticMenu.Width - Statistic.statisticGridMargins - 260;
 
             StartMenu.Height = StatisticMenu.Height;
             StartMenu.Width = StatisticMenu.Width;
@@ -474,6 +477,29 @@ namespace shilka2
         private void StatisticGrid_LoadingRow(object sender, DataGridRowEventArgs e)
         {
             e.Row.Header = (e.Row.GetIndex()+1).ToString();
+        }
+
+        private void StatBoxAddRow(string[] column)
+        {
+            StatBox data = new StatBox { Column1 = column[0], Column2 = column[1], Column3 = column[2], Column4 = column[3] };
+            StatBoxTable.Items.Add(data);
+        }
+
+        private void StatisticGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DataGrid stat = (DataGrid)sender;
+
+            StatTable statRow = (StatTable)stat.SelectedItem;
+
+            StatBoxTable.Items.Clear();
+
+            StatBoxAddRow(new String[] { "Зенитчик", statRow.name, "удача", statRow.chance.ToString() });
+            StatBoxAddRow(new String[] { "Сбито", statRow.shutdown.ToString(), "Повреждено", statRow.damaged.ToString() });
+            StatBoxAddRow(new String[] { "сбито, %", statRow.shutdownPercent.ToString(), "повреждённых, %", statRow.damagedPercent.ToString() });
+            StatBoxAddRow(new String[] { "Настрел", statRow.shellsFired.ToString(), "упущенных", statRow.hasGone.ToString() });
+            StatBoxAddRow(new String[] { "Из них в цель", statRow.inTarget.ToString(), "из них без повреждений, %", statRow.withoutDamage.ToString() });
+            StatBoxAddRow(new String[] { "попаданий, %", statRow.shellsFired.ToString(), "нанесён ущерб, млн", statRow.amountOfDamage.ToString() });
+            StatBoxAddRow(new String[] { "повреждено своих", statRow.friendDamage.ToString(), "повреждено гражданских", statRow.friendDamage.ToString() });
         }
     }
 }
