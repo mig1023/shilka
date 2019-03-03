@@ -1,4 +1,6 @@
-﻿namespace shilka2
+﻿using System.Collections.Generic;
+
+namespace shilka2
 {
     public class Scripts
     {
@@ -15,6 +17,22 @@
             Rust,
             F117Hunt,
             Khmeimim
+        };
+
+        public static Dictionary<string, string> scriptsRuNames = new Dictionary<string, string>
+        {
+            ["noScript"] = "быстрая игра",
+            ["Vietnam"] = "вьетнамская война",
+            ["KoreanBoeing"] = "корейский боинг",
+            ["DesertStorm"] = "буря в пустыни",
+            ["Yugoslavia"] = "бомбардировки югославии",
+            ["IranIraq"] = "ирано-иракская война",
+            ["Syria"] = "гражданская война в сирии",
+            ["Libya"] = "интервенция в ливии",
+            ["Yemen"] = "интервенция в йемен",
+            ["Rust"] = "полёт матиаса руста",
+            ["F117Hunt"] = "охота на невидимку",
+            ["Khmeimim"] = "оборона хмеймима"
         };
 
         public static int?[] scriptAircraft;

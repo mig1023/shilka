@@ -32,6 +32,8 @@ namespace shilka2
         public static bool seriousDamage = false;
         public static string statisticLastDamageType;
 
+        public static List<string> statisticScripts; 
+
         static void Calc(out double baseForPercent, out int shutdownPercent, out int damagedPercent,
             out int statisticWithoutDamage, out double chance, out int inTargetPercent, out int shellsForShutdown)
         {
@@ -102,6 +104,8 @@ namespace shilka2
 
             List<StatTable> result = new List<StatTable>(statisticLines.Length);
 
+            statisticScripts = new List<string>();
+
             foreach (string statLine in statisticLines)
             {
                 string[] stat = statLine.Split('|');
@@ -109,6 +113,7 @@ namespace shilka2
                 Scripts.scriptsNames scriptFullName = (Scripts.scriptsNames)Enum.Parse(typeof(Scripts.scriptsNames), stat[1]);
 
                 ImageSource flagSource = Aircraft.ImageFromResources(Scripts.ScriptFlagName(scriptFullName));
+                statisticScripts.Add(Scripts.scriptsRuNames[scriptFullName.ToString()]);
 
                 result.Add(new StatTable(
                     stat[0], stat[1], stat[2], stat[3], stat[4], stat[5], stat[6],

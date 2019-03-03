@@ -484,7 +484,7 @@ namespace shilka2
 
         private void StatBoxAddRow(string[] column)
         {
-            string line = " .......................................................................................................";
+            string line = ' ' + new string('.', 100);
 
             StatBox data = new StatBox { Column1 = column[0] + line, Column2 = " " + column[1], Column3 = column[2] + line, Column4 = " " + column[3] };
             StatBoxTable.Items.Add(data);
@@ -493,18 +493,23 @@ namespace shilka2
         private void StatisticGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             DataGrid stat = (DataGrid)sender;
-
             StatTable statRow = (StatTable)stat.SelectedItem;
 
             StatBoxTable.Items.Clear();
 
-            StatBoxAddRow(new String[] { "зенитчик", statRow.name, "удача", statRow.chance.ToString() });
-            StatBoxAddRow(new String[] { "сбито", statRow.shutdown.ToString(), "повреждено", statRow.damaged.ToString() });
-            StatBoxAddRow(new String[] { "сбито, %", statRow.shutdownPercent.ToString(), "повреждённых, %", statRow.damagedPercent.ToString() });
-            StatBoxAddRow(new String[] { "настрел", statRow.shellsFired.ToString(), "упущенных", statRow.hasGone.ToString() });
-            StatBoxAddRow(new String[] { "из них в цель", statRow.inTarget.ToString(), "из них без повреждений, %", statRow.withoutDamage.ToString() });
-            StatBoxAddRow(new String[] { "попаданий, %", statRow.shellsFired.ToString(), "нанесён ущерб, млн", statRow.amountOfDamage.ToString() });
+            int shellsForShutdown = (statRow.shutdown > 0 ? (int)statRow.shellsFired / statRow.shutdown : 0);
+            string scriptName = Statistic.statisticScripts[stat.SelectedIndex];
+
+            StatBoxAddRow(new String[] { "зенитчик", statRow.name, "сценарий", scriptName });
+            StatBoxAddRow(new String[] {
+                "сбито", statRow.shutdown.ToString() + " (" + statRow.shutdownPercent.ToString() + "%)",
+                "повреждено", statRow.damaged.ToString() + " (" + statRow.damagedPercent.ToString() + "%)" });
+            StatBoxAddRow(new String[] { "настрел", statRow.shellsFired.ToString() + " снарядов", "упущенных", statRow.hasGone.ToString() });
+            StatBoxAddRow(new String[] { "из них в цель", statRow.inTarget.ToString() + " (" + statRow.inTargetPercent.ToString() + "%)",
+                "из них без повреждений", statRow.withoutDamage.ToString() + "%" });
+            StatBoxAddRow(new String[] { "выстрелов на самолёт", shellsForShutdown.ToString() + " выстр./сбитый", "нанесён ущерб", statRow.amountOfDamage.ToString() + " млн $" });
             StatBoxAddRow(new String[] { "повреждено своих", statRow.friendDamage.ToString(), "повреждено гражданских", statRow.friendDamage.ToString() });
+            StatBoxAddRow(new String[] { "удача", statRow.chance.ToString(), "", "" });
         }
     }
 }
