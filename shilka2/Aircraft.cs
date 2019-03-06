@@ -131,9 +131,15 @@ namespace shilka2
                         } 
                         else if (aircraft.hitpoint < aircraft.hitpointMax)
                             if (aircraft.friend)
-                                Statistic.statisticFriendDamage++;
+                            {
+                                Statistic.statisticFriendDamage += 1;
+                                Statistic.statisticLastDamageFriend = aircraft.aircraftName;
+                            }
                             else if (aircraft.airliner)
-                                Statistic.statisticAirlinerDamage++;
+                            {
+                                Statistic.statisticAirlinerDamage += 1;
+                                Statistic.statisticLastDamageAirliner = aircraft.aircraftName;
+                            }
                     }
 
                     aircraft.aircraftImage.Margin = new Thickness(aircraft.x, aircraft.y, 0, 0);
