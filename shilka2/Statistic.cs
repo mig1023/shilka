@@ -126,6 +126,16 @@ namespace shilka2
             return result;
         }
 
+        public static string HumanReadableSumm(double statisticAmountOfDamage)
+        {
+            if (statisticAmountOfDamage < 1000)
+                return string.Format("{0:f2}", statisticAmountOfDamage) + " млн $";
+            else if (statisticAmountOfDamage < 1000000)
+                return string.Format("{0:f2}", (double)statisticAmountOfDamage / 1000) + " млрд $";
+            else
+                return string.Format("{0:f2}", (double)statisticAmountOfDamage / 1000000) + " трлн $";
+        }
+
         public static void Show(object obj, ElapsedEventArgs e)
         {
             string stat = String.Empty;
@@ -174,14 +184,7 @@ namespace shilka2
 
             if (statisticAmountOfDamage > 0 && !Shilka.school)
             {
-                stat += "нанесён ущерб: ";
-
-                if (statisticAmountOfDamage < 1000)
-                    stat += string.Format("{0:f2}", statisticAmountOfDamage) + " млн $";
-                else if (statisticAmountOfDamage < 1000000)
-                    stat += string.Format("{0:f2}", (double)statisticAmountOfDamage / 1000) + " млрд $";
-                else
-                    stat += string.Format("{0:f2}", (double)statisticAmountOfDamage / 1000000) + " трлн $";
+                stat += "нанесён ущерб: " + HumanReadableSumm(statisticAmountOfDamage);
 
                 if (statisticShutdownFlag)
                     stat += " ( +" + statisticLastDamagePrice + " млн $ сбит " + statisticLastDamageType + " )";
