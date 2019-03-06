@@ -508,7 +508,7 @@ namespace shilka2
             StatBoxAddRow(new String[] { "из них в цель", statRow.inTarget.ToString() + " (" + statRow.inTargetPercent.ToString() + "%)",
                 "из них без повреждений", statRow.withoutDamage.ToString() + "%" });
             StatBoxAddRow(new String[] { "выстрелов на самолёт", shellsForShutdown.ToString() + " выстр./сбитый", "нанесён ущерб", statRow.amountOfDamage.ToString() + " млн $" });
-            StatBoxAddRow(new String[] { "повреждено своих", statRow.friendDamage.ToString(), "повреждено гражданских", statRow.friendDamage.ToString() });
+            StatBoxAddRow(new String[] { "повреждено своих", statRow.friendDamage.ToString(), "повреждено гражданских", statRow.airlinerDamage.ToString() });
             StatBoxAddRow(new String[] { "удача", statRow.chance.ToString(), "", "" });
         }
     }
