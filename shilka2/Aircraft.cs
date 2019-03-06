@@ -1735,7 +1735,7 @@ namespace shilka2
                                     new DynamicElement {
                                         elementName = "prop_main",
                                         y = -13,
-                                        x_left = -30,
+                                        x_left = -25,
                                         x_right = 30,
                                         movingType = DynamicElement.MovingType.xRotate,
                                         startDegree = 0.5,
@@ -1743,7 +1743,7 @@ namespace shilka2
                                     new DynamicElement {
                                         elementName = "prop_main",
                                         y = -2,
-                                        x_left = -30,
+                                        x_left = -25,
                                         x_right = 30,
                                         movingType = DynamicElement.MovingType.xRotate,
                                     },
