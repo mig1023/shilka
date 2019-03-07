@@ -16,6 +16,7 @@ namespace shilka2
         public System.Timers.Timer HandMove = new System.Timers.Timer(600);
         public System.Timers.Timer Aircrafts = new System.Timers.Timer(2000);
         public System.Timers.Timer School = new System.Timers.Timer(800);
+        public System.Timers.Timer GameTimer = new System.Timers.Timer(1000);
 
         bool pause = false;
         bool endGameAlready = false;
@@ -112,17 +113,16 @@ namespace shilka2
 
             if (!startGameAlready)
             {
-                HandMove.Elapsed += new ElapsedEventHandler(HideHand);
-
                 Game.Elapsed += new ElapsedEventHandler(Shell.ShellsFire);
                 Game.Elapsed += new ElapsedEventHandler(Shell.ShellsFly);
                 Game.Elapsed += new ElapsedEventHandler(Case.CasesFly);
                 Game.Elapsed += new ElapsedEventHandler(Aircraft.AircraftFly);
                 Game.Elapsed += new ElapsedEventHandler(Statistic.Show);
 
+                HandMove.Elapsed += new ElapsedEventHandler(HideHand);
                 Aircrafts.Elapsed += new ElapsedEventHandler(Aircraft.AircraftStart);
-
                 School.Elapsed += new ElapsedEventHandler(SchoolShow);
+                GameTimer.Elapsed += new ElapsedEventHandler(GameTimeTicTac);
             }
             HandMove.Enabled = true;
             HandMove.Start();
@@ -132,6 +132,10 @@ namespace shilka2
 
             Aircrafts.Enabled = true;
             Aircrafts.Start();
+
+            Statistic.gameTimeSec = 0;
+            GameTimer.Enabled = true;
+            GameTimer.Start();
 
             if (Shilka.school)
             {
@@ -169,6 +173,11 @@ namespace shilka2
             }));
         }
 
+        public static void GameTimeTicTac(object obj, ElapsedEventArgs e)
+        {
+            Statistic.gameTimeSec += 1;
+        }
+
         public static void SchoolShow(object obj, ElapsedEventArgs e)
         {
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
@@ -197,6 +206,7 @@ namespace shilka2
             Game.Stop();
             Aircrafts.Stop();
             School.Stop();
+            GameTimer.Stop();
 
             Canvas newMenu = (Shilka.school ? RestartTrainingMenu : EndMenu);
                             
@@ -504,14 +514,14 @@ namespace shilka2
 
             StatBoxAddRow(new String[] { "зенитчик", statRow.name, "сценарий", scriptName });
             StatBoxAddRow(new String[] {
-                "сбито", statRow.shutdown.ToString() + " (" + statRow.shutdownPercent.ToString() + "%)",
-                "повреждено", statRow.damaged.ToString() + " (" + statRow.damagedPercent.ToString() + "%)" });
+                "сбито", statRow.shutdown.ToString() + " ( " + statRow.shutdownPercent.ToString() + "% )",
+                "повреждено", statRow.damaged.ToString() + " ( " + statRow.damagedPercent.ToString() + "% )" });
             StatBoxAddRow(new String[] { "настрел", statRow.shellsFired.ToString() + " снарядов", "упущенных", statRow.hasGone.ToString() });
-            StatBoxAddRow(new String[] { "из них в цель", statRow.inTarget.ToString() + " (" + statRow.inTargetPercent.ToString() + "%)",
+            StatBoxAddRow(new String[] { "из них в цель", statRow.inTarget.ToString() + " ( " + statRow.inTargetPercent.ToString() + "% )",
                 "из них без повреждений", statRow.withoutDamage.ToString() + "%" });
             StatBoxAddRow(new String[] { "выстрелов на самолёт", shellsForShutdown.ToString() + " выстр./сбитый", "нанесён ущерб", Statistic.HumanReadableSumm(statRow.amountOfDamage) });
             StatBoxAddRow(new String[] { "повреждено своих", statRow.friendDamage.ToString(), "повреждено гражданских", statRow.airlinerDamage.ToString() });
-            StatBoxAddRow(new String[] { "удача", statRow.chance.ToString(), "", "" });
+            StatBoxAddRow(new String[] { "удача", statRow.chance.ToString(), "время", statRow.time.ToString() });
         }
     }
 }

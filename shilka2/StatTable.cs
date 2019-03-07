@@ -22,12 +22,19 @@ namespace shilka2
         public int friendDamage { get; set; }
         public int airlinerDamage { get; set; }
         public float chance { get; set; }
+        public string time { get; set; }
+
+        private static string TimeFormat(string timeInSecond)
+        {
+            TimeSpan time = TimeSpan.FromSeconds(int.Parse(timeInSecond));
+            return time.ToString();
+        }
 
         public StatTable(string name, string script, string shellsFired, string inTarget,
               string aircraftShutdown, string inTargetPercent, string shutdownPercent,
               string damaged, string damagedPercent, string hasGone,
               string withoutDamage, string amountOfDamage, string friendDamage,
-              string airlinerDamage, string chance, ImageSource flag)
+              string airlinerDamage, string chance, ImageSource flag, string time)
         {
             this.name = name;
             this.shellsFired = int.Parse(shellsFired);
@@ -43,7 +50,8 @@ namespace shilka2
             this.friendDamage = int.Parse(friendDamage);
             this.airlinerDamage = int.Parse(airlinerDamage);
             this.chance = float.Parse(string.Format("{0:f2}", float.Parse(chance)));
-            this.scriptFlag = flag; 
+            this.scriptFlag = flag;
+            this.time = TimeFormat(time);
         }
     }
 }

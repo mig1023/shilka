@@ -35,6 +35,8 @@ namespace shilka2
         public static string statisticLastDamageAirliner;
         public static string statisticLastHasGone;
 
+        public static int gameTimeSec = 0;
+
         public static List<string> statisticScripts; 
 
         static void Calc(out double baseForPercent, out int shutdownPercent, out int damagedPercent,
@@ -84,11 +86,11 @@ namespace shilka2
 
             double statisticAmountOfDamageRound = double.Parse(string.Format("{0:f2}", statisticAmountOfDamage));
 
-            string stat = string.Format("{0}|{1}|{2}|{3}|{4}|{5}|{6}|{7}|{8}|{9}|{10}|{11}|{12}|{13}|{14}\n",
+            string stat = string.Format("{0}|{1}|{2}|{3}|{4}|{5}|{6}|{7}|{8}|{9}|{10}|{11}|{12}|{13}|{14}|{15}\n",
                   player, Shilka.currentScript, statisticShellsFired, staticticInTarget, staticticAircraftShutdown,
                   inTargetPercent, shutdownPercent, statisticDamaged, damagedPercent, statisticHasGone,
                   statisticWithoutDamage, statisticAmountOfDamageRound, statisticFriendDamage, statisticAirlinerDamage,
-                  chance
+                  chance, gameTimeSec
             );
 
             File.AppendAllText("statistic.dat", stat);
@@ -120,7 +122,7 @@ namespace shilka2
 
                 result.Add(new StatTable(
                     stat[0], stat[1], stat[2], stat[3], stat[4], stat[5], stat[6],
-                    stat[7], stat[8], stat[9], stat[10], stat[11], stat[12], stat[13], stat[14], flagSource
+                    stat[7], stat[8], stat[9], stat[10], stat[11], stat[12], stat[13], stat[14], flagSource, stat[15]
                 ));
             }
 
