@@ -113,7 +113,8 @@ namespace shilka2
 
                         if ((!aircraft.dead) && (!aircraft.friend) && (!aircraft.airliner))
                         {
-                            Statistic.statisticHasGone++;
+                            Statistic.statisticHasGone += 1;
+                            Statistic.statisticLastHasGone = aircraft.aircraftName;
 
                             if (aircraft.hitpoint < aircraft.hitpointMax)
                             {

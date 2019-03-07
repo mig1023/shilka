@@ -65,6 +65,8 @@ namespace shilka2
             StatBoxTable.RowBackground = StatisticMenu.Background;
             StatBoxTable.BorderBrush = StatisticMenu.Background;
 
+            statShells.Width = StatisticGrid.Width;
+
             StartMenu.Height = StatisticMenu.Height;
             StartMenu.Width = StatisticMenu.Width;
             StartMenu.Margin = new Thickness(0, 0, 0, 0);

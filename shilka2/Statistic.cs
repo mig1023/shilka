@@ -33,6 +33,7 @@ namespace shilka2
         public static string statisticLastDamageType;
         public static string statisticLastDamageFriend;
         public static string statisticLastDamageAirliner;
+        public static string statisticLastHasGone;
 
         public static List<string> statisticScripts; 
 
@@ -177,9 +178,9 @@ namespace shilka2
                 stat += "упущено: " + statisticHasGone + " ( " + hasGonePercent + "% )";
 
                 if (statisticDamaged < statisticHasGone)
-                    stat += ", в том числе неповредённых: " + (statisticHasGone - statisticDamaged) + " ( " + statisticWithoutDamage + "% )";
+                    stat += ", в т.ч. неповредённых: " + (statisticHasGone - statisticDamaged) + " ( " + statisticWithoutDamage + "% )";
 
-                stat += "\n";
+                stat += ", последний " + statisticLastHasGone + "\n";
             }
 
             if (statisticAmountOfDamage > 0 && !Shilka.school)
