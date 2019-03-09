@@ -234,6 +234,8 @@ namespace shilka2
                 Aircrafts.Stop();
             }
 
+            StatisticGrid.ItemsSource = Statistic.Load();
+
             MoveCanvas(
                 moveCanvas: StatisticMenu,
                 prevCanvas: (startMenuShowYet ? StartMenu : firePlaceDock),
