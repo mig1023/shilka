@@ -213,6 +213,8 @@ namespace shilka2
             var converter = new BrushConverter();
             newMenu.Background = (Brush)converter.ConvertFrom(bgColor);
 
+            GameOverWithSave.IsEnabled = false;
+
             if (Shilka.school)
                 RestartText.Content = endText;
             else
