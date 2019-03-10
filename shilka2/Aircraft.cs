@@ -72,9 +72,9 @@ namespace shilka2
                         if (aircraft.dynamicElemets.Count == 0)
                         {
                             if (aircraft.angleOfAttack > 0)
-                                aircraft.angleOfAttack += 0.1;
+                                aircraft.angleOfAttack += Constants.ANGLE_OF_ATTACK_CHANGE_SPEED;
                             else if (aircraft.angleOfAttack < 0)
-                                aircraft.angleOfAttack -= 0.1;
+                                aircraft.angleOfAttack -= Constants.ANGLE_OF_ATTACK_CHANGE_SPEED;
                             else
                                 aircraft.angleOfAttack += (rand.NextDouble() - 0.5) * 0.2;
 
@@ -154,7 +154,7 @@ namespace shilka2
                         {
                             int direction = (aircraft.flightDirection == FlightDirectionType.Left ? 1 : -1);
 
-                            d.rotateDegreeCurrent += (25 * direction);
+                            d.rotateDegreeCurrent += (Constants.ROTATE_STEP * direction);
 
                             if (d.rotateDegreeCurrent < -180 || d.rotateDegreeCurrent > 180)
                                 d.rotateDegreeCurrent = 0;
@@ -164,7 +164,7 @@ namespace shilka2
 
                         if (d.movingType == DynamicElement.MovingType.xRotate || d.movingType == DynamicElement.MovingType.yRotate)
                         {
-                            d.rotateDegreeCurrent -= (d.slowRotation ? 0.07 : 0.2);
+                            d.rotateDegreeCurrent -= (d.slowRotation ? Constants.SLOW_ROTATION : Constants.FAST_ROTATION);
 
                             if (d.rotateDegreeCurrent < 0.2)
                             {
