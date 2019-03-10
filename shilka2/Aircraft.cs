@@ -82,6 +82,10 @@ namespace shilka2
                                 aircraft.angleOfAttack, (aircraft.aircraftImage.ActualWidth / 2), (aircraft.aircraftImage.ActualHeight / 2)
                             );
                         }
+                        else
+                            foreach (DynamicElement d in aircraft.dynamicElemets)
+                                if (d.movingType == DynamicElement.MovingType.yRotate)
+                                    d.slowRotation = true;
                     }
                     else if (!aircraft.cloud)
                     {
@@ -149,6 +153,9 @@ namespace shilka2
                     {
                         double xDirection = (aircraft.flightDirection == FlightDirectionType.Left ? d.x_left : d.x_right);
                         d.element.Margin = new Thickness(aircraft.x + xDirection, aircraft.y + d.y, 0, 0);
+
+                        if (d.slowRotation)
+                            continue;
 
                         if (d.movingType == DynamicElement.MovingType.zRotate)
                         {

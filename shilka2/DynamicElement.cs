@@ -33,5 +33,7 @@ namespace shilka2
         public bool backSide = false;
 
         public bool currentSide = false;
+
+        public bool stopRotation = false;
     }
 }
