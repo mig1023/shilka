@@ -176,6 +176,9 @@ namespace shilka2
         public static void GameTimeTicTac(object obj, ElapsedEventArgs e)
         {
             Statistic.gameTimeSec += 1;
+
+            if (Shell.fire)
+                Statistic.shootingTimeSec += 1;
         }
 
         public static void SchoolShow(object obj, ElapsedEventArgs e)
@@ -525,7 +528,7 @@ namespace shilka2
                 "из них без повреждений", statRow.withoutDamage.ToString() + "%" });
             StatBoxAddRow(new String[] { "выстрелов на самолёт", shellsForShutdown.ToString() + " выстр./сбитый", "нанесён ущерб", Statistic.HumanReadableSumm(statRow.amountOfDamage) });
             StatBoxAddRow(new String[] { "повреждено своих", statRow.friendDamage.ToString(), "повреждено гражданских", statRow.airlinerDamage.ToString() });
-            StatBoxAddRow(new String[] { "удача", statRow.chance.ToString(), "время", statRow.time.ToString() });
+            StatBoxAddRow(new String[] { "удача", statRow.chance.ToString(), "время", statRow.time.ToString() + " ( из них стрельбы "+ statRow.shootTime.ToString() +" )" });
         }
     }
 }

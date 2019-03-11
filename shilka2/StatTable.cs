@@ -23,6 +23,7 @@ namespace shilka2
         public int airlinerDamage { get; set; }
         public float chance { get; set; }
         public string time { get; set; }
+        public string shootTime { get; set; }
 
         private static string TimeFormat(string timeInSecond)
         {
@@ -34,7 +35,7 @@ namespace shilka2
               string aircraftShutdown, string inTargetPercent, string shutdownPercent,
               string damaged, string damagedPercent, string hasGone,
               string withoutDamage, string amountOfDamage, string friendDamage,
-              string airlinerDamage, string chance, ImageSource flag, string time)
+              string airlinerDamage, string chance, ImageSource flag, string time, string shootTime)
         {
             this.name = name;
             this.shellsFired = int.Parse(shellsFired);
@@ -52,6 +53,7 @@ namespace shilka2
             this.chance = float.Parse(string.Format("{0:f2}", float.Parse(chance)));
             this.scriptFlag = flag;
             this.time = TimeFormat(time);
+            this.shootTime = TimeFormat(shootTime);
         }
     }
 }

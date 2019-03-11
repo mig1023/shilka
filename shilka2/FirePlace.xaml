@@ -85,7 +85,8 @@
                     <DataGridTextColumn Header="повреждено своих" Binding="{Binding Path=friendDamage}"/>
                     <DataGridTextColumn Header="повреждено гражданских" Binding="{Binding Path=airlinerDamage}" CellStyle="{StaticResource grayCell}"/>
                     <DataGridTextColumn Header="удача" Binding="{Binding chance}"/>
-                    <DataGridTextColumn Header="время" Binding="{Binding time}"/>
+                    <DataGridTextColumn Header="общее время" Binding="{Binding time}" CellStyle="{StaticResource grayCell}"/>
+                    <DataGridTextColumn Header="время стрельбы" Binding="{Binding shootTime}"/>
                 </DataGrid.Columns>
             </DataGrid>
             <DataGrid x:Name="StatBoxTable" FontFamily="Arial Narrow" Width="150" Height="50" FontSize="32" HeadersVisibility="None" GridLinesVisibility="None"  IsHitTestVisible="False" VerticalScrollBarVisibility="Hidden" Canvas.Left="61" Canvas.Top="44">
