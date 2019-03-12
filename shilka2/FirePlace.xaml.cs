@@ -55,12 +55,12 @@ namespace shilka2
             var converter = new BrushConverter();
             StatisticMenu.Background = (Brush)converter.ConvertFrom(statisticColor);
             StatisticGrid.ItemsSource = Statistic.Load();
-            StatisticGrid.Margin = new Thickness(0, 320, 0, 0);
-            StatisticGrid.Height = StatisticMenu.Height - Statistic.statisticGridMargins - 340;
+            StatisticGrid.Margin = new Thickness(0, 345, 0, 0);
+            StatisticGrid.Height = StatisticMenu.Height - Statistic.statisticGridMargins - 350;
             StatisticGrid.Width = StatisticMenu.Width - Statistic.statisticGridMargins;
 
             StatBoxTable.Margin = new Thickness(0, 50, 0, 0);
-            StatBoxTable.Height = 275;
+            StatBoxTable.Height = 310;
             StatBoxTable.Width = StatisticGrid.Width;
             StatBoxTable.Background = StatisticMenu.Background;
             StatBoxTable.RowBackground = StatisticMenu.Background;
@@ -294,7 +294,12 @@ namespace shilka2
             Shilka.SetNewTergetPoint(e.GetPosition((Window)sender), sender);
 
             if (!Shilka.reheatingGunBurrels)
+            {
+                if (Shell.fire == false && !pause)
+                    Statistic.shootingNumber += 1;
+
                 Shell.fire = true;
+            }
         }
 
         private void Window_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -518,6 +523,8 @@ namespace shilka2
 
             int shellsForShutdown = (statRow.shutdown > 0 ? (int)statRow.shellsFired / statRow.shutdown : 0);
             string scriptName = Statistic.statisticScripts[stat.SelectedIndex];
+            int shellInQueue = (statRow.shootNumber > 0 ? (int)statRow.shellsFired / statRow.shootNumber : 0);
+            int timeForQueue = (statRow.shootNumber > 0 ? (int)statRow.shootTime / statRow.shootNumber : 0);
 
             StatBoxAddRow(new String[] { "зенитчик", statRow.name, "сценарий", scriptName });
             StatBoxAddRow(new String[] {
@@ -528,7 +535,8 @@ namespace shilka2
                 "из них без повреждений", statRow.withoutDamage.ToString() + "%" });
             StatBoxAddRow(new String[] { "выстрелов на самолёт", shellsForShutdown.ToString() + " выстр./сбитый", "нанесён ущерб", Statistic.HumanReadableSumm(statRow.amountOfDamage) });
             StatBoxAddRow(new String[] { "повреждено своих", statRow.friendDamage.ToString(), "повреждено гражданских", statRow.airlinerDamage.ToString() });
-            StatBoxAddRow(new String[] { "удача", statRow.chance.ToString(), "время", statRow.time.ToString() + " ( из них стрельбы "+ statRow.shootTime.ToString() +" )" });
+            StatBoxAddRow(new String[] { "удача", statRow.chance.ToString(), "время боя", statRow.time.ToString() });
+            StatBoxAddRow(new String[] { "длинна ср.очереди", shellInQueue.ToString() + " снарядов", "время ср.очереди", timeForQueue.ToString() + " сек" });
         }
     }
 }
