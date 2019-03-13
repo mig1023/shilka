@@ -84,6 +84,7 @@ namespace shilka2
             gameTimeSec = 0;
             shootingTimeSec = 0;
             shootingNumber = 0;
+            downedAircrafts.Clear();
     }
 
         public static void Save(string player)
