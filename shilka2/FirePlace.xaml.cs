@@ -55,16 +55,20 @@ namespace shilka2
             var converter = new BrushConverter();
             StatisticMenu.Background = (Brush)converter.ConvertFrom(statisticColor);
             StatisticGrid.ItemsSource = Statistic.Load();
-            StatisticGrid.Margin = new Thickness(0, 345, 0, 0);
-            StatisticGrid.Height = StatisticMenu.Height - Statistic.statisticGridMargins - 350;
+            StatisticGrid.Margin = new Thickness(0, 395, 0, 0);
+            StatisticGrid.Height = StatisticMenu.Height - Statistic.statisticGridMargins - 405;
             StatisticGrid.Width = StatisticMenu.Width - Statistic.statisticGridMargins;
 
             StatBoxTable.Margin = new Thickness(0, 50, 0, 0);
-            StatBoxTable.Height = 310;
+            StatBoxTable.Height = 320;
             StatBoxTable.Width = StatisticGrid.Width;
             StatBoxTable.Background = StatisticMenu.Background;
             StatBoxTable.RowBackground = StatisticMenu.Background;
             StatBoxTable.BorderBrush = StatisticMenu.Background;
+
+            StatBoxAircrafts.Margin = new Thickness(0, 270, 0, 0);
+            StatBoxAircrafts.Height = 60;
+            StatBoxAircrafts.Width = StatisticGrid.Width;
 
             statShells.Width = StatisticGrid.Width;
 
@@ -537,6 +541,8 @@ namespace shilka2
             StatBoxAddRow(new String[] { "повреждено своих", statRow.friendDamage.ToString(), "повреждено гражданских", statRow.airlinerDamage.ToString() });
             StatBoxAddRow(new String[] { "удача", statRow.chance.ToString(), "время боя", statRow.time.ToString() });
             StatBoxAddRow(new String[] { "длинна ср.очереди", shellInQueue.ToString() + " снарядов", "время ср.очереди", timeForQueue.ToString() + " сек" });
+
+            StatBoxAircrafts.Text = "все сбитые: " + statRow.aircrafts;
         }
     }
 }

@@ -37,8 +37,11 @@ namespace shilka2
 
         public static int gameTimeSec = 0;
         public static int shootingTimeSec = 0;
+        public static int shootingNumber = 0;
 
         public static List<string> statisticScripts; 
+
+        public static Dictionary<string, int> downedAircrafts = new Dictionary<string, int>();
 
         static void Calc(out double baseForPercent, out int shutdownPercent, out int damagedPercent,
             out int statisticWithoutDamage, out double chance, out int inTargetPercent, out int shellsForShutdown)
@@ -75,7 +78,13 @@ namespace shilka2
             statisticLastDamagePrice = 0;
             statisticShutdownFlag = false;
             statisticLastDamageType = String.Empty;
-        }
+            statisticLastDamageFriend = String.Empty;
+            statisticLastDamageAirliner = String.Empty;
+            statisticLastHasGone = String.Empty;
+            gameTimeSec = 0;
+            shootingTimeSec = 0;
+            shootingNumber = 0;
+    }
 
         public static void Save(string player)
         {
@@ -87,11 +96,17 @@ namespace shilka2
 
             double statisticAmountOfDamageRound = double.Parse(string.Format("{0:f2}", statisticAmountOfDamage));
 
-            string stat = string.Format("{0}|{1}|{2}|{3}|{4}|{5}|{6}|{7}|{8}|{9}|{10}|{11}|{12}|{13}|{14}|{15}|{16}\n",
+            string downedAircraftsList = String.Empty;
+
+            if (downedAircrafts.Count > 0)
+                foreach(var aircraft in downedAircrafts.OrderByDescending(aircraft => aircraft.Value))
+                    downedAircraftsList += aircraft.Key + " - " + aircraft.Value + ", ";
+
+            string stat = string.Format("{0}|{1}|{2}|{3}|{4}|{5}|{6}|{7}|{8}|{9}|{10}|{11}|{12}|{13}|{14}|{15}|{16}|{17}|{18}\n",
                   player, Shilka.currentScript, statisticShellsFired, staticticInTarget, staticticAircraftShutdown,
                   inTargetPercent, shutdownPercent, statisticDamaged, damagedPercent, statisticHasGone,
                   statisticWithoutDamage, statisticAmountOfDamageRound, statisticFriendDamage, statisticAirlinerDamage,
-                  chance, gameTimeSec, shootingTimeSec
+                  chance, gameTimeSec, shootingTimeSec, shootingNumber, downedAircraftsList
             );
 
             File.AppendAllText("statistic.dat", stat);
@@ -124,7 +139,7 @@ namespace shilka2
                 result.Add(new StatTable(
                     stat[0], stat[1], stat[2], stat[3], stat[4], stat[5], stat[6],
                     stat[7], stat[8], stat[9], stat[10], stat[11], stat[12], stat[13],
-                    stat[14], flagSource, stat[15], stat[16]
+                    stat[14], flagSource, stat[15], stat[16], stat[17], stat[18]
                 ));
             }
 
@@ -139,6 +154,14 @@ namespace shilka2
                 return string.Format("{0:f2}", (double)statisticAmountOfDamage / 1000) + " млрд $";
             else
                 return string.Format("{0:f2}", (double)statisticAmountOfDamage / 1000000) + " трлн $";
+        }
+
+        public static void AircraftToStatistic(string aircraft)
+        {
+            if (downedAircrafts.ContainsKey(aircraft))
+                downedAircrafts[aircraft] += 1;
+            else
+                downedAircrafts.Add(aircraft, 1);
         }
 
         public static void Show(object obj, ElapsedEventArgs e)

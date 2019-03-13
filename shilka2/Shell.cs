@@ -102,6 +102,8 @@ namespace shilka2
                                         Statistic.statisticShutdownFlag = true;
                                         Statistic.statisticLastDamagePrice = aircraft.price;
                                         Statistic.statisticLastDamageType = aircraft.aircraftName;
+
+                                        Statistic.AircraftToStatistic(aircraft.aircraftName);
                                     }
                                 }
                                 aircraft.dead = true;

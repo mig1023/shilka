@@ -88,6 +88,7 @@
                     <DataGridTextColumn Header="общее время" Binding="{Binding time}" CellStyle="{StaticResource grayCell}"/>
                     <DataGridTextColumn Header="время стрельбы" Binding="{Binding shootTime}"/>
                     <DataGridTextColumn Header="кол-во очередей" Binding="{Binding shootNumber}" CellStyle="{StaticResource grayCell}"/>
+                    <DataGridTextColumn Header="сбитые" Binding="{Binding aircrafts}"/>
                 </DataGrid.Columns>
             </DataGrid>
             <DataGrid x:Name="StatBoxTable" FontFamily="Arial Narrow" Width="150" Height="50" FontSize="32" HeadersVisibility="None" GridLinesVisibility="None"  IsHitTestVisible="False" VerticalScrollBarVisibility="Hidden" Canvas.Left="61" Canvas.Top="44">
@@ -98,6 +99,7 @@
                     <DataGridTextColumn Header="column4" Foreground="White" IsReadOnly="True" Binding="{Binding Path=Column4}" Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
+            <TextBox x:Name="StatBoxAircrafts" Height="32" Canvas.Left="61" Foreground="White" VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" FontSize="32" FontFamily="Arial Narrow" Text="" Canvas.Top="140" Width="203" Background="{x:Null}"/>
         </Canvas>
     </Grid>
 </Window>
