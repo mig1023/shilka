@@ -55,8 +55,8 @@ namespace shilka2
             var converter = new BrushConverter();
             StatisticMenu.Background = (Brush)converter.ConvertFrom(statisticColor);
             StatisticGrid.ItemsSource = Statistic.Load();
-            StatisticGrid.Margin = new Thickness(0, 395, 0, 0);
-            StatisticGrid.Height = StatisticMenu.Height - Statistic.statisticGridMargins - 405;
+            StatisticGrid.Margin = new Thickness(0, 465, 0, 0);
+            StatisticGrid.Height = StatisticMenu.Height - Statistic.statisticGridMargins - 455;
             StatisticGrid.Width = StatisticMenu.Width - Statistic.statisticGridMargins;
 
             StatBoxTable.Margin = new Thickness(0, 50, 0, 0);
@@ -69,6 +69,10 @@ namespace shilka2
             StatBoxAircrafts.Margin = new Thickness(0, 270, 0, 0);
             StatBoxAircrafts.Height = 60;
             StatBoxAircrafts.Width = StatisticGrid.Width;
+
+            StatBoxDamaged.Margin = new Thickness(0, 300, 0, 0);
+            StatBoxDamaged.Height = 60;
+            StatBoxDamaged.Width = StatisticGrid.Width;
 
             statShells.Width = StatisticGrid.Width;
 
@@ -543,6 +547,7 @@ namespace shilka2
             StatBoxAddRow(new String[] { "длинна ср.очереди", shellInQueue.ToString() + " снарядов", "время ср.очереди", timeForQueue.ToString() + " сек" });
 
             StatBoxAircrafts.Text = "все сбитые: " + statRow.aircrafts;
+            StatBoxDamaged.Text = "все повреждённые: " + statRow.aircraftsDamaged;
         }
     }
 }

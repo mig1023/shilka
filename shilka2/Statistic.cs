@@ -41,7 +41,10 @@ namespace shilka2
 
         public static List<string> statisticScripts; 
 
+        public enum statisticAircraftType { downed, damaged };
+
         public static Dictionary<string, int> downedAircrafts = new Dictionary<string, int>();
+        public static Dictionary<string, int> damagedAircrafts = new Dictionary<string, int>();
 
         static void Calc(out double baseForPercent, out int shutdownPercent, out int damagedPercent,
             out int statisticWithoutDamage, out double chance, out int inTargetPercent, out int shellsForShutdown)
@@ -85,6 +88,7 @@ namespace shilka2
             shootingTimeSec = 0;
             shootingNumber = 0;
             downedAircrafts.Clear();
+            damagedAircrafts.Clear();
     }
 
         public static void Save(string player)
@@ -98,16 +102,21 @@ namespace shilka2
             double statisticAmountOfDamageRound = double.Parse(string.Format("{0:f2}", statisticAmountOfDamage));
 
             string downedAircraftsList = String.Empty;
+            string damagedAircraftsList = String.Empty;
 
             if (downedAircrafts.Count > 0)
                 foreach(var aircraft in downedAircrafts.OrderByDescending(aircraft => aircraft.Value))
                     downedAircraftsList += aircraft.Key + " - " + aircraft.Value + ", ";
 
+            if (damagedAircrafts.Count > 0)
+                foreach (var aircraft in damagedAircrafts.OrderByDescending(aircraft => aircraft.Value))
+                    damagedAircraftsList += aircraft.Key + " - " + aircraft.Value + ", ";
+
             string stat = string.Format("{0}|{1}|{2}|{3}|{4}|{5}|{6}|{7}|{8}|{9}|{10}|{11}|{12}|{13}|{14}|{15}|{16}|{17}|{18}\n",
                   player, Shilka.currentScript, statisticShellsFired, staticticInTarget, staticticAircraftShutdown,
                   inTargetPercent, shutdownPercent, statisticDamaged, damagedPercent, statisticHasGone,
                   statisticWithoutDamage, statisticAmountOfDamageRound, statisticFriendDamage, statisticAirlinerDamage,
-                  chance, gameTimeSec, shootingTimeSec, shootingNumber, downedAircraftsList
+                  chance, gameTimeSec, shootingTimeSec, shootingNumber, downedAircraftsList, damagedAircraftsList
             );
 
             File.AppendAllText("statistic.dat", stat);
@@ -138,9 +147,9 @@ namespace shilka2
                 statisticScripts.Add(Scripts.scriptsRuNames[scriptFullName.ToString()]);
 
                 result.Add(new StatTable(
-                    stat[0], stat[1], stat[2], stat[3], stat[4], stat[5], stat[6],
-                    stat[7], stat[8], stat[9], stat[10], stat[11], stat[12], stat[13],
-                    stat[14], flagSource, stat[15], stat[16], stat[17], stat[18]
+                    stat[0], stat[1], stat[2], stat[3], stat[4], stat[5], stat[6], stat[7],
+                    stat[8], stat[9], stat[10], stat[11], stat[12], stat[13], stat[14],
+                    flagSource, stat[15], stat[16], stat[17], stat[18], stat[19]
                 ));
             }
 
@@ -157,12 +166,22 @@ namespace shilka2
                 return string.Format("{0:f2}", (double)statisticAmountOfDamage / 1000000) + " трлн $";
         }
 
-        public static void AircraftToStatistic(string aircraft)
+        public static void AircraftToStatistic(string aircraft, statisticAircraftType type)
         {
-            if (downedAircrafts.ContainsKey(aircraft))
-                downedAircrafts[aircraft] += 1;
+            if (type == statisticAircraftType.downed)
+            {
+                if (downedAircrafts.ContainsKey(aircraft))
+                    downedAircrafts[aircraft] += 1;
+                else
+                    downedAircrafts.Add(aircraft, 1);
+            }
             else
-                downedAircrafts.Add(aircraft, 1);
+            {
+                if (damagedAircrafts.ContainsKey(aircraft))
+                    damagedAircrafts[aircraft] += 1;
+                else
+                    damagedAircrafts.Add(aircraft, 1);
+            }
         }
 
         public static void Show(object obj, ElapsedEventArgs e)

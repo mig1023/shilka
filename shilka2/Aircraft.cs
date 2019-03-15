@@ -135,6 +135,8 @@ namespace shilka2
                                 Statistic.statisticLastDamagePrice = priceOfDamage;
                                 Statistic.statisticLastDamageType = aircraft.aircraftName;
                                 Statistic.seriousDamage = (aircraft.hitpoint < (aircraft.hitpointMax / 2) ? true : false);
+
+                                Statistic.AircraftToStatistic(aircraft.aircraftName, Statistic.statisticAircraftType.damaged);
                             }
                         } 
                         else if (aircraft.hitpoint < aircraft.hitpointMax)
