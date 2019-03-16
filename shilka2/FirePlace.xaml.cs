@@ -66,6 +66,8 @@ namespace shilka2
             StatBoxTable.RowBackground = StatisticMenu.Background;
             StatBoxTable.BorderBrush = StatisticMenu.Background;
 
+            StatNotSelected.Margin = StatBoxTable.Margin;
+
             StatBoxAircrafts.Margin = new Thickness(0, 270, 0, 0);
             StatBoxAircrafts.Height = 60;
             StatBoxAircrafts.Width = StatisticGrid.Width;
@@ -524,6 +526,8 @@ namespace shilka2
 
         private void StatisticGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            StatNotSelected.Visibility = Visibility.Hidden;
+
             DataGrid stat = (DataGrid)sender;
             StatTable statRow = (StatTable)stat.SelectedItem;
 

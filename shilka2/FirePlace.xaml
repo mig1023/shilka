@@ -102,6 +102,7 @@
             </DataGrid>
             <TextBox x:Name="StatBoxAircrafts" Height="32" Canvas.Left="61" Foreground="White" VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" FontSize="32" FontFamily="Arial Narrow" Text="" Canvas.Top="140" Width="203" Background="{x:Null}"/>
             <TextBox x:Name="StatBoxDamaged" Height="32" Canvas.Left="60" Foreground="White" VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" FontSize="32" FontFamily="Arial Narrow" Text="" Canvas.Top="177" Width="203" Background="{x:Null}"/>
+            <Label x:Name="StatNotSelected" Content="выберите конкретный бой из таблицы для получения развёрнутой информации" Foreground="White" FontSize="26" FontFamily="Arial Narrow" Height="58" Canvas.Left="60" Width="813" Canvas.Top="44"/>
         </Canvas>
     </Grid>
 </Window>
