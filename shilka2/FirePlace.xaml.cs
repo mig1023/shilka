@@ -561,8 +561,8 @@ namespace shilka2
             StatBoxAddRow(new String[] { "удача", statRow.chance.ToString(), "время боя", statRow.time.ToString() });
             StatBoxAddRow(new String[] { "длинна ср.очереди", shellInQueue.ToString() + " снарядов", "время ср.очереди", timeForQueue.ToString() + " сек" });
 
-            StatBoxAircrafts.Text = "все сбитые: " + statRow.aircrafts;
-            StatBoxDamaged.Text = "все повреждённые: " + statRow.aircraftsDamaged;
+            StatBoxAircrafts.Text = "сбитые: " + statRow.aircrafts;
+            StatBoxDamaged.Text = "повреждённые: " + statRow.aircraftsDamaged;
         }
     }
 }

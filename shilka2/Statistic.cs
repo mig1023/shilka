@@ -105,14 +105,26 @@ namespace shilka2
             string damagedAircraftsList = String.Empty;
 
             if (downedAircrafts.Count > 0)
-                foreach(var aircraft in downedAircrafts.OrderByDescending(aircraft => aircraft.Value))
+            {
+                foreach (var aircraft in downedAircrafts.OrderByDescending(aircraft => aircraft.Value))
                     downedAircraftsList += aircraft.Key + " - " + aircraft.Value + ", ";
 
+                downedAircraftsList = downedAircraftsList.Substring(0, downedAircraftsList.Length - 2);
+            }
+            else
+                downedAircraftsList = "ни одного";
+
             if (damagedAircrafts.Count > 0)
+            {
                 foreach (var aircraft in damagedAircrafts.OrderByDescending(aircraft => aircraft.Value))
                     damagedAircraftsList += aircraft.Key + " - " + aircraft.Value + ", ";
 
-            string stat = string.Format("{0}|{1}|{2}|{3}|{4}|{5}|{6}|{7}|{8}|{9}|{10}|{11}|{12}|{13}|{14}|{15}|{16}|{17}|{18}\n",
+                damagedAircraftsList = damagedAircraftsList.Substring(0, damagedAircraftsList.Length - 2);
+            }
+            else
+                damagedAircraftsList = "ни одного";
+
+            string stat = string.Format("{0}|{1}|{2}|{3}|{4}|{5}|{6}|{7}|{8}|{9}|{10}|{11}|{12}|{13}|{14}|{15}|{16}|{17}|{18}|{19}\n",
                   player, Shilka.currentScript, statisticShellsFired, staticticInTarget, staticticAircraftShutdown,
                   inTargetPercent, shutdownPercent, statisticDamaged, damagedPercent, statisticHasGone,
                   statisticWithoutDamage, statisticAmountOfDamageRound, statisticFriendDamage, statisticAirlinerDamage,
