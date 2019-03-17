@@ -526,10 +526,21 @@ namespace shilka2
 
         private void StatisticGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            StatNotSelected.Visibility = Visibility.Hidden;
+            
 
             DataGrid stat = (DataGrid)sender;
             StatTable statRow = (StatTable)stat.SelectedItem;
+
+            if (statRow == null)
+            {
+                StatBoxTable.Items.Clear();
+                StatBoxAircrafts.Text = String.Empty;
+                StatBoxDamaged.Text = String.Empty;
+                StatNotSelected.Visibility = Visibility.Visible;
+                return;
+            }
+            else
+                StatNotSelected.Visibility = Visibility.Hidden;
 
             StatBoxTable.Items.Clear();
 
