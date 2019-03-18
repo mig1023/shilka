@@ -50,5 +50,10 @@ namespace shilka2
         public const double LAST_DEGREE_CORRECTION = 10;
         public const int GUNS_LENGTH = 30;
         public const int GUN_NOUNT_LENGTH = 10;
+        public const double GUN_THICKNESS = 3;
+        public const int GUN_RETURN_LEN = 5;
+        public const int GUN_RETURN_TIMEOUT = 3;
+        public const int GUN_MIDDLE_TIMEOUT = 2;
+        public const int HEATING_COLOR_BASE = 200; 
     }
 }

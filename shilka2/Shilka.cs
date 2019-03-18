@@ -106,7 +106,7 @@ namespace shilka2
             }
         }
 
-        public static void DrawGansFlashs(FirePlace main, Line gun, int numGuns)
+        public static void DrawGansFlashs(FirePlace main, Line gun, int numGuns, double flashThickness)
         {
             flashСount++;
 
@@ -131,7 +131,7 @@ namespace shilka2
 
                 flash.Stroke = FlashesColor();
 
-                flash.StrokeThickness = rand.Next(2) + 4;
+                flash.StrokeThickness = flashThickness;
                 main.firePlace.Children.Add(flash);
                 Canvas.SetZIndex(flash, 210);
                 Shell.allLines.Add(flash);
@@ -148,7 +148,7 @@ namespace shilka2
             if (Shell.fire)
                 gunReturn++;
 
-            if (gunReturn > 3)
+            if (gunReturn > Constants.GUN_RETURN_TIMEOUT)
                 gunReturn = 0;
 
             double[,] mountXY = new double[2, 2] { { 0, 0 }, { 0, 0 } };
@@ -160,8 +160,12 @@ namespace shilka2
                 gun.Y1 = currentHeight - Constants.FIRE_HEIGHT_CORRECTION + 5 - (9 * numGuns);
 
                 int gunReturnLen = 0;
-                if (Shell.fire && ((gunReturn < 2 && numGuns == 0) || (gunReturn >= 2 && numGuns == 1)))
-                    gunReturnLen = 5;
+                if ( Shell.fire && (
+                        (gunReturn < Constants.GUN_MIDDLE_TIMEOUT && numGuns == 0)
+                        ||
+                        (gunReturn >= Constants.GUN_MIDDLE_TIMEOUT && numGuns == 1)
+                    ) )
+                    gunReturnLen = Constants.GUN_RETURN_LEN;
 
                 gun.X2 = gun.X1 + (Constants.GUNS_LENGTH - gunReturnLen) * Shell.lastCos;
                 gun.Y2 = gun.Y1 - (Constants.GUNS_LENGTH - gunReturnLen) * Shell.lastSin;
@@ -169,20 +173,23 @@ namespace shilka2
                 mountXY[numGuns, 0] = gun.X1 + (Constants.GUNS_LENGTH - gunReturnLen - Constants.GUN_NOUNT_LENGTH) * Shell.lastCos;
                 mountXY[numGuns, 1] = gun.Y1 - (Constants.GUNS_LENGTH - gunReturnLen - Constants.GUN_NOUNT_LENGTH) * Shell.lastSin;
 
-                byte colorOfGuns = (degreeOfHeatingGunBurrels > 200 ? (byte)((degreeOfHeatingGunBurrels - 200) / 2) : (byte)0);
+                byte colorOfGuns = (
+                    degreeOfHeatingGunBurrels > Constants.HEATING_COLOR_BASE ?
+                    (byte)((degreeOfHeatingGunBurrels - Constants.HEATING_COLOR_BASE) / 2) : (byte)0
+                );
 
                 if (colorOfGuns == 0)
                     gun.Stroke = Brushes.Black;
                 else
-                    gun.Stroke = new SolidColorBrush(Color.FromRgb((byte)(colorOfGuns - 200), 0, 0));
+                    gun.Stroke = new SolidColorBrush(Color.FromRgb((byte)(colorOfGuns - Constants.HEATING_COLOR_BASE), 0, 0));
 
-                gun.StrokeThickness = 3;
+                gun.StrokeThickness = Constants.GUN_THICKNESS;
                 main.firePlace.Children.Add(gun);
                 Canvas.SetZIndex(gun, 200);
                 Shell.allLines.Add(gun);
 
                 if (Shell.fire)
-                    DrawGansFlashs(main, gun, numGuns);
+                    DrawGansFlashs(main, gun, numGuns, gun.StrokeThickness);
             }
 
             Line gunMount = new Line();
