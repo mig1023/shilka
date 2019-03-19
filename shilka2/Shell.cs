@@ -21,7 +21,6 @@ namespace shilka2
         public static double currentHeight = -1;
         public static double currentWidth = -1;
 
-        public static bool fire = false;
         public static bool animationStop = false;
 
         public static double lastSin = 0;
@@ -137,7 +136,7 @@ namespace shilka2
         {
             int currentFragmentation = Constants.FRAGMENTATION + ( ( Shilka.degreeOfHeatingGunBurrels - 30 ) / 25 );
 
-            if (fire && !Shilka.reheatingGunBurrels)
+            if (Shilka.fire && !Shilka.reheatingGunBurrels)
             {
                 fireMutex++;
                 if (fireMutex > 1)

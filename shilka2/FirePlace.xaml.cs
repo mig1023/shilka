@@ -187,7 +187,7 @@ namespace shilka2
         {
             Statistic.gameTimeSec += 1;
 
-            if (Shell.fire)
+            if (Shilka.fire)
                 Statistic.shootingTimeSec += 1;
         }
 
@@ -305,16 +305,16 @@ namespace shilka2
 
             if (!Shilka.reheatingGunBurrels)
             {
-                if (Shell.fire == false && !pause)
+                if (Shilka.fire == false && !pause)
                     Statistic.shootingNumber += 1;
 
-                Shell.fire = true;
+                Shilka.fire = true;
             }
         }
 
         private void Window_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Shell.fire = false;
+            Shilka.fire = false;
         }
 
         private void Window_MouseMove(object sender, MouseEventArgs e)

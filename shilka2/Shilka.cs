@@ -20,8 +20,9 @@ namespace shilka2
         public static int degreeOfHeatingGunBurrels = 30;
         public static bool reheatingGunBurrels = false;
 
-        static int gunReturn = 0; 
+        static int gunReturn = 0;
 
+        public static bool fire = false;
         public static double lastDegree = 0;
         public static bool school = false;
 
@@ -89,7 +90,7 @@ namespace shilka2
             else if (degreeOfHeatingGunBurrels > 350)
             {
                 reheatingGunBurrels = true;
-                Shell.fire = false;
+                fire = false;
             }
             else if (degreeOfHeatingGunBurrels < 300)
                 reheatingGunBurrels = false;
@@ -145,7 +146,7 @@ namespace shilka2
             if (currentHeight < 0)
                 currentHeight = main.ActualHeight;
 
-            if (Shell.fire)
+            if (fire)
                 gunReturn++;
 
             if (gunReturn > Constants.GUN_RETURN_TIMEOUT)
@@ -160,7 +161,7 @@ namespace shilka2
                 gun.Y1 = currentHeight - Constants.FIRE_HEIGHT_CORRECTION + 5 - (9 * numGuns);
 
                 int gunReturnLen = 0;
-                if ( Shell.fire && (
+                if ( fire && (
                         (gunReturn < Constants.GUN_MIDDLE_TIMEOUT && numGuns == 0)
                         ||
                         (gunReturn >= Constants.GUN_MIDDLE_TIMEOUT && numGuns == 1)
@@ -188,7 +189,7 @@ namespace shilka2
                 Canvas.SetZIndex(gun, 200);
                 Shell.allLines.Add(gun);
 
-                if (Shell.fire)
+                if (fire)
                     DrawGansFlashs(main, gun, numGuns, gun.StrokeThickness);
             }
 
