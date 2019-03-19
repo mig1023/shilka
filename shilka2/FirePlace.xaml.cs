@@ -7,6 +7,9 @@ using System.Timers;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
 using System.Windows.Data;
+using System.Collections.Generic;
+using System.Data;
+using System.Dynamic;
 
 namespace shilka2
 {
@@ -55,8 +58,8 @@ namespace shilka2
             var converter = new BrushConverter();
             StatisticMenu.Background = (Brush)converter.ConvertFrom(statisticColor);
             StatisticGrid.ItemsSource = Statistic.Load();
-            StatisticGrid.Margin = new Thickness(0, 465, 0, 0);
-            StatisticGrid.Height = StatisticMenu.Height - Statistic.statisticGridMargins - 455;
+            StatisticGrid.Margin = new Thickness(0, 505, 0, 0);
+            StatisticGrid.Height = StatisticMenu.Height - Statistic.statisticGridMargins - 555;
             StatisticGrid.Width = StatisticMenu.Width - Statistic.statisticGridMargins;
 
             StatBoxTable.Margin = new Thickness(0, 50, 0, 0);
@@ -68,13 +71,13 @@ namespace shilka2
 
             StatNotSelected.Margin = StatBoxTable.Margin;
 
-            StatBoxAircrafts.Margin = new Thickness(0, 270, 0, 0);
-            StatBoxAircrafts.Height = 60;
-            StatBoxAircrafts.Width = StatisticGrid.Width;
+            StatBoxDown.Margin = new Thickness(0, 270, 0, 0);
+            StatBoxDown.Height = 70;
+            StatBoxDown.Width = StatisticGrid.Width;
 
-            StatBoxDamaged.Margin = new Thickness(0, 300, 0, 0);
-            StatBoxDamaged.Height = 60;
-            StatBoxDamaged.Width = StatisticGrid.Width;
+            StatBoxDamag.Margin = new Thickness(0, 360, 0, 0);
+            StatBoxDamag.Height = 70;
+            StatBoxDamag.Width = StatisticGrid.Width;
 
             statShells.Width = StatisticGrid.Width;
 
@@ -534,8 +537,12 @@ namespace shilka2
             if (statRow == null)
             {
                 StatBoxTable.Items.Clear();
-                StatBoxAircrafts.Text = String.Empty;
-                StatBoxDamaged.Text = String.Empty;
+
+                StatBoxDown.Items.Clear();
+                StatBoxDown.Columns.Clear();
+                StatBoxDamag.Items.Clear();
+                StatBoxDamag.Columns.Clear();
+
                 StatNotSelected.Visibility = Visibility.Visible;
                 return;
             }
@@ -561,8 +568,37 @@ namespace shilka2
             StatBoxAddRow(new String[] { "удача", statRow.chance.ToString(), "время боя", statRow.time.ToString() });
             StatBoxAddRow(new String[] { "длинна ср.очереди", shellInQueue.ToString() + " снарядов", "время ср.очереди", timeForQueue.ToString() + " сек" });
 
-            StatBoxAircrafts.Text = "сбитые: " + statRow.aircrafts;
-            StatBoxDamaged.Text = "повреждённые: " + statRow.aircraftsDamaged;
+            StatBoxValues(StatBoxDown, statRow.aircrafts);
+            StatBoxValues(StatBoxDamag, statRow.aircraftsDamaged);
+        }
+
+        private void StatBoxValues(DataGrid StatBox, string statData)
+        {
+            string[] a = statData.Split(',');
+
+            StatBox.Items.Clear();
+            StatBox.Columns.Clear();
+            StatBox.AutoGenerateColumns = false;
+            int columnIndex = 0;
+            List<string> values = new List<string>();
+
+            foreach (string b in a)
+            {
+                columnIndex += 1;
+                string[] c = b.Split('=');
+                StatBox.Columns.Add(new DataGridTextColumn { Header = c[0], Binding = new Binding("column" + columnIndex) });
+                values.Add(c[1]);
+            }
+
+            dynamic row = new ExpandoObject();
+
+            columnIndex = 0;
+            foreach (string s in values)
+            {
+                columnIndex += 1;
+                ((IDictionary<string, object>)row)["column" + columnIndex] = s;
+            }
+            StatBox.Items.Add(row);
         }
     }
 }

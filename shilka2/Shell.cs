@@ -11,8 +11,6 @@ namespace shilka2
 {
     class Shell : FlyObject
     {
-        static string endColor = "#FF7E1C25";
-
         bool flash { get; set; }
         int delay { get; set; }
         public static double ptX { get; set; }
@@ -81,30 +79,28 @@ namespace shilka2
 
                             Statistic.staticticInTarget++;
 
-                            if (aircraft.hitpoint <= 0)
+                            if (aircraft.hitpoint <= 0 && !aircraft.dead)
                             {
-                                if (aircraft.dead == false)
+                                if (aircraft.friend)
+                                    main.EndGame("Вы сбили свой "+aircraft.aircraftName+
+                                        "!\nИгра окончена.\nСохранить статистику?", Constants.END_COLOR);
+
+                                else if (aircraft.airliner)
+                                    main.EndGame("Вы сбили пассажирский самолёт"+
+                                        "!\nИгра окончена.\nСохранить статистику?", Constants.END_COLOR);
+
+                                else
                                 {
-                                    if (aircraft.friend)
-                                        main.EndGame("Вы сбили свой "+aircraft.aircraftName+
-                                            "!\nИгра окончена.\nСохранить статистику?", endColor);
+                                    Statistic.staticticAircraftShutdown++;
+                                    Statistic.statisticAmountOfDamage += aircraft.price;
 
-                                    else if (aircraft.airliner)
-                                        main.EndGame("Вы сбили пассажирский самолёт"+
-                                            "!\nИгра окончена.\nСохранить статистику?", endColor);
+                                    Statistic.statisticShutdownFlag = true;
+                                    Statistic.statisticLastDamagePrice = aircraft.price;
+                                    Statistic.statisticLastDamageType = aircraft.aircraftName;
 
-                                    else
-                                    {
-                                        Statistic.staticticAircraftShutdown++;
-                                        Statistic.statisticAmountOfDamage += aircraft.price;
-
-                                        Statistic.statisticShutdownFlag = true;
-                                        Statistic.statisticLastDamagePrice = aircraft.price;
-                                        Statistic.statisticLastDamageType = aircraft.aircraftName;
-
-                                        Statistic.AircraftToStatistic(aircraft.aircraftName, Statistic.statisticAircraftType.downed);
-                                    }
+                                    Statistic.AircraftToStatistic(aircraft.aircraftName, Statistic.statisticAircraftType.downed);
                                 }
+
                                 aircraft.dead = true;
                             }
                         }

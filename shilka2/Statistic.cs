@@ -107,22 +107,22 @@ namespace shilka2
             if (downedAircrafts.Count > 0)
             {
                 foreach (var aircraft in downedAircrafts.OrderByDescending(aircraft => aircraft.Value))
-                    downedAircraftsList += aircraft.Key + " - " + aircraft.Value + ", ";
+                    downedAircraftsList += aircraft.Key + "=" + aircraft.Value + ",";
 
-                downedAircraftsList = downedAircraftsList.Substring(0, downedAircraftsList.Length - 2);
+                downedAircraftsList = downedAircraftsList.Substring(0, downedAircraftsList.Length - 1);
             }
             else
-                downedAircraftsList = "ни одного";
+                downedAircraftsList = " ";
 
             if (damagedAircrafts.Count > 0)
             {
                 foreach (var aircraft in damagedAircrafts.OrderByDescending(aircraft => aircraft.Value))
-                    damagedAircraftsList += aircraft.Key + " - " + aircraft.Value + ", ";
+                    damagedAircraftsList += aircraft.Key + "=" + aircraft.Value + ",";
 
-                damagedAircraftsList = damagedAircraftsList.Substring(0, damagedAircraftsList.Length - 2);
+                damagedAircraftsList = damagedAircraftsList.Substring(0, damagedAircraftsList.Length - 1);
             }
             else
-                damagedAircraftsList = "ни одного";
+                damagedAircraftsList = " ";
 
             string stat = string.Format("{0}|{1}|{2}|{3}|{4}|{5}|{6}|{7}|{8}|{9}|{10}|{11}|{12}|{13}|{14}|{15}|{16}|{17}|{18}|{19}\n",
                   player, Shilka.currentScript, statisticShellsFired, staticticInTarget, staticticAircraftShutdown,

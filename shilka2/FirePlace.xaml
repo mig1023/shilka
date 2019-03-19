@@ -100,9 +100,9 @@
                     <DataGridTextColumn Header="column4" Foreground="White" IsReadOnly="True" Binding="{Binding Path=Column4}" Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
-            <TextBox x:Name="StatBoxAircrafts" Height="32" Canvas.Left="61" Foreground="White" VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" FontSize="32" FontFamily="Arial Narrow" Text="" Canvas.Top="140" Width="203" Background="{x:Null}"/>
-            <TextBox x:Name="StatBoxDamaged" Height="32" Canvas.Left="60" Foreground="White" VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" FontSize="32" FontFamily="Arial Narrow" Text="" Canvas.Top="177" Width="203" Background="{x:Null}"/>
             <Label x:Name="StatNotSelected" Content="выберите конкретный бой из таблицы для получения развёрнутой информации" Foreground="White" FontSize="26" FontFamily="Arial Narrow" Height="58" Canvas.Left="60" Width="813" Canvas.Top="44"/>
+            <DataGrid x:Name="StatBoxDown" Height="32" Canvas.Left="61" Canvas.Top="140" HorizontalScrollBarVisibility="Visible" FontSize="16" FontFamily="Arial Narrow" Width="202" Background="White"/>
+            <DataGrid x:Name="StatBoxDamag" Height="32" Canvas.Left="61" Canvas.Top="140" HorizontalScrollBarVisibility="Visible"  FontSize="16" FontFamily="Arial Narrow" Width="202" Background="White"/>
         </Canvas>
     </Grid>
 </Window>

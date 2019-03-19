@@ -45,6 +45,7 @@ namespace shilka2
         public const int FRAGMENTATION = 15;
         public const int VOLLEY = 3;
         public const int FLASH_SIZE = 4;
+        public const string END_COLOR = "#FF7E1C25";
 
         // shilka
         public const double LAST_DEGREE_CORRECTION = 10;
