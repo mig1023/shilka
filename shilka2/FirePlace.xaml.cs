@@ -574,31 +574,38 @@ namespace shilka2
 
         private void StatBoxValues(DataGrid StatBox, string statData)
         {
-            string[] a = statData.Split(',');
-
             StatBox.Items.Clear();
             StatBox.Columns.Clear();
+
+            if (String.IsNullOrWhiteSpace(statData))
+                return;
+
+            string[] aircraftsData = statData.Split(',');
+
             StatBox.AutoGenerateColumns = false;
             int columnIndex = 0;
+
             List<string> values = new List<string>();
 
-            foreach (string b in a)
+            foreach (string aircraftData in aircraftsData)
             {
                 columnIndex += 1;
-                string[] c = b.Split('=');
-                StatBox.Columns.Add(new DataGridTextColumn { Header = c[0], Binding = new Binding("column" + columnIndex) });
-                values.Add(c[1]);
+                string[] data = aircraftData.Split('=');
+                StatBox.Columns.Add(new DataGridTextColumn { Header = data[0], Binding = new Binding("column" + columnIndex) });
+                values.Add(data[1]);
             }
 
-            dynamic row = new ExpandoObject();
+            dynamic newRow = new ExpandoObject();
 
             columnIndex = 0;
-            foreach (string s in values)
+
+            foreach (string aircraftData in values)
             {
                 columnIndex += 1;
-                ((IDictionary<string, object>)row)["column" + columnIndex] = s;
+                ((IDictionary<string, object>)newRow)["column" + columnIndex] = aircraftData;
             }
-            StatBox.Items.Add(row);
+
+            StatBox.Items.Add(newRow);
         }
     }
 }
