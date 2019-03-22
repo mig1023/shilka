@@ -58,8 +58,8 @@ namespace shilka2
             var converter = new BrushConverter();
             StatisticMenu.Background = (Brush)converter.ConvertFrom(statisticColor);
             StatisticGrid.ItemsSource = Statistic.Load();
-            StatisticGrid.Margin = new Thickness(0, 505, 0, 0);
-            StatisticGrid.Height = StatisticMenu.Height - Statistic.statisticGridMargins - 555;
+            StatisticGrid.Margin = new Thickness(0, 540, 0, 0);
+            StatisticGrid.Height = StatisticMenu.Height - Statistic.statisticGridMargins - 590;
             StatisticGrid.Width = StatisticMenu.Width - Statistic.statisticGridMargins;
 
             StatBoxTable.Margin = new Thickness(0, 50, 0, 0);
@@ -71,11 +71,13 @@ namespace shilka2
 
             StatNotSelected.Margin = StatBoxTable.Margin;
 
-            StatBoxDown.Margin = new Thickness(0, 270, 0, 0);
+            StatBoxDownLabel.Margin = new Thickness(0, 290, 0, 0);
+            StatBoxDown.Margin = new Thickness(0, 300, 0, 0);
             StatBoxDown.Height = 70;
             StatBoxDown.Width = StatisticGrid.Width;
 
-            StatBoxDamag.Margin = new Thickness(0, 360, 0, 0);
+            StatBoxDamaglabel.Margin = new Thickness(0, 390, 0, 0);
+            StatBoxDamag.Margin = new Thickness(0, 400, 0, 0);
             StatBoxDamag.Height = 70;
             StatBoxDamag.Width = StatisticGrid.Width;
 
