@@ -556,7 +556,7 @@ namespace shilka2
             int shellsForShutdown = (statRow.shutdown > 0 ? (int)statRow.shellsFired / statRow.shutdown : 0);
             string scriptName = Statistic.statisticScripts[stat.SelectedIndex];
             int shellInQueue = (statRow.shootNumber > 0 ? (int)statRow.shellsFired / statRow.shootNumber : 0);
-            int timeForQueue = (statRow.shootNumber > 0 ? (int)statRow.shootTime / statRow.shootNumber : 0);
+            double timeForQueue = (statRow.shootNumber > 0 ? (double)statRow.shootTime / (double)statRow.shootNumber : 0);
 
             StatBoxAddRow(new String[] { "зенитчик", statRow.name, "сценарий", scriptName });
             StatBoxAddRow(new String[] {
@@ -568,7 +568,7 @@ namespace shilka2
             StatBoxAddRow(new String[] { "выстрелов на самолёт", shellsForShutdown.ToString() + " выстр./сбитый", "нанесён ущерб", Statistic.HumanReadableSumm(statRow.amountOfDamage) });
             StatBoxAddRow(new String[] { "повреждено своих", statRow.friendDamage.ToString(), "повреждено гражданских", statRow.airlinerDamage.ToString() });
             StatBoxAddRow(new String[] { "удача", statRow.chance.ToString(), "время боя", statRow.time.ToString() });
-            StatBoxAddRow(new String[] { "длинна ср.очереди", shellInQueue.ToString() + " снарядов", "время ср.очереди", timeForQueue.ToString() + " сек" });
+            StatBoxAddRow(new String[] { "длинна ср.очереди", shellInQueue.ToString() + " снарядов", "время ср.очереди", string.Format("{0:f2}", timeForQueue) + " сек" });
 
             StatBoxValues(StatBoxDown, statRow.aircrafts);
             StatBoxValues(StatBoxDamag, statRow.aircraftsDamaged);
