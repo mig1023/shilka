@@ -43,15 +43,15 @@ namespace shilka2
 
             Aircraft.minAltitudeGlobal = (int)(heightForShilka - ShilkaImg.Height);
 
-            EndMenu.Height = SystemParameters.PrimaryScreenHeight;
-            EndMenu.Margin = new Thickness(SystemParameters.PrimaryScreenWidth, 0, 0, 0);
+            foreach(Canvas Menu in new List<Canvas>() { EndMenu, RestartTrainingMenu, StatisticMenu })
+                Menu.Height = SystemParameters.PrimaryScreenHeight;
 
-            RestartTrainingMenu.Height = SystemParameters.PrimaryScreenHeight;
-            RestartTrainingMenu.Margin = new Thickness(SystemParameters.PrimaryScreenWidth, 0, 0, 0);
+            foreach (Canvas Menu in new List<Canvas>() { EndMenu, RestartTrainingMenu, firePlaceDock })
+                Menu.Margin = new Thickness(SystemParameters.PrimaryScreenWidth, 0, 0, 0);
 
-            firePlaceDock.Margin = new Thickness(SystemParameters.PrimaryScreenWidth, 0, 0, 0);
+            foreach (Canvas Menu in new List<Canvas>() { EndMenu, RestartTrainingMenu, firePlaceDock })
+                Menu.Margin = new Thickness(SystemParameters.PrimaryScreenWidth, 0, 0, 0);
 
-            StatisticMenu.Height = SystemParameters.PrimaryScreenHeight;
             StatisticMenu.Width = SystemParameters.PrimaryScreenWidth;
             StatisticMenu.Margin = new Thickness(0, SystemParameters.PrimaryScreenHeight, 0, 0);
 
@@ -60,11 +60,13 @@ namespace shilka2
             StatisticGrid.ItemsSource = Statistic.Load();
             StatisticGrid.Margin = new Thickness(0, 540, 0, 0);
             StatisticGrid.Height = StatisticMenu.Height - Statistic.statisticGridMargins - 590;
-            StatisticGrid.Width = StatisticMenu.Width - Statistic.statisticGridMargins;
+
+            foreach (DataGrid Menu in new List<DataGrid>() { StatisticGrid, StatBoxTable, StatBoxDown, StatBoxDamag })
+                Menu.Width = StatisticMenu.Width - Statistic.statisticGridMargins;
 
             StatBoxTable.Margin = new Thickness(0, 50, 0, 0);
             StatBoxTable.Height = 320;
-            StatBoxTable.Width = StatisticGrid.Width;
+
             StatBoxTable.Background = StatisticMenu.Background;
             StatBoxTable.RowBackground = StatisticMenu.Background;
             StatBoxTable.BorderBrush = StatisticMenu.Background;
@@ -74,12 +76,10 @@ namespace shilka2
             StatBoxDownLabel.Margin = new Thickness(0, 290, 0, 0);
             StatBoxDown.Margin = new Thickness(0, 300, 0, 0);
             StatBoxDown.Height = 70;
-            StatBoxDown.Width = StatisticGrid.Width;
 
             StatBoxDamaglabel.Margin = new Thickness(0, 390, 0, 0);
             StatBoxDamag.Margin = new Thickness(0, 400, 0, 0);
             StatBoxDamag.Height = 70;
-            StatBoxDamag.Width = StatisticGrid.Width;
 
             statShells.Width = StatisticGrid.Width;
 
@@ -531,19 +531,18 @@ namespace shilka2
 
         private void StatisticGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
-
             DataGrid stat = (DataGrid)sender;
             StatTable statRow = (StatTable)stat.SelectedItem;
 
+            StatBoxTable.Items.Clear();
+
             if (statRow == null)
             {
-                StatBoxTable.Items.Clear();
-
-                StatBoxDown.Items.Clear();
-                StatBoxDown.Columns.Clear();
-                StatBoxDamag.Items.Clear();
-                StatBoxDamag.Columns.Clear();
+                foreach(DataGrid StatBox in new List<DataGrid>() { StatBoxDown, StatBoxDamag })
+                {
+                    StatBox.Items.Clear();
+                    StatBox.Columns.Clear();
+                }
 
                 StatNotSelected.Visibility = Visibility.Visible;
                 return;
@@ -551,24 +550,42 @@ namespace shilka2
             else
                 StatNotSelected.Visibility = Visibility.Hidden;
 
-            StatBoxTable.Items.Clear();
-
             int shellsForShutdown = (statRow.shutdown > 0 ? (int)statRow.shellsFired / statRow.shutdown : 0);
             string scriptName = Statistic.statisticScripts[stat.SelectedIndex];
             int shellInQueue = (statRow.shootNumber > 0 ? (int)statRow.shellsFired / statRow.shootNumber : 0);
             double timeForQueue = (statRow.shootNumber > 0 ? (double)statRow.shootTime / (double)statRow.shootNumber : 0);
 
-            StatBoxAddRow(new String[] { "зенитчик", statRow.name, "сценарий", scriptName });
+            StatBoxAddRow(new String[] {
+                "зенитчик", statRow.name,
+                "сценарий", scriptName
+            });
             StatBoxAddRow(new String[] {
                 "сбито", statRow.shutdown.ToString() + " ( " + statRow.shutdownPercent.ToString() + "% )",
                 "повреждено", statRow.damaged.ToString() + " ( " + statRow.damagedPercent.ToString() + "% )" });
-            StatBoxAddRow(new String[] { "настрел", statRow.shellsFired.ToString() + " снарядов", "упущенных", statRow.hasGone.ToString() });
-            StatBoxAddRow(new String[] { "из них в цель", statRow.inTarget.ToString() + " ( " + statRow.inTargetPercent.ToString() + "% )",
-                "из них без повреждений", statRow.withoutDamage.ToString() + "%" });
-            StatBoxAddRow(new String[] { "выстрелов на самолёт", shellsForShutdown.ToString() + " выстр./сбитый", "нанесён ущерб", Statistic.HumanReadableSumm(statRow.amountOfDamage) });
-            StatBoxAddRow(new String[] { "повреждено своих", statRow.friendDamage.ToString(), "повреждено гражданских", statRow.airlinerDamage.ToString() });
-            StatBoxAddRow(new String[] { "удача", statRow.chance.ToString(), "время боя", statRow.time.ToString() });
-            StatBoxAddRow(new String[] { "длинна ср.очереди", shellInQueue.ToString() + " снарядов", "время ср.очереди", string.Format("{0:f2}", timeForQueue) + " сек" });
+            StatBoxAddRow(new String[] {
+                "настрел", statRow.shellsFired.ToString() + " снарядов",
+                "упущенных", statRow.hasGone.ToString()
+            });
+            StatBoxAddRow(new String[] {
+                "из них в цель", statRow.inTarget.ToString() + " ( " + statRow.inTargetPercent.ToString() + "% )",
+                "из них без повреждений", statRow.withoutDamage.ToString() + "%"
+            });
+            StatBoxAddRow(new String[] {
+                "выстрелов на самолёт", shellsForShutdown.ToString() + " выстр./сбитый",
+                "нанесён ущерб", Statistic.HumanReadableSumm(statRow.amountOfDamage)
+            });
+            StatBoxAddRow(new String[] {
+                "повреждено своих", statRow.friendDamage.ToString(),
+                "повреждено гражданских", statRow.airlinerDamage.ToString()
+            });
+            StatBoxAddRow(new String[] {
+                "удача", statRow.chance.ToString(),
+                "время боя", statRow.time.ToString()
+            });
+            StatBoxAddRow(new String[] {
+                "длинна ср.очереди", shellInQueue.ToString() + " снарядов",
+                "время ср.очереди", string.Format("{0:f2}", timeForQueue) + " сек"
+            });
 
             StatBoxValues(StatBoxDown, statRow.aircrafts);
             StatBoxValues(StatBoxDamag, statRow.aircraftsDamaged);
