@@ -9,10 +9,9 @@ namespace shilka2
 {
     class Aircrafts
     {
-        static int maxAltitudeGlobal = Constants.MAX_FLIGHT_HEIGHT;
-        static int minAltitudeGlobal { get; set; }
-        static int minAltitudeForLargeAircraft = (int)SystemParameters.PrimaryScreenHeight / 2;
-        static int maxAltitudeForHelicopters = minAltitudeForLargeAircraft;
+        public static int minAltitudeGlobal { get; set; }
+        public static int minAltitudeForLargeAircraft = (int)SystemParameters.PrimaryScreenHeight / 2;
+        public static int maxAltitudeForHelicopters = minAltitudeForLargeAircraft;
 
         public static List<AircraftsType> aircraft = new List<AircraftsType>()
         {

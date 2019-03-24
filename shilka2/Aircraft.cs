@@ -12,9 +12,6 @@ namespace shilka2
     class Aircraft : FlyObject
     {
         static int maxAltitudeGlobal = Constants.MAX_FLIGHT_HEIGHT;
-        public static int minAltitudeGlobal { get; set; }
-        static int minAltitudeForLargeAircraft = (int)SystemParameters.PrimaryScreenHeight / 2;
-        static int maxAltitudeForHelicopters = minAltitudeForLargeAircraft;
         enum FlightDirectionType { Left, Right };
         enum zIndexType { inFront, Behind };
 
@@ -263,7 +260,7 @@ namespace shilka2
 
                 Aircraft newAircraft = new Aircraft();
 
-                newAircraft.y = rand.Next(maxAltitudeGlobal, minAltitudeGlobal);
+                newAircraft.y = rand.Next(maxAltitudeGlobal, Aircrafts.minAltitudeGlobal);
 
                 if (rand.Next(2) == 1)
                 {
@@ -333,7 +330,7 @@ namespace shilka2
                 newAircraft.speed = aircraft.speed + randomSpeed;
 
                 if (newAircraft.minAltitude == -1)
-                    newAircraft.minAltitude = minAltitudeGlobal;
+                    newAircraft.minAltitude = Aircrafts.minAltitudeGlobal;
 
                 if (!aircraft.friend && !aircraft.airliner)
                 {

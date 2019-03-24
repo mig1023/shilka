@@ -17,7 +17,7 @@ namespace shilka2
     {
         public System.Timers.Timer Game = new System.Timers.Timer(30);
         public System.Timers.Timer HandMove = new System.Timers.Timer(600);
-        public System.Timers.Timer Aircrafts = new System.Timers.Timer(2000);
+        public System.Timers.Timer AircraftsStart = new System.Timers.Timer(2000);
         public System.Timers.Timer School = new System.Timers.Timer(800);
         public System.Timers.Timer GameTimer = new System.Timers.Timer(1000);
 
@@ -41,7 +41,7 @@ namespace shilka2
 
             double heightForShilka = SystemParameters.PrimaryScreenHeight - ShilkaImg.Height;
 
-            Aircraft.minAltitudeGlobal = (int)(heightForShilka - ShilkaImg.Height);
+            Aircrafts.minAltitudeGlobal = (int)(heightForShilka - ShilkaImg.Height);
 
             foreach(Canvas Menu in new List<Canvas>() { EndMenu, RestartTrainingMenu, StatisticMenu })
                 Menu.Height = SystemParameters.PrimaryScreenHeight;
@@ -135,7 +135,7 @@ namespace shilka2
                 Game.Elapsed += new ElapsedEventHandler(Statistic.Show);
 
                 HandMove.Elapsed += new ElapsedEventHandler(HideHand);
-                Aircrafts.Elapsed += new ElapsedEventHandler(Aircraft.AircraftStart);
+                AircraftsStart.Elapsed += new ElapsedEventHandler(Aircraft.AircraftStart);
                 School.Elapsed += new ElapsedEventHandler(SchoolShow);
                 GameTimer.Elapsed += new ElapsedEventHandler(GameTimeTicTac);
             }
@@ -145,8 +145,8 @@ namespace shilka2
             Game.Enabled = true;
             Game.Start();
 
-            Aircrafts.Enabled = true;
-            Aircrafts.Start();
+            AircraftsStart.Enabled = true;
+            AircraftsStart.Start();
 
             Statistic.gameTimeSec = 0;
             GameTimer.Enabled = true;
@@ -222,7 +222,7 @@ namespace shilka2
             endGameAlready = true;
 
             Game.Stop();
-            Aircrafts.Stop();
+            AircraftsStart.Stop();
             School.Stop();
             GameTimer.Stop();
 
@@ -251,7 +251,7 @@ namespace shilka2
             if (Game.Enabled)
             {
                 Game.Stop();
-                Aircrafts.Stop();
+                AircraftsStart.Stop();
             }
 
             StatisticGrid.ItemsSource = Statistic.Load();
@@ -276,7 +276,7 @@ namespace shilka2
             if (StartMenu.Margin.Left < 0 && !pause && !endGameAlready)
             {
                 Game.Start();
-                Aircrafts.Start();
+                AircraftsStart.Start();
             }
         }
 
@@ -358,7 +358,7 @@ namespace shilka2
 
             Shell.animationStop = false;
             Game.Start();
-            Aircrafts.Start();
+            AircraftsStart.Start();
             School.Start();
         }
 
@@ -371,14 +371,14 @@ namespace shilka2
             {
                 Shell.animationStop = false;
                 Game.Start();
-                Aircrafts.Start();
+                AircraftsStart.Start();
                 pause = false;
             }
             else
             {
                 Shell.animationStop = true;
                 Game.Stop();
-                Aircrafts.Stop();
+                AircraftsStart.Stop();
                 pause = true;
             }
         }
