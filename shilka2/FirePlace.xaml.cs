@@ -579,11 +579,11 @@ namespace shilka2
                 "повреждено гражданских", statRow.airlinerDamage.ToString()
             });
             StatBoxAddRow(new String[] {
-                "удача", statRow.chance.ToString(),
-                "время боя", statRow.time.ToString()
+                "время боя", statRow.time.ToString(),
+                "длинна ср.очереди", shellInQueue.ToString() + " снарядов"
             });
             StatBoxAddRow(new String[] {
-                "длинна ср.очереди", shellInQueue.ToString() + " снарядов",
+                "удача", statRow.chance.ToString(),
                 "время ср.очереди", string.Format("{0:f2}", timeForQueue) + " сек"
             });
 
