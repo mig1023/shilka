@@ -82,10 +82,12 @@ namespace shilka2
                         else
                             foreach (DynamicElement d in aircraft.dynamicElemets)
                                 if (d.movingType == DynamicElement.MovingType.yRotate)
+                                {
                                     if (rand.Next(2) == 1 && !d.stopRotation)
                                         d.slowRotation = true;
                                     else if (!d.slowRotation)
                                         d.stopRotation = true;
+                                }
                     }
                     else if (!aircraft.cloud)
                     {
@@ -175,7 +177,7 @@ namespace shilka2
                         {
                             d.rotateDegreeCurrent -= (d.slowRotation ? Constants.SLOW_ROTATION : Constants.FAST_ROTATION);
 
-                            if (d.rotateDegreeCurrent < 0.2)
+                            if (d.rotateDegreeCurrent < Constants.FAST_ROTATION)
                             {
                                 d.rotateDegreeCurrent = 1;
 
@@ -275,7 +277,11 @@ namespace shilka2
 
                 newAircraftImage.Source = ImageFromResources(aircraft.aircraftType);
 
-                if (((newAircraft.flightDirection == FlightDirectionType.Left) && !aircraft.cloud) || (rand.Next(2) == 1) && aircraft.cloud)
+                if (
+                        ((newAircraft.flightDirection == FlightDirectionType.Left) && !aircraft.cloud)
+                        ||
+                        (rand.Next(2) == 1) && aircraft.cloud
+                )
                     newAircraftImage.FlowDirection = FlowDirection.RightToLeft;
 
                 newAircraftImage.Margin = new Thickness(newAircraft.x, newAircraft.y, 0, 0);
