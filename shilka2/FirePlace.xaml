@@ -54,6 +54,19 @@
         <Canvas x:Name="StatisticMenu" HorizontalAlignment="Left" Height="305" Margin="0,325,-223,-310" VerticalAlignment="Top" Width="740">
             <Button x:Name="returnButton" Content="✖" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="30" Canvas.Left="10" Canvas.Top="15" Click="returnButton_Click"/>
             <Label x:Name="label" Content="результаты" Height="50" Canvas.Left="61" Canvas.Top="14" Width="300" FontFamily="Arial Narrow" FontSize="36" Foreground="White"/>
+            <DataGrid x:Name="StatBoxTable" FontFamily="Arial Narrow" Width="150" Height="50" FontSize="32" HeadersVisibility="None" GridLinesVisibility="None"  IsHitTestVisible="False" VerticalScrollBarVisibility="Hidden" Canvas.Left="61" Canvas.Top="44">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="column1" Foreground="White" IsReadOnly="True" Binding="{Binding Path=Column1}" Width="*"/>
+                    <DataGridTextColumn Header="column2" Foreground="White" IsReadOnly="True" Binding="{Binding Path=Column2}" Width="*"/>
+                    <DataGridTextColumn Header="column3" Foreground="White" IsReadOnly="True" Binding="{Binding Path=Column3}" Width="*"/>
+                    <DataGridTextColumn Header="column4" Foreground="White" IsReadOnly="True" Binding="{Binding Path=Column4}" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Label x:Name="StatNotSelected" Content="выберите конкретный бой из таблицы для получения развёрнутой информации" Foreground="White" FontSize="26" FontFamily="Arial Narrow" Height="58" Canvas.Left="60" Width="813" Canvas.Top="44"/>
+            <DataGrid x:Name="StatBoxDown" Height="32" Canvas.Left="61" Canvas.Top="140" HorizontalScrollBarVisibility="Visible" FontSize="16" FontFamily="Arial Narrow" Width="202" Background="White"/>
+            <DataGrid x:Name="StatBoxDamag" Height="32" Canvas.Left="61" Canvas.Top="140" HorizontalScrollBarVisibility="Visible"  FontSize="16" FontFamily="Arial Narrow" Width="202" Background="White"/>
+            <Label x:Name="StatBoxDownLabel" Content="сбитые" Canvas.Left="61" Canvas.Top="122" FontFamily="Arial Narrow" FontSize="20" Foreground="White"/>
+            <Label x:Name="StatBoxDamaglabel" Content="повреждённые" Canvas.Left="61" Canvas.Top="122" FontFamily="Arial Narrow" FontSize="20" Foreground="White"/>
             <DataGrid x:Name="StatisticGrid" Height="50" FontSize="18" Canvas.Top="85" Width="150" Canvas.Left="60" VerticalScrollBarVisibility="Hidden" BorderThickness="0" Background="#FF5B5B5B" AutoGenerateColumns="False" ColumnWidth="*" GridLinesVisibility="Horizontal" BorderBrush="#FF001B36" LoadingRow="StatisticGrid_LoadingRow" IsReadOnly="True" SelectionChanged="StatisticGrid_SelectionChanged">
                 <DataGrid.Resources>
                     <Style TargetType="DataGridCell" x:Key="grayCell">
@@ -92,19 +105,6 @@
                     <DataGridTextColumn Visibility="Hidden" Header="повреждённые" Binding="{Binding aircraftsDamaged}"/>
                 </DataGrid.Columns>
             </DataGrid>
-            <DataGrid x:Name="StatBoxTable" FontFamily="Arial Narrow" Width="150" Height="50" FontSize="32" HeadersVisibility="None" GridLinesVisibility="None"  IsHitTestVisible="False" VerticalScrollBarVisibility="Hidden" Canvas.Left="61" Canvas.Top="44">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="column1" Foreground="White" IsReadOnly="True" Binding="{Binding Path=Column1}" Width="*"/>
-                    <DataGridTextColumn Header="column2" Foreground="White" IsReadOnly="True" Binding="{Binding Path=Column2}" Width="*"/>
-                    <DataGridTextColumn Header="column3" Foreground="White" IsReadOnly="True" Binding="{Binding Path=Column3}" Width="*"/>
-                    <DataGridTextColumn Header="column4" Foreground="White" IsReadOnly="True" Binding="{Binding Path=Column4}" Width="*"/>
-                </DataGrid.Columns>
-            </DataGrid>
-            <Label x:Name="StatNotSelected" Content="выберите конкретный бой из таблицы для получения развёрнутой информации" Foreground="White" FontSize="26" FontFamily="Arial Narrow" Height="58" Canvas.Left="60" Width="813" Canvas.Top="44"/>
-            <DataGrid x:Name="StatBoxDown" Height="32" Canvas.Left="61" Canvas.Top="140" HorizontalScrollBarVisibility="Visible" FontSize="16" FontFamily="Arial Narrow" Width="202" Background="White"/>
-            <DataGrid x:Name="StatBoxDamag" Height="32" Canvas.Left="61" Canvas.Top="140" HorizontalScrollBarVisibility="Visible"  FontSize="16" FontFamily="Arial Narrow" Width="202" Background="White"/>
-            <Label x:Name="StatBoxDownLabel" Content="сбитые" Canvas.Left="61" Canvas.Top="122" FontFamily="Arial Narrow" FontSize="20" Foreground="White"/>
-            <Label x:Name="StatBoxDamaglabel" Content="повреждённые" Canvas.Left="61" Canvas.Top="122" FontFamily="Arial Narrow" FontSize="20" Foreground="White"/>
         </Canvas>
     </Grid>
 </Window>

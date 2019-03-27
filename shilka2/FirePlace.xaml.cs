@@ -58,8 +58,8 @@ namespace shilka2
             var converter = new BrushConverter();
             StatisticMenu.Background = (Brush)converter.ConvertFrom(statisticColor);
             StatisticGrid.ItemsSource = Statistic.Load();
-            StatisticGrid.Margin = new Thickness(0, 540, 0, 0);
-            StatisticGrid.Height = StatisticMenu.Height - Statistic.statisticGridMargins - 590;
+            StatisticGrid.Margin = new Thickness(0, 50, 0, 0);
+            StatisticGrid.Height = StatisticMenu.Height - Statistic.statisticGridMargins - 50;
 
             foreach (DataGrid Menu in new List<DataGrid>() { StatisticGrid, StatBoxTable, StatBoxDown, StatBoxDamag })
                 Menu.Width = StatisticMenu.Width - Statistic.statisticGridMargins;
@@ -254,6 +254,8 @@ namespace shilka2
                 AircraftsStart.Stop();
             }
 
+            StatisticGrid.Margin = new Thickness(0, 50, 0, 0);
+            StatisticGrid.Height = StatisticMenu.Height - Statistic.statisticGridMargins - 50;
             StatisticGrid.ItemsSource = Statistic.Load();
 
             MoveCanvas(
@@ -549,6 +551,9 @@ namespace shilka2
             }
             else
                 StatNotSelected.Visibility = Visibility.Hidden;
+
+            StatisticGrid.Margin = new Thickness(0, 540, 0, 0);
+            StatisticGrid.Height = StatisticMenu.Height - Statistic.statisticGridMargins - 590;
 
             int shellsForShutdown = (statRow.shutdown > 0 ? (int)statRow.shellsFired / statRow.shutdown : 0);
             string scriptName = Statistic.statisticScripts[stat.SelectedIndex];
