@@ -81,7 +81,7 @@ namespace shilka2
                         }
                         else
                             foreach (DynamicElement d in aircraft.dynamicElemets)
-                                if (d.movingType == DynamicElement.MovingType.yRotate)
+                                if (d.movingType != DynamicElement.MovingType.xRotate)
                                 {
                                     if (rand.Next(2) == 1 && !d.stopRotation)
                                         d.slowRotation = true;
