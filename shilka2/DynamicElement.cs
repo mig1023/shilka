@@ -35,5 +35,26 @@ namespace shilka2
         public bool currentSide = false;
 
         public bool stopRotation = false;
+
+        public static DynamicElement Clone(DynamicElement element)
+        {
+            DynamicElement newElement = new DynamicElement();
+
+            newElement.elementName = element.elementName;
+            newElement.x_left = element.x_left;
+            newElement.x_right = element.x_right;
+            newElement.y = element.y;
+            newElement.rotateDegreeCurrent = element.rotateDegreeCurrent;
+            newElement.startDegree = element.startDegree;
+            newElement.mirror = element.mirror;
+            newElement.background = element.background;
+            newElement.slowRotation = element.slowRotation;
+            newElement.backSide = element.backSide;
+            newElement.currentSide = element.currentSide;
+            newElement.stopRotation = element.stopRotation;
+            newElement.movingType = element.movingType;
+
+            return newElement;
+        }
     }
 }

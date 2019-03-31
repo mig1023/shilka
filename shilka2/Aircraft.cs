@@ -292,29 +292,30 @@ namespace shilka2
 
                     foreach (DynamicElement d in aircraft.elements)
                     {
-                        d.element = new Image();
+                        DynamicElement tmp = DynamicElement.Clone(d);
+                        tmp.element = new Image();
 
-                        d.element.Margin = new Thickness(newAircraft.x, newAircraft.y, 0, 0);
-                        d.element.Source = ImageFromResources(d.elementName);
-                        d.rotateDegreeCurrent = d.startDegree;
+                        tmp.element.Margin = new Thickness(newAircraft.x, newAircraft.y, 0, 0);
+                        tmp.element.Source = ImageFromResources(d.elementName);
+                        tmp.rotateDegreeCurrent = d.startDegree;
 
                         if ((newAircraft.flightDirection == FlightDirectionType.Right) && !d.mirror)
-                            d.element.FlowDirection = FlowDirection.RightToLeft;
+                            tmp.element.FlowDirection = FlowDirection.RightToLeft;
                         else if ((newAircraft.flightDirection == FlightDirectionType.Left) && d.mirror)
-                            d.element.FlowDirection = FlowDirection.RightToLeft;
+                            tmp.element.FlowDirection = FlowDirection.RightToLeft;
 
-                        newAircraft.dynamicElemets.Add(d);
+                        newAircraft.dynamicElemets.Add(tmp);
 
                         if (
                                 ((newAircraft.flightDirection == FlightDirectionType.Right) && d.movingType != DynamicElement.MovingType.yRotate)
                                 ||
                                 d.background
                         )
-                            Canvas.SetZIndex(d.element, (zIndex == zIndexType.inFront ? 60 : 20));
+                            Canvas.SetZIndex(tmp.element, (zIndex == zIndexType.inFront ? 60 : 20));
                         else
-                            Canvas.SetZIndex(d.element, (zIndex == zIndexType.inFront ? 80 : 40));
+                            Canvas.SetZIndex(tmp.element, (zIndex == zIndexType.inFront ? 80 : 40));
 
-                        main.firePlace.Children.Add(d.element);
+                        main.firePlace.Children.Add(tmp.element);
                     }
                 }
 
