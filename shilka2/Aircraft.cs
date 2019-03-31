@@ -260,7 +260,7 @@ namespace shilka2
                 newAircraftImage.Width = aircraft.size[0];
                 newAircraftImage.Height = aircraft.size[1];
 
-                Aircraft newAircraft = new Aircraft();
+                Aircraft newAircraft = Aircraft.Clone(aircraft);
 
                 newAircraft.y = rand.Next(maxAltitudeGlobal, Aircrafts.minAltitudeGlobal);
 
@@ -319,19 +319,6 @@ namespace shilka2
                     }
                 }
 
-                newAircraft.aircraftType = aircraft.aircraftType;
-                newAircraft.aircraftName = aircraft.aircraftName;
-                newAircraft.hitpoint = aircraft.hitPoint;
-                newAircraft.hitpointMax = aircraft.hitPoint;
-                newAircraft.price = aircraft.price;
-                newAircraft.minAltitude = aircraft.minAltitude;
-                newAircraft.maxAltitude = aircraft.maxAltitude;
-                newAircraft.friend = aircraft.friend;
-                newAircraft.airliner = aircraft.airliner;
-                newAircraft.cloud = aircraft.cloud;
-                newAircraft.cantEscape = aircraft.cantEscape;
-                newAircraft.fly = true;
-
                 int randomSpeed = (aircraft.cloud ? 0 : rand.Next(3));
 
                 newAircraft.speed = aircraft.speed + randomSpeed;
@@ -365,6 +352,26 @@ namespace shilka2
                 main.firePlace.Children.Add(newAircraftImage);
                 aircrafts.Add(newAircraft);
             }));
+        }
+
+        public static Aircraft Clone(AircraftsType aircraft)
+        {
+            Aircraft newAircraft = new Aircraft();
+
+            newAircraft.aircraftType = aircraft.aircraftType;
+            newAircraft.aircraftName = aircraft.aircraftName;
+            newAircraft.hitpoint = aircraft.hitPoint;
+            newAircraft.hitpointMax = aircraft.hitPoint;
+            newAircraft.price = aircraft.price;
+            newAircraft.minAltitude = aircraft.minAltitude;
+            newAircraft.maxAltitude = aircraft.maxAltitude;
+            newAircraft.friend = aircraft.friend;
+            newAircraft.airliner = aircraft.airliner;
+            newAircraft.cloud = aircraft.cloud;
+            newAircraft.cantEscape = aircraft.cantEscape;
+            newAircraft.fly = true;
+
+            return newAircraft;
         }
 
         public static void AircraftStart(object obj, ElapsedEventArgs e)
