@@ -66,50 +66,50 @@ namespace shilka2
 
             if (script == scriptsNames.Vietnam)
                 return new int?[] {
-                    4,      // <-- su17
-                    11,     // <-- mig19
-                    12,     // <-- mig21
+                    3,      // <-- su17
+                    10,     // <-- mig19
+                    11,     // <-- mig21
                 };
 
             if (script == scriptsNames.Yugoslavia)
                 return new int?[] {
-                    1,     // <-- mig23
-                    2,     // <-- mig29
-                    12,    // <-- mig21
-                    13,    // <-- mig25
+                    0,     // <-- mig23
+                    1,     // <-- mig29
+                    11,    // <-- mig21
+                    12,    // <-- mig25
                 };
 
             if (script == scriptsNames.DesertStorm)
                 return new int?[] {
-                    1,     // <-- mig23
-                    2,     // <-- mig29
-                    6,     // <-- su25
-                    13,    // <-- mig25
+                    0,     // <-- mig23
+                    1,     // <-- mig29
+                    5,     // <-- su25
+                    12,    // <-- mig25
                 };
 
             if (script == scriptsNames.IranIraq)
                 return new int?[] {
-                    1,     // <-- mig23
-                    4,     // <-- su17
-                    11,    // <-- mig19
-                    13,    // <-- mig25
+                    0,     // <-- mig23
+                    3,     // <-- su17
+                    10,    // <-- mig19
+                    12,    // <-- mig25
                 };
 
             if (script == scriptsNames.Syria)
                 return new int?[] {
-                    1,     // <-- mig23
-                    2,     // <-- mig29
-                    4,     // <-- su17
-                    14,    // <-- a50
-                    16,    // <-- tu95
+                    0,     // <-- mig23
+                    1,     // <-- mig29
+                    3,     // <-- su17
+                    13,    // <-- a50
+                    15,    // <-- tu95
                 };
 
             if (script == scriptsNames.Libya)
                 return new int?[] {
-                    1,     // <-- mig23
-                    4,     // <-- su17
-                    5,     // <-- su24
-                    13,    // <-- mig25
+                    0,     // <-- mig23
+                    3,     // <-- su17
+                    4,     // <-- su24
+                    12,    // <-- mig25
                 };
 
             if (script == scriptsNames.KoreanBoeing)
@@ -126,16 +126,16 @@ namespace shilka2
 
             if (script == scriptsNames.Khmeimim)
                 return new int?[] {
-                    2,     // <-- mig29
-                    3,     // <-- mig31
-                    5,     // <-- su24
-                    6,     // <-- su25
-                    7,     // <-- su27
-                    8,     // <-- su34
-                    9,     // <-- pakfa
-                    10,    // <-- tu160
-                    14,    // <-- a50
-                    15,    // <-- tu95
+                    1,     // <-- mig29
+                    2,     // <-- mig31
+                    4,     // <-- su24
+                    5,     // <-- su25
+                    6,     // <-- su27
+                    7,     // <-- su34
+                    8,     // <-- pakfa
+                    9,    // <-- tu160
+                    13,    // <-- a50
+                    14,    // <-- tu95
                 };
 
             return new int?[] { };
@@ -152,30 +152,30 @@ namespace shilka2
 
             if (script == scriptsNames.DesertStorm)
                 return new int?[] {
-                    2,     // <-- mi24
-                    3,     // <-- mi8
+                    1,     // <-- mi24
+                    2,     // <-- mi8
                 };
 
             if (script == scriptsNames.IranIraq)
                 return new int?[] {
-                    2,     // <-- mi24
-                    3,     // <-- mi8
+                    1,     // <-- mi24
+                    2,     // <-- mi8
                 };
 
             if (script == scriptsNames.Syria)
                 return new int?[] {
-                    1,     // <-- mi28
-                    2,     // <-- mi24
-                    3,     // <-- mi8
-                    4,     // <-- ka52
-                    5,     // <-- ka27
-                    8,     // <-- ka31
+                    0,     // <-- mi28
+                    1,     // <-- mi24
+                    2,     // <-- mi8
+                    3,     // <-- ka52
+                    4,     // <-- ka27
+                    7,     // <-- ka31
                 };
 
             if (script == scriptsNames.Libya)
                 return new int?[] {
-                    2,     // <-- mi24
-                    3,     // <-- mi8
+                    1,     // <-- mi24
+                    2,     // <-- mi8
                 };
 
             if (script == scriptsNames.KoreanBoeing)
@@ -192,11 +192,11 @@ namespace shilka2
 
             if (script == scriptsNames.Khmeimim)
                 return new int?[] {
-                    1,     // <-- mi28
-                    2,     // <-- mi24
-                    3,     // <-- mi8
-                    4,     // <-- ka52
-                    8,     // <-- ka31
+                    0,     // <-- mi28
+                    1,     // <-- mi24
+                    2,     // <-- mi8
+                    3,     // <-- ka52
+                    7,     // <-- ka31
                 };
 
             return new int?[] { };
@@ -207,117 +207,117 @@ namespace shilka2
 
             if (script == scriptsNames.Vietnam)
                 return new int?[] {
-                    3,      // <-- b52
-                    5,      // <-- f14
-                    10,     // <-- f4
-                    21,     // <-- f8
-                    22,     // <-- ac130
-                    23,     // <-- a6
-                    24,     // <-- f111
-                    25,     // <-- f5
+                    2,      // <-- b52
+                    4,      // <-- f14
+                    9,     // <-- f4
+                    20,     // <-- f8
+                    21,     // <-- ac130
+                    22,     // <-- a6
+                    23,     // <-- f111
+                    24,     // <-- f5
                 };
 
             if (script == scriptsNames.Yugoslavia)
                 return new int?[] {
-                    1,     // <-- a10
-                    2,     // <-- b1
-                    3,     // <-- b52
-                    4,     // <-- f117
-                    5,     // <-- f14
-                    6,     // <-- f18
-                    7,     // <-- f16
-                    9,     // <-- f15
-                    10,    // <-- f4
-                    11,    // <-- tornado
-                    12,    // <-- predator
-                    15,    // <-- e3
-                    18,    // <-- b2
-                    20,    // <-- tomahawk
-                    32,    // <-- harrier
-                    34,    // <-- hunter
+                    0,     // <-- a10
+                    1,     // <-- b1
+                    2,     // <-- b52
+                    3,     // <-- f117
+                    4,     // <-- f14
+                    5,     // <-- f18
+                    6,     // <-- f16
+                    8,     // <-- f15
+                    9,    // <-- f4
+                    10,    // <-- tornado
+                    11,    // <-- predator
+                    14,    // <-- e3
+                    17,    // <-- b2
+                    19,    // <-- tomahawk
+                    31,    // <-- harrier
+                    33,    // <-- hunter
                 };
 
             if (script == scriptsNames.DesertStorm)
                 return new int?[] {
-                    1,     // <-- a10
-                    2,     // <-- b1
-                    3,     // <-- b52
-                    4,     // <-- f117
-                    5,     // <-- f14
-                    6,     // <-- f18
-                    7,     // <-- f16
-                    9,     // <-- f15
-                    10,    // <-- f4
-                    11,    // <-- tornado
-                    15,    // <-- e3
-                    18,    // <-- b2
-                    20,    // <-- tomahawk
-                    22,    // <-- ac130
-                    23,    // <-- a6
-                    24,    // <-- f111
-                    25,    // <-- f5
-                    27,    // <-- ea6
-                    31,    // <-- sr71
-                    32,    // <-- harrier
-                    36,    // <-- m2000
-                    37,    // <-- m2000ed
+                    0,     // <-- a10
+                    1,     // <-- b1
+                    2,     // <-- b52
+                    3,     // <-- f117
+                    4,     // <-- f14
+                    5,     // <-- f18
+                    6,     // <-- f16
+                    8,     // <-- f15
+                    9,    // <-- f4
+                    10,    // <-- tornado
+                    14,    // <-- e3
+                    17,    // <-- b2
+                    19,    // <-- tomahawk
+                    21,    // <-- ac130
+                    22,    // <-- a6
+                    23,    // <-- f111
+                    24,    // <-- f5
+                    26,    // <-- ea6
+                    30,    // <-- sr71
+                    31,    // <-- harrier
+                    35,    // <-- m2000
+                    36,    // <-- m2000ed
                 };
 
             if (script == scriptsNames.IranIraq)
                 return new int?[] {
-                    5,     // <-- f14
-                    10,    // <-- f4
-                    22,    // <-- ac130
-                    25,    // <-- f5
+                    4,     // <-- f14
+                    9,    // <-- f4
+                    21,    // <-- ac130
+                    24,    // <-- f5
                 };
 
             if (script == scriptsNames.Syria)
                 return new int?[] {
-                    20,    // <-- tomahawk
-                    12,    // <-- predator
-                    13,    // <-- reaper
-                    26,    // <-- scalp
-                    34,    // <-- hunter
-                    38,    // <-- jassm
+                    11,    // <-- predator
+                    12,    // <-- reaper
+                    19,    // <-- tomahawk
+                    25,    // <-- scalp
+                    33,    // <-- hunter
+                    37,    // <-- jassm
                 };
 
             if (script == scriptsNames.KoreanBoeing)
                 return new int?[] {
-                    29,    // <-- rc135
-                    30,    // <-- u2
-                    31,    // <-- sr71
+                    28,    // <-- rc135
+                    29,    // <-- u2
+                    30,    // <-- sr71
                 };
 
             if (script == scriptsNames.Libya)
                 return new int?[] {
-                    1,     // <-- a10
-                    3,     // <-- b52
-                    6,     // <-- f18
-                    7,     // <-- f16
-                    9,     // <-- f15
-                    11,    // <-- tornado
-                    15,    // <-- e3
-                    20,    // <-- tomahawk
-                    23,    // <-- a6
-                    27,    // <-- ea6
-                    32,    // <-- harrier
-                    34,    // <-- hunter
-                    35,    // <-- r99
-                    36,    // <-- m2000
-                    37,    // <-- m2000ed
+                    0,     // <-- a10
+                    2,     // <-- b52
+                    5,     // <-- f18
+                    6,     // <-- f16
+                    8,     // <-- f15
+                    10,    // <-- tornado
+                    14,    // <-- e3
+                    19,    // <-- tomahawk
+                    22,    // <-- a6
+                    26,    // <-- ea6
+                    31,    // <-- harrier
+                    33,    // <-- hunter
+                    34,    // <-- r99
+                    35,    // <-- m2000
+                    36,    // <-- m2000ed
                 };
 
             if (script == scriptsNames.Yemen)
                 return new int?[] {
-                    7,     // <-- f16
-                    9,     // <-- f15
-                    11,    // <-- tornado
-                    15,    // <-- e3
-                    16,    // <-- eurofighter
-                    22,    // <-- ac130
-                    25,    // <-- f5
-                    36,    // <-- m2000
-                    37,    // <-- m2000ed
+                    6,     // <-- f16
+                    8,     // <-- f15
+                    10,    // <-- tornado
+                    14,    // <-- e3
+                    15,    // <-- eurofighter
+                    21,    // <-- ac130
+                    24,    // <-- f5
+                    35,    // <-- m2000
+                    36,    // <-- m2000ed
                 };
 
             if (script == scriptsNames.F117Hunt)
@@ -325,7 +325,7 @@ namespace shilka2
 
             if (script == scriptsNames.Rust)
                 return new int?[] {
-                    33,    // <-- cessna
+                    32,    // <-- cessna
                 };
 
             if (script == scriptsNames.Khmeimim)
@@ -339,41 +339,41 @@ namespace shilka2
 
             if (script == scriptsNames.Vietnam)
                 return new int?[] {
-                    2,     // <-- ah1
-                    4,     // <-- uh1
-                    5,     // <-- ch46
-                    14,    // <-- mh53
-                    17,    // <-- oh58
+                    1,     // <-- ah1
+                    3,     // <-- uh1
+                    4,     // <-- ch46
+                    13,    // <-- mh53
+                    16,    // <-- oh58
                 };
 
             if (script == scriptsNames.Yugoslavia)
                 return new int?[] {
-                    1,     // <-- ah64
-                    2,     // <-- ah1
-                    3,     // <-- uh60
-                    4,     // <-- uh1
-                    5,     // <-- ch46
-                    13,    // <-- puma
-                    15,    // <-- as565
+                    0,     // <-- ah64
+                    1,     // <-- ah1
+                    2,     // <-- uh60
+                    3,     // <-- uh1
+                    4,     // <-- ch46
+                    12,    // <-- puma
+                    14,    // <-- as565
                 };
 
             if (script == scriptsNames.DesertStorm)
                 return new int?[] {
-                    1,     // <-- ah64
-                    2,     // <-- ah1
-                    3,     // <-- uh60
-                    4,     // <-- uh1
-                    5,     // <-- ch46
-                    13,    // <-- puma
-                    15,    // <-- as565
-                    17,    // <-- oh58
+                    0,     // <-- ah64
+                    1,     // <-- ah1
+                    2,     // <-- uh60
+                    3,     // <-- uh1
+                    4,     // <-- ch46
+                    12,    // <-- puma
+                    14,    // <-- as565
+                    16,    // <-- oh58
                 };
 
             if (script == scriptsNames.IranIraq)
                 return new int?[] {
-                    2,     // <-- ah1
-                    5,     // <-- ch46
-                    17,    // <-- oh58
+                    1,     // <-- ah1
+                    4,     // <-- ch46
+                    16,    // <-- oh58
                 };
 
             if (script == scriptsNames.Syria)
@@ -381,11 +381,11 @@ namespace shilka2
 
             if (script == scriptsNames.Libya)
                 return new int?[] {
-                    1,     // <-- ah64
-                    3,     // <-- uh60
-                    5,     // <-- ch46
-                    15,    // <-- as565
-                    17,    // <-- oh58
+                    0,     // <-- ah64
+                    2,     // <-- uh60
+                    4,     // <-- ch46
+                    14,    // <-- as565
+                    16,    // <-- oh58
                 };
 
             if (script == scriptsNames.KoreanBoeing)
@@ -393,12 +393,12 @@ namespace shilka2
 
             if (script == scriptsNames.Yemen)
                 return new int?[] {
-                    1,     // <-- ah64
-                    2,     // <-- ah1
-                    3,     // <-- uh60
-                    5,     // <-- ch46
-                    13,    // <-- puma
-                    15,    // <-- as565
+                    0,     // <-- ah64
+                    1,     // <-- ah1
+                    2,     // <-- uh60
+                    4,     // <-- ch46
+                    12,    // <-- puma
+                    14,    // <-- as565
                 };
 
             if (script == scriptsNames.F117Hunt)
@@ -409,8 +409,8 @@ namespace shilka2
 
             if (script == scriptsNames.Khmeimim)
                 return new int?[] {
-                    8,     // <-- drone
-                    16,    // <-- drone2
+                    7,     // <-- drone
+                    15,    // <-- drone2
                 };
 
             return new int?[] { };
@@ -421,150 +421,150 @@ namespace shilka2
 
             if (script == scriptsNames.Vietnam)
                 return new int?[] {
-                    2,     // <-- b747
-                    7,     // <-- b707
-                    8,     // <-- l1049
-                    13,    // <-- b737
-                    15,    // <-- dc8
-                    16,    // <-- l1011
+                    1,     // <-- b747
+                    6,     // <-- b707
+                    7,     // <-- l1049
+                    12,    // <-- b737
+                    14,    // <-- dc8
+                    15,    // <-- l1011
                 };
 
             if (script == scriptsNames.Yugoslavia)
                 return new int?[] {
-                    1,     // <-- a320
-                    2,     // <-- b747
-                    3,     // <-- md11
-                    4,     // <-- atr42
-                    5,     // <-- dhc8
-                    11,    // <-- b777
-                    12,    // <-- il114
-                    13,    // <-- b737
-                    14,    // <-- md90
-                    16,    // <-- l1011
-                    17,    // <-- crj200
-                    18,    // <-- emb120
+                    0,     // <-- a320
+                    1,     // <-- b747
+                    2,     // <-- md11
+                    3,     // <-- atr42
+                    4,     // <-- dhc8
+                    10,    // <-- b777
+                    11,    // <-- il114
+                    12,    // <-- b737
+                    13,    // <-- md90
+                    14,    // <-- l1011
+                    16,    // <-- crj200
+                    17,    // <-- emb120
                 };
 
             if (script == scriptsNames.DesertStorm)
                 return new int?[] {
-                    1,     // <-- a320
-                    2,     // <-- b747
-                    3,     // <-- md11
-                    4,     // <-- atr42
-                    5,     // <-- dhc8
-                    13,    // <-- b737
-                    15,    // <-- dc8
-                    16,    // <-- l1011
-                    18,    // <-- emb120
+                    0,     // <-- a320
+                    1,     // <-- b747
+                    2,     // <-- md11
+                    3,     // <-- atr42
+                    4,     // <-- dhc8
+                    12,    // <-- b737
+                    14,    // <-- dc8
+                    15,    // <-- l1011
+                    17,    // <-- emb120
                 };
 
             if (script == scriptsNames.IranIraq)
                 return new int?[] {
-                    2,     // <-- b747
-                    4,     // <-- atr42
-                    5,     // <-- dhc8
-                    7,     // <-- b707
-                    13,    // <-- b737
-                    15,    // <-- dc8
-                    16,    // <-- l1011
+                    1,     // <-- b747
+                    3,     // <-- atr42
+                    4,     // <-- dhc8
+                    6,     // <-- b707
+                    12,    // <-- b737
+                    14,    // <-- dc8
+                    15,    // <-- l1011
                 };
 
             if (script == scriptsNames.Syria)
                 return new int?[] {
-                    1,     // <-- a320
-                    2,     // <-- b747
-                    3,     // <-- md11
-                    4,     // <-- atr42
-                    5,     // <-- dhc8
-                    6,     // <-- ssj100
-                    10,    // <-- a380
-                    11,    // <-- b777
-                    12,    // <-- il114
-                    13,    // <-- b737
-                    14,    // <-- md90
-                    17,    // <-- crj200
-                    18,    // <-- emb120
+                    0,     // <-- a320
+                    1,     // <-- b747
+                    2,     // <-- md11
+                    3,     // <-- atr42
+                    4,     // <-- dhc8
+                    5,     // <-- ssj100
+                    9,    // <-- a380
+                    10,    // <-- b777
+                    11,    // <-- il114
+                    12,    // <-- b737
+                    13,    // <-- md90
+                    16,    // <-- crj200
+                    17,    // <-- emb120
                 };
 
             if (script == scriptsNames.Libya)
                 return new int?[] {
-                    1,     // <-- a320
-                    2,     // <-- b747
-                    3,     // <-- md11
-                    4,     // <-- atr42
-                    5,     // <-- dhc8
-                    6,     // <-- ssj100
-                    10,    // <-- a380
-                    11,    // <-- b777
-                    12,    // <-- il114
-                    13,    // <-- b737
-                    14,    // <-- md90
-                    17,    // <-- crj200
-                    18,    // <-- emb120
+                    0,     // <-- a320
+                    1,     // <-- b747
+                    2,     // <-- md11
+                    3,     // <-- atr42
+                    4,     // <-- dhc8
+                    5,     // <-- ssj100
+                    9,    // <-- a380
+                    10,    // <-- b777
+                    11,    // <-- il114
+                    12,    // <-- b737
+                    13,    // <-- md90
+                    16,    // <-- crj200
+                    17,    // <-- emb120
                 };
 
             if (script == scriptsNames.KoreanBoeing)
                 return new int?[] {
-                    2,     // <-- b747
+                    1,     // <-- b747
                 };
 
             if (script == scriptsNames.Yemen)
                 return new int?[] {
-                    1,     // <-- a320
-                    2,     // <-- b747
-                    4,     // <-- atr42
-                    5,     // <-- dhc8
-                    6,     // <-- ssj100
-                    10,    // <-- a380
-                    11,    // <-- b777
-                    12,    // <-- il114
-                    13,    // <-- b737
-                    14,    // <-- md90
-                    17,    // <-- crj200
-                    18,    // <-- emb120
+                    0,     // <-- a320
+                    1,     // <-- b747
+                    3,     // <-- atr42
+                    4,     // <-- dhc8
+                    5,     // <-- ssj100
+                    9,    // <-- a380
+                    10,    // <-- b777
+                    11,    // <-- il114
+                    12,    // <-- b737
+                    13,    // <-- md90
+                    16,    // <-- crj200
+                    17,    // <-- emb120
                 };
 
             if (script == scriptsNames.F117Hunt)
                 return new int?[] {
-                    1,     // <-- a320
-                    2,     // <-- b747
-                    3,     // <-- md11
-                    4,     // <-- atr42
-                    5,     // <-- dhc8
-                    11,    // <-- b777
-                    12,    // <-- il114
-                    13,    // <-- b737
-                    14,    // <-- md90
-                    16,    // <-- l1011
-                    17,    // <-- crj200
-                    18,    // <-- emb120
+                    0,     // <-- a320
+                    1,     // <-- b747
+                    2,     // <-- md11
+                    3,     // <-- atr42
+                    4,     // <-- dhc8
+                    10,    // <-- b777
+                    11,    // <-- il114
+                    12,    // <-- b737
+                    13,    // <-- md90
+                    15,    // <-- l1011
+                    16,    // <-- crj200
+                    17,    // <-- emb120
                 };
 
             if (script == scriptsNames.Rust)
                 return new int?[] {
-                    2,     // <-- b747
-                    4,     // <-- atr42
-                    5,     // <-- dhc8
-                    13,    // <-- b737
-                    15,    // <-- dc8
-                    16,    // <-- l1011
+                    0,     // <-- b747
+                    3,     // <-- atr42
+                    4,     // <-- dhc8
+                    12,    // <-- b737
+                    14,    // <-- dc8
+                    15,    // <-- l1011
                 };
 
             if (script == scriptsNames.Khmeimim)
                 return new int?[] {
-                    1,     // <-- a320
-                    2,     // <-- b747
-                    4,     // <-- atr42
-                    5,     // <-- dhc8
-                    6,     // <-- ssj100
-                    9,     // <-- mc21
-                    10,    // <-- a380
-                    11,    // <-- b777
-                    12,    // <-- il114
-                    13,    // <-- b737
-                    14,    // <-- md90
-                    17,    // <-- crj200
-                    18,    // <-- emb120
+                    0,     // <-- a320
+                    1,     // <-- b747
+                    3,     // <-- atr42
+                    4,     // <-- dhc8
+                    5,     // <-- ssj100
+                    8,     // <-- mc21
+                    9,    // <-- a380
+                    10,    // <-- b777
+                    11,    // <-- il114
+                    12,    // <-- b737
+                    13,    // <-- md90
+                    16,    // <-- crj200
+                    17,    // <-- emb120
                 };
 
             return new int?[] { };
