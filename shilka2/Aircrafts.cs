@@ -616,14 +616,14 @@ namespace shilka2
             },
 
             new AircraftsType {
-                    aircraftType = "gazelle",
-                    aircraftName = "Aerospatiale Gazelle",
-                    hitPoint = 60,
-                    size = new int[] { 185, 64 },
-                    speed = 5,
-                    maxAltitude = maxAltitudeForHelicopters,
-                    price = 0.5,
-                    elements = new List<DynamicElement> {
+                aircraftType = "gazelle",
+                aircraftName = "Aerospatiale Gazelle",
+                hitPoint = 60,
+                size = new int[] { 185, 64 },
+                speed = 5,
+                maxAltitude = maxAltitudeForHelicopters,
+                price = 0.5,
+                elements = new List<DynamicElement> {
                     new DynamicElement {
                         elementName = "prop_main",
                         y = -3,
@@ -638,8 +638,8 @@ namespace shilka2
                         x_right = 7,
                         movingType = DynamicElement.MovingType.zRotate
                     }
-                    }
-                },
+                }
+            },
 
             new AircraftsType {
                 aircraftType = "comanche",
