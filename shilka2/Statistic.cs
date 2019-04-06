@@ -211,19 +211,20 @@ namespace shilka2
                 stat += "выстрелов: " + statisticShellsFired;
 
                 if (staticticAircraftShutdown > 0)
-                    stat += " ( " + shellsForShutdown + " выстр./сбитый )";
+                    stat += String.Format(" ( {0} выстр./сбитый )", shellsForShutdown);
 
                 stat += "\n";
             }
 
             if (staticticInTarget > 0)
-                stat += "попаданий: " + staticticInTarget + " ( " + inTargetPercent + "% )\n";
+                stat += String.Format("попаданий: {0} ( {1}% )\n", staticticInTarget, inTargetPercent);
 
             if (staticticAircraftShutdown > 0)
-                stat += "сбито: " + staticticAircraftShutdown + " ( " + shutdownPercent + "% )";
+                stat += String.Format("сбито: {0} ( {1}% )", staticticAircraftShutdown, shutdownPercent);
 
             if (statisticDamaged > 0)
-                stat += (staticticAircraftShutdown == 0 ? String.Empty : " +") +"повреждено: " + statisticDamaged + " ( " + damagedPercent + "% )\n";
+                stat += String.Format("{0}повреждено: {1} ( {2}% )\n",
+                    (staticticAircraftShutdown == 0 ? String.Empty : " +"), statisticDamaged, damagedPercent);
             else if (staticticAircraftShutdown > 0)
                 stat += "\n";
 
@@ -234,39 +235,44 @@ namespace shilka2
                 if ((hasGonePercent == 0) && (statisticHasGone > 0))
                     hasGonePercent = 1;
 
-                stat += "упущено: " + statisticHasGone + " ( " + hasGonePercent + "%, последний " + statisticLastHasGone + " )";
+                stat += String.Format("упущено: {0} ( {1}%, последний {2} )",
+                    statisticHasGone, hasGonePercent, statisticLastHasGone);
 
                 if (statisticDamaged < statisticHasGone)
-                    stat += ", в т.ч. неповредённых: " + (statisticHasGone - statisticDamaged) + " ( " + statisticWithoutDamage + "% )";
+                    stat += String.Format(", в т.ч. неповредённых: {0} ( {1}% )",
+                        (statisticHasGone - statisticDamaged), statisticWithoutDamage );
 
                 stat += "\n";
             }
 
             if (statisticAmountOfDamage > 0 && !Shilka.school)
             {
-                stat += "нанесён ущерб: " + HumanReadableSumm(statisticAmountOfDamage);
+                stat += String.Format("нанесён ущерб: {0}", HumanReadableSumm(statisticAmountOfDamage));
 
                 if (statisticShutdownFlag)
-                    stat += " ( +" + statisticLastDamagePrice + " млн $ сбит " + statisticLastDamageType + " )";
+                    stat += String.Format(" ( +{0} млн $ сбит {1} )",
+                        statisticLastDamagePrice, statisticLastDamageType);
                 else
-                    stat += string.Format(" ( +{0:f2} млн $" + (seriousDamage ? " серьёзно" : String.Empty) +
-                        " повреждён ", statisticLastDamagePrice) + statisticLastDamageType + " )";
+                    stat += String.Format(" ( +{0:f2} млн ${1} повреждён {2} )",
+                        statisticLastDamagePrice, (seriousDamage ? " серьёзно" : String.Empty), statisticLastDamageType);
 
                 stat += "\n";
             }
 
             if (statisticFriendDamage > 0)
-                stat += "повреждено своих: " + statisticFriendDamage + " ( повреждён " + statisticLastDamageFriend + " )\n";
+                stat += String.Format(" повреждено своих: {0} ( повреждён {1} )\n",
+                    statisticFriendDamage, statisticLastDamageFriend);
 
             if (statisticAirlinerDamage > 0)
-                stat += "повреждено гражданских: " + statisticAirlinerDamage + " ( повреждён " + statisticLastDamageAirliner + " )\n";
+                stat += String.Format("повреждено гражданских: {0} ( повреждён {1} )\n",
+                    statisticAirlinerDamage, statisticLastDamageAirliner);
 
             if (statisticAllAircraft > 0)
-                stat += string.Format("удача: {0:f2}", chance) + "\n";
+                stat += String.Format("удача: {0:f2}", chance) + "\n";
 
             if (statisticShellsFired > 0)
-                stat += "температура стволов: " + Shilka.degreeOfHeatingGunBurrels + "°C" +
-                    (Shilka.reheatingGunBurrels ? " - перегрев стволов!" : String.Empty);
+                stat += String.Format("температура стволов: {0}°C {1}",
+                    Shilka.degreeOfHeatingGunBurrels, (Shilka.reheatingGunBurrels ? " - перегрев стволов!" : String.Empty));
 
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {
