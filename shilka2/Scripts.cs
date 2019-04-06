@@ -411,6 +411,7 @@ namespace shilka2
                 return new int?[] {
                     7,     // <-- drone
                     15,    // <-- drone2
+                    19,    // <-- drone3
                 };
 
             return new int?[] { };
