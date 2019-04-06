@@ -234,12 +234,12 @@ namespace shilka2
                 if ((hasGonePercent == 0) && (statisticHasGone > 0))
                     hasGonePercent = 1;
 
-                stat += "упущено: " + statisticHasGone + " ( " + hasGonePercent + "% )";
+                stat += "упущено: " + statisticHasGone + " ( " + hasGonePercent + "%, последний " + statisticLastHasGone + " )";
 
                 if (statisticDamaged < statisticHasGone)
                     stat += ", в т.ч. неповредённых: " + (statisticHasGone - statisticDamaged) + " ( " + statisticWithoutDamage + "% )";
 
-                stat += ", последний " + statisticLastHasGone + "\n";
+                stat += "\n";
             }
 
             if (statisticAmountOfDamage > 0 && !Shilka.school)
