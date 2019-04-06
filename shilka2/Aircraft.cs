@@ -410,7 +410,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = rand.Next(Aircrafts.aircraft.Count - 1);
+                        dice = rand.Next(Aircrafts.aircraft.Count);
                     }
                     while (!AircraftInList(Scripts.scriptAircraft, dice));
 
@@ -433,7 +433,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = rand.Next(Aircrafts.helicopters.Count - 1);
+                        dice = rand.Next(Aircrafts.helicopters.Count);
                     }
                     while (!AircraftInList(Scripts.scriptHelicopters, dice));
 
@@ -448,7 +448,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = rand.Next(Aircrafts.aircraftFriend.Count - 1);
+                        dice = rand.Next(Aircrafts.aircraftFriend.Count);
                     }
                     while (!AircraftInList(Scripts.scriptAircraftFriend, dice));
 
@@ -463,7 +463,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = rand.Next(Aircrafts.helicoptersFriend.Count - 1);
+                        dice = rand.Next(Aircrafts.helicoptersFriend.Count);
                     }
                     while (!AircraftInList(Scripts.scriptHelicoptersFriend, dice));
 
@@ -478,7 +478,7 @@ namespace shilka2
 
                     do
                     {
-                        dice = rand.Next(Aircrafts.airliners.Count - 1);
+                        dice = rand.Next(Aircrafts.airliners.Count);
                     }
                     while (!AircraftInList(Scripts.scriptAirliners, dice));
 
