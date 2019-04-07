@@ -236,7 +236,10 @@ namespace shilka2
             if (Shilka.school)
                 RestartText.Content = endText;
             else
+            {
                 EndText.Content = endText;
+                playerPlaceHolder.Visibility = Visibility.Visible;
+            }
 
             MoveCanvas(
                 moveCanvas: newMenu,
@@ -427,6 +430,19 @@ namespace shilka2
         private void PlayerName_KeyUp(object sender, KeyEventArgs e)
         {
             GameOverWithSave.IsEnabled = (String.IsNullOrEmpty(PlayerName.Text) ? false : true);
+
+            if (String.IsNullOrEmpty(PlayerName.Text))
+                playerPlaceHolder.Visibility = Visibility.Visible;
+            else
+                playerPlaceHolder.Visibility = Visibility.Hidden;
+
+            if (e.Key == Key.Enter)
+                GameOver(PlayerName.Text);
+        }
+
+        private void playerPlaceHolder_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            PlayerName.Focus();
         }
 
         private void statisticButton_Click(object sender, RoutedEventArgs e)
