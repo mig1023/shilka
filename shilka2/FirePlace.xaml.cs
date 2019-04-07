@@ -523,6 +523,9 @@ namespace shilka2
                 case "Khmeimim":
                     StartScript(Scripts.scriptsNames.Khmeimim);
                     break;
+                case "Belgrad":
+                    StartScript(Scripts.scriptsNames.Belgrad);
+                    break;
                 default:
                     StartScript(Scripts.scriptsNames.noScript);
                     break;

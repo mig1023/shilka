@@ -16,7 +16,8 @@ namespace shilka2
             Yemen,
             Rust,
             F117Hunt,
-            Khmeimim
+            Khmeimim,
+            Belgrad
         };
 
         public static Dictionary<string, string> scriptsRuNames = new Dictionary<string, string>
@@ -32,7 +33,8 @@ namespace shilka2
             ["Yemen"] = "интервенция в йемен",
             ["Rust"] = "полёт матиаса руста",
             ["F117Hunt"] = "охота на невидимку",
-            ["Khmeimim"] = "оборона хмеймима"
+            ["Khmeimim"] = "оборона хмеймима",
+            ["Belgrad"] = "налёт на белград",
         };
 
         public static int?[] scriptAircraft;
@@ -56,6 +58,7 @@ namespace shilka2
                 case Scripts.scriptsNames.Rust: return "su";
                 case Scripts.scriptsNames.F117Hunt: return "yu";
                 case Scripts.scriptsNames.Khmeimim: return "sy";
+                case Scripts.scriptsNames.Belgrad: return "yu";
             };
 
             return null;
@@ -138,6 +141,14 @@ namespace shilka2
                     14,    // <-- tu95
                 };
 
+            if (script == scriptsNames.Belgrad)
+                return new int?[] {
+                    0,     // <-- mig23
+                    1,     // <-- mig29
+                    11,    // <-- mig21
+                    12,    // <-- mig25
+                };
+
             return new int?[] { };
         }
 
@@ -198,6 +209,9 @@ namespace shilka2
                     3,     // <-- ka52
                     7,     // <-- ka31
                 };
+
+            if (script == scriptsNames.Belgrad)
+                return null;
 
             return new int?[] { };
         }
@@ -331,6 +345,14 @@ namespace shilka2
             if (script == scriptsNames.Khmeimim)
                 return new int?[] { };
 
+            if (script == scriptsNames.Belgrad)
+                return new int?[] {
+                    1,     // <-- b1
+                    2,     // <-- b52
+                    3,     // <-- f117
+                    19,    // <-- tomahawk
+                };
+
             return new int?[] { };
         }
 
@@ -413,6 +435,9 @@ namespace shilka2
                     15,    // <-- drone2
                     19,    // <-- drone3
                 };
+
+            if (script == scriptsNames.Belgrad)
+                return null;
 
             return new int?[] { };
         }
@@ -567,6 +592,9 @@ namespace shilka2
                     16,    // <-- crj200
                     17,    // <-- emb120
                 };
+
+            if (script == scriptsNames.Belgrad)
+                return null;
 
             return new int?[] { };
         }

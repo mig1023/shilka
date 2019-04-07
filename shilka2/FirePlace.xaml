@@ -41,14 +41,15 @@
                 <Button x:Name="resultButton" Content="результаты" Height="41" Canvas.Left="332" Canvas.Top="404" Width="113" FontSize="19" FontFamily="font/calibri.ttf" Click="statisticButton_Click"/>
                 <Button x:Name="Vietnam" Content="вьетнамская война" Height="35" Canvas.Left="10" Canvas.Top="450" Width="134" Click="startScript_Click" FontSize="11" FontFamily="font/calibri.ttf"/>
                 <Button x:Name="DesertStorm" Content="буря в пустыне" Height="35" Canvas.Left="324" Canvas.Top="530" Width="121" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
-                <Button x:Name="Yugoslavia" Content="бомбардировки югославии" Height="35" Canvas.Left="10" Canvas.Top="490" Width="215" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
+                <Button x:Name="Yugoslavia" Content="бомбардировки югославии" Height="35" Canvas.Left="275" Canvas.Top="490" Width="170" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
                 <Button x:Name="IranIraq" Content="ирано-иракская война" Height="35" Canvas.Left="149" Canvas.Top="450" Width="157" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
                 <Button x:Name="Syria" Content="гражданская война в сирии" Height="35" Canvas.Left="10" Canvas.Top="530" Width="170" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
                 <Button x:Name="KoreanBoeing" Content="корейский боинг" Height="35" Canvas.Left="311" Canvas.Top="450" Width="134" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
                 <Button x:Name="Libya" Content="интервенция в ливии" Height="35" Canvas.Left="185" Canvas.Top="530" Width="134" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
                 <Button x:Name="Yemen" Content="интервенция в йемен" Height="35" Canvas.Left="10" Canvas.Top="570" Width="143" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
                 <Button x:Name="Rust" Content="полёт матиаса руста" Height="35" Canvas.Left="158" Canvas.Top="570" Width="148" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
-                <Button x:Name="F117Hunt" Content="охота на невидимку" Height="35" Canvas.Left="230" Canvas.Top="490" Width="215" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
+                <Button x:Name="F117Hunt" Content="охота на невидимку" Height="35" Canvas.Left="10" Canvas.Top="490" Width="134" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
+                <Button x:Name="Belgrad" Content="налёт на белград" Height="35" Canvas.Left="149" Canvas.Top="490" Width="121" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
                 <Button x:Name="Khmeimim" Content="оборона хмеймима" Height="35" Canvas.Left="311" Canvas.Top="570" Width="134" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
             </Canvas>
         </Canvas>

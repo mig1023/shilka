@@ -264,7 +264,17 @@ namespace shilka2
 
                 newAircraft.y = rand.Next(maxAltitudeGlobal, Aircrafts.minAltitudeGlobal);
 
-                if (rand.Next(2) == 1)
+                bool flightDirectionRight = rand.Next(2) == 1;
+
+                if (Shilka.currentScript == Scripts.scriptsNames.Belgrad)
+                {
+                    if (aircraft.friend)
+                        flightDirectionRight = true;
+                    else
+                        flightDirectionRight = false;
+                }
+
+                if (flightDirectionRight)
                 {
                     newAircraft.flightDirection = FlightDirectionType.Right;
                     newAircraft.x = -1 * newAircraftImage.Width;
