@@ -111,9 +111,9 @@ namespace shilka2
                         aircraft.y = maxAltitudeGlobal;
 
                     if (
-                        ((aircraft.x + aircraft.aircraftImage.Width) < 0) && (aircraft.flightDirection == FlightDirectionType.Left)
+                        (((aircraft.x + aircraft.aircraftImage.Width) < 0) && (aircraft.flightDirection == FlightDirectionType.Left))
                         ||
-                        (aircraft.x > main.Width) && (aircraft.flightDirection == FlightDirectionType.Right)
+                        ((aircraft.x > main.Width) && (aircraft.flightDirection == FlightDirectionType.Right))
                     ) {
                         aircraft.fly = false;
 
@@ -267,12 +267,10 @@ namespace shilka2
                 bool flightDirectionRight = rand.Next(2) == 1;
 
                 if (Shilka.currentScript == Scripts.scriptsNames.Belgrad)
-                {
                     if (aircraft.friend)
                         flightDirectionRight = true;
                     else
                         flightDirectionRight = false;
-                }
 
                 if (flightDirectionRight)
                 {
@@ -290,7 +288,7 @@ namespace shilka2
                 if (
                         ((newAircraft.flightDirection == FlightDirectionType.Left) && !aircraft.cloud)
                         ||
-                        (rand.Next(2) == 1) && aircraft.cloud
+                        ((rand.Next(2) == 1) && aircraft.cloud)
                 )
                     newAircraftImage.FlowDirection = FlowDirection.RightToLeft;
 
