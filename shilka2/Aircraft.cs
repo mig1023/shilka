@@ -414,7 +414,7 @@ namespace shilka2
                     }
                     while (!AircraftInList(Scripts.scriptAircraft, dice));
 
-                    if ((Shilka.currentScript == Scripts.scriptsNames.F117Hunt) && (dice != 4))
+                    if ((Shilka.currentScript == Scripts.scriptsNames.F117Hunt) && (dice != 3))
                         goto case 1;
 
                     if (Shilka.currentScript == Scripts.scriptsNames.Khmeimim)
