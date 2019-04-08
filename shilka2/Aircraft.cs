@@ -382,6 +382,19 @@ namespace shilka2
             return newAircraft;
         }
 
+        public static int FindAircraftByName(string aircraftName)
+        {
+            int aircraftIndex = 0;
+
+            foreach(AircraftsType currentAircraft in Aircrafts.aircraft)
+            {
+                if (currentAircraft.aircraftName == aircraftName)
+                    return aircraftIndex;
+            }
+
+            return -1;
+        }
+
         public static void AircraftStart(object obj, ElapsedEventArgs e)
         {
             int newAircraft = rand.Next(15) + 1;
@@ -422,7 +435,7 @@ namespace shilka2
                     }
                     while (!AircraftInList(Scripts.scriptAircraft, dice));
 
-                    if ((Shilka.currentScript == Scripts.scriptsNames.F117Hunt) && (dice != 3))
+                    if ((Shilka.currentScript == Scripts.scriptsNames.F117Hunt) && (dice != FindAircraftByName("f117")))
                         goto case 1;
 
                     if (Shilka.currentScript == Scripts.scriptsNames.Khmeimim)
