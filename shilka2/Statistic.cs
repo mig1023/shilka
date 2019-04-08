@@ -13,7 +13,7 @@ namespace shilka2
 {
     class Statistic
     {
-        static string statisticFileName = "statistic.dat";
+        static string statisticFileName = Constants.STATISTIC_FILE_NAME;
         public static int statisticGridMargins = 120;
 
         public static int statisticShellsFired = 0;
@@ -208,7 +208,7 @@ namespace shilka2
 
             if (statisticShellsFired > 0)
             {
-                stat += "выстрелов: " + statisticShellsFired;
+                stat += String.Format("выстрелов: {0}", statisticShellsFired);
 
                 if (staticticAircraftShutdown > 0)
                     stat += String.Format(" ( {0} выстр./сбитый )", shellsForShutdown);

@@ -17,7 +17,7 @@ namespace shilka2
 
         public static Scripts.scriptsNames currentScript;
 
-        public static int degreeOfHeatingGunBurrels = 30;
+        public static int degreeOfHeatingGunBurrels = Constants.HEATING_START_DEGREE;
         public static bool reheatingGunBurrels = false;
 
         static int gunReturn = 0;

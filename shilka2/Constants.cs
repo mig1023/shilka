@@ -55,6 +55,10 @@ namespace shilka2
         public const int GUN_RETURN_LEN = 5;
         public const int GUN_RETURN_TIMEOUT = 3;
         public const int GUN_MIDDLE_TIMEOUT = 2;
-        public const int HEATING_COLOR_BASE = 200; 
+        public const int HEATING_COLOR_BASE = 200;
+        public const int HEATING_START_DEGREE = 30;
+
+        // statistic
+        public const string STATISTIC_FILE_NAME = "statistic.dat";
     }
 }
