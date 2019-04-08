@@ -266,7 +266,7 @@ namespace shilka2
 
                 bool flightDirectionRight = rand.Next(2) == 1;
 
-                if (Shilka.currentScript == Scripts.scriptsNames.Belgrad)
+                if ((Shilka.currentScript == Scripts.scriptsNames.Belgrad) && !aircraft.cloud)
                     if (aircraft.friend)
                         flightDirectionRight = true;
                     else
