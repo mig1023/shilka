@@ -17,7 +17,9 @@ namespace shilka2
 
         public static Scripts.scriptsNames currentScript;
 
-        public static int degreeOfHeatingGunBurrels = Constants.HEATING_START_DEGREE;
+        public static int degreeOfHeatingGunBurrelsMin = 0;
+        public static int degreeOfHeatingGunBurrels = degreeOfHeatingGunBurrelsMin;
+
         public static bool reheatingGunBurrels = false;
 
         static int gunReturn = 0;
@@ -37,7 +39,6 @@ namespace shilka2
         {
             Statistic.Clean();
 
-            degreeOfHeatingGunBurrels = 30;
             reheatingGunBurrels = false;
             lastDegree = 0;
 
@@ -85,14 +86,14 @@ namespace shilka2
 
             degreeOfHeatingGunBurrels += (shooting ? 1 : -1);
 
-            if (degreeOfHeatingGunBurrels < 30)
-                degreeOfHeatingGunBurrels = 30;
-            else if (degreeOfHeatingGunBurrels > 350)
+            if (degreeOfHeatingGunBurrels < degreeOfHeatingGunBurrelsMin)
+                degreeOfHeatingGunBurrels = degreeOfHeatingGunBurrelsMin;
+            else if (degreeOfHeatingGunBurrels > Constants.GUNS_OVERHEATING)
             {
                 reheatingGunBurrels = true;
                 fire = false;
             }
-            else if (degreeOfHeatingGunBurrels < 300)
+            else if (degreeOfHeatingGunBurrels < Constants.GUNS_HEAT_UP)
                 reheatingGunBurrels = false;
         }
 

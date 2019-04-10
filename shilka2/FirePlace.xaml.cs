@@ -461,6 +461,9 @@ namespace shilka2
 
             string flagName = Scripts.ScriptFlagName(script);
 
+            Shilka.degreeOfHeatingGunBurrels = Scripts.ScriptTemperature(script);
+            Shilka.degreeOfHeatingGunBurrelsMin = Shilka.degreeOfHeatingGunBurrels;
+
             if (flagName != null)
                 scenarioFlag.Source = Aircraft.ImageFromResources(flagName);
             else

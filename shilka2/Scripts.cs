@@ -64,6 +64,27 @@ namespace shilka2
             return null;
         }
 
+        public static int ScriptTemperature(scriptsNames script)
+        {
+            switch (script)
+            {
+                case Scripts.scriptsNames.Vietnam: return 35;
+                case Scripts.scriptsNames.IranIraq: return 40;
+                case Scripts.scriptsNames.DesertStorm: return 40;
+                case Scripts.scriptsNames.Syria: return 40;
+                case Scripts.scriptsNames.Yugoslavia: return 25;
+                case Scripts.scriptsNames.KoreanBoeing: return -5;
+                case Scripts.scriptsNames.Libya: return 40;
+                case Scripts.scriptsNames.Yemen: return 20;
+                case Scripts.scriptsNames.Rust: return 30;
+                case Scripts.scriptsNames.F117Hunt: return 20;
+                case Scripts.scriptsNames.Khmeimim: return 40;
+                case Scripts.scriptsNames.Belgrad: return 25;
+            };
+
+            return 30;
+        }
+
         public static int?[] ScriptFriendAircrafts(scriptsNames script)
         {
 
