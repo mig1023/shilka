@@ -73,13 +73,17 @@ namespace shilka2
 
             StatNotSelected.Margin = StatBoxTable.Margin;
 
+            double widthStatBox = (SystemParameters.PrimaryScreenWidth / 2) - 100;
             StatBoxDownLabel.Margin = new Thickness(0, 290, 0, 0);
             StatBoxDown.Margin = new Thickness(0, 300, 0, 0);
-            StatBoxDown.Height = 70;
+            StatBoxDown.Height = 150;
+            StatBoxDown.Width = widthStatBox;
 
-            StatBoxDamaglabel.Margin = new Thickness(0, 390, 0, 0);
-            StatBoxDamag.Margin = new Thickness(0, 400, 0, 0);
-            StatBoxDamag.Height = 70;
+            double leftPadding = (SystemParameters.PrimaryScreenWidth / 2) - 60;
+            StatBoxDamaglabel.Margin = new Thickness(leftPadding, 290, 0, 0);
+            StatBoxDamag.Margin = new Thickness(leftPadding, 300, 0, 0);
+            StatBoxDamag.Height = StatBoxDown.Height;
+            StatBoxDamag.Width = StatBoxTable.Width - widthStatBox - 40;
 
             statShells.Width = StatisticGrid.Width;
 
@@ -626,32 +630,21 @@ namespace shilka2
             if (String.IsNullOrWhiteSpace(statData))
                 return;
 
-            string[] aircraftsData = statData.Split(',');
-
             StatBox.AutoGenerateColumns = false;
-            int columnIndex = 0;
+            StatBox.Columns.Add(new DataGridTextColumn { Header = "тип самолёта", Binding = new Binding("aircraft") });
+            StatBox.Columns.Add(new DataGridTextColumn { Header = "кол-во", Binding = new Binding("count"),
+                Width = new DataGridLength(100) });
 
-            List<string> values = new List<string>();
+            string[] aircraftsData = statData.Split(',');
 
             foreach (string aircraftData in aircraftsData)
             {
-                columnIndex += 1;
+                dynamic newRow = new ExpandoObject();
                 string[] data = aircraftData.Split('=');
-                StatBox.Columns.Add(new DataGridTextColumn { Header = data[0], Binding = new Binding("column" + columnIndex) });
-                values.Add(data[1]);
+                ((IDictionary<string, object>)newRow)["aircraft"] = data[0];
+                ((IDictionary<string, object>)newRow)["count"] = data[1];
+                StatBox.Items.Add(newRow);
             }
-
-            dynamic newRow = new ExpandoObject();
-
-            columnIndex = 0;
-
-            foreach (string aircraftData in values)
-            {
-                columnIndex += 1;
-                ((IDictionary<string, object>)newRow)["column" + columnIndex] = aircraftData;
-            }
-
-            StatBox.Items.Add(newRow);
         }
     }
 }
