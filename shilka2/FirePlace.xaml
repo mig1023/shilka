@@ -87,20 +87,20 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTextColumn Header="выстрелов" Binding="{Binding shellsFired}"/>
-                    <DataGridTextColumn Header="из них в цель" Binding="{Binding inTarget}" CellStyle="{StaticResource grayCell}"/>
-                    <DataGridTextColumn Header="попаданий, %" Binding="{Binding inTargetPercent}"/>
-                    <DataGridTextColumn Header="сбито" Binding="{Binding shutdown}" CellStyle="{StaticResource grayCell}"/>
-                    <DataGridTextColumn Header="сбито, %" Binding="{Binding shutdownPercent}"/>
-                    <DataGridTextColumn Header="повреждённых" Binding="{Binding damaged}" CellStyle="{StaticResource grayCell}"/>
-                    <DataGridTextColumn Header="повреждённых, %" Binding="{Binding damagedPercent}"/>
-                    <DataGridTextColumn Header="упущенных" Binding="{Binding hasGone}" CellStyle="{StaticResource grayCell}"/>
-                    <DataGridTextColumn Header="из них без повреждений, %" Binding="{Binding withoutDamage}"/>
-                    <DataGridTextColumn Header="нанесён ущерб, млн" Binding="{Binding amountOfDamage}" CellStyle="{StaticResource grayCell}"/>
-                    <DataGridTextColumn Header="повреждено своих" Binding="{Binding Path=friendDamage}"/>
-                    <DataGridTextColumn Header="повреждено гражданских" Binding="{Binding Path=airlinerDamage}" CellStyle="{StaticResource grayCell}"/>
-                    <DataGridTextColumn Header="удача" Binding="{Binding chance}"/>
-                    <DataGridTextColumn Header="общее время" Binding="{Binding time}" CellStyle="{StaticResource grayCell}"/>
+                    <DataGridTextColumn Header="выстрелов" Binding="{Binding shellsFired}" CellStyle="{StaticResource grayCell}"/>
+                    <DataGridTextColumn Header="из них в цель" Binding="{Binding inTarget}"/>
+                    <DataGridTextColumn Header="попаданий, %" Binding="{Binding inTargetPercent}" CellStyle="{StaticResource grayCell}"/>
+                    <DataGridTextColumn Header="сбито" Binding="{Binding shutdown}"/>
+                    <DataGridTextColumn Header="сбито, %" Binding="{Binding shutdownPercent}" CellStyle="{StaticResource grayCell}"/>
+                    <DataGridTextColumn Header="повреждённых" Binding="{Binding damaged}"/>
+                    <DataGridTextColumn Header="повреждённых, %" Binding="{Binding damagedPercent}" CellStyle="{StaticResource grayCell}"/>
+                    <DataGridTextColumn Header="упущенных" Binding="{Binding hasGone}"/>
+                    <DataGridTextColumn Header="из них без повреждений, %" Binding="{Binding withoutDamage}" CellStyle="{StaticResource grayCell}"/>
+                    <DataGridTextColumn Header="нанесён ущерб, млн" Binding="{Binding amountOfDamage}"/>
+                    <DataGridTextColumn Header="повреждено своих" Binding="{Binding Path=friendDamage}" CellStyle="{StaticResource grayCell}"/>
+                    <DataGridTextColumn Header="повреждено гражданских" Binding="{Binding Path=airlinerDamage}"/>
+                    <DataGridTextColumn Header="удача" Binding="{Binding chance}" CellStyle="{StaticResource grayCell}"/>
+                    <DataGridTextColumn Header="общее время" Binding="{Binding time}"/>
                     <DataGridTextColumn Visibility="Hidden" Header="время стрельбы" Binding="{Binding shootTime}"/>
                     <DataGridTextColumn Visibility="Hidden" Header="кол-во очередей" Binding="{Binding shootNumber}"/>
                     <DataGridTextColumn Visibility="Hidden" Header="сбитые" Binding="{Binding aircrafts}"/>
