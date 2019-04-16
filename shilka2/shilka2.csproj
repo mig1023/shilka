@@ -250,6 +250,8 @@
     <Resource Include="images\ka31rls_back.png" />
     <Resource Include="images\ka26.png" />
     <Resource Include="images\drone3.png" />
+    <Resource Include="images\drone4.png" />
+    <Resource Include="images\micro_prop_y.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
