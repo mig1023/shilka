@@ -591,7 +591,7 @@ namespace shilka2
 
             new AircraftsType {
                 aircraftType = "drone",
-                aircraftName = "дрон-разведчик",
+                aircraftName = "дрон-разведчик (тип 1)",
                 hitPoint = 1,
                 size = new int[] { 26, 9 },
                 speed = 3,
@@ -799,7 +799,7 @@ namespace shilka2
 
             new AircraftsType {
                 aircraftType = "drone2",
-                aircraftName = "дрон-разведчик",
+                aircraftName = "дрон-разведчик (тип 2)",
                 hitPoint = 1,
                 size = new int[] { 30, 17 },
                 speed = 3,
@@ -904,7 +904,7 @@ namespace shilka2
 
             new AircraftsType {
                 aircraftType = "drone3",
-                aircraftName = "дрон-разведчик",
+                aircraftName = "дрон-разведчик (тип 3)",
                 hitPoint = 1,
                 size = new int[] { 32, 20 },
                 speed = 3,
@@ -931,7 +931,7 @@ namespace shilka2
 
             new AircraftsType {
                 aircraftType = "drone4",
-                aircraftName = "дрон-разведчик",
+                aircraftName = "дрон-разведчик (тип 4)",
                 hitPoint = 1,
                 size = new int[] { 75, 19 },
                 speed = 3,
