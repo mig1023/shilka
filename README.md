@@ -42,7 +42,7 @@ The game is about a small anti-aircraft vehicle ZSU-23-4 "Shilka" in the school 
 | AH-1 Cobra | AH-6 Little Bird | AH-64 Apache |
 | CH-47 Chinook | Denel AH-2 Rooivalk | Eurocopter AS565 Panther |
 | Eurocopter Tiger | Kawasaki OH-1 | OH-58 Kiowa |
-| RAH-66 Comanche | Sikorsky CH-53/MH-53 | Spy / attack drone |
+| RAH-66 Comanche | Sikorsky CH-53/MH-53 | Spy / attack drone (4 types) |
 | UH-1 Iroquois	 | UH-60 Black Hawk | V-22 Ospray |
 
 ### Friend aircrafts:
