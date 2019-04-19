@@ -10,6 +10,7 @@ The game is about a small anti-aircraft vehicle ZSU-23-4 "Shilka" in the school 
 - Mathias Rust flight (1987)
 - Operation Desert storm (1991)
 - NATO bombing of Yugoslavia (1999)
+- Bomb attacks against Belgrade (1999)
 - Hunt for F-117 in Yugoslavia (1999)
 - Syrian civil war (2011-2019)
 - Intervention in Libya (2011)
@@ -41,7 +42,7 @@ The game is about a small anti-aircraft vehicle ZSU-23-4 "Shilka" in the school 
 | A129 Mangusta | Aerospatiale Gazelle | Aerospatiale Puma |
 | AH-1 Cobra | AH-6 Little Bird | AH-64 Apache |
 | CH-47 Chinook | Denel AH-2 Rooivalk | Eurocopter AS565 Panther |
-| Eurocopter Tiger | Kawasaki OH-1 | OH-58 Kiowa |
+| Eurocopter Tiger HAC + HAP | Kawasaki OH-1 | OH-58 Kiowa |
 | RAH-66 Comanche | Sikorsky CH-53/MH-53 | Spy / attack drone (4 types) |
 | UH-1 Iroquois	 | UH-60 Black Hawk | V-22 Ospray |
 
