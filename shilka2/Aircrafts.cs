@@ -566,7 +566,7 @@ namespace shilka2
 
             new AircraftsType {
                 aircraftType = "tiger",
-                aircraftName = "Eurocopter Tiger",
+                aircraftName = "Eurocopter Tiger HAC",
                 size = new int[] { 209, 76 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
@@ -947,6 +947,31 @@ namespace shilka2
                         startDegree = 0.5,
                         background = true
                     },
+                }
+            },
+
+            new AircraftsType {
+                aircraftType = "tiger-hap",
+                aircraftName = "Eurocopter Tiger HAP",
+                size = new int[] { 222, 76 },
+                speed = 5,
+                maxAltitude = maxAltitudeForHelicopters,
+                price = 28,
+                elements = new List<DynamicElement> {
+                    new DynamicElement {
+                        elementName = "prop_main",
+                        y = -3,
+                        x_left = -21,
+                        x_right = 15,
+                        movingType = DynamicElement.MovingType.xRotate,
+                    },
+                    new DynamicElement {
+                        elementName = "y_suppl",
+                        y = 4,
+                        x_left = 181,
+                        x_right = -1,
+                        movingType = DynamicElement.MovingType.zRotate
+                    }
                 }
             },
         };
