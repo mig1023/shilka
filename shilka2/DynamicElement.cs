@@ -34,8 +34,6 @@ namespace shilka2
 
         public bool currentSide = false;
 
-        public bool stopRotation = false;
-
         public static DynamicElement Clone(DynamicElement element)
         {
             DynamicElement newElement = new DynamicElement();
@@ -51,7 +49,6 @@ namespace shilka2
             newElement.slowRotation = element.slowRotation;
             newElement.backSide = element.backSide;
             newElement.currentSide = element.currentSide;
-            newElement.stopRotation = element.stopRotation;
             newElement.movingType = element.movingType;
 
             return newElement;

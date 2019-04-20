@@ -81,13 +81,8 @@ namespace shilka2
                         }
                         else
                             foreach (DynamicElement d in aircraft.dynamicElemets)
-                                if (d.movingType != DynamicElement.MovingType.xRotate)
-                                {
-                                    if (rand.Next(2) == 1 && !d.stopRotation)
-                                        d.slowRotation = true;
-                                    else if (!d.slowRotation)
-                                        d.stopRotation = true;
-                                }
+                                if ((d.movingType != DynamicElement.MovingType.xRotate) && (rand.Next(2) == 1))
+                                    d.slowRotation = true;
                     }
                     else if (!aircraft.cloud)
                     {
@@ -157,9 +152,6 @@ namespace shilka2
                     {
                         double xDirection = (aircraft.flightDirection == FlightDirectionType.Left ? d.x_left : d.x_right);
                         d.element.Margin = new Thickness(aircraft.x + xDirection, aircraft.y + d.y, 0, 0);
-
-                        if (d.stopRotation)
-                            continue;
 
                         if (d.movingType == DynamicElement.MovingType.zRotate)
                         {
