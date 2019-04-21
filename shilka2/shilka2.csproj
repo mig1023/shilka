@@ -68,6 +68,7 @@
     <Compile Include="StatBox.cs" />
     <Compile Include="Statistic.cs" />
     <Compile Include="StatTable.cs" />
+    <Compile Include="Weather.cs" />
     <Page Include="FirePlace.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -253,6 +254,7 @@
     <Resource Include="images\drone4.png" />
     <Resource Include="images\micro_prop_y.png" />
     <Resource Include="images\tiger-hap.png" />
+    <Resource Include="images\rain.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
