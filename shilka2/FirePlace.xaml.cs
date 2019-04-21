@@ -631,8 +631,8 @@ namespace shilka2
                 return;
 
             StatBox.AutoGenerateColumns = false;
-            StatBox.Columns.Add(new DataGridTextColumn { Header = "тип самолёта", Binding = new Binding("aircraft") });
-            StatBox.Columns.Add(new DataGridTextColumn { Header = "кол-во", Binding = new Binding("count"),
+            StatBox.Columns.Add(new DataGridTextColumn { Header = "тип", Binding = new Binding("aircraft") });
+            StatBox.Columns.Add(new DataGridTextColumn { Header = "количество", Binding = new Binding("count"),
                 Width = new DataGridLength(100) });
 
             string[] aircraftsData = statData.Split(',');
