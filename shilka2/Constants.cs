@@ -61,5 +61,8 @@ namespace shilka2
 
         // statistic
         public const string STATISTIC_FILE_NAME = "statistic.dat";
+
+        // weather
+        public const int WEATHER_CYCLE = 333;
     }
 }
