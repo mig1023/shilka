@@ -14,7 +14,8 @@ namespace shilka2
         public enum weatherTypes
         {
             goodWeather,
-            rain
+            rain,
+            snow,
         };
 
         int speed { get; set; }
@@ -52,10 +53,22 @@ namespace shilka2
 
                 Image newImage = new Image();
 
-                newImage.Width = 8;
-                newImage.Height = 17;
+                if (currentWeather == weatherTypes.rain)
+                {
+                    newImage.Width = 8;
+                    newImage.Height = 17;
 
-                newImage.Source = Aircraft.ImageFromResources("rain");
+                    newImage.Source = Aircraft.ImageFromResources("rain");
+                }
+                    
+                else if (currentWeather == weatherTypes.snow)
+                {
+                    newImage.Width = 22;
+                    newImage.Height = 24;
+
+                    newImage.Source = Aircraft.ImageFromResources("snow");
+                }
+
                 newImage.Margin = new Thickness(newWeather.x, newWeather.y, 0, 0);
 
                 newWeather.weatherImage = newImage;
