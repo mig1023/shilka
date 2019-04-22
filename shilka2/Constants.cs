@@ -39,7 +39,8 @@ namespace shilka2
         public const int FIRE_WIDTH_CORRECTION = 140;
         public const int FIRE_HEIGHT_CORRECTION = 30;
         public const int FIRE_HEIGHT_POINT_CORRECTION = 70;
-        public const int SHELL_LENGTH = 1;
+        public const int SHELL_THICKNESS = 1;
+        public const int SHELL_LENGTH = 3;
         public const int SHELL_SPEED = 25;
         public const int SHELL_DELAY = 1;
         public const int FRAGMENTATION = 15;

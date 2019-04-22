@@ -70,8 +70,8 @@ namespace shilka2
 
                             shellTrace.X1 = shell.x + shell.cos;
                             shellTrace.Y1 = shell.y - shell.sin;
-                            shellTrace.X2 = shell.x + 3 * shell.cos;
-                            shellTrace.Y2 = shell.y - 3 * shell.sin;
+                            shellTrace.X2 = shell.x + Constants.FLASH_SIZE;
+                            shellTrace.Y2 = shell.y - Constants.FLASH_SIZE;
                             shell.flash = true;
                             shellTrace.Stroke = Brushes.Red;
                             shellTrace.StrokeThickness = Constants.FLASH_SIZE;
@@ -174,8 +174,11 @@ namespace shilka2
                         Image newImage = new Image();
 
                         newImage.Width = Constants.SHELL_LENGTH;
-                        newImage.Height = Constants.SHELL_LENGTH;
+                        newImage.Height = Constants.SHELL_THICKNESS;
 
+                        double angle = (Math.Asin(newShell.sin) * 180 / Math.PI) * -1;
+
+                        newImage.RenderTransform = new RotateTransform(angle);
                         newImage.Source = Aircraft.ImageFromResources("shell");
                         newImage.Margin = new Thickness(newShell.x, newShell.y, 0, 0);
                         newImage.Visibility = Visibility.Hidden;
