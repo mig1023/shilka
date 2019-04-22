@@ -24,6 +24,8 @@ namespace shilka2
         public static double lastSin = 0;
         public static double lastCos = 1;
 
+        public Image shellImage;
+
         static int fireMutex = 0;
         
         public static List<Shell> shells = new List<Shell>();
@@ -50,15 +52,10 @@ namespace shilka2
                 {
                     Line shellTrace = new Line();
 
-                    shellTrace.X1 = shell.x + shell.cos;
-                    shellTrace.Y1 = shell.y - shell.sin;
-                    shellTrace.X2 = shell.x + Constants.SHELL_LENGTH * shell.cos;
-                    shellTrace.Y2 = shell.y - Constants.SHELL_LENGTH * shell.sin;
-
-                    shellTrace.Stroke = Brushes.Black;
-
                     shell.x = (shell.x + Constants.SHELL_SPEED * shell.cos);
                     shell.y = (shell.y - Constants.SHELL_SPEED * shell.sin);
+
+                    shell.shellImage.Margin = new Thickness(shell.x, shell.y, 0, 0);
 
                     foreach (var aircraft in Aircraft.aircrafts)
                         if (
@@ -71,6 +68,10 @@ namespace shilka2
                             if (aircraft.cloud)
                                 continue;
 
+                            shellTrace.X1 = shell.x + shell.cos;
+                            shellTrace.Y1 = shell.y - shell.sin;
+                            shellTrace.X2 = shell.x + 3 * shell.cos;
+                            shellTrace.Y2 = shell.y - 3 * shell.sin;
                             shell.flash = true;
                             shellTrace.Stroke = Brushes.Red;
                             shellTrace.StrokeThickness = Constants.FLASH_SIZE;
@@ -106,13 +107,15 @@ namespace shilka2
                         }
                         else if (shell.flash)
                             shell.fly = false;
-                            
+
+                    if ((shell.delay >= Constants.SHELL_DELAY) && (shell.shellImage.Visibility == Visibility.Hidden))
+                        shell.shellImage.Visibility = Visibility.Visible;
 
                     if ((shell.y < 0) || (shell.x > currentWidth))
                         shell.fly = false;
                     else if (shell.delay < Constants.SHELL_DELAY)
                         shell.delay++;
-                    else
+                    else if (shell.flash)
                     {
                         main.firePlace.Children.Add(shellTrace);
                         Canvas.SetZIndex(shellTrace, 20);
@@ -121,8 +124,11 @@ namespace shilka2
                 }
 
                 for (int x = 0; x < shells.Count; x++)
-                    if (shells[x].fly == false)
+                    if ((shells[x].fly == false) && (fireMutex == 1))
+                    {
+                        main.firePlace.Children.Remove(shells[x].shellImage);
                         shells.RemoveAt(x);
+                    }
 
                 fireMutex--;
             }));
@@ -161,9 +167,26 @@ namespace shilka2
                     lastCos = newShell.cos;
                     lastSin = newShell.sin;
 
-                    Statistic.statisticShellsFired++;
+                    Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
+                    {
+                        FirePlace main = (FirePlace)Application.Current.MainWindow;
 
-                    shells.Add(newShell);
+                        Image newImage = new Image();
+
+                        newImage.Width = Constants.SHELL_LENGTH;
+                        newImage.Height = Constants.SHELL_LENGTH;
+
+                        newImage.Source = Aircraft.ImageFromResources("shell");
+                        newImage.Margin = new Thickness(newShell.x, newShell.y, 0, 0);
+                        newImage.Visibility = Visibility.Hidden;
+
+                        newShell.shellImage = newImage;
+
+                        main.firePlace.Children.Add(newImage);
+                        shells.Add(newShell);
+                    }));
+
+                    Statistic.statisticShellsFired++;
 
                     Case.CaseExtractor();
                 }
