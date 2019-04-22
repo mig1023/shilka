@@ -81,6 +81,7 @@ namespace shilka2
 
                 foreach (Weather w in weather)
                 {
+
                     w.x = w.x;
                     w.y = (w.y + w.speed);
                     w.weatherImage.Margin = new Thickness(w.x, w.y, 0, 0);
@@ -92,8 +93,8 @@ namespace shilka2
                 for (int x = 0; x < weather.Count; x++)
                     if ((weather[x].fly == false) && (weatherMutex == 1))
                     {
-                        weather.RemoveAt(x);
                         main.firePlace.Children.Remove(weather[x].weatherImage);
+                        weather.RemoveAt(x);
                     }
             }));
 

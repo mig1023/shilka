@@ -3,8 +3,6 @@ using System.Threading;
 using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
-using System.Windows.Shapes;
 
 namespace shilka2
 {
@@ -13,23 +11,14 @@ namespace shilka2
         double fall = 0;
 
         int speed { get; set; }
+        public Image caseImage;
 
         public static List<Case> cases = new List<Case>();
-        public static List<Line> allLines = new List<Line>();
 
         static int caseMutex = 0;
-        static bool caseLimiter = false;
 
         public static void CaseExtractor()
         {
-            if (caseLimiter)
-            {
-                caseLimiter = false;
-                return;
-            }
-            else
-                caseLimiter = true;
-
             caseMutex++;
             if (caseMutex > 1)
             {
@@ -45,7 +34,23 @@ namespace shilka2
             newCase.speed = rand.Next(Constants.MIN_SPEED, Constants.MAX_SPEED);
             newCase.fly = true;
 
-            Case.cases.Add(newCase);
+            Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
+            {
+                FirePlace main = (FirePlace)Application.Current.MainWindow;
+
+                Image newImage = new Image();
+
+                newImage.Width = Constants.CASE_LENGTH;
+                newImage.Height = Constants.CASE_LENGTH;
+
+                newImage.Source = Aircraft.ImageFromResources("case");
+                newImage.Margin = new Thickness(newCase.x, newCase.y, 0, 0);
+
+                newCase.caseImage = newImage;
+
+                main.firePlace.Children.Add(newImage);
+                Case.cases.Add(newCase);
+            }));
 
             caseMutex--;
         }
@@ -56,44 +61,33 @@ namespace shilka2
             {
                 FirePlace main = (FirePlace)Application.Current.MainWindow;
 
-                foreach (var line in allLines)
-                    main.firePlace.Children.Remove(line);
-
-                allLines.Clear();
-
                 caseMutex++;
+                if (caseMutex > 1)
+                {
+                    caseMutex--;
+                    return;
+                }
 
                 foreach (var c in cases)
                 {
-                    Line shellTrace = new Line();
-
-                    shellTrace.X1 = c.x + c.cos;
-                    shellTrace.Y1 = c.y - c.sin;
-                    shellTrace.X2 = c.x + Constants.CASE_LENGTH * c.cos;
-                    shellTrace.Y2 = c.y - Constants.CASE_LENGTH * c.sin;
-
-                    shellTrace.Stroke = Brushes.Black;
-
                     c.fall += Constants.FREE_FALL_SPEED;
 
                     c.x = (c.x - c.speed * c.cos);
                     c.y = (c.y - c.speed * c.sin) + c.fall;
+                    c.caseImage.Margin = new Thickness(c.x, c.y, 0, 0);
 
                     if (c.x < 0)
                         c.fly = false;
-                    else
-                    {
-                        main.firePlace.Children.Add(shellTrace);
-                        Canvas.SetZIndex(shellTrace, 150);
-                        allLines.Add(shellTrace);
-                    }
                 }
 
-                caseMutex--;
-
                 for (int x = 0; x < cases.Count; x++)
-                    if ((caseMutex <= 0) && (cases[x].fly == false))
+                    if ((cases[x].fly == false) && (caseMutex == 1))
+                    {
+                        main.firePlace.Children.Remove(cases[x].caseImage);
                         cases.RemoveAt(x);
+                    }
+
+                caseMutex--;
             }));
         }
     }

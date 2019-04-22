@@ -25,7 +25,7 @@ namespace shilka2
         public const double ANGLE_OF_ATTACK_CHANGE_SPEED = 0.1;
 
         // case
-        public const int CASE_LENGTH = 5;
+        public const int CASE_LENGTH = 2;
         public const double MIN_FRAGM_SIN = 0.2;
         public const double MAX_FRAGM_SIN = 0.4;
         public const double MIN_FRAGM_COS = 0.4;
