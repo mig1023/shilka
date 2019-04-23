@@ -55,10 +55,11 @@ namespace shilka2
 
                 if (currentWeather == weatherTypes.rain)
                 {
-                    newImage.Width = 8;
-                    newImage.Height = 17;
+                    newImage.Width = rand.Next(10, 30);
+                    newImage.Height = rand.Next(15, 40);
 
-                    newImage.Source = Aircraft.ImageFromResources("rain");
+                    int rainType = rand.Next(1, 4);
+                    newImage.Source = Aircraft.ImageFromResources("rain" + rainType.ToString());
                 }
                     
                 else if (currentWeather == weatherTypes.snow)

@@ -254,10 +254,13 @@
     <Resource Include="images\drone4.png" />
     <Resource Include="images\micro_prop_y.png" />
     <Resource Include="images\tiger-hap.png" />
-    <Resource Include="images\rain.png" />
     <Resource Include="images\case.png" />
     <Resource Include="images\shell.png" />
     <Resource Include="images\snow.png" />
+    <Resource Include="images\rain1.png" />
+    <Resource Include="images\rain2.png" />
+    <Resource Include="images\rain3.png" />
+    <Resource Include="images\rain4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
