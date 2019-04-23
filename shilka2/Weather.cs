@@ -64,10 +64,11 @@ namespace shilka2
                     
                 else if (currentWeather == weatherTypes.snow)
                 {
-                    newImage.Width = 22;
-                    newImage.Height = 24;
+                    newImage.Width = rand.Next(22, 45);
+                    newImage.Height = rand.Next(22, 45);
 
-                    newImage.Source = Aircraft.ImageFromResources("snow");
+                    int snowType = rand.Next(1, 4);
+                    newImage.Source = Aircraft.ImageFromResources("snow" + snowType.ToString());
                 }
 
                 newImage.Margin = new Thickness(newWeather.x, newWeather.y, 0, 0);
