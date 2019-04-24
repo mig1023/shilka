@@ -58,13 +58,13 @@ namespace shilka2
                 {
                     newImage.Width = rand.Next(Constants.RAIN_MIN_WIDTH, Constants.RAIN_MAX_WIDTH);
                     newImage.Height = rand.Next(Constants.RAIN_MIN_HEIGHT, Constants.RAIN_MAX_HEIGHT);
-                    imageName = "rain" + rand.Next(1, Constants.MAX_RAIN_TYPE).ToString();
+                    imageName = "rain" + rand.Next(1, Constants.MAX_RAIN_TYPE + 1).ToString();
                 }
                 else
                 {
                     newImage.Width = rand.Next(Constants.SNOW_MIN_SIZE, Constants.SNOW_MAX_SIZE);
                     newImage.Height = rand.Next(Constants.SNOW_MIN_SIZE, Constants.SNOW_MAX_SIZE);
-                    imageName = "snow" + rand.Next(1, Constants.MAX_SNOW_TYPE).ToString();
+                    imageName = "snow" + rand.Next(1, Constants.MAX_SNOW_TYPE + 1).ToString();
                 }
 
                 newImage.Source = Aircraft.ImageFromResources(imageName);

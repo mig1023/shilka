@@ -127,7 +127,7 @@ namespace shilka2
                 flash.X1 = gun.X2;
                 flash.Y1 = gun.Y2;
 
-                int flashSize = rand.Next(3) + 1;
+                int flashSize = rand.Next(1, 4);
 
                 flash.X2 = gun.X2 + flashSize * Shell.lastCos;
                 flash.Y2 = gun.Y2 - flashSize * Shell.lastSin;

@@ -389,7 +389,7 @@ namespace shilka2
 
         public static void AircraftStart(object obj, ElapsedEventArgs e)
         {
-            int newAircraft = rand.Next(15) + 1;
+            int newAircraft = rand.Next(1, 16);
 
             int dice;
 
@@ -403,8 +403,8 @@ namespace shilka2
                     CreateNewAircraft(
                         new AircraftsType
                         {
-                            aircraftType = "cloud" + (rand.Next(7) + 1),
-                            size = new int[] { rand.Next(300) + 200, rand.Next(100) + 70 },
+                            aircraftType = "cloud" + (rand.Next(1, 8)),
+                            size = new int[] { rand.Next(200, 501), rand.Next(70, 171) },
                             speed = 5,
                             friend = true,
                             cloud = true
