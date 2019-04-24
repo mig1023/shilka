@@ -43,6 +43,30 @@ namespace shilka2
         public static int?[] scriptHelicoptersFriend;
         public static int?[] scriptAirliners;
 
+        public static Weather.weatherTypes ScriptsWeather(scriptsNames script, Weather.weatherTypes weather)
+        {
+            if (weather == Weather.weatherTypes.good)
+                return weather;
+
+            switch (script)
+            {
+                case Scripts.scriptsNames.Vietnam: return Weather.weatherTypes.rain;
+                case Scripts.scriptsNames.IranIraq: return Weather.weatherTypes.good;
+                case Scripts.scriptsNames.DesertStorm: return Weather.weatherTypes.good;
+                case Scripts.scriptsNames.Syria: return Weather.weatherTypes.good;
+                case Scripts.scriptsNames.Yugoslavia: return weather;
+                case Scripts.scriptsNames.KoreanBoeing: return Weather.weatherTypes.snow;
+                case Scripts.scriptsNames.Libya: return Weather.weatherTypes.good;
+                case Scripts.scriptsNames.Yemen: return Weather.weatherTypes.rain;
+                case Scripts.scriptsNames.Rust: return weather;
+                case Scripts.scriptsNames.F117Hunt: return weather;
+                case Scripts.scriptsNames.Khmeimim: return Weather.weatherTypes.good;
+                case Scripts.scriptsNames.Belgrad: return weather;
+            };
+
+            return weather;
+        }
+
         public static string ScriptFlagName(scriptsNames script)
         {
             switch (script)

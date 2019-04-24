@@ -9,11 +9,11 @@ using System.Windows.Shapes;
 
 namespace shilka2
 {
-    class Weather : FlyObject
+    public class Weather : FlyObject
     {
         public enum weatherTypes
         {
-            goodWeather,
+            good,
             rain,
             snow,
         };
@@ -23,7 +23,7 @@ namespace shilka2
 
         public static List<Weather> weather = new List<Weather>();
         static int weatherCycle = 0;
-        public static weatherTypes currentWeather = weatherTypes.goodWeather;
+        public static weatherTypes currentWeather = weatherTypes.good;
         static int weatherMutex = 0;
 
         public static void NewWeather(object obj, ElapsedEventArgs e)
@@ -35,10 +35,11 @@ namespace shilka2
                 weatherCycle = 0;
 
                 Array weathers = Enum.GetValues(typeof(weatherTypes));
-                currentWeather = (weatherTypes)weathers.GetValue(rand.Next(weathers.Length));
+                weatherTypes currentWeatherForScripts = (weatherTypes)weathers.GetValue(rand.Next(weathers.Length));
+                currentWeather = Scripts.ScriptsWeather(Shilka.currentScript, currentWeatherForScripts);
             }
 
-            if (currentWeather == weatherTypes.goodWeather)
+            if (currentWeather == weatherTypes.good)
                 return;
 
             Weather newWeather = new Weather();

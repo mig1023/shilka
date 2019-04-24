@@ -41,6 +41,7 @@ namespace shilka2
 
             reheatingGunBurrels = false;
             lastDegree = 0;
+            Weather.currentWeather = Weather.weatherTypes.good;
 
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {
