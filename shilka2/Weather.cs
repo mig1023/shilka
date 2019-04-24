@@ -49,32 +49,29 @@ namespace shilka2
 
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {
-                FirePlace main = (FirePlace)Application.Current.MainWindow;
-
                 Image newImage = new Image();
+
+                string imageName;
 
                 if (currentWeather == weatherTypes.rain)
                 {
-                    newImage.Width = rand.Next(10, 30);
-                    newImage.Height = rand.Next(15, 40);
-
-                    int rainType = rand.Next(1, 4);
-                    newImage.Source = Aircraft.ImageFromResources("rain" + rainType.ToString());
+                    newImage.Width = rand.Next(Constants.RAIN_MIN_WIDTH, Constants.RAIN_MAX_WIDTH);
+                    newImage.Height = rand.Next(Constants.RAIN_MIN_HEIGHT, Constants.RAIN_MAX_HEIGHT);
+                    imageName = "rain" + rand.Next(1, Constants.MAX_RAIN_TYPE).ToString();
                 }
-                    
-                else if (currentWeather == weatherTypes.snow)
+                else
                 {
-                    newImage.Width = rand.Next(22, 45);
-                    newImage.Height = rand.Next(22, 45);
-
-                    int snowType = rand.Next(1, 4);
-                    newImage.Source = Aircraft.ImageFromResources("snow" + snowType.ToString());
+                    newImage.Width = rand.Next(Constants.SNOW_MIN_SIZE, Constants.SNOW_MAX_SIZE);
+                    newImage.Height = rand.Next(Constants.SNOW_MIN_SIZE, Constants.SNOW_MAX_SIZE);
+                    imageName = "snow" + rand.Next(1, Constants.MAX_SNOW_TYPE).ToString();
                 }
 
+                newImage.Source = Aircraft.ImageFromResources(imageName);
                 newImage.Margin = new Thickness(newWeather.x, newWeather.y, 0, 0);
 
                 newWeather.weatherImage = newImage;
 
+                FirePlace main = (FirePlace)Application.Current.MainWindow;
                 Canvas.SetZIndex(newImage, 120);
                 main.firePlace.Children.Add(newImage);
                 Weather.weather.Add(newWeather);
