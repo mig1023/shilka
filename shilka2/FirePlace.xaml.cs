@@ -198,6 +198,9 @@ namespace shilka2
         {
             Statistic.gameTimeSec += 1;
 
+            if (Weather.currentWeather != Weather.weatherTypes.good)
+                Statistic.gameBadWeatherSec += 1;
+
             if (Shilka.fire)
                 Statistic.shootingTimeSec += 1;
         }
@@ -616,8 +619,12 @@ namespace shilka2
                 "длинна ср.очереди", shellInQueue.ToString() + " снарядов"
             });
             StatBoxAddRow(new String[] {
-                "удача", statRow.chance.ToString(),
+                "из них непогоды", statRow.badTime.ToString(),
                 "время ср.очереди", string.Format("{0:f2}", timeForQueue) + " сек"
+            });
+            StatBoxAddRow(new String[] {
+                "удача", statRow.chance.ToString(),
+                String.Empty, String.Empty
             });
 
             StatBoxValues(StatBoxDown, statRow.aircrafts);
