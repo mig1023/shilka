@@ -64,7 +64,7 @@ namespace shilka2
         public const string STATISTIC_FILE_NAME = "statistic.dat";
 
         // weather
-        public const int WEATHER_CYCLE = 333;
+        public const int WEATHER_CYCLE = 700;
         public const int MAX_RAIN_TYPE = 4;
         public const int MAX_SNOW_TYPE = 4;
         public const int RAIN_MIN_WIDTH = 10;
@@ -73,6 +73,5 @@ namespace shilka2
         public const int RAIN_MAX_HEIGHT = 40;
         public const int SNOW_MIN_SIZE = 22;
         public const int SNOW_MAX_SIZE = 45;
-
     }
 }
