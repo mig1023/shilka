@@ -39,6 +39,7 @@ namespace shilka2
         {
             Statistic.Clean();
 
+            fire = false;
             reheatingGunBurrels = false;
             lastDegree = 0;
             Weather.currentWeather = Weather.weatherTypes.good;
@@ -53,6 +54,7 @@ namespace shilka2
                 Aircraft.aircrafts.Clear();
                 Case.cases.Clear();
                 Shell.shells.Clear();
+                Weather.weather.Clear();
             }));
         }
 
