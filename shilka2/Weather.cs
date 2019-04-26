@@ -81,15 +81,15 @@ namespace shilka2
 
         public static void WeatherElementsFly(object obj, ElapsedEventArgs e)
         {
-            weatherMutex += 1;
-            if (weatherMutex > 1)
-            {
-                weatherMutex -= 1;
-                return;
-            }
-
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {
+                weatherMutex += 1;
+                if (weatherMutex > 1)
+                {
+                    weatherMutex -= 1;
+                    return;
+                }
+
                 FirePlace main = (FirePlace)Application.Current.MainWindow;
 
                 foreach (Weather w in weather)
@@ -103,15 +103,15 @@ namespace shilka2
                         w.fly = false;
                 }
 
-                for (int x = 0; x < weather.Count; x++)
+                for (int x = weather.Count-1; x >= 0; x--)
                     if ((weather[x].fly == false) && (weatherMutex == 1))
                     {
                         main.firePlace.Children.Remove(weather[x].weatherImage);
                         weather.RemoveAt(x);
                     }
-            }));
 
-            weatherMutex = 0;
+                weatherMutex = 0;
+            }));
         }
     }
 }
