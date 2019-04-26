@@ -61,7 +61,7 @@ namespace shilka2
         public const int GUNS_OVERHEATING = 350;
 
         // statistic
-        public const string STATISTIC_FILE_NAME = "statistic.dat";
+        public const string STATISTIC_FILE_NAME = "shilka2.stat";
 
         // weather
         public const int WEATHER_CYCLE = 700;

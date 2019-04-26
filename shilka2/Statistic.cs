@@ -133,7 +133,7 @@ namespace shilka2
                   chance, gameTimeSec, gameBadWeatherSec, shootingTimeSec, shootingNumber, downedAircraftsList, damagedAircraftsList
             );
 
-            File.AppendAllText("statistic.dat", stat);
+            File.AppendAllText(Constants.STATISTIC_FILE_NAME, stat);
         }
 
         public static List<StatTable> Load()
