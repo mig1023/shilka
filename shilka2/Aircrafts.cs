@@ -1545,19 +1545,18 @@ namespace shilka2
             new AircraftsType {
                 aircraftType = "il114",
                 aircraftName = "Ил-114",
-                size = new int[] { 420, 135 },
+                size = new int[] { 420, 133 },
                 speed = 5,
                 minAltitude = minAltitudeForLargeAircraft,
                 cantEscape = true,
                 airliner = true,
                 elements = new List<DynamicElement> {
                     new DynamicElement {
-                        elementName = "ltl_prop",
-                        y = 78,
-                        x_left = 131,
-                        x_right = 275,
+                        elementName = "air_prop",
+                        y = 62,
+                        x_left = 118,
+                        x_right = 279,
                         movingType = DynamicElement.MovingType.yRotate,
-                        mirror = true
                     }
                 }
             },
