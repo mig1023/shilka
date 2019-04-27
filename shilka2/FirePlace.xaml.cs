@@ -491,6 +491,8 @@ namespace shilka2
         {
             string scriptName = "noScript";
 
+            pauseButton.Focus();
+
             if (sender == null)
                 Shilka.school = true;
             else
