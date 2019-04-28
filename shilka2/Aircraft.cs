@@ -389,27 +389,28 @@ namespace shilka2
 
         public static void AircraftStart(object obj, ElapsedEventArgs e)
         {
-            int newAircraft = rand.Next(1, 16);
+            int aircraftCategory = rand.Next(1, 16);
 
             int dice;
 
-            switch (newAircraft)
+            AircraftsType newAircraft;
+
+            switch (aircraftCategory)
             {
                 case 1:
                 case 2:
                 case 3:
                 case 4:
+                default:
 
-                    CreateNewAircraft(
-                        new AircraftsType
-                        {
-                            aircraftType = "cloud" + (rand.Next(1, 8)),
-                            size = new int[] { rand.Next(200, 501), rand.Next(70, 171) },
-                            speed = 5,
-                            friend = true,
-                            cloud = true
-                        }
-                    );
+                    newAircraft = new AircraftsType
+                    {
+                        aircraftType = "cloud" + (rand.Next(1, 8)),
+                        size = new int[] { rand.Next(200, 501), rand.Next(70, 171) },
+                        speed = 5,
+                        friend = true,
+                        cloud = true
+                    };
                     break;
 
                 case 5:
@@ -433,7 +434,7 @@ namespace shilka2
                     if (Shilka.currentScript == Scripts.scriptsNames.Khmeimim)
                         goto case 10;
 
-                    CreateNewAircraft(Aircrafts.aircraft[dice]);
+                    newAircraft = Aircrafts.aircraft[dice];
 
                     break;
 
@@ -450,7 +451,7 @@ namespace shilka2
                     }
                     while (!AircraftInList(Scripts.scriptHelicopters, dice));
 
-                    CreateNewAircraft(Aircrafts.helicopters[dice]);
+                    newAircraft = Aircrafts.helicopters[dice];
                     
                     break;
 
@@ -465,7 +466,7 @@ namespace shilka2
                     }
                     while (!AircraftInList(Scripts.scriptAircraftFriend, dice));
 
-                    CreateNewAircraft(Aircrafts.aircraftFriend[dice]);
+                    newAircraft = Aircrafts.aircraftFriend[dice];
                     
                     break;
 
@@ -480,7 +481,7 @@ namespace shilka2
                     }
                     while (!AircraftInList(Scripts.scriptHelicoptersFriend, dice));
 
-                    CreateNewAircraft(Aircrafts.helicoptersFriend[dice]);
+                    newAircraft = Aircrafts.helicoptersFriend[dice];
                     
                     break;
 
@@ -495,10 +496,12 @@ namespace shilka2
                     }
                     while (!AircraftInList(Scripts.scriptAirliners, dice));
 
-                    CreateNewAircraft(Aircrafts.airliners[dice]);
+                    newAircraft = Aircrafts.airliners[dice];
                     
                     break;
             }
+
+            CreateNewAircraft(newAircraft);
         }
     }
 }
