@@ -73,5 +73,7 @@ namespace shilka2
         public const int RAIN_MAX_HEIGHT = 40;
         public const int SNOW_MIN_SIZE = 22;
         public const int SNOW_MAX_SIZE = 45;
+        public const int HEATING_IN_RAIN = -10;
+        public const int HEATING_UNDER_SNOW = -25;
     }
 }

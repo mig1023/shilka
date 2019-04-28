@@ -89,8 +89,15 @@ namespace shilka2
 
             degreeOfHeatingGunBurrels += (shooting ? 1 : -1);
 
-            if (degreeOfHeatingGunBurrels < degreeOfHeatingGunBurrelsMin)
-                degreeOfHeatingGunBurrels = degreeOfHeatingGunBurrelsMin;
+            int currentDegreeOfHeatinMin = degreeOfHeatingGunBurrelsMin;
+
+            if (Weather.currentWeather == Weather.weatherTypes.rain)
+                currentDegreeOfHeatinMin = currentDegreeOfHeatinMin + Constants.HEATING_IN_RAIN;
+            else if (Weather.currentWeather == Weather.weatherTypes.snow)
+                currentDegreeOfHeatinMin = currentDegreeOfHeatinMin + Constants.HEATING_UNDER_SNOW;
+
+            if (degreeOfHeatingGunBurrels < currentDegreeOfHeatinMin)
+                degreeOfHeatingGunBurrels = currentDegreeOfHeatinMin;
             else if (degreeOfHeatingGunBurrels > Constants.GUNS_OVERHEATING)
             {
                 reheatingGunBurrels = true;
