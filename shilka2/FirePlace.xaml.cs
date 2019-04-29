@@ -410,7 +410,7 @@ namespace shilka2
         private void GameOver(string playerName = "")
         {
             if (!String.IsNullOrEmpty(playerName))
-                Statistic.Save(playerName);
+                Statistic.Save(playerName.Replace("|", String.Empty));
 
             Canvas prevMenu = ( Shilka.school ? RestartTrainingMenu : EndMenu);
 
