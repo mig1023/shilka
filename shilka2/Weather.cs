@@ -19,7 +19,11 @@ namespace shilka2
         };
 
         int speed { get; set; }
+        int direction = 0;
+
         public Image weatherImage;
+        
+        weatherTypes type;
 
         public static List<Weather> weather = new List<Weather>();
         static int weatherCycle = 0;
@@ -41,12 +45,13 @@ namespace shilka2
 
             if (currentWeather == weatherTypes.good)
                 return;
-
+            
             Weather newWeather = new Weather();
             newWeather.x = rand.Next(0, (int)SystemParameters.PrimaryScreenWidth);
             newWeather.y = 0;
             newWeather.speed = rand.Next(Constants.MIN_SPEED, Constants.MAX_SPEED);
             newWeather.fly = true;
+            newWeather.type = currentWeather;
 
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {
@@ -94,8 +99,16 @@ namespace shilka2
 
                 foreach (Weather w in weather)
                 {
+                    if (w.type == weatherTypes.snow)
+                    {
+                        if (rand.Next(Constants.SNOW_DIRECTION_CHANGE_CHANCE) == 1)
+                            w.direction = rand.Next(
+                                (Constants.SNOW_DIRECTION_FLE_SPEED * -1), Constants.SNOW_DIRECTION_FLE_SPEED + 1
+                            );
 
-                    w.x = w.x;
+                        w.x = w.x + w.direction;
+                    }
+
                     w.y = (w.y + w.speed);
                     w.weatherImage.Margin = new Thickness(w.x, w.y, 0, 0);
 
