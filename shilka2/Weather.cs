@@ -103,7 +103,7 @@ namespace shilka2
                     {
                         if (rand.Next(Constants.SNOW_DIRECTION_CHANGE_CHANCE) == 1)
                             w.direction = rand.Next(
-                                (Constants.SNOW_DIRECTION_FLE_SPEED * -1), Constants.SNOW_DIRECTION_FLE_SPEED + 1
+                                (Constants.SNOW_DIRECTION_FLE_SPEED * -1), Constants.SNOW_DIRECTION_FLY_SPEED + 1
                             );
 
                         w.x = w.x + w.direction;
