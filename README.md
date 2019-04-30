@@ -4,18 +4,15 @@ The game is about a small anti-aircraft vehicle ZSU-23-4 "Shilka" in the school 
 ![](https://s8.hostingkartinok.com/uploads/images/2018/06/e4b2be354e64b30273c7896a3671ecb2.png)
 
 ### Scripts:
-- Vietnam war (1965-1973)
-- Iran–Iraq war (1980-1988)
-- Korean Boeing incident (1983)
-- Mathias Rust flight (1987)
-- Operation Desert storm (1991)
-- NATO bombing of Yugoslavia (1999)
-- Bomb attacks against Belgrade (1999)
-- Hunt for F-117 in Yugoslavia (1999)
-- Syrian civil war (2011-2019)
-- Intervention in Libya (2011)
-- Intervention in Yemen (2015-2019)
-- Siege of Kmeimim (2016-2018)
+
+| Script | Script |
+| ------------- | ------------- |
+| Vietnam war (1965-1973) | Bomb attacks against Belgrade (1999) |
+| Iran–Iraq war (1980-1988) | Hunt for F-117 in Yugoslavia (1999) |
+| Korean Boeing incident (1983) | Syrian civil war (2011-2019) |
+| Mathias Rust flight (1987) | Intervention in Libya (2011) |
+| Operation Desert storm (1991) | Intervention in Yemen (2015-2019) |
+| NATO bombing of Yugoslavia (1999) | Siege of Kmeimim (2016-2018) |
 
 ### Enemy aircrafts:
 
