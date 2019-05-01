@@ -36,6 +36,10 @@ namespace shilka2
 
         FlightDirectionType flightDirection;
 
+        private static bool schoolEnemyAlready = false;
+        private static bool schoolFriendAlready = false;
+        private static bool schoolAirlinerAlready = false;
+
         public Image aircraftImage;
 
         public Label aircraftSchoolName;
@@ -346,7 +350,26 @@ namespace shilka2
 
                     Canvas.SetZIndex(aircraftLabelName, Canvas.GetZIndex(newAircraftImage));
                     main.firePlace.Children.Add(aircraftLabelName);
-                } 
+                }
+
+                if (Shilka.school && !newAircraft.cloud)
+                {
+                    if (newAircraft.airliner && !schoolAirlinerAlready)
+                    {
+                        schoolAirlinerAlready = true;
+                        main.SchoolMessage(Constants.AIRLINER_INFORMATION);
+                    }
+                    else if (newAircraft.friend && !schoolFriendAlready)
+                    {
+                        schoolFriendAlready = true;
+                        main.SchoolMessage(Constants.FRIEND_INFORMATION);
+                    }
+                    else if (!schoolEnemyAlready)
+                    {
+                        schoolEnemyAlready = true;
+                        main.SchoolMessage(Constants.ENEMY_INFORMATION);
+                    }
+                }
 
                 newAircraft.aircraftImage = newAircraftImage;
                 main.firePlace.Children.Add(newAircraftImage);

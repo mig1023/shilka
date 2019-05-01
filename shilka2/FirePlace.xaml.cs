@@ -370,10 +370,27 @@ namespace shilka2
 
             endGameAlready = false;
 
-            Shell.animationStop = false;
-            Game.Start();
-            AircraftsStart.Start();
+            Pause(stop: false);
+
             School.Start();
+        }
+
+        private void Pause(bool stop = true)
+        {
+            if (stop)
+            {
+                Shell.animationStop = true;
+                Game.Stop();
+                AircraftsStart.Stop();
+                pause = true;
+            }
+            else
+            {
+                Shell.animationStop = false;
+                Game.Start();
+                AircraftsStart.Start();
+                pause = false;
+            }
         }
 
         private void pauseButton_Click(object sender, RoutedEventArgs e)
@@ -382,19 +399,9 @@ namespace shilka2
                 return;
 
             if (pause)
-            {
-                Shell.animationStop = false;
-                Game.Start();
-                AircraftsStart.Start();
-                pause = false;
-            }
+                Pause(stop: true);
             else
-            {
-                Shell.animationStop = true;
-                Game.Stop();
-                AircraftsStart.Stop();
-                pause = true;
-            }
+                Pause(stop: false);
         }
 
         private void EndGameSecAnimation(object Sender, EventArgs e)
@@ -549,6 +556,20 @@ namespace shilka2
         private void schoolButton_Click(object sender, RoutedEventArgs e)
         {
             startScript_Click(null, null);
+        }
+
+        public void SchoolMessage(string msg, bool warn = false)
+        {
+            Pause(stop: true);
+
+            MessageBoxResult okPress = MessageBox.Show(
+                msg,
+                "информация",
+                MessageBoxButton.OK,
+                (warn ? MessageBoxImage.Warning : MessageBoxImage.Information)
+            );
+
+            Pause(stop: false);
         }
 
         private void StatisticGrid_LoadingRow(object sender, DataGridRowEventArgs e)
