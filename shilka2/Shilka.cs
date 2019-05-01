@@ -19,6 +19,7 @@ namespace shilka2
 
         public static int degreeOfHeatingGunBurrelsMin = 0;
         public static int degreeOfHeatingGunBurrels = degreeOfHeatingGunBurrelsMin;
+        private static bool schoolHeating = false;
 
         public static bool reheatingGunBurrels = false;
 
@@ -105,6 +106,17 @@ namespace shilka2
             }
             else if (degreeOfHeatingGunBurrels < Constants.GUNS_HEAT_UP)
                 reheatingGunBurrels = false;
+
+            if (Shilka.school && !schoolHeating && (degreeOfHeatingGunBurrels > Constants.GUNS_HEAT_UP))
+            {
+                schoolHeating = true;
+
+                Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
+                {
+                    FirePlace main = (FirePlace)Application.Current.MainWindow;
+                    main.SchoolMessage(Constants.HEATING_INFORMATION);
+                }));
+            }
         }
 
         public static Brush FlashesColor()
