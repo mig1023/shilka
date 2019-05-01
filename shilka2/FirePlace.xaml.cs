@@ -569,6 +569,7 @@ namespace shilka2
                 (warn ? MessageBoxImage.Warning : MessageBoxImage.Information)
             );
 
+            Shilka.fire = false;
             Pause(stop: false);
         }
 
