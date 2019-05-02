@@ -363,17 +363,17 @@ namespace shilka2
                     if (newAircraft.airliner && !schoolAirlinerAlready)
                     {
                         schoolAirlinerAlready = true;
-                        main.SchoolMessage(Constants.AIRLINER_INFORMATION);
+                        main.SchoolMessage(Constants.AIRLINER_INFORMATION, Brushes.Blue);
                     }
                     else if (newAircraft.friend && !schoolFriendAlready)
                     {
                         schoolFriendAlready = true;
-                        main.SchoolMessage(Constants.FRIEND_INFORMATION);
+                        main.SchoolMessage(Constants.FRIEND_INFORMATION, Brushes.Green);
                     }
                     else if (!schoolEnemyAlready)
                     {
                         schoolEnemyAlready = true;
-                        main.SchoolMessage(Constants.ENEMY_INFORMATION);
+                        main.SchoolMessage(Constants.ENEMY_INFORMATION, Brushes.Red);
                     }
                 }
 

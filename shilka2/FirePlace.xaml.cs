@@ -558,17 +558,28 @@ namespace shilka2
             startScript_Click(null, null);
         }
 
-        public void SchoolMessage(string msg, bool warn = false)
+        public void SchoolMessage(string msg, Brush brush)
         {
             Pause(stop: true);
 
-            MessageBoxResult okPress = MessageBox.Show(
-                msg,
-                "информация",
-                MessageBoxButton.OK,
-                (warn ? MessageBoxImage.Warning : MessageBoxImage.Information)
+            schoolInfoText.Text = msg;
+            schoolInfoBox.Margin = new Thickness(
+                0,
+                (SystemParameters.PrimaryScreenHeight / 2) - 110,
+                0, 0
             );
+            schoolInfoBox.Width = SystemParameters.PrimaryScreenWidth;
+            schoolInfoBox.Height = 220;
 
+            schoolInfoBox.Background = brush;
+            schoolInfoText.Background = brush;
+
+            schoolInfoBox.Visibility = Visibility.Visible;
+        }
+
+        private void schoolInfo_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            schoolInfoBox.Visibility = Visibility.Hidden;
             Shilka.fire = false;
             Pause(stop: false);
         }
@@ -679,5 +690,7 @@ namespace shilka2
                 StatBox.Items.Add(newRow);
             }
         }
+
+
     }
 }

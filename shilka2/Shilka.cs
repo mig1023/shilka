@@ -51,6 +51,7 @@ namespace shilka2
 
                 main.firePlace.Children.Clear();
                 main.PlayerName.Text = String.Empty;
+                main.schoolInfoBox.Visibility = Visibility.Hidden;
 
                 Aircraft.aircrafts.Clear();
                 Case.cases.Clear();
@@ -114,7 +115,7 @@ namespace shilka2
                 Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
                 {
                     FirePlace main = (FirePlace)Application.Current.MainWindow;
-                    main.SchoolMessage(Constants.HEATING_INFORMATION);
+                    main.SchoolMessage(Constants.HEATING_INFORMATION, Brushes.Orange);
                 }));
             }
         }
