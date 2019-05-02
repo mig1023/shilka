@@ -40,6 +40,8 @@ namespace shilka2
         private static bool schoolFriendAlready = false;
         private static bool schoolAirlinerAlready = false;
 
+        private static int allAircraftsInGame = 0;
+
         public Image aircraftImage;
 
         public Label aircraftSchoolName;
@@ -244,6 +246,7 @@ namespace shilka2
 
         static void CreateNewAircraft(AircraftsType aircraft)
         {
+            allAircraftsInGame += 1;
 
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {
@@ -419,6 +422,18 @@ namespace shilka2
         public static void AircraftStart(object obj, ElapsedEventArgs e)
         {
             int aircraftCategory = rand.Next(1, 16);
+
+            if (Shilka.school)
+            {
+                if (allAircraftsInGame < 5)
+                    aircraftCategory = 1;
+                else if (allAircraftsInGame < 20)
+                    aircraftCategory = rand.Next(5, 13);
+                else if (allAircraftsInGame < 25)
+                    aircraftCategory = 13;
+                else if (allAircraftsInGame < 30)
+                    aircraftCategory = rand.Next(14, 16);
+            }
 
             int dice;
 
