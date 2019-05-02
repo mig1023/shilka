@@ -346,7 +346,13 @@ namespace shilka2
                     Label aircraftLabelName = new Label();
                     aircraftLabelName.Content = newAircraft.aircraftName;
                     newAircraft.aircraftSchoolName = aircraftLabelName;
-                    newAircraft.aircraftSchoolName.Foreground = ((aircraft.friend || aircraft.airliner) ? Brushes.Green : Brushes.Red);
+
+                    if (aircraft.airliner)
+                        newAircraft.aircraftSchoolName.Foreground = Brushes.Blue;
+                    else if (aircraft.friend)
+                        newAircraft.aircraftSchoolName.Foreground = Brushes.Green;
+                    else
+                        newAircraft.aircraftSchoolName.Foreground = Brushes.Red;
 
                     Canvas.SetZIndex(aircraftLabelName, Canvas.GetZIndex(newAircraftImage));
                     main.firePlace.Children.Add(aircraftLabelName);
