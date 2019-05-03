@@ -284,11 +284,10 @@ namespace shilka2
 
                 newAircraftImage.Source = ImageFromResources(aircraft.aircraftType);
 
-                if (
-                        ((newAircraft.flightDirection == FlightDirectionType.Left) && !aircraft.cloud)
-                        ||
-                        ((rand.Next(2) == 1) && aircraft.cloud)
-                )
+                bool flightLeftAndNotCloud = (newAircraft.flightDirection == FlightDirectionType.Left) && !aircraft.cloud;
+                bool flightRightAndCloud = (rand.Next(2) == 1) && aircraft.cloud;
+
+                if (flightLeftAndNotCloud || flightRightAndCloud)
                     newAircraftImage.FlowDirection = FlowDirection.RightToLeft;
 
                 newAircraftImage.Margin = new Thickness(newAircraft.x, newAircraft.y, 0, 0);
@@ -313,11 +312,13 @@ namespace shilka2
 
                         newAircraft.dynamicElemets.Add(tmp);
 
-                        if (
-                                ((newAircraft.flightDirection == FlightDirectionType.Right) && d.movingType != DynamicElement.MovingType.yRotate)
-                                ||
-                                d.background
-                        )
+                        bool flightRightAndYRotate = (
+                            (newAircraft.flightDirection == FlightDirectionType.Right)
+                            &&
+                            (d.movingType != DynamicElement.MovingType.yRotate)
+                        );
+
+                        if (flightRightAndYRotate || d.background)
                             Canvas.SetZIndex(tmp.element, (zIndex == zIndexType.inFront ? 60 : 20));
                         else
                             Canvas.SetZIndex(tmp.element, (zIndex == zIndexType.inFront ? 80 : 40));
@@ -425,13 +426,13 @@ namespace shilka2
 
             if (Shilka.school)
             {
-                if (allAircraftsInGame < 5)
+                if (allAircraftsInGame < Constants.SCHOOL_CLOUD_AT_THE_START)
                     aircraftCategory = 1;
-                else if (allAircraftsInGame < 20)
+                else if (allAircraftsInGame < Constants.SCHOOL_ENEMY_AT_THE_START)
                     aircraftCategory = rand.Next(5, 13);
-                else if (allAircraftsInGame < 25)
+                else if (allAircraftsInGame < Constants.SCHOOL_FRIEND_AT_THE_START)
                     aircraftCategory = 13;
-                else if (allAircraftsInGame < 30)
+                else if (allAircraftsInGame < Constants.SCHOOL_AIRLINER_AT_THE_START)
                     aircraftCategory = rand.Next(14, 16);
             }
 

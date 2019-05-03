@@ -91,5 +91,10 @@ namespace shilka2
         public const string HEATING_INFORMATION = "ПЕРЕГРЕВ СТВОЛОВ\n\nПри стрельбе стволы зенитных пушек разогреваются. " +
             "Если вы продолжите стрелять после того, как температура достигла очень больших значений, то пушки перегреются " +
             "и заклинят. Потребуется некоторое время, чтобы они остыли - только после этого удастся возобновить стрельбу.\n\nOK";
+
+        public const int SCHOOL_CLOUD_AT_THE_START = 5;
+        public const int SCHOOL_ENEMY_AT_THE_START = 20;
+        public const int SCHOOL_FRIEND_AT_THE_START = 25;
+        public const int SCHOOL_AIRLINER_AT_THE_START = 30;
     }
 }
