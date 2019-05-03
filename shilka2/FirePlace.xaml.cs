@@ -563,18 +563,19 @@ namespace shilka2
             Pause(stop: true);
 
             schoolInfoText.Text = msg;
-            schoolInfoBox.Margin = new Thickness(
-                0,
-                (SystemParameters.PrimaryScreenHeight / 2) - 110,
-                0, 0
-            );
+
             schoolInfoBox.Width = SystemParameters.PrimaryScreenWidth;
-            schoolInfoBox.Height = 220;
 
             schoolInfoBox.Background = brush;
             schoolInfoText.Background = brush;
 
             schoolInfoBox.Visibility = Visibility.Visible;
+        }
+
+        private void schoolInfoBox_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            double screenCenterPosition = (SystemParameters.PrimaryScreenHeight / 2) - (schoolInfoBox.ActualHeight / 2);
+            schoolInfoBox.Margin = new Thickness(0, screenCenterPosition, 0, 0);
         }
 
         private void schoolInfo_MouseDown(object sender, MouseButtonEventArgs e)
