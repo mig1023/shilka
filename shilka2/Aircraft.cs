@@ -431,9 +431,9 @@ namespace shilka2
                 else if (allAircraftsInGame < Constants.SCHOOL_ENEMY_AT_THE_START)
                     aircraftCategory = rand.Next(5, 13);
                 else if (allAircraftsInGame < Constants.SCHOOL_FRIEND_AT_THE_START)
-                    aircraftCategory = 13;
+                    aircraftCategory = rand.Next(13, 15);
                 else if (allAircraftsInGame < Constants.SCHOOL_AIRLINER_AT_THE_START)
-                    aircraftCategory = rand.Next(14, 16);
+                    aircraftCategory = 15;
             }
 
             int dice;
