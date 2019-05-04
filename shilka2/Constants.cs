@@ -32,7 +32,7 @@ namespace shilka2
         public const double MAX_FRAGM_COS = 0.8;
         public const int MIN_SPEED = 3;
         public const int MAX_SPEED = 12;
-        public const int EXTR_HEIGHT_CORRECTION = 18;
+        public const int EXTR_HEIGHT_CORRECTION = 21;
         public const double FREE_FALL_SPEED = 0.05;
 
         // shell
