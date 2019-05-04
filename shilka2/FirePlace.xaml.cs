@@ -141,7 +141,7 @@ namespace shilka2
                 Game.Elapsed += new ElapsedEventHandler(Statistic.Show);
 
                 HandMove.Elapsed += new ElapsedEventHandler(HideHand);
-                AircraftsStart.Elapsed += new ElapsedEventHandler(Aircraft.AircraftStart);
+                AircraftsStart.Elapsed += new ElapsedEventHandler(Aircraft.Start);
                 School.Elapsed += new ElapsedEventHandler(SchoolShow);
                 GameTimer.Elapsed += new ElapsedEventHandler(GameTimeTicTac);
             }

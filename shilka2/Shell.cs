@@ -50,14 +50,12 @@ namespace shilka2
 
                 foreach (var shell in shells)
                 {
-                    Line shellTrace = new Line();
-
                     shell.x = (shell.x + Constants.SHELL_SPEED * shell.cos);
                     shell.y = (shell.y - Constants.SHELL_SPEED * shell.sin);
 
                     shell.shellImage.Margin = new Thickness(shell.x, shell.y, 0, 0);
 
-                    foreach (var aircraft in Aircraft.aircrafts)
+                    foreach (Aircraft aircraft in Aircraft.aircrafts)
                         if (
                             shell.fly &&
                             (shell.y < (aircraft.aircraftImage.Margin.Top + aircraft.aircraftImage.Height) ) &&
@@ -67,6 +65,8 @@ namespace shilka2
                         ) {
                             if (aircraft.cloud)
                                 continue;
+
+                            Line shellTrace = new Line();
 
                             shellTrace.X1 = shell.x + shell.cos;
                             shellTrace.Y1 = shell.y - shell.sin;
@@ -82,28 +82,13 @@ namespace shilka2
 
                             if (aircraft.hitpoint <= 0 && !aircraft.dead)
                             {
-                                if (aircraft.friend)
-                                    main.EndGame("Вы сбили свой "+aircraft.aircraftName+
-                                        "!\nИгра окончена.\nСохранить статистику?", Constants.END_COLOR);
-
-                                else if (aircraft.airliner)
-                                    main.EndGame("Вы сбили пассажирский самолёт"+
-                                        "!\nИгра окончена.\nСохранить статистику?", Constants.END_COLOR);
-
-                                else
-                                {
-                                    Statistic.staticticAircraftShutdown++;
-                                    Statistic.statisticAmountOfDamage += aircraft.price;
-
-                                    Statistic.statisticShutdownFlag = true;
-                                    Statistic.statisticLastDamagePrice = aircraft.price;
-                                    Statistic.statisticLastDamageType = aircraft.aircraftName;
-
-                                    Statistic.AircraftToStatistic(aircraft.aircraftName, Statistic.statisticAircraftType.downed);
-                                }
-
+                                Aircraft.Shutdown(aircraft, main);
                                 aircraft.dead = true;
                             }
+
+                            main.firePlace.Children.Add(shellTrace);
+                            Canvas.SetZIndex(shellTrace, 20);
+                            allLines.Add(shellTrace);
                         }
                         else if (shell.flash)
                             shell.fly = false;
@@ -115,12 +100,6 @@ namespace shilka2
                         shell.fly = false;
                     else if (shell.delay < Constants.SHELL_DELAY)
                         shell.delay++;
-                    else if (shell.flash)
-                    {
-                        main.firePlace.Children.Add(shellTrace);
-                        Canvas.SetZIndex(shellTrace, 20);
-                        allLines.Add(shellTrace);
-                    }
                 }
 
                 for (int x = 0; x < shells.Count; x++)

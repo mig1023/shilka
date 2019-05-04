@@ -420,7 +420,30 @@ namespace shilka2
             return -1;
         }
 
-        public static void AircraftStart(object obj, ElapsedEventArgs e)
+        public static void Shutdown(Aircraft aircraft, FirePlace main)
+        {
+            if (aircraft.friend)
+                main.EndGame("Вы сбили свой " + aircraft.aircraftName +
+                    "!\nИгра окончена.\nСохранить статистику?", Constants.END_COLOR);
+
+            else if (aircraft.airliner)
+                main.EndGame("Вы сбили пассажирский самолёт" +
+                    "!\nИгра окончена.\nСохранить статистику?", Constants.END_COLOR);
+
+            else
+            {
+                Statistic.staticticAircraftShutdown++;
+                Statistic.statisticAmountOfDamage += aircraft.price;
+
+                Statistic.statisticShutdownFlag = true;
+                Statistic.statisticLastDamagePrice = aircraft.price;
+                Statistic.statisticLastDamageType = aircraft.aircraftName;
+
+                Statistic.AircraftToStatistic(aircraft.aircraftName, Statistic.statisticAircraftType.downed);
+            }
+        }
+
+        public static void Start(object obj, ElapsedEventArgs e)
         {
             int aircraftCategory = rand.Next(1, 16);
 
