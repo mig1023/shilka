@@ -475,7 +475,7 @@ namespace shilka2
                     {
                         aircraftType = "cloud" + (rand.Next(1, 8)),
                         size = new int[] { rand.Next(200, 501), rand.Next(70, 171) },
-                        speed = 5,
+                        speed = Constants.CLOUD_SPEED,
                         friend = true,
                         cloud = true
                     };

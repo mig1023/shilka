@@ -23,6 +23,7 @@ namespace shilka2
         public const double SLOW_ROTATION = 0.07;
         public const double FAST_ROTATION = 0.2;
         public const double ANGLE_OF_ATTACK_CHANGE_SPEED = 0.1;
+        public const int CLOUD_SPEED = 5;
 
         // case
         public const int CASE_LENGTH = 2;
