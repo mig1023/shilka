@@ -443,21 +443,26 @@ namespace shilka2
             }
         }
 
+        private static int aircraftCategoryForSchool(int currentAircraftCategory, int allAircraftsInGame)
+        {
+            if (allAircraftsInGame < Constants.SCHOOL_CLOUD_AT_THE_START)
+                return 1;
+            else if (allAircraftsInGame < Constants.SCHOOL_ENEMY_AT_THE_START)
+                return rand.Next(5, 13);
+            else if (allAircraftsInGame < Constants.SCHOOL_FRIEND_AT_THE_START)
+                return rand.Next(13, 15);
+            else if (allAircraftsInGame < Constants.SCHOOL_AIRLINER_AT_THE_START)
+                return 15;
+
+            return currentAircraftCategory;
+        }
+
         public static void Start(object obj, ElapsedEventArgs e)
         {
             int aircraftCategory = rand.Next(1, 16);
 
             if (Shilka.school)
-            {
-                if (allAircraftsInGame < Constants.SCHOOL_CLOUD_AT_THE_START)
-                    aircraftCategory = 1;
-                else if (allAircraftsInGame < Constants.SCHOOL_ENEMY_AT_THE_START)
-                    aircraftCategory = rand.Next(5, 13);
-                else if (allAircraftsInGame < Constants.SCHOOL_FRIEND_AT_THE_START)
-                    aircraftCategory = rand.Next(13, 15);
-                else if (allAircraftsInGame < Constants.SCHOOL_AIRLINER_AT_THE_START)
-                    aircraftCategory = 15;
-            }
+                aircraftCategory = aircraftCategoryForSchool(aircraftCategory, allAircraftsInGame);
 
             int dice;
 
