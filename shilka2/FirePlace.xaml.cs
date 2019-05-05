@@ -321,10 +321,10 @@ namespace shilka2
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Shilka.SetNewTergetPoint(e.GetPosition((Window)sender), sender);
-
-            if (!Shilka.reheatingGunBurrels)
+            
+            if (!Shilka.reheatingGunBurrels && !pause)
             {
-                if (Shilka.fire == false && !pause)
+                if (Shilka.fire == false)
                     Statistic.shootingNumber += 1;
 
                 Shilka.fire = true;
