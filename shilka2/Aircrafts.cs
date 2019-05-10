@@ -1616,7 +1616,17 @@ namespace shilka2
                 size = new int[] { 330, 94 },
                 minAltitude = minAltitudeForLargeAircraft,
                 cantEscape = true,
-                airliner = true
+                airliner = true,
+                elements = new List<DynamicElement> {
+                    new DynamicElement {
+                        elementName = "ltl_prop",
+                        y = 33,
+                        x_left = 86,
+                        x_right = 231,
+                        movingType = DynamicElement.MovingType.yRotate,
+                        mirror = true
+                    }
+                }
             },
         };
     }
