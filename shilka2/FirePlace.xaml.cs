@@ -379,17 +379,17 @@ namespace shilka2
         {
             if (stop)
             {
-                Shell.animationStop = true;
-                Game.Stop();
-                AircraftsStart.Stop();
-                pause = true;
-            }
-            else
-            {
                 Shell.animationStop = false;
                 Game.Start();
                 AircraftsStart.Start();
                 pause = false;
+            }
+            else
+            {
+                Shell.animationStop = true;
+                Game.Stop();
+                AircraftsStart.Stop();
+                pause = true;
             }
         }
 
