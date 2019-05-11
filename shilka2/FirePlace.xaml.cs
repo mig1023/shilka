@@ -660,7 +660,7 @@ namespace shilka2
             });
             StatBoxAddRow(new String[] {
                 "удача", statRow.chance.ToString(),
-                String.Empty, String.Empty
+                "зенитная установка", "ЗСУ-23-4 Шилка"
             });
 
             StatBoxValues(StatBoxDown, statRow.aircrafts);
