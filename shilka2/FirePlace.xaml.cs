@@ -379,17 +379,17 @@ namespace shilka2
         {
             if (stop)
             {
-                Shell.animationStop = false;
-                Game.Start();
-                AircraftsStart.Start();
-                pause = false;
-            }
-            else
-            {
                 Shell.animationStop = true;
                 Game.Stop();
                 AircraftsStart.Stop();
                 pause = true;
+            }
+            else
+            {
+                Shell.animationStop = false;
+                Game.Start();
+                AircraftsStart.Start();
+                pause = false;
             }
         }
 
@@ -399,9 +399,9 @@ namespace shilka2
                 return;
 
             if (pause)
-                Pause(stop: true);
-            else
                 Pause(stop: false);
+            else
+                Pause(stop: true);
         }
 
         private void EndGameSecAnimation(object Sender, EventArgs e)
