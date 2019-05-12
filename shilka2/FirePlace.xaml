@@ -112,5 +112,6 @@
                 </DataGrid.Columns>
             </DataGrid>
         </Canvas>
+        <Canvas x:Name="thunderPlace"  Canvas.Left="296" Canvas.Top="16" Background="Black" Margin="0,0,0,0" Visibility="Hidden"/>
     </Grid>
 </Window>

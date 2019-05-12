@@ -264,6 +264,11 @@
     <Resource Include="images\snow2.png" />
     <Resource Include="images\snow3.png" />
     <Resource Include="images\snow4.png" />
+    <Resource Include="images\thunder1.png" />
+    <Resource Include="images\thunder2.png" />
+    <Resource Include="images\thunder3.png" />
+    <Resource Include="images\thunder4.png" />
+    <Resource Include="images\thunder5.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

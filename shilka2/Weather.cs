@@ -30,8 +30,67 @@ namespace shilka2
         public static weatherTypes currentWeather = weatherTypes.good;
         static int weatherMutex = 0;
 
+        static int thundar = 0;
+        public static Image thunderCurrentImage;
+
+        private static void Lightning(bool thunderclap = false, bool thunderimage = false)
+        {
+            Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
+            {
+                FirePlace main = (FirePlace)Application.Current.MainWindow;
+
+                if (thunderimage)
+                {
+                    Image thuderImage = new Image();
+
+                    thuderImage.Height = rand.Next(200, (int)SystemParameters.PrimaryScreenHeight);
+                    thuderImage.Source = Aircraft.ImageFromResources("thunder" + (rand.Next(1, 6)));
+                    thuderImage.Margin = new Thickness(rand.Next(0, (int)SystemParameters.PrimaryScreenWidth), -10, 0, 0);
+
+                    thunderCurrentImage = thuderImage;
+                    main.firePlace.Children.Add(thuderImage);
+                }
+                else
+                {
+                    if (thunderCurrentImage != null)
+                        main.firePlace.Children.Remove(thunderCurrentImage);
+                }
+                    
+                main.thunderPlace.Visibility = (thunderclap ? Visibility.Visible : Visibility.Hidden);
+            }));
+        }
+
+        private static void Thunder()
+        {
+            switch(thundar)
+            {
+                case 3:
+                    thundar = 0;
+                    Lightning();
+                    break;
+                case 2:
+                    thundar = 3;
+                    Lightning(thunderclap: true);
+                    break;
+                case 1:
+                    thundar = 2;
+                    Lightning(thunderimage: true);
+                    break;
+                case 0:
+                    if (rand.Next(30) == 1)
+                    {
+                        thundar = 1;
+                        Lightning(thunderclap: true);
+                    }
+                    break;
+            }
+        }
+
         public static void NewWeather(object obj, ElapsedEventArgs e)
         {
+            if ((thundar != 0) || (currentWeather == weatherTypes.rain))
+                Thunder();
+
             if (weatherCycle < Constants.WEATHER_CYCLE)
                 weatherCycle += 1;
             else
