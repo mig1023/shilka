@@ -64,13 +64,9 @@ namespace shilka2
         {
             switch(thundar)
             {
-                case 3:
+                case 2:
                     thundar = 0;
                     Lightning();
-                    break;
-                case 2:
-                    thundar = 3;
-                    Lightning(thunderclap: true);
                     break;
                 case 1:
                     thundar = 2;
