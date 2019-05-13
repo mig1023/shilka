@@ -235,6 +235,11 @@ namespace shilka2
             School.Stop();
             GameTimer.Stop();
 
+            thunderPlace.Visibility = Visibility.Hidden;
+
+            if (Weather.thunderCurrentImage != null)
+                firePlace.Children.Remove(Weather.thunderCurrentImage);
+
             Canvas newMenu = (Shilka.school ? RestartTrainingMenu : EndMenu);
                             
             var converter = new BrushConverter();
