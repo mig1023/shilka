@@ -363,23 +363,7 @@ namespace shilka2
                 }
 
                 if (Shilka.school && !newAircraft.cloud)
-                {
-                    if (newAircraft.airliner && !schoolAirlinerAlready)
-                    {
-                        schoolAirlinerAlready = true;
-                        main.SchoolMessage(Constants.AIRLINER_INFORMATION, Brushes.Blue);
-                    }
-                    else if (newAircraft.friend && !schoolFriendAlready)
-                    {
-                        schoolFriendAlready = true;
-                        main.SchoolMessage(Constants.FRIEND_INFORMATION, Brushes.Green);
-                    }
-                    else if (!schoolEnemyAlready)
-                    {
-                        schoolEnemyAlready = true;
-                        main.SchoolMessage(Constants.ENEMY_INFORMATION, Brushes.Red);
-                    }
-                }
+                    aircraftMessagesForSchool(newAircraft, main);
 
                 newAircraft.aircraftImage = newAircraftImage;
                 main.firePlace.Children.Add(newAircraftImage);
@@ -455,6 +439,25 @@ namespace shilka2
                 return 15;
 
             return currentAircraftCategory;
+        }
+
+        private static void aircraftMessagesForSchool(Aircraft aircraft, FirePlace main)
+        {
+            if (aircraft.airliner && !schoolAirlinerAlready)
+            {
+                schoolAirlinerAlready = true;
+                main.SchoolMessage(Constants.AIRLINER_INFORMATION, Brushes.Blue);
+            }
+            else if (aircraft.friend && !schoolFriendAlready)
+            {
+                schoolFriendAlready = true;
+                main.SchoolMessage(Constants.FRIEND_INFORMATION, Brushes.Green);
+            }
+            else if (!schoolEnemyAlready)
+            {
+                schoolEnemyAlready = true;
+                main.SchoolMessage(Constants.ENEMY_INFORMATION, Brushes.Red);
+            }
         }
 
         public static void Start(object obj, ElapsedEventArgs e)
