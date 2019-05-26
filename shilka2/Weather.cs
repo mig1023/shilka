@@ -15,6 +15,7 @@ namespace shilka2
         {
             good,
             rain,
+            storm,
             snow,
         };
 
@@ -84,7 +85,7 @@ namespace shilka2
 
         public static void NewWeather(object obj, ElapsedEventArgs e)
         {
-            if ((thundar != 0) || (currentWeather == weatherTypes.rain))
+            if ((thundar != 0) || (currentWeather == weatherTypes.storm))
                 Thunder();
 
             if (weatherCycle < Constants.WEATHER_CYCLE)
@@ -114,7 +115,7 @@ namespace shilka2
 
                 string imageName;
 
-                if (currentWeather == weatherTypes.rain)
+                if ((currentWeather == weatherTypes.rain) || (currentWeather == weatherTypes.storm))
                 {
                     newImage.Width = rand.Next(Constants.RAIN_MIN_WIDTH, Constants.RAIN_MAX_WIDTH);
                     newImage.Height = rand.Next(Constants.RAIN_MIN_HEIGHT, Constants.RAIN_MAX_HEIGHT);
