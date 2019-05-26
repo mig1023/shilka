@@ -414,6 +414,16 @@ namespace shilka2
                 size = new int[] { 247, 72 },
                 price = 14
             },
+
+            new AircraftsType {
+                aircraftType = "boeing737aewc",
+                aircraftName = "Боинг 737 AEW&C",
+                size = new int[] { 565, 187 },
+                price = 490,
+                speed = 7,
+                minAltitude = minAltitudeForLargeAircraft,
+                cantEscape = true
+            },
         };
 
         public static List<AircraftsType> helicopters = new List<AircraftsType>()
