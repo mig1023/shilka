@@ -45,7 +45,7 @@ namespace shilka2
                     Image thuderImage = new Image();
 
                     thuderImage.Height = rand.Next(200, (int)SystemParameters.PrimaryScreenHeight);
-                    thuderImage.Source = Aircraft.ImageFromResources("thunder" + (rand.Next(1, 6)));
+                    thuderImage.Source = Aircraft.ImageFromResources("thunder" + (rand.Next(1, 7)));
                     thuderImage.Margin = new Thickness(rand.Next(0, (int)SystemParameters.PrimaryScreenWidth), -10, 0, 0);
 
                     thunderCurrentImage = thuderImage;
