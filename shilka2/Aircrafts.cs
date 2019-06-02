@@ -1148,6 +1148,13 @@ namespace shilka2
                     },
                 }
             },
+
+            new AircraftsType {
+                aircraftType = "mig35",
+                aircraftName = "МиГ-35",
+                size = new int[] { 270, 72 },
+                friend = true
+            },
         };
 
         public static List<AircraftsType> helicoptersFriend = new List<AircraftsType>()
