@@ -262,7 +262,7 @@ namespace shilka2
             }
 
             if (statisticFriendDamage > 0)
-                stat += String.Format(" повреждено своих: {0} ( повреждён {1} )\n",
+                stat += String.Format("повреждено своих: {0} ( повреждён {1} )\n",
                     statisticFriendDamage, statisticLastDamageFriend);
 
             if (statisticAirlinerDamage > 0)

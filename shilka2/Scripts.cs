@@ -188,6 +188,7 @@ namespace shilka2
                     9,    // <-- tu160
                     13,    // <-- a50
                     14,    // <-- tu95
+                    16,    // <-- su30
                 };
 
             if (script == scriptsNames.Belgrad)
