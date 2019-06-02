@@ -1162,6 +1162,13 @@ namespace shilka2
                 size = new int[] { 270, 66 },
                 friend = true
             },
+
+            new AircraftsType {
+                aircraftType = "tu22m3",
+                aircraftName = "Ту-22М3",
+                size = new int[] { 434, 108 },
+                friend = true
+            },
         };
 
         public static List<AircraftsType> helicoptersFriend = new List<AircraftsType>()
