@@ -50,9 +50,10 @@ The game is about a small anti-aircraft vehicle ZSU-23-4 "Shilka" in the school 
 | ------------- | ------------- | ------------- |
 | A-50 | MiG-19 | MiG-21 |
 | MiG-23 | MiG-25 | MiG-29 |
-| MiG-31 | Su-17 | Su-24 |
-| Su-25 | Su-27 | Su-34 |
-| Su-57 | Tu-95 | Tu-160 |
+| MiG-31 | MiG-35 | Su-17 |
+| Su-24 | Su-25 | Su-27 |
+| Su-30 | Su-34 | Su-57 |
+| Tu-22M3 | Tu-95 | Tu-160 |
 
 ### Friend helicopters:
 
