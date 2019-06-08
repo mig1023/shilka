@@ -274,7 +274,7 @@ namespace shilka2
                 return new int?[] {
                     2,      // <-- b52
                     4,      // <-- f14
-                    9,     // <-- f4
+                    9,      // <-- f4
                     20,     // <-- f8
                     21,     // <-- ac130
                     22,     // <-- a6
@@ -292,7 +292,7 @@ namespace shilka2
                     5,     // <-- f18
                     6,     // <-- f16
                     8,     // <-- f15
-                    9,    // <-- f4
+                    9,     // <-- f4
                     10,    // <-- tornado
                     11,    // <-- predator
                     14,    // <-- e3
@@ -300,6 +300,7 @@ namespace shilka2
                     19,    // <-- tomahawk
                     31,    // <-- harrier
                     33,    // <-- hunter
+                    40,    // <-- galaxy
                 };
 
             if (script == scriptsNames.DesertStorm)
@@ -312,7 +313,7 @@ namespace shilka2
                     5,     // <-- f18
                     6,     // <-- f16
                     8,     // <-- f15
-                    9,    // <-- f4
+                    9,     // <-- f4
                     10,    // <-- tornado
                     14,    // <-- e3
                     17,    // <-- b2
@@ -326,12 +327,13 @@ namespace shilka2
                     31,    // <-- harrier
                     35,    // <-- m2000
                     36,    // <-- m2000ed
+                    40,    // <-- galaxy
                 };
 
             if (script == scriptsNames.IranIraq)
                 return new int?[] {
                     4,     // <-- f14
-                    9,    // <-- f4
+                    9,     // <-- f4
                     21,    // <-- ac130
                     24,    // <-- f5
                 };
@@ -370,6 +372,7 @@ namespace shilka2
                     34,    // <-- r99
                     35,    // <-- m2000
                     36,    // <-- m2000ed
+                    40,    // <-- galaxy
                 };
 
             if (script == scriptsNames.Yemen)

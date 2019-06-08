@@ -424,6 +424,16 @@ namespace shilka2
                 minAltitude = minAltitudeForLargeAircraft,
                 cantEscape = true
             },
+
+            new AircraftsType {
+                aircraftType = "c5",
+                aircraftName = "C-5 Galaxy",
+                hitPoint = 150,
+                size = new int[] { 570, 152 },
+                speed = 7,
+                minAltitude = minAltitudeForLargeAircraft,
+                cantEscape = true
+            },
         };
 
         public static List<AircraftsType> helicopters = new List<AircraftsType>()
