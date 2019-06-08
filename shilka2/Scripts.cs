@@ -301,6 +301,7 @@ namespace shilka2
                     31,    // <-- harrier
                     33,    // <-- hunter
                     40,    // <-- galaxy
+                    41,    // <-- globemaster
                 };
 
             if (script == scriptsNames.DesertStorm)
@@ -373,6 +374,7 @@ namespace shilka2
                     35,    // <-- m2000
                     36,    // <-- m2000ed
                     40,    // <-- galaxy
+                    41,    // <-- globemaster
                 };
 
             if (script == scriptsNames.Yemen)
@@ -405,6 +407,7 @@ namespace shilka2
                     2,     // <-- b52
                     3,     // <-- f117
                     19,    // <-- tomahawk
+                    41,    // <-- globemaster
                 };
 
             return new int?[] { };
