@@ -21,17 +21,17 @@ The game is about a small anti-aircraft vehicle ZSU-23-4 "Shilka" in the school 
 | A-10 Thunderbolt | A-6 Intruder | AC-130 Spectre |
 | AGM-158 JASSM | B-1 Lancer | B-2 Spirit |
 | B-52 Stratofortress | BGM-109 Tomahawk | Boeing 737 AEW&C |
-| Cessna 172 | E-2 Hawkeye | E-3 Centry |
-| EA-6 Prowler | Embraer R-99  | Eurofighter Typhoon |
-| F-4 Fantom | F-5 Tiger | F-8 Crusader |
-| F-14 Tomcat | F-15 Eagle | F-16 Fighting Falcon |
-| F/A-18 Hornet | F-22 Raptor | F-35 Lightning II |
-| F-111 Aardvark | F-117 Nighthawk | Mirage 2000 |
-| Mirage 2000ED | MQ-1 Predator | MQ-9 Reaper |
-| Panavia Tornado | Rafale | RC-135 |
-| RQ-4 Global Hawk | RQ-5 Hunter | Saab JAS 39 Gripen |
-| Sea Harrier | SR-71 Blackbird | Storm Shadow / SCALP |
-| U-2 Dragon Lady | | |
+| C-5 Galaxy | C-17 Globemaster III | Cessna 172 |
+| E-2 Hawkeye | E-3 Centry | EA-6 Prowler |
+| Embraer R-99 | Eurofighter Typhoon | F-4 Fantom |
+| F-5 Tiger | F-8 Crusader | F-14 Tomcat |
+| F-15 Eagle | F-16 Fighting Falcon | F/A-18 Hornet |
+| F-22 Raptor | F-35 Lightning II | F-111 Aardvark |
+| F-117 Nighthawk | Mirage 2000 | Mirage 2000ED |
+| MQ-1 Predator | MQ-9 Reaper | Panavia Tornado |
+| Rafale | RC-135 | RQ-4 Global Hawk |
+| RQ-5 Hunter | Saab JAS 39 Gripen | Sea Harrier |
+| SR-71 Blackbird | Storm Shadow / SCALP | U-2 Dragon Lady |
 
 ### Enemy helicopters:
 
