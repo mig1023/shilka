@@ -13,6 +13,8 @@ namespace shilka2
 {
     class Shilka
     {
+        public enum SAMtype { Shilka, Pancir };
+
         static int flashСount = 0;
 
         public static Scripts.scriptsNames currentScript;
@@ -30,6 +32,8 @@ namespace shilka2
         public static bool school = false;
 
         static Random rand;
+
+        public static SAMtype currentSAM = SAMtype.Shilka;
 
         static Shilka()
         {

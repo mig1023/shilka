@@ -13,6 +13,7 @@
             <Button x:Name="closeButton" Content="✖" HorizontalAlignment="Left" Height="23" Margin="10,15,0,0" VerticalAlignment="Top" Width="30" Click="closeButton_Click"/>
             <Image x:Name="RadarImg" Source="images/radar.png" HorizontalAlignment="Left" Height="33" Margin="10,103,0,0" VerticalAlignment="Top" Width="25"/>
             <Image x:Name="ShilkaImg" HorizontalAlignment="Left" Height="111" Margin="57,10,0,0" VerticalAlignment="Top" Width="185" Source="images/shilka.png"/>
+            <Image x:Name="PancirImg" HorizontalAlignment="Left" Height="133" Margin="57,10,0,0" VerticalAlignment="Top" Width="300" Source="images/pancir.png"/>
             <Image x:Name="HandImg" HorizontalAlignment="Left" Height="231" Margin="237,155,-176,-249" VerticalAlignment="Top" Width="520" Source="images/hand.png"/>
             <Label x:Name="statShells" HorizontalAlignment="Left" Height="183" Margin="45,10,0,0" VerticalAlignment="Top" Width="450"/>
             <TextBlock x:Name="schoolInfoBox" TextWrapping="Wrap" Text="" Background="Blue" Visibility="Hidden" Width="178" SizeChanged="schoolInfoBox_SizeChanged">
@@ -35,25 +36,27 @@
             <Button x:Name="GameOverTraining" Content="закончить" Height="41" Canvas.Left="246" Canvas.Top="171" Width="212" FontFamily="font/calibri.ttf" FontSize="20" Click="GameOverWithoutSave_Click"/>
             <Button x:Name="Restart" Content="начать заново" Height="41" Canvas.Left="24" Canvas.Top="171" Width="212" FontFamily="font/calibri.ttf" FontSize="20" Click="GameOverTraining_Click"/>
         </Canvas>
-        <Canvas x:Name="StartMenu" HorizontalAlignment="Left" Height="618" VerticalAlignment="Top" Width="452" Margin="-452,0,0,-298">
-            <Canvas x:Name="StartMenuButtons" Height="614" Width="452">
-                <Image x:Name="shilkaArt" Height="348" Canvas.Left="10" Canvas.Top="5" Width="435"  Source="images/shilka-art.jpg"/>
-                <Button x:Name="noScript" Content="быстрая игра" Height="87" Canvas.Left="10" Canvas.Top="358" Width="192" Click="startScript_Click" FontFamily="font/calibri.ttf" FontSize="26"/>
-                <Button x:Name="exitButton" Content="выход" Height="41" Canvas.Left="207" Canvas.Top="358" Width="238" FontSize="21" FontFamily="font/calibri.ttf" Click="exitButton_Click"/>
-                <Button x:Name="schoolButton" Content="обучение" Height="41" Canvas.Left="207" Canvas.Top="404" Width="120" FontSize="19" FontFamily="font/calibri.ttf" Click="schoolButton_Click"/>
-                <Button x:Name="resultButton" Content="результаты" Height="41" Canvas.Left="332" Canvas.Top="404" Width="113" FontSize="19" FontFamily="font/calibri.ttf" Click="statisticButton_Click"/>
-                <Button x:Name="Vietnam" Content="вьетнамская война" Height="35" Canvas.Left="10" Canvas.Top="450" Width="134" Click="startScript_Click" FontSize="11" FontFamily="font/calibri.ttf"/>
-                <Button x:Name="DesertStorm" Content="буря в пустыне" Height="35" Canvas.Left="324" Canvas.Top="530" Width="121" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
-                <Button x:Name="Yugoslavia" Content="бомбардировки югославии" Height="35" Canvas.Left="275" Canvas.Top="490" Width="170" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
-                <Button x:Name="IranIraq" Content="ирано-иракская война" Height="35" Canvas.Left="149" Canvas.Top="450" Width="157" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
-                <Button x:Name="Syria" Content="гражданская война в сирии" Height="35" Canvas.Left="10" Canvas.Top="530" Width="170" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
-                <Button x:Name="KoreanBoeing" Content="корейский боинг" Height="35" Canvas.Left="311" Canvas.Top="450" Width="134" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
-                <Button x:Name="Libya" Content="интервенция в ливии" Height="35" Canvas.Left="185" Canvas.Top="530" Width="134" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
-                <Button x:Name="Yemen" Content="интервенция в йемен" Height="35" Canvas.Left="10" Canvas.Top="570" Width="143" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
-                <Button x:Name="Rust" Content="полёт матиаса руста" Height="35" Canvas.Left="158" Canvas.Top="570" Width="148" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
-                <Button x:Name="F117Hunt" Content="охота на невидимку" Height="35" Canvas.Left="10" Canvas.Top="490" Width="134" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
-                <Button x:Name="Belgrad" Content="налёт на белград" Height="35" Canvas.Left="149" Canvas.Top="490" Width="121" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
-                <Button x:Name="Khmeimim" Content="оборона хмеймима" Height="35" Canvas.Left="311" Canvas.Top="570" Width="134" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
+        <Canvas x:Name="StartMenu" HorizontalAlignment="Left" Height="658" VerticalAlignment="Top" Width="452" Margin="-452,0,0,-298">
+            <Canvas x:Name="StartMenuButtons" Height="654" Width="452">
+                <Image x:Name="titleArt" Height="348" Canvas.Left="10" Canvas.Top="49" Width="435"  Source="images/shilka-art.jpg"/>
+                <Button x:Name="noScript" Content="быстрая игра" Height="87" Canvas.Left="10" Canvas.Top="402" Width="192" Click="startScript_Click" FontFamily="font/calibri.ttf" FontSize="26"/>
+                <Button x:Name="exitButton" Content="выход" Height="41" Canvas.Left="207" Canvas.Top="402" Width="238" FontSize="21" FontFamily="font/calibri.ttf" Click="exitButton_Click"/>
+                <Button x:Name="schoolButton" Content="обучение" Height="41" Canvas.Left="207" Canvas.Top="448" Width="120" FontSize="19" FontFamily="font/calibri.ttf" Click="schoolButton_Click"/>
+                <Button x:Name="resultButton" Content="результаты" Height="41" Canvas.Left="332" Canvas.Top="448" Width="113" FontSize="19" FontFamily="font/calibri.ttf" Click="statisticButton_Click"/>
+                <Button x:Name="Vietnam" Content="вьетнамская война" Height="35" Canvas.Left="10" Canvas.Top="494" Width="134" Click="startScript_Click" FontSize="11" FontFamily="font/calibri.ttf"/>
+                <Button x:Name="DesertStorm" Content="буря в пустыне" Height="35" Canvas.Left="324" Canvas.Top="574" Width="121" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
+                <Button x:Name="Yugoslavia" Content="бомбардировки югославии" Height="35" Canvas.Left="275" Canvas.Top="534" Width="170" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
+                <Button x:Name="IranIraq" Content="ирано-иракская война" Height="35" Canvas.Left="149" Canvas.Top="494" Width="157" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
+                <Button x:Name="Syria" Content="гражданская война в сирии" Height="35" Canvas.Left="10" Canvas.Top="574" Width="170" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
+                <Button x:Name="KoreanBoeing" Content="корейский боинг" Height="35" Canvas.Left="311" Canvas.Top="494" Width="134" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
+                <Button x:Name="Libya" Content="интервенция в ливии" Height="35" Canvas.Left="185" Canvas.Top="574" Width="134" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
+                <Button x:Name="Yemen" Content="интервенция в йемен" Height="35" Canvas.Left="10" Canvas.Top="614" Width="143" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
+                <Button x:Name="Rust" Content="полёт матиаса руста" Height="35" Canvas.Left="158" Canvas.Top="614" Width="148" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
+                <Button x:Name="F117Hunt" Content="охота на невидимку" Height="35" Canvas.Left="10" Canvas.Top="534" Width="134" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
+                <Button x:Name="Belgrad" Content="налёт на белград" Height="35" Canvas.Left="149" Canvas.Top="534" Width="121" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
+                <Button x:Name="Khmeimim" Content="оборона хмеймима" Height="35" Canvas.Left="311" Canvas.Top="614" Width="134" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
+                <ToggleButton x:Name="shilka" Content="шилка" Height="44" Canvas.Left="10" Width="215" FontSize="17" FontFamily="font/calibri.ttf" IsChecked="True" Checked="shilka_Checked"/>
+                <ToggleButton x:Name="pancir" Content="пацирь" Height="44" Canvas.Left="230" Width="215" FontSize="17" FontFamily="font/calibri.ttf" Checked="pancir_Checked"/>
             </Canvas>
         </Canvas>
         <Canvas x:Name="StatisticMenu" HorizontalAlignment="Left" Height="305" Margin="0,325,-223,-310" VerticalAlignment="Top" Width="740">
