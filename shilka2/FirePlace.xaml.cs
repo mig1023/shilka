@@ -16,6 +16,8 @@ namespace shilka2
 {
     public partial class FirePlace : Window
     {
+        public enum SAMtype { Shilka, PancirS1 };
+
         public System.Timers.Timer Game = new System.Timers.Timer(30);
         public System.Timers.Timer HandMove = new System.Timers.Timer(600);
         public System.Timers.Timer AircraftsStart = new System.Timers.Timer(2000);
@@ -32,6 +34,8 @@ namespace shilka2
         string endColor = "#FF0F0570";
 
         static bool SchoolTicTac = false;
+
+        public static SAMtype currentSAM = SAMtype.Shilka;
 
         public FirePlace()
         {
@@ -108,7 +112,7 @@ namespace shilka2
                 Shell.animationStop = false;
             }
 
-            if (Shilka.currentSAM == Shilka.SAMtype.Shilka)
+            if (currentSAM == SAMtype.Shilka)
             {
                 double heightForShilka = SystemParameters.PrimaryScreenHeight - ShilkaImg.Height;
 
@@ -120,8 +124,9 @@ namespace shilka2
 
                 PancirImg.Visibility = Visibility.Hidden;
                 ShilkaImg.Visibility = Visibility.Visible;
+                pancirGunsPlace.Visibility = Visibility.Hidden;
             }
-            else // if (Shilka.currentSAM == Shilka.SAMtype.Pancir )
+            else if (currentSAM == SAMtype.PancirS1 )
             {
                 double heightForPancir = SystemParameters.PrimaryScreenHeight - PancirImg.Height;
 
@@ -133,6 +138,10 @@ namespace shilka2
 
                 ShilkaImg.Visibility = Visibility.Hidden;
                 PancirImg.Visibility = Visibility.Visible;
+
+                pancirGunsPlace.Height = SystemParameters.PrimaryScreenHeight;
+                pancirGunsPlace.Width = SystemParameters.PrimaryScreenWidth;
+                pancirGunsPlace.Visibility = Visibility.Visible;
             }
 
             statShells.Margin = new Thickness(Constants.STAT_TEXT_TOP, Constants.STAT_TEXT_LEFT + (Shilka.school ? 25 : 0), 0, 0);
@@ -724,14 +733,14 @@ namespace shilka2
 
             pancir.IsChecked = false;
             titleArt.Source = new BitmapImage(new Uri("images/shilka-art.jpg", UriKind.Relative)) { };
-            Shilka.currentSAM = Shilka.SAMtype.Shilka;
+            currentSAM = SAMtype.Shilka;
         }
 
         private void pancir_Checked(object sender, RoutedEventArgs e)
         {
             shilka.IsChecked = false;
             titleArt.Source = new BitmapImage(new Uri("images/pancir-art.jpg", UriKind.Relative)) { };
-            Shilka.currentSAM = Shilka.SAMtype.Pancir;
+            currentSAM = SAMtype.PancirS1;
         }
     }
 }

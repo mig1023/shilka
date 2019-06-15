@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading;
-using System.Timers;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
-using System.IO;
-using System.Windows.Media.Imaging;
 
 namespace shilka2
 {
-    class Shilka
+    class PancirS1
     {
         static int flashСount = 0;
 
@@ -33,7 +33,7 @@ namespace shilka2
 
         public static List<Line> gunLines = new List<Line>();
 
-        static Shilka()
+        static PancirS1()
         {
             rand = new Random();
         }
@@ -83,7 +83,7 @@ namespace shilka2
             if (newLastDegree > 0)
                 newLastDegree = 0;
 
-            lastDegree = ( double.IsNaN(newLastDegree) ? lastDegree : newLastDegree );
+            lastDegree = (double.IsNaN(newLastDegree) ? lastDegree : newLastDegree);
         }
 
         public static void HeatingOfGuns(bool shooting)
@@ -126,9 +126,9 @@ namespace shilka2
         {
             switch (rand.Next(4))
             {
-                case 1:  return Brushes.DarkRed;
-                case 2:  return Brushes.Firebrick;
-                case 3:  return Brushes.Maroon;
+                case 1: return Brushes.DarkRed;
+                case 2: return Brushes.Firebrick;
+                case 3: return Brushes.Maroon;
                 default: return Brushes.Red;
             }
         }
@@ -167,6 +167,11 @@ namespace shilka2
 
         public static void DrawGuns(FirePlace main)
         {
+            foreach (var line in gunLines)
+                main.pancirGunsPlace.Children.Remove(line);
+
+            gunLines.Clear();
+
             double currentHeight = Shell.currentHeight;
 
             if (currentHeight < 0)
@@ -178,27 +183,23 @@ namespace shilka2
             if (gunReturn > Constants.GUN_RETURN_TIMEOUT)
                 gunReturn = 0;
 
-            double[,] mountXY = new double[2, 2] { { 0, 0 }, { 0, 0 } };
+            double[] mountXY = new double[2] { 0, 0 };
 
             for (int numGuns = 0; numGuns <= 1; numGuns++)
             {
                 Line gun = new Line();
-                gun.X1 = Constants.FIRE_WIDTH_CORRECTION - 3 - (12 * numGuns);
-                gun.Y1 = currentHeight - Constants.FIRE_HEIGHT_CORRECTION + 5 - (9 * numGuns);
+                gun.X1 = Constants.PANCIR_FIRE_WIDTH_CORRECTION - 3 - (12);
+                gun.Y1 = currentHeight - Constants.PANCIR_FIRE_HEIGHT_CORRECTION + 5 - (9);
 
                 int gunReturnLen = 0;
-                if ( fire && (
-                        (gunReturn < Constants.GUN_MIDDLE_TIMEOUT && numGuns == 0)
-                        ||
-                        (gunReturn >= Constants.GUN_MIDDLE_TIMEOUT && numGuns == 1)
-                    ) )
+                if (fire && gunReturn < Constants.GUN_MIDDLE_TIMEOUT)
                     gunReturnLen = Constants.GUN_RETURN_LEN;
 
-                gun.X2 = gun.X1 + (Constants.GUNS_LENGTH - gunReturnLen) * Shell.lastCos;
-                gun.Y2 = gun.Y1 - (Constants.GUNS_LENGTH - gunReturnLen) * Shell.lastSin;
+                gun.X2 = gun.X1 + (Constants.PANCIR_GUNS_LENGTH - gunReturnLen) * Shell.lastCos;
+                gun.Y2 = gun.Y1 - (Constants.PANCIR_GUNS_LENGTH - gunReturnLen) * Shell.lastSin;
 
-                mountXY[numGuns, 0] = gun.X1 + (Constants.GUNS_LENGTH - gunReturnLen - Constants.GUN_NOUNT_LENGTH) * Shell.lastCos;
-                mountXY[numGuns, 1] = gun.Y1 - (Constants.GUNS_LENGTH - gunReturnLen - Constants.GUN_NOUNT_LENGTH) * Shell.lastSin;
+                mountXY[0] = gun.X1 + (Constants.PANCIR_GUNS_LENGTH - gunReturnLen - Constants.GUN_NOUNT_LENGTH) * Shell.lastCos;
+                mountXY[1] = gun.Y1 - (Constants.PANCIR_GUNS_LENGTH - gunReturnLen - Constants.GUN_NOUNT_LENGTH) * Shell.lastSin;
 
                 byte colorOfGuns = (
                     degreeOfHeatingGunBurrels > Constants.HEATING_COLOR_BASE ?
@@ -210,30 +211,16 @@ namespace shilka2
                 else
                     gun.Stroke = new SolidColorBrush(Color.FromRgb((byte)(colorOfGuns - Constants.HEATING_COLOR_BASE), 0, 0));
 
-                gun.StrokeThickness = Constants.GUN_THICKNESS;
+                gun.StrokeThickness = Constants.PANCIR_GUN_THICKNESS;
 
-                main.firePlace.Children.Add(gun);
+                main.pancirGunsPlace.Children.Add(gun);
 
                 Canvas.SetZIndex(gun, 200);
-                Shell.allLines.Add(gun);
+                gunLines.Add(gun);
 
                 if (fire)
                     DrawGansFlashs(main, gun, numGuns, gun.StrokeThickness);
             }
-
-            Line gunMount = new Line();
-
-            gunMount.X1 = mountXY[0, 0];
-            gunMount.Y1 = mountXY[0, 1];
-            gunMount.X2 = mountXY[1, 0];
-            gunMount.Y2 = mountXY[1, 1];
-
-            gunMount.StrokeThickness = 1;
-            gunMount.Stroke = Brushes.Black;
-
-            main.firePlace.Children.Add(gunMount);
-            Canvas.SetZIndex(gunMount, 200);
-            Shell.allLines.Add(gunMount);
         }
     }
 }

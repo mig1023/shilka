@@ -62,6 +62,7 @@
     <Compile Include="Constants.cs" />
     <Compile Include="DynamicElement.cs" />
     <Compile Include="FlyObject.cs" />
+    <Compile Include="PancirS1.cs" />
     <Compile Include="Scripts.cs" />
     <Compile Include="Shell.cs" />
     <Compile Include="Shilka.cs" />

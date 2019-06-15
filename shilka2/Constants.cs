@@ -43,7 +43,6 @@ namespace shilka2
         public const int SHELL_THICKNESS = 1;
         public const int SHELL_LENGTH = 3;
         public const int SHELL_SPEED = 25;
-        public const int SHELL_DELAY = 1;
         public const int FRAGMENTATION = 15;
         public const int VOLLEY = 3;
         public const int FLASH_SIZE = 4;
@@ -60,6 +59,14 @@ namespace shilka2
         public const int HEATING_COLOR_BASE = 200;
         public const int GUNS_HEAT_UP = 300;
         public const int GUNS_OVERHEATING = 350;
+        public const int SHELL_DELAY = 1;
+
+        // pancir-s1
+        public const int PANCIR_GUNS_LENGTH = 80;
+        public const double PANCIR_GUN_THICKNESS = 5;
+        public const int PANCIR_FIRE_WIDTH_CORRECTION = 190;
+        public const int PANCIR_FIRE_HEIGHT_CORRECTION = 110;
+        public const int PANCIR_SHELL_DELAY = 3;
 
         // statistic
         public const string STATISTIC_FILE_NAME = "shilka2.stat";

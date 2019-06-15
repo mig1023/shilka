@@ -27,8 +27,18 @@ namespace shilka2
             }
 
             Case newCase = new Case();
-            newCase.x = Constants.FIRE_WIDTH_CORRECTION / 2;
-            newCase.y = Shell.currentHeight - Constants.EXTR_HEIGHT_CORRECTION;
+
+            if (FirePlace.currentSAM == FirePlace.SAMtype.Shilka)
+            {
+                newCase.x = Constants.FIRE_WIDTH_CORRECTION / 2;
+                newCase.y = Shell.currentHeight - Constants.EXTR_HEIGHT_CORRECTION;
+            }
+            else if (FirePlace.currentSAM == FirePlace.SAMtype.PancirS1)
+            {
+                newCase.x = 158;
+                newCase.y = Shell.currentHeight - 103;
+            }
+
             newCase.sin = rand.NextDouble() * (Constants.MAX_FRAGM_SIN - Constants.MIN_FRAGM_SIN) + Constants.MIN_FRAGM_SIN;
             newCase.cos = rand.NextDouble() * (Constants.MAX_FRAGM_COS - Constants.MIN_FRAGM_COS) + Constants.MIN_FRAGM_COS;
             newCase.speed = rand.Next(Constants.MIN_SPEED, Constants.MAX_SPEED);
@@ -48,7 +58,11 @@ namespace shilka2
 
                 newCase.caseImage = newImage;
 
-                main.firePlace.Children.Add(newImage);
+                if (FirePlace.currentSAM == FirePlace.SAMtype.Shilka)
+                    main.firePlace.Children.Add(newImage);
+                else if (FirePlace.currentSAM == FirePlace.SAMtype.PancirS1)
+                    main.pancirGunsPlace.Children.Add(newImage);
+
                 Case.cases.Add(newCase);
             }));
 
@@ -83,7 +97,11 @@ namespace shilka2
                 for (int x = 0; x < cases.Count; x++)
                     if ((cases[x].fly == false) && (caseMutex == 1))
                     {
-                        main.firePlace.Children.Remove(cases[x].caseImage);
+                        if (FirePlace.currentSAM == FirePlace.SAMtype.Shilka)
+                            main.firePlace.Children.Remove(cases[x].caseImage);
+                        else if (FirePlace.currentSAM == FirePlace.SAMtype.PancirS1)
+                            main.pancirGunsPlace.Children.Remove(cases[x].caseImage);
+
                         cases.RemoveAt(x);
                     }
 
