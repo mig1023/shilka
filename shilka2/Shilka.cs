@@ -31,8 +31,6 @@ namespace shilka2
 
         static Random rand;
 
-        public static List<Line> gunLines = new List<Line>();
-
         static Shilka()
         {
             rand = new Random();
@@ -211,9 +209,7 @@ namespace shilka2
                     gun.Stroke = new SolidColorBrush(Color.FromRgb((byte)(colorOfGuns - Constants.HEATING_COLOR_BASE), 0, 0));
 
                 gun.StrokeThickness = Constants.GUN_THICKNESS;
-
                 main.firePlace.Children.Add(gun);
-
                 Canvas.SetZIndex(gun, 200);
                 Shell.allLines.Add(gun);
 

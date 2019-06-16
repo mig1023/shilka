@@ -44,11 +44,7 @@ namespace shilka2
                     main.firePlace.Children.Remove(line);
        
                 allLines.Clear();
-
-                if (FirePlace.currentSAM == FirePlace.SAMtype.Shilka)
-                    Shilka.DrawGuns(main);
-                else if (FirePlace.currentSAM == FirePlace.SAMtype.PancirS1)
-                    PancirS1.DrawGuns(main);
+                Shilka.DrawGuns(main);
 
                 fireMutex++;
 
@@ -97,19 +93,12 @@ namespace shilka2
                         else if (shell.flash)
                             shell.fly = false;
 
-                    int CurrentDelay = 0;
-
-                    if (FirePlace.currentSAM == FirePlace.SAMtype.Shilka)
-                        CurrentDelay = Constants.SHELL_DELAY;
-                    else if (FirePlace.currentSAM == FirePlace.SAMtype.PancirS1)
-                        CurrentDelay = Constants.PANCIR_SHELL_DELAY;
-
-                    if ((shell.delay >= CurrentDelay) && (shell.shellImage.Visibility == Visibility.Hidden))
+                    if ((shell.delay >= Constants.SHELL_DELAY) && (shell.shellImage.Visibility == Visibility.Hidden))
                         shell.shellImage.Visibility = Visibility.Visible;
 
                     if ((shell.y < 0) || (shell.x > currentWidth))
                         shell.fly = false;
-                    else if (shell.delay < CurrentDelay)
+                    else if (shell.delay < Constants.SHELL_DELAY)
                         shell.delay++;
                 }
 
@@ -143,22 +132,8 @@ namespace shilka2
                     newShell.fly = true;
                     newShell.delay = 0;
 
-                    int widthCorrection = 0;
-                    int heightCorrection = 0;
-
-                    if (FirePlace.currentSAM == FirePlace.SAMtype.Shilka)
-                    {
-                        widthCorrection = Constants.FIRE_WIDTH_CORRECTION;
-                        heightCorrection = Constants.FIRE_HEIGHT_CORRECTION;
-                    }
-                    else if (FirePlace.currentSAM == FirePlace.SAMtype.PancirS1)
-                    {
-                        widthCorrection = Constants.PANCIR_FIRE_WIDTH_CORRECTION;
-                        heightCorrection = Constants.PANCIR_FIRE_HEIGHT_CORRECTION - 40;
-                    }
-
-                    newShell.x = rand.Next( (-1 * currentFragmentation), currentFragmentation) + widthCorrection;
-                    newShell.y = currentHeight + rand.Next( (-1 * currentFragmentation), currentFragmentation) - heightCorrection;
+                    newShell.x = rand.Next( (-1 * currentFragmentation), currentFragmentation) + Constants.FIRE_WIDTH_CORRECTION;
+                    newShell.y = currentHeight + rand.Next( (-1 * currentFragmentation), currentFragmentation) - Constants.FIRE_HEIGHT_CORRECTION;
 
                     double e1 = Math.Sqrt((ptX * ptX) + (ptY * ptY));
 

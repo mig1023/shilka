@@ -62,7 +62,6 @@
     <Compile Include="Constants.cs" />
     <Compile Include="DynamicElement.cs" />
     <Compile Include="FlyObject.cs" />
-    <Compile Include="PancirS1.cs" />
     <Compile Include="Scripts.cs" />
     <Compile Include="Shell.cs" />
     <Compile Include="Shilka.cs" />
@@ -277,8 +276,6 @@
     <Resource Include="images\tu22m3.png" />
     <Resource Include="images\c5.png" />
     <Resource Include="images\c17.png" />
-    <Resource Include="images\pancir.png" />
-    <Resource Include="images\pancir-art.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

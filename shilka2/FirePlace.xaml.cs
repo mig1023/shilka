@@ -10,14 +10,11 @@ using System.Windows.Data;
 using System.Collections.Generic;
 using System.Data;
 using System.Dynamic;
-using System.Windows.Media.Imaging;
 
 namespace shilka2
 {
     public partial class FirePlace : Window
     {
-        public enum SAMtype { Shilka, PancirS1 };
-
         public System.Timers.Timer Game = new System.Timers.Timer(30);
         public System.Timers.Timer HandMove = new System.Timers.Timer(600);
         public System.Timers.Timer AircraftsStart = new System.Timers.Timer(2000);
@@ -35,14 +32,16 @@ namespace shilka2
 
         static bool SchoolTicTac = false;
 
-        public static SAMtype currentSAM = SAMtype.Shilka;
-
         public FirePlace()
         {
             InitializeComponent();
 
             this.WindowState = WindowState.Maximized;
             this.WindowStyle = WindowStyle.None;
+
+            double heightForShilka = SystemParameters.PrimaryScreenHeight - ShilkaImg.Height;
+
+            Aircrafts.minAltitudeGlobal = (int)(heightForShilka - ShilkaImg.Height);
 
             foreach(Canvas Menu in new List<Canvas>() { EndMenu, RestartTrainingMenu, StatisticMenu })
                 Menu.Height = SystemParameters.PrimaryScreenHeight;
@@ -97,6 +96,10 @@ namespace shilka2
             );
 
             StartMenu.Background = (Brush)converter.ConvertFrom(startColor);
+
+            ShilkaImg.Margin = new Thickness(0, heightForShilka, 0, 0);
+            RadarImg.Margin = new Thickness(62, heightForShilka, 0, 0);
+            HandImg.Margin = new Thickness(65, (heightForShilka - 120), 0, 0);
         }
 
         public void StartGame(int?[] scriptAircraft, int?[] scriptHelicopters, int?[] scriptAircraftFriend,
@@ -110,38 +113,6 @@ namespace shilka2
                 pause = false;
                 pauseButton.IsChecked = false;
                 Shell.animationStop = false;
-            }
-
-            if (currentSAM == SAMtype.Shilka)
-            {
-                double heightForShilka = SystemParameters.PrimaryScreenHeight - ShilkaImg.Height;
-
-                Aircrafts.minAltitudeGlobal = (int)(heightForShilka - ShilkaImg.Height);
-
-                ShilkaImg.Margin = new Thickness(0, heightForShilka, 0, 0);
-                RadarImg.Margin = new Thickness(62, heightForShilka, 0, 0);
-                HandImg.Margin = new Thickness(65, (heightForShilka - 120), 0, 0);
-
-                PancirImg.Visibility = Visibility.Hidden;
-                ShilkaImg.Visibility = Visibility.Visible;
-                pancirGunsPlace.Visibility = Visibility.Hidden;
-            }
-            else if (currentSAM == SAMtype.PancirS1 )
-            {
-                double heightForPancir = SystemParameters.PrimaryScreenHeight - PancirImg.Height;
-
-                Aircrafts.minAltitudeGlobal = (int)(heightForPancir - PancirImg.Height);
-
-                PancirImg.Margin = new Thickness(0, heightForPancir, 0, 0);
-                RadarImg.Margin = new Thickness(62, heightForPancir, 0, 0);
-                HandImg.Margin = new Thickness(65, (heightForPancir - 120), 0, 0);
-
-                ShilkaImg.Visibility = Visibility.Hidden;
-                PancirImg.Visibility = Visibility.Visible;
-
-                pancirGunsPlace.Height = SystemParameters.PrimaryScreenHeight;
-                pancirGunsPlace.Width = SystemParameters.PrimaryScreenWidth;
-                pancirGunsPlace.Visibility = Visibility.Visible;
             }
 
             statShells.Margin = new Thickness(Constants.STAT_TEXT_TOP, Constants.STAT_TEXT_LEFT + (Shilka.school ? 25 : 0), 0, 0);
@@ -726,21 +697,6 @@ namespace shilka2
             }
         }
 
-        private void shilka_Checked(object sender, RoutedEventArgs e)
-        {
-            if (pancir == null)
-                return;
 
-            pancir.IsChecked = false;
-            titleArt.Source = new BitmapImage(new Uri("images/shilka-art.jpg", UriKind.Relative)) { };
-            currentSAM = SAMtype.Shilka;
-        }
-
-        private void pancir_Checked(object sender, RoutedEventArgs e)
-        {
-            shilka.IsChecked = false;
-            titleArt.Source = new BitmapImage(new Uri("images/pancir-art.jpg", UriKind.Relative)) { };
-            currentSAM = SAMtype.PancirS1;
-        }
     }
 }
