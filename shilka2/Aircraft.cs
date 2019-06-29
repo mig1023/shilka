@@ -33,6 +33,7 @@ namespace shilka2
         public bool airliner = false;
         public bool cloud = false;
         public bool cantEscape = false;
+        public bool doesNotFlyInBadWeather = false;
 
         FlightDirectionType flightDirection;
 
@@ -506,6 +507,9 @@ namespace shilka2
 
                     if ((Shilka.currentScript == Scripts.scriptsNames.F117Hunt) && (dice != FindAircraftByName("f117")))
                         goto case 1;
+
+                    if (Weather.currentWeather != Weather.weatherTypes.good && Aircrafts.aircraft[dice].doesNotFlyInBadWeather)
+                        goto case 9;
 
                     if (Shilka.currentScript == Scripts.scriptsNames.Khmeimim)
                         goto case 10;

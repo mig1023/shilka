@@ -21,6 +21,7 @@ namespace shilka2
         public bool airliner = false;
         public bool cloud = false;
         public bool cantEscape = false;
+        public bool doesNotFlyInBadWeather = false;
         public double price = 0;
     }
 }

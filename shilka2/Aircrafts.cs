@@ -79,7 +79,8 @@ namespace shilka2
                 aircraftName = "F-22 Raptor",
                 size = new int[] { 270, 73 },
                 price = 146,
-                speed = 14
+                speed = 14,
+                doesNotFlyInBadWeather = true
             },
 
             new AircraftsType {
@@ -149,7 +150,8 @@ namespace shilka2
                 aircraftType = "f35",
                 aircraftName = "F-35 Lightning II",
                 size = new int[] { 270, 76 },
-                price = 108
+                price = 108,
+                doesNotFlyInBadWeather = true
             },
 
             new AircraftsType {
