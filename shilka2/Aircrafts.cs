@@ -702,24 +702,26 @@ namespace shilka2
             new AircraftsType {
                 aircraftType = "oh1",
                 aircraftName = "OH-1 Ninja",
-                size = new int[] { 205, 69 },
+                size = new int[] { 205, 70 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
                 price = 24,
                 elements = new List<DynamicElement> {
                     new DynamicElement {
-                        elementName = "prop_main",
-                        y = -10,
-                        x_left = -29,
-                        x_right = 12,
+                        elementName = "prop_main_ltl",
+                        y = -1,
+                        x_left = 10,
+                        x_right = 60,
                         movingType = DynamicElement.MovingType.xRotate,
+                        background = true
                     },
                     new DynamicElement {
                         elementName = "f_suppl",
-                        y = 34,
-                        x_left = 172,
-                        x_right = 10,
-                        movingType = DynamicElement.MovingType.zRotate
+                        y = 29,
+                        x_left = 161,
+                        x_right = 22,
+                        movingType = DynamicElement.MovingType.zRotate,
+                        background = true
                     }
                 }
             },
