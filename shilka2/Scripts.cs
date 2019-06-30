@@ -527,6 +527,7 @@ namespace shilka2
                     14,    // <-- l1011
                     16,    // <-- crj200
                     17,    // <-- emb120
+                    18,    // <-- concorde
                 };
 
             if (script == scriptsNames.DesertStorm)
@@ -540,6 +541,7 @@ namespace shilka2
                     14,    // <-- dc8
                     15,    // <-- l1011
                     17,    // <-- emb120
+                    18,    // <-- concorde
                 };
 
             if (script == scriptsNames.IranIraq)
@@ -551,6 +553,7 @@ namespace shilka2
                     12,    // <-- b737
                     14,    // <-- dc8
                     15,    // <-- l1011
+                    18,    // <-- concorde
                 };
 
             if (script == scriptsNames.Syria)
@@ -622,6 +625,7 @@ namespace shilka2
                     15,    // <-- l1011
                     16,    // <-- crj200
                     17,    // <-- emb120
+                    18,    // <-- concorde
                 };
 
             if (script == scriptsNames.Rust)
@@ -632,6 +636,7 @@ namespace shilka2
                     12,    // <-- b737
                     14,    // <-- dc8
                     15,    // <-- l1011
+                    18,    // <-- concorde
                 };
 
             if (script == scriptsNames.Khmeimim)

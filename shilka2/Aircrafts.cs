@@ -1683,6 +1683,16 @@ namespace shilka2
                     }
                 }
             },
+
+            new AircraftsType {
+                aircraftType = "concorde",
+                aircraftName = "Concorde",
+                size = new int[] { 475, 100 },
+                speed = 18,
+                minAltitude = minAltitudeForLargeAircraft,
+                cantEscape = true,
+                airliner = true,
+            },
         };
     }
 }
