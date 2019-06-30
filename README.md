@@ -70,6 +70,7 @@ The game is about a small anti-aircraft vehicle in the school notebook
 | Аirbus A320 | Аirbus A380 | ATR 42 |
 | Boeing 707 | Boeing 737 | Boeing 747 |
 | Boeing 777 | Bombardier CRJ200 | Bombardier DHC-8 |
-| Douglas DC-8 | Embraer EMB 120 | Ilyushin Il-114 |
-| Irkut MC-21 | Lockheed L-1011 TriStar | L-1049 Super Constellation |
-| McDonnell Douglas MD-11 | McDonnell Douglas MD-90 | Sukhoi Superjet 100  |
+| Concorde | Douglas DC-8 | Embraer EMB 120 |
+| Ilyushin Il-114 | Irkut MC-21 | Lockheed L-1011 TriStar |
+| L-1049 Super Constellation | McDonnell Douglas MD-11 | McDonnell Douglas MD-90 |
+| Sukhoi Superjet 100 | | |
