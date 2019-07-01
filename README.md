@@ -48,20 +48,20 @@ The game is about a small anti-aircraft vehicle in the school notebook
 
 | Aircraft | Aircraft | Aircraft |
 | ------------- | ------------- | ------------- |
-| A-50 | MiG-19 | MiG-21 |
-| MiG-23 | MiG-25 | MiG-29 |
-| MiG-31 | MiG-35 | Su-17 |
-| Su-24 | Su-25 | Su-27 |
-| Su-30 | Su-34 | Su-57 |
-| Tu-22M3 | Tu-95 | Tu-160 |
+| Beriev A-50 | Mikoyan-Gurevich MiG-19 | Mikoyan-Gurevich MiG-21 |
+| Mikoyan-Gurevich MiG-23 | Mikoyan-Gurevich MiG-25 | Mikoyan-Gurevich MiG-29 |
+| Mikoyan-Gurevich MiG-31 | Mikoyan-Gurevich MiG-35 | Sukhoi Su-17 |
+| Sukhoi Su-24 | Sukhoi Su-25 | Sukhoi Su-27 |
+| Sukhoi Su-30 | Sukhoi Su-34 | Sukhoi Su-57 |
+| Tupolev Tu-22M3 | Tupolev Tu-95 | Tupolev Tu-160 |
 
 ### Friend helicopters:
 
 | Helicopter | Helicopter | Helicopter |
 | ------------- | ------------- | ------------- |
-| Mi-8 | Mi-10 | Mi-24 |
-| Mi-26 | Mi-28 | Ka-26 |
-| Ka-27 | Ka-31 | Ka-52 |
+| Mil Mi-8 | Mil Mi-10 | Mil Mi-24 |
+| Mil Mi-26 | Mil Mi-28 | Kamov Ka-26 |
+| Kamov Ka-27 | Kamov Ka-31 | Kamov Ka-52 |
 
 ### Airliners:
 
@@ -73,4 +73,4 @@ The game is about a small anti-aircraft vehicle in the school notebook
 | Concorde | Douglas DC-8 | Embraer EMB 120 |
 | Ilyushin Il-114 | Irkut MC-21 | Lockheed L-1011 TriStar |
 | L-1049 Super Constellation | McDonnell Douglas MD-11 | McDonnell Douglas MD-90 |
-| Sukhoi Superjet 100 | Tu-134 | Tu-154 |
+| Sukhoi Superjet 100 | Tupolev Tu-134 | Tupolev Tu-154 |
