@@ -530,6 +530,7 @@ namespace shilka2
                     17,    // <-- emb120
                     18,    // <-- concorde
                     19,    // <-- tu134
+                    20,    // <-- tu154
                 };
 
             if (script == scriptsNames.DesertStorm)
@@ -545,6 +546,7 @@ namespace shilka2
                     17,    // <-- emb120
                     18,    // <-- concorde
                     19,    // <-- tu134
+                    20,    // <-- tu154
                 };
 
             if (script == scriptsNames.IranIraq)
@@ -558,6 +560,7 @@ namespace shilka2
                     15,    // <-- l1011
                     18,    // <-- concorde
                     19,    // <-- tu134
+                    20,    // <-- tu154
                 };
 
             if (script == scriptsNames.Syria)
@@ -568,13 +571,14 @@ namespace shilka2
                     3,     // <-- atr42
                     4,     // <-- dhc8
                     5,     // <-- ssj100
-                    9,    // <-- a380
+                    9,     // <-- a380
                     10,    // <-- b777
                     11,    // <-- il114
                     12,    // <-- b737
                     13,    // <-- md90
                     16,    // <-- crj200
                     17,    // <-- emb120
+                    20,    // <-- tu154
                 };
 
             if (script == scriptsNames.Libya)
@@ -585,13 +589,14 @@ namespace shilka2
                     3,     // <-- atr42
                     4,     // <-- dhc8
                     5,     // <-- ssj100
-                    9,    // <-- a380
+                    9,     // <-- a380
                     10,    // <-- b777
                     11,    // <-- il114
                     12,    // <-- b737
                     13,    // <-- md90
                     16,    // <-- crj200
                     17,    // <-- emb120
+                    20,    // <-- tu154
                 };
 
             if (script == scriptsNames.KoreanBoeing)
@@ -606,13 +611,14 @@ namespace shilka2
                     3,     // <-- atr42
                     4,     // <-- dhc8
                     5,     // <-- ssj100
-                    9,    // <-- a380
+                    9,     // <-- a380
                     10,    // <-- b777
                     11,    // <-- il114
                     12,    // <-- b737
                     13,    // <-- md90
                     16,    // <-- crj200
                     17,    // <-- emb120
+                    20,    // <-- tu154
                 };
 
             if (script == scriptsNames.F117Hunt)
@@ -631,6 +637,7 @@ namespace shilka2
                     17,    // <-- emb120
                     18,    // <-- concorde
                     19,    // <-- tu134
+                    20,    // <-- tu154
                 };
 
             if (script == scriptsNames.Rust)
@@ -643,6 +650,7 @@ namespace shilka2
                     15,    // <-- l1011
                     18,    // <-- concorde
                     19,    // <-- tu134
+                    20,    // <-- tu154
                 };
 
             if (script == scriptsNames.Khmeimim)
@@ -653,13 +661,14 @@ namespace shilka2
                     4,     // <-- dhc8
                     5,     // <-- ssj100
                     8,     // <-- mc21
-                    9,    // <-- a380
+                    9,     // <-- a380
                     10,    // <-- b777
                     11,    // <-- il114
                     12,    // <-- b737
                     13,    // <-- md90
                     16,    // <-- crj200
                     17,    // <-- emb120
+                    20,    // <-- tu154
                 };
 
             if (script == scriptsNames.Belgrad)

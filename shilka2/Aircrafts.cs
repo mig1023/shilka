@@ -1703,6 +1703,16 @@ namespace shilka2
                 cantEscape = true,
                 airliner = true
             },
+
+            new AircraftsType {
+                aircraftType = "tu154",
+                aircraftName = "Ту-154",
+                size = new int[] { 509, 111 },
+                speed = 12,
+                minAltitude = minAltitudeForLargeAircraft,
+                cantEscape = true,
+                airliner = true
+            },
         };
     }
 }
