@@ -1527,7 +1527,7 @@ namespace shilka2
                 aircraftType = "boeing707",
                 aircraftName = "Боинг 707",
                 hitPoint = 100,
-                size = new int[] { 470, 116 },
+                size = new int[] { 565, 177 },
                 speed = 9,
                 minAltitude = minAltitudeForLargeAircraft,
                 cantEscape = true,
