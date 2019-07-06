@@ -43,6 +43,7 @@ namespace shilka2
             fire = false;
             reheatingGunBurrels = false;
             lastDegree = 0;
+            Aircraft.allAircraftsInGame = 0;
             Weather.currentWeather = Weather.weatherTypes.good;
 
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate

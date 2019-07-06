@@ -41,7 +41,7 @@ namespace shilka2
         private static bool schoolFriendAlready = false;
         private static bool schoolAirlinerAlready = false;
 
-        private static int allAircraftsInGame = 0;
+        public static int allAircraftsInGame = 0;
 
         public Image aircraftImage;
 
