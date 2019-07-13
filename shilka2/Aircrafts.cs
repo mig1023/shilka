@@ -1485,8 +1485,8 @@ namespace shilka2
                     new DynamicElement {
                         elementName = "ltl_prop",
                         y = 34,
-                        x_left = 95,
-                        x_right = 212,
+                        x_left = 92,
+                        x_right = 214,
                         movingType = DynamicElement.MovingType.yRotate,
                         mirror = true
                     }
