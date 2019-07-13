@@ -313,16 +313,18 @@ namespace shilka2
 
                         newAircraft.dynamicElemets.Add(tmp);
 
-                        bool flightRightAndYRotate = (
+                        bool flightRightAndZRotate = (
                             (newAircraft.flightDirection == FlightDirectionType.Right)
                             &&
-                            (d.movingType != DynamicElement.MovingType.yRotate)
+                            (d.movingType == DynamicElement.MovingType.zRotate)
                         );
 
-                        if (flightRightAndYRotate || d.background)
-                            Canvas.SetZIndex(tmp.element, (zIndex == zIndexType.inFront ? 60 : 20));
+                        if (d.background || flightRightAndZRotate)
+                            Canvas.SetZIndex(tmp.element, (zIndex == zIndexType.inFront ? 65 : 25));
+                        else if (newAircraft.flightDirection == FlightDirectionType.Right)
+                            Canvas.SetZIndex(tmp.element, (zIndex == zIndexType.inFront ? 85 : 45));
                         else
-                            Canvas.SetZIndex(tmp.element, (zIndex == zIndexType.inFront ? 80 : 40));
+                            Canvas.SetZIndex(tmp.element, (zIndex == zIndexType.inFront ? 75 : 35));
 
                         main.firePlace.Children.Add(tmp.element);
                     }
@@ -342,7 +344,12 @@ namespace shilka2
                 }
 
                 if (zIndex != null)
-                    Canvas.SetZIndex(newAircraftImage, (zIndex == zIndexType.inFront ? 70 : 30));
+                {
+                    if (newAircraft.flightDirection == FlightDirectionType.Right)
+                        Canvas.SetZIndex(newAircraftImage, (zIndex == zIndexType.inFront ? 80 : 40));
+                    else
+                        Canvas.SetZIndex(newAircraftImage, (zIndex == zIndexType.inFront ? 70 : 30));
+                }
                 else
                     Canvas.SetZIndex(newAircraftImage, (aircraft.cloud ? 100 : 50));
 
