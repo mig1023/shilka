@@ -5,14 +5,20 @@ The game is about a small anti-aircraft vehicle in the school notebook
 
 ### Scripts:
 
-| Script | Script |
-| ------------- | ------------- |
-| Vietnam war (1965-1973) | Bomb attacks against Belgrade (1999) |
-| Iran–Iraq war (1980-1988) | Hunt for F-117 in Yugoslavia (1999) |
-| Korean Boeing incident (1983) | Syrian civil war (2011-2019) |
-| Mathias Rust flight (1987) | Intervention in Libya (2011) |
-| Operation Desert storm (1991) | Intervention in Yemen (2015-2019) |
-| NATO bombing of Yugoslavia (1999) | Siege of Kmeimim (2016-2018) |
+| Script | Period | Specifics |
+| ------------- | ------------- | ------------- |
+| Vietnam war | 1965-1973 |  |
+| Iran–Iraq war | 1980-1988 |  |
+| Korean Boeing incident | 1983 | airliner aircraft between spies |
+| Mathias Rust flight | 1987 | light target |
+| Operation Desert storm | 1991 |  |
+| NATO bombing of Yugoslavia | 1999 |  |
+| Bomb attacks against Belgrade | 1999 | one direction of attack |
+| Hunt for F-117 in Yugoslavia | 1999 | wait and destroy a specific target |
+| Syrian civil war | 2011-2019 | only UAVs and cruise missiles |
+| Intervention in Libya | 2011 |  |
+| Intervention in Yemen | 2015-2019 | no friendly aviation |
+| Siege of Kmeimim | 2016-2018 | only UAVs |
 
 ### Enemy aircrafts:
 
@@ -48,20 +54,20 @@ The game is about a small anti-aircraft vehicle in the school notebook
 
 | Aircraft | Aircraft | Aircraft |
 | ------------- | ------------- | ------------- |
-| Beriev A-50 | Mikoyan-Gurevich MiG-19 | Mikoyan-Gurevich MiG-21 |
-| Mikoyan-Gurevich MiG-23 | Mikoyan-Gurevich MiG-25 | Mikoyan-Gurevich MiG-29 |
-| Mikoyan-Gurevich MiG-31 | Mikoyan-Gurevich MiG-35 | Sukhoi Su-17 |
-| Sukhoi Su-24 | Sukhoi Su-25 | Sukhoi Su-27 |
-| Sukhoi Su-30 | Sukhoi Su-34 | Sukhoi Su-57 |
-| Tupolev Tu-22M3 | Tupolev Tu-95 | Tupolev Tu-160 |
+| A-50 | MiG-19 | MiG-21 |
+| MiG-23 | MiG-25 | MiG-29 |
+| MiG-31 | MiG-35 | Su-17 |
+| Su-24 | Su-25 | Su-27 |
+| Su-30 | Su-34 | Su-57 |
+| Tu-22M3 | Tu-95 | Tu-160 |
 
 ### Friend helicopters:
 
 | Helicopter | Helicopter | Helicopter |
 | ------------- | ------------- | ------------- |
-| Mil Mi-8 | Mil Mi-10 | Mil Mi-24 |
-| Mil Mi-26 | Mil Mi-28 | Kamov Ka-26 |
-| Kamov Ka-27 | Kamov Ka-31 | Kamov Ka-52 |
+| Mi-8 | Mi-10 | Mi-24 |
+| Mi-26 | Mi-28 | Ka-26 |
+| Ka-27 | Ka-31 | Ka-52 |
 
 ### Airliners:
 
