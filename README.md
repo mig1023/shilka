@@ -11,7 +11,7 @@ The game is about a small anti-aircraft vehicle in the school notebook
 | Iran–Iraq war | 1980-1988 |  |
 | Korean Boeing incident | 1983 | airliner aircraft between spies |
 | Mathias Rust flight | 1987 | light target |
-| Operation Desert storm | 1991 |  |
+| Operation Desert storm | 1991 | sandstorm |
 | NATO bombing of Yugoslavia | 1999 |  |
 | Bomb attacks against Belgrade | 1999 | one direction of attack |
 | Hunt for F-117 in Yugoslavia | 1999 | wait and destroy a specific target |
