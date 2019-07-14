@@ -17,6 +17,7 @@ namespace shilka2
             rain,
             storm,
             snow,
+            sand,
         };
 
         int speed { get; set; }
@@ -103,8 +104,18 @@ namespace shilka2
                 return;
             
             Weather newWeather = new Weather();
-            newWeather.x = rand.Next(0, (int)SystemParameters.PrimaryScreenWidth);
-            newWeather.y = 0;
+
+            if (currentWeather == weatherTypes.sand)
+            {
+                newWeather.x = 0;
+                newWeather.y = rand.Next(0, (int)SystemParameters.PrimaryScreenHeight);
+            }
+            else
+            {
+                newWeather.x = rand.Next(0, (int)SystemParameters.PrimaryScreenWidth);
+                newWeather.y = 0;
+            }
+                
             newWeather.speed = rand.Next(Constants.MIN_SPEED, Constants.MAX_SPEED);
             newWeather.fly = true;
             newWeather.type = currentWeather;
@@ -120,6 +131,13 @@ namespace shilka2
                     newImage.Width = rand.Next(Constants.RAIN_MIN_WIDTH, Constants.RAIN_MAX_WIDTH);
                     newImage.Height = rand.Next(Constants.RAIN_MIN_HEIGHT, Constants.RAIN_MAX_HEIGHT);
                     imageName = "rain" + rand.Next(1, Constants.MAX_RAIN_TYPE + 1).ToString();
+                }
+                else if (currentWeather == weatherTypes.sand)
+                {
+                    newImage.Width = Constants.CASE_LENGTH;
+                    newImage.Height = Constants.CASE_LENGTH;
+
+                    imageName = "case";
                 }
                 else
                 {
@@ -165,10 +183,22 @@ namespace shilka2
                         w.x = w.x + w.direction;
                     }
 
-                    w.y = (w.y + w.speed);
+                    if (w.type == weatherTypes.sand)
+                    {
+                        if (rand.Next(Constants.SNOW_DIRECTION_CHANGE_CHANCE) == 1)
+                            w.direction = rand.Next(
+                                (Constants.SNOW_DIRECTION_FLY_SPEED * -1), Constants.SNOW_DIRECTION_FLY_SPEED + 1
+                            );
+
+                        w.y = w.y + w.direction;
+                        w.x = (w.x + w.speed);
+                    }
+                    else
+                        w.y = (w.y + w.speed);
+
                     w.weatherImage.Margin = new Thickness(w.x, w.y, 0, 0);
 
-                    if (w.y > SystemParameters.PrimaryScreenHeight + 100)
+                    if ((w.y > SystemParameters.PrimaryScreenHeight + 100) || (w.x > SystemParameters.PrimaryScreenWidth + 10))
                         w.fly = false;
                 }
 

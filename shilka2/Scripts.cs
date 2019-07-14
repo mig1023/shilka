@@ -56,7 +56,7 @@ namespace shilka2
             {
                 case Scripts.scriptsNames.Vietnam: return weatherRainOrStorm;
                 case Scripts.scriptsNames.IranIraq: return Weather.weatherTypes.good;
-                case Scripts.scriptsNames.DesertStorm: return Weather.weatherTypes.good;
+                case Scripts.scriptsNames.DesertStorm: return Weather.weatherTypes.sand;
                 case Scripts.scriptsNames.Syria: return Weather.weatherTypes.good;
                 case Scripts.scriptsNames.Yugoslavia: return weather;
                 case Scripts.scriptsNames.KoreanBoeing: return Weather.weatherTypes.snow;
