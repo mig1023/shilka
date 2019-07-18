@@ -52,6 +52,9 @@ namespace shilka2
             if (FlyObject.rand.Next(2) == 0)
                 weatherRainOrStorm = Weather.weatherTypes.storm;
 
+            if ((script != Scripts.scriptsNames.DesertStorm) && (weather == Weather.weatherTypes.sand))
+                return Weather.weatherTypes.good;
+
             switch (script)
             {
                 case Scripts.scriptsNames.Vietnam: return weatherRainOrStorm;
