@@ -1008,6 +1008,32 @@ namespace shilka2
                     }
                 }
             },
+
+            new AircraftsType {
+                aircraftType = "h34",
+                aircraftName = "Sikorsky H-34",
+                hitPoint = 140,
+                size = new int[] { 260, 72 },
+                speed = 4,
+                maxAltitude = maxAltitudeForHelicopters,
+                price = 2,
+                elements = new List<DynamicElement> {
+                    new DynamicElement {
+                        elementName = "prop_main",
+                        y = -23,
+                        x_left = -50,
+                        x_right = 85,
+                        movingType = DynamicElement.MovingType.xRotate,
+                    },
+                    new DynamicElement {
+                        elementName = "y_suppl",
+                        y = -14,
+                        x_left = 221,
+                        x_right = -2,
+                        movingType = DynamicElement.MovingType.zRotate
+                    }
+                }
+            },
         };
 
         public static List<AircraftsType> aircraftFriend = new List<AircraftsType>()

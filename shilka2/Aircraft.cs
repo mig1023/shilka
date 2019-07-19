@@ -478,7 +478,7 @@ namespace shilka2
             int dice;
 
             AircraftsType newAircraft;
-
+            
             switch (aircraftCategory)
             {
                 case 1:

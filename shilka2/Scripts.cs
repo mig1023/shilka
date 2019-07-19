@@ -426,6 +426,7 @@ namespace shilka2
                     4,     // <-- ch46
                     13,    // <-- mh53
                     16,    // <-- oh58
+                    22,    // <-- h34
                 };
 
             if (script == scriptsNames.Yugoslavia)
