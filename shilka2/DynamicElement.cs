@@ -34,6 +34,8 @@ namespace shilka2
 
         public bool currentSide = false;
 
+        public bool positiveDirection = false;
+
         public static DynamicElement Clone(DynamicElement element)
         {
             DynamicElement newElement = new DynamicElement();
@@ -50,6 +52,8 @@ namespace shilka2
             newElement.backSide = element.backSide;
             newElement.currentSide = element.currentSide;
             newElement.movingType = element.movingType;
+
+            newElement.positiveDirection = element.positiveDirection;
 
             return newElement;
         }

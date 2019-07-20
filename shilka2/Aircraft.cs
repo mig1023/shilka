@@ -174,11 +174,14 @@ namespace shilka2
 
                         if (d.movingType == DynamicElement.MovingType.xRotate || d.movingType == DynamicElement.MovingType.yRotate)
                         {
-                            d.rotateDegreeCurrent -= (d.slowRotation ? Constants.SLOW_ROTATION : Constants.FAST_ROTATION);
+                            if (d.positiveDirection)
+                                d.rotateDegreeCurrent += (d.slowRotation ? Constants.SLOW_ROTATION : Constants.FAST_ROTATION);
+                            else
+                                d.rotateDegreeCurrent -= (d.slowRotation ? Constants.SLOW_ROTATION : Constants.FAST_ROTATION);
 
                             if (d.rotateDegreeCurrent < Constants.FAST_ROTATION)
                             {
-                                d.rotateDegreeCurrent = 1;
+                                //d.rotateDegreeCurrent = 1;
 
                                 if (d.backSide && d.currentSide)
                                     d.element.Source = ImageFromResources(d.elementName);
@@ -188,6 +191,10 @@ namespace shilka2
                                 d.currentSide = !d.currentSide;
                             }
                                
+                            if (d.rotateDegreeCurrent < Constants.FAST_ROTATION)
+                                d.positiveDirection = true;
+                            else if (d.rotateDegreeCurrent >= 1)
+                                d.positiveDirection = false;
 
                             if (d.movingType == DynamicElement.MovingType.xRotate)
                                 d.element.RenderTransform = new ScaleTransform(d.rotateDegreeCurrent, 1, (d.element.ActualWidth / 2), 0);
@@ -478,7 +485,7 @@ namespace shilka2
             int dice;
 
             AircraftsType newAircraft;
-            
+
             switch (aircraftCategory)
             {
                 case 1:

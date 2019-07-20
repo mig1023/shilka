@@ -161,7 +161,18 @@ namespace shilka2
                 size = new int[] { 581, 164 },
                 price = 270,
                 speed = 8,
-                minAltitude = minAltitudeForLargeAircraft
+                minAltitude = minAltitudeForLargeAircraft,
+                elements = new List<DynamicElement> {
+                    new DynamicElement {
+                        elementName = "e3rls",
+                        y = 34,
+                        x_left = 312,
+                        x_right = 152,
+                        movingType = DynamicElement.MovingType.xRotate,
+                        slowRotation = true,
+                        backSide = true,
+                    },
+                }
             },
 
             new AircraftsType {
