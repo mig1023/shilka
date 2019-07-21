@@ -304,7 +304,16 @@ namespace shilka2
                         x_left = 75,
                         x_right = 225,
                         movingType = DynamicElement.MovingType.yRotate
-                    }
+                    },
+                    new DynamicElement {
+                        elementName = "hawkeyerls",
+                        y = 4,
+                        x_left = 118,
+                        x_right = 70,
+                        movingType = DynamicElement.MovingType.xRotate,
+                        slowRotation = true,
+                        backSide = true,
+                    },
                 }
             },
 

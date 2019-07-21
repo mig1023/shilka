@@ -181,8 +181,6 @@ namespace shilka2
 
                             if (d.rotateDegreeCurrent < Constants.FAST_ROTATION)
                             {
-                                //d.rotateDegreeCurrent = 1;
-
                                 if (d.backSide && d.currentSide)
                                     d.element.Source = ImageFromResources(d.elementName);
                                 else if (d.backSide)
