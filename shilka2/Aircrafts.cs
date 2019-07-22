@@ -1189,7 +1189,18 @@ namespace shilka2
                 speed = 8,
                 minAltitude = minAltitudeForLargeAircraft,
                 cantEscape = true,
-                friend = true
+                friend = true,
+                elements = new List<DynamicElement> {
+                    new DynamicElement {
+                        elementName = "a50rls",
+                        y = 45,
+                        x_left = 265,
+                        x_right = 200,
+                        movingType = DynamicElement.MovingType.xRotate,
+                        slowRotation = true,
+                        backSide = true,
+                    },
+                }
             },
 
             new AircraftsType {

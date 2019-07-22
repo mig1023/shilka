@@ -285,6 +285,8 @@
     <Resource Include="Images\e3rls_back.png" />
     <Resource Include="Images\hawkeyerls.png" />
     <Resource Include="Images\hawkeyerls_back.png" />
+    <Resource Include="Images\a50rls.png" />
+    <Resource Include="Images\a50rls_back.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
