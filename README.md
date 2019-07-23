@@ -49,8 +49,8 @@ The game is about a small anti-aircraft vehicle in the school notebook
 | CH-47 Chinook | Denel AH-2 Rooivalk | Eurocopter AS565 Panther |
 | Eurocopter Tiger HAC | Eurocopter Tiger HAP | Kawasaki OH-1 |
 | OH-58 Kiowa | RAH-66 Comanche | Sikorsky CH-53/MH-53 |
-| Sikorsky H-34 | Spy / attack drone (4 types) | UH-1 Iroquois |
-| UH-60 Black Hawk | V-22 Ospray | |
+| Sikorsky CH-54 | Sikorsky H-34 | Spy / attack drone (4 types) |
+| UH-1 Iroquois | UH-60 Black Hawk | V-22 Ospray |
 
 ### Friend aircrafts:
 
