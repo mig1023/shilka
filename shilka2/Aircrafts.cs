@@ -1074,6 +1074,32 @@ namespace shilka2
                     }
                 }
             },
+
+            new AircraftsType {
+                aircraftType = "ch54",
+                aircraftName = "Sikorsky CH-54",
+                hitPoint = 140,
+                size = new int[] { 310, 87 },
+                speed = 4,
+                maxAltitude = maxAltitudeForHelicopters,
+                price = 2,
+                elements = new List<DynamicElement> {
+                    new DynamicElement {
+                        elementName = "prop_main",
+                        y = -13,
+                        x_left = 0,
+                        x_right = 85,
+                        movingType = DynamicElement.MovingType.xRotate
+                    },
+                    new DynamicElement {
+                        elementName = "t_suppl",
+                        y = -16,
+                        x_left = 268,
+                        x_right = -12,
+                        movingType = DynamicElement.MovingType.zRotate
+                    }
+                }
+            },
         };
 
         public static List<AircraftsType> aircraftFriend = new List<AircraftsType>()
