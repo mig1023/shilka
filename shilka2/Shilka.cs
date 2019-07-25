@@ -16,6 +16,7 @@ namespace shilka2
         static int flashСount = 0;
 
         public static Scripts.scriptsNames currentScript;
+        public static bool night = false; 
 
         public static int degreeOfHeatingGunBurrelsMin = 0;
         public static int degreeOfHeatingGunBurrels = degreeOfHeatingGunBurrelsMin;

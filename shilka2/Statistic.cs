@@ -157,7 +157,10 @@ namespace shilka2
 
                 Scripts.scriptsNames scriptFullName = (Scripts.scriptsNames)Enum.Parse(typeof(Scripts.scriptsNames), stat[1]);
 
-                ImageSource flagSource = Aircraft.ImageFromResources(Scripts.ScriptFlagName(scriptFullName));
+                ImageSource flagSource = null;
+
+                if (scriptFullName != Scripts.scriptsNames.noScript)
+                    flagSource = Aircraft.ImageFromResources(Scripts.ScriptFlagName(scriptFullName));
                 statisticScripts.Add(Scripts.scriptsRuNames[scriptFullName.ToString()]);
 
                 result.Add(new StatTable(

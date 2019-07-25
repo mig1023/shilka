@@ -100,6 +100,13 @@ namespace shilka2
             ShilkaImg.Margin = new Thickness(0, heightForShilka, 0, 0);
             RadarImg.Margin = new Thickness(62, heightForShilka, 0, 0);
             HandImg.Margin = new Thickness(65, (heightForShilka - 120), 0, 0);
+
+            if (Shilka.night)
+            {
+                notebookBackground.Source = Aircraft.ImageFromResources("background");
+                ShilkaImg.Source = Aircraft.ImageFromResources("shilka");
+                statShells.Foreground = Brushes.White;
+            }
         }
 
         public void StartGame(int?[] scriptAircraft, int?[] scriptHelicopters, int?[] scriptAircraftFriend,

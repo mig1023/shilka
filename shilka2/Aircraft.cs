@@ -247,8 +247,32 @@ namespace shilka2
 
         public static ImageSource ImageFromResources(string imageName)
         {
-            return new BitmapImage(new Uri("images/" + imageName + ".png", UriKind.Relative)) { };
+            return Invert(new BitmapImage(new Uri("images/" + imageName + ".png", UriKind.Relative)) { });
         }
+
+        public static BitmapSource Invert(BitmapSource originalSource)
+        {
+            if (!Shilka.night)
+                return originalSource;
+
+            int stride = (originalSource.PixelWidth * originalSource.Format.BitsPerPixel + 7) / 8;
+
+            int length = stride * originalSource.PixelHeight;
+            byte[] data = new byte[length];
+
+            originalSource.CopyPixels(data, stride, 0);
+
+            for (int i = 0; i < length; i += 4)
+            {
+                data[i] = (byte)(255 - data[i]);
+                data[i + 1] = (byte)(255 - data[i + 1]);
+                data[i + 2] = (byte)(255 - data[i + 2]);
+            }
+
+            return BitmapSource.Create(originalSource.PixelWidth, originalSource.PixelHeight,
+                originalSource.DpiX, originalSource.DpiY, originalSource.Format, null, data, stride);
+        }
+
 
         static void CreateNewAircraft(AircraftsType aircraft)
         {
