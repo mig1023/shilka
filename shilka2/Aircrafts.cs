@@ -486,6 +486,17 @@ namespace shilka2
                     }
                 }
             },
+
+            new AircraftsType {
+                aircraftType = "kc135",
+                aircraftName = "KC-135 Stratotanker",
+                hitPoint = 120,
+                size = new int[] { 500, 157 },
+                speed = 8,
+                minAltitude = minAltitudeForLargeAircraft,
+                price = 39,
+                cantEscape = true
+            },
         };
 
         public static List<AircraftsType> helicopters = new List<AircraftsType>()

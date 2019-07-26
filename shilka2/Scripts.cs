@@ -284,6 +284,7 @@ namespace shilka2
                     23,     // <-- f111
                     24,     // <-- f5
                     42,     // <-- a1
+                    43,     // <-- kc135
                 };
 
             if (script == scriptsNames.Yugoslavia)
@@ -306,6 +307,7 @@ namespace shilka2
                     33,     // <-- hunter
                     40,     // <-- galaxy
                     41,     // <-- globemaster
+                    43,     // <-- kc135
                 };
 
             if (script == scriptsNames.DesertStorm)
@@ -333,6 +335,7 @@ namespace shilka2
                     35,     // <-- m2000
                     36,     // <-- m2000ed
                     40,     // <-- galaxy
+                    43,     // <-- kc135
                 };
 
             if (script == scriptsNames.IranIraq)
@@ -379,6 +382,7 @@ namespace shilka2
                     36,     // <-- m2000ed
                     40,     // <-- galaxy
                     41,     // <-- globemaster
+                    43,     // <-- kc135
                 };
 
             if (script == scriptsNames.Yemen)
@@ -392,6 +396,7 @@ namespace shilka2
                     24,     // <-- f5
                     35,     // <-- m2000
                     36,     // <-- m2000ed
+                    43,     // <-- kc135
                 };
 
             if (script == scriptsNames.F117Hunt)
@@ -412,6 +417,7 @@ namespace shilka2
                     3,      // <-- f117
                     19,     // <-- tomahawk
                     41,     // <-- globemaster
+                    43,     // <-- kc135
                 };
 
             return new int?[] { };
