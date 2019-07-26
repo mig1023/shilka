@@ -247,14 +247,16 @@ namespace shilka2
 
         public static ImageSource ImageFromResources(string imageName)
         {
-            return Invert(new BitmapImage(new Uri("images/" + imageName + ".png", UriKind.Relative)) { });
+            BitmapImage image = new BitmapImage(new Uri("images/" + imageName + ".png", UriKind.Relative)) { };
+
+            if (Shilka.night)
+                return Invert(image);
+
+            return image;
         }
 
         public static BitmapSource Invert(BitmapSource originalSource)
         {
-            if (!Shilka.night)
-                return originalSource;
-
             int stride = (originalSource.PixelWidth * originalSource.Format.BitsPerPixel + 7) / 8;
 
             int length = stride * originalSource.PixelHeight;
@@ -262,15 +264,27 @@ namespace shilka2
 
             originalSource.CopyPixels(data, stride, 0);
 
-            for (int i = 0; i < length; i += 4)
+            int a = 0;
+
+            for (int i = 0; i < length; i += 1)
             {
+                if (a > 2)
+                {
+                    a = 0;
+                    continue;
+                }
+                else
+                    a += 1;
+
                 data[i] = (byte)(255 - data[i]);
-                data[i + 1] = (byte)(255 - data[i + 1]);
-                data[i + 2] = (byte)(255 - data[i + 2]);
             }
 
+            List<System.Windows.Media.Color> colors = new List<System.Windows.Media.Color>();
+            colors.Add(System.Windows.Media.Colors.Black);
+            BitmapPalette palette = new BitmapPalette(colors);
+
             return BitmapSource.Create(originalSource.PixelWidth, originalSource.PixelHeight,
-                originalSource.DpiX, originalSource.DpiY, originalSource.Format, null, data, stride);
+                originalSource.DpiX, originalSource.DpiY, originalSource.Format, palette, data, stride);
         }
 
 
