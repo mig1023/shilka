@@ -454,6 +454,7 @@ namespace shilka2
                 size = new int[] { 570, 152 },
                 speed = 7,
                 minAltitude = minAltitudeForLargeAircraft,
+                price = 262,
                 cantEscape = true
             },
 
@@ -464,6 +465,7 @@ namespace shilka2
                 size = new int[] { 545, 183 },
                 speed = 8,
                 minAltitude = minAltitudeForLargeAircraft,
+                price = 316,
                 cantEscape = true
             },
 
