@@ -33,12 +33,12 @@ The game is about a small anti-aircraft vehicle in the school notebook
 | F-4 Fantom | F-5 Tiger | F-8 Crusader |
 | F-14 Tomcat | F-15 Eagle | F-16 Fighting Falcon |
 | F/A-18 Hornet | F-22 Raptor | F-35 Lightning II |
-| F-111 Aardvark | F-117 Nighthawk | Mirage 2000 |
-| Mirage 2000ED | MQ-1 Predator | MQ-9 Reaper |
-| Panavia Tornado | Rafale | RC-135 |
-| RQ-4 Global Hawk | RQ-5 Hunter | Saab JAS 39 Gripen |
-| Sea Harrier | SR-71 Blackbird | Storm Shadow / SCALP |
-| U-2 Dragon Lady | | |
+| F-111 Aardvark | F-117 Nighthawk | KC-135 Stratotanker |
+| Mirage 2000 | Mirage 2000ED | MQ-1 Predator |
+| MQ-9 Reaper | Panavia Tornado | Rafale |
+| RC-135 | RQ-4 Global Hawk | RQ-5 Hunter |
+| Saab JAS 39 Gripen | Sea Harrier | SR-71 Blackbird |
+| Storm Shadow / SCALP | U-2 Dragon Lady | |
 
 ### Enemy helicopters:
 
