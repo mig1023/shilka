@@ -100,13 +100,6 @@ namespace shilka2
             ShilkaImg.Margin = new Thickness(0, heightForShilka, 0, 0);
             RadarImg.Margin = new Thickness(62, heightForShilka, 0, 0);
             HandImg.Margin = new Thickness(65, (heightForShilka - 120), 0, 0);
-
-            if (Shilka.night)
-            {
-                notebookBackground.Source = Aircraft.ImageFromResources("background");
-                ShilkaImg.Source = Aircraft.ImageFromResources("shilka");
-                statShells.Foreground = Brushes.White;
-            }
         }
 
         public void StartGame(int?[] scriptAircraft, int?[] scriptHelicopters, int?[] scriptAircraftFriend,
@@ -492,10 +485,23 @@ namespace shilka2
             Shilka.degreeOfHeatingGunBurrels = Scripts.ScriptTemperature(script);
             Shilka.degreeOfHeatingGunBurrelsMin = Shilka.degreeOfHeatingGunBurrels;
 
+            Shilka.night = false;
+
             if (flagName != null)
                 scenarioFlag.Source = Aircraft.ImageFromResources(flagName);
             else
                 scenarioFlag.Source = null;
+
+            if (script == Scripts.scriptsNames.Yugoslavia)
+            {
+                statShells.Foreground = Brushes.White;
+                Shilka.night = true;
+            }
+            else
+                statShells.Foreground = Brushes.Black;
+
+            notebookBackground.Source = Aircraft.ImageFromResources("background");
+            ShilkaImg.Source = Aircraft.ImageFromResources("shilka");
 
             StartGame(
                 Scripts.ScriptEnemyAircrafts(script),

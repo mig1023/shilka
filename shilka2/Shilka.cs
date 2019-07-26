@@ -206,7 +206,7 @@ namespace shilka2
                 );
 
                 if (colorOfGuns == 0)
-                    gun.Stroke = Brushes.Black;
+                    gun.Stroke = (Shilka.night ? Brushes.White : Brushes.Black);
                 else
                     gun.Stroke = new SolidColorBrush(Color.FromRgb((byte)(colorOfGuns - Constants.HEATING_COLOR_BASE), 0, 0));
 
@@ -227,7 +227,7 @@ namespace shilka2
             gunMount.Y2 = mountXY[1, 1];
 
             gunMount.StrokeThickness = 1;
-            gunMount.Stroke = Brushes.Black;
+            gunMount.Stroke = (Shilka.night ? Brushes.White : Brushes.Black);
 
             main.firePlace.Children.Add(gunMount);
             Canvas.SetZIndex(gunMount, 200);
