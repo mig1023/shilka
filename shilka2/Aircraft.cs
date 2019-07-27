@@ -247,22 +247,19 @@ namespace shilka2
 
         public static ImageSource ImageFromResources(string imageName)
         {
-            BitmapImage image = new BitmapImage(new Uri("images/" + imageName + ".png", UriKind.Relative)) { };
+            BitmapImage image = new BitmapImage(new Uri("pack://application:,,,/images/" + imageName + ".png")) { };
 
             if (Shilka.night)
-                return Invert(image, imageName);
+                return Invert(image);
 
             return image;
         }
 
-        public static BitmapSource Invert(BitmapSource originalSource, string imageName)
+        public static BitmapSource Invert(BitmapSource originalSource)
         {
-            if (!Constants.IMG_SIZE.ContainsKey(imageName))
-                return originalSource;
+            int stride = (originalSource.PixelWidth * originalSource.Format.BitsPerPixel + 7) / 8;
 
-            int stride = (Constants.IMG_SIZE[imageName][0] * Constants.IMG_SIZE[imageName][2] + 7) / 8;
-
-            int length = stride * Constants.IMG_SIZE[imageName][1];
+            int length = stride * originalSource.PixelHeight;
             byte[] data = new byte[length];
 
             originalSource.CopyPixels(data, stride, 0);
