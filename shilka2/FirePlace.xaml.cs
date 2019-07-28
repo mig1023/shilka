@@ -434,6 +434,7 @@ namespace shilka2
                 secondAnimation: new EventHandler(EndGameSecAnimation)
             );
 
+            Shilka.night = false;
             startMenuShowYet = true;
             endGameAlready = false;
         }
