@@ -530,6 +530,9 @@ namespace shilka2
                 case 4:
                 default:
 
+                    if (Shilka.currentScript == Scripts.scriptsNames.Vietnam)
+                        goto case 5;
+
                     newAircraft = new AircraftsType
                     {
                         aircraftType = "cloud" + (rand.Next(1, 8)),
@@ -616,6 +619,9 @@ namespace shilka2
                     break;
 
                 case 15:
+
+                    if (Shilka.currentScript == Scripts.scriptsNames.Vietnam)
+                        goto case 5;
 
                     if (Scripts.scriptAirliners == null)
                         goto case 1;

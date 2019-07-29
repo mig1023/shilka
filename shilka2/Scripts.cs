@@ -516,15 +516,7 @@ namespace shilka2
         {
 
             if (script == scriptsNames.Vietnam)
-                return new int?[] {
-                    1,      // <-- b747
-                    6,      // <-- b707
-                    7,      // <-- l1049
-                    12,     // <-- b737
-                    14,     // <-- dc8
-                    15,     // <-- l1011
-                    19,     // <-- tu134
-                };
+                return null;
 
             if (script == scriptsNames.Yugoslavia)
                 return new int?[] {
