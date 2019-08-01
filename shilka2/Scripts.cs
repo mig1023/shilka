@@ -308,6 +308,7 @@ namespace shilka2
                     40,     // <-- galaxy
                     41,     // <-- globemaster
                     43,     // <-- kc135
+                    44,     // <-- jaguar
                 };
 
             if (script == scriptsNames.DesertStorm)
@@ -336,6 +337,7 @@ namespace shilka2
                     36,     // <-- m2000ed
                     40,     // <-- galaxy
                     43,     // <-- kc135
+                    44,     // <-- jaguar
                 };
 
             if (script == scriptsNames.IranIraq)

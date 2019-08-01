@@ -499,6 +499,13 @@ namespace shilka2
                 price = 39,
                 cantEscape = true
             },
+
+            new AircraftsType {
+                aircraftType = "jaguar",
+                aircraftName = "SEPECAT Jaguar",
+                size = new int[] { 275, 81 },
+                price = 8
+            },
         };
 
         public static List<AircraftsType> helicopters = new List<AircraftsType>()
