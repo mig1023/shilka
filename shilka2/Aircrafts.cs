@@ -1147,6 +1147,33 @@ namespace shilka2
                     },
                 }
             },
+
+            new AircraftsType {
+                aircraftType = "drone6",
+                aircraftName = "дрон-разведчик (тип 6)",
+                hitPoint = 1,
+                size = new int[] { 30, 20 },
+                speed = 3,
+                maxAltitude = maxAltitudeForHelicopters,
+                price = 0.01,
+                elements = new List<DynamicElement> {
+                    new DynamicElement {
+                        elementName = "micro_prop",
+                        y = -3,
+                        x_left = -6,
+                        x_right = -6,
+                        movingType = DynamicElement.MovingType.xRotate,
+                        startDegree = 0.5,
+                    },
+                    new DynamicElement {
+                        elementName = "micro_prop",
+                        y = -3,
+                        x_left = 19,
+                        x_right = 19,
+                        movingType = DynamicElement.MovingType.xRotate,
+                    },
+                }
+            },
         };
 
         public static List<AircraftsType> aircraftFriend = new List<AircraftsType>()
