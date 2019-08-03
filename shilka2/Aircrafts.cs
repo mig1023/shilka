@@ -1205,6 +1205,7 @@ namespace shilka2
                             x_left = 41,
                         x_right = 67,
                         movingType = DynamicElement.MovingType.xRotate,
+                        startDegree = 0.5,
                     },
                     new DynamicElement {
                         elementName = "micro_prop_y",
@@ -1212,6 +1213,49 @@ namespace shilka2
                         x_left = 84,
                         x_right = -3,
                         movingType = DynamicElement.MovingType.yRotate,
+                        startDegree = 0.5,
+                    },
+                }
+            },
+
+            new AircraftsType {
+                aircraftType = "drone8",
+                aircraftName = "дрон-разведчик (тип 8)",
+                hitPoint = 1,
+                size = new int[] { 35, 12 },
+                speed = 3,
+                maxAltitude = maxAltitudeForHelicopters,
+                price = 0.01,
+                elements = new List<DynamicElement> {
+                    new DynamicElement {
+                        elementName = "micro_prop",
+                        y = -4,
+                        x_left = -7,
+                        x_right = -7,
+                        movingType = DynamicElement.MovingType.xRotate,
+                    },
+                    new DynamicElement {
+                        elementName = "micro_prop",
+                        y = -4,
+                        x_left = 24,
+                        x_right = 24,
+                        movingType = DynamicElement.MovingType.xRotate,
+                        startDegree = 0.7,
+                    },
+                    new DynamicElement {
+                        elementName = "micro_prop",
+                        y = 5,
+                        x_left = -7,
+                        x_right = -7,
+                        movingType = DynamicElement.MovingType.xRotate,
+                        startDegree = 0.2,
+                    },
+                    new DynamicElement {
+                        elementName = "micro_prop",
+                        y = 5,
+                        x_left = 24,
+                        x_right = 24,
+                        movingType = DynamicElement.MovingType.xRotate,
                         startDegree = 0.5,
                     },
                 }
