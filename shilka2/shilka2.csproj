@@ -292,6 +292,7 @@
     <Resource Include="Images\jaguar.png" />
     <Resource Include="Images\drone5.png" />
     <Resource Include="Images\drone6.png" />
+    <Resource Include="Images\drone7.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
