@@ -171,6 +171,7 @@ namespace shilka2
                         movingType = DynamicElement.MovingType.xRotate,
                         slowRotation = true,
                         backSide = true,
+                        oneWay = true,
                     },
                 }
             },
@@ -313,6 +314,7 @@ namespace shilka2
                         movingType = DynamicElement.MovingType.xRotate,
                         slowRotation = true,
                         backSide = true,
+                        oneWay = true,
                     },
                 }
             },
@@ -1385,6 +1387,7 @@ namespace shilka2
                         movingType = DynamicElement.MovingType.xRotate,
                         slowRotation = true,
                         backSide = true,
+                        oneWay = true,
                     },
                 }
             },
