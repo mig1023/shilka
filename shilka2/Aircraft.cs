@@ -179,7 +179,7 @@ namespace shilka2
                             else
                                 d.rotateDegreeCurrent -= (d.slowRotation ? Constants.SLOW_ROTATION : Constants.FAST_ROTATION);
 
-                            if (d.rotateDegreeCurrent < Constants.FAST_ROTATION)
+                            if (d.rotateDegreeCurrent < Constants.ROTATION_REVERT)
                             {
                                 if (d.backSide && d.currentSide)
                                     d.element.Source = ImageFromResources(d.elementName);
@@ -189,7 +189,7 @@ namespace shilka2
                                 d.currentSide = !d.currentSide;
                             }
                                
-                            if (d.rotateDegreeCurrent < Constants.FAST_ROTATION)
+                            if (d.rotateDegreeCurrent < Constants.ROTATION_REVERT)
                                 d.positiveDirection = true;
                             else if (d.rotateDegreeCurrent >= 1)
                             {
