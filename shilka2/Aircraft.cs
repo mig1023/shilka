@@ -187,10 +187,8 @@ namespace shilka2
                                     d.element.Source = ImageFromResources(d.elementName + "_back");
 
                                 d.currentSide = !d.currentSide;
-                            }
-                               
-                            if (d.rotateDegreeCurrent < Constants.ROTATION_REVERT)
                                 d.positiveDirection = true;
+                            }
                             else if (d.rotateDegreeCurrent >= 1)
                             {
                                 d.positiveDirection = false;
