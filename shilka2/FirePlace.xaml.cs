@@ -519,13 +519,12 @@ namespace shilka2
 
             pauseButton.Focus();
 
-            if (sender == null)
-                Shilka.school = true;
-            else
+            if (sender != null)
             {
                 Button startButton = sender as Button;
                 scriptName = startButton.Name;
                 Shilka.school = false;
+                Shilka.training = false;
             }
 
             switch (scriptName)
@@ -574,6 +573,15 @@ namespace shilka2
 
         private void schoolButton_Click(object sender, RoutedEventArgs e)
         {
+            Shilka.school = true;
+
+            startScript_Click(null, null);
+        }
+
+        private void trainingButton_Click(object sender, RoutedEventArgs e)
+        {
+            Shilka.training = true;
+
             startScript_Click(null, null);
         }
 

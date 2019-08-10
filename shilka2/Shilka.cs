@@ -29,6 +29,7 @@ namespace shilka2
         public static bool fire = false;
         public static double lastDegree = 0;
         public static bool school = false;
+        public static bool training = false;
 
         static Random rand;
 

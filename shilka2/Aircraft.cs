@@ -528,120 +528,132 @@ namespace shilka2
             
             AircraftsType newAircraft;
 
-            switch (aircraftCategory)
+            if (Shilka.training)
             {
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                default:
-
-                    if (Shilka.currentScript == Scripts.scriptsNames.Vietnam)
-                        goto case 5;
-
-                    newAircraft = new AircraftsType
-                    {
-                        aircraftType = "cloud" + (rand.Next(1, 8)),
-                        size = new int[] { rand.Next(200, 501), rand.Next(70, 171) },
-                        speed = Constants.CLOUD_SPEED,
-                        friend = true,
-                        cloud = true
-                    };
-                    break;
-
-                case 5:
-                case 6:
-                case 7:
-                case 8:
-                case 9:
-
-                    if (Scripts.scriptAircraft == null)
-                        goto case 1;
-
-                    do
-                    {
-                        dice = rand.Next(Aircrafts.aircraft.Count);
-                    }
-                    while (!AircraftInList(Scripts.scriptAircraft, dice));
-                    
-                    if ((Shilka.currentScript == Scripts.scriptsNames.F117Hunt) && (dice != FindAircraftByName("f117")))
-                        goto case 1;
-
-                    if (Weather.currentWeather != Weather.weatherTypes.good && Aircrafts.aircraft[dice].doesNotFlyInBadWeather)
-                        goto case 9;
-
-                    if (Shilka.currentScript == Scripts.scriptsNames.Khmeimim)
-                        goto case 10;
-
-                    newAircraft = Aircrafts.aircraft[dice];
-
-                    break;
-
-                case 10:
-                case 11:
-                case 12:
-
-                    if (Scripts.scriptHelicopters == null)
-                        goto case 5;
-
-                    do
-                    {
-                        dice = rand.Next(Aircrafts.helicopters.Count);
-                    }
-                    while (!AircraftInList(Scripts.scriptHelicopters, dice));
-                    
-                    newAircraft = Aircrafts.helicopters[dice];
-                    
-                    break;
-
-                case 13:
-
-                    if (Scripts.scriptAircraftFriend == null)
-                        goto case 1;
-
-                    do
-                    {
-                        dice = rand.Next(Aircrafts.aircraftFriend.Count);
-                    }
-                    while (!AircraftInList(Scripts.scriptAircraftFriend, dice));
-
-                    newAircraft = Aircrafts.aircraftFriend[dice];
-                    
-                    break;
-
-                case 14:
-
-                    if (Scripts.scriptHelicoptersFriend == null)
-                        goto case 13;
-
-                    do
-                    {
-                        dice = rand.Next(Aircrafts.helicoptersFriend.Count);
-                    }
-                    while (!AircraftInList(Scripts.scriptHelicoptersFriend, dice));
-                    
-                    newAircraft = Aircrafts.helicoptersFriend[dice];
-                    
-                    break;
-
-                case 15:
-
-                    if (Shilka.currentScript == Scripts.scriptsNames.Vietnam)
-                        goto case 5;
-
-                    if (Scripts.scriptAirliners == null)
-                        goto case 1;
-
-                    do
-                    {
-                        dice = rand.Next(Aircrafts.airliners.Count);
-                    }
-                    while (!AircraftInList(Scripts.scriptAirliners, dice));
-                   
-                    newAircraft = Aircrafts.airliners[dice];
-                    
-                    break;
+                newAircraft = new AircraftsType
+                {
+                    aircraftType = "la17mm",
+                    aircraftName = "самолёт-мишень Ла-17ММ",
+                    hitPoint = 30,
+                    size = new int[] { 125, 47 },
+                    speed = 8,
+                };
             }
+            else
+                switch (aircraftCategory)
+                {
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                    default:
+
+                        if (Shilka.currentScript == Scripts.scriptsNames.Vietnam)
+                            goto case 5;
+
+                        newAircraft = new AircraftsType
+                        {
+                            aircraftType = "cloud" + (rand.Next(1, 8)),
+                            size = new int[] { rand.Next(200, 501), rand.Next(70, 171) },
+                            speed = Constants.CLOUD_SPEED,
+                            friend = true,
+                            cloud = true
+                        };
+                        break;
+
+                    case 5:
+                    case 6:
+                    case 7:
+                    case 8:
+                    case 9:
+
+                        if (Scripts.scriptAircraft == null)
+                            goto case 1;
+
+                        do
+                        {
+                            dice = rand.Next(Aircrafts.aircraft.Count);
+                        }
+                        while (!AircraftInList(Scripts.scriptAircraft, dice));
+                    
+                        if ((Shilka.currentScript == Scripts.scriptsNames.F117Hunt) && (dice != FindAircraftByName("f117")))
+                            goto case 1;
+
+                        if (Weather.currentWeather != Weather.weatherTypes.good && Aircrafts.aircraft[dice].doesNotFlyInBadWeather)
+                            goto case 9;
+
+                        if (Shilka.currentScript == Scripts.scriptsNames.Khmeimim)
+                            goto case 10;
+
+                        newAircraft = Aircrafts.aircraft[dice];
+
+                        break;
+
+                    case 10:
+                    case 11:
+                    case 12:
+
+                        if (Scripts.scriptHelicopters == null)
+                            goto case 5;
+
+                        do
+                        {
+                            dice = rand.Next(Aircrafts.helicopters.Count);
+                        }
+                        while (!AircraftInList(Scripts.scriptHelicopters, dice));
+                    
+                        newAircraft = Aircrafts.helicopters[dice];
+                    
+                        break;
+
+                    case 13:
+
+                        if (Scripts.scriptAircraftFriend == null)
+                            goto case 1;
+
+                        do
+                        {
+                            dice = rand.Next(Aircrafts.aircraftFriend.Count);
+                        }
+                        while (!AircraftInList(Scripts.scriptAircraftFriend, dice));
+
+                        newAircraft = Aircrafts.aircraftFriend[dice];
+                    
+                        break;
+
+                    case 14:
+
+                        if (Scripts.scriptHelicoptersFriend == null)
+                            goto case 13;
+
+                        do
+                        {
+                            dice = rand.Next(Aircrafts.helicoptersFriend.Count);
+                        }
+                        while (!AircraftInList(Scripts.scriptHelicoptersFriend, dice));
+                    
+                        newAircraft = Aircrafts.helicoptersFriend[dice];
+                    
+                        break;
+
+                    case 15:
+
+                        if (Shilka.currentScript == Scripts.scriptsNames.Vietnam)
+                            goto case 5;
+
+                        if (Scripts.scriptAirliners == null)
+                            goto case 1;
+
+                        do
+                        {
+                            dice = rand.Next(Aircrafts.airliners.Count);
+                        }
+                        while (!AircraftInList(Scripts.scriptAirliners, dice));
+                   
+                        newAircraft = Aircrafts.airliners[dice];
+                    
+                        break;
+                }
 
             CreateNewAircraft(newAircraft);
         }
