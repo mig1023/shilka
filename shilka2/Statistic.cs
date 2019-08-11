@@ -250,7 +250,7 @@ namespace shilka2
                 stat += "\n";
             }
 
-            if (statisticAmountOfDamage > 0 && !Shilka.school)
+            if (statisticAmountOfDamage > 0 && !Shilka.school && !Shilka.training)
             {
                 stat += String.Format("нанесён ущерб: {0}", HumanReadableSumm(statisticAmountOfDamage));
 
@@ -272,7 +272,7 @@ namespace shilka2
                 stat += String.Format("повреждено гражданских: {0} ( повреждён {1} )\n",
                     statisticAirlinerDamage, statisticLastDamageAirliner);
 
-            if (statisticAllAircraft > 0)
+            if (statisticAllAircraft > 0 && !Shilka.training)
                 stat += String.Format("удача: {0:f2}", chance) + "\n";
 
             if (statisticShellsFired > 0)
