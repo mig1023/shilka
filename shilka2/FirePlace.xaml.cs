@@ -240,14 +240,14 @@ namespace shilka2
             if (Weather.thunderCurrentImage != null)
                 firePlace.Children.Remove(Weather.thunderCurrentImage);
 
-            Canvas newMenu = (Shilka.school ? RestartTrainingMenu : EndMenu);
+            Canvas newMenu = (Shilka.school || Shilka.training ? RestartTrainingMenu : EndMenu);
                             
             var converter = new BrushConverter();
             newMenu.Background = (Brush)converter.ConvertFrom(bgColor);
 
             GameOverWithSave.IsEnabled = false;
 
-            if (Shilka.school)
+            if (Shilka.school || Shilka.training)
                 RestartText.Content = endText;
             else
             {
@@ -356,7 +356,14 @@ namespace shilka2
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
         {
-            string endText = (Shilka.school ? "Выход из обучения" : "Выход из игры.\nСохранить статистику?");
+            string endText;
+
+            if (Shilka.school)
+                endText = "Выход из обучения";
+            else if (Shilka.training)
+                endText = "Выход из тренировки";
+            else
+                endText = "Выход из игры.\nСохранить статистику?";
 
             if (!endGameAlready)
                 EndGame(endText, endColor); 
@@ -424,7 +431,7 @@ namespace shilka2
             if (!String.IsNullOrEmpty(playerName))
                 Statistic.Save(playerName.Replace("|", String.Empty));
 
-            Canvas prevMenu = ( Shilka.school ? RestartTrainingMenu : EndMenu);
+            Canvas prevMenu = ( Shilka.school || Shilka.training ? RestartTrainingMenu : EndMenu);
 
             MoveCanvas(
                 moveCanvas: firePlaceDock, 
