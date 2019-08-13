@@ -41,6 +41,8 @@ namespace shilka2
         private static bool schoolFriendAlready = false;
         private static bool schoolAirlinerAlready = false;
 
+        private static bool trainingStartAlready = false;
+
         public static int allAircraftsInGame = 0;
 
         public Image aircraftImage;
@@ -421,6 +423,12 @@ namespace shilka2
 
                 if (Shilka.school && !newAircraft.cloud)
                     aircraftMessagesForSchool(newAircraft, main);
+
+                if (Shilka.training && !schoolAirlinerAlready)
+                {
+                    schoolAirlinerAlready = true;
+                    main.SchoolMessage(Constants.TRAINING_INFORMATION, Brushes.Green);
+                }
 
                 newAircraft.aircraftImage = newAircraftImage;
                 main.firePlace.Children.Add(newAircraftImage);

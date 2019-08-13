@@ -103,5 +103,9 @@ namespace shilka2
         public const int SCHOOL_ENEMY_AT_THE_START = 20;
         public const int SCHOOL_FRIEND_AT_THE_START = 25;
         public const int SCHOOL_AIRLINER_AT_THE_START = 30;
-    }
+
+        //training
+        public const string TRAINING_INFORMATION = "ТРЕНИРОВКА\n\nДля тренировки зенитчика используется самолёт-мишень Ла-17ММ. " +
+            "Вам нужно сбить или повредить как можно больше мишеней.\n\nOK";
+        }
 }
