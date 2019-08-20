@@ -346,7 +346,12 @@ namespace shilka2
             Shilka.SetNewTergetPoint(e.GetPosition((Window)sender), sender);
 
             if (!pause)
-                RadarImg.RenderTransform = new RotateTransform(Shilka.lastDegree, 4, 20);
+            {
+                if (Shilka.currentScript == Scripts.scriptsNames.IranIraq)
+                    RadarImg.RenderTransform = new RotateTransform(Shilka.RadarmMalfunction(), 4, 20);
+                else
+                    RadarImg.RenderTransform = new RotateTransform(Shilka.lastDegree, 4, 20);
+            }
         }
 
         private void exitButton_Click(object sender, RoutedEventArgs e)

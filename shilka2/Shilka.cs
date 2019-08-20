@@ -30,6 +30,10 @@ namespace shilka2
         public static double lastDegree = 0;
         public static bool school = false;
         public static bool training = false;
+        
+        public static int malfunction = 0;
+        public static int malfunctionDirection = 0;
+        public static int malfunctionDelay = 0;
 
         static Random rand;
 
@@ -61,6 +65,25 @@ namespace shilka2
                 Shell.shells.Clear();
                 Weather.weather.Clear();
             }));
+        }
+
+        public static double RadarmMalfunction()
+        {
+            if ((malfunctionDelay > 10) && (rand.Next(2) == 1))
+                malfunctionDelay = 0;
+            else if (malfunctionDelay > 10)
+                malfunctionDirection = rand.Next(10) - 5;
+            else
+                malfunctionDelay += 1;
+
+            malfunction += malfunctionDirection;
+
+            if (malfunction > 0)
+                malfunction = 0;
+            else if (malfunction < -130)
+                malfunction = -130;
+
+            return malfunction;
         }
 
         public static void SetNewTergetPoint(Point pt, object sender)
