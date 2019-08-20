@@ -29,9 +29,20 @@ namespace shilka2
             Case newCase = new Case();
             newCase.x = Constants.FIRE_WIDTH_CORRECTION / 2;
             newCase.y = Shell.currentHeight - Constants.EXTR_HEIGHT_CORRECTION;
-            newCase.sin = rand.NextDouble() * (Constants.MAX_FRAGM_SIN - Constants.MIN_FRAGM_SIN) + Constants.MIN_FRAGM_SIN;
-            newCase.cos = rand.NextDouble() * (Constants.MAX_FRAGM_COS - Constants.MIN_FRAGM_COS) + Constants.MIN_FRAGM_COS;
-            newCase.speed = rand.Next(Constants.MIN_SPEED, Constants.MAX_SPEED);
+
+            if (Shilka.currentScript == Scripts.scriptsNames.Libya)
+            {
+                newCase.sin = rand.NextDouble() * (Constants.MAX_FRAGM_SIN_DAMAGED - Constants.MIN_FRAGM_SIN) + Constants.MIN_FRAGM_SIN;
+                newCase.cos = rand.NextDouble() * (Constants.MAX_FRAGM_COS_DAMAGED - Constants.MIN_FRAGM_COS) + Constants.MIN_FRAGM_COS;
+                newCase.speed = rand.Next(Constants.MIN_SPEED, Constants.MAX_SPEED_DAMAGED);
+            }
+            else
+            {
+                newCase.sin = rand.NextDouble() * (Constants.MAX_FRAGM_SIN - Constants.MIN_FRAGM_SIN) + Constants.MIN_FRAGM_SIN;
+                newCase.cos = rand.NextDouble() * (Constants.MAX_FRAGM_COS - Constants.MIN_FRAGM_COS) + Constants.MIN_FRAGM_COS;
+                newCase.speed = rand.Next(Constants.MIN_SPEED, Constants.MAX_SPEED);
+            }
+                
             newCase.fly = true;
 
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate

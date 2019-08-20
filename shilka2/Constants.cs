@@ -37,6 +37,10 @@ namespace shilka2
         public const int EXTR_HEIGHT_CORRECTION = 21;
         public const double FREE_FALL_SPEED = 0.05;
 
+        public const double MAX_FRAGM_SIN_DAMAGED = 1;
+        public const double MAX_FRAGM_COS_DAMAGED = 1;
+        public const int MAX_SPEED_DAMAGED = 7;
+
         // shell
         public const int FIRE_WIDTH_CORRECTION = 140;
         public const int FIRE_HEIGHT_CORRECTION = 30;
@@ -108,5 +112,8 @@ namespace shilka2
         public const string TRAINING_INFORMATION = "ТРЕНИРОВКА\n\nДля тренировки зенитчика используется самолёт-мишень Ла-17ММ. " +
             "Вам нужно сбить или повредить как можно больше мишеней.\n\nOK";
         public const double ANGLE_OF_ATTACK_CHANGE_TRAINING = 4.5;
+
+        //scripts
+        public const int RADAR_DAMAGED = 20;
     }
 }

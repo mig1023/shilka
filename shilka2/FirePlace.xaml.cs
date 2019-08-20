@@ -347,7 +347,9 @@ namespace shilka2
 
             if (!pause)
             {
-                if (Shilka.currentScript == Scripts.scriptsNames.IranIraq)
+                if (Shilka.currentScript == Scripts.scriptsNames.Libya)
+                    RadarImg.RenderTransform = new RotateTransform(Constants.RADAR_DAMAGED, 4, 20);
+                else if (Shilka.currentScript == Scripts.scriptsNames.IranIraq)
                     RadarImg.RenderTransform = new RotateTransform(Shilka.RadarmMalfunction(), 4, 20);
                 else
                     RadarImg.RenderTransform = new RotateTransform(Shilka.lastDegree, 4, 20);
