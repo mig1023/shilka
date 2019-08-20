@@ -107,5 +107,6 @@ namespace shilka2
         //training
         public const string TRAINING_INFORMATION = "ТРЕНИРОВКА\n\nДля тренировки зенитчика используется самолёт-мишень Ла-17ММ. " +
             "Вам нужно сбить или повредить как можно больше мишеней.\n\nOK";
-        }
+        public const double ANGLE_OF_ATTACK_CHANGE_TRAINING = 4.5;
+    }
 }

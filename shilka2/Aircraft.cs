@@ -77,10 +77,12 @@ namespace shilka2
 
                         if (aircraft.dynamicElemets.Count == 0)
                         {
+                            double angle = (Shilka.training ? Constants.ANGLE_OF_ATTACK_CHANGE_TRAINING : Constants.ANGLE_OF_ATTACK_CHANGE_SPEED);
+
                             if (aircraft.angleOfAttack > 0)
-                                aircraft.angleOfAttack += Constants.ANGLE_OF_ATTACK_CHANGE_SPEED;
+                                aircraft.angleOfAttack += angle;
                             else if (aircraft.angleOfAttack < 0)
-                                aircraft.angleOfAttack -= Constants.ANGLE_OF_ATTACK_CHANGE_SPEED;
+                                aircraft.angleOfAttack -= angle;
                             else
                                 aircraft.angleOfAttack += (rand.NextDouble() - 0.5) * 0.2;
 
