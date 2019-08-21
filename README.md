@@ -8,7 +8,7 @@ The game is about a small anti-aircraft vehicle in the school notebook
 | Script | Period | Specifics |
 | ------------- | ------------- | ------------- |
 | Vietnam war | 1965-1973 | a lot of enemies |
-| Iran–Iraq war | 1980-1988 |  |
+| Iran–Iraq war | 1980-1988 | malfunctioning radar |
 | Korean Boeing incident | 1983 | airliner aircraft between spies |
 | Mathias Rust flight | 1987 | light aircraft target |
 | Operation Desert storm | 1991 | sandstorm |
@@ -16,7 +16,7 @@ The game is about a small anti-aircraft vehicle in the school notebook
 | Bomb attacks against Belgrade | 1999 | one direction of attack |
 | Hunt for F-117 in Yugoslavia | 1999 | wait and destroy a specific target |
 | Syrian civil war | 2011-2019 | only UAVs and cruise missiles |
-| Intervention in Libya | 2011 |  |
+| Intervention in Libya | 2011 | damaged Shilka |
 | Intervention in Yemen | 2015-2019 | no friendly aviation |
 | Siege of Kmeimim | 2016-2018 | only UAVs |
 
