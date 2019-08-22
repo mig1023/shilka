@@ -117,6 +117,9 @@ namespace shilka2
         {
             int currentFragmentation = Constants.FRAGMENTATION + ( ( Shilka.degreeOfHeatingGunBurrels - 30 ) / 25 );
 
+            if ((Shilka.currentScript == Scripts.scriptsNames.Libya) && (rand.Next(4) != 1))
+                return;
+
             if (Shilka.fire && !Shilka.reheatingGunBurrels)
             {
                 fireMutex++;
