@@ -31,9 +31,11 @@ namespace shilka2
         public static bool school = false;
         public static bool training = false;
         
-        public static int malfunction = 0;
-        public static int malfunctionDirection = 0;
-        public static int malfunctionDelay = 0;
+        public static int radarMalfunction = 0;
+        public static int radarMalfunctionDirection = 0;
+        public static int radarMalfunctionDelay = 0;
+
+        public static int gunMalfunction = 0;
 
         static Random rand;
 
@@ -69,21 +71,29 @@ namespace shilka2
 
         public static double RadarmMalfunction()
         {
-            if ((malfunctionDelay > 10) && (rand.Next(2) == 1))
-                malfunctionDelay = 0;
-            else if (malfunctionDelay > 10)
-                malfunctionDirection = rand.Next(10) - 5;
+            if ((radarMalfunctionDelay > 10) && (rand.Next(2) == 1))
+                radarMalfunctionDelay = 0;
+            else if (radarMalfunctionDelay > 10)
+                radarMalfunctionDirection = rand.Next(10) - 5;
             else
-                malfunctionDelay += 1;
+                radarMalfunctionDelay += 1;
 
-            malfunction += malfunctionDirection;
+            radarMalfunction += radarMalfunctionDirection;
 
-            if (malfunction > 0)
-                malfunction = 0;
-            else if (malfunction < -130)
-                malfunction = -130;
+            if (radarMalfunction > 0)
+                radarMalfunction = 0;
+            else if (radarMalfunction < -130)
+                radarMalfunction = -130;
 
-            return malfunction;
+            return radarMalfunction;
+        }
+
+        public static double GunMalfunction()
+        {
+            if (rand.Next(3) == 1)
+                gunMalfunction = rand.Next(400) - 200;
+
+            return gunMalfunction;
         }
 
         public static void SetNewTergetPoint(Point pt, object sender)
@@ -92,6 +102,9 @@ namespace shilka2
             Shell.ptY = (sender as Window).Height - pt.Y - Constants.FIRE_HEIGHT_POINT_CORRECTION;
             Shell.currentHeight = (sender as Window).Height;
             Shell.currentWidth = (sender as Window).Width + Constants.FIRE_WIDTH_CORRECTION;
+
+            if (Shilka.currentScript == Scripts.scriptsNames.IranIraq)
+                Shell.ptX -= GunMalfunction();
 
             if (Shell.ptX < 0)
                 Shell.ptX = 0;
