@@ -38,7 +38,7 @@ namespace shilka2
                 aircraftType = "b52",
                 aircraftName = "B-52 Stratofortress",
                 hitPoint = 120,
-                size = new int[] { 565, 155 },
+                size = new int[] { 565, 133 },
                 price = 53,
                 speed = 8,
                 minAltitude = minAltitudeForLargeAircraft,
