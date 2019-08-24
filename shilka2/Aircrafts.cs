@@ -29,7 +29,7 @@ namespace shilka2
                 aircraftType = "b1",
                 aircraftName = "B-1 Lancer",
                 hitPoint = 100,
-                size = new int[] { 510, 108 },
+                size = new int[] { 510, 114 },
                 price = 283,
                 speed = 12
             },
