@@ -115,5 +115,6 @@ namespace shilka2
 
         //scripts
         public const int RADAR_DAMAGED = 20;
+        public const int GUN_DAMAGED_CHANCE = 4;
     }
 }
