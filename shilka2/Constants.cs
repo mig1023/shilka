@@ -109,7 +109,7 @@ namespace shilka2
         public const int SCHOOL_AIRLINER_AT_THE_START = 30;
 
         //training
-        public const string TRAINING_INFORMATION = "ТРЕНИРОВКА\n\nДля тренировки зенитчика используется самолёт-мишень Ла-17ММ. " +
+        public const string TRAINING_INFORMATION = "ТРЕНИРОВКА\n\nДля тренировки зенитчика используется самолёты-мишени Ла-17ММ и Е-95. " +
             "Вам нужно сбить или повредить как можно больше мишеней.\n\nOK";
         public const double ANGLE_OF_ATTACK_CHANGE_TRAINING = 4.5;
 

@@ -540,25 +540,8 @@ namespace shilka2
 
             if (Shilka.training)
             {
-
-                if (rand.Next(2) == 1)
-                    newAircraft = new AircraftsType
-                    {
-                        aircraftType = "la17mm",
-                        aircraftName = "самолёт-мишень Ла-17ММ",
-                        hitPoint = 30,
-                        size = new int[] { 125, 47 },
-                        speed = 8,
-                    };
-                else
-                    newAircraft = new AircraftsType
-                    {
-                        aircraftType = "e95",
-                        aircraftName = "самолёт-мишень E-95",
-                        hitPoint = 10,
-                        size = new int[] { 105, 23 },
-                        speed = 6,
-                    };
+                dice = rand.Next(Aircrafts.targetDrones.Count);
+                newAircraft = Aircrafts.targetDrones[dice];
             }
             else
                 switch (aircraftCategory)
@@ -596,7 +579,7 @@ namespace shilka2
                             dice = rand.Next(Aircrafts.aircraft.Count);
                         }
                         while (!AircraftInList(Scripts.scriptAircraft, dice));
-                    
+
                         if ((Shilka.currentScript == Scripts.scriptsNames.F117Hunt) && (dice != FindAircraftByName("f117")))
                             goto case 1;
 
@@ -622,9 +605,9 @@ namespace shilka2
                             dice = rand.Next(Aircrafts.helicopters.Count);
                         }
                         while (!AircraftInList(Scripts.scriptHelicopters, dice));
-                    
+
                         newAircraft = Aircrafts.helicopters[dice];
-                    
+
                         break;
 
                     case 13:
@@ -639,7 +622,7 @@ namespace shilka2
                         while (!AircraftInList(Scripts.scriptAircraftFriend, dice));
 
                         newAircraft = Aircrafts.aircraftFriend[dice];
-                    
+
                         break;
 
                     case 14:
@@ -652,9 +635,9 @@ namespace shilka2
                             dice = rand.Next(Aircrafts.helicoptersFriend.Count);
                         }
                         while (!AircraftInList(Scripts.scriptHelicoptersFriend, dice));
-                    
+
                         newAircraft = Aircrafts.helicoptersFriend[dice];
-                    
+
                         break;
 
                     case 15:
@@ -670,9 +653,9 @@ namespace shilka2
                             dice = rand.Next(Aircrafts.airliners.Count);
                         }
                         while (!AircraftInList(Scripts.scriptAirliners, dice));
-                   
+
                         newAircraft = Aircrafts.airliners[dice];
-                    
+
                         break;
                 }
 

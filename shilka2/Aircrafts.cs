@@ -1998,5 +1998,24 @@ namespace shilka2
                 airliner = true
             },
         };
+
+        public static List<AircraftsType> targetDrones = new List<AircraftsType>()
+        {
+            new AircraftsType {
+                aircraftType = "la17mm",
+                aircraftName = "самолёт-мишень Ла-17ММ",
+                hitPoint = 30,
+                size = new int[] { 125, 47 },
+                speed = 8,
+            },
+
+            new AircraftsType {
+                aircraftType = "e95",
+                aircraftName = "самолёт-мишень E-95",
+                hitPoint = 10,
+                size = new int[] { 105, 23 },
+                speed = 6,
+            }
+        };
     }
 }
