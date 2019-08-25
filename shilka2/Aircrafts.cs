@@ -1469,6 +1469,14 @@ namespace shilka2
                 minAltitude = minAltitudeForLargeAircraft,
                 friend = true
             },
+
+            new AircraftsType {
+                aircraftType = "tu22",
+                aircraftName = "Ту-22",
+                size = new int[] { 450, 98 },
+                minAltitude = minAltitudeForLargeAircraft,
+                friend = true
+            },
         };
 
         public static List<AircraftsType> helicoptersFriend = new List<AircraftsType>()

@@ -149,6 +149,7 @@ namespace shilka2
                     10,    // <-- mig19
                     12,    // <-- mig25
                     18,    // <-- tu16
+                    19,    // <-- tu22
                 };
 
             if (script == scriptsNames.Syria)
