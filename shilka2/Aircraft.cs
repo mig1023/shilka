@@ -540,14 +540,25 @@ namespace shilka2
 
             if (Shilka.training)
             {
-                newAircraft = new AircraftsType
-                {
-                    aircraftType = "la17mm",
-                    aircraftName = "самолёт-мишень Ла-17ММ",
-                    hitPoint = 30,
-                    size = new int[] { 125, 47 },
-                    speed = 8,
-                };
+
+                if (rand.Next(2) == 1)
+                    newAircraft = new AircraftsType
+                    {
+                        aircraftType = "la17mm",
+                        aircraftName = "самолёт-мишень Ла-17ММ",
+                        hitPoint = 30,
+                        size = new int[] { 125, 47 },
+                        speed = 8,
+                    };
+                else
+                    newAircraft = new AircraftsType
+                    {
+                        aircraftType = "e95",
+                        aircraftName = "самолёт-мишень E-95",
+                        hitPoint = 10,
+                        size = new int[] { 105, 23 },
+                        speed = 6,
+                    };
             }
             else
                 switch (aircraftCategory)
