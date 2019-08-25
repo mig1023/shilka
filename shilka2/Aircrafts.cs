@@ -1457,6 +1457,16 @@ namespace shilka2
                 aircraftType = "tu22m3",
                 aircraftName = "Ту-22М3",
                 size = new int[] { 434, 108 },
+                speed = 12,
+                minAltitude = minAltitudeForLargeAircraft,
+                friend = true
+            },
+
+            new AircraftsType {
+                aircraftType = "tu16",
+                aircraftName = "Ту-16",
+                size = new int[] { 430, 105 },
+                minAltitude = minAltitudeForLargeAircraft,
                 friend = true
             },
         };
