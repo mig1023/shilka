@@ -54,14 +54,13 @@ The game is about a small anti-aircraft vehicle in the school notebook
 
 ### Friend aircrafts:
 
-| Aircraft | Aircraft | Aircraft |
-| ------------- | ------------- | ------------- |
-| A-50 | MiG-19 | MiG-21 |
-| MiG-23 | MiG-25 | MiG-29 |
-| MiG-31 | MiG-35 | Su-17 |
-| Su-24 | Su-25 | Su-27 |
-| Su-30 | Su-34 | Su-57 |
-| Tu-22M3 | Tu-95 | Tu-160 |
+| Aircraft | Aircraft | Aircraft | Aircraft |
+| ------------- | ------------- | ------------- | ------------- |
+| A-50 | MiG-19 | MiG-21 | MiG-23 |
+| MiG-25 | MiG-29 | MiG-31 | MiG-35 |
+| Su-17 | Su-24 | Su-25 | Su-27 |
+| Su-30 | Su-34 | Su-57 | Tu-16 |
+| Tu-22 | Tu-22M3 | Tu-95 | Tu-160 |
 
 ### Friend helicopters:
 
