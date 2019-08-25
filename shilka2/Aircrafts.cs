@@ -464,7 +464,7 @@ namespace shilka2
                 aircraftType = "c17",
                 aircraftName = "C-17 Globemaster III",
                 hitPoint = 120,
-                size = new int[] { 545, 183 },
+                size = new int[] { 462, 150 },
                 speed = 8,
                 minAltitude = minAltitudeForLargeAircraft,
                 price = 316,
