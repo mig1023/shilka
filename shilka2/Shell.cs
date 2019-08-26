@@ -89,6 +89,9 @@ namespace shilka2
                             main.firePlace.Children.Add(shellTrace);
                             Canvas.SetZIndex(shellTrace, 20);
                             allLines.Add(shellTrace);
+
+                            double planeMiddle = (aircraft.aircraftImage.Margin.Left + aircraft.aircraftImage.Width) / 2;
+                            aircraft.placeOfDamage = (shell.x < planeMiddle ? 1 : -1);
                         }
                         else if (shell.flash)
                             shell.fly = false;

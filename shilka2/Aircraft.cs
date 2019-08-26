@@ -19,6 +19,8 @@ namespace shilka2
         int tangageDelay = 0;
         double angleOfAttack = 0;
 
+        public int placeOfDamage = 0;
+
         public string aircraftType;
         public string aircraftName;
         public double price;
@@ -82,12 +84,10 @@ namespace shilka2
                                 Constants.ANGLE_OF_ATTACK_CHANGE_LIGHT : Constants.ANGLE_OF_ATTACK_CHANGE_HEAVY
                             );
 
-                            if (aircraft.angleOfAttack > 0)
+                            if (aircraft.placeOfDamage > 0)
                                 aircraft.angleOfAttack += angle;
-                            else if (aircraft.angleOfAttack < 0)
-                                aircraft.angleOfAttack -= angle;
                             else
-                                aircraft.angleOfAttack += (rand.NextDouble() - 0.5) * 0.2;
+                                aircraft.angleOfAttack -= angle;
 
                             aircraft.aircraftImage.RenderTransform = new RotateTransform(
                                 aircraft.angleOfAttack, (aircraft.aircraftImage.ActualWidth / 2), (aircraft.aircraftImage.ActualHeight / 2)
@@ -457,7 +457,9 @@ namespace shilka2
             newAircraft.cloud = aircraft.cloud;
             newAircraft.cantEscape = aircraft.cantEscape;
             newAircraft.lightweight = aircraft.lightweight;
+
             newAircraft.fly = true;
+            newAircraft.placeOfDamage = 0;
 
             return newAircraft;
         }

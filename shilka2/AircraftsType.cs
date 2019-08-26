@@ -20,6 +20,7 @@ namespace shilka2
         public int minAltitude = -1;
         public int maxAltitude = -1;
         public double price = 0;
+        public int placeOfDamage = 0;
 
         public bool friend = false;
         public bool airliner = false;
