@@ -23,7 +23,8 @@ namespace shilka2
         public const double SLOW_ROTATION = 0.07;
         public const double FAST_ROTATION = 0.3;
         public const double ROTATION_REVERT = 0.01;
-        public const double ANGLE_OF_ATTACK_CHANGE_SPEED = 0.1;
+        public const double ANGLE_OF_ATTACK_CHANGE_HEAVY = 0.1;
+        public const double ANGLE_OF_ATTACK_CHANGE_LIGHT = 4.5;
         public const int CLOUD_SPEED = 5;
 
         // case
@@ -111,7 +112,6 @@ namespace shilka2
         //training
         public const string TRAINING_INFORMATION = "ТРЕНИРОВКА\n\nДля тренировки зенитчика используется самолёты-мишени Ла-17ММ и Е-95. " +
             "Вам нужно сбить или повредить как можно больше мишеней.\n\nOK";
-        public const double ANGLE_OF_ATTACK_CHANGE_TRAINING = 4.5;
 
         //scripts
         public const int RADAR_DAMAGED = 20;

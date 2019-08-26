@@ -218,7 +218,8 @@ namespace shilka2
                 size = new int[] { 125, 29 },
                 price = 2,
                 speed = 5,
-                cantEscape = true
+                cantEscape = true,
+                lightweight = true,
             },
 
             new AircraftsType {
@@ -278,7 +279,8 @@ namespace shilka2
                 size = new int[] { 115, 23 },
                 price = 2,
                 speed = 5,
-                cantEscape = true
+                cantEscape = true,
+                lightweight = true,
             },
 
             new AircraftsType {
@@ -429,7 +431,8 @@ namespace shilka2
                 size = new int[] { 108, 25 },
                 price = 0.85,
                 speed = 5,
-                cantEscape = true
+                cantEscape = true,
+                lightweight = true,
             },
 
             new AircraftsType {
@@ -2007,6 +2010,7 @@ namespace shilka2
                 hitPoint = 30,
                 size = new int[] { 125, 47 },
                 speed = 8,
+                lightweight = true,
             },
 
             new AircraftsType {
@@ -2015,6 +2019,7 @@ namespace shilka2
                 hitPoint = 10,
                 size = new int[] { 105, 23 },
                 speed = 6,
+                lightweight = true,
             }
         };
     }

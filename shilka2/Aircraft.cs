@@ -34,6 +34,7 @@ namespace shilka2
         public bool cloud = false;
         public bool cantEscape = false;
         public bool doesNotFlyInBadWeather = false;
+        public bool lightweight = false;
 
         FlightDirectionType flightDirection;
 
@@ -77,7 +78,9 @@ namespace shilka2
 
                         if (aircraft.dynamicElemets.Count == 0)
                         {
-                            double angle = (Shilka.training ? Constants.ANGLE_OF_ATTACK_CHANGE_TRAINING : Constants.ANGLE_OF_ATTACK_CHANGE_SPEED);
+                            double angle = (aircraft.lightweight ?
+                                Constants.ANGLE_OF_ATTACK_CHANGE_LIGHT : Constants.ANGLE_OF_ATTACK_CHANGE_HEAVY
+                            );
 
                             if (aircraft.angleOfAttack > 0)
                                 aircraft.angleOfAttack += angle;
@@ -453,6 +456,7 @@ namespace shilka2
             newAircraft.airliner = aircraft.airliner;
             newAircraft.cloud = aircraft.cloud;
             newAircraft.cantEscape = aircraft.cantEscape;
+            newAircraft.lightweight = aircraft.lightweight;
             newAircraft.fly = true;
 
             return newAircraft;
