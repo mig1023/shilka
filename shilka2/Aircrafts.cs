@@ -2009,8 +2009,9 @@ namespace shilka2
                 aircraftName = "самолёт-мишень Ла-17ММ",
                 hitPoint = 30,
                 size = new int[] { 125, 47 },
-                speed = 8,
+                speed = 4,
                 lightweight = true,
+                cantEscape = true,
             },
 
             new AircraftsType {
@@ -2018,8 +2019,9 @@ namespace shilka2
                 aircraftName = "самолёт-мишень E-95",
                 hitPoint = 10,
                 size = new int[] { 105, 23 },
-                speed = 6,
+                speed = 3,
                 lightweight = true,
+                cantEscape = true,
             }
         };
     }
