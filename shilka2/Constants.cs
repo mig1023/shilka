@@ -110,7 +110,8 @@ namespace shilka2
         public const int SCHOOL_AIRLINER_AT_THE_START = 30;
 
         //training
-        public const string TRAINING_INFORMATION = "ТРЕНИРОВКА\n\nДля тренировки зенитчика используется самолёты-мишени Ла-17ММ и Е-95. " +
+        public const string TRAINING_INFORMATION = "ТРЕНИРОВКА\n\nДля тренировки зенитчика используется мишени Ла-17ММ и Е-95. " +
+            "Это медленные беспилотные самолёты, не способные к манёврам уклонения, поэтому они будут простыми целями. " +
             "Вам нужно сбить или повредить как можно больше мишеней.\n\nOK";
 
         //scripts
