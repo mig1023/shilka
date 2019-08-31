@@ -2017,8 +2017,8 @@ namespace shilka2
             new AircraftsType {
                 aircraftType = "e95",
                 aircraftName = "самолёт-мишень E-95",
-                hitPoint = 10,
-                size = new int[] { 105, 23 },
+                hitPoint = 2,
+                size = new int[] { 60, 13 },
                 speed = 3,
                 lightweight = true,
                 cantEscape = true,
