@@ -87,7 +87,7 @@ namespace shilka2
                 aircraftType = "f15",
                 aircraftName = "F-15 Eagle",
                 hitPoint = 100,
-                size = new int[] { 270, 62 },
+                size = new int[] { 270, 81 },
                 price = 29
             },
 
