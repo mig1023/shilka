@@ -596,7 +596,7 @@ namespace shilka2
         {
             Shilka.training = true;
 
-            startScript_Click(null, null);
+            startScript_Click(sender, null);
         }
 
         public void SchoolMessage(string msg, Brush brush)
