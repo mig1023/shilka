@@ -63,7 +63,7 @@ namespace shilka2
             new AircraftsType {
                 aircraftType = "f18",
                 aircraftName = "F-18 Hornet",
-                size = new int[] { 270, 61 },
+                size = new int[] { 270, 66 },
                 price = 57
             },
 
