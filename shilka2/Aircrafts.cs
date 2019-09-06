@@ -56,7 +56,7 @@ namespace shilka2
             new AircraftsType {
                 aircraftType = "f14",
                 aircraftName = "F-14 Tomcat",
-                size = new int[] { 275, 67 },
+                size = new int[] { 275, 66 },
                 price = 38
             },
 
