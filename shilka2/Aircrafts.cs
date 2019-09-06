@@ -77,7 +77,7 @@ namespace shilka2
             new AircraftsType {
                 aircraftType = "f22",
                 aircraftName = "F-22 Raptor",
-                size = new int[] { 270, 73 },
+                size = new int[] { 270, 65 },
                 price = 146,
                 speed = 14,
                 doesNotFlyInBadWeather = true
