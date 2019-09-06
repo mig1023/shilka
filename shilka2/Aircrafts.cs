@@ -149,7 +149,7 @@ namespace shilka2
             new AircraftsType {
                 aircraftType = "f35",
                 aircraftName = "F-35 Lightning II",
-                size = new int[] { 270, 76 },
+                size = new int[] { 270, 69 },
                 price = 108,
                 doesNotFlyInBadWeather = true
             },
