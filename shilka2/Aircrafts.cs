@@ -253,7 +253,7 @@ namespace shilka2
             new AircraftsType {
                 aircraftType = "a6",
                 aircraftName = "A-6 Intruder",
-                size = new int[] { 270, 78 },
+                size = new int[] { 270, 81 },
                 price = 43,
                 speed = 7
             },
