@@ -1488,23 +1488,24 @@ namespace shilka2
                 aircraftType = "mi28",
                 aircraftName = "Ми-28",
                 hitPoint = 120,
-                size = new int[] { 209, 62 },
+                size = new int[] { 215, 66 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
                 friend = true,
                 elements = new List<DynamicElement> {
                     new DynamicElement {
                         elementName = "prop_main",
-                        y = -7,
-                        x_left = -39,
-                        x_right = 25,
+                        y = 0,
+                        x_left = -43,
+                        x_right = 30,
                         movingType = DynamicElement.MovingType.xRotate,
+                        background = true,
                     },
                     new DynamicElement {
                         elementName = "x_suppl",
-                        y = -11,
-                        x_left = 165,
-                        x_right = -8,
+                        y = -7,
+                        x_left = 180,
+                        x_right = -16,
                         movingType = DynamicElement.MovingType.zRotate
                     }
                 }
