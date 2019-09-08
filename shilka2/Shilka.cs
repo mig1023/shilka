@@ -69,6 +69,18 @@ namespace shilka2
             }));
         }
 
+        public static void RadarmMalfunction(object obj, ElapsedEventArgs e)
+        {
+            if (Shilka.currentScript == Scripts.scriptsNames.IranIraq)
+            {
+                Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
+                {
+                    FirePlace main = (FirePlace)Application.Current.MainWindow;
+                    main.RadarImg.RenderTransform = new RotateTransform(Shilka.RadarmMalfunction(), 4, 20);
+                }));
+            }
+        }
+
         public static double RadarmMalfunction()
         {
             if ((radarMalfunctionDelay > 10) && (rand.Next(2) == 1))
@@ -78,12 +90,18 @@ namespace shilka2
             else
                 radarMalfunctionDelay += 1;
 
-            radarMalfunction += radarMalfunctionDirection;
+            radarMalfunction -= radarMalfunctionDirection;
 
             if (radarMalfunction > 0)
+            {
                 radarMalfunction = 0;
+                radarMalfunctionDirection = rand.Next(10) * -1;
+            }
             else if (radarMalfunction < -130)
+            {
                 radarMalfunction = -130;
+                radarMalfunctionDirection = rand.Next(10);
+            }
 
             return radarMalfunction;
         }

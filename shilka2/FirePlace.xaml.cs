@@ -139,6 +139,7 @@ namespace shilka2
                 Game.Elapsed += new ElapsedEventHandler(Weather.WeatherElementsFly);
                 Game.Elapsed += new ElapsedEventHandler(Aircraft.AircraftFly);
                 Game.Elapsed += new ElapsedEventHandler(Statistic.Show);
+                Game.Elapsed += new ElapsedEventHandler(Shilka.RadarmMalfunction);
 
                 HandMove.Elapsed += new ElapsedEventHandler(HideHand);
                 AircraftsStart.Elapsed += new ElapsedEventHandler(Aircraft.Start);
@@ -349,9 +350,7 @@ namespace shilka2
             {
                 if (Shilka.currentScript == Scripts.scriptsNames.Libya)
                     RadarImg.RenderTransform = new RotateTransform(Constants.RADAR_DAMAGED, 4, 20);
-                else if (Shilka.currentScript == Scripts.scriptsNames.IranIraq)
-                    RadarImg.RenderTransform = new RotateTransform(Shilka.RadarmMalfunction(), 4, 20);
-                else
+                else if (Shilka.currentScript != Scripts.scriptsNames.IranIraq)
                     RadarImg.RenderTransform = new RotateTransform(Shilka.lastDegree, 4, 20);
             }
         }
