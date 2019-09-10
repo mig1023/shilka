@@ -300,7 +300,6 @@ namespace shilka2
                 originalSource.DpiX, originalSource.DpiY, originalSource.Format, palette, data, stride);
         }
 
-
         static void CreateNewAircraft(AircraftsType aircraft)
         {
             allAircraftsInGame += 1;
@@ -541,7 +540,7 @@ namespace shilka2
                 aircraftCategory = aircraftCategoryForSchool(aircraftCategory, allAircraftsInGame);
 
             int dice;
-            
+
             AircraftsType newAircraft;
 
             if (Shilka.training)
@@ -594,6 +593,9 @@ namespace shilka2
 
                         if (Shilka.currentScript == Scripts.scriptsNames.Khmeimim)
                             goto case 10;
+
+                        if ((Shilka.currentScript != Scripts.scriptsNames.Rust) && (dice == FindAircraftByName("cessna")))
+                            goto case 5;
 
                         newAircraft = Aircrafts.aircraft[dice];
 
