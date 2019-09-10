@@ -595,23 +595,23 @@ namespace shilka2
             new AircraftsType {
                 aircraftType = "uh1",
                 aircraftName = "UH-1 Iroquois",
-                size = new int[] { 210, 65 },
+                size = new int[] { 210, 64 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
                 price = 5,
                 elements = new List<DynamicElement> {
                     new DynamicElement {
                         elementName = "prop_main",
-                        y = -13,
-                        x_left = -39,
+                        y = -16,
+                        x_left = -41,
                         x_right = 25,
                         movingType = DynamicElement.MovingType.xRotate,
                     },
                     new DynamicElement {
                         elementName = "i_suppl",
-                        y = -11,
-                        x_left = 175,
-                        x_right = -12,
+                        y = -16,
+                        x_left = 178,
+                        x_right = -14,
                         movingType = DynamicElement.MovingType.zRotate
                     }
                 }
