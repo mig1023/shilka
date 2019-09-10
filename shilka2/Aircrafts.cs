@@ -511,6 +511,26 @@ namespace shilka2
                 size = new int[] { 275, 81 },
                 price = 8
             },
+
+            new AircraftsType {
+                aircraftType = "argus",
+                aircraftName = "Saab S100B Argus",
+                hitPoint = 100,
+                size = new int[] { 300, 105 },
+                speed = 7,
+                price = 14,
+                cantEscape = true,
+                elements = new List<DynamicElement> {
+                    new DynamicElement {
+                        elementName = "ltl_prop",
+                        y = 50,
+                        x_left = 80,
+                        x_right = 207,
+                        movingType = DynamicElement.MovingType.yRotate,
+                        mirror = true
+                    }
+                }
+            },
         };
 
         public static List<AircraftsType> helicopters = new List<AircraftsType>()
