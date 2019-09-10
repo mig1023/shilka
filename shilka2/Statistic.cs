@@ -203,6 +203,14 @@ namespace shilka2
 
         public static void Show(object obj, ElapsedEventArgs e)
         {
+            if (Shilka.training)
+                ShowTraining(obj, e);
+            else
+                ShowGame(obj, e);
+        }
+
+        public static void ShowGame(object obj, ElapsedEventArgs e)
+        {
             string stat = String.Empty;
 
             int shutdownPercent, damagedPercent, statisticWithoutDamage, inTargetPercent, shellsForShutdown;
@@ -274,6 +282,36 @@ namespace shilka2
 
             if (statisticAllAircraft > 0 && !Shilka.training)
                 stat += String.Format("удача: {0:f2}", chance) + "\n";
+
+            if (statisticShellsFired > 0)
+                stat += String.Format("температура стволов: {0}°C {1}",
+                    Shilka.degreeOfHeatingGunBurrels, (Shilka.reheatingGunBurrels ? " - перегрев стволов!" : String.Empty));
+
+            Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
+            {
+                FirePlace main = (FirePlace)Application.Current.MainWindow;
+                main.statShells.Content = stat;
+            }));
+        }
+
+        public static void ShowTraining(object obj, ElapsedEventArgs e)
+        {
+            string stat = String.Empty;
+
+            if (statisticShellsFired > 0)
+                stat += String.Format("выстрелов: {0}\n", statisticShellsFired);
+
+            if (staticticInTarget > 0)
+                stat += String.Format("попаданий: {0}\n", staticticInTarget);
+
+            if (staticticAircraftShutdown > 0)
+                stat += String.Format("сбито: {0}\n", staticticAircraftShutdown);
+
+            if (statisticDamaged > 0)
+                stat += String.Format("повреждено: {0}\n", statisticDamaged);
+
+            if (statisticHasGone > 0)
+                stat += String.Format("упущено: {0}\n", statisticHasGone);
 
             if (statisticShellsFired > 0)
                 stat += String.Format("температура стволов: {0}°C {1}",
