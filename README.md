@@ -37,8 +37,9 @@ The game is about a small anti-aircraft vehicle in the school notebook
 | Mirage 2000 | Mirage 2000ED | MQ-1 Predator |
 | MQ-9 Reaper | Panavia Tornado | Rafale |
 | RC-135 | RQ-4 Global Hawk | RQ-5 Hunter |
-| Saab JAS 39 Gripen | Sea Harrier | SEPECAT Jaguar |
-| SR-71 Blackbird | Storm Shadow / SCALP | U-2 Dragon Lady |
+| Saab JAS 39 Gripen | Saab S-100B Argus | Sea Harrier |
+| SEPECAT Jaguar | SR-71 Blackbird | Storm Shadow / SCALP |
+| U-2 Dragon Lady | | |
 
 ### Enemy helicopters:
 
