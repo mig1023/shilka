@@ -518,7 +518,7 @@ namespace shilka2
                 hitPoint = 100,
                 size = new int[] { 300, 105 },
                 speed = 7,
-                price = 14,
+                price = 110,
                 cantEscape = true,
                 elements = new List<DynamicElement> {
                     new DynamicElement {
