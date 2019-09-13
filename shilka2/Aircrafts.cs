@@ -531,6 +531,25 @@ namespace shilka2
                     }
                 }
             },
+
+            new AircraftsType {
+                aircraftType = "ov10",
+                aircraftName = "OV-10 Bronco",
+                hitPoint = 100,
+                size = new int[] { 270, 88 },
+                speed = 7,
+                price = 5,
+                elements = new List<DynamicElement> {
+                    new DynamicElement {
+                        elementName = "ltl_prop",
+                        y = 29,
+                        x_left = 78,
+                        x_right = 178,
+                        movingType = DynamicElement.MovingType.yRotate,
+                        mirror = true
+                    }
+                }
+            },
         };
 
         public static List<AircraftsType> helicopters = new List<AircraftsType>()

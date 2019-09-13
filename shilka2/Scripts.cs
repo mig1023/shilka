@@ -287,6 +287,7 @@ namespace shilka2
                     24,     // <-- f5
                     42,     // <-- a1
                     43,     // <-- kc135
+                    46,     // <-- bronco
                 };
 
             if (script == scriptsNames.Yugoslavia)
@@ -340,6 +341,7 @@ namespace shilka2
                     40,     // <-- galaxy
                     43,     // <-- kc135
                     44,     // <-- jaguar
+                    46,     // <-- bronco
                 };
 
             if (script == scriptsNames.IranIraq)
