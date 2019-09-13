@@ -39,7 +39,7 @@ The game is about a small anti-aircraft vehicle in the school notebook
 | RC-135 | RQ-4 Global Hawk | RQ-5 Hunter |
 | Saab JAS 39 Gripen | Saab S-100B Argus | Sea Harrier |
 | SEPECAT Jaguar | SR-71 Blackbird | Storm Shadow / SCALP |
-| U-2 Dragon Lady | | |
+| U-2 Dragon Lady | OV-10 Bronco | |
 
 ### Enemy helicopters:
 
