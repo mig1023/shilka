@@ -550,6 +550,14 @@ namespace shilka2
                     }
                 }
             },
+
+            new AircraftsType {
+                aircraftType = "x2",
+                aircraftName = "Mitsubishi X-2 Shinshin",
+                hitPoint = 100,
+                size = new int[] { 265, 62 },
+                price = 50,
+            },
         };
 
         public static List<AircraftsType> helicopters = new List<AircraftsType>()
