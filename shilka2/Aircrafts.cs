@@ -478,15 +478,16 @@ namespace shilka2
                 aircraftType = "a1",
                 aircraftName = "A-1 Skyraider",
                 hitPoint = 80,
-                size = new int[] { 190, 67 },
+                size = new int[] { 195, 67 },
                 speed = 7,
                 price = 0.4,
                 cantEscape = true,
+                deadSprite = true,
                 elements = new List<DynamicElement> {
                     new DynamicElement {
                         elementName = "ltl_prop",
                         y = 19,
-                        x_left = -6,
+                        x_left = -1,
                         x_right = 183,
                         movingType = DynamicElement.MovingType.yRotate,
                         mirror = true

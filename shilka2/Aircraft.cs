@@ -79,7 +79,7 @@ namespace shilka2
                     {
                         aircraft.y += Constants.TANGAGE_DEAD_SPEED * (rand.NextDouble() * 2 - 1) + 4;
 
-                        if (aircraft.dynamicElemets.Count == 0)
+                        if (aircraft.dynamicElemets.Count == 0 || aircraft.deadSprite)
                         {
                             double angle = (aircraft.lightweight ?
                                 Constants.ANGLE_OF_ATTACK_CHANGE_LIGHT : Constants.ANGLE_OF_ATTACK_CHANGE_HEAVY
@@ -456,6 +456,7 @@ namespace shilka2
             newAircraft.airliner = aircraft.airliner;
             newAircraft.cloud = aircraft.cloud;
             newAircraft.cantEscape = aircraft.cantEscape;
+            newAircraft.deadSprite = aircraft.deadSprite;
             newAircraft.lightweight = aircraft.lightweight;
 
             newAircraft.fly = true;
@@ -477,6 +478,14 @@ namespace shilka2
             else
             {
                 aircraft.dead = true;
+
+                if (aircraft.deadSprite)
+                {
+                    foreach (DynamicElement d in aircraft.dynamicElemets)
+                        main.firePlace.Children.Remove(d.element);
+
+                    aircraft.aircraftImage.Source = ImageFromResources(aircraft.aircraftType + "_dead");
+                }
 
                 Statistic.staticticAircraftShutdown++;
                 Statistic.statisticAmountOfDamage += aircraft.price;

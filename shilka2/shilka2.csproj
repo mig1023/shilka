@@ -301,6 +301,7 @@
     <Resource Include="Images\argus.png" />
     <Resource Include="Images\ov10.png" />
     <Resource Include="Images\x2.png" />
+    <Resource Include="Images\a1_dead.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -81,10 +81,7 @@ namespace shilka2
                             Statistic.staticticInTarget++;
 
                             if (aircraft.hitpoint <= 0 && !aircraft.dead)
-                            {
                                 Aircraft.Shutdown(aircraft, main);
-                                aircraft.dead = true;
-                            }
 
                             main.firePlace.Children.Add(shellTrace);
                             Canvas.SetZIndex(shellTrace, 20);
