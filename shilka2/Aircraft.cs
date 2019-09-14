@@ -35,6 +35,7 @@ namespace shilka2
         public bool airliner = false;
         public bool cloud = false;
         public bool cantEscape = false;
+        public bool deadSprite = false;
         public bool doesNotFlyInBadWeather = false;
         public bool lightweight = false;
 
@@ -475,6 +476,8 @@ namespace shilka2
 
             else
             {
+                aircraft.dead = true;
+
                 Statistic.staticticAircraftShutdown++;
                 Statistic.statisticAmountOfDamage += aircraft.price;
 
