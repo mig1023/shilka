@@ -28,6 +28,6 @@ namespace shilka2
         public bool cantEscape = false;
         public bool deadSprite = false;
         public bool doesNotFlyInBadWeather = false;
-        public bool lightweight = false;
+        public Aircraft.WeightType weight = Aircraft.WeightType.Heavy;
     }
 }

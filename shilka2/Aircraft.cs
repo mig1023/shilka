@@ -14,6 +14,7 @@ namespace shilka2
         static int maxAltitudeGlobal = Constants.MAX_FLIGHT_HEIGHT;
         enum FlightDirectionType { Left, Right };
         enum zIndexType { inFront, Behind };
+        public enum WeightType { Light, Middle, Heavy };
 
         double tangage { get; set; }
         int tangageDelay = 0;
@@ -37,7 +38,7 @@ namespace shilka2
         public bool cantEscape = false;
         public bool deadSprite = false;
         public bool doesNotFlyInBadWeather = false;
-        public bool lightweight = false;
+        public WeightType weight = WeightType.Heavy;
 
         FlightDirectionType flightDirection;
 
@@ -81,9 +82,7 @@ namespace shilka2
 
                         if (aircraft.dynamicElemets.Count == 0 || aircraft.deadSprite)
                         {
-                            double angle = (aircraft.lightweight ?
-                                Constants.ANGLE_OF_ATTACK_CHANGE_LIGHT : Constants.ANGLE_OF_ATTACK_CHANGE_HEAVY
-                            );
+                            double angle = AircraftFlyAngle(aircraft);
 
                             if (aircraft.placeOfDamage > 0)
                                 aircraft.angleOfAttack += angle;
@@ -240,6 +239,26 @@ namespace shilka2
                         aircrafts.RemoveAt(x);
                     }
             }));
+        }
+
+        private static double AircraftFlyAngle(Aircraft aircraft)
+        {
+            double angle;
+
+            switch (aircraft.weight)
+            {
+                case WeightType.Light:
+                    angle = Constants.ANGLE_OF_ATTACK_CHANGE_LIGHT;
+                    break;
+                case WeightType.Middle:
+                    angle = Constants.ANGLE_OF_ATTACK_CHANGE_MIDDLE;
+                    break;
+                default:
+                    angle = Constants.ANGLE_OF_ATTACK_CHANGE_HEAVY;
+                    break;
+            }
+
+            return angle;
         }
 
         private static bool AircraftInList(int?[] scriptAircraft, int aircraft)
@@ -457,7 +476,7 @@ namespace shilka2
             newAircraft.cloud = aircraft.cloud;
             newAircraft.cantEscape = aircraft.cantEscape;
             newAircraft.deadSprite = aircraft.deadSprite;
-            newAircraft.lightweight = aircraft.lightweight;
+            newAircraft.weight = aircraft.weight;
 
             newAircraft.fly = true;
             newAircraft.placeOfDamage = 0;

@@ -24,6 +24,7 @@ namespace shilka2
         public const double FAST_ROTATION = 0.3;
         public const double ROTATION_REVERT = 0.01;
         public const double ANGLE_OF_ATTACK_CHANGE_HEAVY = 0.1;
+        public const double ANGLE_OF_ATTACK_CHANGE_MIDDLE = 1;
         public const double ANGLE_OF_ATTACK_CHANGE_LIGHT = 4.5;
         public const int CLOUD_SPEED = 5;
 
@@ -86,7 +87,7 @@ namespace shilka2
         public const int HEATING_IN_RAIN = -10;
         public const int HEATING_UNDER_SNOW = -25;
 
-        //school
+        // school
         public const string ENEMY_INFORMATION = "ВРАЖЕСКИЙ САМОЛЁТ\n\nСейчас появится первый вражеский самолёт " +
             "- все самолёты противника выделены на время обучения красным цветом. Вы должны сбить их или хотя бы повредить. " +
             "Шкала подскажет вам насколько повреждён каждый из них. В реальном бою придётся определять самолёт по профилю, " +
@@ -109,12 +110,12 @@ namespace shilka2
         public const int SCHOOL_FRIEND_AT_THE_START = 25;
         public const int SCHOOL_AIRLINER_AT_THE_START = 30;
 
-        //training
+        // training
         public const string TRAINING_INFORMATION = "ТРЕНИРОВКА\n\nДля тренировки зенитчика используются мишени Ла-17ММ и Е-95. " +
             "Это медленные самолёты-мишени, не способные к манёврам уклонения, поэтому они будут простыми целями. " +
             "Вам нужно сбить или повредить как можно больше мишеней.\n\n[ OK ]";
         
-        //scripts
+        // scripts
         public const int RADAR_DAMAGED = 20;
         public const int GUN_DAMAGED_CHANCE = 4;
     }

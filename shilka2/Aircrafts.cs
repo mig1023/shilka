@@ -136,6 +136,7 @@ namespace shilka2
                 speed = 5,
                 cantEscape = true,
                 deadSprite = true,
+                weight = Aircraft.WeightType.Middle,
                 elements = new List<DynamicElement> {
                     new DynamicElement {
                         elementName = "ltl_prop",
@@ -221,7 +222,7 @@ namespace shilka2
                 price = 2,
                 speed = 5,
                 cantEscape = true,
-                lightweight = true,
+                weight = Aircraft.WeightType.Light,
             },
 
             new AircraftsType {
@@ -282,7 +283,7 @@ namespace shilka2
                 price = 2,
                 speed = 5,
                 cantEscape = true,
-                lightweight = true,
+                weight = Aircraft.WeightType.Light,
             },
 
             new AircraftsType {
@@ -434,7 +435,7 @@ namespace shilka2
                 price = 0.85,
                 speed = 5,
                 cantEscape = true,
-                lightweight = true,
+                weight = Aircraft.WeightType.Light,
             },
 
             new AircraftsType {
@@ -2061,7 +2062,7 @@ namespace shilka2
                 hitPoint = 30,
                 size = new int[] { 125, 47 },
                 speed = 4,
-                lightweight = true,
+                weight = Aircraft.WeightType.Light,
                 cantEscape = true,
             },
 
@@ -2071,7 +2072,7 @@ namespace shilka2
                 hitPoint = 2,
                 size = new int[] { 60, 13 },
                 speed = 3,
-                lightweight = true,
+                weight = Aircraft.WeightType.Light,
                 cantEscape = true,
             }
         };
