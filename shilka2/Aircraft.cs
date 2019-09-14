@@ -463,19 +463,6 @@ namespace shilka2
             return newAircraft;
         }
 
-        public static int FindAircraftByName(string aircraftName)
-        {
-            int aircraftIndex = 0;
-
-            foreach(AircraftsType currentAircraft in Aircrafts.aircraft)
-            {
-                if (currentAircraft.aircraftName == aircraftName)
-                    return aircraftIndex;
-            }
-
-            return -1;
-        }
-
         public static void Shutdown(Aircraft aircraft, FirePlace main)
         {
             if (aircraft.friend)
@@ -585,7 +572,9 @@ namespace shilka2
                         }
                         while (!AircraftInList(Scripts.scriptAircraft, dice));
 
-                        if ((Shilka.currentScript == Scripts.scriptsNames.F117Hunt) && (dice != FindAircraftByName("f117")))
+                        string aircraftType = Aircrafts.aircraft[dice].aircraftType;
+
+                        if ((Shilka.currentScript == Scripts.scriptsNames.F117Hunt) && (aircraftType != "f117"))
                             goto case 1;
 
                         if (Weather.currentWeather != Weather.weatherTypes.good && Aircrafts.aircraft[dice].doesNotFlyInBadWeather)
@@ -594,7 +583,7 @@ namespace shilka2
                         if (Shilka.currentScript == Scripts.scriptsNames.Khmeimim)
                             goto case 10;
 
-                        if ((Shilka.currentScript != Scripts.scriptsNames.Rust) && (dice == FindAircraftByName("cessna")))
+                        if ((Shilka.currentScript != Scripts.scriptsNames.Rust) && (aircraftType == "cessna"))
                             goto case 5;
 
                         newAircraft = Aircrafts.aircraft[dice];
@@ -613,7 +602,7 @@ namespace shilka2
                             dice = rand.Next(Aircrafts.helicopters.Count);
                         }
                         while (!AircraftInList(Scripts.scriptHelicopters, dice));
-
+                        
                         newAircraft = Aircrafts.helicopters[dice];
 
                         break;
