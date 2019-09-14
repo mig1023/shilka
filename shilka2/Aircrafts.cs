@@ -135,13 +135,15 @@ namespace shilka2
                 price = 16,
                 speed = 5,
                 cantEscape = true,
+                deadSprite = true,
                 elements = new List<DynamicElement> {
                     new DynamicElement {
                         elementName = "ltl_prop",
                         y = -3,
                         x_left = 143,
                         x_right = 5,
-                        movingType = DynamicElement.MovingType.yRotate
+                        movingType = DynamicElement.MovingType.yRotate,
+                        background = true,
                     }
                 }
             },
