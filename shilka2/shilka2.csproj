@@ -304,6 +304,7 @@
     <Resource Include="Images\a1_dead.png" />
     <Resource Include="Images\reaper_dead.png" />
     <Resource Include="Images\hawkeye_dead.png" />
+    <Resource Include="Images\hunter_dead.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

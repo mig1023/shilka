@@ -391,6 +391,7 @@ namespace shilka2
                 speed = 5,
                 price = 2,
                 cantEscape = true,
+                deadSprite = true,
                 elements = new List<DynamicElement> {
                     new DynamicElement {
                         elementName = "ltl_prop",
