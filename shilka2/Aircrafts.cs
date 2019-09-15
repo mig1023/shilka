@@ -303,6 +303,7 @@ namespace shilka2
                 speed = 8,
                 minAltitude = minAltitudeForLargeAircraft,
                 cantEscape = true,
+                deadSprite = true,
                 elements = new List<DynamicElement> {
                     new DynamicElement {
                         elementName = "air_prop",
@@ -2062,7 +2063,7 @@ namespace shilka2
                 hitPoint = 30,
                 size = new int[] { 125, 47 },
                 speed = 4,
-                weight = Aircraft.WeightType.Light,
+                weight = Aircraft.WeightType.Middle,
                 cantEscape = true,
             },
 

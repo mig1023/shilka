@@ -46,8 +46,6 @@ namespace shilka2
         private static bool schoolFriendAlready = false;
         private static bool schoolAirlinerAlready = false;
 
-        private static bool trainingStartAlready = false;
-
         public static int allAircraftsInGame = 0;
 
         public Image aircraftImage;
@@ -556,7 +554,7 @@ namespace shilka2
 
             if (Shilka.school)
                 aircraftCategory = aircraftCategoryForSchool(aircraftCategory, allAircraftsInGame);
-
+            
             int dice;
 
             AircraftsType newAircraft;
@@ -602,7 +600,7 @@ namespace shilka2
                             dice = rand.Next(Aircrafts.aircraft.Count);
                         }
                         while (!AircraftInList(Scripts.scriptAircraft, dice));
-
+                        
                         string aircraftType = Aircrafts.aircraft[dice].aircraftType;
 
                         if ((Shilka.currentScript == Scripts.scriptsNames.F117Hunt) && (aircraftType != "f117"))
