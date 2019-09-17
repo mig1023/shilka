@@ -367,15 +367,16 @@ namespace shilka2
                 aircraftType = "cessna",
                 aircraftName = "Cessna 172",
                 hitPoint = 30,
-                size = new int[] { 170, 61 },
+                size = new int[] { 173, 61 },
                 speed = 6,
                 price = 0.3,
                 cantEscape = true,
+                deadSprite = true,
                 elements = new List<DynamicElement> {
                     new DynamicElement {
                         elementName = "ltl_prop",
                         y = 2,
-                        x_left = -6,
+                        x_left = -3,
                         x_right = 164,
                         movingType = DynamicElement.MovingType.yRotate,
                         mirror = true
