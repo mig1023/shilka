@@ -242,6 +242,7 @@ namespace shilka2
                 speed = 7,
                 minAltitude = minAltitudeForLargeAircraft,
                 cantEscape = true,
+                deadSprite = true,
                 elements = new List<DynamicElement> {
                     new DynamicElement {
                         elementName = "air_prop",
