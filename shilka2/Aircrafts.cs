@@ -549,6 +549,7 @@ namespace shilka2
                 size = new int[] { 270, 88 },
                 speed = 7,
                 price = 5,
+                deadSprite = true,
                 elements = new List<DynamicElement> {
                     new DynamicElement {
                         elementName = "ltl_prop",
