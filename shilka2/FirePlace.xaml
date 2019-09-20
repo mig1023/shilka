@@ -32,8 +32,8 @@
         </Canvas>
         <Canvas x:Name="RestartTrainingMenu" HorizontalAlignment="Left" Height="320" Margin="513,0,-511,0" VerticalAlignment="Top" Width="515">
             <Label x:Name="RestartText" Height="131" Canvas.Left="24" Canvas.Top="15" Width="446" Foreground="White" FontSize="32" FontFamily="Arial Narrow"/>
-            <Button x:Name="GameOverTraining" Content="закончить" Height="41" Canvas.Left="246" Canvas.Top="171" Width="212" FontFamily="font/calibri.ttf" FontSize="20" Click="GameOverWithoutSave_Click"/>
-            <Button x:Name="Restart" Content="начать заново" Height="41" Canvas.Left="24" Canvas.Top="171" Width="212" FontFamily="font/calibri.ttf" FontSize="20" Click="GameOverTraining_Click"/>
+            <Button x:Name="GameOverTraining" Content="закончить" Height="41" Canvas.Left="249" Canvas.Top="110" Width="212" FontFamily="font/calibri.ttf" FontSize="20" Click="GameOverWithoutSave_Click"/>
+            <Button x:Name="Restart" Content="начать заново" Height="41" Canvas.Left="27" Canvas.Top="110" Width="212" FontFamily="font/calibri.ttf" FontSize="20" Click="GameOverTraining_Click"/>
         </Canvas>
         <Canvas x:Name="StartMenu" HorizontalAlignment="Left" Height="618" VerticalAlignment="Top" Width="452" Margin="-452,0,0,-298">
             <Canvas x:Name="StartMenuButtons" Height="614" Width="452">
