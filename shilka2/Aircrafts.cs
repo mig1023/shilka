@@ -165,6 +165,7 @@ namespace shilka2
                 size = new int[] { 581, 164 },
                 price = 270,
                 speed = 8,
+                deadSprite = true,
                 minAltitude = minAltitudeForLargeAircraft,
                 elements = new List<DynamicElement> {
                     new DynamicElement {

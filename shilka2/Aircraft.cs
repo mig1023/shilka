@@ -278,7 +278,16 @@ namespace shilka2
 
         public static ImageSource ImageFromResources(string imageName)
         {
-            BitmapImage image = new BitmapImage(new Uri("pack://application:,,,/images/" + imageName + ".png")) { };
+            BitmapImage image = null;
+
+            try
+            {
+                image = new BitmapImage(new Uri("pack://application:,,,/images/" + imageName + ".png")) { };
+            }
+            catch
+            {
+                return null;
+            }
 
             if (Shilka.night)
                 return Invert(image);
@@ -501,7 +510,10 @@ namespace shilka2
                     foreach (DynamicElement d in aircraft.dynamicElemets)
                         main.firePlace.Children.Remove(d.element);
 
-                    aircraft.aircraftImage.Source = ImageFromResources(aircraft.aircraftType + "_dead");
+                    ImageSource sprite = ImageFromResources(aircraft.aircraftType + "_dead");
+
+                    if (sprite != null)
+                        aircraft.aircraftImage.Source = sprite;
                 }
 
                 Statistic.staticticAircraftShutdown++;
@@ -556,7 +568,7 @@ namespace shilka2
                 aircraftCategory = aircraftCategoryForSchool(aircraftCategory, allAircraftsInGame);
             
             int dice;
-
+            
             AircraftsType newAircraft;
 
             if (Shilka.training)
@@ -614,7 +626,7 @@ namespace shilka2
 
                         if ((Shilka.currentScript != Scripts.scriptsNames.Rust) && (aircraftType == "cessna"))
                             goto case 5;
-
+                        
                         newAircraft = Aircrafts.aircraft[dice];
 
                         break;
