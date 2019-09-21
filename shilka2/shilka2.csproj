@@ -300,7 +300,6 @@
     <Resource Include="Images\e95.png" />
     <Resource Include="Images\argus.png" />
     <Resource Include="Images\ov10.png" />
-    <Resource Include="Images\x2.png" />
     <Resource Include="Images\a1_dead.png" />
     <Resource Include="Images\reaper_dead.png" />
     <Resource Include="Images\hawkeye_dead.png" />
