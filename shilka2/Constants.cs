@@ -14,7 +14,6 @@ namespace shilka2
 
         // aircrafts
         public const int MAX_FLIGHT_HEIGHT = 75;
-        public const int AIRCRAFT_AVERAGE_PRICE = 61;
         public const double ESCAPE_COEFFICIENT = 1.6;
         public const int TANGAGE_DELAY = 12;
         public const int TANGAGE_SPEED = 4;

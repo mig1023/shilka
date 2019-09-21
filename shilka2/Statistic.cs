@@ -15,6 +15,7 @@ namespace shilka2
     {
         static string statisticFileName = Constants.STATISTIC_FILE_NAME;
         public static int statisticGridMargins = 120;
+        public static double aircraftAvaeragePrice = 0;
 
         public static int statisticShellsFired = 0;
         public static int staticticInTarget = 0;
@@ -59,12 +60,25 @@ namespace shilka2
             statisticWithoutDamage = (int)((statisticHasGone - statisticDamaged) * baseForPercent);
             inTargetPercent = ((statisticShellsFired > 0) ? staticticInTarget * 100 / statisticShellsFired : 0);
 
-            chance = (double)statisticPriceOfAllAircrafts / (statisticAllAircraft * (double)Constants.AIRCRAFT_AVERAGE_PRICE);
+            chance = (double)statisticPriceOfAllAircrafts / (statisticAllAircraft * aircraftAvaeragePrice);
 
             if (double.IsNaN(chance))
                 chance = 0;
 
             shellsForShutdown = (staticticAircraftShutdown > 0 ? (int)statisticShellsFired / staticticAircraftShutdown : 0);
+        }
+
+        public static double GetAveragePrice()
+        {
+            double AverageSum = 0;
+
+            foreach (AircraftsType aircraft in Aircrafts.aircraft)
+                AverageSum += aircraft.price;
+
+            foreach (AircraftsType aircraft in Aircrafts.helicopters)
+                AverageSum += aircraft.price;
+
+            return (AverageSum / (Aircrafts.aircraft.Count + Aircrafts.helicopters.Count));
         }
 
         public static void Clean()
