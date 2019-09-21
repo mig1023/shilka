@@ -352,8 +352,8 @@ namespace shilka2
             new AircraftsType {
                 aircraftType = "sr71",
                 aircraftName = "SR-71 Blackbird",
-                size = new int[] { 450, 71 },
-                price = 34,
+                size = new int[] { 530, 93 },
+                price = 534,
                 speed = 18,
                 minAltitude = minAltitudeForLargeAircraft
             },
