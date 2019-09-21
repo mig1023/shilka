@@ -562,6 +562,15 @@ namespace shilka2
                     }
                 }
             },
+
+            new AircraftsType {
+                aircraftType = "s3",
+                aircraftName = "Lockheed S-3 Viking",
+                hitPoint = 100,
+                speed = 9,
+                size = new int[] { 320, 132 },
+                price = 27,
+            },
         };
 
         public static List<AircraftsType> helicopters = new List<AircraftsType>()
