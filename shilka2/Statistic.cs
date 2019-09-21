@@ -15,7 +15,7 @@ namespace shilka2
     {
         static string statisticFileName = Constants.STATISTIC_FILE_NAME;
         public static int statisticGridMargins = 120;
-        public static double aircraftAvaeragePrice = 0;
+        public static double aircraftAveragePrice = 0;
 
         public static int statisticShellsFired = 0;
         public static int staticticInTarget = 0;
@@ -60,7 +60,7 @@ namespace shilka2
             statisticWithoutDamage = (int)((statisticHasGone - statisticDamaged) * baseForPercent);
             inTargetPercent = ((statisticShellsFired > 0) ? staticticInTarget * 100 / statisticShellsFired : 0);
 
-            chance = (double)statisticPriceOfAllAircrafts / (statisticAllAircraft * aircraftAvaeragePrice);
+            chance = (double)statisticPriceOfAllAircrafts / (statisticAllAircraft * aircraftAveragePrice);
 
             if (double.IsNaN(chance))
                 chance = 0;

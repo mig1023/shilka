@@ -39,7 +39,7 @@ namespace shilka2
             this.WindowState = WindowState.Maximized;
             this.WindowStyle = WindowStyle.None;
 
-            Statistic.aircraftAvaeragePrice = Statistic.GetAveragePrice();
+            Statistic.aircraftAveragePrice = Statistic.GetAveragePrice();
 
             double heightForShilka = SystemParameters.PrimaryScreenHeight - ShilkaImg.Height;
 
