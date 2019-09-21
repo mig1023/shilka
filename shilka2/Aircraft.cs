@@ -91,10 +91,6 @@ namespace shilka2
                                 aircraft.angleOfAttack, (aircraft.aircraftImage.ActualWidth / 2), (aircraft.aircraftImage.ActualHeight / 2)
                             );
                         }
-                        else
-                            foreach (DynamicElement d in aircraft.dynamicElemets)
-                                if ((d.movingType != DynamicElement.MovingType.xRotate) && (rand.Next(2) == 1))
-                                    d.slowRotation = true;
                     }
                     else if (!aircraft.cloud)
                     {
@@ -179,10 +175,9 @@ namespace shilka2
 
                         if (d.movingType == DynamicElement.MovingType.xRotate || d.movingType == DynamicElement.MovingType.yRotate)
                         {
-                            if (d.positiveDirection)
-                                d.rotateDegreeCurrent += (d.slowRotation ? Constants.SLOW_ROTATION : Constants.FAST_ROTATION);
-                            else
-                                d.rotateDegreeCurrent -= (d.slowRotation ? Constants.SLOW_ROTATION : Constants.FAST_ROTATION);
+                            int direction = (d.positiveDirection ? 1 : -1);
+
+                            d.rotateDegreeCurrent += ((d.slowRotation ? Constants.SLOW_ROTATION : Constants.FAST_ROTATION) * direction);
 
                             if (d.rotateDegreeCurrent < Constants.ROTATION_REVERT)
                             {
