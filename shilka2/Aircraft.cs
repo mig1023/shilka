@@ -24,12 +24,17 @@ namespace shilka2
 
         public string aircraftType;
         public string aircraftName;
-        public double price;
         public int hitpoint;
         public int hitpointMax;
-        public int speed;
-        public int minAltitude;
-        public int maxAltitude;
+
+        public int[] size;
+        public List<DynamicElement> elements;
+
+        public int hitPoint = 80;
+        public int speed = 10;
+        public int minAltitude = -1;
+        public int maxAltitude = -1;
+        public double price = 0;
 
         public bool dead = false;
         public bool friend = false;
@@ -322,7 +327,7 @@ namespace shilka2
                 originalSource.DpiX, originalSource.DpiY, originalSource.Format, palette, data, stride);
         }
 
-        static void CreateNewAircraft(AircraftsType aircraft)
+        static void CreateNewAircraft(Aircraft aircraft)
         {
             allAircraftsInGame += 1;
 
@@ -462,7 +467,7 @@ namespace shilka2
             }));
         }
 
-        public static Aircraft Clone(AircraftsType aircraft)
+        public static Aircraft Clone(Aircraft aircraft)
         {
             Aircraft newAircraft = new Aircraft();
 
@@ -564,7 +569,7 @@ namespace shilka2
             
             int dice;
             
-            AircraftsType newAircraft;
+            Aircraft newAircraft;
 
             if (Shilka.training)
             {
@@ -583,7 +588,7 @@ namespace shilka2
                         if (Shilka.currentScript == Scripts.scriptsNames.Vietnam)
                             goto case 5;
 
-                        newAircraft = new AircraftsType
+                        newAircraft = new Aircraft
                         {
                             aircraftType = "cloud" + (rand.Next(1, 8)),
                             size = new int[] { rand.Next(200, 501), rand.Next(70, 171) },

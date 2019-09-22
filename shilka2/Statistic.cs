@@ -72,10 +72,10 @@ namespace shilka2
         {
             double AverageSum = 0;
 
-            foreach (AircraftsType aircraft in Aircrafts.aircraft)
+            foreach (Aircraft aircraft in Aircrafts.aircraft)
                 AverageSum += aircraft.price;
 
-            foreach (AircraftsType aircraft in Aircrafts.helicopters)
+            foreach (Aircraft aircraft in Aircrafts.helicopters)
                 AverageSum += aircraft.price;
 
             return (AverageSum / (Aircrafts.aircraft.Count + Aircrafts.helicopters.Count));
