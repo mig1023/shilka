@@ -754,6 +754,8 @@ namespace shilka2
                 speed = 3,
                 maxAltitude = maxAltitudeForHelicopters,
                 price = 0.01,
+                deadSprite = true,
+                weight = Aircraft.WeightType.Light,
                 elements = new List<DynamicElement> {
                     new DynamicElement {
                         elementName = "micro_prop",
@@ -964,6 +966,8 @@ namespace shilka2
                 speed = 3,
                 maxAltitude = maxAltitudeForHelicopters,
                 price = 0.01,
+                deadSprite = true,
+                weight = Aircraft.WeightType.Light,
                 elements = new List<DynamicElement> {
                     new DynamicElement {
                         elementName = "micro_prop",
@@ -1069,6 +1073,8 @@ namespace shilka2
                 speed = 3,
                 maxAltitude = maxAltitudeForHelicopters,
                 price = 0.01,
+                deadSprite = true,
+                weight = Aircraft.WeightType.Light,
                 elements = new List<DynamicElement> {
                     new DynamicElement {
                         elementName = "micro_prop",
@@ -1196,6 +1202,8 @@ namespace shilka2
                 speed = 3,
                 maxAltitude = maxAltitudeForHelicopters,
                 price = 0.01,
+                deadSprite = true,
+                weight = Aircraft.WeightType.Light,
                 elements = new List<DynamicElement> {
                     new DynamicElement {
                         elementName = "micro_prop",
@@ -1223,6 +1231,8 @@ namespace shilka2
                 speed = 3,
                 maxAltitude = maxAltitudeForHelicopters,
                 price = 0.01,
+                deadSprite = true,
+                weight = Aircraft.WeightType.Light,
                 elements = new List<DynamicElement> {
                     new DynamicElement {
                         elementName = "micro_prop",
@@ -1248,6 +1258,8 @@ namespace shilka2
                 hitPoint = 1,
                 size = new int[] { 85, 35 },
                 speed = 6,
+                deadSprite = true,
+                weight = Aircraft.WeightType.Light,
                 maxAltitude = maxAltitudeForHelicopters,
                 price = 0.01,
                 elements = new List<DynamicElement> {
@@ -1293,6 +1305,8 @@ namespace shilka2
                 speed = 3,
                 maxAltitude = maxAltitudeForHelicopters,
                 price = 0.01,
+                deadSprite = true,
+                weight = Aircraft.WeightType.Light,
                 elements = new List<DynamicElement> {
                     new DynamicElement {
                         elementName = "micro_prop",
