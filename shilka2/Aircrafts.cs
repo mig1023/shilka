@@ -1092,10 +1092,12 @@ namespace shilka2
                 aircraftType = "drone4",
                 aircraftName = "дрон-разведчик (тип 4)",
                 hitPoint = 1,
-                size = new int[] { 75, 19 },
+                size = new int[] { 75, 22 },
                 speed = 3,
                 maxAltitude = maxAltitudeForHelicopters,
                 price = 0.01,
+                deadSprite = true,
+                weight = Aircraft.WeightType.Light,
                 elements = new List<DynamicElement> {
                     new DynamicElement {
                         elementName = "micro_prop_y",
