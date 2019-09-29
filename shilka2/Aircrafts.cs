@@ -239,7 +239,7 @@ namespace shilka2
                 aircraftType = "ac130",
                 aircraftName = "AC-130 Spectre",
                 hitPoint = 120,
-                size = new int[] { 400, 154 },
+                size = new int[] { 400, 150 },
                 price = 190,
                 speed = 7,
                 minAltitude = minAltitudeForLargeAircraft,
@@ -248,9 +248,9 @@ namespace shilka2
                 elements = new List<DynamicElement> {
                     new DynamicElement {
                         elementName = "air_prop",
-                        y = 50,
-                        x_left = 105,
-                        x_right = 275,
+                        y = 56,
+                        x_left = 107,
+                        x_right = 270,
                         movingType = DynamicElement.MovingType.yRotate
                     }
                 }
