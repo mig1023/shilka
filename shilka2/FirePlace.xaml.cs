@@ -276,7 +276,6 @@ namespace shilka2
 
             StatisticGrid.Margin = new Thickness(0, 50, 0, 0);
             StatisticGrid.Height = StatisticMenu.Height - Statistic.statisticGridMargins - 50;
-            StatisticGrid.ItemsSource = Statistic.Load();
 
             MoveCanvas(
                 moveCanvas: StatisticMenu,
@@ -462,6 +461,7 @@ namespace shilka2
         private void GameOverWithSave_Click(object sender, RoutedEventArgs e)
         {
             GameOver(PlayerName.Text);
+            StatisticGrid.ItemsSource = Statistic.Load();
         }
 
         private void PlayerName_KeyUp(object sender, KeyEventArgs e)
