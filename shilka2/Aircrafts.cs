@@ -2086,7 +2086,7 @@ namespace shilka2
                 aircraftName = "самолёт-мишень Ла-17ММ",
                 hitPoint = 30,
                 size = new int[] { 125, 47 },
-                speed = 4,
+                speed = 5,
                 weight = Aircraft.WeightType.Middle,
                 cantEscape = true,
             },
@@ -2099,6 +2099,27 @@ namespace shilka2
                 speed = 3,
                 weight = Aircraft.WeightType.Light,
                 cantEscape = true,
+            },
+
+            new Aircraft {
+                aircraftType = "mqm36",
+                aircraftName = "самолёт-мишень MQM-36A",
+                hitPoint = 30,
+                size = new int[] { 200, 46 },
+                speed = 4,
+                weight = Aircraft.WeightType.Middle,
+                cantEscape = true,
+                deadSprite = true,
+                elements = new List<DynamicElement> {
+                    new DynamicElement {
+                        elementName = "ltl_prop",
+                        y = 0,
+                        x_left = 0,
+                        x_right = 188,
+                        movingType = DynamicElement.MovingType.yRotate,
+                        mirror = true
+                    }
+                }
             }
         };
     }

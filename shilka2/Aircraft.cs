@@ -567,7 +567,7 @@ namespace shilka2
 
             if (Shilka.school)
                 aircraftCategory = aircraftCategoryForSchool(aircraftCategory, allAircraftsInGame);
-
+            
             int dice;
 
             Aircraft newAircraft;
