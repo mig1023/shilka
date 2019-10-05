@@ -2120,7 +2120,17 @@ namespace shilka2
                         mirror = true
                     }
                 }
-            }
+            },
+
+            new Aircraft {
+                aircraftType = "aqm34",
+                aircraftName = "самолёт-мишень AQM-34",
+                hitPoint = 40,
+                size = new int[] { 169, 56 },
+                speed = 6,
+                weight = Aircraft.WeightType.Middle,
+                cantEscape = true,
+            },
         };
     }
 }
