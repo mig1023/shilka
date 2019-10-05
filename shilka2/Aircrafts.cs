@@ -2127,8 +2127,17 @@ namespace shilka2
                 aircraftName = "самолёт-мишень AQM-34",
                 hitPoint = 40,
                 size = new int[] { 169, 56 },
-                speed = 6,
+                speed = 8,
                 weight = Aircraft.WeightType.Middle,
+                cantEscape = true,
+            },
+
+            new Aircraft {
+                aircraftType = "d21",
+                aircraftName = "самолёт-мишень D-21",
+                hitPoint = 40,
+                size = new int[] { 220, 65 },
+                speed = 12,
                 cantEscape = true,
             },
         };
