@@ -493,14 +493,15 @@ namespace shilka2
 
         public static void Shutdown(Aircraft aircraft, FirePlace main)
         {
-            if (aircraft.friend)
-                main.EndGame("Вы сбили свой " + aircraft.aircraftName +
-                    "!\nИгра окончена.\nСохранить статистику?", Constants.END_COLOR);
+            if (aircraft.friend || aircraft.airliner)
+            {
+                string type = (aircraft.friend ? "свой" : "пассажирский");
 
-            else if (aircraft.airliner)
-                main.EndGame("Вы сбили пассажирский самолёт" +
-                    "!\nИгра окончена.\nСохранить статистику?", Constants.END_COLOR);
-
+                main.EndGame(
+                    String.Format("Вы сбили {0} {1}!\nИгра окончена.\nСохранить статистику?", type, aircraft.aircraftName),
+                    Constants.END_COLOR
+                );
+            }
             else
             {
                 aircraft.dead = true;
@@ -566,9 +567,9 @@ namespace shilka2
 
             if (Shilka.school)
                 aircraftCategory = aircraftCategoryForSchool(aircraftCategory, allAircraftsInGame);
-            
+
             int dice;
-            
+
             Aircraft newAircraft;
 
             if (Shilka.training)
@@ -612,7 +613,7 @@ namespace shilka2
                             dice = rand.Next(Aircrafts.aircraft.Count);
                         }
                         while (!AircraftInList(Scripts.scriptAircraft, dice));
-                        
+
                         string aircraftType = Aircrafts.aircraft[dice].aircraftType;
 
                         if ((Shilka.currentScript == Scripts.scriptsNames.F117Hunt) && (aircraftType != "f117"))
@@ -691,7 +692,7 @@ namespace shilka2
                             dice = rand.Next(Aircrafts.airliners.Count);
                         }
                         while (!AircraftInList(Scripts.scriptAirliners, dice));
-
+                        
                         newAircraft = Aircrafts.airliners[dice];
 
                         break;

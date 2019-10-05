@@ -251,10 +251,10 @@ namespace shilka2
             GameOverWithSave.IsEnabled = false;
 
             if (Shilka.school || Shilka.training)
-                RestartText.Content = endText;
+                RestartText.Text = endText;
             else
             {
-                EndText.Content = endText;
+                EndText.Text = endText;
                 playerPlaceHolder.Visibility = Visibility.Visible;
             }
 
