@@ -574,8 +574,13 @@ namespace shilka2
 
             if (Shilka.training)
             {
-                dice = rand.Next(Aircrafts.targetDrones.Count);
-                newAircraft = Aircrafts.targetDrones[dice];
+                if (rand.Next(Constants.TRAINING_LAUNCH_PROBABILITTY) == 1)
+                {
+                    dice = rand.Next(Aircrafts.targetDrones.Count);
+                    newAircraft = Aircrafts.targetDrones[dice];
+                }
+                else
+                    newAircraft = Aircrafts.Cloud();
             }
             else
                 switch (aircraftCategory)
@@ -589,14 +594,7 @@ namespace shilka2
                         if (Shilka.currentScript == Scripts.scriptsNames.Vietnam)
                             goto case 5;
 
-                        newAircraft = new Aircraft
-                        {
-                            aircraftType = "cloud" + (rand.Next(1, 8)),
-                            size = new int[] { rand.Next(200, 501), rand.Next(70, 171) },
-                            speed = Constants.CLOUD_SPEED,
-                            friend = true,
-                            cloud = true
-                        };
+                        newAircraft = Aircrafts.Cloud();
                         break;
 
                     case 5:

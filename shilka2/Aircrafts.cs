@@ -2144,5 +2144,17 @@ namespace shilka2
                 cantEscape = true,
             },
         };
+
+        public static Aircraft Cloud()
+        {
+            return new Aircraft
+            {
+                aircraftType = "cloud" + (Aircraft.rand.Next(1, 8)),
+                size = new int[] { Aircraft.rand.Next(200, 501), Aircraft.rand.Next(70, 171) },
+                speed = Constants.CLOUD_SPEED,
+                friend = true,
+                cloud = true
+            };
+        }
     }
 }
