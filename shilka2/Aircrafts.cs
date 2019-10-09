@@ -2139,7 +2139,7 @@ namespace shilka2
                 aircraftType = "d21",
                 aircraftName = "самолёт-мишень D-21",
                 hitPoint = 40,
-                size = new int[] { 220, 65 },
+                size = new int[] { 208, 41 },
                 speed = 12,
                 cantEscape = true,
             },
