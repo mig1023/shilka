@@ -86,6 +86,9 @@ namespace shilka2
 
         public static void NewWeather(object obj, ElapsedEventArgs e)
         {
+            if (Shilka.training || Shilka.school)
+                return;
+
             if ((thundar != 0) || (currentWeather == weatherTypes.storm))
                 Thunder();
 
