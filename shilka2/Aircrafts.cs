@@ -1803,6 +1803,32 @@ namespace shilka2
                     },
                 }
             },
+
+            new Aircraft {
+                aircraftType = "mi38",
+                aircraftName = "Ми-38",
+                size = new int[] { 235, 78 },
+                speed = 5,
+                maxAltitude = maxAltitudeForHelicopters,
+                friend = true,
+                elements = new List<DynamicElement> {
+                    new DynamicElement {
+                        elementName = "prop_main",
+                        y = -2,
+                        x_left = -34,
+                        x_right = 42,
+                        movingType = DynamicElement.MovingType.xRotate,
+                        background = true,
+                    },
+                    new DynamicElement {
+                        elementName = "x_suppl",
+                        y = -9,
+                        x_left = 200,
+                        x_right = -16,
+                        movingType = DynamicElement.MovingType.zRotate
+                    }
+                }
+            },
         };
 
         public static List<Aircraft> airliners = new List<Aircraft>()

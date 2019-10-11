@@ -314,6 +314,7 @@
     <Resource Include="Images\mqm36_dead.png" />
     <Resource Include="Images\aqm34.png" />
     <Resource Include="Images\d21.png" />
+    <Resource Include="Images\mi38.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
