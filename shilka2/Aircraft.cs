@@ -50,6 +50,7 @@ namespace shilka2
         private static bool schoolEnemyAlready = false;
         private static bool schoolFriendAlready = false;
         private static bool schoolAirlinerAlready = false;
+        private static bool schoolMixAlready = false;
 
         public static int allAircraftsInGame = 0;
 
@@ -544,6 +545,11 @@ namespace shilka2
 
         private static void aircraftMessagesForSchool(Aircraft aircraft, FirePlace main)
         {
+            if ((allAircraftsInGame > Constants.SCHOOL_AIRLINER_AT_THE_START) && !schoolMixAlready)
+            {
+                schoolMixAlready = true;
+                main.SchoolMessage(Constants.MIX_INFORMATION, Brushes.Gray);
+            }
             if (aircraft.airliner && !schoolAirlinerAlready)
             {
                 schoolAirlinerAlready = true;
