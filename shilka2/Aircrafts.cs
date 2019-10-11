@@ -1829,6 +1829,32 @@ namespace shilka2
                     }
                 }
             },
+
+            new Aircraft {
+                aircraftType = "ansat",
+                aircraftName = "Ансат",
+                size = new int[] { 210, 61 },
+                speed = 5,
+                maxAltitude = maxAltitudeForHelicopters,
+                friend = true,
+                elements = new List<DynamicElement> {
+                    new DynamicElement {
+                        elementName = "prop_main",
+                        y = -22,
+                        x_left = -37,
+                        x_right = 22,
+                        movingType = DynamicElement.MovingType.xRotate,
+                        background = true,
+                    },
+                    new DynamicElement {
+                        elementName = "ltl_suppl",
+                        y = 1,
+                        x_left = 185,
+                        x_right = -4,
+                        movingType = DynamicElement.MovingType.zRotate
+                    }
+                }
+            },
         };
 
         public static List<Aircraft> airliners = new List<Aircraft>()
