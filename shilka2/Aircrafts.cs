@@ -1855,6 +1855,32 @@ namespace shilka2
                     }
                 }
             },
+
+            new Aircraft {
+                aircraftType = "ka60",
+                aircraftName = "Ка-60",
+                size = new int[] { 240, 89 },
+                speed = 5,
+                maxAltitude = maxAltitudeForHelicopters,
+                friend = true,
+                elements = new List<DynamicElement> {
+                    new DynamicElement {
+                        elementName = "prop_main",
+                        y = 3,
+                        x_left = -33,
+                        x_right = 47,
+                        movingType = DynamicElement.MovingType.xRotate,
+                        background = true,
+                    },
+                    new DynamicElement {
+                        elementName = "f_suppl",
+                        y = 40,
+                        x_left = 204,
+                        x_right = 12,
+                        movingType = DynamicElement.MovingType.zRotate
+                    }
+                }
+            },
         };
 
         public static List<Aircraft> airliners = new List<Aircraft>()
