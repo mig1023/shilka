@@ -70,7 +70,7 @@ The game is about a small anti-aircraft vehicle in the school notebook
 | Ansat |Mi-8 | Mi-10 | 
 | Mi-24 | Mi-26 | Mi-28 | 
 | Mi-38 | Ka-26 | Ka-27 |
-| Ka-31 | Ka-52 | |
+| Ka-31 | Ka-52 | Ka-60 |
 
 ### Airliners:
 
