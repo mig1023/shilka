@@ -317,6 +317,7 @@
     <Resource Include="Images\mi38.png" />
     <Resource Include="Images\ansat.png" />
     <Resource Include="Images\ka60.png" />
+    <Resource Include="Images\script_viet.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
