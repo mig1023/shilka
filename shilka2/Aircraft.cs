@@ -15,6 +15,7 @@ namespace shilka2
         enum FlightDirectionType { Left, Right };
         enum zIndexType { inFront, Behind };
         public enum WeightType { Light, Middle, Heavy };
+        public enum ImageType { Aircraft, DeadSprite, DynamicElement, Interface, Other };
 
         double tangage { get; set; }
         int tangageDelay = 0;
@@ -188,9 +189,9 @@ namespace shilka2
                             if (d.rotateDegreeCurrent < Constants.ROTATION_REVERT)
                             {
                                 if (d.backSide && d.currentSide)
-                                    d.element.Source = ImageFromResources(d.elementName);
+                                    d.element.Source = ImageFromResources(d.elementName, ImageType.DynamicElement);
                                 else if (d.backSide)
-                                    d.element.Source = ImageFromResources(d.elementName + "_back");
+                                    d.element.Source = ImageFromResources(d.elementName + "_back", ImageType.DynamicElement);
 
                                 d.currentSide = !d.currentSide;
                                 d.positiveDirection = true;
@@ -201,7 +202,7 @@ namespace shilka2
 
                                 if (d.oneWay)
                                 {
-                                    d.element.Source = ImageFromResources(d.elementName);
+                                    d.element.Source = ImageFromResources(d.elementName, ImageType.DynamicElement);
                                     d.currentSide = !d.currentSide;
                                 }
                             }
@@ -277,13 +278,15 @@ namespace shilka2
             return inList;
         }
 
-        public static ImageSource ImageFromResources(string imageName)
+        public static ImageSource ImageFromResources(string imageName, ImageType type = ImageType.Aircraft)
         {
             BitmapImage image = null;
 
+            string typeFolder = type.ToString();
+
             try
             {
-                image = new BitmapImage(new Uri("pack://application:,,,/images/" + imageName + ".png")) { };
+                image = new BitmapImage(new Uri(String.Format("pack://application:,,,/images/{0}/{1}.png", typeFolder, imageName))) { };
             }
             catch
             {
@@ -366,7 +369,10 @@ namespace shilka2
                     newAircraft.x = Application.Current.MainWindow.Width;
                 }
 
-                newAircraftImage.Source = ImageFromResources(aircraft.aircraftType);
+                newAircraftImage.Source = ImageFromResources(
+                    imageName: aircraft.aircraftType,
+                    type: (newAircraft.cloud ? Aircraft.ImageType.Other : Aircraft.ImageType.Aircraft)
+                );
 
                 bool flightLeftAndNotCloud = (newAircraft.flightDirection == FlightDirectionType.Left) && !aircraft.cloud;
                 bool flightRightAndCloud = (rand.Next(2) == 1) && aircraft.cloud;
@@ -386,7 +392,7 @@ namespace shilka2
                         tmp.element = new Image();
 
                         tmp.element.Margin = new Thickness(newAircraft.x, newAircraft.y, 0, 0);
-                        tmp.element.Source = ImageFromResources(d.elementName);
+                        tmp.element.Source = ImageFromResources(d.elementName, ImageType.DynamicElement);
                         tmp.rotateDegreeCurrent = d.startDegree;
 
                         if ((newAircraft.flightDirection == FlightDirectionType.Right) && !d.mirror)
@@ -512,7 +518,7 @@ namespace shilka2
                     foreach (DynamicElement d in aircraft.dynamicElemets)
                         main.firePlace.Children.Remove(d.element);
 
-                    ImageSource sprite = ImageFromResources(aircraft.aircraftType + "_dead");
+                    ImageSource sprite = ImageFromResources(aircraft.aircraftType + "_dead", ImageType.DeadSprite);
 
                     if (sprite != null)
                         aircraft.aircraftImage.Source = sprite;

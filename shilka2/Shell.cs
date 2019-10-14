@@ -161,7 +161,7 @@ namespace shilka2
                         double angle = (Math.Asin(newShell.sin) * 180 / Math.PI) * -1;
 
                         newImage.RenderTransform = new RotateTransform(angle);
-                        newImage.Source = Aircraft.ImageFromResources("shell");
+                        newImage.Source = Aircraft.ImageFromResources("shell", Aircraft.ImageType.Other);
                         newImage.Margin = new Thickness(newShell.x, newShell.y, 0, 0);
                         newImage.Visibility = Visibility.Hidden;
 

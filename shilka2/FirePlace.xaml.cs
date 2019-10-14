@@ -504,7 +504,7 @@ namespace shilka2
             Shilka.night = false;
 
             if (flagName != null)
-                scenarioFlag.Source = Aircraft.ImageFromResources(flagName);
+                scenarioFlag.Source = Aircraft.ImageFromResources(flagName, Aircraft.ImageType.Interface);
             else
                 scenarioFlag.Source = null;
 
@@ -516,8 +516,8 @@ namespace shilka2
             else
                 statShells.Foreground = Brushes.Black;
 
-            notebookBackground.Source = Aircraft.ImageFromResources("background");
-            ShilkaImg.Source = Aircraft.ImageFromResources("shilka");
+            notebookBackground.Source = Aircraft.ImageFromResources("background", Aircraft.ImageType.Interface);
+            ShilkaImg.Source = Aircraft.ImageFromResources("shilka", Aircraft.ImageType.Interface);
 
             StartGame(
                 Scripts.ScriptEnemyAircrafts(script),
