@@ -637,7 +637,10 @@ namespace shilka2
 
                         if ((Shilka.currentScript != Scripts.scriptsNames.Rust) && (aircraftType == "cessna"))
                             goto case 5;
-                        
+
+                        if ((Shilka.currentScript == Scripts.scriptsNames.Rust) && (aircraftType != "cessna"))
+                            goto case 15;
+
                         newAircraft = Aircrafts.aircraft[dice];
 
                         break;

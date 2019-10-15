@@ -413,6 +413,12 @@ namespace shilka2
             if (script == scriptsNames.Rust)
                 return new int?[] {
                     32,     // <-- cessna
+                    1,      // <-- replace to airliner
+                    2,      // <-- replace to airliner
+                    3,      // <-- replace to airliner
+                    4,      // <-- replace to airliner
+                    5,      // <-- replace to airliner
+                    6,      // <-- replace to airliner
                 };
 
             if (script == scriptsNames.Khmeimim)
