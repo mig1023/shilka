@@ -137,7 +137,8 @@
                         <ToolTip>
                             <StackPanel>
                                 <TextBlock Text="Полёт Матиаса Руста (1987)"/>
-                                <TextBlock FontWeight="Bold" Text="особенность: гражданский в качестве цели"/>
+                                <TextBlock FontWeight="Bold" Text="особенность: гражданский самолёт"/>
+                                <TextBlock FontWeight="Bold" Text="в качестве цели"/>
                                 <Image Source="images/interface/rust.png"/>
                             </StackPanel>
                         </ToolTip>
