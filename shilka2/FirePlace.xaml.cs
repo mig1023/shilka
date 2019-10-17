@@ -274,6 +274,9 @@ namespace shilka2
                 AircraftsStart.Stop();
             }
 
+            StatBoxTable.Items.Clear();
+            StatNotSelected.Visibility = Visibility.Visible;
+
             StatisticGrid.Margin = new Thickness(0, 50, 0, 0);
             StatisticGrid.Height = StatisticMenu.Height - Statistic.statisticGridMargins - 50;
 
