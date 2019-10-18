@@ -53,6 +53,9 @@ namespace shilka2
         private static bool schoolAirlinerAlready = false;
         private static bool schoolMixAlready = false;
 
+        private static bool trainingTurgetTug = false;
+        private static bool trainingTurgetDrone = false;
+
         public static int allAircraftsInGame = 0;
 
         public Image aircraftImage;
@@ -333,7 +336,8 @@ namespace shilka2
 
         static void CreateNewAircraft(Aircraft aircraft)
         {
-            allAircraftsInGame += 1;
+            if (!Shilka.training || !aircraft.cloud)
+                allAircraftsInGame += 1;
 
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {
@@ -462,11 +466,8 @@ namespace shilka2
                 if (Shilka.school && !newAircraft.cloud)
                     aircraftMessagesForSchool(newAircraft, main);
 
-                if (Shilka.training && !schoolAirlinerAlready)
-                {
-                    schoolAirlinerAlready = true;
-                    main.SchoolMessage(Constants.TRAINING_INFORMATION, Brushes.Green);
-                }
+                if (Shilka.training && !newAircraft.cloud)
+                    aircraftMessageForTraining(main);
 
                 newAircraft.aircraftImage = newAircraftImage;
                 main.firePlace.Children.Add(newAircraftImage);
@@ -549,6 +550,21 @@ namespace shilka2
             return currentAircraftCategory;
         }
 
+        private static void aircraftMessageForTraining(FirePlace main)
+        {
+            if (!trainingTurgetTug)
+            {
+                trainingTurgetTug = true;
+                main.SchoolMessage(Constants.TRAINING_TUG_INFORMATION, Brushes.Green);
+            }
+
+            if (!trainingTurgetDrone && (allAircraftsInGame > Constants.TRAINING_IL28_AT_THE_START))
+            {
+                trainingTurgetDrone = true;
+                main.SchoolMessage(Constants.TRAINING_INFORMATION, Brushes.LightSeaGreen);
+            }
+        }
+
         private static void aircraftMessagesForSchool(Aircraft aircraft, FirePlace main)
         {
             if ((allAircraftsInGame > Constants.SCHOOL_AIRLINER_AT_THE_START) && !schoolMixAlready)
@@ -556,7 +572,7 @@ namespace shilka2
                 schoolMixAlready = true;
                 main.SchoolMessage(Constants.MIX_INFORMATION, Brushes.Gray);
             }
-            if (aircraft.airliner && !schoolAirlinerAlready)
+            else if (aircraft.airliner && !schoolAirlinerAlready)
             {
                 schoolAirlinerAlready = true;
                 main.SchoolMessage(Constants.AIRLINER_INFORMATION, Brushes.Blue);
@@ -586,13 +602,12 @@ namespace shilka2
 
             if (Shilka.training)
             {
-                if (rand.Next(Constants.TRAINING_LAUNCH_PROBABILITTY) == 1)
-                {
-                    dice = rand.Next(Aircrafts.targetDrones.Count);
-                    newAircraft = Aircrafts.targetDrones[dice];
-                }
-                else
+                if (rand.Next(Constants.TRAINING_LAUNCH_PROBABILITTY) != 1)
                     newAircraft = Aircrafts.Cloud();
+                else if (allAircraftsInGame < Constants.TRAINING_IL28_AT_THE_START)
+                    newAircraft = Aircrafts.targetDrones[Constants.TRAINING_IL28_INDEX];
+                else
+                    newAircraft = Aircrafts.targetDrones[rand.Next(Aircrafts.targetDrones.Count - 1)];
             }
             else
                 switch (aircraftCategory)

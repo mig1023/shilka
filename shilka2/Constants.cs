@@ -113,11 +113,16 @@ namespace shilka2
         public const int SCHOOL_AIRLINER_AT_THE_START = 30;
 
         // training
+        public const string TRAINING_TUG_INFORMATION = "ТРЕНИРОВКА\n\nДля начальной тренировки зенитчиков используются мишени, которые " +
+            "тянет за собой самолёт-буксировщик Ил-28БМ. Вам нужно стрелять по буксируемой цели, но ни в коем случае не попадайте по  " +
+            "буксировщику.\n\n[ OK ]";
         public const string TRAINING_INFORMATION = "ТРЕНИРОВКА\n\nДля тренировки зенитчика используются мишени Ла-17ММ и Е-95. " +
             "Это медленные самолёты-мишени, не способные к манёврам уклонения, поэтому они будут простыми целями. Так же используются " +
             "более быстрые иностранные MQM-36A, AQM-34, D-21. Вам нужно сбить или повредить как можно больше мишеней.\n\n[ OK ]";
 
-        public const int TRAINING_LAUNCH_PROBABILITTY = 8;
+        public const int TRAINING_LAUNCH_PROBABILITTY = 5;
+        public const int TRAINING_IL28_AT_THE_START = 8;
+        public const int TRAINING_IL28_INDEX = 5;
         public const int TRAINING_IL28_AIRCRAFT_LEN = 300;
         public const int TRAINING_IL28_TOW_LEN = 250;
         public const int TRAINING_IL28_TARGET_LEN = 156;
