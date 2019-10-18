@@ -84,7 +84,7 @@ The game is about a small anti-aircraft vehicle in the school notebook
 | L-1049 Super Constellation | McDonnell Douglas MD-11 | McDonnell Douglas MD-90 |
 | Sukhoi Superjet 100 | Tupolev Tu-134 | Tupolev Tu-154 |
 
-### Target drones:
+### Target drones and target tugs:
 
 | Drones | Drones | Drones |
 | ------------- | ------------- | ------------- |
