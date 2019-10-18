@@ -88,5 +88,5 @@ The game is about a small anti-aircraft vehicle in the school notebook
 
 | Drones | Drones | Drones |
 | ------------- | ------------- | ------------- |
-| AQM-34 Firebee | Enics E-95 | Lockheed D-21 |
-| Lavochkin La-17MM | Northrop MQM-36A Shelduck | |
+| AQM-34 Firebee | Enics E-95 | Ilyushin Il-28BM (target tug) + 77BM2 |
+| Lockheed D-21 | Lavochkin La-17MM | Northrop MQM-36A Shelduck |
