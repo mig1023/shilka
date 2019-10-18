@@ -12,7 +12,7 @@ namespace shilka2
     class Aircraft : FlyObject
     {
         static int maxAltitudeGlobal = Constants.MAX_FLIGHT_HEIGHT;
-        enum FlightDirectionType { Left, Right };
+        public enum FlightDirectionType { Left, Right };
         enum zIndexType { inFront, Behind };
         public enum WeightType { Light, Middle, Heavy };
         public enum ImageType { Aircraft, DeadSprite, DynamicElement, Interface, Other };
@@ -46,7 +46,7 @@ namespace shilka2
         public bool doesNotFlyInBadWeather = false;
         public WeightType weight = WeightType.Heavy;
 
-        FlightDirectionType flightDirection;
+        public FlightDirectionType flightDirection;
 
         private static bool schoolEnemyAlready = false;
         private static bool schoolFriendAlready = false;

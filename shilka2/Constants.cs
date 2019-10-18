@@ -116,7 +116,11 @@ namespace shilka2
         public const string TRAINING_INFORMATION = "ТРЕНИРОВКА\n\nДля тренировки зенитчика используются мишени Ла-17ММ и Е-95. " +
             "Это медленные самолёты-мишени, не способные к манёврам уклонения, поэтому они будут простыми целями. Так же используются " +
             "более быстрые иностранные MQM-36A, AQM-34, D-21. Вам нужно сбить или повредить как можно больше мишеней.\n\n[ OK ]";
+
         public const int TRAINING_LAUNCH_PROBABILITTY = 8;
+        public const int TRAINING_IL28_AIRCRAFT_LEN = 300;
+        public const int TRAINING_IL28_TOW_LEN = 250;
+        public const int TRAINING_IL28_TARGET_LEN = 156;
 
         // scripts
         public const int RADAR_DAMAGED = 20;

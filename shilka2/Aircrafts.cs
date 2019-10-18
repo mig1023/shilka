@@ -2221,6 +2221,16 @@ namespace shilka2
                 speed = 12,
                 cantEscape = true,
             },
+
+            new Aircraft {
+                aircraftType = "il28bm",
+                aircraftName = "буксировщик мишени Ил-28БМ",
+                hitPoint = 120,
+                size = new int[] { 706, 100 },
+                speed = 9,
+                cantEscape = true,
+                friend = true,
+            },
         };
 
         public static Aircraft Cloud()

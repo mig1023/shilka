@@ -66,6 +66,34 @@ namespace shilka2
                             if (aircraft.cloud)
                                 continue;
 
+                            bool itsOnlyTargetPlane = false;
+
+                            if (Shilka.training && (aircraft.aircraftType == "il28bm"))
+                            {
+                                if (aircraft.flightDirection == Aircraft.FlightDirectionType.Right)
+                                {
+                                    double targetPosition = aircraft.aircraftImage.Margin.Left + Constants.TRAINING_IL28_TARGET_LEN;
+                                    double aircraftPosition = targetPosition + Constants.TRAINING_IL28_TOW_LEN;
+
+                                    if ((shell.x > targetPosition) && (shell.x < aircraftPosition))
+                                        continue;
+
+                                    if (shell.x <= targetPosition)
+                                        itsOnlyTargetPlane = true;
+                                }
+                                else
+                                {
+                                    double aircraftPosition = aircraft.aircraftImage.Margin.Left + Constants.TRAINING_IL28_AIRCRAFT_LEN;
+                                    double targetPosition = aircraftPosition + Constants.TRAINING_IL28_TOW_LEN;
+
+                                    if ((shell.x > aircraftPosition) && (shell.x < targetPosition))
+                                        continue;
+
+                                    if (shell.x >= targetPosition)
+                                        itsOnlyTargetPlane = true;
+                                }
+                            }
+
                             Line shellTrace = new Line();
 
                             shellTrace.X1 = shell.x + shell.cos;
@@ -76,16 +104,22 @@ namespace shilka2
                             shellTrace.Stroke = Brushes.Red;
                             shellTrace.StrokeThickness = Constants.FLASH_SIZE;
 
-                            aircraft.hitpoint -= 1;
-
-                            Statistic.staticticInTarget++;
-
-                            if (aircraft.hitpoint <= 0 && !aircraft.dead)
-                                Aircraft.Shutdown(aircraft, main);
-
                             main.firePlace.Children.Add(shellTrace);
                             Canvas.SetZIndex(shellTrace, 20);
                             allLines.Add(shellTrace);
+
+                            Statistic.staticticInTarget++;
+
+                            if (itsOnlyTargetPlane)
+                            {
+                                shell.fly = false;
+                                continue;
+                            }
+
+                            aircraft.hitpoint -= 1;
+
+                            if (aircraft.hitpoint <= 0 && !aircraft.dead)
+                                Aircraft.Shutdown(aircraft, main);
 
                             double planeMiddle = aircraft.aircraftImage.Margin.Left + aircraft.aircraftImage.Width / 2;
                             aircraft.placeOfDamage = (shell.x < planeMiddle ? 1 : -1);
