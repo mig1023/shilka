@@ -86,7 +86,7 @@ namespace shilka2
 
                     if (aircraft.dead)
                     {
-                        aircraft.y += Constants.TANGAGE_DEAD_SPEED * (rand.NextDouble() * 2 - 1) + 4;
+                        aircraft.y += Constants.TANGAGE_DEAD_SPEED * (rand.NextDouble() * 2 - 1) + AircraftDeadFallSpeed(aircraft);
 
                         if (aircraft.dynamicElemets.Count == 0 || aircraft.deadSprite)
                         {
@@ -246,22 +246,28 @@ namespace shilka2
 
         private static double AircraftFlyAngle(Aircraft aircraft)
         {
-            double angle;
-
             switch (aircraft.weight)
             {
                 case WeightType.Light:
-                    angle = Constants.ANGLE_OF_ATTACK_CHANGE_LIGHT;
-                    break;
+                    return Constants.ANGLE_OF_ATTACK_CHANGE_LIGHT;
                 case WeightType.Middle:
-                    angle = Constants.ANGLE_OF_ATTACK_CHANGE_MIDDLE;
-                    break;
+                    return Constants.ANGLE_OF_ATTACK_CHANGE_MIDDLE;
                 default:
-                    angle = Constants.ANGLE_OF_ATTACK_CHANGE_HEAVY;
-                    break;
+                    return Constants.ANGLE_OF_ATTACK_CHANGE_HEAVY;
             }
+        }
 
-            return angle;
+        private static double AircraftDeadFallSpeed(Aircraft aircraft)
+        {
+            switch (aircraft.weight)
+            {
+                case WeightType.Light:
+                    return Constants.FALL_SPEED_LIGHT;
+                case WeightType.Middle:
+                    return Constants.FALL_SPEED_MIDDLE;
+                default:
+                    return Constants.FALL_SPEED_HEAVY;
+            }
         }
 
         private static bool AircraftInList(int?[] scriptAircraft, int aircraft)
