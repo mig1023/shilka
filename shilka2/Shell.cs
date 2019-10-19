@@ -119,7 +119,7 @@ namespace shilka2
                             aircraft.hitpoint -= 1;
 
                             if (aircraft.hitpoint <= 0 && !aircraft.dead)
-                                Aircraft.Shutdown(aircraft, main);
+                                aircraft.Shutdown(main);
 
                             double planeMiddle = aircraft.aircraftImage.Margin.Left + aircraft.aircraftImage.Width / 2;
                             aircraft.placeOfDamage = (shell.x < planeMiddle ? 1 : -1);

@@ -86,11 +86,11 @@ namespace shilka2
 
                     if (aircraft.dead)
                     {
-                        aircraft.y += Constants.TANGAGE_DEAD_SPEED * (rand.NextDouble() * 2 - 1) + AircraftDeadFallSpeed(aircraft);
+                        aircraft.y += Constants.TANGAGE_DEAD_SPEED * (rand.NextDouble() * 2 - 1) + aircraft.AircraftDeadFallSpeed();
 
                         if (aircraft.dynamicElemets.Count == 0 || aircraft.deadSprite)
                         {
-                            double angle = AircraftFlyAngle(aircraft);
+                            double angle = aircraft.AircraftFlyAngle();
 
                             if (aircraft.placeOfDamage > 0)
                                 aircraft.angleOfAttack += angle;
@@ -244,9 +244,9 @@ namespace shilka2
             }));
         }
 
-        private static double AircraftFlyAngle(Aircraft aircraft)
+        private double AircraftFlyAngle()
         {
-            switch (aircraft.weight)
+            switch (weight)
             {
                 case WeightType.Light:
                     return Constants.ANGLE_OF_ATTACK_CHANGE_LIGHT;
@@ -257,9 +257,9 @@ namespace shilka2
             }
         }
 
-        private static double AircraftDeadFallSpeed(Aircraft aircraft)
+        private double AircraftDeadFallSpeed()
         {
-            switch (aircraft.weight)
+            switch (weight)
             {
                 case WeightType.Light:
                     return Constants.FALL_SPEED_LIGHT;
@@ -340,9 +340,9 @@ namespace shilka2
                 originalSource.DpiX, originalSource.DpiY, originalSource.Format, palette, data, stride);
         }
 
-        static void CreateNewAircraft(Aircraft aircraft)
+        void CreateNewAircraft()
         {
-            if (!Shilka.training || !aircraft.cloud)
+            if (!Shilka.training || !cloud)
                 allAircraftsInGame += 1;
 
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
@@ -353,17 +353,17 @@ namespace shilka2
 
                 Image newAircraftImage = new Image();
 
-                newAircraftImage.Width = aircraft.size[0];
-                newAircraftImage.Height = aircraft.size[1];
+                newAircraftImage.Width = size[0];
+                newAircraftImage.Height = size[1];
 
-                Aircraft newAircraft = Aircraft.Clone(aircraft);
+                Aircraft newAircraft = Clone();
 
                 newAircraft.y = rand.Next(maxAltitudeGlobal, Aircrafts.minAltitudeGlobal);
 
                 bool flightDirectionRight = rand.Next(2) == 1;
 
-                if ((Shilka.currentScript == Scripts.scriptsNames.Belgrad) && !aircraft.cloud)
-                    if (aircraft.friend)
+                if ((Shilka.currentScript == Scripts.scriptsNames.Belgrad) && !cloud)
+                    if (friend)
                         flightDirectionRight = true;
                     else
                         flightDirectionRight = false;
@@ -380,23 +380,23 @@ namespace shilka2
                 }
 
                 newAircraftImage.Source = ImageFromResources(
-                    imageName: aircraft.aircraftType,
+                    imageName: aircraftType,
                     type: (newAircraft.cloud ? Aircraft.ImageType.Other : Aircraft.ImageType.Aircraft)
                 );
 
-                bool flightLeftAndNotCloud = (newAircraft.flightDirection == FlightDirectionType.Left) && !aircraft.cloud;
-                bool flightRightAndCloud = (rand.Next(2) == 1) && aircraft.cloud;
+                bool flightLeftAndNotCloud = (newAircraft.flightDirection == FlightDirectionType.Left) && !cloud;
+                bool flightRightAndCloud = (rand.Next(2) == 1) && cloud;
 
                 if (flightLeftAndNotCloud || flightRightAndCloud)
                     newAircraftImage.FlowDirection = FlowDirection.RightToLeft;
 
                 newAircraftImage.Margin = new Thickness(newAircraft.x, newAircraft.y, 0, 0);
 
-                if ((aircraft.elements != null) && (aircraft.elements.Count > 0))
+                if ((elements != null) && (elements.Count > 0))
                 {
                     zIndex = (rand.Next(2) > 0 ? zIndexType.inFront : zIndexType.Behind);
 
-                    foreach (DynamicElement d in aircraft.elements)
+                    foreach (DynamicElement d in elements)
                     {
                         DynamicElement tmp = DynamicElement.Clone(d);
                         tmp.element = new Image();
@@ -429,17 +429,17 @@ namespace shilka2
                     }
                 }
 
-                int randomSpeed = (aircraft.cloud ? 0 : rand.Next(3));
+                int randomSpeed = (cloud ? 0 : rand.Next(3));
 
-                newAircraft.speed = aircraft.speed + randomSpeed;
+                newAircraft.speed = speed + randomSpeed;
 
                 if (newAircraft.minAltitude == -1)
                     newAircraft.minAltitude = Aircrafts.minAltitudeGlobal;
 
-                if (!aircraft.friend && !aircraft.airliner)
+                if (!friend && !airliner)
                 {
                     Statistic.statisticAllAircraft++;
-                    Statistic.statisticPriceOfAllAircrafts += aircraft.price;
+                    Statistic.statisticPriceOfAllAircrafts += price;
                 }
 
                 if (zIndex != null)
@@ -450,7 +450,7 @@ namespace shilka2
                         Canvas.SetZIndex(newAircraftImage, (zIndex == zIndexType.inFront ? 70 : 30));
                 }
                 else
-                    Canvas.SetZIndex(newAircraftImage, (aircraft.cloud ? 100 : 50));
+                    Canvas.SetZIndex(newAircraftImage, (cloud ? 100 : 50));
 
                 if (Shilka.school)
                 {
@@ -458,9 +458,9 @@ namespace shilka2
                     aircraftLabelName.Content = newAircraft.aircraftName;
                     newAircraft.aircraftSchoolName = aircraftLabelName;
 
-                    if (aircraft.airliner)
+                    if (airliner)
                         newAircraft.aircraftSchoolName.Foreground = Brushes.Blue;
-                    else if (aircraft.friend)
+                    else if (friend)
                         newAircraft.aircraftSchoolName.Foreground = Brushes.Green;
                     else
                         newAircraft.aircraftSchoolName.Foreground = Brushes.Red;
@@ -470,10 +470,10 @@ namespace shilka2
                 }
 
                 if (Shilka.school && !newAircraft.cloud)
-                    aircraftMessagesForSchool(newAircraft, main);
+                    newAircraft.aircraftMessagesForSchool(main);
 
                 if (Shilka.training && !newAircraft.cloud)
-                    aircraftMessageForTraining(main);
+                    newAircraft.aircraftMessageForTraining(main);
 
                 newAircraft.aircraftImage = newAircraftImage;
                 main.firePlace.Children.Add(newAircraftImage);
@@ -481,23 +481,23 @@ namespace shilka2
             }));
         }
 
-        public static Aircraft Clone(Aircraft aircraft)
+        public Aircraft Clone()
         {
             Aircraft newAircraft = new Aircraft();
 
-            newAircraft.aircraftType = aircraft.aircraftType;
-            newAircraft.aircraftName = aircraft.aircraftName;
-            newAircraft.hitpoint = aircraft.hitPoint;
-            newAircraft.hitpointMax = aircraft.hitPoint;
-            newAircraft.price = aircraft.price;
-            newAircraft.minAltitude = aircraft.minAltitude;
-            newAircraft.maxAltitude = aircraft.maxAltitude;
-            newAircraft.friend = aircraft.friend;
-            newAircraft.airliner = aircraft.airliner;
-            newAircraft.cloud = aircraft.cloud;
-            newAircraft.cantEscape = aircraft.cantEscape;
-            newAircraft.deadSprite = aircraft.deadSprite;
-            newAircraft.weight = aircraft.weight;
+            newAircraft.aircraftType = aircraftType;
+            newAircraft.aircraftName = aircraftName;
+            newAircraft.hitpoint = hitPoint;
+            newAircraft.hitpointMax = hitPoint;
+            newAircraft.price = price;
+            newAircraft.minAltitude = minAltitude;
+            newAircraft.maxAltitude = maxAltitude;
+            newAircraft.friend = friend;
+            newAircraft.airliner = airliner;
+            newAircraft.cloud = cloud;
+            newAircraft.cantEscape = cantEscape;
+            newAircraft.deadSprite = deadSprite;
+            newAircraft.weight = weight;
 
             newAircraft.fly = true;
             newAircraft.placeOfDamage = 0;
@@ -505,40 +505,40 @@ namespace shilka2
             return newAircraft;
         }
 
-        public static void Shutdown(Aircraft aircraft, FirePlace main)
+        public void Shutdown(FirePlace main)
         {
-            if (aircraft.friend || aircraft.airliner)
+            if (friend || airliner)
             {
-                string type = (aircraft.friend ? "свой" : "пассажирский");
+                string type = (friend ? "свой" : "пассажирский");
 
                 main.EndGame(
-                    String.Format("Вы сбили {0} {1}!\nИгра окончена.\nСохранить статистику?", type, aircraft.aircraftName),
+                    String.Format("Вы сбили {0} {1}!\nИгра окончена.\nСохранить статистику?", type, aircraftName),
                     Constants.END_COLOR
                 );
             }
             else
             {
-                aircraft.dead = true;
+                dead = true;
 
-                if (aircraft.deadSprite)
+                if (deadSprite)
                 {
-                    foreach (DynamicElement d in aircraft.dynamicElemets)
+                    foreach (DynamicElement d in dynamicElemets)
                         main.firePlace.Children.Remove(d.element);
 
-                    ImageSource sprite = ImageFromResources(aircraft.aircraftType + "_dead", ImageType.DeadSprite);
+                    ImageSource sprite = ImageFromResources(aircraftType + "_dead", ImageType.DeadSprite);
 
                     if (sprite != null)
-                        aircraft.aircraftImage.Source = sprite;
+                        aircraftImage.Source = sprite;
                 }
 
                 Statistic.staticticAircraftShutdown++;
-                Statistic.statisticAmountOfDamage += aircraft.price;
+                Statistic.statisticAmountOfDamage += price;
 
                 Statistic.statisticShutdownFlag = true;
-                Statistic.statisticLastDamagePrice = aircraft.price;
-                Statistic.statisticLastDamageType = aircraft.aircraftName;
+                Statistic.statisticLastDamagePrice = price;
+                Statistic.statisticLastDamageType = aircraftName;
 
-                Statistic.AircraftToStatistic(aircraft.aircraftName, Statistic.statisticAircraftType.downed);
+                Statistic.AircraftToStatistic(aircraftName, Statistic.statisticAircraftType.downed);
             }
         }
 
@@ -556,7 +556,7 @@ namespace shilka2
             return currentAircraftCategory;
         }
 
-        private static void aircraftMessageForTraining(FirePlace main)
+        private void aircraftMessageForTraining(FirePlace main)
         {
             if (!trainingTurgetTug)
             {
@@ -571,19 +571,19 @@ namespace shilka2
             }
         }
 
-        private static void aircraftMessagesForSchool(Aircraft aircraft, FirePlace main)
+        private void aircraftMessagesForSchool(FirePlace main)
         {
             if ((allAircraftsInGame > Constants.SCHOOL_AIRLINER_AT_THE_START) && !schoolMixAlready)
             {
                 schoolMixAlready = true;
                 main.SchoolMessage(Constants.MIX_INFORMATION, Brushes.Gray);
             }
-            else if (aircraft.airliner && !schoolAirlinerAlready)
+            else if (airliner && !schoolAirlinerAlready)
             {
                 schoolAirlinerAlready = true;
                 main.SchoolMessage(Constants.AIRLINER_INFORMATION, Brushes.Blue);
             }
-            else if (aircraft.friend && !schoolFriendAlready)
+            else if (friend && !schoolFriendAlready)
             {
                 schoolFriendAlready = true;
                 main.SchoolMessage(Constants.FRIEND_INFORMATION, Brushes.Green);
@@ -732,7 +732,7 @@ namespace shilka2
                         break;
                 }
 
-            CreateNewAircraft(newAircraft);
+            newAircraft.CreateNewAircraft();
         }
     }
 }
