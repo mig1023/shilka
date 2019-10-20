@@ -260,7 +260,13 @@ namespace shilka2
                     (byte)((degreeOfHeatingGunBurrels - Constants.HEATING_COLOR_BASE) / 2) : (byte)0
                 );
 
-                if (colorOfGuns == 0)
+
+                if (Shilka.night)
+                {
+                    int color = (degreeOfHeatingGunBurrels < Constants.HEATING_COLOR_BASE ? 0 : 360 - degreeOfHeatingGunBurrels);
+                    gun.Stroke = (color > 0 ? new SolidColorBrush(Color.FromRgb((byte)255, (byte)color, (byte)color)) : Brushes.White);
+                }
+                else if (colorOfGuns == 0)
                     gun.Stroke = (Shilka.night ? Brushes.White : Brushes.Black);
                 else
                     gun.Stroke = new SolidColorBrush(Color.FromRgb((byte)(colorOfGuns - Constants.HEATING_COLOR_BASE), 0, 0));
