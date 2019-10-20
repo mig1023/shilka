@@ -40,29 +40,8 @@
                 <Image x:Name="shilkaArt" Height="348" Canvas.Left="10" Canvas.Top="5" Width="435"  Source="images/interface/shilka-art.jpg"/>
                 <Button x:Name="noScript" Content="быстрая игра" Height="87" Canvas.Left="10" Canvas.Top="358" Width="192" Click="startScript_Click" FontFamily="font/calibri.ttf" FontSize="26"/>
                 <Button x:Name="exitButton" Content="выход" Height="41" Canvas.Left="332" Canvas.Top="358" Width="113" FontSize="21" FontFamily="font/calibri.ttf" Click="exitButton_Click"/>
-                <Button x:Name="schoolButton" Content="обучение" Height="41" Canvas.Left="207" Canvas.Top="358" Width="120" FontSize="19" FontFamily="font/calibri.ttf" Click="schoolButton_Click">
-                    <Button.ToolTip>
-                        <ToolTip>
-                            <StackPanel>
-                                <TextBlock Text="Обучение"/>
-                                <TextBlock FontWeight="Bold" Text="особенность: демонстрация разных типов"/>
-                                <TextBlock FontWeight="Bold" Text="самолётов друзей, врагов и авиалайнеры"/>
-                                <Image Source="images/interface/school.png"/>
-                            </StackPanel>
-                        </ToolTip>
-                    </Button.ToolTip>
-                </Button>
-                <Button x:Name="trainingButton" Content="тренировка" Height="41" Canvas.Left="207" Canvas.Top="404" Width="120" FontSize="19" FontFamily="font/calibri.ttf" Click="trainingButton_Click">
-                    <Button.ToolTip>
-                        <ToolTip>
-                            <StackPanel>
-                                <TextBlock Text="Тренировка"/>
-                                <TextBlock FontWeight="Bold" Text="особенность: беспилотники-мишени"/>
-                                <Image Source="images/interface/training.png"/>
-                            </StackPanel>
-                        </ToolTip>
-                    </Button.ToolTip>
-                </Button>
+                <Button x:Name="schoolButton" Content="обучение" Height="41" Canvas.Left="207" Canvas.Top="358" Width="120" FontSize="19" FontFamily="font/calibri.ttf" Click="schoolButton_Click"/>
+                <Button x:Name="trainingButton" Content="тренировка" Height="41" Canvas.Left="207" Canvas.Top="404" Width="120" FontSize="19" FontFamily="font/calibri.ttf" Click="trainingButton_Click"/>
                 <Button x:Name="resultButton" Content="результаты" Height="41" Canvas.Left="332" Canvas.Top="404" Width="113" FontSize="19" FontFamily="font/calibri.ttf" Click="statisticButton_Click"/>
                 <Button x:Name="Vietnam" Content="вьетнамская война" Height="35" Canvas.Left="10" Canvas.Top="450" Width="134" Click="startScript_Click" FontSize="11" FontFamily="font/calibri.ttf">
                     <Button.ToolTip>
