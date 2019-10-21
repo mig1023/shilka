@@ -181,10 +181,14 @@ namespace shilka2
         {
             switch (rand.Next(4))
             {
-                case 1:  return Brushes.DarkRed;
-                case 2:  return Brushes.Firebrick;
-                case 3:  return Brushes.Maroon;
-                default: return Brushes.Red;
+                case 1:
+                    return Brushes.DarkRed;
+                case 2:
+                    return Brushes.Firebrick;
+                case 3:
+                    return Brushes.Maroon;
+                default:
+                    return Brushes.Red;
             }
         }
 

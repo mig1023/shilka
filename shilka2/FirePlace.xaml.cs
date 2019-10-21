@@ -556,48 +556,14 @@ namespace shilka2
                 scriptName = startButton.Name;
             }
 
-            switch (scriptName)
-            {
-                case "Vietnam":
-                    StartScript(Scripts.scriptsNames.Vietnam);
-                    break;
-                case "DesertStorm":
-                    StartScript(Scripts.scriptsNames.DesertStorm);
-                    break;
-                case "Yugoslavia":
-                    StartScript(Scripts.scriptsNames.Yugoslavia);
-                    break;
-                case "IranIraq":
-                    StartScript(Scripts.scriptsNames.IranIraq);
-                    break;
-                case "Syria":
-                    StartScript(Scripts.scriptsNames.Syria);
-                    break;
-                case "KoreanBoeing":
-                    StartScript(Scripts.scriptsNames.KoreanBoeing);
-                    break;
-                case "Libya":
-                    StartScript(Scripts.scriptsNames.Libya);
-                    break;
-                case "Yemen":
-                    StartScript(Scripts.scriptsNames.Yemen);
-                    break;
-                case "Rust":
-                    StartScript(Scripts.scriptsNames.Rust);
-                    break;
-                case "F117Hunt":
-                    StartScript(Scripts.scriptsNames.F117Hunt);
-                    break;
-                case "Khmeimim":
-                    StartScript(Scripts.scriptsNames.Khmeimim);
-                    break;
-                case "Belgrad":
-                    StartScript(Scripts.scriptsNames.Belgrad);
-                    break;
-                default:
-                    StartScript(Scripts.scriptsNames.noScript);
-                    break;
-            }
+            Scripts.scriptsNames script;
+
+            bool scriptParsed = Enum.TryParse(scriptName, out script);
+
+            if (scriptParsed)
+                StartScript(script);
+            else
+                StartScript(Scripts.scriptsNames.noScript);
         }
 
         private void schoolButton_Click(object sender, RoutedEventArgs e)
