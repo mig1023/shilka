@@ -57,18 +57,30 @@ namespace shilka2
 
             switch (script)
             {
-                case Scripts.scriptsNames.Vietnam: return weatherRainOrStorm;
-                case Scripts.scriptsNames.IranIraq: return Weather.weatherTypes.good;
-                case Scripts.scriptsNames.DesertStorm: return Weather.weatherTypes.sand;
-                case Scripts.scriptsNames.Syria: return Weather.weatherTypes.good;
-                case Scripts.scriptsNames.Yugoslavia: return weather;
-                case Scripts.scriptsNames.KoreanBoeing: return Weather.weatherTypes.snow;
-                case Scripts.scriptsNames.Libya: return Weather.weatherTypes.good;
-                case Scripts.scriptsNames.Yemen: return weatherRainOrStorm;
-                case Scripts.scriptsNames.Rust: return weather;
-                case Scripts.scriptsNames.F117Hunt: return weather;
-                case Scripts.scriptsNames.Khmeimim: return Weather.weatherTypes.good;
-                case Scripts.scriptsNames.Belgrad: return weather;
+                case Scripts.scriptsNames.Vietnam:
+                    return weatherRainOrStorm;
+                case Scripts.scriptsNames.IranIraq:
+                    return Weather.weatherTypes.good;
+                case Scripts.scriptsNames.DesertStorm:
+                    return Weather.weatherTypes.sand;
+                case Scripts.scriptsNames.Syria:
+                    return Weather.weatherTypes.good;
+                case Scripts.scriptsNames.Yugoslavia:
+                    return weather;
+                case Scripts.scriptsNames.KoreanBoeing:
+                    return Weather.weatherTypes.snow;
+                case Scripts.scriptsNames.Libya:
+                    return Weather.weatherTypes.good;
+                case Scripts.scriptsNames.Yemen:
+                    return weatherRainOrStorm;
+                case Scripts.scriptsNames.Rust:
+                    return weather;
+                case Scripts.scriptsNames.F117Hunt:
+                    return weather;
+                case Scripts.scriptsNames.Khmeimim:
+                    return Weather.weatherTypes.good;
+                case Scripts.scriptsNames.Belgrad:
+                    return weather;
             };
 
             return weather;
@@ -78,18 +90,30 @@ namespace shilka2
         {
             switch (script)
             {
-                case Scripts.scriptsNames.Vietnam: return "vn";
-                case Scripts.scriptsNames.IranIraq: return "ir";
-                case Scripts.scriptsNames.DesertStorm: return "iq";
-                case Scripts.scriptsNames.Syria: return "sy";
-                case Scripts.scriptsNames.Yugoslavia: return "yu";
-                case Scripts.scriptsNames.KoreanBoeing: return "ki";
-                case Scripts.scriptsNames.Libya: return "ly";
-                case Scripts.scriptsNames.Yemen: return "ye";
-                case Scripts.scriptsNames.Rust: return "su";
-                case Scripts.scriptsNames.F117Hunt: return "yu";
-                case Scripts.scriptsNames.Khmeimim: return "sy";
-                case Scripts.scriptsNames.Belgrad: return "yu";
+                case Scripts.scriptsNames.Vietnam:
+                    return "vn";
+                case Scripts.scriptsNames.IranIraq:
+                    return "ir";
+                case Scripts.scriptsNames.DesertStorm:
+                    return "iq";
+                case Scripts.scriptsNames.Syria:
+                    return "sy";
+                case Scripts.scriptsNames.Yugoslavia:
+                    return "yu";
+                case Scripts.scriptsNames.KoreanBoeing:
+                    return "ki";
+                case Scripts.scriptsNames.Libya:
+                    return "ly";
+                case Scripts.scriptsNames.Yemen:
+                    return "ye";
+                case Scripts.scriptsNames.Rust:
+                    return "su";
+                case Scripts.scriptsNames.F117Hunt:
+                    return "yu";
+                case Scripts.scriptsNames.Khmeimim:
+                    return "sy";
+                case Scripts.scriptsNames.Belgrad:
+                    return "yu";
             };
 
             return null;
@@ -99,18 +123,30 @@ namespace shilka2
         {
             switch (script)
             {
-                case Scripts.scriptsNames.Vietnam: return 35;
-                case Scripts.scriptsNames.IranIraq: return 40;
-                case Scripts.scriptsNames.DesertStorm: return 40;
-                case Scripts.scriptsNames.Syria: return 40;
-                case Scripts.scriptsNames.Yugoslavia: return 25;
-                case Scripts.scriptsNames.KoreanBoeing: return -5;
-                case Scripts.scriptsNames.Libya: return 40;
-                case Scripts.scriptsNames.Yemen: return 20;
-                case Scripts.scriptsNames.Rust: return 30;
-                case Scripts.scriptsNames.F117Hunt: return 20;
-                case Scripts.scriptsNames.Khmeimim: return 40;
-                case Scripts.scriptsNames.Belgrad: return 25;
+                case Scripts.scriptsNames.Vietnam:
+                    return 35;
+                case Scripts.scriptsNames.IranIraq:
+                    return 40;
+                case Scripts.scriptsNames.DesertStorm:
+                    return 40;
+                case Scripts.scriptsNames.Syria:
+                    return 40;
+                case Scripts.scriptsNames.Yugoslavia:
+                    return 25;
+                case Scripts.scriptsNames.KoreanBoeing:
+                    return -5;
+                case Scripts.scriptsNames.Libya:
+                    return 40;
+                case Scripts.scriptsNames.Yemen:
+                    return 20;
+                case Scripts.scriptsNames.Rust:
+                    return 30;
+                case Scripts.scriptsNames.F117Hunt:
+                    return 20;
+                case Scripts.scriptsNames.Khmeimim:
+                    return 40;
+                case Scripts.scriptsNames.Belgrad:
+                    return 25;
             };
 
             return 30;
