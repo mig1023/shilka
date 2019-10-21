@@ -273,10 +273,10 @@ namespace shilka2
         private static bool AircraftInList(int?[] scriptAircraft, int aircraft)
         {
             if (scriptAircraft == null)
-                return false;
+                return true;
 
             if (scriptAircraft.Length == 0)
-                return true;
+                return false;
 
             bool inList = false;
 
@@ -636,7 +636,7 @@ namespace shilka2
                     case 8:
                     case 9:
 
-                        if (Scripts.scriptAircraft == null)
+                        if ((Scripts.scriptAircraft != null) && (Scripts.scriptAircraft.Length == 0))
                             goto case 1;
 
                         do
@@ -670,7 +670,7 @@ namespace shilka2
                     case 11:
                     case 12:
 
-                        if (Scripts.scriptHelicopters == null)
+                        if ((Scripts.scriptHelicopters != null) && (Scripts.scriptHelicopters.Length == 0))
                             goto case 5;
 
                         do
@@ -685,7 +685,7 @@ namespace shilka2
 
                     case 13:
 
-                        if (Scripts.scriptAircraftFriend == null)
+                        if ((Scripts.scriptAircraftFriend != null) && (Scripts.scriptAircraftFriend.Length == 0))
                             goto case 1;
 
                         do
@@ -700,7 +700,7 @@ namespace shilka2
 
                     case 14:
 
-                        if (Scripts.scriptHelicoptersFriend == null)
+                        if ((Scripts.scriptHelicoptersFriend != null) && (Scripts.scriptHelicoptersFriend.Length == 0))
                             goto case 13;
 
                         do
@@ -718,7 +718,7 @@ namespace shilka2
                         if (Shilka.currentScript == Scripts.scriptsNames.Vietnam)
                             goto case 5;
 
-                        if (Scripts.scriptAirliners == null)
+                        if ((Scripts.scriptAirliners != null) && (Scripts.scriptAirliners.Length == 0))
                             goto case 1;
 
                         do

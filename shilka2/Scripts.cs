@@ -206,16 +206,16 @@ namespace shilka2
                 };
 
             if (script == scriptsNames.KoreanBoeing)
-                return null;
+                return new int?[] { };
 
             if (script == scriptsNames.Yemen)
-                return null;
+                return new int?[] { };
 
             if (script == scriptsNames.F117Hunt)
-                return null;
+                return new int?[] { };
 
             if (script == scriptsNames.Rust)
-                return null;
+                return new int?[] { };
 
             if (script == scriptsNames.Khmeimim)
                 return new int?[] {
@@ -241,17 +241,17 @@ namespace shilka2
                     12,    // <-- mig25
                 };
 
-            return new int?[] { };
+            return null;
         }
 
         public static int?[] ScriptFriendHelicopters(scriptsNames script)
         {
 
             if (script == scriptsNames.Vietnam)
-                return null;
+                return new int?[] { };
 
             if (script == scriptsNames.Yugoslavia)
-                return null;
+                return new int?[] { };
 
             if (script == scriptsNames.DesertStorm)
                 return new int?[] {
@@ -282,16 +282,16 @@ namespace shilka2
                 };
 
             if (script == scriptsNames.KoreanBoeing)
-                return null;
+                return new int?[] { };
 
             if (script == scriptsNames.Yemen)
-                return null;
+                return new int?[] { };
 
             if (script == scriptsNames.F117Hunt)
-                return null;
+                return new int?[] { };
 
             if (script == scriptsNames.Rust)
-                return null;
+                return new int?[] { };
 
             if (script == scriptsNames.Khmeimim)
                 return new int?[] {
@@ -303,9 +303,9 @@ namespace shilka2
                 };
 
             if (script == scriptsNames.Belgrad)
-                return null;
+                return new int?[] { };
 
-            return new int?[] { };
+            return null;
         }
 
         public static int?[] ScriptEnemyAircrafts(scriptsNames script)
@@ -470,7 +470,7 @@ namespace shilka2
                     43,     // <-- kc135
                 };
 
-            return new int?[] { };
+            return null;
         }
 
         public static int?[] ScriptEnemyHelicopters(scriptsNames script)
@@ -518,7 +518,7 @@ namespace shilka2
                 };
 
             if (script == scriptsNames.Syria)
-                return null;
+                return new int?[] { };
 
             if (script == scriptsNames.Libya)
                 return new int?[] {
@@ -530,7 +530,7 @@ namespace shilka2
                 };
 
             if (script == scriptsNames.KoreanBoeing)
-                return null;
+                return new int?[] { };
 
             if (script == scriptsNames.Yemen)
                 return new int?[] {
@@ -543,10 +543,10 @@ namespace shilka2
                 };
 
             if (script == scriptsNames.F117Hunt)
-                return null;
+                return new int?[] { };
 
             if (script == scriptsNames.Rust)
-                return null;
+                return new int?[] { };
 
             if (script == scriptsNames.Khmeimim)
                 return new int?[] {
@@ -561,16 +561,16 @@ namespace shilka2
                 };
 
             if (script == scriptsNames.Belgrad)
-                return null;
+                return new int?[] { };
 
-            return new int?[] { };
+            return null;
         }
 
         public static int?[] ScriptAirliners(scriptsNames script)
         {
 
             if (script == scriptsNames.Vietnam)
-                return null;
+                return new int?[] { };
 
             if (script == scriptsNames.Yugoslavia)
                 return new int?[] {
@@ -730,9 +730,9 @@ namespace shilka2
                 };
 
             if (script == scriptsNames.Belgrad)
-                return null;
+                return new int?[] { };
 
-            return new int?[] { };
+            return null;
         }
     }
 }
