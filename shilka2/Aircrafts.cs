@@ -2223,13 +2223,32 @@ namespace shilka2
             },
 
             new Aircraft {
-                aircraftType = "il28bm",
+                aircraftType = "il28bm_77bm2",
                 aircraftName = "буксировщик мишени Ил-28БМ",
                 hitPoint = 120,
                 size = new int[] { 706, 100 },
                 speed = 9,
                 cantEscape = true,
                 friend = true,
+            },
+
+            new Aircraft {
+                aircraftType = "il28bm",
+                aircraftName = "буксировщик мишени Ил-28БМ",
+                hitPoint = 120,
+                size = new int[] { 319, 100 },
+                speed = 9,
+                cantEscape = true,
+                friend = true,
+            },
+
+            new Aircraft {
+                aircraftType = "77bm2",
+                aircraftName = "мишень 77БМ7",
+                size = new int[] { 147, 42 },
+                speed = 9,
+                weight = Aircraft.WeightType.Middle,
+                cantEscape = true,
             },
         };
 

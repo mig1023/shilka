@@ -32,6 +32,7 @@ namespace shilka2
         public List<DynamicElement> elements;
 
         public int hitPoint = 80;
+        public int tragetTugHitPoint = 50;
         public int speed = 10;
         public int minAltitude = -1;
         public int maxAltitude = -1;
@@ -340,9 +341,10 @@ namespace shilka2
                 originalSource.DpiX, originalSource.DpiY, originalSource.Format, palette, data, stride);
         }
 
-        void CreateNewAircraft()
+        public void CreateNewAircraft(double? startX = null, double? startY = null, FlightDirectionType? startDirection = null,
+            bool dead = false, bool transformation = false)
         {
-            if (!Shilka.training || !cloud)
+            if (!transformation && (!Shilka.training || !cloud))
                 allAircraftsInGame += 1;
 
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
@@ -358,7 +360,9 @@ namespace shilka2
 
                 Aircraft newAircraft = Clone();
 
-                newAircraft.y = rand.Next(maxAltitudeGlobal, Aircrafts.minAltitudeGlobal);
+                newAircraft.dead = dead;
+
+                newAircraft.y = startY ?? rand.Next(maxAltitudeGlobal, Aircrafts.minAltitudeGlobal);
 
                 bool flightDirectionRight = rand.Next(2) == 1;
 
@@ -378,6 +382,9 @@ namespace shilka2
                     newAircraft.flightDirection = FlightDirectionType.Left;
                     newAircraft.x = Application.Current.MainWindow.Width;
                 }
+
+                newAircraft.x = startX ?? newAircraft.x;
+                newAircraft.flightDirection = startDirection ?? newAircraft.flightDirection;
 
                 newAircraftImage.Source = ImageFromResources(
                     imageName: aircraftType,
@@ -488,6 +495,7 @@ namespace shilka2
             newAircraft.aircraftType = aircraftType;
             newAircraft.aircraftName = aircraftName;
             newAircraft.hitpoint = hitPoint;
+            newAircraft.tragetTugHitPoint = tragetTugHitPoint;
             newAircraft.hitpointMax = hitPoint;
             newAircraft.price = price;
             newAircraft.minAltitude = minAltitude;
@@ -540,6 +548,23 @@ namespace shilka2
 
                 Statistic.AircraftToStatistic(aircraftName, Statistic.statisticAircraftType.downed);
             }
+        }
+
+        public void targetTugDisengaged()
+        {
+            bool flyDirectRight = flightDirection == FlightDirectionType.Right;
+
+            fly = false;
+
+            Aircraft newAircraft = Aircrafts.targetDrones[6]; // il28
+            double newX = (flyDirectRight ? x + (Aircrafts.targetDrones[5].size[0] - Aircrafts.targetDrones[6].size[0]) : x);
+            newAircraft.CreateNewAircraft(newX, y, flightDirection, transformation: true);
+
+            newAircraft = Aircrafts.targetDrones[7]; // 77bm2
+            newX = (flyDirectRight ? x : x + (Aircrafts.targetDrones[5].size[0] - Aircrafts.targetDrones[7].size[0]));
+            double newY = y + (Aircrafts.targetDrones[5].size[1] - Aircrafts.targetDrones[7].size[1]);
+
+            newAircraft.CreateNewAircraft(newX, newY, flightDirection, dead: true, transformation: true);
         }
 
         private static int aircraftCategoryForSchool(int currentAircraftCategory, int allAircraftsInGame)
@@ -723,7 +748,7 @@ namespace shilka2
 
                         do
                         {
-                            dice = rand.Next(Aircrafts.airliners.Count);
+                            dice = rand.Next(Aircrafts.airliners.Count - 2);
                         }
                         while (!AircraftInList(Scripts.scriptAirliners, dice));
                         

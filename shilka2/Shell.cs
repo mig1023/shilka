@@ -68,7 +68,7 @@ namespace shilka2
 
                             bool itsOnlyTargetPlane = false;
 
-                            if (Shilka.training && (aircraft.aircraftType == "il28bm"))
+                            if (Shilka.training && (aircraft.aircraftType == "il28bm_77bm2"))
                             {
                                 if (aircraft.flightDirection == Aircraft.FlightDirectionType.Right)
                                 {
@@ -79,7 +79,10 @@ namespace shilka2
                                         continue;
 
                                     if (shell.x <= targetPosition)
+                                    {
                                         itsOnlyTargetPlane = true;
+                                        aircraft.tragetTugHitPoint -= 1;
+                                    }
                                 }
                                 else
                                 {
@@ -90,9 +93,15 @@ namespace shilka2
                                         continue;
 
                                     if (shell.x >= targetPosition)
+                                    {
                                         itsOnlyTargetPlane = true;
+                                        aircraft.tragetTugHitPoint -= 1;
+                                    }
                                 }
                             }
+
+                            if (itsOnlyTargetPlane && aircraft.fly && (aircraft.tragetTugHitPoint <= 0))
+                                aircraft.targetTugDisengaged();
 
                             Line shellTrace = new Line();
 

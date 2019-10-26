@@ -329,9 +329,9 @@
     <Resource Include="Images\Interface\vietnam.png" />
     <Resource Include="Images\Interface\yemen.png" />
     <Resource Include="Images\Interface\yugoslavia.png" />
-    <Resource Include="Images\Interface\school.png" />
-    <Resource Include="Images\Interface\training.png" />
     <Resource Include="Images\Aircraft\il28bm.png" />
+    <Resource Include="Images\Aircraft\il28bm_77bm2.png" />
+    <Resource Include="Images\Aircraft\77bm2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
