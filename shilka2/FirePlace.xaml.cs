@@ -117,7 +117,8 @@ namespace shilka2
                 Shell.animationStop = false;
             }
 
-            statShells.Margin = new Thickness(Constants.STAT_TEXT_TOP, Constants.STAT_TEXT_LEFT + (Shilka.school ? 25 : 0), 0, 0);
+            double trainingAdditions = ((Shilka.school || Shilka.training) ? 25 : 0);
+            statShells.Margin = new Thickness(Constants.STAT_TEXT_TOP, Constants.STAT_TEXT_LEFT + trainingAdditions, 0, 0);
 
             Scripts.scriptAircraft = scriptAircraft;
             Scripts.scriptHelicopters = scriptHelicopters;
@@ -161,8 +162,9 @@ namespace shilka2
             GameTimer.Enabled = true;
             GameTimer.Start();
 
-            if (Shilka.school)
+            if (Shilka.school || Shilka.training)
             {
+                schoolLabel.Content = (Shilka.school ? "обучающий режим" : "тренировка");
                 schoolLabel.Visibility = Visibility.Visible;
                 School.Enabled = true;
                 School.Start();
