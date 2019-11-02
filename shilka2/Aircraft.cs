@@ -556,13 +556,17 @@ namespace shilka2
 
             fly = false;
 
-            Aircraft newAircraft = Aircrafts.targetDrones[6]; // il28
-            double newX = (flyDirectRight ? x + (Aircrafts.targetDrones[5].size[0] - Aircrafts.targetDrones[6].size[0]) : x);
+            int il28with77bm2 = Constants.TRAINING_IL28_INDEX;
+            int il28 = Constants.TRAINING_IL28_WITHOUT_77bm2_INDEX;
+            int target77bm2 = Constants.TRAINING_77bm2_INDEX;
+
+            Aircraft newAircraft = Aircrafts.targetTugs[il28];
+            double newX = (flyDirectRight ? x + (Aircrafts.targetTugs[il28with77bm2].size[0] - Aircrafts.targetTugs[il28].size[0]) : x);
             newAircraft.CreateNewAircraft(newX, y, flightDirection, transformation: true);
 
-            newAircraft = Aircrafts.targetDrones[7]; // 77bm2
-            newX = (flyDirectRight ? x : x + (Aircrafts.targetDrones[5].size[0] - Aircrafts.targetDrones[7].size[0]));
-            double newY = y + (Aircrafts.targetDrones[5].size[1] - Aircrafts.targetDrones[7].size[1]);
+            newAircraft = Aircrafts.targetTugs[target77bm2];
+            newX = (flyDirectRight ? x : x + (Aircrafts.targetTugs[il28with77bm2].size[0] - Aircrafts.targetTugs[target77bm2].size[0]));
+            double newY = y + (Aircrafts.targetTugs[il28with77bm2].size[1] - Aircrafts.targetTugs[target77bm2].size[1]);
 
             newAircraft.CreateNewAircraft(newX, newY, flightDirection, dead: true, transformation: true);
         }
@@ -633,12 +637,15 @@ namespace shilka2
 
             if (Shilka.training)
             {
+
+
+
                 if (rand.Next(Constants.TRAINING_LAUNCH_PROBABILITTY) != 1)
                     newAircraft = Aircrafts.Cloud();
                 else if (allAircraftsInGame < Constants.TRAINING_IL28_AT_THE_START)
-                    newAircraft = Aircrafts.targetDrones[Constants.TRAINING_IL28_INDEX];
+                    newAircraft = Aircrafts.targetTugs[Constants.TRAINING_IL28_INDEX];
                 else
-                    newAircraft = Aircrafts.targetDrones[rand.Next(Aircrafts.targetDrones.Count - 1)];
+                    newAircraft = Aircrafts.targetDrones[rand.Next(Aircrafts.targetDrones.Count)];
             }
             else
                 switch (aircraftCategory)

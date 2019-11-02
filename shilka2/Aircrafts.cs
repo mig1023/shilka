@@ -2221,7 +2221,10 @@ namespace shilka2
                 speed = 12,
                 cantEscape = true,
             },
+        };
 
+        public static List<Aircraft> targetTugs = new List<Aircraft>()
+        {
             new Aircraft {
                 aircraftType = "il28bm_77bm2",
                 aircraftName = "буксировщик мишени Ил-28БМ",

@@ -125,7 +125,9 @@ namespace shilka2
 
         public const int TRAINING_LAUNCH_PROBABILITTY = 5;
         public const int TRAINING_IL28_AT_THE_START = 8;
-        public const int TRAINING_IL28_INDEX = 5;
+        public const int TRAINING_IL28_INDEX = 0;
+        public const int TRAINING_IL28_WITHOUT_77bm2_INDEX = 1;
+        public const int TRAINING_77bm2_INDEX = 2;
         public const int TRAINING_IL28_AIRCRAFT_LEN = 300;
         public const int TRAINING_IL28_TOW_LEN = 250;
         public const int TRAINING_IL28_TARGET_LEN = 156;
