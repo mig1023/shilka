@@ -124,7 +124,7 @@ namespace shilka2
             "более быстрые иностранные MQM-36A, AQM-34, D-21. Нужно сбить или повредить как можно больше мишеней.\n\n[ OK ]";
 
         public const int TRAINING_LAUNCH_PROBABILITTY = 5;
-        public const int TRAINING_IL28_AT_THE_START = 8;
+        public const int TRAINING_IL28_AT_THE_START = 12;
         public const int TRAINING_IL28_INDEX = 0;
         public const int TRAINING_IL28_WITHOUT_77bm2_INDEX = 1;
         public const int TRAINING_77bm2_INDEX = 2;

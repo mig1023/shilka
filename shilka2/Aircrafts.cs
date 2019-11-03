@@ -2233,6 +2233,7 @@ namespace shilka2
                 speed = 9,
                 cantEscape = true,
                 friend = true,
+                minAltitude = minAltitudeForLargeAircraft,
             },
 
             new Aircraft {
