@@ -15,7 +15,8 @@ namespace shilka2
 
         public static List<Aircraft> aircraft = new List<Aircraft>()
         {
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "a10",
                 aircraftName = "A-10 Thunderbolt",
                 hitPoint = 200,
@@ -25,7 +26,8 @@ namespace shilka2
                 cantEscape = true
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "b1",
                 aircraftName = "B-1 Lancer",
                 hitPoint = 100,
@@ -34,7 +36,8 @@ namespace shilka2
                 speed = 12
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "b52",
                 aircraftName = "B-52 Stratofortress",
                 hitPoint = 120,
@@ -45,7 +48,8 @@ namespace shilka2
                 cantEscape = true
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "f117",
                 aircraftName = "F-117 Nighthawk",
                 hitPoint = 50,
@@ -53,28 +57,32 @@ namespace shilka2
                 price = 112
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "f14",
                 aircraftName = "F-14 Tomcat",
                 size = new int[] { 275, 66 },
                 price = 38
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "f18",
                 aircraftName = "F-18 Hornet",
                 size = new int[] { 270, 66 },
                 price = 57
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "f16",
                 aircraftName = "F-16 Fighting Falcon",
                 size = new int[] { 270, 89 },
                 price = 34
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "f22",
                 aircraftName = "F-22 Raptor",
                 size = new int[] { 270, 65 },
@@ -83,7 +91,8 @@ namespace shilka2
                 doesNotFlyInBadWeather = true
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "f15",
                 aircraftName = "F-15 Eagle",
                 hitPoint = 100,
@@ -91,7 +100,8 @@ namespace shilka2
                 price = 29
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "f4",
                 aircraftName = "F-4 Fantom",
                 hitPoint = 150,
@@ -100,7 +110,8 @@ namespace shilka2
                 speed = 8
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "tornado",
                 aircraftName = "Panavia Tornado",
                 hitPoint = 100,
@@ -108,7 +119,8 @@ namespace shilka2
                 price = 111
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "predator",
                 aircraftName = "MQ-1 Predator",
                 hitPoint = 30,
@@ -118,8 +130,10 @@ namespace shilka2
                 cantEscape = true,
                 deadSprite = true,
                 weight = Aircraft.WeightType.Middle,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "ltl_prop",
                         y = -15,
                         x_left = 130,
@@ -129,7 +143,8 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "reaper",
                 aircraftName = "MQ-9 Reaper",
                 hitPoint = 50,
@@ -139,8 +154,10 @@ namespace shilka2
                 cantEscape = true,
                 deadSprite = true,
                 weight = Aircraft.WeightType.Middle,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "ltl_prop",
                         y = -3,
                         x_left = 143,
@@ -151,7 +168,8 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "f35",
                 aircraftName = "F-35 Lightning II",
                 size = new int[] { 270, 69 },
@@ -159,7 +177,8 @@ namespace shilka2
                 doesNotFlyInBadWeather = true
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "e3",
                 aircraftName = "E-3 Centry",
                 hitPoint = 150,
@@ -168,8 +187,10 @@ namespace shilka2
                 speed = 8,
                 deadSprite = true,
                 minAltitude = minAltitudeForLargeAircraft,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "e3rls",
                         y = 34,
                         x_left = 312,
@@ -182,14 +203,16 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "eurofighter",
                 aircraftName = "Eurofighter Typhoon",
                 size = new int[] { 270, 77 },
                 price = 123
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "rafale",
                 aircraftName = "Rafale",
                 size = new int[] { 270, 86 },
@@ -197,7 +220,8 @@ namespace shilka2
                 speed = 11
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "b2",
                 aircraftName = "B-2 Spirit",
                 hitPoint = 125,
@@ -206,7 +230,8 @@ namespace shilka2
                 speed = 18
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "globalhawk",
                 aircraftName = "RQ-4 Global Hawk",
                 hitPoint = 100,
@@ -217,7 +242,8 @@ namespace shilka2
                 minAltitude = minAltitudeForLargeAircraft
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "tomahawk",
                 aircraftName = "Tomahawk",
                 hitPoint = 20,
@@ -228,7 +254,8 @@ namespace shilka2
                 weight = Aircraft.WeightType.Light,
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "f8",
                 aircraftName = "F-8 Crusader",
                 size = new int[] { 270, 93 },
@@ -236,7 +263,8 @@ namespace shilka2
                 speed = 8
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "ac130",
                 aircraftName = "AC-130 Spectre",
                 hitPoint = 120,
@@ -246,8 +274,10 @@ namespace shilka2
                 minAltitude = minAltitudeForLargeAircraft,
                 cantEscape = true,
                 deadSprite = true,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "air_prop",
                         y = 56,
                         x_left = 107,
@@ -257,7 +287,8 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "a6",
                 aircraftName = "A-6 Intruder",
                 size = new int[] { 270, 81 },
@@ -265,21 +296,24 @@ namespace shilka2
                 speed = 7
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "f111",
                 aircraftName = "F-111",
                 size = new int[] { 285, 59 },
                 price = 72
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "f5",
                 aircraftName = "F-5 Tiger",
                 size = new int[] { 270, 58 },
                 price = 2
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "scalp",
                 aircraftName = "SCALP",
                 hitPoint = 20,
@@ -290,7 +324,8 @@ namespace shilka2
                 weight = Aircraft.WeightType.Light,
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "ea6",
                 aircraftName = "EA-6 Prowler",
                 size = new int[] { 285, 66 },
@@ -298,7 +333,8 @@ namespace shilka2
                 speed = 7
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "hawkeye",
                 aircraftName = "E-2 Hawkeye",
                 hitPoint = 100,
@@ -308,15 +344,18 @@ namespace shilka2
                 minAltitude = minAltitudeForLargeAircraft,
                 cantEscape = true,
                 deadSprite = true,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "air_prop",
                         y = 13,
                         x_left = 75,
                         x_right = 225,
                         movingType = DynamicElement.MovingType.yRotate
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "hawkeyerls",
                         y = 4,
                         x_left = 118,
@@ -329,7 +368,8 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "rc135",
                 aircraftName = "RC-135",
                 hitPoint = 120,
@@ -340,7 +380,8 @@ namespace shilka2
                 cantEscape = true
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "u2",
                 aircraftName = "U-2",
                 size = new int[] { 355, 103 },
@@ -350,7 +391,8 @@ namespace shilka2
                 cantEscape = true
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "sr71",
                 aircraftName = "SR-71 Blackbird",
                 size = new int[] { 530, 93 },
@@ -359,7 +401,8 @@ namespace shilka2
                 minAltitude = minAltitudeForLargeAircraft
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "harrier",
                 aircraftName = "BAE Sea Harrier",
                 size = new int[] { 275, 81 },
@@ -367,7 +410,8 @@ namespace shilka2
                 speed = 7
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "cessna",
                 aircraftName = "Cessna 172",
                 hitPoint = 30,
@@ -377,8 +421,10 @@ namespace shilka2
                 cantEscape = true,
                 deadSprite = true,
                 weight = Aircraft.WeightType.Middle,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "ltl_prop",
                         y = 2,
                         x_left = -3,
@@ -389,7 +435,8 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "hunter",
                 aircraftName = "RQ-5 Hunter",
                 hitPoint = 30,
@@ -399,8 +446,10 @@ namespace shilka2
                 cantEscape = true,
                 deadSprite = true,
                 weight = Aircraft.WeightType.Middle,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "ltl_prop",
                         y = -10,
                         x_left = 105,
@@ -411,7 +460,8 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "r99",
                 aircraftName = "Embraer R-99",
                 hitPoint = 100,
@@ -422,21 +472,24 @@ namespace shilka2
                 cantEscape = true
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "m2000",
                 aircraftName = "Mirage 2000",
                 size = new int[] { 270, 79 },
                 price = 25
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "m2000ed",
                 aircraftName = "Mirage 2000ED",
                 size = new int[] { 270, 75 },
                 price = 35
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "jassm",
                 aircraftName = "JASSM",
                 hitPoint = 20,
@@ -447,14 +500,16 @@ namespace shilka2
                 weight = Aircraft.WeightType.Light,
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "gripen",
                 aircraftName = "Saab Gripen",
                 size = new int[] { 247, 72 },
                 price = 14
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "boeing737aewc",
                 aircraftName = "Боинг 737 AEW&C",
                 size = new int[] { 565, 187 },
@@ -464,7 +519,8 @@ namespace shilka2
                 cantEscape = true
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "c5",
                 aircraftName = "C-5 Galaxy",
                 hitPoint = 150,
@@ -475,7 +531,8 @@ namespace shilka2
                 cantEscape = true
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "c17",
                 aircraftName = "C-17 Globemaster III",
                 hitPoint = 120,
@@ -486,7 +543,8 @@ namespace shilka2
                 cantEscape = true
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "a1",
                 aircraftName = "A-1 Skyraider",
                 hitPoint = 80,
@@ -495,8 +553,10 @@ namespace shilka2
                 price = 0.4,
                 cantEscape = true,
                 deadSprite = true,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "ltl_prop",
                         y = 19,
                         x_left = -1,
@@ -507,7 +567,8 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "kc135",
                 aircraftName = "KC-135 Stratotanker",
                 hitPoint = 120,
@@ -518,14 +579,16 @@ namespace shilka2
                 cantEscape = true
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "jaguar",
                 aircraftName = "SEPECAT Jaguar",
                 size = new int[] { 275, 81 },
                 price = 8
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "argus",
                 aircraftName = "Saab S100B Argus",
                 hitPoint = 100,
@@ -534,8 +597,10 @@ namespace shilka2
                 price = 110,
                 cantEscape = true,
                 deadSprite = true,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "ltl_prop",
                         y = 50,
                         x_left = 80,
@@ -546,7 +611,8 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "ov10",
                 aircraftName = "OV-10 Bronco",
                 hitPoint = 100,
@@ -554,8 +620,10 @@ namespace shilka2
                 speed = 7,
                 price = 5,
                 deadSprite = true,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "ltl_prop",
                         y = 29,
                         x_left = 78,
@@ -566,7 +634,8 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "s3",
                 aircraftName = "Lockheed S-3 Viking",
                 hitPoint = 100,
@@ -578,7 +647,8 @@ namespace shilka2
 
         public static List<Aircraft> helicopters = new List<Aircraft>()
         {
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "ah64",
                 aircraftName = "AH-64 Apache",
                 hitPoint = 120,
@@ -586,15 +656,18 @@ namespace shilka2
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
                 price = 61,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "prop_main",
                         y = -8,
                         x_left = -41,
                         x_right = 27,
                         movingType = DynamicElement.MovingType.xRotate,
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "x_suppl",
                         y = -5,
                         x_left = 170,
@@ -604,7 +677,8 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "ah1",
                 aircraftName = "AH-1 Cobra",
                 hitPoint = 100,
@@ -612,15 +686,18 @@ namespace shilka2
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
                 price = 11,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "prop_main",
                         y = -22,
                         x_left = -41,
                         x_right = 27,
                         movingType = DynamicElement.MovingType.xRotate,
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "i_suppl",
                         y = -9,
                         x_left = 175,
@@ -630,22 +707,26 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "uh60",
                 aircraftName = "UH-60 Black Hawk",
                 size = new int[] { 210, 65 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
                 price = 25,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "prop_main",
                         y = -5,
                         x_left = -48,
                         x_right = 36,
                         movingType = DynamicElement.MovingType.xRotate,
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "t_suppl",
                         y = -11,
                         x_left = 175,
@@ -655,22 +736,26 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "uh1",
                 aircraftName = "UH-1 Iroquois",
                 size = new int[] { 210, 64 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
                 price = 5,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "prop_main",
                         y = -16,
                         x_left = -41,
                         x_right = 25,
                         movingType = DynamicElement.MovingType.xRotate,
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "i_suppl",
                         y = -16,
                         x_left = 178,
@@ -680,22 +765,26 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "ch47",
                 aircraftName = "CH-47 Chinook",
                 size = new int[] { 270, 101 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
                 price = 30,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "prop_main",
                         y = 6,
                         x_left = -68,
                         x_right = 110,
                         movingType = DynamicElement.MovingType.xRotate,
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "prop_main",
                         y = -20,
                         x_left = 125,
@@ -705,15 +794,18 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "v22",
                 aircraftName = "V-22 Ospray",
                 size = new int[] { 282, 103 },
                 speed = 7,
                 maxAltitude = maxAltitudeForHelicopters,
                 price = 116,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "prop_main",
                         y = -18,
                         x_left = -5,
@@ -724,22 +816,26 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "tiger",
                 aircraftName = "Eurocopter Tiger HAC",
                 size = new int[] { 209, 76 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
                 price = 39,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "prop_main",
                         y = -3,
                         x_left = -35,
                         x_right = 20,
                         movingType = DynamicElement.MovingType.xRotate,
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "y_suppl",
                         y = 5,
                         x_left = 170,
@@ -749,7 +845,8 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "drone",
                 aircraftName = "дрон-разведчик (тип 1)",
                 hitPoint = 1,
@@ -759,8 +856,10 @@ namespace shilka2
                 price = 0.01,
                 deadSprite = true,
                 weight = Aircraft.WeightType.Light,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "micro_prop",
                         y = -5,
                         x_left = -6,
@@ -768,7 +867,8 @@ namespace shilka2
                         movingType = DynamicElement.MovingType.xRotate,
                         startDegree = 0.5,
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "micro_prop",
                         y = -5,
                         x_left = 15,
@@ -778,7 +878,8 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "gazelle",
                 aircraftName = "Aerospatiale Gazelle",
                 hitPoint = 60,
@@ -786,15 +887,18 @@ namespace shilka2
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
                 price = 0.5,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "prop_main",
                         y = -3,
                         x_left = -53,
                         x_right = 12,
                         movingType = DynamicElement.MovingType.xRotate,
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "f_suppl",
                         y = 19,
                         x_left = 155,
@@ -804,22 +908,26 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "comanche",
                 aircraftName = "RAH-66 Comanche",
                 size = new int[] { 210, 61 },
                 speed = 6,
                 maxAltitude = maxAltitudeForHelicopters,
                 price = 100,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "prop_main",
                         y = -10,
                         x_left = -29,
                         x_right = 12,
                         movingType = DynamicElement.MovingType.xRotate,
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "f_suppl",
                         y = 26,
                         x_left = 175,
@@ -829,15 +937,18 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "oh1",
                 aircraftName = "OH-1 Ninja",
                 size = new int[] { 205, 70 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
                 price = 24,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "prop_main_ltl",
                         y = -1,
                         x_left = 10,
@@ -845,7 +956,8 @@ namespace shilka2
                         movingType = DynamicElement.MovingType.xRotate,
                         background = true
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "f_suppl",
                         y = 29,
                         x_left = 161,
@@ -856,7 +968,8 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "mangusta",
                 aircraftName = "T-129 Mangusta",
                 hitPoint = 100,
@@ -864,15 +977,18 @@ namespace shilka2
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
                 price = 52,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "prop_main",
                         y = -14,
                         x_left = -35,
                         x_right = 22,
                         movingType = DynamicElement.MovingType.xRotate,
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "i_suppl",
                         y = -14,
                         x_left = 179,
@@ -882,7 +998,8 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "puma",
                 aircraftName = "Aerospatiale Puma",
                 size = new int[] { 215, 58 },
@@ -890,15 +1007,18 @@ namespace shilka2
                 speed = 5,
                 minAltitude = maxAltitudeForHelicopters,
                 cantEscape = true,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "prop_main",
                         y = -19,
                         x_left = -52,
                         x_right = 40,
                         movingType = DynamicElement.MovingType.xRotate,
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "t_suppl",
                         y = -16,
                         x_left = 177,
@@ -908,7 +1028,8 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "mh53",
                 aircraftName = "Сикорский MH-53",
                 hitPoint = 100,
@@ -917,15 +1038,18 @@ namespace shilka2
                 speed = 5,
                 minAltitude = maxAltitudeForHelicopters,
                 cantEscape = true,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "prop_main_big",
                         y = 5,
                         x_left = 40,
                         x_right = 69,
                         movingType = DynamicElement.MovingType.xRotate,
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "t_suppl",
                         y = -16,
                         x_left = 327,
@@ -942,15 +1066,18 @@ namespace shilka2
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
                 price = 10,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "prop_main",
                         y = -4,
                         x_left = -33,
                         x_right = 3,
                         movingType = DynamicElement.MovingType.xRotate,
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "f_suppl",
                         y = 34,
                         x_left = 167,
@@ -971,8 +1098,10 @@ namespace shilka2
                 price = 0.01,
                 deadSprite = true,
                 weight = Aircraft.WeightType.Light,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "micro_prop",
                         y = -2,
                         x_left = -6,
@@ -980,7 +1109,8 @@ namespace shilka2
                         movingType = DynamicElement.MovingType.xRotate,
                         startDegree = 0.5,
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "micro_prop",
                         y = -2,
                         x_left = 19,
@@ -990,15 +1120,18 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "oh58d",
                 aircraftName = "Белл OH-58D",
                 size = new int[] { 209, 83 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
                 price = 11,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "prop_main",
                         y = 5,
                         x_left = -43,
@@ -1006,7 +1139,8 @@ namespace shilka2
                         movingType = DynamicElement.MovingType.xRotate,
                         background = true
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "ltl_suppl",
                         y = 24,
                         x_left = 165,
@@ -1016,7 +1150,8 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "rooivalk",
                 aircraftName = "Denel AH-2 Rooivalk",
                 hitPoint = 100,
@@ -1024,8 +1159,10 @@ namespace shilka2
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
                 price = 40,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "prop_main",
                         y = -10,
                         x_left = -20,
@@ -1033,7 +1170,8 @@ namespace shilka2
                         movingType = DynamicElement.MovingType.xRotate,
                         background = true
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "five_suppl",
                         y = -2,
                         x_left = 205,
@@ -1043,22 +1181,26 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "ah6",
                 aircraftName = "Боинг AH-6",
                 size = new int[] { 134, 58 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
                 price = 2,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "prop_main_ltl",
                         y = -12,
                         x_left = -20,
                         x_right = 20,
                         movingType = DynamicElement.MovingType.xRotate,
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "ltl_suppl",
                         y = 7,
                         x_left = 110,
@@ -1068,7 +1210,8 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "drone3",
                 aircraftName = "дрон-разведчик (тип 3)",
                 hitPoint = 1,
@@ -1078,8 +1221,10 @@ namespace shilka2
                 price = 0.01,
                 deadSprite = true,
                 weight = Aircraft.WeightType.Light,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "micro_prop",
                         y = -4,
                         x_left = -5,
@@ -1087,7 +1232,8 @@ namespace shilka2
                         movingType = DynamicElement.MovingType.xRotate,
                         startDegree = 0.5,
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "micro_prop",
                         y = -4,
                         x_left = 20,
@@ -1097,7 +1243,8 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "drone4",
                 aircraftName = "дрон-разведчик (тип 4)",
                 hitPoint = 1,
@@ -1107,8 +1254,10 @@ namespace shilka2
                 price = 0.01,
                 deadSprite = true,
                 weight = Aircraft.WeightType.Light,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "micro_prop_y",
                         y = 5,
                         x_left = 2,
@@ -1120,22 +1269,26 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "tiger-hap",
                 aircraftName = "Eurocopter Tiger HAP",
                 size = new int[] { 222, 76 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
                 price = 28,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "prop_main",
                         y = -3,
                         x_left = -21,
                         x_right = 15,
                         movingType = DynamicElement.MovingType.xRotate,
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "y_suppl",
                         y = 4,
                         x_left = 181,
@@ -1145,7 +1298,8 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "h34",
                 aircraftName = "Sikorsky H-34",
                 hitPoint = 140,
@@ -1153,15 +1307,18 @@ namespace shilka2
                 speed = 4,
                 maxAltitude = maxAltitudeForHelicopters,
                 price = 2,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "prop_main",
                         y = -23,
                         x_left = -50,
                         x_right = 85,
                         movingType = DynamicElement.MovingType.xRotate,
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "y_suppl",
                         y = -14,
                         x_left = 221,
@@ -1171,7 +1328,8 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "ch54",
                 aircraftName = "Sikorsky CH-54",
                 hitPoint = 140,
@@ -1179,15 +1337,18 @@ namespace shilka2
                 speed = 4,
                 maxAltitude = maxAltitudeForHelicopters,
                 price = 2,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "prop_main",
                         y = -13,
                         x_left = 0,
                         x_right = 85,
                         movingType = DynamicElement.MovingType.xRotate
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "t_suppl",
                         y = -16,
                         x_left = 268,
@@ -1197,7 +1358,8 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "drone5",
                 aircraftName = "дрон-разведчик (тип 5)",
                 hitPoint = 1,
@@ -1207,8 +1369,10 @@ namespace shilka2
                 price = 0.01,
                 deadSprite = true,
                 weight = Aircraft.WeightType.Light,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "micro_prop",
                         y = 0,
                         x_left = -6,
@@ -1216,7 +1380,8 @@ namespace shilka2
                         movingType = DynamicElement.MovingType.xRotate,
                         startDegree = 0.5,
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "micro_prop",
                         y = 0,
                         x_left = 24,
@@ -1226,7 +1391,8 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "drone6",
                 aircraftName = "дрон-разведчик (тип 6)",
                 hitPoint = 1,
@@ -1236,8 +1402,10 @@ namespace shilka2
                 price = 0.01,
                 deadSprite = true,
                 weight = Aircraft.WeightType.Light,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "micro_prop",
                         y = -3,
                         x_left = -6,
@@ -1245,7 +1413,8 @@ namespace shilka2
                         movingType = DynamicElement.MovingType.xRotate,
                         startDegree = 0.5,
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "micro_prop",
                         y = -3,
                         x_left = 19,
@@ -1255,7 +1424,8 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "drone7",
                 aircraftName = "дрон-разведчик (тип 7)",
                 hitPoint = 1,
@@ -1265,8 +1435,10 @@ namespace shilka2
                 weight = Aircraft.WeightType.Light,
                 maxAltitude = maxAltitudeForHelicopters,
                 price = 0.01,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "micro_prop",
                         y = 5,
                             x_left = 0,
@@ -1274,14 +1446,16 @@ namespace shilka2
                         movingType = DynamicElement.MovingType.xRotate,
                         startDegree = 0.5,
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "micro_prop",
                         y = 3,
                             x_left = 16,
                         x_right = 51,
                         movingType = DynamicElement.MovingType.xRotate,
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "micro_prop",
                         y = 5,
                             x_left = 41,
@@ -1289,7 +1463,8 @@ namespace shilka2
                         movingType = DynamicElement.MovingType.xRotate,
                         startDegree = 0.5,
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "micro_prop_y",
                         y = 11,
                         x_left = 84,
@@ -1300,7 +1475,8 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "drone8",
                 aircraftName = "дрон-разведчик (тип 8)",
                 hitPoint = 1,
@@ -1310,15 +1486,18 @@ namespace shilka2
                 price = 0.01,
                 deadSprite = true,
                 weight = Aircraft.WeightType.Light,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "micro_prop",
                         y = -4,
                         x_left = -7,
                         x_right = -7,
                         movingType = DynamicElement.MovingType.xRotate,
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "micro_prop",
                         y = -4,
                         x_left = 24,
@@ -1326,7 +1505,8 @@ namespace shilka2
                         movingType = DynamicElement.MovingType.xRotate,
                         startDegree = 0.7,
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "micro_prop",
                         y = 5,
                         x_left = -7,
@@ -1334,7 +1514,8 @@ namespace shilka2
                         movingType = DynamicElement.MovingType.xRotate,
                         startDegree = 0.2,
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "micro_prop",
                         y = 5,
                         x_left = 24,
@@ -1348,21 +1529,24 @@ namespace shilka2
 
         public static List<Aircraft> aircraftFriend = new List<Aircraft>()
         {
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "mig23",
                 aircraftName = "МиГ-23",
                 size = new int[] { 270, 71 },
                 friend = true
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "mig29",
                 aircraftName = "МиГ-29",
                 size = new int[] { 270, 66 },
                 friend = true
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "mig31",
                 aircraftName = "МиГ-31",
                 size = new int[] { 270, 63 },
@@ -1370,7 +1554,8 @@ namespace shilka2
                 friend = true
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "su17",
                 aircraftName = "Су-17",
                 size = new int[] { 270, 61 },
@@ -1378,7 +1563,8 @@ namespace shilka2
                 friend = true
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "su24",
                 aircraftName = "Су-24",
                 size = new int[] { 270, 67 },
@@ -1386,7 +1572,8 @@ namespace shilka2
                 friend = true
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "su25",
                 aircraftName = "Су-25",
                 hitPoint = 180,
@@ -1396,14 +1583,16 @@ namespace shilka2
                 cantEscape = true
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "su27",
                 aircraftName = "Су-27",
                 size = new int[] { 270, 77 },
                 friend = true
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "su34",
                 aircraftName = "Су-34",
                 hitPoint = 120,
@@ -1411,7 +1600,8 @@ namespace shilka2
                 friend = true
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "pakfa",
                 aircraftName = "Су-57",
                 size = new int[] { 270, 57 },
@@ -1419,7 +1609,8 @@ namespace shilka2
                 friend = true
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "tu160",
                 aircraftName = "Ту-160",
                 hitPoint = 140,
@@ -1429,21 +1620,24 @@ namespace shilka2
                 friend = true
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "mig19",
                 aircraftName = "МиГ-19",
                 size = new int[] { 270, 81 },
                 friend = true
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "mig21",
                 aircraftName = "МиГ-21",
                 size = new int[] { 270, 62 },
                 friend = true
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "mig25",
                 aircraftName = "МиГ-25",
                 size = new int[] { 270, 64 },
@@ -1451,7 +1645,8 @@ namespace shilka2
                 friend = true
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "a50",
                 aircraftName = "А-50",
                 hitPoint = 150,
@@ -1460,8 +1655,10 @@ namespace shilka2
                 minAltitude = minAltitudeForLargeAircraft,
                 cantEscape = true,
                 friend = true,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "a50rls",
                         y = 45,
                         x_left = 265,
@@ -1474,7 +1671,8 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "tu95",
                 aircraftName = "Ту-95",
                 hitPoint = 120,
@@ -1483,8 +1681,10 @@ namespace shilka2
                 minAltitude = minAltitudeForLargeAircraft,
                 cantEscape = true,
                 friend = true,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "ltl_prop",
                         y = 68,
                         x_left = 118,
@@ -1492,7 +1692,8 @@ namespace shilka2
                         movingType = DynamicElement.MovingType.yRotate,
                         mirror = true
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "ltl_prop",
                         y = 68,
                         x_left = 111,
@@ -1501,7 +1702,8 @@ namespace shilka2
                         movingType = DynamicElement.MovingType.yRotate,
                         mirror = true
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "ltl_prop",
                         y = 68,
                         x_left = 151,
@@ -1509,7 +1711,8 @@ namespace shilka2
                         movingType = DynamicElement.MovingType.yRotate,
                         mirror = true
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "ltl_prop",
                         y = 68,
                         x_left = 158,
@@ -1521,21 +1724,24 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "mig35",
                 aircraftName = "МиГ-35",
                 size = new int[] { 270, 72 },
                 friend = true
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "su30",
                 aircraftName = "Су-30",
                 size = new int[] { 270, 66 },
                 friend = true
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "tu22m3",
                 aircraftName = "Ту-22М3",
                 size = new int[] { 434, 108 },
@@ -1544,7 +1750,8 @@ namespace shilka2
                 friend = true
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "tu16",
                 aircraftName = "Ту-16",
                 size = new int[] { 430, 105 },
@@ -1552,7 +1759,8 @@ namespace shilka2
                 friend = true
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "tu22",
                 aircraftName = "Ту-22",
                 size = new int[] { 450, 98 },
@@ -1563,7 +1771,8 @@ namespace shilka2
 
         public static List<Aircraft> helicoptersFriend = new List<Aircraft>()
         {
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "mi28",
                 aircraftName = "Ми-28",
                 hitPoint = 120,
@@ -1571,8 +1780,10 @@ namespace shilka2
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
                 friend = true,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "prop_main",
                         y = 0,
                         x_left = -43,
@@ -1580,7 +1791,8 @@ namespace shilka2
                         movingType = DynamicElement.MovingType.xRotate,
                         background = true,
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "x_suppl",
                         y = -7,
                         x_left = 180,
@@ -1590,7 +1802,8 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "mi24",
                 aircraftName = "Ми-24",
                 hitPoint = 120,
@@ -1598,15 +1811,18 @@ namespace shilka2
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
                 friend = true,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "prop_main",
                         y = -11,
                         x_left = -39,
                         x_right = 25,
                         movingType = DynamicElement.MovingType.xRotate,
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "y_suppl",
                         y = -15,
                         x_left = 180,
@@ -1616,22 +1832,26 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "mi8",
                 aircraftName = "Ми-8",
                 size = new int[] { 220, 62 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
                 friend = true,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "prop_main",
                         y = -11,
                         x_left = -47,
                         x_right = 40,
                         movingType = DynamicElement.MovingType.xRotate,
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "y_suppl",
                         y = -19,
                         x_left = 190,
@@ -1641,7 +1861,8 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "ka52",
                 aircraftName = "Ка-52",
                 hitPoint = 120,
@@ -1649,8 +1870,10 @@ namespace shilka2
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
                 friend = true,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "prop_main",
                         y = -13,
                         x_left = -25,
@@ -1658,7 +1881,8 @@ namespace shilka2
                         movingType = DynamicElement.MovingType.xRotate,
                         startDegree = 0.5,
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "prop_main",
                         y = -2,
                         x_left = -25,
@@ -1668,15 +1892,18 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "ka27",
                 aircraftName = "Ка-27",
                 size = new int[] { 197, 63 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
                 friend = true,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "prop_main",
                         y = -32,
                         x_left = -30,
@@ -1684,7 +1911,8 @@ namespace shilka2
                         movingType = DynamicElement.MovingType.xRotate,
                         startDegree = 0.5,
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "prop_main",
                         y = -21,
                         x_left = -30,
@@ -1694,22 +1922,26 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "mi10",
                 aircraftName = "Ми-10",
                 size = new int[] { 300, 77 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
                 friend = true,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "prop_main_big",
                         y = -20,
                         x_left = -35,
                         x_right = 70,
                         movingType = DynamicElement.MovingType.xRotate,
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "t_suppl",
                         y = -15,
                         x_left = 260,
@@ -1719,21 +1951,25 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "mi26",
                 aircraftName = "Ми-26",
                 size = new int[] { 580, 146 },
                 speed = 5,
                 friend = true,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "mi26_prop",
                         y = -3,
                         x_left = -35,
                         x_right = 105,
                         movingType = DynamicElement.MovingType.xRotate,
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "mi26_suppl",
                         y = -54,
                         x_left = 480,
@@ -1743,15 +1979,18 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "ka31",
                 aircraftName = "Ка-31",
                 size = new int[] { 200, 50 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
                 friend = true,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "prop_main",
                         y = -34,
                         x_left = -30,
@@ -1759,14 +1998,16 @@ namespace shilka2
                         movingType = DynamicElement.MovingType.xRotate,
                         startDegree = 0.5,
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "prop_main",
                         y = -23,
                         x_left = -30,
                         x_right = 0,
                         movingType = DynamicElement.MovingType.xRotate,
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "ka31rls",
                         y = 50,
                         x_left = 20,
@@ -1778,15 +2019,18 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "ka26",
                 aircraftName = "Ка-26",
                 size = new int[] { 150, 56 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
                 friend = true,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "prop_main_ltl",
                         y = -34,
                         x_left = -10,
@@ -1794,7 +2038,8 @@ namespace shilka2
                         movingType = DynamicElement.MovingType.xRotate,
                         startDegree = 0.5,
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "prop_main_ltl",
                         y = -23,
                         x_left = -10,
@@ -1804,15 +2049,18 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "mi38",
                 aircraftName = "Ми-38",
                 size = new int[] { 235, 78 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
                 friend = true,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "prop_main",
                         y = -2,
                         x_left = -34,
@@ -1820,7 +2068,8 @@ namespace shilka2
                         movingType = DynamicElement.MovingType.xRotate,
                         background = true,
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "x_suppl",
                         y = -9,
                         x_left = 200,
@@ -1830,15 +2079,18 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "ansat",
                 aircraftName = "Ансат",
                 size = new int[] { 210, 61 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
                 friend = true,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "prop_main",
                         y = -22,
                         x_left = -37,
@@ -1846,7 +2098,8 @@ namespace shilka2
                         movingType = DynamicElement.MovingType.xRotate,
                         background = true,
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "ltl_suppl",
                         y = 1,
                         x_left = 185,
@@ -1856,15 +2109,18 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "ka60",
                 aircraftName = "Ка-60",
                 size = new int[] { 240, 89 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
                 friend = true,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "prop_main",
                         y = 3,
                         x_left = -33,
@@ -1872,7 +2128,8 @@ namespace shilka2
                         movingType = DynamicElement.MovingType.xRotate,
                         background = true,
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "f_suppl",
                         y = 40,
                         x_left = 204,
@@ -1885,7 +2142,8 @@ namespace shilka2
 
         public static List<Aircraft> airliners = new List<Aircraft>()
         {
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "a320",
                 aircraftName = "Аэробус А320",
                 hitPoint = 100,
@@ -1896,7 +2154,8 @@ namespace shilka2
                 airliner = true
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "boeing747",
                 aircraftName = "Боинг 747",
                 hitPoint = 100,
@@ -1907,7 +2166,8 @@ namespace shilka2
                 airliner = true
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "md11",
                 aircraftName = "MD-11",
                 hitPoint = 100,
@@ -1918,7 +2178,8 @@ namespace shilka2
                 airliner = true
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "atr42",
                 aircraftName = "ATR 42",
                 size = new int[] { 320, 110 },
@@ -1926,8 +2187,10 @@ namespace shilka2
                 minAltitude = minAltitudeForLargeAircraft,
                 cantEscape = true,
                 airliner = true,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "ltl_prop",
                         y = 34,
                         x_left = 92,
@@ -1938,7 +2201,8 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "dhc8",
                 aircraftName = "Bombardier DHC-8",
                 size = new int[] { 370, 90 },
@@ -1946,8 +2210,10 @@ namespace shilka2
                 minAltitude = minAltitudeForLargeAircraft,
                 cantEscape = true,
                 airliner = true,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "ltl_prop",
                         y = 27,
                         x_left = 122,
@@ -1958,7 +2224,8 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "ssj100",
                 aircraftName = "Суперджет 100",
                 size = new int[] { 355, 124 },
@@ -1968,7 +2235,8 @@ namespace shilka2
                 airliner = true
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "boeing707",
                 aircraftName = "Боинг 707",
                 hitPoint = 100,
@@ -1979,7 +2247,8 @@ namespace shilka2
                 airliner = true
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "l1049",
                 aircraftName = "Локхид L-1049",
                 hitPoint = 60,
@@ -1988,8 +2257,10 @@ namespace shilka2
                 minAltitude = minAltitudeForLargeAircraft,
                 cantEscape = true,
                 airliner = true,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "ltl_prop",
                         y = 43,
                         x_left = 126,
@@ -1997,7 +2268,8 @@ namespace shilka2
                         movingType = DynamicElement.MovingType.yRotate,
                         mirror = true
                     },
-                    new DynamicElement {
+                    new DynamicElement
+                    {
                         elementName = "ltl_prop",
                         y = 48,
                         x_left = 119,
@@ -2009,7 +2281,8 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "mc21",
                 aircraftName = "Иркут МС-21",
                 hitPoint = 100,
@@ -2020,7 +2293,8 @@ namespace shilka2
                 airliner = true
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "a380",
                 aircraftName = "Аэробус А380",
                 hitPoint = 120,
@@ -2031,7 +2305,8 @@ namespace shilka2
                 airliner = true
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "boeing777",
                 aircraftName = "Боинг 777",
                 hitPoint = 100,
@@ -2050,8 +2325,10 @@ namespace shilka2
                 minAltitude = minAltitudeForLargeAircraft,
                 cantEscape = true,
                 airliner = true,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "air_prop",
                         y = 62,
                         x_left = 118,
@@ -2061,7 +2338,8 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "boeing737",
                 aircraftName = "Боинг 737",
                 size = new int[] { 565, 184 },
@@ -2071,7 +2349,8 @@ namespace shilka2
                 airliner = true
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "md90",
                 aircraftName = "MD 90",
                 size = new int[] { 580, 111 },
@@ -2081,7 +2360,8 @@ namespace shilka2
                 airliner = true
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "dc8",
                 aircraftName = "DC 8",
                 size = new int[] { 580, 118 },
@@ -2091,7 +2371,8 @@ namespace shilka2
                 airliner = true
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "l1011",
                 aircraftName = "Локхид L-1011",
                 size = new int[] { 500, 180 },
@@ -2101,7 +2382,8 @@ namespace shilka2
                 airliner = true
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "crj200",
                 aircraftName = "Bombardier CRJ200",
                 size = new int[] { 400, 89 },
@@ -2110,15 +2392,18 @@ namespace shilka2
                 airliner = true
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "emb120",
                 aircraftName = "Embraer EMB 120",
                 size = new int[] { 330, 94 },
                 minAltitude = minAltitudeForLargeAircraft,
                 cantEscape = true,
                 airliner = true,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "ltl_prop",
                         y = 33,
                         x_left = 86,
@@ -2129,7 +2414,8 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "concorde",
                 aircraftName = "Concorde",
                 size = new int[] { 475, 100 },
@@ -2139,7 +2425,8 @@ namespace shilka2
                 airliner = true,
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "tu134",
                 aircraftName = "Ту-134",
                 size = new int[] { 463, 108 },
@@ -2149,7 +2436,8 @@ namespace shilka2
                 airliner = true
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "tu154",
                 aircraftName = "Ту-154",
                 size = new int[] { 509, 111 },
@@ -2162,7 +2450,8 @@ namespace shilka2
 
         public static List<Aircraft> targetDrones = new List<Aircraft>()
         {
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "la17mm",
                 aircraftName = "самолёт-мишень Ла-17ММ",
                 hitPoint = 30,
@@ -2172,7 +2461,8 @@ namespace shilka2
                 cantEscape = true,
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "e95",
                 aircraftName = "самолёт-мишень E-95",
                 hitPoint = 2,
@@ -2182,7 +2472,8 @@ namespace shilka2
                 cantEscape = true,
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "mqm36",
                 aircraftName = "самолёт-мишень MQM-36A",
                 hitPoint = 30,
@@ -2191,8 +2482,10 @@ namespace shilka2
                 weight = Aircraft.WeightType.Middle,
                 cantEscape = true,
                 deadSprite = true,
-                elements = new List<DynamicElement> {
-                    new DynamicElement {
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
                         elementName = "ltl_prop",
                         y = 0,
                         x_left = 0,
@@ -2203,7 +2496,8 @@ namespace shilka2
                 }
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "aqm34",
                 aircraftName = "самолёт-мишень AQM-34",
                 hitPoint = 40,
@@ -2213,7 +2507,8 @@ namespace shilka2
                 cantEscape = true,
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "d21",
                 aircraftName = "самолёт-мишень D-21",
                 hitPoint = 40,
@@ -2225,7 +2520,8 @@ namespace shilka2
 
         public static List<Aircraft> targetTugs = new List<Aircraft>()
         {
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "il28bm_77bm2",
                 aircraftName = "буксировщик мишени Ил-28БМ",
                 hitPoint = 120,
@@ -2236,7 +2532,8 @@ namespace shilka2
                 minAltitude = minAltitudeForLargeAircraft,
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "il28bm",
                 aircraftName = "буксировщик мишени Ил-28БМ",
                 hitPoint = 120,
@@ -2246,7 +2543,8 @@ namespace shilka2
                 friend = true,
             },
 
-            new Aircraft {
+            new Aircraft
+            {
                 aircraftType = "77bm2",
                 aircraftName = "мишень 77БМ7",
                 size = new int[] { 147, 42 },
@@ -2261,7 +2559,11 @@ namespace shilka2
             return new Aircraft
             {
                 aircraftType = "cloud" + (Aircraft.rand.Next(1, 8)),
-                size = new int[] { Aircraft.rand.Next(200, 501), Aircraft.rand.Next(70, 171) },
+                size = new int[]
+                {
+                    Aircraft.rand.Next(Constants.CLOUD_WIDTH_MIN, Constants.CLOUD_WIDTH_MAX),
+                    Aircraft.rand.Next(Constants.CLOUD_HEIGHT_MIN, Constants.CLOUD_HEIGHT_MAX)
+                },
                 speed = Constants.CLOUD_SPEED,
                 friend = true,
                 cloud = true

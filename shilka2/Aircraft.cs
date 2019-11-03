@@ -637,9 +637,6 @@ namespace shilka2
 
             if (Shilka.training)
             {
-
-
-
                 if (rand.Next(Constants.TRAINING_LAUNCH_PROBABILITTY) != 1)
                     newAircraft = Aircrafts.Cloud();
                 else if (allAircraftsInGame < Constants.TRAINING_IL28_AT_THE_START)
