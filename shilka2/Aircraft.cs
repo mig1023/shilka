@@ -55,6 +55,7 @@ namespace shilka2
         private static bool schoolMixAlready = false;
 
         private static bool trainingTurgetTug = false;
+        private static bool trainingTurgetPlane = false;
         private static bool trainingTurgetDrone = false;
 
         public static int allAircraftsInGame = 0;
@@ -593,10 +594,16 @@ namespace shilka2
                 main.SchoolMessage(Constants.TRAINING_TUG_INFORMATION, Brushes.Green);
             }
 
-            if (!trainingTurgetDrone && (allAircraftsInGame > Constants.TRAINING_IL28_AT_THE_START))
+            if (!trainingTurgetPlane && (allAircraftsInGame > Constants.TRAINING_IL28_AT_THE_START))
+            {
+                trainingTurgetPlane = true;
+                main.SchoolMessage(Constants.TRAINING_PLANE_INFORMATION, Brushes.Crimson);
+            }
+
+            if (!trainingTurgetDrone && (allAircraftsInGame > Constants.TRAINING_M16K_AT_THE_START))
             {
                 trainingTurgetDrone = true;
-                main.SchoolMessage(Constants.TRAINING_INFORMATION, Brushes.LightSeaGreen);
+                main.SchoolMessage(Constants.TRAINING_DRONE_INFORMATION, Brushes.LightSeaGreen);
             }
         }
 
@@ -641,6 +648,8 @@ namespace shilka2
                     newAircraft = Aircrafts.Cloud();
                 else if (allAircraftsInGame < Constants.TRAINING_IL28_AT_THE_START)
                     newAircraft = Aircrafts.targetTugs[Constants.TRAINING_IL28_INDEX];
+                else if (allAircraftsInGame < Constants.TRAINING_M16K_AT_THE_START)
+                    newAircraft = Aircrafts.targetPlane[Constants.TRAINING_M16K_INDEX];
                 else
                     newAircraft = Aircrafts.targetDrones[rand.Next(Aircrafts.targetDrones.Count)];
             }

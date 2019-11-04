@@ -125,13 +125,18 @@ namespace shilka2
         public const string TRAINING_TUG_INFORMATION = "ТРЕНИРОВКА\n\nДля начальной тренировки зенитчиков используются мишени, которые " +
             "тянет за собой самолёт-буксировщик Ил-28БМ. Нужно стрелять по буксируемой цели, но ни в коем случае не попадайте по " +
             "буксировщику.\n\n[ OK ]";
-        public const string TRAINING_INFORMATION = "ТРЕНИРОВКА\n\nДля тренировки зенитчика используются мишени Ла-17ММ и Е-95. " +
-            "Это медленные самолёты-мишени, не способные к манёврам уклонения, поэтому они будут простыми целями. Так же используются " +
-            "более быстрые иностранные MQM-36A, AQM-34, D-21. Нужно сбить или повредить как можно больше мишеней.\n\n[ OK ]";
+        public const string TRAINING_PLANE_INFORMATION = "ТРЕНИРОВКА\n\nДля отработки навыков стрельбы используются отработавшие свой " +
+            "ресурс самолёты Ту-16, которые модифицируются в радиоуправляемый вариант самолёта-мишени М-16К. Эти самолёты не могут " +
+            "маневрировать, но очень прочные и надёжные, поэтому сбить их сложно.\n\n[ OK ]";
+        public const string TRAINING_DRONE_INFORMATION = "ТРЕНИРОВКА\n\nДля совершенствования навыков зенитчиков используются мишени " +
+            "Ла-17ММ и Е-95. Это медленные самолёты-мишени, не способные к манёврам уклонения, поэтому они будут простыми целями. Так же " +
+            "используются более быстрые иностранные MQM-36A, AQM-34, D-21. Нужно сбить или повредить как можно больше мишеней.\n\n[ OK ]";
 
         public const int TRAINING_LAUNCH_PROBABILITTY = 5;
-        public const int TRAINING_IL28_AT_THE_START = 12;
+        public const int TRAINING_IL28_AT_THE_START = 10;
         public const int TRAINING_IL28_INDEX = 0;
+        public const int TRAINING_M16K_AT_THE_START = 16;
+        public const int TRAINING_M16K_INDEX = 0;
         public const int TRAINING_IL28_WITHOUT_77bm2_INDEX = 1;
         public const int TRAINING_77bm2_INDEX = 2;
         public const int TRAINING_IL28_AIRCRAFT_LEN = 300;

@@ -2518,6 +2518,19 @@ namespace shilka2
             },
         };
 
+        public static List<Aircraft> targetPlane = new List<Aircraft>()
+        {
+            new Aircraft
+            {
+                aircraftType = "m16k",
+                aircraftName = "самолёт-мишень М-16К",
+                hitPoint = 250,
+                size = new int[] { 430, 105 },
+                cantEscape = true,
+                minAltitude = minAltitudeForLargeAircraft,
+            },
+        };
+
         public static List<Aircraft> targetTugs = new List<Aircraft>()
         {
             new Aircraft
