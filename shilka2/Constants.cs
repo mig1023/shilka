@@ -35,7 +35,6 @@ namespace shilka2
         public const int CLOUD_WIDTH_MAX = 501;
         public const int CLOUD_HEIGHT_MIN = 70;
         public const int CLOUD_HEIGHT_MAX = 171;
-        // size = new int[] { Aircraft.rand.Next(Constants.CLOUD_WIDTH_MIN, Constants.CLOUD_WIDTH_MAX), Aircraft.rand.Next(Constants.CLOUD_HEIGHT_MIN, Constants.CLOUD_HEIGHT_MAX) },
 
         // case
         public const int CASE_LENGTH = 2;
