@@ -69,36 +69,8 @@ namespace shilka2
                             bool itsOnlyTargetPlane = false;
 
                             if (Shilka.training && (aircraft.aircraftType == "il28bm_77bm2"))
-                            {
-                                if (aircraft.flightDirection == Aircraft.FlightDirectionType.Right)
-                                {
-                                    double targetPosition = aircraft.aircraftImage.Margin.Left + Constants.TRAINING_IL28_TARGET_LEN;
-                                    double aircraftPosition = targetPosition + Constants.TRAINING_IL28_TOW_LEN;
-
-                                    if ((shell.x > targetPosition) && (shell.x < aircraftPosition))
-                                        continue;
-
-                                    if (shell.x <= targetPosition)
-                                    {
-                                        itsOnlyTargetPlane = true;
-                                        aircraft.tragetTugHitPoint -= 1;
-                                    }
-                                }
-                                else
-                                {
-                                    double aircraftPosition = aircraft.aircraftImage.Margin.Left + Constants.TRAINING_IL28_AIRCRAFT_LEN;
-                                    double targetPosition = aircraftPosition + Constants.TRAINING_IL28_TOW_LEN;
-
-                                    if ((shell.x > aircraftPosition) && (shell.x < targetPosition))
-                                        continue;
-
-                                    if (shell.x >= targetPosition)
-                                    {
-                                        itsOnlyTargetPlane = true;
-                                        aircraft.tragetTugHitPoint -= 1;
-                                    }
-                                }
-                            }
+                                if (aircraft.targetTubHit(shell, ref itsOnlyTargetPlane))
+                                    continue;
 
                             if (itsOnlyTargetPlane && aircraft.fly && (aircraft.tragetTugHitPoint <= 0))
                                 aircraft.targetTugDisengaged();

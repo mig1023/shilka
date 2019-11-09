@@ -551,6 +551,40 @@ namespace shilka2
             }
         }
 
+        public bool targetTubHit(Shell shell, ref bool itsOnlyTargetPlane)
+        {
+            if (flightDirection == FlightDirectionType.Right)
+            {
+                double targetPosition = aircraftImage.Margin.Left + Constants.TRAINING_IL28_TARGET_LEN;
+                double aircraftPosition = targetPosition + Constants.TRAINING_IL28_TOW_LEN;
+
+                if ((shell.x > targetPosition) && (shell.x < aircraftPosition))
+                    return true;
+
+                if (shell.x <= targetPosition)
+                {
+                    tragetTugHitPoint -= 1;
+                    itsOnlyTargetPlane = true;
+                }
+            }
+            else
+            {
+                double aircraftPosition = aircraftImage.Margin.Left + Constants.TRAINING_IL28_AIRCRAFT_LEN;
+                double targetPosition = aircraftPosition + Constants.TRAINING_IL28_TOW_LEN;
+
+                if ((shell.x > aircraftPosition) && (shell.x < targetPosition))
+                    return true;
+
+                if (shell.x >= targetPosition)
+                {
+                    tragetTugHitPoint -= 1;
+                    itsOnlyTargetPlane = true;
+                }
+            }
+
+            return false;
+        }
+
         public void targetTugDisengaged()
         {
             bool flyDirectRight = flightDirection == FlightDirectionType.Right;
