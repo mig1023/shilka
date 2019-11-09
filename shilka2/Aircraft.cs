@@ -540,7 +540,7 @@ namespace shilka2
                         aircraftImage.Source = sprite;
                 }
 
-                Statistic.staticticAircraftShutdown++;
+                Statistic.staticticAircraftShutdown += 1;
                 Statistic.statisticAmountOfDamage += price;
 
                 Statistic.statisticShutdownFlag = true;
@@ -554,6 +554,9 @@ namespace shilka2
         public void targetTugDisengaged()
         {
             bool flyDirectRight = flightDirection == FlightDirectionType.Right;
+
+            Statistic.staticticAircraftShutdown += 1;
+            Statistic.statisticShutdownFlag = true;
 
             fly = false;
 
