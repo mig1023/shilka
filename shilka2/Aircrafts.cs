@@ -643,30 +643,6 @@ namespace shilka2
                 size = new int[] { 320, 132 },
                 price = 27,
             },
-
-            new Aircraft
-            {
-                aircraftType = "raven",
-                aircraftName = "RQ-11 Raven",
-                hitPoint = 15,
-                size = new int[] { 100, 38 },
-                speed = 4,
-                price = 1,
-                cantEscape = true,
-                deadSprite = true,
-                weight = Aircraft.WeightType.Middle,
-                elements = new List<DynamicElement>
-                {
-                    new DynamicElement
-                    {
-                        elementName = "micro_prop_y",
-                        y = 7,
-                        x_left = 44,
-                        x_right = 51,
-                        movingType = DynamicElement.MovingType.yRotate,
-                    }
-                }
-            },
         };
 
         public static List<Aircraft> helicopters = new List<Aircraft>()
@@ -1580,6 +1556,30 @@ namespace shilka2
                         x_right = 23,
                         movingType = DynamicElement.MovingType.xRotate,
                     },
+                }
+            },
+
+            new Aircraft
+            {
+                aircraftType = "raven",
+                aircraftName = "RQ-11 Raven",
+                hitPoint = 15,
+                size = new int[] { 100, 38 },
+                speed = 4,
+                price = 0.1,
+                cantEscape = true,
+                deadSprite = true,
+                weight = Aircraft.WeightType.Middle,
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
+                        elementName = "micro_prop_y",
+                        y = 7,
+                        x_left = 44,
+                        x_right = 51,
+                        movingType = DynamicElement.MovingType.yRotate,
+                    }
                 }
             },
         };

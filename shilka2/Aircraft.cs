@@ -753,7 +753,7 @@ namespace shilka2
                             dice = rand.Next(Aircrafts.helicopters.Count);
                         }
                         while (!AircraftInList(Scripts.scriptHelicopters, dice));
-                        
+
                         newAircraft = Aircrafts.helicopters[dice];
 
                         break;

@@ -527,6 +527,7 @@ namespace shilka2
                     4,      // <-- ch46
                     14,     // <-- as565
                     16,     // <-- oh58
+                    29,     // <-- raven
                 };
 
             if (script == scriptsNames.KoreanBoeing)
@@ -540,6 +541,7 @@ namespace shilka2
                     4,      // <-- ch46
                     12,     // <-- puma
                     14,     // <-- as565
+                    29,     // <-- raven
                 };
 
             if (script == scriptsNames.F117Hunt)
@@ -558,6 +560,8 @@ namespace shilka2
                     25,     // <-- drone6
                     26,     // <-- drone7
                     27,     // <-- drone8
+                    28,     // <-- drone9
+                    29,     // <-- raven
                 };
 
             if (script == scriptsNames.Belgrad)
