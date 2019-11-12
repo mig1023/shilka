@@ -1432,7 +1432,7 @@ namespace shilka2
                 size = new int[] { 85, 35 },
                 speed = 6,
                 deadSprite = true,
-                weight = Aircraft.WeightType.Light,
+                weight = Aircraft.WeightType.Middle,
                 maxAltitude = maxAltitudeForHelicopters,
                 price = 0.01,
                 elements = new List<DynamicElement>
