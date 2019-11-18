@@ -696,17 +696,29 @@ namespace shilka2
 
             foreach (string aircraftData in aircraftsData)
             {
-                string aircraftDataName = aircraftData.Split('=')[0];
+                Aircraft aircraft = FindEnemyAircraft(aircraftData.Split('=')[0]);
 
-                foreach (Aircraft aircraft in Aircrafts.aircraft)
-                    if ((aircraftDataName == aircraft.aircraftName) && (trophyPrice < aircraft.price))
-                    {
-                        trophy = aircraft.aircraftName;
-                        trophyPrice = aircraft.price;
-                    }
+                if (trophyPrice < aircraft.price)
+                {
+                    trophy = aircraft.aircraftName;
+                    trophyPrice = aircraft.price;
+                }
             }
 
             return trophy;
+        }
+
+        private Aircraft FindEnemyAircraft(string name)
+        {
+            foreach (Aircraft aircraft in Aircrafts.aircraft)
+                if (name == aircraft.aircraftName)
+                    return aircraft;
+
+            foreach (Aircraft helicopter in Aircrafts.helicopters)
+                if (name == helicopter.aircraftName)
+                    return helicopter;
+
+            return null;
         }
 
         private void StatBoxValues(DataGrid StatBox, string statData)
