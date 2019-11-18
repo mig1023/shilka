@@ -2624,6 +2624,19 @@ namespace shilka2
             },
         };
 
+        public static Aircraft FindEnemyAircraft(string name)
+        {
+            foreach (Aircraft aircraft in aircraft)
+                if (name == aircraft.aircraftName)
+                    return aircraft;
+
+            foreach (Aircraft helicopter in helicopters)
+                if (name == helicopter.aircraftName)
+                    return helicopter;
+
+            return null;
+        }
+
         public static Aircraft Cloud()
         {
             return new Aircraft

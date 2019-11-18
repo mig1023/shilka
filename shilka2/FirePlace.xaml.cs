@@ -680,14 +680,14 @@ namespace shilka2
             });
             StatBoxAddRow(new String[] {
                 "удача", statRow.chance.ToString(),
-                "лучший трофей", StatMostvaluableTrophy(statRow.aircrafts)
+                "лучший трофей", StatMostValuableTrophy(statRow.aircrafts)
             });
 
             StatBoxValues(StatBoxDown, statRow.aircrafts);
             StatBoxValues(StatBoxDamag, statRow.aircraftsDamaged);
         }
 
-        private string StatMostvaluableTrophy(string statData)
+        private string StatMostValuableTrophy(string statData)
         {
             string[] aircraftsData = statData.Split(',');
 
@@ -696,7 +696,7 @@ namespace shilka2
 
             foreach (string aircraftData in aircraftsData)
             {
-                Aircraft aircraft = FindEnemyAircraft(aircraftData.Split('=')[0]);
+                Aircraft aircraft = Aircrafts.FindEnemyAircraft(aircraftData.Split('=')[0]);
 
                 if (trophyPrice < aircraft.price)
                 {
@@ -706,19 +706,6 @@ namespace shilka2
             }
 
             return trophy;
-        }
-
-        private Aircraft FindEnemyAircraft(string name)
-        {
-            foreach (Aircraft aircraft in Aircrafts.aircraft)
-                if (name == aircraft.aircraftName)
-                    return aircraft;
-
-            foreach (Aircraft helicopter in Aircrafts.helicopters)
-                if (name == helicopter.aircraftName)
-                    return helicopter;
-
-            return null;
         }
 
         private void StatBoxValues(DataGrid StatBox, string statData)
