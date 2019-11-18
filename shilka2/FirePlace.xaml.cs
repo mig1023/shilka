@@ -680,11 +680,33 @@ namespace shilka2
             });
             StatBoxAddRow(new String[] {
                 "удача", statRow.chance.ToString(),
-                "зенитная установка", "ЗСУ-23-4 Шилка"
+                "лучший трофей", StatMostvaluableTrophy(statRow.aircrafts)
             });
 
             StatBoxValues(StatBoxDown, statRow.aircrafts);
             StatBoxValues(StatBoxDamag, statRow.aircraftsDamaged);
+        }
+
+        private string StatMostvaluableTrophy(string statData)
+        {
+            string[] aircraftsData = statData.Split(',');
+
+            string trophy = String.Empty;
+            double trophyPrice = 0;
+
+            foreach (string aircraftData in aircraftsData)
+            {
+                string aircraftDataName = aircraftData.Split('=')[0];
+
+                foreach (Aircraft aircraft in Aircrafts.aircraft)
+                    if ((aircraftDataName == aircraft.aircraftName) && (trophyPrice < aircraft.price))
+                    {
+                        trophy = aircraft.aircraftName;
+                        trophyPrice = aircraft.price;
+                    }
+            }
+
+            return trophy;
         }
 
         private void StatBoxValues(DataGrid StatBox, string statData)
@@ -711,7 +733,5 @@ namespace shilka2
                 StatBox.Items.Add(newRow);
             }
         }
-
-
     }
 }
