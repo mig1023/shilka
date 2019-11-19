@@ -819,7 +819,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "tiger",
-                aircraftName = "Eurocopter Tiger HAC",
+                aircraftName = "Eurocopter Tiger UHT",
                 size = new int[] { 209, 76 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
