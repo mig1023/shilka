@@ -1253,7 +1253,7 @@ namespace shilka2
                 maxAltitude = maxAltitudeForHelicopters,
                 price = 0.01,
                 deadSprite = true,
-                weight = Aircraft.WeightType.Light,
+                weight = Aircraft.WeightType.Middle,
                 elements = new List<DynamicElement>
                 {
                     new DynamicElement
