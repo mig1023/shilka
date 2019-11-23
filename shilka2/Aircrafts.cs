@@ -643,6 +643,15 @@ namespace shilka2
                 size = new int[] { 320, 132 },
                 price = 27,
             },
+
+            new Aircraft
+            {
+                aircraftType = "f104",
+                aircraftName = "Lockheed F-104 Starfighter",
+                speed = 12,
+                size = new int[] { 283, 67 },
+                price = 35,
+            },
         };
 
         public static List<Aircraft> helicopters = new List<Aircraft>()

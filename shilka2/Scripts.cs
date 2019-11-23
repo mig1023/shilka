@@ -325,6 +325,7 @@ namespace shilka2
                     42,     // <-- a1
                     43,     // <-- kc135
                     46,     // <-- bronco
+                    48,     // <-- f104
                 };
 
             if (script == scriptsNames.Yugoslavia)
@@ -349,6 +350,7 @@ namespace shilka2
                     41,     // <-- globemaster
                     43,     // <-- kc135
                     44,     // <-- jaguar
+                    48,     // <-- f104
                 };
 
             if (script == scriptsNames.DesertStorm)
