@@ -11,14 +11,7 @@ namespace shilka2
 {
     public class Weather : FlyObject
     {
-        public enum weatherTypes
-        {
-            good,
-            rain,
-            storm,
-            snow,
-            sand,
-        };
+        public enum weatherTypes { good, rain, storm, snow, sand };
 
         int speed { get; set; }
         int direction = 0;

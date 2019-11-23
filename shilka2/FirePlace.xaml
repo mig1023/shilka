@@ -115,8 +115,7 @@
                         <ToolTip>
                             <StackPanel>
                                 <TextBlock Text="Интервенция в Ливии (2011)"/>
-                                <TextBlock FontWeight="Bold" Text="особенность: сильные повреждения"/>
-                                <TextBlock FontWeight="Bold" Text="пушек, не работает радар"/>
+                                <TextBlock FontWeight="Bold" Text="особенность: непредсказуемые пушки"/>
                                 <Image Source="images/interface/libya.png"/>
                             </StackPanel>
                         </ToolTip>

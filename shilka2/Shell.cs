@@ -11,6 +11,9 @@ namespace shilka2
 {
     class Shell : FlyObject
     {
+        private enum gunJammedType { ok, doesntShoot, alwaysShoot, sometimesShoot };
+        private static gunJammedType gunJammed = gunJammedType.ok;
+
         bool flash { get; set; }
         int delay { get; set; }
         public static double ptX { get; set; }
@@ -132,11 +135,21 @@ namespace shilka2
         {
             int currentFragmentation = Constants.FRAGMENTATION + ( ( Shilka.degreeOfHeatingGunBurrels - 30 ) / 25 );
 
-            if ((Shilka.currentScript == Scripts.scriptsNames.Libya) && (rand.Next(Constants.GUN_DAMAGED_CHANCE) != 1))
-                return;
-
-            if (Shilka.fire && !Shilka.reheatingGunBurrels)
+            if ((Shilka.currentScript == Scripts.scriptsNames.Libya) && (rand.Next(Constants.GUN_JAMMING_CHANCE) == 1))
             {
+                Array jamming = Enum.GetValues(typeof(gunJammedType));
+                gunJammed = (gunJammedType)jamming.GetValue(rand.Next(jamming.Length));
+            }
+
+            if (
+                (Shilka.fire || (gunJammed == gunJammedType.alwaysShoot))
+                &&
+                (gunJammed != gunJammedType.doesntShoot)
+                &&
+                !((gunJammed != gunJammedType.sometimesShoot) && (rand.Next(Constants.GUN_JAMMING_CHANCE) == 1))
+                &&
+                !Shilka.reheatingGunBurrels
+            ) {
                 fireMutex++;
                 if (fireMutex > 1)
                 {

@@ -71,12 +71,12 @@ namespace shilka2
 
         public static void RadarmMalfunction(object obj, ElapsedEventArgs e)
         {
-            if (Shilka.currentScript == Scripts.scriptsNames.IranIraq)
+            if (currentScript == Scripts.scriptsNames.IranIraq)
             {
                 Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
                 {
                     FirePlace main = (FirePlace)Application.Current.MainWindow;
-                    main.RadarImg.RenderTransform = new RotateTransform(Shilka.RadarmMalfunction(), 4, 20);
+                    main.RadarImg.RenderTransform = new RotateTransform(RadarmMalfunction(), 4, 20);
                 }));
             }
         }
