@@ -251,7 +251,7 @@ namespace shilka2
                 price = 2,
                 speed = 5,
                 cantEscape = true,
-                weight = Aircraft.WeightType.Light,
+                weight = Aircraft.WeightType.Middle,
             },
 
             new Aircraft
