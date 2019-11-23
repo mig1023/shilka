@@ -16,7 +16,7 @@ The game is about a small anti-aircraft vehicle in the school notebook
 | Bomb attacks against Belgrade | 1999 | one direction of attack |
 | Hunt for F-117 in Yugoslavia | 1999 | wait and destroy a specific target |
 | Syrian civil war | 2011-2019 | only UAVs and cruise missiles |
-| Intervention in Libya | 2011 | damaged Shilka |
+| Intervention in Libya | 2011 | unpredictable guns |
 | Intervention in Yemen | 2015-2019 | no friendly aviation |
 | Siege of Kmeimim | 2016-2018 | only UAVs |
 
@@ -33,14 +33,14 @@ The game is about a small anti-aircraft vehicle in the school notebook
 | F-4 Fantom | F-5 Tiger | F-8 Crusader |
 | F-14 Tomcat | F-15 Eagle | F-16 Fighting Falcon |
 | F/A-18 Hornet | F-22 Raptor | F-35 Lightning II |
-| F-111 Aardvark | F-117 Nighthawk | KC-135 Stratotanker |
-| Mirage 2000 | Mirage 2000ED | MQ-1 Predator |
-| MQ-9 Reaper | OV-10 Bronco | Panavia Tornado |
-| Rafale | RC-135 | RQ-4 Global Hawk |
-| RQ-5 Hunter | S-3 Viking | Saab JAS 39 Gripen |
-| Saab S-100B Argus | RQ-11 Raven | Sea Harrier |
-| SEPECAT Jaguar | SR-71 Blackbird | Storm Shadow / SCALP |
-| U-2 Dragon Lady | | |
+| F-104 Starfighter | F-111 Aardvark | F-117 Nighthawk |
+| KC-135 Stratotanker | Mirage 2000 | Mirage 2000ED |
+| MQ-1 Predator | MQ-9 Reaper | OV-10 Bronco |
+| Panavia Tornado | Rafale | RC-135 |
+| RQ-4 Global Hawk | RQ-5 Hunter | S-3 Viking |
+| Saab JAS 39 Gripen | Saab S-100B Argus | RQ-11 Raven |
+| Sea Harrier | SEPECAT Jaguar | SR-71 Blackbird |
+| Storm Shadow / SCALP | U-2 Dragon Lady | |
 
 ### Enemy helicopters:
 
