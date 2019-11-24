@@ -671,12 +671,12 @@ namespace shilka2
                 "повреждено гражданских", statRow.airlinerDamage.ToString()
             });
             StatBoxAddRow(new String[] {
-                "время боя", statRow.time.ToString(),
-                "длинна ср.очереди", shellInQueue.ToString() + " снарядов"
+                "общее время боя", statRow.time.ToString(),
+                "длинна средней очереди", shellInQueue.ToString() + " снарядов"
             });
             StatBoxAddRow(new String[] {
                 "из них непогоды", statRow.badTime.ToString(),
-                "время ср.очереди", string.Format("{0:f2}", timeForQueue) + " сек"
+                "время средней очереди", string.Format("{0:f2}", timeForQueue) + " сек"
             });
             StatBoxAddRow(new String[] {
                 "удача", statRow.chance.ToString(),
