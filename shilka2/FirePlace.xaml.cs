@@ -652,18 +652,18 @@ namespace shilka2
                 "сценарий", scriptName
             });
             StatBoxAddRow(new String[] {
-                "сбито", statRow.shutdown.ToString() + " ( " + statRow.shutdownPercent.ToString() + "% )",
-                "повреждено", statRow.damaged.ToString() + " ( " + statRow.damagedPercent.ToString() + "% )" });
+                "сбито", String.Format("{0} ( {1}% )", statRow.shutdown, statRow.shutdownPercent), 
+                "повреждено", String.Format("{0} ( {1}% )", statRow.damaged, statRow.damagedPercent) });
             StatBoxAddRow(new String[] {
-                "настрел", statRow.shellsFired.ToString() + " снарядов",
+                "настрел", String.Format("{0} снарядов", statRow.shellsFired),
                 "упущенных", statRow.hasGone.ToString()
             });
             StatBoxAddRow(new String[] {
-                "из них в цель", statRow.inTarget.ToString() + " ( " + statRow.inTargetPercent.ToString() + "% )",
-                "из них без повреждений", statRow.withoutDamage.ToString() + "%"
+                "из них в цель", String.Format("{0} ( {1}% )", statRow.inTarget, statRow.inTargetPercent),
+                "из них без повреждений", String.Format("{0}%", statRow.withoutDamage)
             });
             StatBoxAddRow(new String[] {
-                "выстрелов на самолёт", shellsForShutdown.ToString() + " выстр./сбитый",
+                "выстрелов на самолёт", String.Format("{0} выстр./сбитый", shellsForShutdown),
                 "нанесён ущерб", Statistic.HumanReadableSumm(statRow.amountOfDamage)
             });
             StatBoxAddRow(new String[] {
@@ -672,11 +672,11 @@ namespace shilka2
             });
             StatBoxAddRow(new String[] {
                 "общее время боя", statRow.time.ToString(),
-                "длинна средней очереди", shellInQueue.ToString() + " снарядов"
+                "средняя очередь", String.Format("{0} снарядов", shellInQueue)
             });
             StatBoxAddRow(new String[] {
                 "из них непогоды", statRow.badTime.ToString(),
-                "время средней очереди", string.Format("{0:f2}", timeForQueue) + " сек"
+                "время средней очереди", string.Format("{0:f2} сек", timeForQueue)
             });
             StatBoxAddRow(new String[] {
                 "удача", statRow.chance.ToString(),
