@@ -545,14 +545,10 @@ namespace shilka2
 
             pauseButton.Focus();
 
-            Shilka.school = false;
-            Shilka.training = false;
+            Shilka.school = school;
+            Shilka.training = training;
 
-            if (school)
-                Shilka.school = true;
-            else if (training)
-                Shilka.training = true;
-            else
+            if (!school && !training)
             {
                 Button startButton = sender as Button;
                 scriptName = startButton.Name;
