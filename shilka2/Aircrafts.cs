@@ -652,6 +652,15 @@ namespace shilka2
                 size = new int[] { 283, 67 },
                 price = 35,
             },
+
+            new Aircraft
+            {
+                aircraftType = "harriergr3",
+                aircraftName = "Harrier GR.3",
+                size = new int[] { 275, 73 },
+                price = 6,
+                speed = 6
+            },
         };
 
         public static List<Aircraft> helicopters = new List<Aircraft>()

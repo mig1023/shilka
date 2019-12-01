@@ -351,6 +351,7 @@ namespace shilka2
                     43,     // <-- kc135
                     44,     // <-- jaguar
                     48,     // <-- f104
+                    49,     // <-- harrier gr3
                 };
 
             if (script == scriptsNames.DesertStorm)
@@ -382,6 +383,7 @@ namespace shilka2
                     43,     // <-- kc135
                     44,     // <-- jaguar
                     46,     // <-- bronco
+                    49,     // <-- harrier gr3
                 };
 
             if (script == scriptsNames.IranIraq)
@@ -429,6 +431,7 @@ namespace shilka2
                     40,     // <-- galaxy
                     41,     // <-- globemaster
                     43,     // <-- kc135
+                    49,     // <-- harrier gr3
                 };
 
             if (script == scriptsNames.Yemen)
