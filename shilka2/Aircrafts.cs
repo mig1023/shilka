@@ -658,8 +658,17 @@ namespace shilka2
                 aircraftType = "harriergr3",
                 aircraftName = "Harrier GR.3",
                 size = new int[] { 275, 73 },
-                price = 6,
+                price = 12,
                 speed = 6
+            },
+
+             new Aircraft
+            {
+                aircraftType = "harriermk1",
+                aircraftName = "Harrier MK1",
+                size = new int[] { 275, 77 },
+                price = 6,
+                speed = 5
             },
         };
 
