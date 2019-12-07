@@ -326,6 +326,7 @@ namespace shilka2
                     43,     // <-- kc135
                     46,     // <-- bronco
                     48,     // <-- f104
+                    51,     // <-- a26
                 };
 
             if (script == scriptsNames.Yugoslavia)

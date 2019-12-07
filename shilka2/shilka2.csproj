@@ -338,6 +338,9 @@
     <Resource Include="Images\Aircraft\f104.png" />
     <Resource Include="Images\Aircraft\harriergr3.png" />
     <Resource Include="Images\Aircraft\harriermk1.png" />
+    <Resource Include="Images\Aircraft\a26.png" />
+    <Resource Include="Images\DynamicElement\mdl_prop.png" />
+    <Resource Include="Images\DeadSprite\a26_dead.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

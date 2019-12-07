@@ -670,6 +670,28 @@ namespace shilka2
                 price = 6,
                 speed = 5
             },
+
+            new Aircraft
+            {
+                aircraftType = "a26",
+                aircraftName = "A-26 Invader",
+                hitPoint = 100,
+                size = new int[] { 283, 102 },
+                speed = 6,
+                price = 0.2,
+                deadSprite = true,
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
+                        elementName = "mdl_prop",
+                        y = 34,
+                        x_left = 25,
+                        x_right = 235,
+                        movingType = DynamicElement.MovingType.yRotate,
+                    }
+                }
+            },
         };
 
         public static List<Aircraft> helicopters = new List<Aircraft>()
