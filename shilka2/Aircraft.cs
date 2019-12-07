@@ -261,15 +261,7 @@ namespace shilka2
 
         private double AircraftDeadFallSpeed()
         {
-            switch (weight)
-            {
-                case WeightType.Light:
-                    return Constants.FALL_SPEED_LIGHT;
-                case WeightType.Middle:
-                    return Constants.FALL_SPEED_MIDDLE;
-                default:
-                    return Constants.FALL_SPEED_HEAVY;
-            }
+            return speed;
         }
 
         private static bool AircraftInList(int?[] scriptAircraft, int aircraft)
@@ -801,7 +793,7 @@ namespace shilka2
                             dice = rand.Next(Aircrafts.airliners.Count - 2);
                         }
                         while (!AircraftInList(Scripts.scriptAirliners, dice));
-                        
+
                         newAircraft = Aircrafts.airliners[dice];
 
                         break;
