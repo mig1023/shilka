@@ -2435,8 +2435,8 @@ namespace shilka2
                 {
                     new DynamicElement
                     {
-                        elementName = "air_prop",
-                        y = 62,
+                        elementName = "mdl_prop",
+                        y = 71,
                         x_left = 118,
                         x_right = 279,
                         movingType = DynamicElement.MovingType.yRotate,
