@@ -11,6 +11,7 @@ namespace shilka2
         // screen
         public const double STAT_TEXT_TOP = 45;
         public const double STAT_TEXT_LEFT = 10;
+        public const string END_COLOR = "#FF7E1C25";
 
         // aircrafts
         public const int MAX_FLIGHT_HEIGHT = 75;
@@ -44,10 +45,6 @@ namespace shilka2
         public const int EXTR_HEIGHT_CORRECTION = 21;
         public const double FREE_FALL_SPEED = 0.05;
 
-        public const double MAX_FRAGM_SIN_DAMAGED = 1;
-        public const double MAX_FRAGM_COS_DAMAGED = 1;
-        public const int MAX_SPEED_DAMAGED = 7;
-
         // shell
         public const int FIRE_WIDTH_CORRECTION = 140;
         public const int FIRE_HEIGHT_CORRECTION = 30;
@@ -59,7 +56,6 @@ namespace shilka2
         public const int FRAGMENTATION = 15;
         public const int VOLLEY = 3;
         public const int FLASH_SIZE = 4;
-        public const string END_COLOR = "#FF7E1C25";
 
         // shilka
         public const double LAST_DEGREE_CORRECTION = 10;
@@ -143,5 +139,8 @@ namespace shilka2
         // scripts
         public const int RADAR_DAMAGED = 20;
         public const int GUN_JAMMING_CHANCE = 4;
+        public const double MAX_FRAGM_SIN_DAMAGED = 1;
+        public const double MAX_FRAGM_COS_DAMAGED = 1;
+        public const int MAX_SPEED_DAMAGED = 7;
     }
 }
