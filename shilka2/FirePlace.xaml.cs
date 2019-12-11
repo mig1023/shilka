@@ -102,6 +102,12 @@ namespace shilka2
             ShilkaImg.Margin = new Thickness(0, heightForShilka, 0, 0);
             RadarImg.Margin = new Thickness(62, heightForShilka, 0, 0);
             HandImg.Margin = new Thickness(65, (heightForShilka - 120), 0, 0);
+
+            TowerCraneImg.Margin = new Thickness(
+                (SystemParameters.PrimaryScreenWidth - TowerCraneImg.Width - 200),
+                (SystemParameters.PrimaryScreenHeight - TowerCraneImg.Height + 15),
+                0, 0
+            );
         }
 
         public void StartGame(int?[] scriptAircraft, int?[] scriptHelicopters, int?[] scriptAircraftFriend,
@@ -547,6 +553,15 @@ namespace shilka2
 
             Shilka.school = school;
             Shilka.training = training;
+
+            if (training)
+            {
+                TowerCraneImg.Visibility = Visibility.Visible;
+                // aircraft 
+            }
+            else
+                TowerCraneImg.Visibility = Visibility.Hidden;
+
 
             if (!school && !training)
             {
