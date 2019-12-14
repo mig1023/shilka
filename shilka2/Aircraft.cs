@@ -58,6 +58,8 @@ namespace shilka2
         private static bool trainingTurgetPlane = false;
         private static bool trainingTurgetDrone = false;
 
+        private bool suspendedTarget = false;
+
         public static int allAircraftsInGame = 0;
 
         public Image aircraftImage;
@@ -74,17 +76,20 @@ namespace shilka2
             {
                 FirePlace main = (FirePlace)Application.Current.MainWindow;
 
-                foreach (var aircraft in aircrafts)
+                foreach (Aircraft aircraft in aircrafts)
                 {
-                    double escapeFromFireCoefficient = 1;
+                    if (!aircraft.suspendedTarget)
+                    {
+                        double escapeFromFireCoefficient = 1;
 
-                    if ((aircraft.hitpoint < aircraft.hitpointMax) && !aircraft.cantEscape)
-                        escapeFromFireCoefficient = Constants.ESCAPE_COEFFICIENT;
+                        if ((aircraft.hitpoint < aircraft.hitpointMax) && !aircraft.cantEscape)
+                            escapeFromFireCoefficient = Constants.ESCAPE_COEFFICIENT;
 
-                    if (aircraft.flightDirection == FlightDirectionType.Left)
-                        escapeFromFireCoefficient *= -1;
+                        if (aircraft.flightDirection == FlightDirectionType.Left)
+                            escapeFromFireCoefficient *= -1;
 
-                    aircraft.x += aircraft.speed * escapeFromFireCoefficient;
+                        aircraft.x += aircraft.speed * escapeFromFireCoefficient;
+                    }
 
                     if (aircraft.dead)
                     {
@@ -104,7 +109,7 @@ namespace shilka2
                             );
                         }
                     }
-                    else if (!aircraft.cloud)
+                    else if (!aircraft.cloud && !aircraft.suspendedTarget)
                     {
                         aircraft.tangageDelay++;
 
@@ -335,7 +340,7 @@ namespace shilka2
         }
 
         public void CreateNewAircraft(double? startX = null, double? startY = null, FlightDirectionType? startDirection = null,
-            bool dead = false, bool transformation = false)
+            bool dead = false, bool transformation = false, bool suspended = false)
         {
             if (!transformation && (!Shilka.training || !cloud))
                 allAircraftsInGame += 1;
@@ -354,6 +359,8 @@ namespace shilka2
                 Aircraft newAircraft = Clone();
 
                 newAircraft.dead = dead;
+
+                newAircraft.suspendedTarget = suspended;
 
                 newAircraft.y = startY ?? rand.Next(maxAltitudeGlobal, Aircrafts.minAltitudeGlobal);
 
@@ -658,6 +665,26 @@ namespace shilka2
                 schoolEnemyAlready = true;
                 main.SchoolMessage(Constants.ENEMY_INFORMATION, Brushes.Red);
             }
+        }
+
+        public static void StartSuspendedTarget()
+        {
+            Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
+            {
+                FirePlace main = (FirePlace)Application.Current.MainWindow;
+
+                main.TowerCraneImg.Margin = new Thickness(
+                    (SystemParameters.PrimaryScreenWidth - main.TowerCraneImg.Width - 200),
+                    (SystemParameters.PrimaryScreenHeight - main.TowerCraneImg.Height + 15),
+                    0, 0
+                );
+
+                double suspendedTargetX = main.TowerCraneImg.Margin.Left;
+                double suspendedTargetY = main.TowerCraneImg.Margin.Top + 217;
+
+                Aircraft newAircraft = Aircrafts.targetTugs[Constants.TRAINING_77bm2_INDEX];
+                newAircraft.CreateNewAircraft(startX: suspendedTargetX, startY: suspendedTargetY, suspended: true);
+            }));
         }
 
         public static void Start(object obj, ElapsedEventArgs e)
