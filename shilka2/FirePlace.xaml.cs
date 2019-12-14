@@ -556,7 +556,6 @@ namespace shilka2
             else
                 TowerCraneImg.Visibility = Visibility.Hidden;
 
-
             if (!school && !training)
             {
                 Button startButton = sender as Button;

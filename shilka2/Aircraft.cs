@@ -57,8 +57,11 @@ namespace shilka2
         private static bool trainingTurgetTug = false;
         private static bool trainingTurgetPlane = false;
         private static bool trainingTurgetDrone = false;
+        private static bool trainingSuspendedTarget = false;
 
         private bool suspendedTarget = false;
+
+        private static bool suspendedTargetDowned = false;
 
         public static int allAircraftsInGame = 0;
 
@@ -479,7 +482,7 @@ namespace shilka2
                 if (Shilka.school && !newAircraft.cloud)
                     newAircraft.aircraftMessagesForSchool(main);
 
-                if (Shilka.training && !newAircraft.cloud)
+                if (Shilka.training)
                     newAircraft.aircraftMessageForTraining(main);
 
                 newAircraft.aircraftImage = newAircraftImage;
@@ -527,6 +530,9 @@ namespace shilka2
             else
             {
                 dead = true;
+
+                if (suspendedTarget)
+                    suspendedTargetDowned = true;
 
                 if (deadSprite)
                 {
@@ -624,7 +630,13 @@ namespace shilka2
 
         private void aircraftMessageForTraining(FirePlace main)
         {
-            if (!trainingTurgetTug)
+            if (!trainingSuspendedTarget)
+            {
+                trainingSuspendedTarget = true;
+                main.SchoolMessage(Constants.SUSPENDED_TARGET_INFORMATION, Brushes.SeaGreen);
+            }
+
+            if (!trainingTurgetTug && suspendedTargetDowned)
             {
                 trainingTurgetTug = true;
                 main.SchoolMessage(Constants.TRAINING_TUG_INFORMATION, Brushes.Green);
@@ -700,7 +712,9 @@ namespace shilka2
 
             if (Shilka.training)
             {
-                if (rand.Next(Constants.TRAINING_LAUNCH_PROBABILITTY) != 1)
+                if (!suspendedTargetDowned)
+                    newAircraft = Aircrafts.Cloud();
+                else if (rand.Next(Constants.TRAINING_LAUNCH_PROBABILITTY) != 1)
                     newAircraft = Aircrafts.Cloud();
                 else if (allAircraftsInGame < Constants.TRAINING_IL28_AT_THE_START)
                     newAircraft = Aircrafts.targetTugs[Constants.TRAINING_IL28_INDEX];
