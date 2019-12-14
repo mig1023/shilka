@@ -75,6 +75,26 @@ namespace shilka2
 
         public static List<Aircraft> aircrafts = new List<Aircraft>();
 
+        public static void SchoolStartCleaning()
+        {
+            schoolEnemyAlready = false;
+            schoolFriendAlready = false;
+            schoolAirlinerAlready = false;
+            schoolMixAlready = false;
+        }
+
+        public static void TrainingStartCleaning()
+        {
+            trainingTurgetTug = false;
+            trainingTurgetPlane = false;
+            trainingTurgetDrone = false;
+            trainingSuspendedTarget = false;
+            suspendedTargetDowned = false;
+
+            suspendedTargetTimerCount = 0;
+            suspendedTargetAngle = 0;
+        }
+
         public static void AircraftFly(object obj, ElapsedEventArgs e)
         {
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate

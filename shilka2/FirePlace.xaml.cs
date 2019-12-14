@@ -381,9 +381,18 @@ namespace shilka2
                 EndGame(endText, endColor); 
         }
 
-        private void GameOverTraining_Click(object sender, RoutedEventArgs e)
+        private void RestartTraining_Click(object sender, RoutedEventArgs e)
         {
             Shilka.EndGameCleaning();
+
+            if (Shilka.training)
+            {
+                Aircraft.TrainingStartCleaning();
+                Aircraft.StartSuspendedTarget();
+            }
+            
+            if (Shilka.school)
+                Aircraft.SchoolStartCleaning();
 
             MoveCanvas(
                 moveCanvas: firePlaceDock,
@@ -550,7 +559,9 @@ namespace shilka2
 
             if (training)
             {
+                Aircraft.TrainingStartCleaning();
                 Aircraft.StartSuspendedTarget();
+
                 TowerCraneImg.Visibility = Visibility.Visible;
             }
             else
