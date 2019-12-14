@@ -548,8 +548,6 @@ namespace shilka2
             Shilka.school = school;
             Shilka.training = training;
 
-            Shilka.DrawGuns(this);
-
             if (training)
             {
                 Aircraft.StartSuspendedTarget();

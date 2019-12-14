@@ -63,6 +63,7 @@ namespace shilka2
 
         private static double suspendedTargetAngle = 0;
         private static bool suspendedTargetDowned = false;
+        private static int suspendedTargetTimerCount = 0;
 
         public static int allAircraftsInGame = 0;
 
@@ -650,8 +651,13 @@ namespace shilka2
         {
             if (!trainingSuspendedTarget)
             {
-                trainingSuspendedTarget = true;
-                main.SchoolMessage(Constants.SUSPENDED_TARGET_INFORMATION, Brushes.SeaGreen);
+                suspendedTargetTimerCount += 1;
+
+                if (suspendedTargetTimerCount > Constants.TRAINING_TIMEOUT_BEFORE_FIRST_INFO)
+                {
+                    trainingSuspendedTarget = true;
+                    main.SchoolMessage(Constants.SUSPENDED_TARGET_INFORMATION, Brushes.SeaGreen);
+                }
             }
 
             if (!trainingTurgetTug && suspendedTargetDowned)
@@ -704,13 +710,13 @@ namespace shilka2
                 FirePlace main = (FirePlace)Application.Current.MainWindow;
 
                 main.TowerCraneImg.Margin = new Thickness(
-                    (SystemParameters.PrimaryScreenWidth - main.TowerCraneImg.Width - 200),
-                    (SystemParameters.PrimaryScreenHeight - main.TowerCraneImg.Height + 15),
+                    (SystemParameters.PrimaryScreenWidth - main.TowerCraneImg.Width - Constants.TRAINING_CRANE_LEFT_CORRECTTION),
+                    (SystemParameters.PrimaryScreenHeight - main.TowerCraneImg.Height + Constants.TRAINING_CRANE_TOP_CORRECTTION),
                     0, 0
                 );
 
-                double suspendedTargetX = main.TowerCraneImg.Margin.Left;
-                double suspendedTargetY = main.TowerCraneImg.Margin.Top + 217;
+                double suspendedTargetX = main.TowerCraneImg.Margin.Left + 10;
+                double suspendedTargetY = main.TowerCraneImg.Margin.Top + Constants.TRAINING_CRANE_TARGET_CORRECTTION;
 
                 Aircraft newAircraft = Aircrafts.targetTugs[Constants.TRAINING_77bm2_INDEX];
                 newAircraft.CreateNewAircraft(startX: suspendedTargetX, startY: suspendedTargetY, suspended: true);
