@@ -61,6 +61,7 @@ namespace shilka2
 
         private bool suspendedTarget = false;
 
+        private static double suspendedTargetAngle = 0;
         private static bool suspendedTargetDowned = false;
 
         public static int allAircraftsInGame = 0;
@@ -111,6 +112,23 @@ namespace shilka2
                                 aircraft.angleOfAttack, (aircraft.aircraftImage.ActualWidth / 2), (aircraft.aircraftImage.ActualHeight / 2)
                             );
                         }
+                    }
+                    else if (aircraft.suspendedTarget)
+                    {
+                        double angleDirection = 0;
+
+                        if (suspendedTargetAngle > 15)
+                            angleDirection = -1;
+                        else if (suspendedTargetAngle < -15)
+                            angleDirection = 1;
+                        else
+                            angleDirection = rand.NextDouble() * 2 - 1;
+
+                        aircraft.angleOfAttack += 0.5 * angleDirection;
+
+                        aircraft.aircraftImage.RenderTransform = new RotateTransform(
+                            aircraft.angleOfAttack, (aircraft.aircraftImage.ActualWidth / 2), (aircraft.aircraftImage.ActualHeight / 2)
+                        );
                     }
                     else if (!aircraft.cloud && !aircraft.suspendedTarget)
                     {
