@@ -138,14 +138,14 @@ namespace shilka2
                     {
                         double angleDirection = 0;
 
-                        if (suspendedTargetAngle > 15)
+                        if (suspendedTargetAngle > Constants.TRAINING_CRANE_ANGLE_MAX)
                             angleDirection = -1;
-                        else if (suspendedTargetAngle < -15)
+                        else if (suspendedTargetAngle < (Constants.TRAINING_CRANE_ANGLE_MAX * -1))
                             angleDirection = 1;
                         else
                             angleDirection = rand.NextDouble() * 2 - 1;
 
-                        aircraft.angleOfAttack += 0.5 * angleDirection;
+                        aircraft.angleOfAttack += Constants.TRAINING_CRANE_ANGLE_CHANGE_SPEED * angleDirection;
 
                         aircraft.aircraftImage.RenderTransform = new RotateTransform(
                             aircraft.angleOfAttack, (aircraft.aircraftImage.ActualWidth / 2), (aircraft.aircraftImage.ActualHeight / 2)
@@ -491,7 +491,9 @@ namespace shilka2
                     Statistic.statisticPriceOfAllAircrafts += price;
                 }
 
-                if (zIndex != null)
+                if (suspended)
+                    Canvas.SetZIndex(newAircraftImage, 101);
+                else if (zIndex != null)
                 {
                     if (newAircraft.flightDirection == FlightDirectionType.Right)
                         Canvas.SetZIndex(newAircraftImage, (zIndex == zIndexType.inFront ? 80 : 40));
@@ -731,12 +733,12 @@ namespace shilka2
 
                 main.TowerCraneImg.Margin = new Thickness(
                     (SystemParameters.PrimaryScreenWidth - main.TowerCraneImg.Width - Constants.TRAINING_CRANE_LEFT_CORRECTTION),
-                    (SystemParameters.PrimaryScreenHeight - main.TowerCraneImg.Height + Constants.TRAINING_CRANE_TOP_CORRECTTION),
+                    (SystemParameters.PrimaryScreenHeight - main.TowerCraneImg.Height - Constants.TRAINING_CRANE_TOP_CORRECTTION),
                     0, 0
                 );
 
-                double suspendedTargetX = main.TowerCraneImg.Margin.Left + 10;
-                double suspendedTargetY = main.TowerCraneImg.Margin.Top + Constants.TRAINING_CRANE_TARGET_CORRECTTION;
+                double suspendedTargetX = main.TowerCraneImg.Margin.Left - Constants.TRAINING_CRANE_TARGET_LEFT_CORRECTTION;
+                double suspendedTargetY = main.TowerCraneImg.Margin.Top + Constants.TRAINING_CRANE_TARGET_TOP_CORRECTTION;
 
                 Aircraft newAircraft = Aircrafts.targetTugs[Constants.TRAINING_77bm2_INDEX];
                 newAircraft.CreateNewAircraft(startX: suspendedTargetX, startY: suspendedTargetY, suspended: true);
