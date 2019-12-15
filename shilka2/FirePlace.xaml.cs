@@ -564,10 +564,12 @@ namespace shilka2
                 Aircraft.TrainingStartCleaning();
                 Aircraft.StartSuspendedTarget();
 
-                TowerCraneImg.Visibility = Visibility.Visible;
+                Game.Elapsed += new ElapsedEventHandler(Shilka.CraneTruckGoOut);
+
+                TruckCraneImg.Visibility = Visibility.Visible;
             }
             else
-                TowerCraneImg.Visibility = Visibility.Hidden;
+                TruckCraneImg.Visibility = Visibility.Hidden;
 
             if (!school && !training)
             {

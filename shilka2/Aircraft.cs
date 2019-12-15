@@ -62,7 +62,7 @@ namespace shilka2
         private bool suspendedTarget = false;
 
         private static double suspendedTargetAngle = 0;
-        private static bool suspendedTargetDowned = false;
+        public static bool suspendedTargetDowned = false;
         private static int suspendedTargetTimerCount = 0;
 
         public static int allAircraftsInGame = 0;
@@ -731,14 +731,16 @@ namespace shilka2
             {
                 FirePlace main = (FirePlace)Application.Current.MainWindow;
 
-                main.TowerCraneImg.Margin = new Thickness(
-                    (SystemParameters.PrimaryScreenWidth - main.TowerCraneImg.Width - Constants.TRAINING_CRANE_LEFT_CORRECTTION),
-                    (SystemParameters.PrimaryScreenHeight - main.TowerCraneImg.Height - Constants.TRAINING_CRANE_TOP_CORRECTTION),
+                main.TruckCraneImg.Margin = new Thickness(
+                    (SystemParameters.PrimaryScreenWidth - main.TruckCraneImg.Width - Constants.TRAINING_CRANE_LEFT_CORRECTTION),
+                    (SystemParameters.PrimaryScreenHeight - main.TruckCraneImg.Height - Constants.TRAINING_CRANE_TOP_CORRECTTION),
                     0, 0
                 );
 
-                double suspendedTargetX = main.TowerCraneImg.Margin.Left - Constants.TRAINING_CRANE_TARGET_LEFT_CORRECTTION;
-                double suspendedTargetY = main.TowerCraneImg.Margin.Top + Constants.TRAINING_CRANE_TARGET_TOP_CORRECTTION;
+                main.TruckCraneImg.Visibility = Visibility.Visible;
+
+                double suspendedTargetX = main.TruckCraneImg.Margin.Left - Constants.TRAINING_CRANE_TARGET_LEFT_CORRECTTION;
+                double suspendedTargetY = main.TruckCraneImg.Margin.Top + Constants.TRAINING_CRANE_TARGET_TOP_CORRECTTION;
 
                 Aircraft newAircraft = Aircrafts.targetTugs[Constants.TRAINING_77bm2_INDEX];
                 newAircraft.CreateNewAircraft(startX: suspendedTargetX, startY: suspendedTargetY, suspended: true);

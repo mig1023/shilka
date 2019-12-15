@@ -22,7 +22,7 @@
             <Button x:Name="statisticButton" Content="★" HorizontalAlignment="Left" Height="23" Margin="10,71,0,0" VerticalAlignment="Top" Width="30" Click="statisticButton_Click" FontSize="13"/>
             <Image x:Name="scenarioFlag" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="32" Canvas.Left="9" Canvas.Top="95"/>
             <Label x:Name="schoolLabel" Height="28" Canvas.Left="45" Canvas.Top="10" Width="Auto"/>
-            <Image x:Name="TowerCraneImg" Visibility="Hidden" Height="355" Width="450" Source="images/interface/truck_crane.png"/>
+            <Image x:Name="TruckCraneImg" Visibility="Hidden" Height="355" Width="450" Source="images/interface/truck_crane.png"/>
         </Canvas>
         <Canvas x:Name="EndMenu" HorizontalAlignment="Left" Height="320" Margin="513,0,-511,0" VerticalAlignment="Top" Width="515">
             <TextBlock x:Name="EndText" Height="167" TextWrapping="Wrap" Canvas.Left="24" Canvas.Top="15" Width="446" Foreground="White" FontSize="32" FontFamily="Arial Narrow"/>

@@ -81,6 +81,25 @@ namespace shilka2
             }
         }
 
+        public static void CraneTruckGoOut(object obj, ElapsedEventArgs e)
+        {
+            if (!Aircraft.suspendedTargetDowned)
+                return;
+
+            Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
+            {
+                FirePlace main = (FirePlace)Application.Current.MainWindow;
+
+                if (main.TruckCraneImg.Visibility == Visibility.Hidden)
+                    return;
+
+                if (main.TruckCraneImg.Margin.Left > SystemParameters.PrimaryScreenWidth)
+                    main.TruckCraneImg.Visibility = Visibility.Hidden;
+                else
+                    main.TruckCraneImg.Margin = new Thickness(main.TruckCraneImg.Margin.Left + 1, main.TruckCraneImg.Margin.Top, main.TruckCraneImg.Margin.Right, main.TruckCraneImg.Margin.Bottom);
+            }));
+        }
+
         public static double RadarmMalfunction()
         {
             if ((radarMalfunctionDelay > 10) && (rand.Next(2) == 1))
