@@ -605,6 +605,8 @@ namespace shilka2
             schoolInfoText.Background = brush;
 
             schoolInfoBox.Visibility = Visibility.Visible;
+
+            Canvas.SetZIndex(schoolInfoBox, 99);
         }
 
         private void schoolInfoBox_SizeChanged(object sender, SizeChangedEventArgs e)
