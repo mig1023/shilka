@@ -45,6 +45,9 @@ namespace shilka2
 
         public static Weather.weatherTypes ScriptsWeather(scriptsNames script, Weather.weatherTypes weather)
         {
+            if (script == scriptsNames.KoreanBoeing)
+                return Weather.weatherTypes.snow;
+
             if (weather == Weather.weatherTypes.good)
                 return weather;
 
@@ -57,29 +60,27 @@ namespace shilka2
 
             switch (script)
             {
-                case Scripts.scriptsNames.Vietnam:
+                case scriptsNames.Vietnam:
                     return weatherRainOrStorm;
-                case Scripts.scriptsNames.IranIraq:
+                case scriptsNames.IranIraq:
                     return Weather.weatherTypes.good;
-                case Scripts.scriptsNames.DesertStorm:
+                case scriptsNames.DesertStorm:
                     return Weather.weatherTypes.sand;
-                case Scripts.scriptsNames.Syria:
+                case scriptsNames.Syria:
                     return Weather.weatherTypes.good;
-                case Scripts.scriptsNames.Yugoslavia:
+                case scriptsNames.Yugoslavia:
                     return weather;
-                case Scripts.scriptsNames.KoreanBoeing:
-                    return Weather.weatherTypes.snow;
-                case Scripts.scriptsNames.Libya:
+                case scriptsNames.Libya:
                     return Weather.weatherTypes.good;
-                case Scripts.scriptsNames.Yemen:
+                case scriptsNames.Yemen:
                     return weatherRainOrStorm;
-                case Scripts.scriptsNames.Rust:
+                case scriptsNames.Rust:
                     return weather;
-                case Scripts.scriptsNames.F117Hunt:
+                case scriptsNames.F117Hunt:
                     return weather;
-                case Scripts.scriptsNames.Khmeimim:
+                case scriptsNames.Khmeimim:
                     return Weather.weatherTypes.good;
-                case Scripts.scriptsNames.Belgrad:
+                case scriptsNames.Belgrad:
                     return weather;
             };
 
@@ -90,29 +91,29 @@ namespace shilka2
         {
             switch (script)
             {
-                case Scripts.scriptsNames.Vietnam:
+                case scriptsNames.Vietnam:
                     return "vn";
-                case Scripts.scriptsNames.IranIraq:
+                case scriptsNames.IranIraq:
                     return "ir";
-                case Scripts.scriptsNames.DesertStorm:
+                case scriptsNames.DesertStorm:
                     return "iq";
-                case Scripts.scriptsNames.Syria:
+                case scriptsNames.Syria:
                     return "sy";
-                case Scripts.scriptsNames.Yugoslavia:
+                case scriptsNames.Yugoslavia:
                     return "yu";
-                case Scripts.scriptsNames.KoreanBoeing:
+                case scriptsNames.KoreanBoeing:
                     return "ki";
-                case Scripts.scriptsNames.Libya:
+                case scriptsNames.Libya:
                     return "ly";
-                case Scripts.scriptsNames.Yemen:
+                case scriptsNames.Yemen:
                     return "ye";
-                case Scripts.scriptsNames.Rust:
+                case scriptsNames.Rust:
                     return "su";
-                case Scripts.scriptsNames.F117Hunt:
+                case scriptsNames.F117Hunt:
                     return "yu";
-                case Scripts.scriptsNames.Khmeimim:
+                case scriptsNames.Khmeimim:
                     return "sy";
-                case Scripts.scriptsNames.Belgrad:
+                case scriptsNames.Belgrad:
                     return "yu";
             };
 
@@ -123,29 +124,29 @@ namespace shilka2
         {
             switch (script)
             {
-                case Scripts.scriptsNames.Vietnam:
+                case scriptsNames.Vietnam:
                     return 35;
-                case Scripts.scriptsNames.IranIraq:
+                case scriptsNames.IranIraq:
                     return 40;
-                case Scripts.scriptsNames.DesertStorm:
+                case scriptsNames.DesertStorm:
                     return 40;
-                case Scripts.scriptsNames.Syria:
+                case scriptsNames.Syria:
                     return 40;
-                case Scripts.scriptsNames.Yugoslavia:
+                case scriptsNames.Yugoslavia:
                     return 25;
-                case Scripts.scriptsNames.KoreanBoeing:
+                case scriptsNames.KoreanBoeing:
                     return -5;
-                case Scripts.scriptsNames.Libya:
+                case scriptsNames.Libya:
                     return 40;
-                case Scripts.scriptsNames.Yemen:
+                case scriptsNames.Yemen:
                     return 20;
-                case Scripts.scriptsNames.Rust:
+                case scriptsNames.Rust:
                     return 30;
-                case Scripts.scriptsNames.F117Hunt:
+                case scriptsNames.F117Hunt:
                     return 20;
-                case Scripts.scriptsNames.Khmeimim:
+                case scriptsNames.Khmeimim:
                     return 40;
-                case Scripts.scriptsNames.Belgrad:
+                case scriptsNames.Belgrad:
                     return 25;
             };
 
