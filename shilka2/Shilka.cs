@@ -37,6 +37,8 @@ namespace shilka2
 
         public static int gunMalfunction = 0;
 
+        private static bool craneTruckMove = false;
+
         static Random rand;
 
         static Shilka()
@@ -93,10 +95,19 @@ namespace shilka2
                 if (main.TruckCraneImg.Visibility == Visibility.Hidden)
                     return;
 
+                craneTruckMove = !craneTruckMove;
+                string craneTrackSource = "truck_crane" + (craneTruckMove ? "_move" : "");
+                main.TruckCraneImg.Source = Aircraft.ImageFromResources(craneTrackSource, Aircraft.ImageType.Interface);
+
                 if (main.TruckCraneImg.Margin.Left > SystemParameters.PrimaryScreenWidth)
                     main.TruckCraneImg.Visibility = Visibility.Hidden;
                 else
-                    main.TruckCraneImg.Margin = new Thickness(main.TruckCraneImg.Margin.Left + 1, main.TruckCraneImg.Margin.Top, main.TruckCraneImg.Margin.Right, main.TruckCraneImg.Margin.Bottom);
+                    main.TruckCraneImg.Margin = new Thickness(
+                        main.TruckCraneImg.Margin.Left + 1,
+                        main.TruckCraneImg.Margin.Top,
+                        main.TruckCraneImg.Margin.Right,
+                        main.TruckCraneImg.Margin.Bottom
+                    );
             }));
         }
 
