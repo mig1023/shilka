@@ -742,7 +742,7 @@ namespace shilka2
                 double suspendedTargetX = main.TruckCraneImg.Margin.Left - Constants.TRAINING_CRANE_TARGET_LEFT_CORRECTTION;
                 double suspendedTargetY = main.TruckCraneImg.Margin.Top + Constants.TRAINING_CRANE_TARGET_TOP_CORRECTTION;
 
-                Aircraft newAircraft = Aircrafts.targetTugs[Constants.TRAINING_77bm2_INDEX];
+                Aircraft newAircraft = Aircrafts.targetTugs[Constants.TRAINING_OLD_MIG15_INDEX];
                 newAircraft.CreateNewAircraft(startX: suspendedTargetX, startY: suspendedTargetY, suspended: true);
             }));
         }

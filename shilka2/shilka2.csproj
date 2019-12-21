@@ -343,6 +343,7 @@
     <Resource Include="Images\DeadSprite\a26_dead.png" />
     <Resource Include="Images\Interface\truck_crane.png" />
     <Resource Include="Images\Interface\truck_crane_move.png" />
+    <Resource Include="Images\Aircraft\old_mig15.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

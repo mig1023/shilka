@@ -129,12 +129,13 @@ namespace shilka2
 
         public const int TRAINING_TIMEOUT_BEFORE_FIRST_INFO = 1;
 
-        public const int TRAINING_CRANE_TARGET_TOP_CORRECTTION = 178;
-        public const int TRAINING_CRANE_TARGET_LEFT_CORRECTTION = 45;
+        public const int TRAINING_CRANE_TARGET_TOP_CORRECTTION = 168;
+        public const int TRAINING_CRANE_TARGET_LEFT_CORRECTTION = 75;
         public const int TRAINING_CRANE_LEFT_CORRECTTION = 200;
         public const int TRAINING_CRANE_TOP_CORRECTTION = 5;
         public const int TRAINING_CRANE_ANGLE_MAX = 15;
         public const double TRAINING_CRANE_ANGLE_CHANGE_SPEED = 0.5;
+        public const int TRAINING_OLD_MIG15_INDEX = 3;
 
         public const int TRAINING_LAUNCH_PROBABILITTY = 5;
         public const int TRAINING_IL28_AT_THE_START = 10;
