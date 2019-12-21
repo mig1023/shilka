@@ -2680,6 +2680,16 @@ namespace shilka2
                 weight = Aircraft.WeightType.Heavy,
                 cantEscape = true,
             },
+            new Aircraft
+            {
+                aircraftType = "old_mig9",
+                aircraftName = "списанный МиГ-9",
+                hitPoint = 200,
+                size = new int[] { 205, 68 },
+                speed = 6,
+                weight = Aircraft.WeightType.Heavy,
+                cantEscape = true,
+            },
         };
 
         public static Aircraft FindEnemyAircraft(string name)

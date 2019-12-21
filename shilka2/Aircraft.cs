@@ -739,10 +739,24 @@ namespace shilka2
 
                 main.TruckCraneImg.Visibility = Visibility.Visible;
 
-                double suspendedTargetX = main.TruckCraneImg.Margin.Left - Constants.TRAINING_CRANE_TARGET_LEFT_CORRECTTION;
-                double suspendedTargetY = main.TruckCraneImg.Margin.Top + Constants.TRAINING_CRANE_TARGET_TOP_CORRECTTION;
+                int target;
+                double suspendedTargetX, suspendedTargetY;
 
-                Aircraft newAircraft = Aircrafts.targetTugs[Constants.TRAINING_OLD_MIG15_INDEX];
+                if (rand.Next(2) == 1)
+                {
+                    target = Constants.TRAINING_OLD_MIG9_INDEX;
+
+                    suspendedTargetX = main.TruckCraneImg.Margin.Left - Constants.TRAINING_CRANE_MIG9_LEFT_CORRECTTION;
+                    suspendedTargetY = main.TruckCraneImg.Margin.Top + Constants.TRAINING_CRANE_MIG9_TOP_CORRECTTION;
+                }
+                else
+                {
+                    target = Constants.TRAINING_OLD_MIG15_INDEX;
+                    suspendedTargetX = main.TruckCraneImg.Margin.Left - Constants.TRAINING_CRANE_MIG15_LEFT_CORRECTTION;
+                    suspendedTargetY = main.TruckCraneImg.Margin.Top + Constants.TRAINING_CRANE_MIG15_TOP_CORRECTTION;
+                }
+
+                Aircraft newAircraft = Aircrafts.targetTugs[target];
                 newAircraft.CreateNewAircraft(startX: suspendedTargetX, startY: suspendedTargetY, suspended: true);
             }));
         }
