@@ -72,11 +72,11 @@ namespace shilka2
                             bool itsOnlyTargetPlane = false;
 
                             if (Shilka.training && (aircraft.aircraftType == "il28bm_77bm2"))
-                                if (aircraft.targetTubHit(shell, ref itsOnlyTargetPlane))
+                                if (aircraft.TargetTubHit(shell, ref itsOnlyTargetPlane))
                                     continue;
 
                             if (itsOnlyTargetPlane && aircraft.fly && (aircraft.tragetTugHitPoint <= 0))
-                                aircraft.targetTugDisengaged();
+                                aircraft.TargetTugDisengaged();
 
                             Line shellTrace = new Line();
 

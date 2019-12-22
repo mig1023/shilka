@@ -373,8 +373,8 @@ namespace shilka2
                 data[i] = (byte)(255 - data[i]);
             }
 
-            List<System.Windows.Media.Color> colors = new List<System.Windows.Media.Color>();
-            colors.Add(System.Windows.Media.Colors.Black);
+            List<Color> colors = new List<Color>();
+            colors.Add(Colors.Black);
             BitmapPalette palette = new BitmapPalette(colors);
 
             return BitmapSource.Create(originalSource.PixelWidth, originalSource.PixelHeight,
@@ -521,10 +521,10 @@ namespace shilka2
                 }
 
                 if (Shilka.school && !newAircraft.cloud)
-                    newAircraft.aircraftMessagesForSchool(main);
+                    newAircraft.AircraftMessagesForSchool(main);
 
                 if (Shilka.training)
-                    newAircraft.aircraftMessageForTraining(main);
+                    newAircraft.AircraftMessageForTraining(main);
 
                 newAircraft.aircraftImage = newAircraftImage;
                 main.firePlace.Children.Add(newAircraftImage);
@@ -597,7 +597,7 @@ namespace shilka2
             }
         }
 
-        public bool targetTubHit(Shell shell, ref bool itsOnlyTargetPlane)
+        public bool TargetTubHit(Shell shell, ref bool itsOnlyTargetPlane)
         {
             if (flightDirection == FlightDirectionType.Right)
             {
@@ -631,7 +631,7 @@ namespace shilka2
             return false;
         }
 
-        public void targetTugDisengaged()
+        public void TargetTugDisengaged()
         {
             bool flyDirectRight = flightDirection == FlightDirectionType.Right;
 
@@ -655,7 +655,7 @@ namespace shilka2
             newAircraft.CreateNewAircraft(newX, newY, flightDirection, dead: true, transformation: true);
         }
 
-        private static int aircraftCategoryForSchool(int currentAircraftCategory, int allAircraftsInGame)
+        private static int AircraftCategoryForSchool(int currentAircraftCategory, int allAircraftsInGame)
         {
             if (allAircraftsInGame < Constants.SCHOOL_CLOUD_AT_THE_START)
                 return 1;
@@ -669,7 +669,21 @@ namespace shilka2
             return currentAircraftCategory;
         }
 
-        private void aircraftMessageForTraining(FirePlace main)
+        private static Aircraft NewAircraftForTraining()
+        {
+            if (!suspendedTargetDowned)
+                return Aircrafts.Cloud();
+            else if (rand.Next(Constants.TRAINING_LAUNCH_PROBABILITTY) != 1)
+                return Aircrafts.Cloud();
+            else if (allAircraftsInGame < Constants.TRAINING_IL28_AT_THE_START)
+                return Aircrafts.targetTugs[Constants.TRAINING_IL28_INDEX];
+            else if (allAircraftsInGame < Constants.TRAINING_M16K_AT_THE_START)
+                return Aircrafts.targetPlane[Constants.TRAINING_M16K_INDEX];
+            else
+                return Aircrafts.targetDrones[rand.Next(Aircrafts.targetDrones.Count)];
+        }
+
+        private void AircraftMessageForTraining(FirePlace main)
         {
             if (!trainingSuspendedTarget)
             {
@@ -701,7 +715,7 @@ namespace shilka2
             }
         }
 
-        private void aircraftMessagesForSchool(FirePlace main)
+        private void AircraftMessagesForSchool(FirePlace main)
         {
             if ((allAircraftsInGame > Constants.SCHOOL_AIRLINER_AT_THE_START) && !schoolMixAlready)
             {
@@ -752,6 +766,7 @@ namespace shilka2
                 else
                 {
                     target = Constants.TRAINING_OLD_MIG15_INDEX;
+
                     suspendedTargetX = main.TruckCraneImg.Margin.Left - Constants.TRAINING_CRANE_MIG15_LEFT_CORRECTTION;
                     suspendedTargetY = main.TruckCraneImg.Margin.Top + Constants.TRAINING_CRANE_MIG15_TOP_CORRECTTION;
                 }
@@ -766,25 +781,14 @@ namespace shilka2
             int aircraftCategory = rand.Next(1, 16);
 
             if (Shilka.school)
-                aircraftCategory = aircraftCategoryForSchool(aircraftCategory, allAircraftsInGame);
+                aircraftCategory = AircraftCategoryForSchool(aircraftCategory, allAircraftsInGame);
             
             int dice;
 
             Aircraft newAircraft;
 
             if (Shilka.training)
-            {
-                if (!suspendedTargetDowned)
-                    newAircraft = Aircrafts.Cloud();
-                else if (rand.Next(Constants.TRAINING_LAUNCH_PROBABILITTY) != 1)
-                    newAircraft = Aircrafts.Cloud();
-                else if (allAircraftsInGame < Constants.TRAINING_IL28_AT_THE_START)
-                    newAircraft = Aircrafts.targetTugs[Constants.TRAINING_IL28_INDEX];
-                else if (allAircraftsInGame < Constants.TRAINING_M16K_AT_THE_START)
-                    newAircraft = Aircrafts.targetPlane[Constants.TRAINING_M16K_INDEX];
-                else
-                    newAircraft = Aircrafts.targetDrones[rand.Next(Aircrafts.targetDrones.Count)];
-            }
+                newAircraft = NewAircraftForTraining();
             else
                 switch (aircraftCategory)
                 {
