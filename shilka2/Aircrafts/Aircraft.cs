@@ -22,6 +22,7 @@ namespace shilka2
         double angleOfAttack = 0;
 
         public int placeOfDamage = 0;
+        public double fallAcceleration = 0;
 
         public string aircraftType;
         public string aircraftName;
@@ -45,6 +46,7 @@ namespace shilka2
         public bool cantEscape = false;
         public bool deadSprite = false;
         public bool doesNotFlyInBadWeather = false;
+
         public WeightType weight = WeightType.Heavy;
 
         public FlightDirectionType flightDirection;
@@ -308,7 +310,9 @@ namespace shilka2
 
         private double AircraftDeadFallSpeed()
         {
-            return speed;
+            fallAcceleration += Constants.FREE_FALL_SPEED_FOR_AIRCRAFT;
+
+            return speed + fallAcceleration;
         }
 
         private static bool AircraftInList(int?[] scriptAircraft, int aircraft)
