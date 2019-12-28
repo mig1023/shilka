@@ -23,6 +23,7 @@ namespace shilka2
 
         public int placeOfDamage = 0;
         public double fallAcceleration = 0;
+        public bool canPlaneForALongTime = false;
 
         public string aircraftType;
         public string aircraftName;
@@ -126,10 +127,7 @@ namespace shilka2
                         {
                             double angle = aircraft.AircraftFlyAngle();
 
-                            if (aircraft.placeOfDamage > 0)
-                                aircraft.angleOfAttack += angle;
-                            else
-                                aircraft.angleOfAttack -= angle;
+                            aircraft.angleOfAttack += (angle * aircraft.placeOfDamage);
 
                             aircraft.aircraftImage.RenderTransform = new RotateTransform(
                                 aircraft.angleOfAttack, (aircraft.aircraftImage.ActualWidth / 2), (aircraft.aircraftImage.ActualHeight / 2)
@@ -310,6 +308,9 @@ namespace shilka2
 
         private double AircraftDeadFallSpeed()
         {
+            if (canPlaneForALongTime)
+                return 0;
+
             fallAcceleration += Constants.FREE_FALL_SPEED_FOR_AIRCRAFT;
 
             return speed + fallAcceleration;

@@ -2670,6 +2670,7 @@ namespace shilka2
                 speed = 9,
                 weight = Aircraft.WeightType.Middle,
                 cantEscape = true,
+                canPlaneForALongTime = true,
             },
             new Aircraft
             {
