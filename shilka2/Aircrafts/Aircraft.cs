@@ -271,8 +271,7 @@ namespace shilka2
                     {
                         int hitpoint = (aircraft.hitpoint >= 0 ? aircraft.hitpoint/2 : 0);
 
-                        if (!aircraft.cloud)
-                            aircraft.aircraftSchoolName.Content = aircraft.aircraftName + " " + new string('|', hitpoint);
+                        aircraft.aircraftSchoolName.Content = aircraft.GetAircraftFullName();
 
                         aircraft.aircraftSchoolName.Margin = new Thickness(aircraft.x, aircraft.y + aircraft.aircraftImage.Height, 0, 0);
                     }
@@ -515,7 +514,7 @@ namespace shilka2
                 if (Shilka.school)
                 {
                     Label aircraftLabelName = new Label();
-                    aircraftLabelName.Content = newAircraft.aircraftName;
+                    aircraftLabelName.Content = newAircraft.GetAircraftFullName();
                     newAircraft.aircraftSchoolName = aircraftLabelName;
 
                     if (airliner)
@@ -539,6 +538,22 @@ namespace shilka2
                 main.firePlace.Children.Add(newAircraftImage);
                 aircrafts.Add(newAircraft);
             }));
+        }
+
+        private string GetAircraftFullName()
+        {
+            if (cloud)
+                return String.Empty;
+
+            string hitPointLine = (hitpoint > 0 ? new string('|', hitpoint) : String.Empty);
+            int tmpPrice = (int)(price / 10);
+            string tmpPriceLine = new string('$', (tmpPrice > 0 ? tmpPrice : 1));
+            string priceLine = (price > 0 ? String.Format("Price: {0}m$ -> {1}", price, tmpPriceLine) : String.Empty);
+
+            if (friend || airliner)
+                priceLine = String.Empty;
+
+            return String.Format("{0} {1}\n{2}", aircraftName, hitPointLine, priceLine);
         }
 
         public Aircraft Clone()
