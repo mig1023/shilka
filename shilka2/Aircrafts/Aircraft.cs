@@ -24,6 +24,7 @@ namespace shilka2
         public int placeOfDamage = 0;
         public double fallAcceleration = 0;
         public bool canPlaneForALongTime = false;
+        public bool fallLikeAStone = false;
 
         public string aircraftType;
         public string aircraftName;
@@ -121,7 +122,7 @@ namespace shilka2
 
                     if (aircraft.dead)
                     {
-                        aircraft.y += Constants.TANGAGE_DEAD_SPEED * (rand.NextDouble() * 2 - 1) + aircraft.AircraftDeadFallSpeed();
+                        aircraft.y += aircraft.AircraftDeadFallSpeed();
 
                         if (aircraft.dynamicElemets.Count == 0 || aircraft.deadSprite)
                         {
@@ -309,11 +310,14 @@ namespace shilka2
         private double AircraftDeadFallSpeed()
         {
             if (canPlaneForALongTime)
-                return 0;
+                return Constants.TANGAGE_DEAD_SPEED / 2;
+
+            if (fallLikeAStone)
+                return Constants.TANGAGE_DEAD_SPEED;
 
             fallAcceleration += Constants.FREE_FALL_SPEED_FOR_AIRCRAFT;
 
-            return speed + fallAcceleration;
+            return Constants.TANGAGE_DEAD_SPEED * (rand.NextDouble() * 2 - 1) + speed + fallAcceleration;
         }
 
         private static bool AircraftInList(int?[] scriptAircraft, int aircraft)
@@ -558,6 +562,8 @@ namespace shilka2
 
             newAircraft.fly = true;
             newAircraft.placeOfDamage = 0;
+            newAircraft.canPlaneForALongTime = canPlaneForALongTime;
+            newAircraft.fallLikeAStone = fallLikeAStone;
 
             return newAircraft;
         }

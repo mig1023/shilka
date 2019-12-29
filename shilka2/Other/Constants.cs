@@ -18,7 +18,7 @@ namespace shilka2
         public const double ESCAPE_COEFFICIENT = 1.6;
         public const int TANGAGE_DELAY = 12;
         public const int TANGAGE_SPEED = 4;
-        public const int TANGAGE_DEAD_SPEED = 4;
+        public const int TANGAGE_DEAD_SPEED = 15;
         public const int ROTATE_STEP = 25;
         public const double SLOW_ROTATION = 0.07;
         public const double FAST_ROTATION = 0.3;
