@@ -102,6 +102,9 @@ namespace shilka2
             ShilkaImg.Margin = new Thickness(0, heightForShilka, 0, 0);
             RadarImg.Margin = new Thickness(62, heightForShilka, 0, 0);
             HandImg.Margin = new Thickness(65, (heightForShilka - 120), 0, 0);
+
+            ToolTipService.ShowDurationProperty.OverrideMetadata(
+                typeof(DependencyObject), new FrameworkPropertyMetadata(Int32.MaxValue));
         }
 
         public void StartGame(int?[] scriptAircraft, int?[] scriptHelicopters, int?[] scriptAircraftFriend,
