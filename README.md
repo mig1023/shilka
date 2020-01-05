@@ -1,7 +1,7 @@
 # shilka
 The game is about a small anti-aircraft vehicle in the school notebook
 
-![](https://s8.hostingkartinok.com/uploads/images/2019/10/e6f82e1a07ba84cbfc02454979970959.png)
+![](http://mig1023.ru/images/shilka.png)
 
 ### Scripts:
 
