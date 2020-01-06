@@ -49,7 +49,7 @@
                         <ToolTip>
                             <StackPanel>
                                 <TextBlock Text="Вьетнамская война (1965-1973)"/>
-                                <TextBlock FontWeight="Bold" Text="особенность: много врагов"/>
+                                <TextBlock FontWeight="Bold" Text="особенность: врагов очень много"/>
                                 <Image Source="images/interface/vietnam.png"/>
                             </StackPanel>
                         </ToolTip>
@@ -93,8 +93,8 @@
                         <ToolTip>
                             <StackPanel>
                                 <TextBlock Text="Гражданская война в Сирии (2011-2019)"/>
-                                <TextBlock FontWeight="Bold" Text="особенность: только беспилотники и"/>
-                                <TextBlock FontWeight="Bold" Text="крылатые ракеты"/>
+                                <TextBlock FontWeight="Bold" Text="особенность: только дроны,"/>
+                                <TextBlock FontWeight="Bold" Text="беспилотники и крылатые ракеты"/>
                                 <Image Source="images/interface/syria.png"/>
                             </StackPanel>
                         </ToolTip>
@@ -127,7 +127,8 @@
                         <ToolTip>
                             <StackPanel>
                                 <TextBlock Text="Интервенция в Йемен (2015-2019)"/>
-                                <TextBlock FontWeight="Bold" Text="особенность: нет своей авиации"/>
+                                <TextBlock FontWeight="Bold" Text="особенность: никаких союзников,"/>
+                                <TextBlock FontWeight="Bold" Text="только враги"/>
                                 <Image Source="images/interface/yemen.png"/>
                             </StackPanel>
                         </ToolTip>
