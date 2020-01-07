@@ -15,10 +15,10 @@ The game is about a small anti-aircraft vehicle in the school notebook
 | NATO bombing of Yugoslavia | 1999 | night |
 | Bomb attacks against Belgrade | 1999 | one direction of attack |
 | Hunt for F-117 in Yugoslavia | 1999 | wait and destroy a specific target |
-| Syrian civil war | 2011-2019 | only UAVs and cruise missiles |
+| Syrian civil war | 2011-2020 | only UAVs and cruise missiles |
 | Intervention in Libya | 2011 | unpredictable guns |
-| Intervention in Yemen | 2015-2019 | no friendly aviation |
-| Siege of Kmeimim | 2016-2018 | only UAVs |
+| Intervention in Yemen | 2015-2020 | no friendly aviation |
+| Siege of Kmeimim | 2016-2020 | only UAVs |
 
 ### Enemy aircrafts:
 
