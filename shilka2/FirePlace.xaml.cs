@@ -715,12 +715,15 @@ namespace shilka2
         {
             string[] aircraftsData = statData.Split(',');
 
-            string trophy = String.Empty;
+            string trophy = "не было";
             double trophyPrice = 0;
 
             foreach (string aircraftData in aircraftsData)
             {
                 Aircraft aircraft = Aircrafts.FindEnemyAircraft(aircraftData.Split('=')[0]);
+
+                if (aircraft == null)
+                    continue;
 
                 if (trophyPrice < aircraft.price)
                 {

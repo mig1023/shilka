@@ -92,7 +92,7 @@
                     <Button.ToolTip>
                         <ToolTip>
                             <StackPanel>
-                                <TextBlock Text="Гражданская война в Сирии (2011-2019)"/>
+                                <TextBlock Text="Гражданская война в Сирии (2011-2020)"/>
                                 <TextBlock FontWeight="Bold" Text="особенность: только дроны,"/>
                                 <TextBlock FontWeight="Bold" Text="беспилотники и крылатые ракеты"/>
                                 <Image Source="images/interface/syria.png"/>
@@ -126,7 +126,7 @@
                     <Button.ToolTip>
                         <ToolTip>
                             <StackPanel>
-                                <TextBlock Text="Интервенция в Йемен (2015-2019)"/>
+                                <TextBlock Text="Интервенция в Йемен (2015-2020)"/>
                                 <TextBlock FontWeight="Bold" Text="особенность: никаких союзников,"/>
                                 <TextBlock FontWeight="Bold" Text="только враги"/>
                                 <Image Source="images/interface/yemen.png"/>
@@ -172,7 +172,7 @@
                     <Button.ToolTip>
                         <ToolTip>
                             <StackPanel>
-                                <TextBlock Text="Оборона Хмеймима (2016-2019)"/>
+                                <TextBlock Text="Оборона Хмеймима (2016-2020)"/>
                                 <TextBlock FontWeight="Bold" Text="особенность: только беспилотники"/>
                                 <Image Source="images/interface/khmeimim.png"/>
                             </StackPanel>
