@@ -28,6 +28,12 @@ namespace shilka2
         static int thundar = 0;
         public static Image thunderCurrentImage;
 
+        public static void RestartCycle(Weather.weatherTypes newWeather)
+        {
+            currentWeather = newWeather;
+            weatherCycle = Constants.WEATHER_CYCLE;
+        }
+
         private static void Lightning(bool thunderclap = false, bool thunderimage = false)
         {
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate

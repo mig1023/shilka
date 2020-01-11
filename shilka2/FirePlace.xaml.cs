@@ -526,7 +526,7 @@ namespace shilka2
                 scenarioFlag.Source = null;
 
             if (script == Scripts.scriptsNames.KoreanBoeing)
-                Weather.currentWeather = Weather.weatherTypes.snow;
+                Weather.RestartCycle(Weather.weatherTypes.snow);
             else if (script == Scripts.scriptsNames.Yugoslavia)
             {
                 statShells.Foreground = Brushes.White;
