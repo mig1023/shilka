@@ -28,10 +28,19 @@ namespace shilka2
         static int thundar = 0;
         public static Image thunderCurrentImage;
 
-        public static void RestartCycle(Weather.weatherTypes newWeather)
+        public static void RestartCycle()
+        {
+            Array weathers = Enum.GetValues(typeof(weatherTypes));
+            weatherTypes currentWeatherForScripts = (weatherTypes)weathers.GetValue(rand.Next(weathers.Length));
+            currentWeather = Scripts.ScriptsWeather(Shilka.currentScript, currentWeatherForScripts);
+
+            RestartCycle(currentWeather, newWeatherCycle: 0);
+        }
+
+        public static void RestartCycle(Weather.weatherTypes newWeather, int? newWeatherCycle = null)
         {
             currentWeather = newWeather;
-            weatherCycle = Constants.WEATHER_CYCLE;
+            weatherCycle = newWeatherCycle ?? Constants.WEATHER_CYCLE;
         }
 
         private static void Lightning(bool thunderclap = false, bool thunderimage = false)
@@ -94,13 +103,7 @@ namespace shilka2
             if (weatherCycle < Constants.WEATHER_CYCLE)
                 weatherCycle += 1;
             else
-            {
-                weatherCycle = 0;
-
-                Array weathers = Enum.GetValues(typeof(weatherTypes));
-                weatherTypes currentWeatherForScripts = (weatherTypes)weathers.GetValue(rand.Next(weathers.Length));
-                currentWeather = Scripts.ScriptsWeather(Shilka.currentScript, currentWeatherForScripts);
-            }
+                RestartCycle();
 
             if (currentWeather == weatherTypes.good)
                 return;
