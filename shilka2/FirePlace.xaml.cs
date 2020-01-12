@@ -707,7 +707,7 @@ namespace shilka2
                 "лучший трофей", StatMostValuableTrophy(statRow.aircrafts)
             });
 
-            StatBoxValues(StatBoxDown, statRow.aircrafts, statRow.shutdown);
+            StatBoxValues(StatBoxDown, statRow.aircrafts, statRow.shutdown, statRow.amountOfDamage);
             StatBoxValues(StatBoxDamag, statRow.aircraftsDamaged, statRow.damaged);
         }
 
@@ -735,7 +735,7 @@ namespace shilka2
             return trophy;
         }
 
-        private void StatBoxValues(DataGrid StatBox, string statData, int percentBaseCount)
+        private void StatBoxValues(DataGrid StatBox, string statData, int percentBaseCount, double percentBasePrice = 0)
         {
             StatBox.Items.Clear();
             StatBox.Columns.Clear();
@@ -762,17 +762,36 @@ namespace shilka2
                 Width = new DataGridLength(120)
             });
 
+            if (percentBasePrice != 0)
+                StatBox.Columns.Add(new DataGridTextColumn
+                {
+                    Header = "от ущерба",
+                    Binding = new Binding("pricePercent"),
+                    Width = new DataGridLength(120)
+                });
+
             string[] aircraftsData = statData.Split(',');
 
             foreach (string aircraftData in aircraftsData)
             {
                 dynamic newRow = new ExpandoObject();
                 string[] data = aircraftData.Split('=');
+
                 int count = Int32.Parse(data[1]);
+                int percentCount = (count * 100) / percentBaseCount;
+
+                if (percentBasePrice != 0)
+                {
+                    Aircraft aircraft = Aircrafts.FindEnemyAircraft(data[0]);
+                    double price = aircraft.price * count;
+                    int percentPrice = (int)((price * 100) / percentBasePrice);
+
+                    ((IDictionary<string, object>)newRow)["pricePercent"] = String.Format("{0}%", percentPrice);
+                }
 
                 ((IDictionary<string, object>)newRow)["aircraft"] = data[0];
                 ((IDictionary<string, object>)newRow)["count"] = data[1];
-                ((IDictionary<string, object>)newRow)["percent"] = String.Format("{0}%", (count * 100) / percentBaseCount);
+                ((IDictionary<string, object>)newRow)["percent"] = String.Format("{0}%", percentCount);
                 StatBox.Items.Add(newRow);
             }
         }
