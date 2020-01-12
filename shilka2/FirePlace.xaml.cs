@@ -708,7 +708,7 @@ namespace shilka2
             });
 
             StatBoxValues(StatBoxDown, statRow.aircrafts, statRow.shutdown, statRow.amountOfDamage);
-            StatBoxValues(StatBoxDamag, statRow.aircraftsDamaged, statRow.damaged);
+            StatBoxValues(StatBoxDamag, statRow.aircraftsDamaged, statRow.damaged, statRow.amountOfDamage, inaccurate: true);
         }
 
         private string StatMostValuableTrophy(string statData)
@@ -735,7 +735,8 @@ namespace shilka2
             return trophy;
         }
 
-        private void StatBoxValues(DataGrid StatBox, string statData, int percentBaseCount, double percentBasePrice = 0)
+        private void StatBoxValues(DataGrid StatBox, string statData, int percentBaseCount,
+            double percentBasePrice, bool inaccurate = false)
         {
             StatBox.Items.Clear();
             StatBox.Columns.Clear();
@@ -761,16 +762,15 @@ namespace shilka2
                 Binding = new Binding("percent"),
                 Width = new DataGridLength(120)
             });
-
-            if (percentBasePrice != 0)
-                StatBox.Columns.Add(new DataGridTextColumn
-                {
-                    Header = "от ущерба",
-                    Binding = new Binding("pricePercent"),
-                    Width = new DataGridLength(120)
-                });
+            StatBox.Columns.Add(new DataGridTextColumn
+            {
+                Header = "от ущерба" + (inaccurate ? " (примерно)" : String.Empty),
+                Binding = new Binding("pricePercent"),
+                Width = new DataGridLength(120)
+            });
 
             string[] aircraftsData = statData.Split(',');
+            string inacc = (inaccurate ? "до " : String.Empty);
 
             foreach (string aircraftData in aircraftsData)
             {
@@ -780,18 +780,14 @@ namespace shilka2
                 int count = Int32.Parse(data[1]);
                 int percentCount = (count * 100) / percentBaseCount;
 
-                if (percentBasePrice != 0)
-                {
-                    Aircraft aircraft = Aircrafts.FindEnemyAircraft(data[0]);
-                    double price = aircraft.price * count;
-                    int percentPrice = (int)((price * 100) / percentBasePrice);
-
-                    ((IDictionary<string, object>)newRow)["pricePercent"] = String.Format("{0}%", percentPrice);
-                }
-
+                Aircraft aircraft = Aircrafts.FindEnemyAircraft(data[0]);
+                double price = aircraft.price * count;
+                int percentPrice = (int)((price * 100) / percentBasePrice);
+                
                 ((IDictionary<string, object>)newRow)["aircraft"] = data[0];
                 ((IDictionary<string, object>)newRow)["count"] = data[1];
                 ((IDictionary<string, object>)newRow)["percent"] = String.Format("{0}%", percentCount);
+                ((IDictionary<string, object>)newRow)["pricePercent"] = String.Format("{0}{1}%", inacc, percentPrice);
                 StatBox.Items.Add(newRow);
             }
         }
