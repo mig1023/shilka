@@ -389,7 +389,6 @@ namespace shilka2
                 speed = 8,
                 minAltitude = minAltitudeForLargeAircraft,
                 cantEscape = true,
-                canPlaneForALongTime = true,
             },
 
             new Aircraft
