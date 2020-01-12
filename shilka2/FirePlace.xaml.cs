@@ -707,8 +707,8 @@ namespace shilka2
                 "лучший трофей", StatMostValuableTrophy(statRow.aircrafts)
             });
 
-            StatBoxValues(StatBoxDown, statRow.aircrafts);
-            StatBoxValues(StatBoxDamag, statRow.aircraftsDamaged);
+            StatBoxValues(StatBoxDown, statRow.aircrafts, statRow.shutdown);
+            StatBoxValues(StatBoxDamag, statRow.aircraftsDamaged, statRow.damaged);
         }
 
         private string StatMostValuableTrophy(string statData)
@@ -735,7 +735,7 @@ namespace shilka2
             return trophy;
         }
 
-        private void StatBoxValues(DataGrid StatBox, string statData)
+        private void StatBoxValues(DataGrid StatBox, string statData, int percentBaseCount)
         {
             StatBox.Items.Clear();
             StatBox.Columns.Clear();
@@ -744,9 +744,23 @@ namespace shilka2
                 return;
 
             StatBox.AutoGenerateColumns = false;
-            StatBox.Columns.Add(new DataGridTextColumn { Header = "тип", Binding = new Binding("aircraft") });
-            StatBox.Columns.Add(new DataGridTextColumn { Header = "количество", Binding = new Binding("count"),
-                Width = new DataGridLength(100) });
+            StatBox.Columns.Add(new DataGridTextColumn
+            {
+                Header = "тип",
+                Binding = new Binding("aircraft")
+            });
+            StatBox.Columns.Add(new DataGridTextColumn
+            {
+                Header = "количество",
+                Binding = new Binding("count"),
+                Width = new DataGridLength(100)
+            });
+            StatBox.Columns.Add(new DataGridTextColumn
+            {
+                Header = "от общего кол-ва",
+                Binding = new Binding("percent"),
+                Width = new DataGridLength(120)
+            });
 
             string[] aircraftsData = statData.Split(',');
 
@@ -754,8 +768,11 @@ namespace shilka2
             {
                 dynamic newRow = new ExpandoObject();
                 string[] data = aircraftData.Split('=');
+                int count = Int32.Parse(data[1]);
+
                 ((IDictionary<string, object>)newRow)["aircraft"] = data[0];
                 ((IDictionary<string, object>)newRow)["count"] = data[1];
+                ((IDictionary<string, object>)newRow)["percent"] = String.Format("{0}%", (count * 100) / percentBaseCount);
                 StatBox.Items.Add(newRow);
             }
         }
