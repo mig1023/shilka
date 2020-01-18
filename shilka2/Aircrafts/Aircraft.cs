@@ -74,6 +74,7 @@ namespace shilka2
         public Image aircraftImage;
 
         public Label aircraftSchoolName;
+        public Label aircraftSchoolPrice;
 
         public List<DynamicElement> dynamicElemets = new List<DynamicElement>(); 
 
@@ -272,8 +273,10 @@ namespace shilka2
                         int hitpoint = (aircraft.hitpoint >= 0 ? aircraft.hitpoint/2 : 0);
 
                         aircraft.aircraftSchoolName.Content = aircraft.GetAircraftFullName();
-
                         aircraft.aircraftSchoolName.Margin = new Thickness(aircraft.x, aircraft.y + aircraft.aircraftImage.Height, 0, 0);
+
+                        aircraft.aircraftSchoolPrice.Content = aircraft.GetAircraftPriceLine();
+                        aircraft.aircraftSchoolPrice.Margin = new Thickness(aircraft.x, aircraft.y + aircraft.aircraftImage.Height + 16, 0, 0);
                     }
                 }
 
@@ -526,6 +529,13 @@ namespace shilka2
 
                     Canvas.SetZIndex(aircraftLabelName, Canvas.GetZIndex(newAircraftImage));
                     main.firePlace.Children.Add(aircraftLabelName);
+
+                    Label aircraftLabelPrice = new Label();
+                    aircraftLabelPrice.Content = GetAircraftPriceLine();
+                    newAircraft.aircraftSchoolPrice = aircraftLabelPrice;
+                    newAircraft.aircraftSchoolPrice.Foreground = Brushes.Gray;
+                    Canvas.SetZIndex(aircraftLabelPrice, Canvas.GetZIndex(newAircraftImage));
+                    main.firePlace.Children.Add(aircraftLabelPrice);
                 }
 
                 if (Shilka.school && !newAircraft.cloud)
@@ -545,15 +555,18 @@ namespace shilka2
             if (cloud)
                 return String.Empty;
 
-            string hitPointLine = (hitpoint > 0 ? new string('|', hitpoint) : String.Empty);
+            return String.Format("{0} {1}", aircraftName, (hitpoint > 0 ? new string('|', hitpoint) : String.Empty));
+        }
+
+        private string GetAircraftPriceLine()
+        {
+            if (cloud || friend || airliner)
+                return String.Empty;
+
             int tmpPrice = (int)(price / 10);
-            string tmpPriceLine = new string('$', (tmpPrice > 0 ? tmpPrice : 1));
-            string priceLine = (price > 0 ? String.Format("Price: {0}m$ -> {1}", price, tmpPriceLine) : String.Empty);
+            string tmpPriceLine = new string('|', (tmpPrice > 0 ? tmpPrice : 1));
 
-            if (friend || airliner)
-                priceLine = String.Empty;
-
-            return String.Format("{0} {1}\n{2}", aircraftName, hitPointLine, priceLine);
+            return (price > 0 ? String.Format("Price: {0}m$ {1}", price, tmpPriceLine) : String.Empty);
         }
 
         public Aircraft Clone()
