@@ -82,7 +82,8 @@
                         <ToolTip>
                             <StackPanel>
                                 <TextBlock Text="Ирано-Иракская война (1980-1988)"/>
-                                <TextBlock FontWeight="Bold" Text="особенность: повреждённый радар"/>
+                                <TextBlock FontWeight="Bold" Text="особенность: повреждённый радар,"/>
+                                <TextBlock FontWeight="Bold" Text="проблемы с наведением пушек"/>
                                 <Image Source="images/interface/iraniraq.png"/>
                             </StackPanel>
                         </ToolTip>
