@@ -268,13 +268,14 @@ namespace shilka2
                         }
                     }
 
-                    if (Shilka.school)
+                    if (Shilka.school && !aircraft.cloud)
                     {
-                        int hitpoint = (aircraft.hitpoint >= 0 ? aircraft.hitpoint/2 : 0);
-
                         aircraft.aircraftSchoolName.Content = aircraft.GetAircraftFullName();
                         aircraft.aircraftSchoolName.Margin = new Thickness(aircraft.x, aircraft.y + aircraft.aircraftImage.Height, 0, 0);
+                    }
 
+                    if (Shilka.school && !aircraft.cloud && !aircraft.friend && !aircraft.airliner)
+                    {
                         aircraft.aircraftSchoolPrice.Content = aircraft.GetAircraftPriceLine();
                         aircraft.aircraftSchoolPrice.Margin = new Thickness(aircraft.x, aircraft.y + aircraft.aircraftImage.Height + 16, 0, 0);
                     }
@@ -514,7 +515,7 @@ namespace shilka2
                 else
                     Canvas.SetZIndex(newAircraftImage, (cloud ? 100 : 50));
 
-                if (Shilka.school)
+                if (Shilka.school || !cloud)
                 {
                     Label aircraftLabelName = new Label();
                     aircraftLabelName.Content = newAircraft.GetAircraftFullName();
@@ -530,12 +531,15 @@ namespace shilka2
                     Canvas.SetZIndex(aircraftLabelName, Canvas.GetZIndex(newAircraftImage));
                     main.firePlace.Children.Add(aircraftLabelName);
 
-                    Label aircraftLabelPrice = new Label();
-                    aircraftLabelPrice.Content = GetAircraftPriceLine();
-                    newAircraft.aircraftSchoolPrice = aircraftLabelPrice;
-                    newAircraft.aircraftSchoolPrice.Foreground = Brushes.Gray;
-                    Canvas.SetZIndex(aircraftLabelPrice, Canvas.GetZIndex(newAircraftImage));
-                    main.firePlace.Children.Add(aircraftLabelPrice);
+                    if (!airliner && !friend)
+                    {
+                        Label aircraftLabelPrice = new Label();
+                        aircraftLabelPrice.Content = GetAircraftPriceLine();
+                        newAircraft.aircraftSchoolPrice = aircraftLabelPrice;
+                        newAircraft.aircraftSchoolPrice.Foreground = Brushes.Gray;
+                        Canvas.SetZIndex(aircraftLabelPrice, Canvas.GetZIndex(newAircraftImage));
+                        main.firePlace.Children.Add(aircraftLabelPrice);
+                    }
                 }
 
                 if (Shilka.school && !newAircraft.cloud)
@@ -552,17 +556,11 @@ namespace shilka2
 
         private string GetAircraftFullName()
         {
-            if (cloud)
-                return String.Empty;
-
             return String.Format("{0} {1}", aircraftName, (hitpoint > 0 ? new string('|', hitpoint) : String.Empty));
         }
 
         private string GetAircraftPriceLine()
         {
-            if (cloud || friend || airliner)
-                return String.Empty;
-
             int tmpPrice = (int)(price / 10);
             string tmpPriceLine = new string('|', (tmpPrice > 0 ? tmpPrice : 1));
 
