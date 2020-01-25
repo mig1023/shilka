@@ -20,6 +20,13 @@ The game is about a small anti-aircraft vehicle in the school notebook
 | Intervention in Yemen | 2015-2020 | no friendly aviation |
 | Siege of Kmeimim | 2016-2020 | only UAVs |
 
+### Different weather:
+
+| Weather | Weather | Specifics |
+| ------------- | ------------- | ------------- |
+| Cloudy | Rain | Thunderstorm |
+| Snow | Sandstorm | |
+
 ### Enemy aircrafts:
 
 | Aircraft | Aircraft | Aircraft |
