@@ -117,59 +117,69 @@ namespace shilka2
             if (currentWeather == weatherTypes.good)
                 return;
 
-            Weather newWeather = new Weather();
+            int newWeatherElementsCount = (currentWeather == weatherTypes.storm ? 3 : 1);
 
-            if (currentWeather == weatherTypes.sand)
+            for (int iterator = 0; iterator < newWeatherElementsCount; iterator++)
             {
-                newWeather.x = 0;
-                newWeather.y = rand.Next(0, (int)SystemParameters.PrimaryScreenHeight);
-            }
-            else
-            {
-                newWeather.x = rand.Next(0, (int)SystemParameters.PrimaryScreenWidth);
-                newWeather.y = 0;
-            }
-                
-            newWeather.speed = rand.Next(Constants.MIN_SPEED, Constants.MAX_SPEED);
-            newWeather.fly = true;
-            newWeather.type = currentWeather;
+                Weather newWeather = new Weather();
 
-            Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
-            {
-                Image newImage = new Image();
-
-                string imageName;
-
-                if ((currentWeather == weatherTypes.rain) || (currentWeather == weatherTypes.storm))
+                if (currentWeather == weatherTypes.storm)
                 {
-                    newImage.Width = rand.Next(Constants.RAIN_MIN_WIDTH, Constants.RAIN_MAX_WIDTH);
-                    newImage.Height = rand.Next(Constants.RAIN_MIN_HEIGHT, Constants.RAIN_MAX_HEIGHT);
-                    imageName = "rain" + rand.Next(1, Constants.MAX_RAIN_TYPE + 1).ToString();
+                    newWeather.x = 0;
+                    newWeather.y = rand.Next((int)SystemParameters.PrimaryScreenHeight * -1, (int)SystemParameters.PrimaryScreenHeight * 2);
                 }
                 else if (currentWeather == weatherTypes.sand)
                 {
-                    newImage.Width = Constants.CASE_LENGTH;
-                    newImage.Height = Constants.CASE_LENGTH;
-
-                    imageName = "case";
+                    newWeather.x = 0;
+                    newWeather.y = rand.Next(0, (int)SystemParameters.PrimaryScreenHeight);
                 }
                 else
                 {
-                    newImage.Width = rand.Next(Constants.SNOW_MIN_SIZE, Constants.SNOW_MAX_SIZE);
-                    newImage.Height = rand.Next(Constants.SNOW_MIN_SIZE, Constants.SNOW_MAX_SIZE);
-                    imageName = "snow" + rand.Next(1, Constants.MAX_SNOW_TYPE + 1).ToString();
+                    newWeather.x = rand.Next(0, (int)SystemParameters.PrimaryScreenWidth);
+                    newWeather.y = 0;
                 }
 
-                newImage.Source = Aircraft.ImageFromResources(imageName, Aircraft.ImageType.Other);
-                newImage.Margin = new Thickness(newWeather.x, newWeather.y, 0, 0);
+                newWeather.speed = rand.Next(Constants.MIN_SPEED, Constants.MAX_SPEED);
+                newWeather.fly = true;
+                newWeather.type = currentWeather;
 
-                newWeather.weatherImage = newImage;
+                Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
+                {
+                    Image newImage = new Image();
 
-                FirePlace main = (FirePlace)Application.Current.MainWindow;
-                Canvas.SetZIndex(newImage, 120);
-                main.firePlace.Children.Add(newImage);
-                Weather.weather.Add(newWeather);
-            }));
+                    string imageName;
+
+                    if ((currentWeather == weatherTypes.rain) || (currentWeather == weatherTypes.storm))
+                    {
+                        newImage.Width = rand.Next(Constants.RAIN_MIN_WIDTH, Constants.RAIN_MAX_WIDTH);
+                        newImage.Height = rand.Next(Constants.RAIN_MIN_HEIGHT, Constants.RAIN_MAX_HEIGHT);
+                        imageName = "rain" + rand.Next(1, Constants.MAX_RAIN_TYPE + 1).ToString();
+                    }
+                    else if (currentWeather == weatherTypes.sand)
+                    {
+                        newImage.Width = Constants.CASE_LENGTH;
+                        newImage.Height = Constants.CASE_LENGTH;
+
+                        imageName = "case";
+                    }
+                    else
+                    {
+                        newImage.Width = rand.Next(Constants.SNOW_MIN_SIZE, Constants.SNOW_MAX_SIZE);
+                        newImage.Height = rand.Next(Constants.SNOW_MIN_SIZE, Constants.SNOW_MAX_SIZE);
+                        imageName = "snow" + rand.Next(1, Constants.MAX_SNOW_TYPE + 1).ToString();
+                    }
+
+                    newImage.Source = Aircraft.ImageFromResources(imageName, Aircraft.ImageType.Other);
+                    newImage.Margin = new Thickness(newWeather.x, newWeather.y, 0, 0);
+
+                    newWeather.weatherImage = newImage;
+
+                    FirePlace main = (FirePlace)Application.Current.MainWindow;
+                    Canvas.SetZIndex(newImage, 120);
+                    main.firePlace.Children.Add(newImage);
+                    Weather.weather.Add(newWeather);
+                }));
+            }
         }
 
         public static void WeatherElementsFly(object obj, ElapsedEventArgs e)
@@ -215,7 +225,10 @@ namespace shilka2
 
                     w.weatherImage.Margin = new Thickness(w.x, w.y, 0, 0);
 
-                    if ((w.y > SystemParameters.PrimaryScreenHeight + 100) || (w.x > SystemParameters.PrimaryScreenWidth + 10))
+                    if (w.y > SystemParameters.PrimaryScreenHeight + 100)
+                        w.fly = false;
+
+                    if ((w.type == weatherTypes.sand) && (w.x > SystemParameters.PrimaryScreenWidth + 10))
                         w.fly = false;
                 }
 
