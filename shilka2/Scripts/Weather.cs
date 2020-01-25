@@ -65,7 +65,8 @@ namespace shilka2
                     if (thunderCurrentImage != null)
                         main.firePlace.Children.Remove(thunderCurrentImage);
                 }
-                    
+
+                main.thunderPlace.Background = (Shilka.currentScript == Scripts.scriptsNames.Yugoslavia ? Brushes.White : Brushes.Black);
                 main.thunderPlace.Visibility = (thunderclap ? Visibility.Visible : Visibility.Hidden);
             }));
         }
