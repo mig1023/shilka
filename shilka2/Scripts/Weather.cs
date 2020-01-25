@@ -17,7 +17,7 @@ namespace shilka2
 
         int direction = 0;
 
-        public static int stormDirection = 0;
+        public static Aircraft.FlightDirectionType stormDirection;
 
         public Image weatherImage;
         
@@ -111,9 +111,8 @@ namespace shilka2
                 RestartCycle();
 
                 if (currentWeather == weatherTypes.storm)
-                    stormDirection = (rand.Next(2) > 0 ? 1 : -1);
+                    stormDirection = (rand.Next(2) > 0 ? Aircraft.FlightDirectionType.Right : Aircraft.FlightDirectionType.Left);
             }
-                
 
             if (currentWeather == weatherTypes.good)
                 return;
@@ -212,7 +211,7 @@ namespace shilka2
                         w.y = (w.y + w.speed);
 
                     if (currentWeather == weatherTypes.storm)
-                        w.x += Constants.STORM_FLY_SPEED * stormDirection;
+                        w.x += Constants.STORM_FLY_SPEED * (stormDirection == Aircraft.FlightDirectionType.Right ? 1 : -1);
 
                     w.weatherImage.Margin = new Thickness(w.x, w.y, 0, 0);
 

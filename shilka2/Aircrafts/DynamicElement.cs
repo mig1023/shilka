@@ -7,7 +7,7 @@ using System.Windows.Controls;
 
 namespace shilka2
 {
-    class DynamicElement
+    public class DynamicElement
     {
         public enum MovingType { zRotate, xRotate, yRotate };
         public MovingType movingType;

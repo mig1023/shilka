@@ -9,7 +9,7 @@ using System.Windows.Shapes;
 
 namespace shilka2
 {
-    class Shell : FlyObject
+    public class Shell : FlyObject
     {
         private enum gunJammedType { ok, doesntShoot, alwaysShoot, sometimesShoot };
         private static gunJammedType gunJammed = gunJammedType.ok;

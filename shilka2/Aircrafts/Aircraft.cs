@@ -9,7 +9,7 @@ using System.Windows.Media;
 
 namespace shilka2
 {
-    class Aircraft : FlyObject
+    public class Aircraft : FlyObject
     {
         static int maxAltitudeGlobal = Constants.MAX_FLIGHT_HEIGHT;
         public enum FlightDirectionType { Left, Right };
@@ -110,6 +110,9 @@ namespace shilka2
                 {
                     if (!aircraft.suspendedTarget)
                     {
+                        if (aircraft.cloud && (Weather.currentWeather == Weather.weatherTypes.storm))
+                            aircraft.flightDirection = Weather.stormDirection;
+
                         double escapeFromFireCoefficient = 1;
 
                         if ((aircraft.hitpoint < aircraft.hitpointMax) && !aircraft.cantEscape)
@@ -418,24 +421,23 @@ namespace shilka2
 
                 newAircraft.y = startY ?? rand.Next(maxAltitudeGlobal, Aircrafts.minAltitudeGlobal);
 
-                bool flightDirectionRight = rand.Next(2) == 1;
+                FlightDirectionType newDirection = (rand.Next(2) == 1 ? FlightDirectionType.Right : FlightDirectionType.Left);
+
+                if ((Weather.currentWeather == Weather.weatherTypes.storm) && cloud)
+                    newDirection = Weather.stormDirection;
 
                 if ((Shilka.currentScript == Scripts.scriptsNames.Belgrad) && !cloud)
                     if (friend)
-                        flightDirectionRight = true;
+                        newDirection = FlightDirectionType.Right;
                     else
-                        flightDirectionRight = false;
+                        newDirection = FlightDirectionType.Left;
 
-                if (flightDirectionRight)
-                {
-                    newAircraft.flightDirection = FlightDirectionType.Right;
+                newAircraft.flightDirection = newDirection;
+
+                if (newDirection == FlightDirectionType.Right)
                     newAircraft.x = -1 * newAircraftImage.Width;
-                }
                 else
-                {
-                    newAircraft.flightDirection = FlightDirectionType.Left;
                     newAircraft.x = Application.Current.MainWindow.Width;
-                }
 
                 newAircraft.x = startX ?? newAircraft.x;
                 newAircraft.flightDirection = startDirection ?? newAircraft.flightDirection;
