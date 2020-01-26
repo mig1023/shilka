@@ -120,15 +120,14 @@ namespace shilka2
                                 aircraft.speed += rand.Next(4) * 0.1;
                         }
 
-                        double escapeFromFireCoefficient = 1;
+                        double escape = (((aircraft.hitpoint < aircraft.hitpointMax) && !aircraft.cantEscape) ? Constants.ESCAPE_COEFFICIENT : 1);
+                        double direction = (aircraft.flightDirection == FlightDirectionType.Left ? -1 : 1);
+                        double tailWind = 1;
 
-                        if ((aircraft.hitpoint < aircraft.hitpointMax) && !aircraft.cantEscape)
-                            escapeFromFireCoefficient = Constants.ESCAPE_COEFFICIENT;
+                        if (Weather.currentWeather == Weather.weatherTypes.storm)
+                            tailWind = (aircraft.flightDirection == Weather.stormDirection ? 1.3 : 0.7);
 
-                        if (aircraft.flightDirection == FlightDirectionType.Left)
-                            escapeFromFireCoefficient *= -1;
-
-                        aircraft.x += aircraft.speed * escapeFromFireCoefficient;
+                        aircraft.x += aircraft.speed * escape * tailWind * direction;
                     }
 
                     if (aircraft.dead)
