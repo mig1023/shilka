@@ -22,7 +22,7 @@ The game is about a small anti-aircraft vehicle in the school notebook
 
 ### Different weather:
 
-| Weather | Weather | Specifics |
+| Weather | Weather | Weather |
 | ------------- | ------------- | ------------- |
 | Cloudy | Rain | Thunderstorm |
 | Snow | Sandstorm | |
