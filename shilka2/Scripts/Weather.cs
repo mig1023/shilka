@@ -117,7 +117,7 @@ namespace shilka2
             if (currentWeather == weatherTypes.good)
                 return;
 
-            int newWeatherElementsCount = (currentWeather == weatherTypes.storm ? 3 : 1);
+            int newWeatherElementsCount = (currentWeather == weatherTypes.storm ? 4 : 1);
 
             for (int iterator = 0; iterator < newWeatherElementsCount; iterator++)
             {
@@ -125,8 +125,8 @@ namespace shilka2
 
                 if (currentWeather == weatherTypes.storm)
                 {
-                    newWeather.x = 0;
-                    newWeather.y = rand.Next((int)SystemParameters.PrimaryScreenHeight * -1, (int)SystemParameters.PrimaryScreenHeight * 2);
+                    newWeather.x = rand.Next((int)SystemParameters.PrimaryScreenWidth * -1, (int)SystemParameters.PrimaryScreenWidth * 2);
+                    newWeather.y = 0;
                 }
                 else if (currentWeather == weatherTypes.sand)
                 {
