@@ -36,7 +36,7 @@ namespace shilka2
 
         public int hitPoint = 80;
         public int tragetTugHitPoint = 50;
-        public int speed = 10;
+        public double speed = 10;
         public int minAltitude = -1;
         public int maxAltitude = -1;
         public double price = 0;
@@ -111,7 +111,14 @@ namespace shilka2
                     if (!aircraft.suspendedTarget)
                     {
                         if (aircraft.cloud && (Weather.currentWeather == Weather.weatherTypes.storm))
-                            aircraft.flightDirection = Weather.stormDirection;
+                        {
+                            if ((aircraft.flightDirection != Weather.stormDirection) && (aircraft.speed > 0))
+                                aircraft.speed -= rand.Next(4) * 0.1;
+                            else if ((aircraft.flightDirection != Weather.stormDirection) && (aircraft.speed <= 0))
+                                aircraft.flightDirection = Weather.stormDirection;
+                            else if ((aircraft.flightDirection == Weather.stormDirection) && (aircraft.speed < Constants.CLOUD_SPEED))
+                                aircraft.speed += rand.Next(4) * 0.1;
+                        }
 
                         double escapeFromFireCoefficient = 1;
 
