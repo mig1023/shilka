@@ -24,8 +24,8 @@ The game is about a small anti-aircraft vehicle in the school notebook
 
 | Weather | Weather | Weather |
 | ------------- | ------------- | ------------- |
-| Cloudy | Rain | Thunderstorm |
-| Snow | Sandstorm | |
+| Clear | Cloudy | Rain |
+| Sandstorm | Snow | Thunderstorm |
 
 ### Enemy aircrafts:
 
