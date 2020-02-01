@@ -45,6 +45,7 @@ namespace shilka2
         public bool friend = false;
         public bool airliner = false;
         public bool cloud = false;
+        public bool trainingTug = false;
         public bool cantEscape = false;
         public bool deadSprite = false;
         public bool doesNotFlyInBadWeather = false;
@@ -590,6 +591,7 @@ namespace shilka2
             newAircraft.friend = friend;
             newAircraft.airliner = airliner;
             newAircraft.cloud = cloud;
+            newAircraft.trainingTug = trainingTug;
             newAircraft.cantEscape = cantEscape;
             newAircraft.deadSprite = deadSprite;
             newAircraft.weight = weight;
@@ -606,10 +608,13 @@ namespace shilka2
         {
             if (friend || airliner)
             {
-                string type = (friend ? "свой" : "пассажирский");
+                string type = (friend ? "свой" : "пассажирский") + " ";
+
+                if (trainingTug)
+                    type = String.Empty;
 
                 main.EndGame(
-                    String.Format("Вы сбили {0} {1}!\nИгра окончена.\nСохранить статистику?", type, aircraftName),
+                    String.Format("Вы сбили {0}{1}!\nИгра окончена.\nСохранить статистику?", type, aircraftName),
                     Constants.END_COLOR
                 );
             }

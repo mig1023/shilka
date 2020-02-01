@@ -2648,6 +2648,7 @@ namespace shilka2
                 speed = 9,
                 cantEscape = true,
                 friend = true,
+                trainingTug = true,
                 minAltitude = minAltitudeForLargeAircraft,
             },
 
@@ -2659,6 +2660,7 @@ namespace shilka2
                 size = new int[] { 319, 100 },
                 speed = 9,
                 cantEscape = true,
+                trainingTug = true,
                 friend = true,
             },
 
