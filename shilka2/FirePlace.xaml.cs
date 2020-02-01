@@ -683,11 +683,11 @@ namespace shilka2
                 "упущенных", statRow.hasGone.ToString()
             });
             StatBoxAddRow(new String[] {
-                "из них в цель", String.Format("{0} ( {1}% )", statRow.inTarget, statRow.inTargetPercent),
-                "из них без повреждений", String.Format("{0}%", statRow.withoutDamage)
+                "\u2014 из них в цель", String.Format("{0} ( {1}% )", statRow.inTarget, statRow.inTargetPercent),
+                "\u2014 из них без повреждений", String.Format("{0}%", statRow.withoutDamage)
             });
             StatBoxAddRow(new String[] {
-                "выстрелов на самолёт", String.Format("{0} выстр./сбитый", shellsForShutdown),
+                "\u2014 из них на сбитый", String.Format("{0} выстр./сбитый", shellsForShutdown),
                 "нанесён ущерб", Statistic.HumanReadableSumm(statRow.amountOfDamage)
             });
             StatBoxAddRow(new String[] {
@@ -699,7 +699,7 @@ namespace shilka2
                 "средняя очередь", String.Format("{0} снарядов", shellInQueue)
             });
             StatBoxAddRow(new String[] {
-                "из них непогоды", statRow.badTime.ToString(),
+                "\u2014 из них непогоды", statRow.badTime.ToString(),
                 "время средней очереди", string.Format("{0:f2} сек", timeForQueue)
             });
             StatBoxAddRow(new String[] {
