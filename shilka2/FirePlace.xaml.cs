@@ -679,7 +679,7 @@ namespace shilka2
                 "сбито", String.Format("{0} ( {1}% )", statRow.shutdown, statRow.shutdownPercent), 
                 "повреждено", String.Format("{0} ( {1}% )", statRow.damaged, statRow.damagedPercent) });
             StatBoxAddRow(new String[] {
-                "настрел", String.Format("{0} снарядов", statRow.shellsFired),
+                "настрел, снарядов", statRow.shellsFired.ToString(),
                 "упущенных", statRow.hasGone.ToString()
             });
             StatBoxAddRow(new String[] {
@@ -696,7 +696,7 @@ namespace shilka2
             });
             StatBoxAddRow(new String[] {
                 "общее время боя", statRow.time.ToString(),
-                "средняя очередь", String.Format("{0} снарядов", shellInQueue)
+                "средняя очередь, снарядов", shellInQueue.ToString()
             });
             StatBoxAddRow(new String[] {
                 "\u2014 из них непогоды", statRow.badTime.ToString(),
