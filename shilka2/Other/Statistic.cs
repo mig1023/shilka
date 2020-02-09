@@ -287,11 +287,11 @@ namespace shilka2
             }
 
             if (statisticFriendDamage > 0)
-                stat += String.Format("повреждено своих: {0} ( повреждён {1} )\n",
+                stat += String.Format("повреждено своих: {0} ( последний {1} )\n",
                     statisticFriendDamage, statisticLastDamageFriend);
 
             if (statisticAirlinerDamage > 0)
-                stat += String.Format("повреждено гражданских: {0} ( повреждён {1} )\n",
+                stat += String.Format("повреждено гражданских: {0} ( последний {1} )\n",
                     statisticAirlinerDamage, statisticLastDamageAirliner);
 
             if (statisticAllAircraft > 0 && !Shilka.training)
