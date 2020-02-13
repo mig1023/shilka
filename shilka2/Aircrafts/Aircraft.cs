@@ -330,7 +330,9 @@ namespace shilka2
 
             fallAcceleration += Constants.FREE_FALL_SPEED_FOR_AIRCRAFT;
 
-            return Constants.TANGAGE_DEAD_SPEED * (rand.NextDouble() * 2 - 1) + speed + fallAcceleration;
+            double fallSpeed = (weight == WeightType.Light ? speed : 0);
+
+            return Constants.TANGAGE_DEAD_SPEED * (rand.NextDouble() * 2 - 1) + fallSpeed + fallAcceleration;
         }
 
         private static bool AircraftInList(int?[] scriptAircraft, int aircraft)
