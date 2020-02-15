@@ -2604,10 +2604,10 @@ namespace shilka2
 
             new Aircraft
             {
-                aircraftType = "aqm34",
-                aircraftName = "самолёт-мишень AQM-34",
+                aircraftType = "dan3",
+                aircraftName = "самолёт-мишень Дань",
                 hitPoint = 40,
-                size = new int[] { 169, 56 },
+                size = new int[] { 145, 33 },
                 speed = 8,
                 weight = Aircraft.WeightType.Middle,
                 cantEscape = true,

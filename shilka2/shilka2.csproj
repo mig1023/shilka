@@ -312,7 +312,6 @@
     <Resource Include="Images\DeadSprite\drone4_dead.png" />
     <Resource Include="Images\Aircraft\mqm36.png" />
     <Resource Include="Images\DeadSprite\mqm36_dead.png" />
-    <Resource Include="Images\Aircraft\aqm34.png" />
     <Resource Include="Images\Aircraft\d21.png" />
     <Resource Include="Images\Aircraft\mi38.png" />
     <Resource Include="Images\Aircraft\ansat.png" />
@@ -345,8 +344,8 @@
     <Resource Include="Images\Interface\truck_crane_move.png" />
     <Resource Include="Images\Aircraft\old_mig15.png" />
     <Resource Include="Images\Aircraft\old_mig9.png" />
+    <Resource Include="Images\Aircraft\dan3.png" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
