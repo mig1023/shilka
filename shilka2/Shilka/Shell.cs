@@ -88,6 +88,11 @@ namespace shilka2
                             shellTrace.Stroke = Brushes.Red;
                             shellTrace.StrokeThickness = Constants.FLASH_SIZE;
 
+                            if (aircraft.weight == Aircraft.WeightType.Light)
+                                aircraft.y -= Constants.THROWS_UP_BY_HITS;
+                            else if (aircraft.weight == Aircraft.WeightType.Middle)
+                                aircraft.y -= Constants.THROWS_UP_BY_HITS_FOR_MIDDLE_AIRCRAFT;
+
                             main.firePlace.Children.Add(shellTrace);
                             Canvas.SetZIndex(shellTrace, 20);
                             allLines.Add(shellTrace);

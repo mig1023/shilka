@@ -27,6 +27,8 @@ namespace shilka2
         public const double ANGLE_OF_ATTACK_CHANGE_MIDDLE = 1;
         public const double ANGLE_OF_ATTACK_CHANGE_LIGHT = 4.5;
         public const double FREE_FALL_SPEED_FOR_AIRCRAFT = 0.3;
+        public const double THROWS_UP_BY_HITS = 6;
+        public const double THROWS_UP_BY_HITS_FOR_MIDDLE_AIRCRAFT = 4;
 
         // cloud
         public const int CLOUD_SPEED = 5;
