@@ -61,6 +61,13 @@ The game is about a small anti-aircraft vehicle in the school notebook
 | Sikorsky CH-54 | Sikorsky H-34 | Spy / attack drone (9 types) |
 | UH-1 Iroquois | UH-60 Black Hawk | V-22 Ospray |
 
+
+### Enemy aerostats:
+
+| Aerostats |
+| ------------- |
+| Automatic aerostat-spy |
+
 ### Friend aircrafts:
 
 | Aircraft | Aircraft | Aircraft | Aircraft |
