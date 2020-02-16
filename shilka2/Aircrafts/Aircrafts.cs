@@ -1646,6 +1646,7 @@ namespace shilka2
                 aerostat = true,
                 fallLikeAStone = true,
                 minAltitude = minAltitudeForAerostat,
+                weight = Aircraft.WeightType.Light
             },
         };
 

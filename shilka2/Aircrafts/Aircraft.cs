@@ -965,6 +965,13 @@ namespace shilka2
 
                     case 16:
 
+                        if (
+                                Shilka.currentScript != Scripts.scriptsNames.noScript
+                                &&
+                                Shilka.currentScript != Scripts.scriptsNames.KoreanBoeing
+                            )
+                            goto case 10;
+
                         newAircraft = Aircrafts.aerostatEnemy[0];
 
                         break;
