@@ -49,6 +49,7 @@ namespace shilka2
         public bool cantEscape = false;
         public bool deadSprite = false;
         public bool doesNotFlyInBadWeather = false;
+        public bool aerostat = false;
 
         public WeightType weight = WeightType.Heavy;
 
@@ -111,7 +112,7 @@ namespace shilka2
                 {
                     if (!aircraft.suspendedTarget)
                     {
-                        if (aircraft.cloud && (Weather.currentWeather == Weather.weatherTypes.storm))
+                        if ((aircraft.cloud || aircraft.aerostat) && (Weather.currentWeather == Weather.weatherTypes.storm))
                         {
                             if ((aircraft.flightDirection != Weather.stormDirection) && (aircraft.speed > 0))
                                 aircraft.speed -= rand.Next(4) * 0.1;
@@ -135,7 +136,7 @@ namespace shilka2
                     {
                         aircraft.y += aircraft.AircraftDeadFallSpeed();
 
-                        if (aircraft.dynamicElemets.Count == 0 || aircraft.deadSprite)
+                        if ((aircraft.dynamicElemets.Count == 0 || aircraft.deadSprite) && !aircraft.aerostat)
                         {
                             double angle = aircraft.AircraftFlyAngle();
 
@@ -163,7 +164,7 @@ namespace shilka2
                             aircraft.angleOfAttack, (aircraft.aircraftImage.ActualWidth / 2), (aircraft.aircraftImage.ActualHeight / 2)
                         );
                     }
-                    else if (!aircraft.cloud && !aircraft.suspendedTarget)
+                    else if (!aircraft.aerostat && !aircraft.cloud && !aircraft.suspendedTarget)
                     {
                         aircraft.tangageDelay++;
 
@@ -430,6 +431,9 @@ namespace shilka2
 
                 newAircraft.y = startY ?? rand.Next(maxAltitudeGlobal, Aircrafts.minAltitudeGlobal);
 
+                if ((newAircraft.minAltitude != -1) && (newAircraft.y > newAircraft.minAltitude))
+                    newAircraft.y = newAircraft.minAltitude;
+
                 FlightDirectionType newDirection = (rand.Next(2) == 1 ? FlightDirectionType.Right : FlightDirectionType.Left);
 
                 if ((Weather.currentWeather == Weather.weatherTypes.storm) && cloud)
@@ -602,6 +606,8 @@ namespace shilka2
             newAircraft.placeOfDamage = 0;
             newAircraft.canPlaneForALongTime = canPlaneForALongTime;
             newAircraft.fallLikeAStone = fallLikeAStone;
+            newAircraft.doesNotFlyInBadWeather = doesNotFlyInBadWeather;
+            newAircraft.aerostat = aerostat;
 
             return newAircraft;
         }
@@ -830,7 +836,7 @@ namespace shilka2
 
         public static void Start(object obj, ElapsedEventArgs e)
         {
-            int aircraftCategory = rand.Next(1, 16);
+            int aircraftCategory = rand.Next(1, 17);
 
             if (Shilka.school)
                 aircraftCategory = AircraftCategoryForSchool(aircraftCategory, allAircraftsInGame);
@@ -954,6 +960,12 @@ namespace shilka2
                         while (!AircraftInList(Scripts.scriptAirliners, dice));
 
                         newAircraft = Aircrafts.airliners[dice];
+
+                        break;
+
+                    case 16:
+
+                        newAircraft = Aircrafts.aerostatEnemy[0];
 
                         break;
                 }

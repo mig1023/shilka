@@ -345,6 +345,7 @@
     <Resource Include="Images\Aircraft\old_mig15.png" />
     <Resource Include="Images\Aircraft\old_mig9.png" />
     <Resource Include="Images\Aircraft\dan3.png" />
+    <Resource Include="Images\Aircraft\aerostat.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

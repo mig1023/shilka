@@ -11,6 +11,7 @@ namespace shilka2
     {
         public static int minAltitudeGlobal { get; set; }
         public static int minAltitudeForLargeAircraft = (int)SystemParameters.PrimaryScreenHeight / 2;
+        public static int minAltitudeForAerostat = (int)SystemParameters.PrimaryScreenHeight / 8;
         public static int maxAltitudeForHelicopters = minAltitudeForLargeAircraft;
 
         public static List<Aircraft> aircraft = new List<Aircraft>()
@@ -1630,6 +1631,21 @@ namespace shilka2
                         movingType = DynamicElement.MovingType.yRotate,
                     }
                 }
+            },
+        };
+
+        public static List<Aircraft> aerostatEnemy = new List<Aircraft>()
+        {
+            new Aircraft
+            {
+                aircraftType = "aerostat",
+                aircraftName = "автоматический аэростат",
+                size = new int[] { 82, 228 },
+                hitPoint = 25,
+                speed = 4,
+                aerostat = true,
+                fallLikeAStone = true,
+                minAltitude = minAltitudeForAerostat,
             },
         };
 
