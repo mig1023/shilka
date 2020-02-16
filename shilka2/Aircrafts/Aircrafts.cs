@@ -2159,7 +2159,7 @@ namespace shilka2
             {
                 aircraftType = "mi38",
                 aircraftName = "Ми-38",
-                size = new int[] { 235, 78 },
+                size = new int[] { 235, 72 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
                 friend = true,
@@ -2168,18 +2168,18 @@ namespace shilka2
                     new DynamicElement
                     {
                         elementName = "prop_main",
-                        y = -2,
-                        x_left = -34,
-                        x_right = 42,
+                        y = -4,
+                        x_left = -37,
+                        x_right = 46,
                         movingType = DynamicElement.MovingType.xRotate,
                         background = true,
                     },
                     new DynamicElement
                     {
                         elementName = "x_suppl",
-                        y = -9,
-                        x_left = 200,
-                        x_right = -16,
+                        y = -14,
+                        x_left = 195,
+                        x_right = -12,
                         movingType = DynamicElement.MovingType.zRotate
                     }
                 }
