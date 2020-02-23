@@ -1639,10 +1639,25 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "aerostat",
-                aircraftName = "автоматический аэростат",
+                aircraftName = "автоматический аэростат (тип 1)",
                 size = new int[] { 82, 228 },
                 hitPoint = 25,
                 speed = 4,
+                price = 0.1,
+                aerostat = true,
+                fallLikeAStone = true,
+                minAltitude = minAltitudeForAerostat,
+                weight = Aircraft.WeightType.Light
+            },
+
+            new Aircraft
+            {
+                aircraftType = "aerostat2",
+                aircraftName = "автоматический аэростат (тип 2)",
+                size = new int[] { 60, 132 },
+                hitPoint = 15,
+                speed = 4,
+                price = 0.1,
                 aerostat = true,
                 fallLikeAStone = true,
                 minAltitude = minAltitudeForAerostat,
