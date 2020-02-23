@@ -955,7 +955,7 @@ namespace shilka2
 
                         do
                         {
-                            dice = rand.Next(Aircrafts.airliners.Count - 2);
+                            dice = rand.Next(Aircrafts.airliners.Count);
                         }
                         while (!AircraftInList(Scripts.scriptAirliners, dice));
 
@@ -972,7 +972,9 @@ namespace shilka2
                             )
                             goto case 10;
 
-                        newAircraft = Aircrafts.aerostat[0];
+                        dice = rand.Next(Aircrafts.aerostat.Count);
+
+                        newAircraft = Aircrafts.aerostat[dice];
 
                         break;
                 }
