@@ -1634,7 +1634,7 @@ namespace shilka2
             },
         };
 
-        public static List<Aircraft> aerostatEnemy = new List<Aircraft>()
+        public static List<Aircraft> aerostat = new List<Aircraft>()
         {
             new Aircraft
             {
@@ -2716,13 +2716,10 @@ namespace shilka2
 
         public static Aircraft FindEnemyAircraft(string name)
         {
-            foreach (Aircraft aircraft in aircraft)
-                if (name == aircraft.aircraftName)
-                    return aircraft;
-
-            foreach (Aircraft helicopter in helicopters)
-                if (name == helicopter.aircraftName)
-                    return helicopter;
+            foreach (List<Aircraft> aircrafts in new List<List<Aircraft>> { aircraft, helicopters, aerostat })
+                foreach (Aircraft aircraft in aircrafts)
+                    if (name == aircraft.aircraftName)
+                        return aircraft;
 
             return null;
         }

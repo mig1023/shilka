@@ -972,7 +972,7 @@ namespace shilka2
                             )
                             goto case 10;
 
-                        newAircraft = Aircrafts.aerostatEnemy[0];
+                        newAircraft = Aircrafts.aerostat[0];
 
                         break;
                 }
