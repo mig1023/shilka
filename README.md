@@ -66,7 +66,7 @@ The game is about a small anti-aircraft vehicle in the school notebook
 
 | Aerostats |
 | ------------- |
-| Automatic aerostat-spy |
+| Automatic aerostat-spy (3 types) |
 
 ### Friend aircrafts:
 
