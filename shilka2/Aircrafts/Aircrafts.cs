@@ -1639,7 +1639,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "aerostat",
-                aircraftName = "автоматический аэростат (тип 1)",
+                aircraftName = "аэростат-разведчик (тип 1)",
                 size = new int[] { 82, 228 },
                 hitPoint = 20,
                 speed = 5,
@@ -1653,7 +1653,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "aerostat2",
-                aircraftName = "автоматический аэростат (тип 2)",
+                aircraftName = "аэростат-разведчик (тип 2)",
                 size = new int[] { 60, 132 },
                 hitPoint = 10,
                 speed = 4,
@@ -1667,7 +1667,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "aerostat3",
-                aircraftName = "автоматический аэростат (тип 3)",
+                aircraftName = "аэростат-разведчик (тип 3)",
                 size = new int[] { 70, 118 },
                 hitPoint = 10,
                 speed = 4,
