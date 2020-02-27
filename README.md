@@ -9,7 +9,7 @@ The game is about a small anti-aircraft vehicle in the school notebook
 | ------------- | ------------- | ------------- |
 | Vietnam war | 1965-1973 | a lot of enemies |
 | Iran–Iraq war | 1980-1988 | malfunctioning radar |
-| Korean Boeing incident | 1983 | airliner aircraft between spies |
+| Korean Boeing incident | 1983 | airliner between spies |
 | Mathias Rust flight | 1987 | сivil aircraft as target |
 | Operation Desert storm | 1991 | sandstorm |
 | NATO bombing of Yugoslavia | 1999 | night |
