@@ -28,12 +28,23 @@ namespace shilka2
         public int shootNumber { get; set; }
         public string aircrafts { get; set; }
         public string aircraftsDamaged { get; set; }
-
+        public double amountOfDamageWithChance { get; set; }
 
         private static string TimeFormat(string timeInSecond)
         {
             TimeSpan time = TimeSpan.FromSeconds(int.Parse(timeInSecond));
             return time.ToString();
+        }
+
+        private static double ChanceAmount(string amountOfDamage, string chance)
+        {
+            double amountParam = double.Parse(amountOfDamage);
+            double chanceParam = double.Parse(chance);
+
+            if (chanceParam < 0.01)
+                return double.Parse(string.Format("{0:f2}", amountParam));
+            else
+                return double.Parse(string.Format("{0:f2}", amountParam / chanceParam));
         }
 
         public StatTable(string name, string script, string shellsFired, string inTarget,
@@ -64,6 +75,7 @@ namespace shilka2
             this.shootNumber = int.Parse(shootNumber);
             this.aircrafts = aicrafts;
             this.aircraftsDamaged = aircraftsDamaged;
+            this.amountOfDamageWithChance = ChanceAmount(amountOfDamage, chance);
         }
     }
 }

@@ -216,6 +216,7 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="общее время" Binding="{Binding time}"/>
                     <DataGridTextColumn Header="выстрелов" Binding="{Binding shellsFired}" CellStyle="{StaticResource grayCell}"/>
                     <DataGridTextColumn Header="из них в цель" Binding="{Binding inTarget}"/>
                     <DataGridTextColumn Header="попаданий, %" Binding="{Binding inTargetPercent}" CellStyle="{StaticResource grayCell}"/>
@@ -224,12 +225,12 @@
                     <DataGridTextColumn Header="повреждённых" Binding="{Binding damaged}"/>
                     <DataGridTextColumn Header="повреждённых, %" Binding="{Binding damagedPercent}" CellStyle="{StaticResource grayCell}"/>
                     <DataGridTextColumn Header="упущенных" Binding="{Binding hasGone}"/>
-                    <DataGridTextColumn Header="из них без повреждений, %" Binding="{Binding withoutDamage}" CellStyle="{StaticResource grayCell}"/>
                     <DataGridTextColumn Header="нанесён ущерб, млн" Binding="{Binding amountOfDamage}"/>
-                    <DataGridTextColumn Header="повреждено своих" Binding="{Binding Path=friendDamage}" CellStyle="{StaticResource grayCell}"/>
-                    <DataGridTextColumn Header="повреждено гражданских" Binding="{Binding Path=airlinerDamage}"/>
                     <DataGridTextColumn Header="удача" Binding="{Binding chance}" CellStyle="{StaticResource grayCell}"/>
-                    <DataGridTextColumn Header="общее время" Binding="{Binding time}"/>
+                    <DataGridTextColumn Header="с учётом удачи, млн" Binding="{Binding amountOfDamageWithChance}"/>
+                    <DataGridTextColumn Visibility="Hidden" Header="повреждено своих" Binding="{Binding Path=friendDamage}"/>
+                    <DataGridTextColumn Visibility="Hidden" Header="из них без повреждений, %" Binding="{Binding withoutDamage}"/>
+                    <DataGridTextColumn Visibility="Hidden" Header="повреждено гражданских" Binding="{Binding Path=airlinerDamage}"/>
                     <DataGridTextColumn Visibility="Hidden" Header="время непогоды" Binding="{Binding badTime}"/>
                     <DataGridTextColumn Visibility="Hidden" Header="время стрельбы" Binding="{Binding shootTime}"/>
                     <DataGridTextColumn Visibility="Hidden" Header="кол-во очередей" Binding="{Binding shootNumber}"/>
