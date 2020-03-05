@@ -43,12 +43,11 @@ The game is about a small anti-aircraft vehicle in the school notebook
 | F-16 Fighting Falcon | F/A-18 Hornet | F-22 Raptor |
 | F-35 Lightning II | F-104 Starfighter | F-111 Aardvark |
 | F-117 Nighthawk | Harrier / GR3 / Sea Harrier | KC-135 Stratotanker |
-| Mirage 2000 | Mirage 2000ED | MQ-1 Predator |
-| MQ-9 Reaper | OV-10 Bronco | Panavia Tornado |
-| Rafale | RC-135 | RQ-4 Global Hawk |
-| RQ-5 Hunter | S-3 Viking | Saab JAS 39 Gripen |
-| Saab S-100B Argus | RQ-11 Raven | SEPECAT Jaguar |
-| SR-71 Blackbird | Storm Shadow / SCALP | U-2 Dragon Lady |
+| Mirage 2000 | Mirage 2000ED | OV-10 Bronco |
+| Panavia Tornado |Rafale  | RC-135 |
+| S-3 Viking | Saab JAS 39 Gripen | Saab S-100B Argus |
+| SEPECAT Jaguar | SR-71 Blackbird | Storm Shadow / SCALP |
+| U-2 Dragon Lady |  |  |
 
 ### Enemy helicopters:
 
@@ -59,9 +58,16 @@ The game is about a small anti-aircraft vehicle in the school notebook
 | CH-47 Chinook | Denel AH-2 Rooivalk | Eurocopter AS565 Panther |
 | Eurocopter Tiger HAC | Eurocopter Tiger HAP | Kawasaki OH-1 |
 | OH-58 Kiowa | RAH-66 Comanche | Sikorsky CH-53/MH-53 |
-| Sikorsky CH-54 | Sikorsky H-34 | Spy / attack drone (9 types) |
-| UH-1 Iroquois | UH-60 Black Hawk | V-22 Ospray |
+| Sikorsky CH-54 | Sikorsky H-34 | UH-1 Iroquois |
+| UH-60 Black Hawk | V-22 Ospray | |
 
+### Enemy UAV/UCAV/Drones:
+
+| UAV | UAV | UAV |
+| ------------- | ------------- | ------------- |
+| Bayraktar TB2 | MQ-1 Predator | MQ-9 Reaper |
+| RQ-4 Global Hawk | RQ-5 Hunter | RQ-11 Raven |
+| Spy / attack drone (9 types) | TAI Anka | |
 
 ### Enemy aerostats:
 
