@@ -348,6 +348,8 @@
     <Resource Include="Images\Aircraft\aerostat.png" />
     <Resource Include="Images\Aircraft\aerostat2.png" />
     <Resource Include="Images\Aircraft\aerostat3.png" />
+    <Resource Include="Images\Aircraft\anka.png" />
+    <Resource Include="Images\DeadSprite\anka_dead.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

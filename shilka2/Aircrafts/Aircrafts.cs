@@ -693,6 +693,29 @@ namespace shilka2
                     }
                 }
             },
+
+            new Aircraft
+            {
+                aircraftType = "anka",
+                aircraftName = "TAI Anka-S",
+                hitPoint = 30,
+                size = new int[] { 147, 44 },
+                speed = 6,
+                price = 0.2,
+                deadSprite = true,
+                weight = Aircraft.WeightType.Middle,
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
+                        elementName = "ltl_prop",
+                        y = -3,
+                        x_left = 135,
+                        x_right = -2,
+                        movingType = DynamicElement.MovingType.yRotate
+                    }
+                }
+            },
         };
 
         public static List<Aircraft> helicopters = new List<Aircraft>()
