@@ -180,7 +180,18 @@
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="Turkey" Content="турецкое вторжение в сирию" Height="35" Canvas.Left="207" Canvas.Top="610" Width="235" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
+                <Button x:Name="Turkey" Content="турецкое вторжение в сирию" Height="35" Canvas.Left="207" Canvas.Top="610" Width="235" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
+                    <Button.ToolTip>
+                        <ToolTip>
+                            <StackPanel>
+                                <TextBlock Text="Турецкое вторжение в Сирию (2020)"/>
+                                <TextBlock FontWeight="Bold" Text="особенность: только ударные"/>
+                                <TextBlock FontWeight="Bold" Text="беспилотники"/>
+                                <Image Source="images/interface/turkey.png"/>
+                            </StackPanel>
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
             </Canvas>
         </Canvas>
         <Canvas x:Name="StatisticMenu" HorizontalAlignment="Left" Height="305" Margin="0,325,-223,-310" VerticalAlignment="Top" Width="740">
