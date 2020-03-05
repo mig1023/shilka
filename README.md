@@ -19,6 +19,7 @@ The game is about a small anti-aircraft vehicle in the school notebook
 | Intervention in Libya | 2011 | unpredictable guns |
 | Intervention in Yemen | 2015-2020 | no friendly aviation |
 | Siege of Kmeimim | 2016-2020 | only UAVs |
+| Turkey's intervention in Syria | 2020 | only UCAV |
 
 ### Different weather:
 
