@@ -700,8 +700,9 @@ namespace shilka2
                 aircraftName = "TAI Anka-S",
                 hitPoint = 30,
                 size = new int[] { 147, 44 },
-                speed = 6,
-                price = 0.2,
+                speed = 8,
+                price = 18,
+                cantEscape = true,
                 deadSprite = true,
                 weight = Aircraft.WeightType.Middle,
                 elements = new List<DynamicElement>
@@ -713,6 +714,31 @@ namespace shilka2
                         x_left = 135,
                         x_right = -2,
                         movingType = DynamicElement.MovingType.yRotate
+                    }
+                }
+            },
+
+            new Aircraft
+            {
+                aircraftType = "bayraktar",
+                aircraftName = "Bayraktar BT2",
+                hitPoint = 20,
+                size = new int[] { 140, 43 },
+                speed = 5,
+                price = 5,
+                cantEscape = true,
+                deadSprite = true,
+                weight = Aircraft.WeightType.Middle,
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
+                        elementName = "ltl_prop",
+                        y = -6,
+                        x_left = 90,
+                        x_right = 36,
+                        movingType = DynamicElement.MovingType.yRotate,
+                        background = true
                     }
                 }
             },
