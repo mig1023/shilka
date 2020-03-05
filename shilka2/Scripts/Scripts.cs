@@ -17,7 +17,8 @@ namespace shilka2
             Rust,
             F117Hunt,
             Khmeimim,
-            Belgrad
+            Belgrad,
+            Turkey
         };
 
         public static Dictionary<string, string> scriptsRuNames = new Dictionary<string, string>
@@ -30,11 +31,12 @@ namespace shilka2
             ["IranIraq"] = "ирано-иракская война",
             ["Syria"] = "гражданская война в сирии",
             ["Libya"] = "интервенция в ливии",
-            ["Yemen"] = "интервенция в йемен",
+            ["Yemen"] = "война в йемене",
             ["Rust"] = "полёт матиаса руста",
             ["F117Hunt"] = "охота на невидимку",
             ["Khmeimim"] = "оборона хмеймима",
             ["Belgrad"] = "налёт на белград",
+            ["Turkey"] = "турецкое вторжение",
         };
 
         public static int?[] scriptAircraft;
@@ -82,6 +84,8 @@ namespace shilka2
                     return Weather.weatherTypes.good;
                 case scriptsNames.Belgrad:
                     return weather;
+                case scriptsNames.Turkey:
+                    return Weather.weatherTypes.good;
             };
 
             return weather;
@@ -115,6 +119,8 @@ namespace shilka2
                     return "sy";
                 case scriptsNames.Belgrad:
                     return "yu";
+                case scriptsNames.Turkey:
+                    return "sy";
             };
 
             return null;
@@ -148,6 +154,8 @@ namespace shilka2
                     return 40;
                 case scriptsNames.Belgrad:
                     return 25;
+                case scriptsNames.Turkey:
+                    return 40;
             };
 
             return 30;
@@ -242,6 +250,19 @@ namespace shilka2
                     12,    // <-- mig25
                 };
 
+            if (script == scriptsNames.Turkey)
+                return new int?[] {
+                    0,     // <-- mig23
+                    1,     // <-- mig29
+                    3,     // <-- su17
+                    4,     // <-- su24
+                    5,     // <-- su25
+                    7,     // <-- su34
+                    13,    // <-- a50
+                    15,    // <-- tu95
+                    16,    // <-- su30
+                };
+
             return null;
         }
 
@@ -305,6 +326,14 @@ namespace shilka2
 
             if (script == scriptsNames.Belgrad)
                 return new int?[] { };
+
+            if (script == scriptsNames.Turkey)
+                return new int?[] {
+                    0,     // <-- mi28
+                    1,     // <-- mi24
+                    2,     // <-- mi8
+                    3,     // <-- ka52
+                };
 
             return null;
         }
@@ -480,6 +509,12 @@ namespace shilka2
                     43,     // <-- kc135
                 };
 
+            if (script == scriptsNames.Turkey)
+                return new int?[] {
+                    52,      // <-- anka
+                    53,      // <-- bayraktar
+                };
+
             return null;
         }
 
@@ -575,6 +610,9 @@ namespace shilka2
                 };
 
             if (script == scriptsNames.Belgrad)
+                return new int?[] { };
+
+            if (script == scriptsNames.Turkey)
                 return new int?[] { };
 
             return null;
@@ -745,6 +783,15 @@ namespace shilka2
 
             if (script == scriptsNames.Belgrad)
                 return new int?[] { };
+
+            if (script == scriptsNames.Turkey)
+                return new int?[] {
+                    0,      // <-- a320
+                    5,      // <-- ssj100
+                    10,     // <-- b777
+                    12,     // <-- b737
+                    20,     // <-- tu154
+                };
 
             return null;
         }

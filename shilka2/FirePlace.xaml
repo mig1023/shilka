@@ -36,8 +36,8 @@
             <Button x:Name="GameOverTraining" Content="закончить" Height="41" Canvas.Left="246" Canvas.Top="207" Width="212" FontFamily="font/calibri.ttf" FontSize="20" Click="GameOverWithoutSave_Click"/>
             <Button x:Name="Restart" Content="начать заново" Height="41" Canvas.Left="24" Canvas.Top="207" Width="212" FontFamily="font/calibri.ttf" FontSize="20" Click="RestartTraining_Click"/>
         </Canvas>
-        <Canvas x:Name="StartMenu" HorizontalAlignment="Left" Height="618" VerticalAlignment="Top" Width="452" Margin="-452,0,0,-298">
-            <Canvas x:Name="StartMenuButtons" Height="614" Width="452">
+        <Canvas x:Name="StartMenu" HorizontalAlignment="Left" Height="650" VerticalAlignment="Top" Width="452" Margin="-452,0,0,-298">
+            <Canvas x:Name="StartMenuButtons" Height="648" Width="452">
                 <Image x:Name="shilkaArt" Height="348" Canvas.Left="10" Canvas.Top="5" Width="435"  Source="images/interface/shilka-art.jpg"/>
                 <Button x:Name="noScript" Content="быстрая игра" Height="87" Canvas.Left="10" Canvas.Top="358" Width="192" Click="startScript_Click" FontFamily="font/calibri.ttf" FontSize="26"/>
                 <Button x:Name="exitButton" Content="выход" Height="41" Canvas.Left="332" Canvas.Top="358" Width="113" FontSize="21" FontFamily="font/calibri.ttf" Click="exitButton_Click"/>
@@ -55,7 +55,7 @@
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="DesertStorm" Content="буря в пустыне" Height="35" Canvas.Left="324" Canvas.Top="530" Width="121" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
+                <Button x:Name="DesertStorm" Content="буря в пустыне" Height="35" Canvas.Left="207" Canvas.Top="490" Width="235" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
                     <Button.ToolTip>
                         <ToolTip>
                             <StackPanel>
@@ -66,7 +66,7 @@
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="Yugoslavia" Content="бомбардировки югославии" Height="35" Canvas.Left="275" Canvas.Top="490" Width="170" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
+                <Button x:Name="Yugoslavia" Content="бомбардировки югославии" Height="35" Canvas.Left="10" Canvas.Top="530" Width="170" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
                     <Button.ToolTip>
                         <ToolTip>
                             <StackPanel>
@@ -89,7 +89,7 @@
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="Syria" Content="гражданская война в сирии" Height="35" Canvas.Left="10" Canvas.Top="530" Width="170" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
+                <Button x:Name="Syria" Content="гражданская война в сирии" Height="35" Canvas.Left="10" Canvas.Top="570" Width="170" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
                     <Button.ToolTip>
                         <ToolTip>
                             <StackPanel>
@@ -112,7 +112,7 @@
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="Libya" Content="интервенция в ливии" Height="35" Canvas.Left="185" Canvas.Top="530" Width="134" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
+                <Button x:Name="Libya" Content="интервенция в ливии" Height="35" Canvas.Left="185" Canvas.Top="570" Width="134" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
                     <Button.ToolTip>
                         <ToolTip>
                             <StackPanel>
@@ -123,11 +123,11 @@
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="Yemen" Content="интервенция в йемен" Height="35" Canvas.Left="10" Canvas.Top="570" Width="143" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
+                <Button x:Name="Yemen" Content="война в йемене" Height="35" Canvas.Left="324" Canvas.Top="570" Width="118" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf" RenderTransformOrigin="-0.587,0.771">
                     <Button.ToolTip>
                         <ToolTip>
                             <StackPanel>
-                                <TextBlock Text="Интервенция в Йемен (2015-2020)"/>
+                                <TextBlock Text="Война в Йемене (2015-2020)"/>
                                 <TextBlock FontWeight="Bold" Text="особенность: никаких союзников,"/>
                                 <TextBlock FontWeight="Bold" Text="только враги"/>
                                 <Image Source="images/interface/yemen.png"/>
@@ -135,7 +135,7 @@
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="Rust" Content="полёт матиаса руста" Height="35" Canvas.Left="158" Canvas.Top="570" Width="148" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
+                <Button x:Name="Rust" Content="полёт матиаса руста" Height="35" Canvas.Left="10" Canvas.Top="490" Width="192" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
                     <Button.ToolTip>
                         <ToolTip>
                             <StackPanel>
@@ -147,7 +147,7 @@
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="F117Hunt" Content="охота на невидимку" Height="35" Canvas.Left="10" Canvas.Top="490" Width="134" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
+                <Button x:Name="F117Hunt" Content="охота на невидимку" Height="35" Canvas.Left="308" Canvas.Top="530" Width="134" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
                     <Button.ToolTip>
                         <ToolTip>
                             <StackPanel>
@@ -158,7 +158,7 @@
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="Belgrad" Content="налёт на белград" Height="35" Canvas.Left="149" Canvas.Top="490" Width="121" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
+                <Button x:Name="Belgrad" Content="налёт на белград" Height="35" Canvas.Left="185" Canvas.Top="530" Width="118" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
                     <Button.ToolTip>
                         <ToolTip>
                             <StackPanel>
@@ -169,7 +169,7 @@
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="Khmeimim" Content="оборона хмеймима" Height="35" Canvas.Left="311" Canvas.Top="570" Width="134" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
+                <Button x:Name="Khmeimim" Content="оборона хмеймима" Height="35" Canvas.Left="10" Canvas.Top="610" Width="192" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
                     <Button.ToolTip>
                         <ToolTip>
                             <StackPanel>
@@ -180,6 +180,7 @@
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
+                <Button x:Name="Turkey" Content="турецкое вторжение в сирию" Height="35" Canvas.Left="207" Canvas.Top="610" Width="235" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf"/>
             </Canvas>
         </Canvas>
         <Canvas x:Name="StatisticMenu" HorizontalAlignment="Left" Height="305" Margin="0,325,-223,-310" VerticalAlignment="Top" Width="740">
