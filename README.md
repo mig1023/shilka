@@ -59,7 +59,7 @@ The game is about a small anti-aircraft vehicle in the school notebook
 | Eurocopter Tiger HAC | Eurocopter Tiger HAP | Kawasaki OH-1 |
 | OH-58 Kiowa | RAH-66 Comanche | Sikorsky CH-53/MH-53 |
 | Sikorsky CH-54 | Sikorsky H-34 | UH-1 Iroquois |
-| UH-60 Black Hawk | V-22 Ospray | |
+| UH-60 Black Hawk | V-22 Ospray | Westland Lynx |
 
 ### Enemy UAV/UCAV/Drones:
 
