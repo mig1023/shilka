@@ -353,6 +353,7 @@
     <Resource Include="Images\Aircraft\bayraktar.png" />
     <Resource Include="Images\DeadSprite\bayraktar_dead.png" />
     <Resource Include="Images\Interface\turkey.png" />
+    <Resource Include="Images\Aircraft\lynx.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

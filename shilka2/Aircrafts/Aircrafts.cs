@@ -1681,6 +1681,36 @@ namespace shilka2
                     }
                 }
             },
+
+            new Aircraft
+            {
+                aircraftType = "lynx",
+                aircraftName = "Westland Lynx",
+                hitPoint = 80,
+                size = new int[] { 199, 50 },
+                speed = 5,
+                maxAltitude = maxAltitudeForHelicopters,
+                price = 3,
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
+                        elementName = "prop_main_ltl",
+                        y = -22,
+                        x_left = 5,
+                        x_right = 60,
+                        movingType = DynamicElement.MovingType.xRotate,
+                    },
+                    new DynamicElement
+                    {
+                        elementName = "t_suppl",
+                        y = -19,
+                        x_left = 160,
+                        x_right = -12,
+                        movingType = DynamicElement.MovingType.zRotate
+                    }
+                }
+            },
         };
 
         public static List<Aircraft> aerostat = new List<Aircraft>()

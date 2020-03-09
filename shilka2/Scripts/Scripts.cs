@@ -573,6 +573,7 @@ namespace shilka2
                     14,     // <-- as565
                     16,     // <-- oh58
                     29,     // <-- raven
+                    30,     // <-- lynx
                 };
 
             if (script == scriptsNames.KoreanBoeing)
