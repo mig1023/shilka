@@ -60,7 +60,7 @@
     <Compile Include="Shilka\Case.cs" />
     <Compile Include="Other\Constants.cs" />
     <Compile Include="Aircrafts\DynamicElement.cs" />
-    <Compile Include="Shilka\FlyObject.cs" />
+    <Compile Include="Aircrafts\FlyObject.cs" />
     <Compile Include="Scripts\Scripts.cs" />
     <Compile Include="Shilka\Shell.cs" />
     <Compile Include="Shilka\Shilka.cs" />
@@ -68,6 +68,7 @@
     <Compile Include="Other\Statistic.cs" />
     <Compile Include="Other\StatTable.cs" />
     <Compile Include="Scripts\Weather.cs" />
+    <Compile Include="Aircrafts\Wrecks.cs" />
     <Page Include="FirePlace.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
