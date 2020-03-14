@@ -3,6 +3,7 @@ using System.Threading;
 using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace shilka2
 {
@@ -11,6 +12,9 @@ namespace shilka2
         double fall = 0;
 
         int speed { get; set; }
+        int direction { get; set; }
+        double rotateDegreeCurrent = 0;
+
         public Image wreckImage;
 
         public static List<Wrecks> wrecks = new List<Wrecks>();
@@ -34,6 +38,7 @@ namespace shilka2
             newWreck.sin = 0;
             newWreck.cos = (direction == Aircraft.FlightDirectionType.Left ? 1 : -1);
             newWreck.speed = rand.Next(Constants.MIN_SPEED, Constants.MAX_SPEED);
+            newWreck.direction = 1;
 
             newWreck.fly = true;
 
@@ -43,10 +48,10 @@ namespace shilka2
 
                 Image newImage = new Image();
 
-                newImage.Width = Constants.CASE_LENGTH;
-                newImage.Height = Constants.CASE_LENGTH;
+                newImage.Width = rand.Next(14) + 2;
+                newImage.Height = rand.Next(14) + 2;
 
-                newImage.Source = Aircraft.ImageFromResources("case", Aircraft.ImageType.Other);
+                newImage.Source = Aircraft.ImageFromResources("wrecks" + (Aircraft.rand.Next(1, 4)), Aircraft.ImageType.Other);
                 newImage.Margin = new Thickness(newWreck.x, newWreck.y, 0, 0);
 
                 newWreck.wreckImage = newImage;
@@ -78,6 +83,13 @@ namespace shilka2
                     c.x = (c.x - c.speed * c.cos);
                     c.y = (c.y - c.speed * c.sin) + c.fall;
                     c.wreckImage.Margin = new Thickness(c.x, c.y, 0, 0);
+
+                    c.rotateDegreeCurrent += (Constants.ROTATE_STEP * c.direction);
+
+                    if (c.rotateDegreeCurrent < -180 || c.rotateDegreeCurrent > 180)
+                        c.rotateDegreeCurrent = 0;
+
+                    c.wreckImage.RenderTransform = new RotateTransform(c.rotateDegreeCurrent, (c.wreckImage.ActualWidth / 2), (c.wreckImage.ActualHeight / 2));
 
                     if (c.x < 0)
                         c.fly = false;
