@@ -2807,6 +2807,7 @@ namespace shilka2
                 size = new int[] { 200, 78 },
                 weight = Aircraft.WeightType.Heavy,
                 cantEscape = true,
+                speed = 0,
                 fallLikeAStone = true,
             },
             new Aircraft
@@ -2815,9 +2816,9 @@ namespace shilka2
                 aircraftName = "списанный МиГ-9",
                 hitPoint = 200,
                 size = new int[] { 205, 68 },
-                speed = 12,
                 weight = Aircraft.WeightType.Heavy,
                 cantEscape = true,
+                speed = 0,
                 fallLikeAStone = true,
             },
         };

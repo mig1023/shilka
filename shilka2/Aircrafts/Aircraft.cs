@@ -51,6 +51,8 @@ namespace shilka2
         public bool doesNotFlyInBadWeather = false;
         public bool aerostat = false;
 
+        public int wrecksMaxSize = 10;
+
         public WeightType weight = WeightType.Heavy;
 
         public FlightDirectionType flightDirection;
@@ -608,6 +610,8 @@ namespace shilka2
             newAircraft.fallLikeAStone = fallLikeAStone;
             newAircraft.doesNotFlyInBadWeather = doesNotFlyInBadWeather;
             newAircraft.aerostat = aerostat;
+
+            newAircraft.wrecksMaxSize = wrecksMaxSize;
 
             return newAircraft;
         }

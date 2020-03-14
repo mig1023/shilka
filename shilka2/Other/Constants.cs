@@ -30,6 +30,10 @@ namespace shilka2
         public const double THROWS_UP_BY_HITS = 6;
         public const double THROWS_UP_BY_HITS_FOR_MIDDLE_AIRCRAFT = 4;
 
+        // wrecks
+        public const int WRECKS_RAND_RANGE = 10;
+        public const int WRECKS_CHANCE = 4;
+
         // cloud
         public const int CLOUD_SPEED = 5;
         public const int CLOUD_WIDTH_MIN = 200;
