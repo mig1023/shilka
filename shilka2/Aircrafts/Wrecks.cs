@@ -21,13 +21,24 @@ namespace shilka2
 
         static int wreckMutex = 0;
 
-        public static void WreckBreackOffFromAircraft(double startX, double startY, Aircraft.FlightDirectionType direction)
+        public static void WreckBreackOffFromAircraft(double startX, double startY, Aircraft.FlightDirectionType direction, int maxSpeed)
         {
+            if (rand.Next(10) != 4)
+                return;
+
             wreckMutex++;
             if (wreckMutex > 1)
             {
                 wreckMutex--;
                 return;
+            }
+
+            int minSpeed = 1;
+
+            if (maxSpeed < 2)
+            {
+                minSpeed = 0;
+                maxSpeed = 2;
             }
 
             Wrecks newWreck = new Wrecks();
@@ -37,7 +48,7 @@ namespace shilka2
 
             newWreck.sin = 0;
             newWreck.cos = (direction == Aircraft.FlightDirectionType.Left ? 1 : -1);
-            newWreck.speed = rand.Next(Constants.MIN_SPEED, Constants.MAX_SPEED);
+            newWreck.speed = rand.Next(minSpeed, maxSpeed);
             newWreck.direction = 1;
 
             newWreck.fly = true;

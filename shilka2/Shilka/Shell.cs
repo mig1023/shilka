@@ -88,7 +88,12 @@ namespace shilka2
                             shellTrace.Stroke = Brushes.Red;
                             shellTrace.StrokeThickness = Constants.FLASH_SIZE;
 
-                            Wrecks.WreckBreackOffFromAircraft(startX: shell.x, startY: shell.y, direction: aircraft.flightDirection);
+                            Wrecks.WreckBreackOffFromAircraft(
+                                startX: shell.x,
+                                startY: shell.y,
+                                direction: aircraft.flightDirection,
+                                maxSpeed: (int)aircraft.speed
+                            );
 
                             if (aircraft.weight == Aircraft.WeightType.Light)
                                 aircraft.y -= Constants.THROWS_UP_BY_HITS;
