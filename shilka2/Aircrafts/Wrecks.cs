@@ -13,6 +13,8 @@ namespace shilka2
 
         int speed { get; set; }
         int direction { get; set; }
+        int rotateSpeed { get; set; }
+
         double rotateDegreeCurrent = 0;
 
         public Image wreckImage;
@@ -35,9 +37,10 @@ namespace shilka2
             return 1;
         }
 
-        public static void WreckBreackOffFromAircraft(double startX, double startY, Aircraft.FlightDirectionType direction, int maxSpeed)
+        public static void WreckBreackOffFromAircraft(double startX, double startY,
+            Aircraft.FlightDirectionType direction, int maxSpeed, int wrecksMaxSize, int wrecksNumber)
         {
-            if (rand.Next(Constants.WRECKS_RAND_RANGE) != Constants.WRECKS_CHANCE)
+            if (rand.Next(Constants.WRECKS_RAND_RANGE) > wrecksNumber)
                 return;
 
             wreckMutex++;
@@ -57,9 +60,12 @@ namespace shilka2
             newWreck.sin = 0;
             newWreck.cos = (direction == Aircraft.FlightDirectionType.Left ? 1 : -1);
             newWreck.speed = (maxSpeed == 0 ? 0 : rand.Next(minSpeed, maxSpeed));
+            newWreck.rotateSpeed = rand.Next(Constants.WRECKS_MIN_ROTATE_SPEED, Constants.WRECKS_MAX_ROTATE_SPEED);
             newWreck.direction = (rand.Next(2) == 0 ? 1 : -1);
 
             newWreck.fly = true;
+
+            int wr_rand_num = Constants.WRECKS_TYPE_NUM + 1;
 
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {
@@ -67,10 +73,10 @@ namespace shilka2
 
                 Image newImage = new Image();
 
-                newImage.Width = rand.Next(14) + 2;
-                newImage.Height = rand.Next(14) + 2;
+                newImage.Width = rand.Next(wrecksMaxSize) + Constants.WRECKS_MIN_SIZE;
+                newImage.Height = rand.Next(wrecksMaxSize) + Constants.WRECKS_MIN_SIZE;
 
-                newImage.Source = Aircraft.ImageFromResources("wrecks" + (Aircraft.rand.Next(1, 4)), Aircraft.ImageType.Other);
+                newImage.Source = Aircraft.ImageFromResources("wrecks" + (Aircraft.rand.Next(1, wr_rand_num)), Aircraft.ImageType.Other);
                 newImage.Margin = new Thickness(newWreck.x, newWreck.y, 0, 0);
 
                 newWreck.wreckImage = newImage;
@@ -103,7 +109,7 @@ namespace shilka2
                     c.y = (c.y - c.speed * c.sin) + c.fall;
                     c.wreckImage.Margin = new Thickness(c.x, c.y, 0, 0);
 
-                    c.rotateDegreeCurrent += (Constants.ROTATE_STEP * c.direction);
+                    c.rotateDegreeCurrent += (c.rotateSpeed * c.direction);
 
                     if (c.rotateDegreeCurrent < -180 || c.rotateDegreeCurrent > 180)
                         c.rotateDegreeCurrent = 0;

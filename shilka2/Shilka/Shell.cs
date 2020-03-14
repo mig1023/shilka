@@ -92,7 +92,9 @@ namespace shilka2
                                 startX: shell.x,
                                 startY: shell.y,
                                 direction: aircraft.flightDirection,
-                                maxSpeed: (int)aircraft.speed
+                                maxSpeed: (int)aircraft.speed,
+                                wrecksMaxSize: aircraft.wrecksMaxSize,
+                                wrecksNumber: aircraft.wrecksNumber
                             );
 
                             if (aircraft.weight == Aircraft.WeightType.Light)

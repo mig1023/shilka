@@ -52,6 +52,7 @@ namespace shilka2
         public bool aerostat = false;
 
         public int wrecksMaxSize = 10;
+        public int wrecksNumber = 1;
 
         public WeightType weight = WeightType.Heavy;
 
@@ -612,6 +613,7 @@ namespace shilka2
             newAircraft.aerostat = aerostat;
 
             newAircraft.wrecksMaxSize = wrecksMaxSize;
+            newAircraft.wrecksNumber = wrecksNumber;
 
             return newAircraft;
         }

@@ -57,7 +57,8 @@ namespace shilka2
                 aircraftName = "F-117 Nighthawk",
                 hitPoint = 50,
                 size = new int[] { 270, 47 },
-                price = 112
+                price = 112,
+                wrecksNumber = 3
             },
 
             new Aircraft
@@ -91,7 +92,8 @@ namespace shilka2
                 size = new int[] { 270, 65 },
                 price = 146,
                 speed = 14,
-                doesNotFlyInBadWeather = true
+                doesNotFlyInBadWeather = true,
+                wrecksNumber = 3
             },
 
             new Aircraft
@@ -179,7 +181,8 @@ namespace shilka2
                 aircraftName = "F-35 Lightning II",
                 size = new int[] { 270, 69 },
                 price = 108,
-                doesNotFlyInBadWeather = true
+                doesNotFlyInBadWeather = true,
+                wrecksNumber = 3
             },
 
             new Aircraft
@@ -981,6 +984,7 @@ namespace shilka2
                 speed = 3,
                 maxAltitude = maxAltitudeForHelicopters,
                 wrecksMaxSize = 3,
+                wrecksNumber = 4,
                 price = 0.01,
                 deadSprite = true,
                 weight = Aircraft.WeightType.Light,
@@ -1230,6 +1234,7 @@ namespace shilka2
                 speed = 3,
                 maxAltitude = maxAltitudeForHelicopters,
                 wrecksMaxSize = 3,
+                wrecksNumber = 4,
                 price = 0.01,
                 deadSprite = true,
                 weight = Aircraft.WeightType.Light,
@@ -1357,6 +1362,7 @@ namespace shilka2
                 speed = 3,
                 maxAltitude = maxAltitudeForHelicopters,
                 wrecksMaxSize = 3,
+                wrecksNumber = 4,
                 price = 0.01,
                 deadSprite = true,
                 weight = Aircraft.WeightType.Light,
@@ -1391,6 +1397,7 @@ namespace shilka2
                 speed = 3,
                 maxAltitude = maxAltitudeForHelicopters,
                 wrecksMaxSize = 3,
+                wrecksNumber = 4,
                 price = 0.01,
                 deadSprite = true,
                 weight = Aircraft.WeightType.Middle,
@@ -1508,6 +1515,7 @@ namespace shilka2
                 speed = 3,
                 maxAltitude = maxAltitudeForHelicopters,
                 wrecksMaxSize = 3,
+                wrecksNumber = 4,
                 price = 0.01,
                 deadSprite = true,
                 weight = Aircraft.WeightType.Light,
@@ -1542,6 +1550,7 @@ namespace shilka2
                 speed = 3,
                 maxAltitude = maxAltitudeForHelicopters,
                 wrecksMaxSize = 3,
+                wrecksNumber = 4,
                 price = 0.01,
                 deadSprite = true,
                 weight = Aircraft.WeightType.Light,
@@ -1578,6 +1587,7 @@ namespace shilka2
                 weight = Aircraft.WeightType.Middle,
                 maxAltitude = maxAltitudeForHelicopters,
                 wrecksMaxSize = 3,
+                wrecksNumber = 4,
                 price = 0.01,
                 elements = new List<DynamicElement>
                 {
@@ -1628,6 +1638,7 @@ namespace shilka2
                 speed = 3,
                 maxAltitude = maxAltitudeForHelicopters,
                 wrecksMaxSize = 3,
+                wrecksNumber = 4,
                 price = 0.01,
                 deadSprite = true,
                 weight = Aircraft.WeightType.Light,
@@ -1680,6 +1691,7 @@ namespace shilka2
                 speed = 3,
                 maxAltitude = maxAltitudeForHelicopters,
                 wrecksMaxSize = 3,
+                wrecksNumber = 4,
                 price = 0.01,
                 deadSprite = true,
                 weight = Aircraft.WeightType.Light,
