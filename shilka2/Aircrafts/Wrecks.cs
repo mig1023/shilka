@@ -23,18 +23,22 @@ namespace shilka2
 
         static int wreckMutex = 0;
 
-        private static int MinMaxSpeed(ref int maxSpeed)
+        private static int RandomSpeed(int maxSpeed)
         {
-            if (maxSpeed < 1)
-                return 0;
+            int minSpeed = 1;
 
-            if (maxSpeed < 2)
+            if (maxSpeed < 1)
             {
+                minSpeed = 0;
+                maxSpeed = 0;
+            }
+            else  if (maxSpeed < 2)
+            {
+                minSpeed = 0;
                 maxSpeed = 2;
-                return 0;
             }
 
-            return 1;
+            return (maxSpeed == 0 ? 0 : rand.Next(minSpeed, maxSpeed));
         }
 
         public static void WreckBreackOffFromAircraft(double startX, double startY,
@@ -50,8 +54,6 @@ namespace shilka2
                 return;
             }
 
-            int minSpeed = MinMaxSpeed(ref maxSpeed);
-
             Wrecks newWreck = new Wrecks();
 
             newWreck.x = startX;
@@ -59,7 +61,7 @@ namespace shilka2
 
             newWreck.sin = 0;
             newWreck.cos = (direction == Aircraft.FlightDirectionType.Left ? 1 : -1);
-            newWreck.speed = (maxSpeed == 0 ? 0 : rand.Next(minSpeed, maxSpeed));
+            newWreck.speed = RandomSpeed(maxSpeed);
             newWreck.rotateSpeed = rand.Next(Constants.WRECKS_MIN_ROTATE_SPEED, Constants.WRECKS_MAX_ROTATE_SPEED);
             newWreck.direction = (rand.Next(2) == 0 ? 1 : -1);
 
