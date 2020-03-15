@@ -36,6 +36,10 @@ namespace shilka2
         public const int WRECKS_MIN_SIZE = 2;
         public const int WRECKS_MIN_ROTATE_SPEED = 8;
         public const int WRECKS_MAX_ROTATE_SPEED = 36;
+        public const int WRECKS_MICRO = 3;
+        public const int WRECKS_LTL = 7;
+        public const int WRECKS_BIG = 12;
+        public const int WRECKS_GIGANT = 14;
 
         // cloud
         public const int CLOUD_SPEED = 5;

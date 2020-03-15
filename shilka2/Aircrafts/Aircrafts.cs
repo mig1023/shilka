@@ -35,7 +35,7 @@ namespace shilka2
                 size = new int[] { 510, 114 },
                 price = 283,
                 speed = 12,
-                wrecksMaxSize = 16
+                wrecksMaxSize = Constants.WRECKS_GIGANT
             },
 
             new Aircraft
@@ -48,7 +48,7 @@ namespace shilka2
                 speed = 8,
                 minAltitude = minAltitudeForLargeAircraft,
                 cantEscape = true,
-                wrecksMaxSize = 20
+                wrecksMaxSize = Constants.WRECKS_GIGANT
             },
 
             new Aircraft
@@ -135,7 +135,7 @@ namespace shilka2
                 cantEscape = true,
                 deadSprite = true,
                 weight = Aircraft.WeightType.Middle,
-                wrecksMaxSize = 7,
+                wrecksMaxSize = Constants.WRECKS_LTL,
                 elements = new List<DynamicElement>
                 {
                     new DynamicElement
@@ -160,7 +160,7 @@ namespace shilka2
                 cantEscape = true,
                 deadSprite = true,
                 weight = Aircraft.WeightType.Middle,
-                wrecksMaxSize = 7,
+                wrecksMaxSize = Constants.WRECKS_LTL,
                 elements = new List<DynamicElement>
                 {
                     new DynamicElement
@@ -195,7 +195,7 @@ namespace shilka2
                 speed = 8,
                 deadSprite = true,
                 minAltitude = minAltitudeForLargeAircraft,
-                wrecksMaxSize = 17,
+                wrecksMaxSize = Constants.WRECKS_GIGANT,
                 elements = new List<DynamicElement>
                 {
                     new DynamicElement
@@ -237,7 +237,7 @@ namespace shilka2
                 size = new int[] { 332, 76 },
                 price = 2100,
                 speed = 18,
-                wrecksMaxSize = 12
+                wrecksMaxSize = Constants.WRECKS_BIG
             },
 
             new Aircraft
@@ -262,7 +262,7 @@ namespace shilka2
                 speed = 5,
                 cantEscape = true,
                 weight = Aircraft.WeightType.Middle,
-                wrecksMaxSize = 6,
+                wrecksMaxSize = Constants.WRECKS_LTL
             },
 
             new Aircraft
@@ -285,7 +285,7 @@ namespace shilka2
                 minAltitude = minAltitudeForLargeAircraft,
                 cantEscape = true,
                 deadSprite = true,
-                wrecksMaxSize = 17,
+                wrecksMaxSize = Constants.WRECKS_GIGANT,
                 elements = new List<DynamicElement>
                 {
                     new DynamicElement
@@ -333,7 +333,7 @@ namespace shilka2
                 price = 2,
                 speed = 5,
                 cantEscape = true,
-                wrecksMaxSize = 5,
+                wrecksMaxSize = Constants.WRECKS_MICRO,
                 weight = Aircraft.WeightType.Light,
             },
 
@@ -390,7 +390,7 @@ namespace shilka2
                 price = 90,
                 speed = 8,
                 minAltitude = minAltitudeForLargeAircraft,
-                wrecksMaxSize = 15,
+                wrecksMaxSize = Constants.WRECKS_GIGANT,
                 cantEscape = true
             },
 
@@ -413,7 +413,7 @@ namespace shilka2
                 price = 534,
                 speed = 18,
                 minAltitude = minAltitudeForLargeAircraft,
-                wrecksMaxSize = 15,
+                wrecksMaxSize = Constants.WRECKS_GIGANT,
             },
 
             new Aircraft
@@ -436,7 +436,7 @@ namespace shilka2
                 cantEscape = true,
                 deadSprite = true,
                 weight = Aircraft.WeightType.Middle,
-                wrecksMaxSize = 8,
+                wrecksMaxSize = Constants.WRECKS_LTL,
                 elements = new List<DynamicElement>
                 {
                     new DynamicElement
@@ -462,7 +462,7 @@ namespace shilka2
                 cantEscape = true,
                 deadSprite = true,
                 weight = Aircraft.WeightType.Middle,
-                wrecksMaxSize = 6,
+                wrecksMaxSize = Constants.WRECKS_LTL,
                 elements = new List<DynamicElement>
                 {
                     new DynamicElement
@@ -515,7 +515,7 @@ namespace shilka2
                 speed = 5,
                 cantEscape = true,
                 weight = Aircraft.WeightType.Light,
-                wrecksMaxSize = 4,
+                wrecksMaxSize = Constants.WRECKS_MICRO,
             },
 
             new Aircraft
@@ -534,7 +534,7 @@ namespace shilka2
                 price = 490,
                 speed = 7,
                 minAltitude = minAltitudeForLargeAircraft,
-                wrecksMaxSize = 18,
+                wrecksMaxSize = Constants.WRECKS_GIGANT,
                 cantEscape = true
             },
 
@@ -546,7 +546,7 @@ namespace shilka2
                 size = new int[] { 570, 152 },
                 speed = 7,
                 minAltitude = minAltitudeForLargeAircraft,
-                wrecksMaxSize = 14,
+                wrecksMaxSize = Constants.WRECKS_GIGANT,
                 price = 262,
                 cantEscape = true
             },
@@ -559,7 +559,7 @@ namespace shilka2
                 size = new int[] { 462, 150 },
                 speed = 8,
                 minAltitude = minAltitudeForLargeAircraft,
-                wrecksMaxSize = 12,
+                wrecksMaxSize = Constants.WRECKS_GIGANT,
                 price = 316,
                 cantEscape = true
             },
@@ -596,7 +596,7 @@ namespace shilka2
                 size = new int[] { 500, 157 },
                 speed = 8,
                 minAltitude = minAltitudeForLargeAircraft,
-                wrecksMaxSize = 12,
+                wrecksMaxSize = Constants.WRECKS_BIG,
                 price = 39,
                 cantEscape = true
             },
@@ -642,7 +642,7 @@ namespace shilka2
                 speed = 7,
                 price = 5,
                 deadSprite = true,
-                wrecksMaxSize = 8,
+                wrecksMaxSize = Constants.WRECKS_LTL,
                 elements = new List<DynamicElement>
                 {
                     new DynamicElement
@@ -727,7 +727,7 @@ namespace shilka2
                 cantEscape = true,
                 deadSprite = true,
                 weight = Aircraft.WeightType.Middle,
-                wrecksMaxSize = 7,
+                wrecksMaxSize = Constants.WRECKS_LTL,
                 elements = new List<DynamicElement>
                 {
                     new DynamicElement
@@ -752,7 +752,7 @@ namespace shilka2
                 cantEscape = true,
                 deadSprite = true,
                 weight = Aircraft.WeightType.Middle,
-                wrecksMaxSize = 5,
+                wrecksMaxSize = Constants.WRECKS_LTL,
                 elements = new List<DynamicElement>
                 {
                     new DynamicElement
@@ -778,7 +778,7 @@ namespace shilka2
                 size = new int[] { 209, 63 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
-                wrecksMaxSize = 7,
+                wrecksMaxSize = Constants.WRECKS_LTL,
                 price = 61,
                 elements = new List<DynamicElement>
                 {
@@ -809,7 +809,7 @@ namespace shilka2
                 size = new int[] { 209, 54 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
-                wrecksMaxSize = 6,
+                wrecksMaxSize = Constants.WRECKS_LTL,
                 price = 11,
                 elements = new List<DynamicElement>
                 {
@@ -839,7 +839,7 @@ namespace shilka2
                 size = new int[] { 210, 65 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
-                wrecksMaxSize = 7,
+                wrecksMaxSize = Constants.WRECKS_LTL,
                 price = 25,
                 elements = new List<DynamicElement>
                 {
@@ -869,7 +869,7 @@ namespace shilka2
                 size = new int[] { 210, 64 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
-                wrecksMaxSize = 7,
+                wrecksMaxSize = Constants.WRECKS_LTL,
                 price = 5,
                 elements = new List<DynamicElement>
                 {
@@ -899,7 +899,6 @@ namespace shilka2
                 size = new int[] { 270, 101 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
-                wrecksMaxSize = 9,
                 price = 30,
                 elements = new List<DynamicElement>
                 {
@@ -929,7 +928,6 @@ namespace shilka2
                 size = new int[] { 282, 103 },
                 speed = 7,
                 maxAltitude = maxAltitudeForHelicopters,
-                wrecksMaxSize = 9,
                 price = 116,
                 elements = new List<DynamicElement>
                 {
@@ -952,7 +950,7 @@ namespace shilka2
                 size = new int[] { 209, 76 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
-                wrecksMaxSize = 9,
+                wrecksMaxSize = Constants.WRECKS_LTL,
                 price = 39,
                 elements = new List<DynamicElement>
                 {
@@ -983,7 +981,7 @@ namespace shilka2
                 size = new int[] { 26, 9 },
                 speed = 3,
                 maxAltitude = maxAltitudeForHelicopters,
-                wrecksMaxSize = 3,
+                wrecksMaxSize = Constants.WRECKS_MICRO,
                 wrecksNumber = 4,
                 price = 0.01,
                 deadSprite = true,
@@ -1018,7 +1016,7 @@ namespace shilka2
                 size = new int[] { 185, 64 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
-                wrecksMaxSize = 7,
+                wrecksMaxSize = Constants.WRECKS_LTL,
                 price = 0.5,
                 elements = new List<DynamicElement>
                 {
@@ -1048,7 +1046,7 @@ namespace shilka2
                 size = new int[] { 210, 61 },
                 speed = 6,
                 maxAltitude = maxAltitudeForHelicopters,
-                wrecksMaxSize = 7,
+                wrecksMaxSize = Constants.WRECKS_LTL,
                 price = 100,
                 elements = new List<DynamicElement>
                 {
@@ -1078,7 +1076,7 @@ namespace shilka2
                 size = new int[] { 205, 70 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
-                wrecksMaxSize = 6,
+                wrecksMaxSize = Constants.WRECKS_LTL,
                 price = 24,
                 elements = new List<DynamicElement>
                 {
@@ -1111,7 +1109,7 @@ namespace shilka2
                 size = new int[] { 215, 66 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
-                wrecksMaxSize = 7,
+                wrecksMaxSize = Constants.WRECKS_LTL,
                 price = 52,
                 elements = new List<DynamicElement>
                 {
@@ -1142,7 +1140,7 @@ namespace shilka2
                 price = 15,
                 speed = 5,
                 minAltitude = maxAltitudeForHelicopters,
-                wrecksMaxSize = 7,
+                wrecksMaxSize = Constants.WRECKS_LTL,
                 cantEscape = true,
                 elements = new List<DynamicElement>
                 {
@@ -1202,7 +1200,7 @@ namespace shilka2
                 size = new int[] { 199, 70 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
-                wrecksMaxSize = 6,
+                wrecksMaxSize = Constants.WRECKS_LTL,
                 price = 10,
                 elements = new List<DynamicElement>
                 {
@@ -1233,7 +1231,7 @@ namespace shilka2
                 size = new int[] { 30, 17 },
                 speed = 3,
                 maxAltitude = maxAltitudeForHelicopters,
-                wrecksMaxSize = 3,
+                wrecksMaxSize = Constants.WRECKS_MICRO,
                 wrecksNumber = 4,
                 price = 0.01,
                 deadSprite = true,
@@ -1267,7 +1265,7 @@ namespace shilka2
                 size = new int[] { 209, 83 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
-                wrecksMaxSize = 6,
+                wrecksMaxSize = Constants.WRECKS_LTL,
                 price = 11,
                 elements = new List<DynamicElement>
                 {
@@ -1299,7 +1297,7 @@ namespace shilka2
                 size = new int[] { 265, 74 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
-                wrecksMaxSize = 7,
+                wrecksMaxSize = Constants.WRECKS_LTL,
                 price = 40,
                 elements = new List<DynamicElement>
                 {
@@ -1330,7 +1328,7 @@ namespace shilka2
                 size = new int[] { 134, 58 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
-                wrecksMaxSize = 5,
+                wrecksMaxSize = Constants.WRECKS_MICRO,
                 price = 2,
                 elements = new List<DynamicElement>
                 {
@@ -1361,7 +1359,7 @@ namespace shilka2
                 size = new int[] { 32, 20 },
                 speed = 3,
                 maxAltitude = maxAltitudeForHelicopters,
-                wrecksMaxSize = 3,
+                wrecksMaxSize = Constants.WRECKS_MICRO,
                 wrecksNumber = 4,
                 price = 0.01,
                 deadSprite = true,
@@ -1396,7 +1394,7 @@ namespace shilka2
                 size = new int[] { 75, 22 },
                 speed = 3,
                 maxAltitude = maxAltitudeForHelicopters,
-                wrecksMaxSize = 3,
+                wrecksMaxSize = Constants.WRECKS_MICRO,
                 wrecksNumber = 4,
                 price = 0.01,
                 deadSprite = true,
@@ -1423,7 +1421,7 @@ namespace shilka2
                 size = new int[] { 222, 76 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
-                wrecksMaxSize = 9,
+                wrecksMaxSize = Constants.WRECKS_LTL,
                 price = 28,
                 elements = new List<DynamicElement>
                 {
@@ -1514,7 +1512,7 @@ namespace shilka2
                 size = new int[] { 35, 25 },
                 speed = 3,
                 maxAltitude = maxAltitudeForHelicopters,
-                wrecksMaxSize = 3,
+                wrecksMaxSize = Constants.WRECKS_MICRO,
                 wrecksNumber = 4,
                 price = 0.01,
                 deadSprite = true,
@@ -1549,7 +1547,7 @@ namespace shilka2
                 size = new int[] { 30, 20 },
                 speed = 3,
                 maxAltitude = maxAltitudeForHelicopters,
-                wrecksMaxSize = 3,
+                wrecksMaxSize = Constants.WRECKS_MICRO,
                 wrecksNumber = 4,
                 price = 0.01,
                 deadSprite = true,
@@ -1586,7 +1584,7 @@ namespace shilka2
                 deadSprite = true,
                 weight = Aircraft.WeightType.Middle,
                 maxAltitude = maxAltitudeForHelicopters,
-                wrecksMaxSize = 3,
+                wrecksMaxSize = Constants.WRECKS_MICRO,
                 wrecksNumber = 4,
                 price = 0.01,
                 elements = new List<DynamicElement>
@@ -1637,7 +1635,7 @@ namespace shilka2
                 size = new int[] { 35, 12 },
                 speed = 3,
                 maxAltitude = maxAltitudeForHelicopters,
-                wrecksMaxSize = 3,
+                wrecksMaxSize = Constants.WRECKS_MICRO,
                 wrecksNumber = 4,
                 price = 0.01,
                 deadSprite = true,
@@ -1690,7 +1688,7 @@ namespace shilka2
                 size = new int[] { 35, 22 },
                 speed = 3,
                 maxAltitude = maxAltitudeForHelicopters,
-                wrecksMaxSize = 3,
+                wrecksMaxSize = Constants.WRECKS_MICRO,
                 wrecksNumber = 4,
                 price = 0.01,
                 deadSprite = true,
@@ -1728,7 +1726,7 @@ namespace shilka2
                 cantEscape = true,
                 deadSprite = true,
                 weight = Aircraft.WeightType.Middle,
-                wrecksMaxSize = 4,
+                wrecksMaxSize = Constants.WRECKS_MICRO,
                 elements = new List<DynamicElement>
                 {
                     new DynamicElement
@@ -1750,7 +1748,7 @@ namespace shilka2
                 size = new int[] { 199, 50 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
-                wrecksMaxSize = 7,
+                wrecksMaxSize = Constants.WRECKS_LTL,
                 price = 3,
                 elements = new List<DynamicElement>
                 {
@@ -1787,7 +1785,7 @@ namespace shilka2
                 aerostat = true,
                 fallLikeAStone = true,
                 minAltitude = minAltitudeForAerostat,
-                wrecksMaxSize = 4,
+                wrecksMaxSize = Constants.WRECKS_MICRO,
                 weight = Aircraft.WeightType.Light
             },
 
@@ -1802,7 +1800,7 @@ namespace shilka2
                 aerostat = true,
                 fallLikeAStone = true,
                 minAltitude = minAltitudeForAerostat,
-                wrecksMaxSize = 3,
+                wrecksMaxSize = Constants.WRECKS_MICRO,
                 weight = Aircraft.WeightType.Light
             },
 
@@ -1817,7 +1815,7 @@ namespace shilka2
                 aerostat = true,
                 fallLikeAStone = true,
                 minAltitude = minAltitudeForAerostat,
-                wrecksMaxSize = 3,
+                wrecksMaxSize = Constants.WRECKS_MICRO,
                 weight = Aircraft.WeightType.Light
             },
         };
@@ -1912,7 +1910,7 @@ namespace shilka2
                 size = new int[] { 510, 108 },
                 speed = 18,
                 minAltitude = minAltitudeForLargeAircraft,
-                wrecksMaxSize = 14,
+                wrecksMaxSize = Constants.WRECKS_BIG,
                 friend = true
             },
 
@@ -1949,7 +1947,7 @@ namespace shilka2
                 size = new int[] { 570, 175 },
                 speed = 8,
                 minAltitude = minAltitudeForLargeAircraft,
-                wrecksMaxSize = 16,
+                wrecksMaxSize = Constants.WRECKS_GIGANT,
                 cantEscape = true,
                 friend = true,
                 elements = new List<DynamicElement>
@@ -1976,7 +1974,7 @@ namespace shilka2
                 size = new int[] { 510, 116 },
                 speed = 5,
                 minAltitude = minAltitudeForLargeAircraft,
-                wrecksMaxSize = 16,
+                wrecksMaxSize = Constants.WRECKS_BIG,
                 cantEscape = true,
                 friend = true,
                 elements = new List<DynamicElement>
@@ -2045,7 +2043,7 @@ namespace shilka2
                 size = new int[] { 434, 108 },
                 speed = 12,
                 minAltitude = minAltitudeForLargeAircraft,
-                wrecksMaxSize = 14,
+                wrecksMaxSize = Constants.WRECKS_BIG,
                 friend = true
             },
 
@@ -2055,7 +2053,7 @@ namespace shilka2
                 aircraftName = "Ту-16",
                 size = new int[] { 430, 105 },
                 minAltitude = minAltitudeForLargeAircraft,
-                wrecksMaxSize = 12,
+                wrecksMaxSize = Constants.WRECKS_BIG,
                 friend = true
             },
 
@@ -2065,7 +2063,7 @@ namespace shilka2
                 aircraftName = "Ту-22",
                 size = new int[] { 450, 98 },
                 minAltitude = minAltitudeForLargeAircraft,
-                wrecksMaxSize = 12,
+                wrecksMaxSize = Constants.WRECKS_BIG,
                 friend = true
             },
         };
@@ -2080,7 +2078,7 @@ namespace shilka2
                 size = new int[] { 215, 66 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
-                wrecksMaxSize = 7,
+                wrecksMaxSize = Constants.WRECKS_LTL,
                 friend = true,
                 elements = new List<DynamicElement>
                 {
@@ -2112,7 +2110,7 @@ namespace shilka2
                 size = new int[] { 210, 57 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
-                wrecksMaxSize = 6,
+                wrecksMaxSize = Constants.WRECKS_LTL,
                 friend = true,
                 elements = new List<DynamicElement>
                 {
@@ -2142,7 +2140,7 @@ namespace shilka2
                 size = new int[] { 220, 62 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
-                wrecksMaxSize = 6,
+                wrecksMaxSize = Constants.WRECKS_LTL,
                 friend = true,
                 elements = new List<DynamicElement>
                 {
@@ -2173,7 +2171,7 @@ namespace shilka2
                 size = new int[] { 232, 70 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
-                wrecksMaxSize = 7,
+                wrecksMaxSize = Constants.WRECKS_LTL,
                 friend = true,
                 elements = new List<DynamicElement>
                 {
@@ -2204,7 +2202,7 @@ namespace shilka2
                 size = new int[] { 197, 63 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
-                wrecksMaxSize = 7,
+                wrecksMaxSize = Constants.WRECKS_LTL,
                 friend = true,
                 elements = new List<DynamicElement>
                 {
@@ -2235,7 +2233,7 @@ namespace shilka2
                 size = new int[] { 300, 77 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
-                wrecksMaxSize = 8,
+                wrecksMaxSize = Constants.WRECKS_LTL,
                 friend = true,
                 elements = new List<DynamicElement>
                 {
@@ -2263,7 +2261,7 @@ namespace shilka2
                 aircraftType = "mi26",
                 aircraftName = "Ми-26",
                 size = new int[] { 580, 146 },
-                wrecksMaxSize = 18,
+                wrecksMaxSize = Constants.WRECKS_GIGANT,
                 speed = 5,
                 friend = true,
                 elements = new List<DynamicElement>
@@ -2294,7 +2292,7 @@ namespace shilka2
                 size = new int[] { 200, 50 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
-                wrecksMaxSize = 7,
+                wrecksMaxSize = Constants.WRECKS_LTL,
                 friend = true,
                 elements = new List<DynamicElement>
                 {
@@ -2335,7 +2333,7 @@ namespace shilka2
                 size = new int[] { 150, 56 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
-                wrecksMaxSize = 7,
+                wrecksMaxSize = Constants.WRECKS_LTL,
                 friend = true,
                 elements = new List<DynamicElement>
                 {
@@ -2366,7 +2364,7 @@ namespace shilka2
                 size = new int[] { 235, 72 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
-                wrecksMaxSize = 8,
+                wrecksMaxSize = Constants.WRECKS_LTL,
                 friend = true,
                 elements = new List<DynamicElement>
                 {
@@ -2397,7 +2395,7 @@ namespace shilka2
                 size = new int[] { 210, 61 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
-                wrecksMaxSize = 5,
+                wrecksMaxSize = Constants.WRECKS_LTL,
                 friend = true,
                 elements = new List<DynamicElement>
                 {
@@ -2428,7 +2426,7 @@ namespace shilka2
                 size = new int[] { 240, 89 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
-                wrecksMaxSize = 8,
+                wrecksMaxSize = Constants.WRECKS_LTL,
                 friend = true,
                 elements = new List<DynamicElement>
                 {
@@ -2463,7 +2461,7 @@ namespace shilka2
                 size = new int[] { 565, 173 },
                 speed = 8,
                 minAltitude = minAltitudeForLargeAircraft,
-                wrecksMaxSize = 14,
+                wrecksMaxSize = Constants.WRECKS_BIG,
                 cantEscape = true,
                 airliner = true
             },
@@ -2476,7 +2474,7 @@ namespace shilka2
                 size = new int[] { 565, 158 },
                 speed = 8,
                 minAltitude = minAltitudeForLargeAircraft,
-                wrecksMaxSize = 17,
+                wrecksMaxSize = Constants.WRECKS_GIGANT,
                 cantEscape = true,
                 airliner = true
             },
@@ -2489,7 +2487,7 @@ namespace shilka2
                 size = new int[] { 560, 157 },
                 speed = 8,
                 minAltitude = minAltitudeForLargeAircraft,
-                wrecksMaxSize = 14,
+                wrecksMaxSize = Constants.WRECKS_BIG,
                 cantEscape = true,
                 airliner = true
             },
@@ -2559,7 +2557,7 @@ namespace shilka2
                 size = new int[] { 565, 136 },
                 speed = 9,
                 minAltitude = minAltitudeForLargeAircraft,
-                wrecksMaxSize = 13,
+                wrecksMaxSize = Constants.WRECKS_BIG,
                 cantEscape = true,
                 airliner = true
             },
@@ -2606,7 +2604,7 @@ namespace shilka2
                 size = new int[] { 560, 154 },
                 speed = 8,
                 minAltitude = minAltitudeForLargeAircraft,
-                wrecksMaxSize = 12,
+                wrecksMaxSize = Constants.WRECKS_BIG,
                 cantEscape = true,
                 airliner = true
             },
@@ -2619,7 +2617,7 @@ namespace shilka2
                 size = new int[] { 621, 191 },
                 speed = 8,
                 minAltitude = minAltitudeForLargeAircraft,
-                wrecksMaxSize = 18,
+                wrecksMaxSize = Constants.WRECKS_GIGANT,
                 cantEscape = true,
                 airliner = true
             },
@@ -2632,7 +2630,7 @@ namespace shilka2
                 size = new int[] { 585, 140 },
                 speed = 8,
                 minAltitude = minAltitudeForLargeAircraft,
-                wrecksMaxSize = 15,
+                wrecksMaxSize = Constants.WRECKS_GIGANT,
                 cantEscape = true,
                 airliner = true
             },
@@ -2665,7 +2663,7 @@ namespace shilka2
                 size = new int[] { 565, 184 },
                 speed = 8,
                 minAltitude = minAltitudeForLargeAircraft,
-                wrecksMaxSize = 14,
+                wrecksMaxSize = Constants.WRECKS_BIG,
                 cantEscape = true,
                 airliner = true
             },
@@ -2677,7 +2675,7 @@ namespace shilka2
                 size = new int[] { 580, 111 },
                 speed = 8,
                 minAltitude = minAltitudeForLargeAircraft,
-                wrecksMaxSize = 14,
+                wrecksMaxSize = Constants.WRECKS_BIG,
                 cantEscape = true,
                 airliner = true
             },
@@ -2689,7 +2687,7 @@ namespace shilka2
                 size = new int[] { 580, 118 },
                 speed = 8,
                 minAltitude = minAltitudeForLargeAircraft,
-                wrecksMaxSize = 14,
+                wrecksMaxSize = Constants.WRECKS_BIG,
                 cantEscape = true,
                 airliner = true
             },
@@ -2701,7 +2699,6 @@ namespace shilka2
                 size = new int[] { 500, 180 },
                 speed = 8,
                 minAltitude = minAltitudeForLargeAircraft,
-                wrecksMaxSize = 12,
                 cantEscape = true,
                 airliner = true
             },
@@ -2745,7 +2742,7 @@ namespace shilka2
                 size = new int[] { 475, 100 },
                 speed = 18,
                 minAltitude = minAltitudeForLargeAircraft,
-                wrecksMaxSize = 15,
+                wrecksMaxSize = Constants.WRECKS_BIG,
                 cantEscape = true,
                 airliner = true,
             },
@@ -2757,7 +2754,7 @@ namespace shilka2
                 size = new int[] { 463, 108 },
                 speed = 12,
                 minAltitude = minAltitudeForLargeAircraft,
-                wrecksMaxSize = 12,
+                wrecksMaxSize = Constants.WRECKS_BIG,
                 cantEscape = true,
                 airliner = true
             },
@@ -2769,7 +2766,7 @@ namespace shilka2
                 size = new int[] { 509, 111 },
                 speed = 12,
                 minAltitude = minAltitudeForLargeAircraft,
-                wrecksMaxSize = 15,
+                wrecksMaxSize = Constants.WRECKS_BIG,
                 cantEscape = true,
                 airliner = true
             },
@@ -2785,7 +2782,7 @@ namespace shilka2
                 size = new int[] { 125, 47 },
                 speed = 5,
                 weight = Aircraft.WeightType.Middle,
-                wrecksMaxSize = 6,
+                wrecksMaxSize = Constants.WRECKS_LTL,
                 cantEscape = true,
             },
 
@@ -2797,7 +2794,7 @@ namespace shilka2
                 size = new int[] { 60, 13 },
                 speed = 3,
                 weight = Aircraft.WeightType.Light,
-                wrecksMaxSize = 4,
+                wrecksMaxSize = Constants.WRECKS_MICRO,
                 cantEscape = true,
             },
 
@@ -2809,7 +2806,7 @@ namespace shilka2
                 size = new int[] { 200, 46 },
                 speed = 4,
                 weight = Aircraft.WeightType.Middle,
-                wrecksMaxSize = 7,
+                wrecksMaxSize = Constants.WRECKS_LTL,
                 cantEscape = true,
                 deadSprite = true,
                 elements = new List<DynamicElement>
@@ -2834,7 +2831,7 @@ namespace shilka2
                 size = new int[] { 145, 33 },
                 speed = 8,
                 weight = Aircraft.WeightType.Middle,
-                wrecksMaxSize = 5,
+                wrecksMaxSize = Constants.WRECKS_MICRO,
                 cantEscape = true,
             },
 
@@ -2859,7 +2856,7 @@ namespace shilka2
                 size = new int[] { 430, 105 },
                 cantEscape = true,
                 minAltitude = minAltitudeForLargeAircraft,
-                wrecksMaxSize = 12,
+                wrecksMaxSize = Constants.WRECKS_BIG,
             },
         };
 
@@ -2876,7 +2873,7 @@ namespace shilka2
                 friend = true,
                 trainingTug = true,
                 minAltitude = minAltitudeForLargeAircraft,
-                wrecksMaxSize = 5,
+                wrecksMaxSize = Constants.WRECKS_MICRO,
             },
 
             new Aircraft
@@ -2889,7 +2886,7 @@ namespace shilka2
                 cantEscape = true,
                 trainingTug = true,
                 friend = true,
-                wrecksMaxSize = 12,
+                wrecksMaxSize = Constants.WRECKS_BIG,
             },
 
             new Aircraft
@@ -2901,7 +2898,7 @@ namespace shilka2
                 weight = Aircraft.WeightType.Middle,
                 cantEscape = true,
                 canPlaneForALongTime = true,
-                wrecksMaxSize = 5,
+                wrecksMaxSize = Constants.WRECKS_MICRO,
             },
             new Aircraft
             {
@@ -2913,7 +2910,6 @@ namespace shilka2
                 cantEscape = true,
                 speed = 0,
                 fallLikeAStone = true,
-                wrecksMaxSize = 8,
             },
             new Aircraft
             {
@@ -2925,7 +2921,6 @@ namespace shilka2
                 cantEscape = true,
                 speed = 0,
                 fallLikeAStone = true,
-                wrecksMaxSize = 8,
             },
         };
 
