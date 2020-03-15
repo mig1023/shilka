@@ -12,7 +12,6 @@ namespace shilka2
     public class Aircraft : FlyObject
     {
         static int maxAltitudeGlobal = Constants.MAX_FLIGHT_HEIGHT;
-        public enum FlightDirectionType { Left, Right };
         enum zIndexType { inFront, Behind };
         public enum WeightType { Light, Middle, Heavy };
         public enum ImageType { Aircraft, DeadSprite, DynamicElement, Interface, Other };
@@ -36,7 +35,7 @@ namespace shilka2
 
         public int hitPoint = 80;
         public int tragetTugHitPoint = 50;
-        public double speed = 10;
+        
         public int minAltitude = -1;
         public int maxAltitude = -1;
         public double price = 0;
@@ -55,8 +54,6 @@ namespace shilka2
         public int wrecksNumber = 1;
 
         public WeightType weight = WeightType.Heavy;
-
-        public FlightDirectionType flightDirection;
 
         private static bool schoolEnemyAlready = false;
         private static bool schoolFriendAlready = false;
@@ -116,17 +113,10 @@ namespace shilka2
                     if (!aircraft.suspendedTarget)
                     {
                         if ((aircraft.cloud || aircraft.aerostat) && (Weather.currentWeather == Weather.weatherTypes.storm))
-                        {
-                            if ((aircraft.flightDirection != Weather.stormDirection) && (aircraft.speed > 0))
-                                aircraft.speed -= rand.Next(4) * 0.1;
-                            else if ((aircraft.flightDirection != Weather.stormDirection) && (aircraft.speed <= 0))
-                                aircraft.flightDirection = Weather.stormDirection;
-                            else if ((aircraft.flightDirection == Weather.stormDirection) && (aircraft.speed < Constants.CLOUD_SPEED))
-                                aircraft.speed += rand.Next(4) * 0.1;
-                        }
+                            aircraft.speed = SpeedInStorm(aircraft.speed, ref aircraft.flightDirection);
 
                         double escape = (((aircraft.hitpoint < aircraft.hitpointMax) && !aircraft.cantEscape) ? Constants.ESCAPE_COEFFICIENT : 1);
-                        double direction = (aircraft.flightDirection == FlightDirectionType.Left ? -1 : 1);
+                        double direction = (aircraft.flightDirection == FlyObject.FlightDirectionType.Left ? -1 : 1);
                         double tailWind = 1;
 
                         if (Weather.currentWeather == Weather.weatherTypes.storm)
@@ -189,9 +179,9 @@ namespace shilka2
                         aircraft.y = maxAltitudeGlobal;
 
                     if (
-                        (((aircraft.x + aircraft.aircraftImage.Width) < 0) && (aircraft.flightDirection == FlightDirectionType.Left))
+                        (((aircraft.x + aircraft.aircraftImage.Width) < 0) && (aircraft.flightDirection == FlyObject.FlightDirectionType.Left))
                         ||
-                        ((aircraft.x > main.Width) && (aircraft.flightDirection == FlightDirectionType.Right))
+                        ((aircraft.x > main.Width) && (aircraft.flightDirection == FlyObject.FlightDirectionType.Right))
                     ) {
                         aircraft.fly = false;
 
@@ -233,12 +223,12 @@ namespace shilka2
 
                     foreach (DynamicElement d in aircraft.dynamicElemets)
                     {
-                        double xDirection = (aircraft.flightDirection == FlightDirectionType.Left ? d.x_left : d.x_right);
+                        double xDirection = (aircraft.flightDirection == FlyObject.FlightDirectionType.Left ? d.x_left : d.x_right);
                         d.element.Margin = new Thickness(aircraft.x + xDirection, aircraft.y + d.y, 0, 0);
 
                         if (d.movingType == DynamicElement.MovingType.zRotate)
                         {
-                            int direction = (aircraft.flightDirection == FlightDirectionType.Left ? 1 : -1);
+                            int direction = (aircraft.flightDirection == FlyObject.FlightDirectionType.Left ? 1 : -1);
 
                             d.rotateDegreeCurrent += (Constants.ROTATE_STEP * direction);
 
@@ -409,7 +399,7 @@ namespace shilka2
                 originalSource.DpiX, originalSource.DpiY, originalSource.Format, palette, data, stride);
         }
 
-        public void CreateNewAircraft(double? startX = null, double? startY = null, FlightDirectionType? startDirection = null,
+        public void CreateNewAircraft(double? startX = null, double? startY = null, FlyObject.FlightDirectionType? startDirection = null,
             bool dead = false, bool transformation = false, bool suspended = false)
         {
             if (!transformation && (!Shilka.training || !cloud))
@@ -437,20 +427,21 @@ namespace shilka2
                 if ((newAircraft.minAltitude != -1) && (newAircraft.y > newAircraft.minAltitude))
                     newAircraft.y = newAircraft.minAltitude;
 
-                FlightDirectionType newDirection = (rand.Next(2) == 1 ? FlightDirectionType.Right : FlightDirectionType.Left);
+                FlyObject.FlightDirectionType newDirection =
+                    (rand.Next(2) == 1 ? FlyObject.FlightDirectionType.Right : FlyObject.FlightDirectionType.Left);
 
                 if ((Weather.currentWeather == Weather.weatherTypes.storm) && cloud)
                     newDirection = Weather.stormDirection;
 
                 if ((Shilka.currentScript == Scripts.scriptsNames.Belgrad) && !cloud)
                     if (friend)
-                        newDirection = FlightDirectionType.Right;
+                        newDirection = FlyObject.FlightDirectionType.Right;
                     else
-                        newDirection = FlightDirectionType.Left;
+                        newDirection = FlyObject.FlightDirectionType.Left;
 
                 newAircraft.flightDirection = newDirection;
 
-                if (newDirection == FlightDirectionType.Right)
+                if (newDirection == FlyObject.FlightDirectionType.Right)
                     newAircraft.x = -1 * newAircraftImage.Width;
                 else
                     newAircraft.x = Application.Current.MainWindow.Width;
@@ -463,7 +454,7 @@ namespace shilka2
                     type: (newAircraft.cloud ? Aircraft.ImageType.Other : Aircraft.ImageType.Aircraft)
                 );
 
-                bool flightLeftAndNotCloud = (newAircraft.flightDirection == FlightDirectionType.Left) && !cloud;
+                bool flightLeftAndNotCloud = (newAircraft.flightDirection == FlyObject.FlightDirectionType.Left) && !cloud;
                 bool flightRightAndCloud = (rand.Next(2) == 1) && cloud;
 
                 if (flightLeftAndNotCloud || flightRightAndCloud)
@@ -484,22 +475,22 @@ namespace shilka2
                         tmp.element.Source = ImageFromResources(d.elementName, ImageType.DynamicElement);
                         tmp.rotateDegreeCurrent = d.startDegree;
 
-                        if ((newAircraft.flightDirection == FlightDirectionType.Right) && !d.mirror)
+                        if ((newAircraft.flightDirection == FlyObject.FlightDirectionType.Right) && !d.mirror)
                             tmp.element.FlowDirection = FlowDirection.RightToLeft;
-                        else if ((newAircraft.flightDirection == FlightDirectionType.Left) && d.mirror)
+                        else if ((newAircraft.flightDirection == FlyObject.FlightDirectionType.Left) && d.mirror)
                             tmp.element.FlowDirection = FlowDirection.RightToLeft;
 
                         newAircraft.dynamicElemets.Add(tmp);
 
                         bool flightRightAndZRotate = (
-                            (newAircraft.flightDirection == FlightDirectionType.Right)
+                            (newAircraft.flightDirection == FlyObject.FlightDirectionType.Right)
                             &&
                             (d.movingType == DynamicElement.MovingType.zRotate)
                         );
 
                         if (d.background || flightRightAndZRotate)
                             Canvas.SetZIndex(tmp.element, (zIndex == zIndexType.inFront ? 65 : 25));
-                        else if (newAircraft.flightDirection == FlightDirectionType.Right)
+                        else if (newAircraft.flightDirection == FlyObject.FlightDirectionType.Right)
                             Canvas.SetZIndex(tmp.element, (zIndex == zIndexType.inFront ? 85 : 45));
                         else
                             Canvas.SetZIndex(tmp.element, (zIndex == zIndexType.inFront ? 75 : 35));
@@ -510,7 +501,7 @@ namespace shilka2
 
                 int randomSpeed = (cloud ? 0 : rand.Next(3));
 
-                newAircraft.speed = speed + randomSpeed;
+                newAircraft.speed = Constants.STANDART_SPEED + randomSpeed;
 
                 if (newAircraft.minAltitude == -1)
                     newAircraft.minAltitude = Aircrafts.minAltitudeGlobal;
@@ -525,7 +516,7 @@ namespace shilka2
                     Canvas.SetZIndex(newAircraftImage, 101);
                 else if (zIndex != null)
                 {
-                    if (newAircraft.flightDirection == FlightDirectionType.Right)
+                    if (newAircraft.flightDirection == FlyObject.FlightDirectionType.Right)
                         Canvas.SetZIndex(newAircraftImage, (zIndex == zIndexType.inFront ? 80 : 40));
                     else
                         Canvas.SetZIndex(newAircraftImage, (zIndex == zIndexType.inFront ? 70 : 30));
@@ -663,7 +654,7 @@ namespace shilka2
 
         public bool TargetTubHit(Shell shell, ref bool itsOnlyTargetPlane)
         {
-            if (flightDirection == FlightDirectionType.Right)
+            if (flightDirection == FlyObject.FlightDirectionType.Right)
             {
                 double targetPosition = aircraftImage.Margin.Left + Constants.TRAINING_IL28_TARGET_LEN;
                 double aircraftPosition = targetPosition + Constants.TRAINING_IL28_TOW_LEN;
@@ -697,7 +688,7 @@ namespace shilka2
 
         public void TargetTugDisengaged()
         {
-            bool flyDirectRight = flightDirection == FlightDirectionType.Right;
+            bool flyDirectRight = flightDirection == FlyObject.FlightDirectionType.Right;
 
             Statistic.staticticAircraftShutdown += 1;
             Statistic.statisticShutdownFlag = true;

@@ -13,8 +13,6 @@ namespace shilka2
     {
         public enum weatherTypes { good, rain, storm, snow, sand };
 
-        int speed { get; set; }
-
         int direction = 0;
 
         public static Aircraft.FlightDirectionType stormDirection;

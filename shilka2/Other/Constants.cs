@@ -14,6 +14,7 @@ namespace shilka2
         public const string END_COLOR = "#FF7E1C25";
 
         // aircrafts
+        public const int STANDART_SPEED = 10;
         public const int MAX_FLIGHT_HEIGHT = 75;
         public const double ESCAPE_COEFFICIENT = 1.6;
         public const int TANGAGE_DELAY = 12;

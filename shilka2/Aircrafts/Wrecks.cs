@@ -11,8 +11,7 @@ namespace shilka2
     {
         double fall = 0;
 
-        int speed { get; set; }
-        int direction { get; set; }
+        int rotateDirection { get; set; }
         int rotateSpeed { get; set; }
 
         double rotateDegreeCurrent = 0;
@@ -61,9 +60,10 @@ namespace shilka2
 
             newWreck.sin = 0;
             newWreck.cos = (direction == Aircraft.FlightDirectionType.Left ? 1 : -1);
+            newWreck.flightDirection = direction;
             newWreck.speed = RandomSpeed(maxSpeed);
             newWreck.rotateSpeed = rand.Next(Constants.WRECKS_MIN_ROTATE_SPEED, Constants.WRECKS_MAX_ROTATE_SPEED);
-            newWreck.direction = (rand.Next(2) == 0 ? 1 : -1);
+            newWreck.rotateDirection = (rand.Next(2) == 0 ? 1 : -1);
 
             newWreck.fly = true;
 
@@ -107,11 +107,17 @@ namespace shilka2
                 {
                     c.fall += Constants.FREE_FALL_SPEED;
 
+                    if (Weather.currentWeather == Weather.weatherTypes.storm)
+                    {
+                        c.speed = SpeedInStorm(c.speed, ref c.flightDirection);
+                        c.cos = (c.flightDirection == Aircraft.FlightDirectionType.Left ? 1 : -1);
+                    }
+
                     c.x = (c.x - c.speed * c.cos);
                     c.y = (c.y - c.speed * c.sin) + c.fall;
                     c.wreckImage.Margin = new Thickness(c.x, c.y, 0, 0);
 
-                    c.rotateDegreeCurrent += (c.rotateSpeed * c.direction);
+                    c.rotateDegreeCurrent += (c.rotateSpeed * c.rotateDirection);
 
                     if (c.rotateDegreeCurrent < -180 || c.rotateDegreeCurrent > 180)
                         c.rotateDegreeCurrent = 0;
