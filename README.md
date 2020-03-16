@@ -47,7 +47,7 @@ The game is about a small anti-aircraft vehicle in the school notebook
 | Panavia Tornado |Rafale  | RC-135 |
 | S-3 Viking | Saab JAS 39 Gripen | Saab S-100B Argus |
 | SEPECAT Jaguar | SR-71 Blackbird | Storm Shadow / SCALP |
-| U-2 Dragon Lady |  |  |
+| U-2 Dragon Lady | Automatic aerostat-spy (3 types) |  |
 
 ### Enemy helicopters:
 
@@ -68,12 +68,6 @@ The game is about a small anti-aircraft vehicle in the school notebook
 | Bayraktar TB2 | MQ-1 Predator | MQ-9 Reaper |
 | RQ-4 Global Hawk | RQ-5 Hunter | RQ-11 Raven |
 | Spy / attack drone (9 types) | TAI Anka | |
-
-### Enemy aerostats:
-
-| Aerostats |
-| ------------- |
-| Automatic aerostat-spy (3 types) |
 
 ### Friend aircrafts:
 
