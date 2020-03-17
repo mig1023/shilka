@@ -103,14 +103,17 @@ namespace shilka2
                 Thunder();
 
             if (weatherCycle < Constants.WEATHER_CYCLE)
-                weatherCycle += 1;
-            else
             {
-                RestartCycle();
+                weatherCycle += 1;
 
                 if (currentWeather == weatherTypes.storm)
-                    stormDirection = (rand.Next(2) > 0 ? Aircraft.FlightDirectionType.Right : Aircraft.FlightDirectionType.Left);
+                    if (weatherCycle.ToString().Contains("00"))
+                        stormDirection = (rand.Next(2) > 0 ? Aircraft.FlightDirectionType.Right : Aircraft.FlightDirectionType.Left);
             }
+            else
+                RestartCycle();
+
+           
 
             if (currentWeather == weatherTypes.good)
                 return;
