@@ -92,7 +92,7 @@ namespace shilka2
                                 startX: shell.x,
                                 startY: shell.y,
                                 direction: aircraft.flightDirection,
-                                maxSpeed: (int)aircraft.speed,
+                                maxSpeed: (aircraft.zeroSpeed ? 0 : (int)aircraft.speed),
                                 wrecksMaxSize: aircraft.wrecksMaxSize,
                                 wrecksNumber: aircraft.wrecksNumber
                             );

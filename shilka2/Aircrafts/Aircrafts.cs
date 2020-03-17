@@ -2908,8 +2908,8 @@ namespace shilka2
                 size = new int[] { 200, 78 },
                 weight = Aircraft.WeightType.Heavy,
                 cantEscape = true,
-                speed = 0,
                 fallLikeAStone = true,
+                zeroSpeed = true,
             },
             new Aircraft
             {
@@ -2919,8 +2919,8 @@ namespace shilka2
                 size = new int[] { 205, 68 },
                 weight = Aircraft.WeightType.Heavy,
                 cantEscape = true,
-                speed = 0,
                 fallLikeAStone = true,
+                zeroSpeed = true,
             },
         };
 

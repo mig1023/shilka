@@ -24,6 +24,7 @@ namespace shilka2
         public double fallAcceleration = 0;
         public bool canPlaneForALongTime = false;
         public bool fallLikeAStone = false;
+        public bool zeroSpeed = false;
 
         public string aircraftType;
         public string aircraftName;
@@ -600,6 +601,7 @@ namespace shilka2
             newAircraft.placeOfDamage = 0;
             newAircraft.canPlaneForALongTime = canPlaneForALongTime;
             newAircraft.fallLikeAStone = fallLikeAStone;
+            newAircraft.zeroSpeed = zeroSpeed;
             newAircraft.doesNotFlyInBadWeather = doesNotFlyInBadWeather;
             newAircraft.aerostat = aerostat;
 
