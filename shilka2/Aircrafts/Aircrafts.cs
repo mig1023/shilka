@@ -1784,6 +1784,7 @@ namespace shilka2
                 price = 0.1,
                 aerostat = true,
                 fallLikeAStone = true,
+                cantEscape = true,
                 minAltitude = minAltitudeForAerostat,
                 wrecksMaxSize = Constants.WRECKS_MICRO,
                 weight = Aircraft.WeightType.Light
@@ -1799,6 +1800,7 @@ namespace shilka2
                 price = 0.1,
                 aerostat = true,
                 fallLikeAStone = true,
+                cantEscape = true,
                 minAltitude = minAltitudeForAerostat,
                 wrecksMaxSize = Constants.WRECKS_MICRO,
                 weight = Aircraft.WeightType.Light
@@ -1814,6 +1816,7 @@ namespace shilka2
                 price = 0.1,
                 aerostat = true,
                 fallLikeAStone = true,
+                cantEscape = true,
                 minAltitude = minAltitudeForAerostat,
                 wrecksMaxSize = Constants.WRECKS_MICRO,
                 weight = Aircraft.WeightType.Light
