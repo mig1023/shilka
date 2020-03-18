@@ -766,6 +766,29 @@ namespace shilka2
                     }
                 }
             },
+
+            new Aircraft
+            {
+                aircraftType = "hammerhead",
+                aircraftName = "Piaggio Aerospace Hammerhead",
+                hitPoint = 50,
+                size = new int[] { 200, 59 },
+                speed = 7,
+                price = 31,
+                cantEscape = true,
+                deadSprite = true,
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
+                        elementName = "ltl_prop",
+                        y = 3,
+                        x_left = 134,
+                        x_right = 53,
+                        movingType = DynamicElement.MovingType.yRotate,
+                    }
+                }
+            },
         };
 
         public static List<Aircraft> helicopters = new List<Aircraft>()
