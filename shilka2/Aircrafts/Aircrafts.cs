@@ -985,6 +985,7 @@ namespace shilka2
                 wrecksNumber = 4,
                 price = 0.01,
                 deadSprite = true,
+                cantEscape = true,
                 weight = Aircraft.WeightType.Light,
                 elements = new List<DynamicElement>
                 {
@@ -1235,6 +1236,7 @@ namespace shilka2
                 wrecksNumber = 4,
                 price = 0.01,
                 deadSprite = true,
+                cantEscape = true,
                 weight = Aircraft.WeightType.Light,
                 elements = new List<DynamicElement>
                 {
@@ -1363,6 +1365,7 @@ namespace shilka2
                 wrecksNumber = 4,
                 price = 0.01,
                 deadSprite = true,
+                cantEscape = true,
                 weight = Aircraft.WeightType.Light,
                 elements = new List<DynamicElement>
                 {
@@ -1398,6 +1401,7 @@ namespace shilka2
                 wrecksNumber = 4,
                 price = 0.01,
                 deadSprite = true,
+                cantEscape = true,
                 weight = Aircraft.WeightType.Middle,
                 elements = new List<DynamicElement>
                 {
@@ -1516,6 +1520,7 @@ namespace shilka2
                 wrecksNumber = 4,
                 price = 0.01,
                 deadSprite = true,
+                cantEscape = true,
                 weight = Aircraft.WeightType.Light,
                 elements = new List<DynamicElement>
                 {
@@ -1551,6 +1556,7 @@ namespace shilka2
                 wrecksNumber = 4,
                 price = 0.01,
                 deadSprite = true,
+                cantEscape = true,
                 weight = Aircraft.WeightType.Light,
                 elements = new List<DynamicElement>
                 {
@@ -1582,6 +1588,7 @@ namespace shilka2
                 size = new int[] { 85, 35 },
                 speed = 6,
                 deadSprite = true,
+                cantEscape = true,
                 weight = Aircraft.WeightType.Middle,
                 maxAltitude = maxAltitudeForHelicopters,
                 wrecksMaxSize = Constants.WRECKS_MICRO,
@@ -1639,6 +1646,7 @@ namespace shilka2
                 wrecksNumber = 4,
                 price = 0.01,
                 deadSprite = true,
+                cantEscape = true,
                 weight = Aircraft.WeightType.Light,
                 elements = new List<DynamicElement>
                 {
@@ -1692,6 +1700,7 @@ namespace shilka2
                 wrecksNumber = 4,
                 price = 0.01,
                 deadSprite = true,
+                cantEscape = true,
                 weight = Aircraft.WeightType.Light,
                 elements = new List<DynamicElement>
                 {
