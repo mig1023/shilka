@@ -794,17 +794,18 @@ namespace shilka2
             {
                 aircraftType = "supertucano",
                 aircraftName = "Embraer EMB 314 Super Tucano",
-                hitPoint = 70,
-                size = new int[] { 200, 62 },
-                speed = 7,
+                hitPoint = 60,
+                size = new int[] { 205, 62 },
+                speed = 6,
                 price = 14,
+                deadSprite = true,
                 elements = new List<DynamicElement>
                 {
                     new DynamicElement
                     {
                         elementName = "ltl_prop",
                         y = 12,
-                        x_left = -8,
+                        x_left = -3,
                         x_right = 193,
                         movingType = DynamicElement.MovingType.yRotate,
                         mirror = true,
