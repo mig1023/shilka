@@ -789,6 +789,28 @@ namespace shilka2
                     }
                 }
             },
+
+            new Aircraft
+            {
+                aircraftType = "supertucano",
+                aircraftName = "Embraer EMB 314 Super Tucano",
+                hitPoint = 70,
+                size = new int[] { 200, 62 },
+                speed = 7,
+                price = 14,
+                elements = new List<DynamicElement>
+                {
+                    new DynamicElement
+                    {
+                        elementName = "ltl_prop",
+                        y = 12,
+                        x_left = -8,
+                        x_right = 193,
+                        movingType = DynamicElement.MovingType.yRotate,
+                        mirror = true,
+                    }
+                }
+            },
         };
 
         public static List<Aircraft> helicopters = new List<Aircraft>()
