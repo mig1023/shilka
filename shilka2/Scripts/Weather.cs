@@ -32,10 +32,26 @@ namespace shilka2
         public static void RestartCycle()
         {
             Array weathers = Enum.GetValues(typeof(weatherTypes));
-            weatherTypes currentWeatherForScripts = (weatherTypes)weathers.GetValue(rand.Next(weathers.Length));
+            weatherTypes currentWeatherForScripts = (weatherTypes)weathers.GetValue(RandForNewWeather(weathers.Length));
             currentWeather = Scripts.ScriptsWeather(Shilka.currentScript, currentWeatherForScripts);
 
             RestartCycle(currentWeather, newWeatherCycle: 0);
+        }
+
+        private static int RandForNewWeather(int maxWeatherNum)
+        {
+            int weatherCategory = rand.Next(1, 4);
+
+            switch (weatherCategory)
+            {
+                case 1:
+                case 2:
+                    return 0;
+
+                case 3:
+                default:
+                    return rand.Next(maxWeatherNum);
+            };
         }
 
         public static void RestartCycle(Weather.weatherTypes newWeather, int? newWeatherCycle = null)
