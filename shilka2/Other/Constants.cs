@@ -33,7 +33,7 @@ namespace shilka2
 
         // wrecks
         public const int WRECKS_RAND_RANGE = 11;
-        public const int WRECKS_TYPE_NUM = 8;
+        public const int WRECKS_TYPE_NUM = 9;
         public const int WRECKS_MIN_SIZE = 2;
         public const int WRECKS_MIN_ROTATE_SPEED = 8;
         public const int WRECKS_MAX_ROTATE_SPEED = 36;
