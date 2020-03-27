@@ -368,6 +368,7 @@
     <Resource Include="Images\Aircraft\supertucano.png" />
     <Resource Include="Images\DeadSprite\supertucano_dead.png" />
     <Resource Include="Images\Other\wrecks9.png" />
+    <Resource Include="Images\Other\wrecks10.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
