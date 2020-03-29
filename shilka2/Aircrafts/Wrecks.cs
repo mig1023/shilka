@@ -41,9 +41,10 @@ namespace shilka2
         }
 
         public static void WreckBreackOffFromAircraft(double startX, double startY,
-            Aircraft.FlightDirectionType direction, int maxSpeed, int wrecksMaxSize, int wrecksNumber)
+            Aircraft.FlightDirectionType direction, int maxSpeed, int maxSize,
+            int number, int randomDistance = 0)
         {
-            if (rand.Next(Constants.WRECKS_RAND_RANGE) > wrecksNumber)
+            if (rand.Next(Constants.WRECKS_RAND_RANGE) > number)
                 return;
 
             wreckMutex++;
@@ -55,7 +56,7 @@ namespace shilka2
 
             Wrecks newWreck = new Wrecks();
 
-            newWreck.x = startX;
+            newWreck.x = startX + (randomDistance > 0 ? rand.Next(randomDistance / 2) : 0);
             newWreck.y = startY;
 
             newWreck.sin = 0;
@@ -75,8 +76,8 @@ namespace shilka2
 
                 Image newImage = new Image();
 
-                newImage.Width = rand.Next(wrecksMaxSize) + Constants.WRECKS_MIN_SIZE;
-                newImage.Height = rand.Next(wrecksMaxSize) + Constants.WRECKS_MIN_SIZE;
+                newImage.Width = rand.Next(maxSize) + Constants.WRECKS_MIN_SIZE;
+                newImage.Height = rand.Next(maxSize) + Constants.WRECKS_MIN_SIZE;
 
                 newImage.Source = Aircraft.ImageFromResources("wrecks" + (Aircraft.rand.Next(1, wr_rand_num)), Aircraft.ImageType.Other);
                 newImage.Margin = new Thickness(newWreck.x, newWreck.y, 0, 0);

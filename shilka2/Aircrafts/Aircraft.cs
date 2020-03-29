@@ -599,6 +599,7 @@ namespace shilka2
             newAircraft.cantEscape = cantEscape;
             newAircraft.deadSprite = deadSprite;
             newAircraft.weight = weight;
+            newAircraft.size = size;
 
             newAircraft.fly = true;
             newAircraft.placeOfDamage = 0;
@@ -607,7 +608,7 @@ namespace shilka2
             newAircraft.zeroSpeed = zeroSpeed;
             newAircraft.doesNotFlyInBadWeather = doesNotFlyInBadWeather;
             newAircraft.aerostat = aerostat;
-
+            
             newAircraft.wrecksMaxSize = wrecksMaxSize;
             newAircraft.wrecksNumber = wrecksNumber;
 
