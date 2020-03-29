@@ -813,14 +813,13 @@ namespace shilka2
 
                 main.TruckCraneImg.Visibility = Visibility.Visible;
                 
-                double suspendedTargetX, suspendedTargetY;
+                Aircraft newAircraft = Aircrafts.suspendedTargets[rand.Next(Aircrafts.suspendedTargets.Count)];
 
-                int target = rand.Next(Constants.TRAINING_OLD_AIRCRAFT_START, Constants.TRAINING_OLD_AIRCRAFT_STOP);
-                suspendedTargetX = main.TruckCraneImg.Margin.Left - Aircrafts.targetTugs[target].suspendedLeftCorrection;
-                suspendedTargetY = main.TruckCraneImg.Margin.Top + Aircrafts.targetTugs[target].suspendedTopCorrection;
-
-                Aircraft newAircraft = Aircrafts.targetTugs[target];
-                newAircraft.CreateNewAircraft(startX: suspendedTargetX, startY: suspendedTargetY, suspended: true);
+                newAircraft.CreateNewAircraft(
+                    startX: main.TruckCraneImg.Margin.Left - newAircraft.suspendedLeftCorrection,
+                    startY: main.TruckCraneImg.Margin.Top + newAircraft.suspendedTopCorrection,
+                    suspended: true
+                );
             }));
         }
 

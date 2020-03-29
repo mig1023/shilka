@@ -2958,6 +2958,10 @@ namespace shilka2
                 canPlaneForALongTime = true,
                 wrecksMaxSize = Constants.WRECKS_MICRO,
             },
+        };
+
+        public static List<Aircraft> suspendedTargets = new List<Aircraft>()
+        {
             new Aircraft
             {
                 aircraftType = "old_mig15",
