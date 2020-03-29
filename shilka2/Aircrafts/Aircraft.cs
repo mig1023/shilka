@@ -72,6 +72,9 @@ namespace shilka2
         public static bool suspendedTargetDowned = false;
         private static int suspendedTargetTimerCount = 0;
 
+        public int suspendedTopCorrection = 0;
+        public int suspendedLeftCorrection = 0;
+
         public static int allAircraftsInGame = 0;
 
         public Image aircraftImage;
@@ -809,24 +812,12 @@ namespace shilka2
                 );
 
                 main.TruckCraneImg.Visibility = Visibility.Visible;
-
-                int target;
+                
                 double suspendedTargetX, suspendedTargetY;
 
-                if (rand.Next(2) == 1)
-                {
-                    target = Constants.TRAINING_OLD_MIG9_INDEX;
-
-                    suspendedTargetX = main.TruckCraneImg.Margin.Left - Constants.TRAINING_CRANE_MIG9_LEFT_CORRECTTION;
-                    suspendedTargetY = main.TruckCraneImg.Margin.Top + Constants.TRAINING_CRANE_MIG9_TOP_CORRECTTION;
-                }
-                else
-                {
-                    target = Constants.TRAINING_OLD_MIG15_INDEX;
-
-                    suspendedTargetX = main.TruckCraneImg.Margin.Left - Constants.TRAINING_CRANE_MIG15_LEFT_CORRECTTION;
-                    suspendedTargetY = main.TruckCraneImg.Margin.Top + Constants.TRAINING_CRANE_MIG15_TOP_CORRECTTION;
-                }
+                int target = rand.Next(Constants.TRAINING_OLD_AIRCRAFT_START, Constants.TRAINING_OLD_AIRCRAFT_STOP + 1);
+                suspendedTargetX = main.TruckCraneImg.Margin.Left - Aircrafts.targetTugs[target].suspendedLeftCorrection;
+                suspendedTargetY = main.TruckCraneImg.Margin.Top + Aircrafts.targetTugs[target].suspendedTopCorrection;
 
                 Aircraft newAircraft = Aircrafts.targetTugs[target];
                 newAircraft.CreateNewAircraft(startX: suspendedTargetX, startY: suspendedTargetY, suspended: true);
@@ -839,7 +830,7 @@ namespace shilka2
 
             if (Shilka.school)
                 aircraftCategory = AircraftCategoryForSchool(aircraftCategory, allAircraftsInGame);
-            
+
             int dice;
 
             Aircraft newAircraft;

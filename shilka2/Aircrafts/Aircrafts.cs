@@ -2968,6 +2968,8 @@ namespace shilka2
                 cantEscape = true,
                 fallLikeAStone = true,
                 zeroSpeed = true,
+                suspendedTopCorrection = 168,
+                suspendedLeftCorrection = 75,
             },
             new Aircraft
             {
@@ -2979,6 +2981,21 @@ namespace shilka2
                 cantEscape = true,
                 fallLikeAStone = true,
                 zeroSpeed = true,
+                suspendedTopCorrection = 178,
+                suspendedLeftCorrection = 75,
+            },
+            new Aircraft
+            {
+                aircraftType = "old_su11",
+                aircraftName = "списанный Су-11",
+                hitPoint = 200,
+                size = new int[] { 205, 74 },
+                weight = Aircraft.WeightType.Heavy,
+                cantEscape = true,
+                fallLikeAStone = true,
+                zeroSpeed = true,
+                suspendedTopCorrection = 178,
+                suspendedLeftCorrection = 75,
             },
         };
 
