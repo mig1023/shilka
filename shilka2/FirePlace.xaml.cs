@@ -454,7 +454,10 @@ namespace shilka2
         private void GameOver(string playerName = "")
         {
             if (!String.IsNullOrEmpty(playerName))
+            {
                 Statistic.Save(playerName.Replace("|", String.Empty));
+                StatisticGrid.ItemsSource = Statistic.Load();
+            }
 
             Canvas prevMenu = ( Shilka.school || Shilka.training ? RestartTrainingMenu : EndMenu);
 
@@ -479,7 +482,6 @@ namespace shilka2
         private void GameOverWithSave_Click(object sender, RoutedEventArgs e)
         {
             GameOver(PlayerName.Text);
-            StatisticGrid.ItemsSource = Statistic.Load();
         }
 
         private void PlayerName_KeyUp(object sender, KeyEventArgs e)
