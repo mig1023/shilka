@@ -105,5 +105,7 @@ The game is about a small anti-aircraft vehicle in the school notebook
 | Drones | Drones | Drones |
 | ------------- | ------------- | ------------- |
 | Dan-M | Decommissioned MiG-9 | Decommissioned MiG-15 |
+| Decommissioned Su-11 | Decommissioned Yak-25 | Decommissioned Yak-27 |
 | Enics E-95 | Ilyushin Il-28BM (target tug) + 77BM2 (target) | Lockheed D-21 |
 | Lavochkin La-17MM | Northrop MQM-36A Shelduck | Tupolev M-16K |
+
