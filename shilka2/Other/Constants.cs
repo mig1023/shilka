@@ -146,7 +146,7 @@ namespace shilka2
 
         public const int TRAINING_TIMEOUT_BEFORE_FIRST_INFO = 1;
         public const int TRAINING_OLD_AIRCRAFT_START = 3;
-        public const int TRAINING_OLD_AIRCRAFT_STOP = 7;
+        public const int TRAINING_OLD_AIRCRAFT_STOP = 8;
         public const int TRAINING_CRANE_LEFT_CORRECTTION = 200;
         public const int TRAINING_CRANE_TOP_CORRECTTION = 5;
         public const int TRAINING_CRANE_ANGLE_MAX = 15;
