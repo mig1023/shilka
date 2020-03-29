@@ -815,7 +815,7 @@ namespace shilka2
                 
                 double suspendedTargetX, suspendedTargetY;
 
-                int target = rand.Next(Constants.TRAINING_OLD_AIRCRAFT_START, Constants.TRAINING_OLD_AIRCRAFT_STOP + 1);
+                int target = rand.Next(Constants.TRAINING_OLD_AIRCRAFT_START, Constants.TRAINING_OLD_AIRCRAFT_STOP);
                 suspendedTargetX = main.TruckCraneImg.Margin.Left - Aircrafts.targetTugs[target].suspendedLeftCorrection;
                 suspendedTargetY = main.TruckCraneImg.Margin.Top + Aircrafts.targetTugs[target].suspendedTopCorrection;
 

@@ -2997,6 +2997,19 @@ namespace shilka2
                 suspendedTopCorrection = 178,
                 suspendedLeftCorrection = 75,
             },
+            new Aircraft
+            {
+                aircraftType = "old_yak25",
+                aircraftName = "списанный Як-25",
+                hitPoint = 200,
+                size = new int[] { 205, 60 },
+                weight = Aircraft.WeightType.Heavy,
+                cantEscape = true,
+                fallLikeAStone = true,
+                zeroSpeed = true,
+                suspendedTopCorrection = 178,
+                suspendedLeftCorrection = 75,
+            },
         };
 
         public static Aircraft FindEnemyAircraft(string name)
