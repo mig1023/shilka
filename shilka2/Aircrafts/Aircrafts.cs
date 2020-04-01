@@ -2931,7 +2931,7 @@ namespace shilka2
                 friend = true,
                 trainingTug = true,
                 minAltitude = minAltitudeForLargeAircraft,
-                wrecksMaxSize = Constants.WRECKS_MICRO,
+                wrecksMaxSize = Constants.WRECKS_LTL,
             },
 
             new Aircraft
@@ -2956,7 +2956,7 @@ namespace shilka2
                 weight = Aircraft.WeightType.Middle,
                 cantEscape = true,
                 canPlaneForALongTime = true,
-                wrecksMaxSize = Constants.WRECKS_MICRO,
+                wrecksMaxSize = Constants.WRECKS_LTL,
             },
         };
 
