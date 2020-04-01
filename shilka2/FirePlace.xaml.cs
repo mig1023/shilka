@@ -15,6 +15,8 @@ namespace shilka2
 {
     public partial class FirePlace : Window
     {
+        public enum moveDirection { horizontal_left, horizontal_right, vertical_top, vertical_bottom };
+
         public System.Timers.Timer Game = new System.Timers.Timer(30);
         public System.Timers.Timer HandMove = new System.Timers.Timer(600);
         public System.Timers.Timer AircraftsStart = new System.Timers.Timer(2000);
@@ -29,6 +31,10 @@ namespace shilka2
         string statisticColor = "#FF5B5B5B";
         string startColor = "#FF343333";
         string endColor = "#FF0F0570";
+
+        public static Canvas currentCanvas = null;
+        public static Canvas canvasToRemove = null;
+        public static Canvas containerToRemove = null;
 
         static bool SchoolTicTac = false;
 
@@ -105,6 +111,8 @@ namespace shilka2
 
             ToolTipService.ShowDurationProperty.OverrideMetadata(
                 typeof(DependencyObject), new FrameworkPropertyMetadata(Int32.MaxValue));
+
+            currentCanvas = StartMenu;
         }
 
         public void StartGame(int?[] scriptAircraft, int?[] scriptHelicopters, int?[] scriptAircraftFriend,
@@ -129,12 +137,14 @@ namespace shilka2
             Scripts.scriptHelicoptersFriend = scriptHelicoptersFriend;
             Scripts.scriptAirliners = scriptAirliners;
 
-            MoveCanvas(
-                moveCanvas: StartMenu,
-                prevCanvas: firePlaceDock,
-                left: StartMenu.Margin.Left - StartMenu.ActualWidth,
-                speed: 0.6
-            );
+            //MoveCanvas(
+            //    moveCanvas: StartMenu,
+            //    prevCanvas: firePlaceDock,
+            //    left: StartMenu.Margin.Left - StartMenu.ActualWidth,
+            //    speed: 0.6
+            //);
+
+            Move(this, firePlaceDock, StartMenu, moveDirection.horizontal_right, speed: 0.6);
 
             if (!startGameAlready)
             {
@@ -308,6 +318,86 @@ namespace shilka2
                 Game.Start();
                 AircraftsStart.Start();
             }
+        }
+
+
+        public static void Move(FirePlace main, Canvas moveCanvas, Canvas prevCanvas, moveDirection direction, 
+            double speed = 1, EventHandler secondAnimation = null)
+        {
+            double screenWidth = SystemParameters.PrimaryScreenWidth;
+            double screenHeight = SystemParameters.PrimaryScreenHeight;
+            Thickness zeroPosition = new Thickness(0, 0, 0, 0);
+
+            if (containerToRemove != null)
+            {
+                containerToRemove.Children.Remove(canvasToRemove);
+                containerToRemove.Children.Remove(currentCanvas);
+                main.gridFirePlace.Children.Add(currentCanvas);
+                currentCanvas.Margin = zeroPosition;
+                main.gridFirePlace.Children.Remove(containerToRemove);
+            }
+
+            Canvas containerCanvas = new Canvas();
+            main.gridFirePlace.Children.Add(containerCanvas);
+            main.gridFirePlace.Children.Remove(moveCanvas);
+            containerCanvas.Children.Add(moveCanvas);
+            main.gridFirePlace.Children.Remove(currentCanvas);
+            containerCanvas.Children.Add(currentCanvas);
+
+            ThicknessAnimation move = new ThicknessAnimation();
+            move.Duration = TimeSpan.FromSeconds(speed);
+
+            if ((direction == moveDirection.horizontal_right) || (direction == moveDirection.horizontal_left))
+            {
+                containerCanvas.Width = screenWidth * 2;
+                containerCanvas.Height = moveCanvas.Height;
+
+                if (direction == moveDirection.horizontal_right)
+                {
+                    containerCanvas.Margin = zeroPosition;
+                    moveCanvas.Margin = new Thickness(screenWidth, 0, 0, 0);
+                    currentCanvas.Margin = zeroPosition;
+                    move.To = new Thickness(screenWidth * -1, 0, 0, 0);
+                }
+                else
+                {
+                    containerCanvas.Margin = new Thickness(screenWidth * -1, 0, 0, 0);
+                    moveCanvas.Margin = zeroPosition;
+                    currentCanvas.Margin = new Thickness(screenWidth, 0, 0, 0);
+                    move.To = zeroPosition;
+                }
+            }
+            else
+            {
+                containerCanvas.Width = moveCanvas.Width;
+                containerCanvas.Height = screenHeight * 2;
+
+                if (direction == moveDirection.vertical_top)
+                {
+                    containerCanvas.Margin = zeroPosition;
+                    moveCanvas.Margin = new Thickness(0, screenHeight, 0, 0);
+                    currentCanvas.Margin = zeroPosition;
+                    move.To = new Thickness(0, screenHeight * -1, 0, 0);
+                }
+                else
+                {
+                    containerCanvas.Margin = new Thickness(0, screenHeight * -1, 0, 0);
+                    moveCanvas.Margin = zeroPosition;
+                    currentCanvas.Margin = new Thickness(0, screenHeight, 0, 0);
+                    move.To = zeroPosition;
+                }
+            }
+
+            move.From = containerCanvas.Margin;
+
+            Canvas.SetZIndex(moveCanvas, 100);
+            Canvas.SetZIndex(currentCanvas, 50);
+
+            containerCanvas.BeginAnimation(FrameworkElement.MarginProperty, move);
+
+            containerToRemove = containerCanvas;
+            canvasToRemove = currentCanvas;
+            currentCanvas = moveCanvas;
         }
 
         public void MoveCanvas(Canvas moveCanvas, Canvas prevCanvas, double left = -1, double top = -1,
