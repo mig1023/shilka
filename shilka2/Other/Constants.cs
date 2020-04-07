@@ -41,6 +41,7 @@ namespace shilka2
         public const int WRECKS_LTL = 7;
         public const int WRECKS_BIG = 12;
         public const int WRECKS_GIGANT = 14;
+        public const int WRECKS_SUSP_WRECKS_PART = 3;
 
         // cloud
         public const int CLOUD_SPEED = 5;

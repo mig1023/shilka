@@ -56,7 +56,7 @@ namespace shilka2
 
             Wrecks newWreck = new Wrecks();
 
-            newWreck.x = startX + (randomDistance > 0 ? rand.Next(randomDistance / 2) : 0);
+            newWreck.x = startX + (randomDistance > 0 ? rand.Next(randomDistance / Constants.WRECKS_SUSP_WRECKS_PART) : 0);
             newWreck.y = startY;
 
             newWreck.sin = 0;
