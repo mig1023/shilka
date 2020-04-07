@@ -26,10 +26,10 @@
         </Canvas>
         <Canvas x:Name="EndMenu" HorizontalAlignment="Left" Height="320" Margin="513,0,-511,0" VerticalAlignment="Top" Width="515">
             <TextBlock x:Name="EndText" Height="167" TextWrapping="Wrap" Canvas.Left="24" Canvas.Top="15" Width="446" Foreground="White" FontSize="32" FontFamily="Arial Narrow"/>
-            <TextBox x:Name="PlayerName" Height="33" Canvas.Left="24" TextWrapping="Wrap" Text="" Canvas.Top="217" Width="434" FontSize="18.667" KeyUp="PlayerName_KeyUp"/>
+            <TextBox x:Name="PlayerName" Height="33" Canvas.Left="24" TextWrapping="Wrap" Text="" Padding="6,2,0,0" Canvas.Top="217" Width="434" FontSize="18.667" KeyUp="PlayerName_KeyUp"/>
             <Button x:Name="GameOverWithSave" Content="сохранить" Height="41" Canvas.Left="246" Canvas.Top="261" Width="212" Click="GameOverWithSave_Click" IsEnabled="False" FontFamily="font/calibri.ttf" FontSize="20"/>
             <Button x:Name="GameOverWithoutSave" Content="не сохранять" Height="41" Canvas.Left="23" Canvas.Top="261" Width="212" Click="GameOverWithoutSave_Click" FontFamily="font/calibri.ttf" FontSize="20"/>
-            <Label x:Name="playerPlaceHolder" Content="введите имя стрелка" FontSize="20" Foreground="Gray" Height="35" Canvas.Left="24" Canvas.Top="213" Width="212" MouseDown="playerPlaceHolder_MouseDown"/>
+            <Label x:Name="playerPlaceHolder" Content="введите имя стрелка" FontSize="20" Foreground="Gray" Height="35" Canvas.Left="30" Canvas.Top="214" Width="212" MouseDown="playerPlaceHolder_MouseDown"/>
         </Canvas>
         <Canvas x:Name="RestartTrainingMenu" HorizontalAlignment="Left" Height="320" Margin="513,0,-511,0" VerticalAlignment="Top" Width="515">
             <TextBlock x:Name="RestartText" Height="167" TextWrapping="Wrap" Canvas.Left="24" Canvas.Top="15" Width="446" Foreground="White" FontSize="32" FontFamily="Arial Narrow"/>
