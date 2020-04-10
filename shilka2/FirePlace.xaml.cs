@@ -692,7 +692,7 @@ namespace shilka2
                 "\u2014 из них без повреждений", String.Format("{0}%", statRow.withoutDamage)
             });
             StatBoxAddRow(new String[] {
-                "\u2014 из них на сбитый", String.Format("{0} выстр./сбитый", shellsForShutdown),
+                "настрел на сбитие", String.Format("{0} выстр./сбитый", shellsForShutdown),
                 "нанесён ущерб", Statistic.HumanReadableSumm(statRow.amountOfDamage)
             });
             StatBoxAddRow(new String[] {
