@@ -32,15 +32,15 @@ namespace shilka2
         public const double THROWS_UP_BY_HITS_FOR_MIDDLE_AIRCRAFT = 4;
 
         // wrecks
-        public const int WRECKS_RAND_RANGE = 11;
+        public const int WRECKS_RAND_RANGE = 10;
         public const int WRECKS_TYPE_NUM = 10;
         public const int WRECKS_MIN_SIZE = 2;
         public const int WRECKS_MIN_ROTATE_SPEED = 8;
         public const int WRECKS_MAX_ROTATE_SPEED = 36;
-        public const int WRECKS_MICRO = 3;
-        public const int WRECKS_LTL = 7;
+        public const int WRECKS_MICRO = 4;
+        public const int WRECKS_LTL = 9;
         public const int WRECKS_BIG = 12;
-        public const int WRECKS_GIGANT = 14;
+        public const int WRECKS_GIGANT = 15;
         public const int WRECKS_SUSP_WRECKS_PART = 3;
 
         // cloud
