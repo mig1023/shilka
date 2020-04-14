@@ -125,6 +125,9 @@ namespace shilka2
 
                     Canvas.SetZIndex(palm, 5);
 
+                    if (rand.Next(2) == 1)
+                        palm.FlowDirection = FlowDirection.RightToLeft;
+
                     double topPalmPosotion = notebookBackground.ActualHeight - palm.Height + 50;
                     palmPosition += rand.Next(Constants.VIETNAM_PALM_DISTANCE);
 
