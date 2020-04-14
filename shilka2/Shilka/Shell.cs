@@ -210,6 +210,8 @@ namespace shilka2
 
                         newShell.shellImage = newImage;
 
+                        Canvas.SetZIndex(newImage, 10);
+
                         main.firePlace.Children.Add(newImage);
                         shells.Add(newShell);
                     }));

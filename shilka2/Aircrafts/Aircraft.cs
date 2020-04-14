@@ -647,6 +647,8 @@ namespace shilka2
                         aircraftImage.Source = sprite;
                 }
 
+                Canvas.SetZIndex(aircraftImage, 1);
+
                 Statistic.staticticAircraftShutdown += 1;
                 Statistic.statisticAmountOfDamage += price;
 

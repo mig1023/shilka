@@ -168,5 +168,10 @@ namespace shilka2
         public const double MAX_FRAGM_SIN_DAMAGED = 1;
         public const double MAX_FRAGM_COS_DAMAGED = 1;
         public const int MAX_SPEED_DAMAGED = 7;
+
+        public const int VIETNAM_PALM_START_POSITION = -100;
+        public const int VIETNAM_PALM_HEIGHT_RANDOM = 100;
+        public const int VIETNAM_PALM_HEIGHT_MIN = 100;
+        public const int VIETNAM_PALM_DISTANCE = 80;
     }
 }

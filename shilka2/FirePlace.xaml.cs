@@ -109,18 +109,37 @@ namespace shilka2
                 typeof(DependencyObject), new FrameworkPropertyMetadata(Int32.MaxValue));
         }
 
+        private void ScriptImages()
+        {
+            Random rand = new Random();
+
+            if (Shilka.currentScript == Scripts.scriptsNames.Vietnam)
+            {
+                int palmPosition = Constants.VIETNAM_PALM_START_POSITION;
+
+                while (palmPosition < notebookBackground.ActualWidth)
+                {
+                    Image palm = new Image();
+
+                    palm.Height = rand.Next(Constants.VIETNAM_PALM_HEIGHT_RANDOM) + Constants.VIETNAM_PALM_HEIGHT_MIN;
+
+                    Canvas.SetZIndex(palm, 5);
+
+                    double topPalmPosotion = notebookBackground.ActualHeight - palm.Height + 50;
+                    palmPosition += rand.Next(Constants.VIETNAM_PALM_DISTANCE);
+
+                    palm.Source = Aircraft.ImageFromResources("palm", Aircraft.ImageType.Interface);
+                    palm.Margin = new Thickness(palmPosition, topPalmPosotion, 0, 0);
+
+                    firePlace.Children.Add(palm);
+                }
+            }
+        }
+
         public void StartGame(int?[] scriptAircraft, int?[] scriptHelicopters, int?[] scriptAircraftFriend,
             int?[] scriptHelicoptersFriend, int?[] scriptAirliners)
         {
             startMenuShowYet = false;
-
-            if (startGameAlready)
-            {
-                Shilka.EndGameCleaning();
-                pause = false;
-                pauseButton.IsChecked = false;
-                Shell.animationStop = false;
-            }
 
             double trainingAdditions = ((Shilka.school || Shilka.training) ? 25 : 0);
             statShells.Margin = new Thickness(Constants.STAT_TEXT_TOP, Constants.STAT_TEXT_LEFT + trainingAdditions, 0, 0);
@@ -130,6 +149,8 @@ namespace shilka2
             Scripts.scriptAircraftFriend = scriptAircraftFriend;
             Scripts.scriptHelicoptersFriend = scriptHelicoptersFriend;
             Scripts.scriptAirliners = scriptAirliners;
+
+            ScriptImages();
 
             MoveCanvas(
                 moveCanvas: StartMenu,
@@ -451,6 +472,11 @@ namespace shilka2
                 left: StartMenu.Margin.Left + StartMenu.ActualWidth,
                 speed: 0.6
             );
+
+            Shilka.EndGameCleaning();
+            pause = false;
+            pauseButton.IsChecked = false;
+            Shell.animationStop = false;
         }
 
         private void GameOver(string playerName = "")
@@ -541,6 +567,7 @@ namespace shilka2
                 statShells.Foreground = Brushes.Black;
 
             notebookBackground.Source = Aircraft.ImageFromResources("background", Aircraft.ImageType.Interface);
+                
             ShilkaImg.Source = Aircraft.ImageFromResources("shilka", Aircraft.ImageType.Interface);
 
             StartGame(
