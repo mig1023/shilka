@@ -310,6 +310,23 @@ namespace shilka2
                 Canvas.SetZIndex(gun, 200);
                 Shell.allLines.Add(gun);
 
+                if (Shilka.currentScript == Scripts.scriptsNames.Vietnam)
+                {
+                    Line backGun = new Line();
+
+                    backGun.X1 = gun.X1;
+                    backGun.X2 = gun.X2;
+                    backGun.Y1 = gun.Y1;
+                    backGun.Y2 = gun.Y2;
+
+                    backGun.StrokeThickness = gun.StrokeThickness + 2;
+                    backGun.Stroke = Brushes.White;
+
+                    main.firePlace.Children.Add(backGun);
+                    Canvas.SetZIndex(backGun, 199);
+                    Shell.allLines.Add(backGun);
+                }
+
                 if (fire)
                     DrawGansFlashs(main, gun, numGuns, gun.StrokeThickness);
             }
