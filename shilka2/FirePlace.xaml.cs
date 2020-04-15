@@ -140,19 +140,19 @@ namespace shilka2
 
             if (Shilka.currentScript == Scripts.scriptsNames.Rust)
             {
-                Image kreml = new Image();
+                Image kremlin = new Image();
 
-                kreml.Height = Constants.RUST_KREML_HEIGHT;
+                kremlin.Height = Constants.RUST_KREMLIN_HEIGHT;
 
-                Canvas.SetZIndex(kreml, 5);
+                Canvas.SetZIndex(kremlin, 5);
 
-                double topKremlPosotion = notebookBackground.ActualHeight - kreml.Height + 50;
-                double leftKremlPosition = notebookBackground.ActualWidth - Constants.RUST_KREML_RIGHT_POSITION;
+                double topKremlPosotion = notebookBackground.ActualHeight - kremlin.Height + 50;
+                double leftKremlPosition = notebookBackground.ActualWidth / Constants.RUST_KREMLIN_RIGHT_POSITION;
 
-                kreml.Source = Aircraft.ImageFromResources("kreml", Aircraft.ImageType.Interface);
-                kreml.Margin = new Thickness(leftKremlPosition, topKremlPosotion, 0, 0);
+                kremlin.Source = Aircraft.ImageFromResources("kremlin", Aircraft.ImageType.Interface);
+                kremlin.Margin = new Thickness(leftKremlPosition, topKremlPosotion, 0, 0);
 
-                firePlace.Children.Add(kreml);
+                firePlace.Children.Add(kremlin);
             }
         }
 
