@@ -107,7 +107,7 @@ namespace shilka2
                             Canvas.SetZIndex(shellTrace, 20);
                             allLines.Add(shellTrace);
 
-                            Statistic.staticticInTarget++;
+                            Statistic.ShellFiredAdd(inTarget: true);
 
                             if (itsOnlyTargetPlane)
                             {
@@ -216,7 +216,7 @@ namespace shilka2
                         shells.Add(newShell);
                     }));
 
-                    Statistic.statisticShellsFired++;
+                    Statistic.ShellFiredAdd();
 
                     Case.CaseExtractor();
                 }

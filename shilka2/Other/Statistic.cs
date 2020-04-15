@@ -17,36 +17,130 @@ namespace shilka2
         public static int statisticGridMargins = 120;
         public static double aircraftAveragePrice = 0;
 
-        public static int statisticShellsFired = 0;
-        public static int staticticInTarget = 0;
-        public static int statisticAllAircraft = 0;
-        public static double statisticPriceOfAllAircrafts = 0;
-        public static int staticticAircraftShutdown = 0;
-        public static int statisticHasGone = 0;
-        public static int statisticDamaged = 0;
-        public static int statisticFriendDamage = 0;
-        public static int statisticAirlinerDamage = 0;
-        public static double statisticAmountOfDamage = 0;
+        static int statisticShellsFired = 0;
+        static int staticticInTarget = 0;
+        static int statisticAllAircraft = 0;
+        static double statisticPriceOfAllAircrafts = 0;
+        static int staticticAircraftShutdown = 0;
+        static int statisticHasGone = 0;
+        static int statisticDamaged = 0;
+        static int statisticFriendDamage = 0;
+        static int statisticAirlinerDamage = 0;
+        static double statisticAmountOfDamage = 0;
 
-        public static double statisticLastDamagePrice;
-        public static bool statisticShutdownFlag = false;
-        public static bool seriousDamage = false;
-        public static string statisticLastDamageType;
-        public static string statisticLastDamageFriend;
-        public static string statisticLastDamageAirliner;
-        public static string statisticLastHasGone;
+        static double statisticLastDamagePrice;
+        static bool statisticShutdownFlag = false;
+        static bool seriousDamage = false;
+        static string statisticLastDamageType;
+        static string statisticLastDamageFriend;
+        static string statisticLastDamageAirliner;
+        static string statisticLastHasGone;
 
-        public static int gameTimeSec = 0;
-        public static int gameBadWeatherSec = 0;
-        public static int shootingTimeSec = 0;
-        public static int shootingNumber = 0;
+        static int gameTimeSec = 0;
+        static int gameBadWeatherSec = 0;
+        static int shootingTimeSec = 0;
+        static int shootingNumber = 0;
 
         public static List<string> statisticScripts; 
 
         public enum statisticAircraftType { downed, damaged };
 
-        public static Dictionary<string, int> downedAircrafts = new Dictionary<string, int>();
-        public static Dictionary<string, int> damagedAircrafts = new Dictionary<string, int>();
+        static Dictionary<string, int> downedAircrafts = new Dictionary<string, int>();
+        static Dictionary<string, int> damagedAircrafts = new Dictionary<string, int>();
+
+        public static void Change(Aircraft aircraft)
+        {
+            if ((!aircraft.dead) && (!aircraft.friend) && (!aircraft.airliner))
+            {
+                statisticHasGone += 1;
+                statisticLastHasGone = aircraft.aircraftName;
+
+                if (aircraft.hitpoint < aircraft.hitpointMax)
+                {
+                    statisticDamaged++;
+
+                    double residualValue = aircraft.price * (double)aircraft.hitpoint / (double)aircraft.hitpointMax;
+                    double priceOfDamage = aircraft.price - residualValue;
+                    statisticAmountOfDamage += priceOfDamage;
+
+                    statisticShutdownFlag = false;
+                    statisticLastDamagePrice = priceOfDamage;
+                    statisticLastDamageType = aircraft.aircraftName;
+                    seriousDamage = (aircraft.hitpoint < (aircraft.hitpointMax / 2) ? true : false);
+
+                    AircraftToStatistic(aircraft.aircraftName, statisticAircraftType.damaged);
+                }
+            }
+            else if (aircraft.hitpoint < aircraft.hitpointMax)
+            {
+                if (aircraft.friend)
+                {
+                    statisticFriendDamage += 1;
+                    statisticLastDamageFriend = aircraft.aircraftName;
+                }
+                else if (aircraft.airliner)
+                {
+                    statisticAirlinerDamage += 1;
+                    statisticLastDamageAirliner = aircraft.aircraftName;
+                }
+            }
+        }
+
+        public static void GameTimeAddSec(int sec)
+        {
+            if (sec == 0)
+                gameTimeSec = 0;
+            else
+                gameTimeSec += sec;
+        }
+
+        public static void ShootingNumberAdd()
+        {
+            shootingNumber += 1;
+        }
+
+        public static void ShellFiredAdd(bool inTarget = false)
+        {
+            if (inTarget)
+                staticticInTarget += 1;
+            else
+                statisticShellsFired += 1;
+        }
+
+        public static void ShootingTimeAdd()
+        {
+            shootingNumber += 1;
+
+            if (Weather.currentWeather != Weather.weatherTypes.good)
+                gameBadWeatherSec += 1;
+
+            if (Shilka.fire)
+                shootingTimeSec += 1;
+        }
+
+        public static void NewAircraftAdd(Aircraft aircraft)
+        {
+            statisticAllAircraft++;
+            statisticPriceOfAllAircrafts += aircraft.price;
+        }
+
+        public static void Shutdown(Aircraft aircraft)
+        {
+            staticticAircraftShutdown += 1;
+            statisticAmountOfDamage += aircraft.price;
+
+            statisticShutdownFlag = true;
+            statisticLastDamagePrice = aircraft.price;
+            statisticLastDamageType = aircraft.aircraftName;
+
+            AircraftToStatistic(aircraft.aircraftName, statisticAircraftType.downed);
+        } 
+
+        public static void TargetTugDisengaged()
+        {
+            staticticAircraftShutdown += 1;
+            statisticShutdownFlag = true;
+        }
 
         static void Calc(out double baseForPercent, out int shutdownPercent, out int damagedPercent,
             out int statisticWithoutDamage, out double chance, out int inTargetPercent, out int shellsForShutdown)
@@ -175,6 +269,7 @@ namespace shilka2
 
                 if (scriptFullName != Scripts.scriptsNames.noScript)
                     flagSource = Aircraft.ImageFromResources(Scripts.ScriptFlagName(scriptFullName), Aircraft.ImageType.Interface);
+
                 statisticScripts.Add(Scripts.scriptsRuNames[scriptFullName.ToString()]);
 
                 result.Add(new StatTable(

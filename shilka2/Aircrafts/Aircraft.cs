@@ -186,41 +186,10 @@ namespace shilka2
                         (((aircraft.x + aircraft.aircraftImage.Width) < 0) && (aircraft.flightDirection == FlyObject.FlightDirectionType.Left))
                         ||
                         ((aircraft.x > main.Width) && (aircraft.flightDirection == FlyObject.FlightDirectionType.Right))
-                    ) {
+                    )
+                    {
                         aircraft.fly = false;
-
-                        if ((!aircraft.dead) && (!aircraft.friend) && (!aircraft.airliner))
-                        {
-                            Statistic.statisticHasGone += 1;
-                            Statistic.statisticLastHasGone = aircraft.aircraftName;
-
-                            if (aircraft.hitpoint < aircraft.hitpointMax)
-                            {
-                                Statistic.statisticDamaged++;
-
-                                double residualValue = aircraft.price * (double)aircraft.hitpoint / (double)aircraft.hitpointMax;
-                                double priceOfDamage = aircraft.price - residualValue;
-                                Statistic.statisticAmountOfDamage += priceOfDamage;
-
-                                Statistic.statisticShutdownFlag = false;
-                                Statistic.statisticLastDamagePrice = priceOfDamage;
-                                Statistic.statisticLastDamageType = aircraft.aircraftName;
-                                Statistic.seriousDamage = (aircraft.hitpoint < (aircraft.hitpointMax / 2) ? true : false);
-
-                                Statistic.AircraftToStatistic(aircraft.aircraftName, Statistic.statisticAircraftType.damaged);
-                            }
-                        } 
-                        else if (aircraft.hitpoint < aircraft.hitpointMax)
-                            if (aircraft.friend)
-                            {
-                                Statistic.statisticFriendDamage += 1;
-                                Statistic.statisticLastDamageFriend = aircraft.aircraftName;
-                            }
-                            else if (aircraft.airliner)
-                            {
-                                Statistic.statisticAirlinerDamage += 1;
-                                Statistic.statisticLastDamageAirliner = aircraft.aircraftName;
-                            }
+                        Statistic.Change(aircraft);
                     }
 
                     aircraft.aircraftImage.Margin = new Thickness(aircraft.x, aircraft.y, 0, 0);
@@ -511,10 +480,7 @@ namespace shilka2
                     newAircraft.minAltitude = Aircrafts.minAltitudeGlobal;
 
                 if (!friend && !airliner)
-                {
-                    Statistic.statisticAllAircraft++;
-                    Statistic.statisticPriceOfAllAircrafts += price;
-                }
+                    Statistic.NewAircraftAdd(this);
 
                 if (suspended)
                     Canvas.SetZIndex(newAircraftImage, 101);
@@ -649,14 +615,7 @@ namespace shilka2
 
                 Canvas.SetZIndex(aircraftImage, 1);
 
-                Statistic.staticticAircraftShutdown += 1;
-                Statistic.statisticAmountOfDamage += price;
-
-                Statistic.statisticShutdownFlag = true;
-                Statistic.statisticLastDamagePrice = price;
-                Statistic.statisticLastDamageType = aircraftName;
-
-                Statistic.AircraftToStatistic(aircraftName, Statistic.statisticAircraftType.downed);
+                Statistic.Shutdown(this);
             }
         }
 
@@ -698,8 +657,7 @@ namespace shilka2
         {
             bool flyDirectRight = flightDirection == FlyObject.FlightDirectionType.Right;
 
-            Statistic.staticticAircraftShutdown += 1;
-            Statistic.statisticShutdownFlag = true;
+            Statistic.TargetTugDisengaged();
 
             fly = false;
 

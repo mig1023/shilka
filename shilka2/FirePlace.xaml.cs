@@ -188,7 +188,8 @@ namespace shilka2
             AircraftsStart.Enabled = true;
             AircraftsStart.Start();
 
-            Statistic.gameTimeSec = 0;
+            Statistic.GameTimeAddSec(0);
+
             GameTimer.Enabled = true;
             GameTimer.Start();
 
@@ -231,13 +232,8 @@ namespace shilka2
 
         public static void GameTimeTicTac(object obj, ElapsedEventArgs e)
         {
-            Statistic.gameTimeSec += 1;
-
-            if (Weather.currentWeather != Weather.weatherTypes.good)
-                Statistic.gameBadWeatherSec += 1;
-
-            if (Shilka.fire)
-                Statistic.shootingTimeSec += 1;
+            Statistic.GameTimeAddSec(1);
+            Statistic.ShootingTimeAdd();
         }
 
         public static void SchoolShow(object obj, ElapsedEventArgs e)
@@ -367,7 +363,7 @@ namespace shilka2
             if (!Shilka.reheatingGunBurrels && !pause)
             {
                 if (Shilka.fire == false)
-                    Statistic.shootingNumber += 1;
+                    Statistic.ShootingNumberAdd();
 
                 Shilka.fire = true;
             }
