@@ -39,6 +39,12 @@ namespace shilka2
             ["Turkey"] = "турецкое вторжение",
         };
 
+        public static Dictionary<scriptsNames, string> imagesNames = new Dictionary<scriptsNames, string>
+        {
+            [scriptsNames.Rust] = "kremlin",
+            [scriptsNames.Libya] = "sahara",
+        };
+
         public static int?[] scriptAircraft;
         public static int?[] scriptHelicopters;
         public static int?[] scriptAircraftFriend;

@@ -138,21 +138,21 @@ namespace shilka2
                 }
             }
 
-            if (Shilka.currentScript == Scripts.scriptsNames.Rust)
+            if (Scripts.imagesNames.ContainsKey(Shilka.currentScript))
             {
-                Image kremlin = new Image();
+                Image singleBackImage = new Image();
 
-                kremlin.Height = Constants.RUST_KREMLIN_HEIGHT;
+                singleBackImage.Height = Constants.SCRIPT_SINGLE_HEIGHT;
 
-                Canvas.SetZIndex(kremlin, 5);
+                Canvas.SetZIndex(singleBackImage, 5);
 
-                double topKremlPosotion = notebookBackground.ActualHeight - kremlin.Height + 50;
-                double leftKremlPosition = notebookBackground.ActualWidth / Constants.RUST_KREMLIN_RIGHT_POSITION;
+                double imgTop = notebookBackground.ActualHeight - singleBackImage.Height + 50;
+                double imgLeft = notebookBackground.ActualWidth * Constants.SCRIPT_SINGLE_RIGHT_POSITION;
 
-                kremlin.Source = Aircraft.ImageFromResources("kremlin", Aircraft.ImageType.Interface);
-                kremlin.Margin = new Thickness(leftKremlPosition, topKremlPosotion, 0, 0);
+                singleBackImage.Source = Aircraft.ImageFromResources(Scripts.imagesNames[Shilka.currentScript], Aircraft.ImageType.Interface);
+                singleBackImage.Margin = new Thickness(imgLeft, imgTop, 0, 0);
 
-                firePlace.Children.Add(kremlin);
+                firePlace.Children.Add(singleBackImage);
             }
         }
 
