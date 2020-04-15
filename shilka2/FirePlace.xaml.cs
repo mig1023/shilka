@@ -486,9 +486,13 @@ namespace shilka2
                 moveCanvas: StartMenu,
                 prevCanvas: firePlaceDock,
                 left: StartMenu.Margin.Left + StartMenu.ActualWidth,
-                speed: 0.6
+                speed: 0.6,
+                secondAnimation: new EventHandler(EndGameCleaning)
             );
+        }
 
+        private void EndGameCleaning(object Sender, EventArgs e)
+        {
             Shilka.EndGameCleaning();
             pause = false;
             pauseButton.IsChecked = false;
