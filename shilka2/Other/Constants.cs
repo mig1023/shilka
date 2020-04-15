@@ -173,5 +173,8 @@ namespace shilka2
         public const int VIETNAM_PALM_HEIGHT_RANDOM = 100;
         public const int VIETNAM_PALM_HEIGHT_MIN = 100;
         public const int VIETNAM_PALM_DISTANCE = 80;
+
+        public const int RUST_KREML_HEIGHT = 220;
+        public const int RUST_KREML_RIGHT_POSITION = 350;
     }
 }

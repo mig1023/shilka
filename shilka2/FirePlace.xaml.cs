@@ -137,6 +137,23 @@ namespace shilka2
                     firePlace.Children.Add(palm);
                 }
             }
+
+            if (Shilka.currentScript == Scripts.scriptsNames.Rust)
+            {
+                Image kreml = new Image();
+
+                kreml.Height = Constants.RUST_KREML_HEIGHT;
+
+                Canvas.SetZIndex(kreml, 5);
+
+                double topKremlPosotion = notebookBackground.ActualHeight - kreml.Height + 50;
+                double leftKremlPosition = notebookBackground.ActualWidth - Constants.RUST_KREML_RIGHT_POSITION;
+
+                kreml.Source = Aircraft.ImageFromResources("kreml", Aircraft.ImageType.Interface);
+                kreml.Margin = new Thickness(leftKremlPosition, topKremlPosotion, 0, 0);
+
+                firePlace.Children.Add(kreml);
+            }
         }
 
         public void StartGame(int?[] scriptAircraft, int?[] scriptHelicopters, int?[] scriptAircraftFriend,
