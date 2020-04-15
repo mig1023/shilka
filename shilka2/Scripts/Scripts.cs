@@ -43,6 +43,7 @@ namespace shilka2
         {
             [scriptsNames.Rust] = "kremlin",
             [scriptsNames.Libya] = "sahara",
+            [scriptsNames.Yemen] = "yemen_panorama"
         };
 
         public static int?[] scriptAircraft;
