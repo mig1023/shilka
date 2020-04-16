@@ -78,12 +78,13 @@ namespace shilka2
                             if (itsOnlyTargetPlane && aircraft.fly && (aircraft.tragetTugHitPoint <= 0))
                                 aircraft.TargetTugDisengaged();
 
-                            Line shellTrace = new Line();
-
-                            shellTrace.X1 = shell.x + shell.cos;
-                            shellTrace.Y1 = shell.y - shell.sin;
-                            shellTrace.X2 = shell.x + Constants.FLASH_SIZE;
-                            shellTrace.Y2 = shell.y - Constants.FLASH_SIZE;
+                            Line shellTrace = new Line
+                            {
+                                X1 = shell.x + shell.cos,
+                                Y1 = shell.y - shell.sin,
+                                X2 = shell.x + Constants.FLASH_SIZE,
+                                Y2 = shell.y - Constants.FLASH_SIZE
+                            };
                             shell.flash = true;
                             shellTrace.Stroke = Brushes.Red;
                             shellTrace.StrokeThickness = Constants.FLASH_SIZE;
@@ -150,7 +151,7 @@ namespace shilka2
         {
             int currentFragmentation = Constants.FRAGMENTATION + ( ( Shilka.degreeOfHeatingGunBurrels - 30 ) / 25 );
 
-            if ((Shilka.currentScript == Scripts.scriptsNames.Libya) && (rand.Next(Constants.GUN_JAMMING_CHANCE) == 1))
+            if ((Shilka.currentScript == Scripts.ScriptsNames.Libya) && (rand.Next(Constants.GUN_JAMMING_CHANCE) == 1))
             {
                 Array jamming = Enum.GetValues(typeof(gunJammedType));
                 gunJammed = (gunJammedType)jamming.GetValue(rand.Next(jamming.Length));
@@ -174,12 +175,14 @@ namespace shilka2
  
                 for (int a = 0; a < Constants.VOLLEY; a++)
                 {
-                    Shell newShell = new Shell();
-                    newShell.fly = true;
-                    newShell.delay = 0;
+                    Shell newShell = new Shell
+                    {
+                        fly = true,
+                        delay = 0,
 
-                    newShell.x = rand.Next( (-1 * currentFragmentation), currentFragmentation) + Constants.FIRE_WIDTH_CORRECTION;
-                    newShell.y = currentHeight + rand.Next( (-1 * currentFragmentation), currentFragmentation) - Constants.FIRE_HEIGHT_CORRECTION;
+                        x = rand.Next((-1 * currentFragmentation), currentFragmentation) + Constants.FIRE_WIDTH_CORRECTION,
+                        y = currentHeight + rand.Next((-1 * currentFragmentation), currentFragmentation) - Constants.FIRE_HEIGHT_CORRECTION
+                    };
 
                     double e1 = Math.Sqrt((ptX * ptX) + (ptY * ptY));
 
@@ -196,10 +199,11 @@ namespace shilka2
                     {
                         FirePlace main = (FirePlace)Application.Current.MainWindow;
 
-                        Image newImage = new Image();
-
-                        newImage.Width = Constants.SHELL_LENGTH;
-                        newImage.Height = Constants.SHELL_THICKNESS;
+                        Image newImage = new Image
+                        {
+                            Width = Constants.SHELL_LENGTH,
+                            Height = Constants.SHELL_THICKNESS
+                        };
 
                         double angle = (Math.Asin(newShell.sin) * 180 / Math.PI) * -1;
 

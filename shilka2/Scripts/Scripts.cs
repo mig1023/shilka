@@ -4,7 +4,7 @@ namespace shilka2
 {
     public class Scripts
     {
-        public enum scriptsNames {
+        public enum ScriptsNames {
             noScript,
             Vietnam,
             KoreanBoeing,
@@ -39,11 +39,11 @@ namespace shilka2
             ["Turkey"] = "турецкое вторжение",
         };
 
-        public static Dictionary<scriptsNames, string> imagesNames = new Dictionary<scriptsNames, string>
+        public static Dictionary<ScriptsNames, string> imagesNames = new Dictionary<ScriptsNames, string>
         {
-            [scriptsNames.Rust] = "kremlin",
-            [scriptsNames.Libya] = "sahara",
-            [scriptsNames.Yemen] = "yemen_panorama"
+            [ScriptsNames.Rust] = "kremlin",
+            [ScriptsNames.Libya] = "sahara",
+            [ScriptsNames.Yemen] = "yemen_panorama"
         };
 
         public static int?[] scriptAircraft;
@@ -52,133 +52,133 @@ namespace shilka2
         public static int?[] scriptHelicoptersFriend;
         public static int?[] scriptAirliners;
 
-        public static Weather.weatherTypes ScriptsWeather(scriptsNames script, Weather.weatherTypes weather)
+        public static Weather.WeatherTypes ScriptsWeather(ScriptsNames script, Weather.WeatherTypes weather)
         {
-            if (script == scriptsNames.KoreanBoeing)
-                return Weather.weatherTypes.snow;
+            if (script == ScriptsNames.KoreanBoeing)
+                return Weather.WeatherTypes.snow;
 
-            if (weather == Weather.weatherTypes.good)
+            if (weather == Weather.WeatherTypes.good)
                 return weather;
 
-            Weather.weatherTypes weatherRainOrStorm = Weather.weatherTypes.rain;
+            Weather.WeatherTypes weatherRainOrStorm = Weather.WeatherTypes.rain;
             if (FlyObject.rand.Next(2) == 0)
-                weatherRainOrStorm = Weather.weatherTypes.storm;
+                weatherRainOrStorm = Weather.WeatherTypes.storm;
 
-            if ((script != Scripts.scriptsNames.DesertStorm) && (weather == Weather.weatherTypes.sand))
-                return Weather.weatherTypes.good;
+            if ((script != Scripts.ScriptsNames.DesertStorm) && (weather == Weather.WeatherTypes.sand))
+                return Weather.WeatherTypes.good;
 
             switch (script)
             {
-                case scriptsNames.Vietnam:
+                case ScriptsNames.Vietnam:
                     return weatherRainOrStorm;
-                case scriptsNames.IranIraq:
-                    return Weather.weatherTypes.good;
-                case scriptsNames.DesertStorm:
-                    return Weather.weatherTypes.sand;
-                case scriptsNames.Syria:
-                    return Weather.weatherTypes.good;
-                case scriptsNames.Yugoslavia:
+                case ScriptsNames.IranIraq:
+                    return Weather.WeatherTypes.good;
+                case ScriptsNames.DesertStorm:
+                    return Weather.WeatherTypes.sand;
+                case ScriptsNames.Syria:
+                    return Weather.WeatherTypes.good;
+                case ScriptsNames.Yugoslavia:
                     return weather;
-                case scriptsNames.Libya:
-                    return Weather.weatherTypes.good;
-                case scriptsNames.Yemen:
+                case ScriptsNames.Libya:
+                    return Weather.WeatherTypes.good;
+                case ScriptsNames.Yemen:
                     return weatherRainOrStorm;
-                case scriptsNames.Rust:
+                case ScriptsNames.Rust:
                     return weather;
-                case scriptsNames.F117Hunt:
+                case ScriptsNames.F117Hunt:
                     return weather;
-                case scriptsNames.Khmeimim:
-                    return Weather.weatherTypes.good;
-                case scriptsNames.Belgrad:
+                case ScriptsNames.Khmeimim:
+                    return Weather.WeatherTypes.good;
+                case ScriptsNames.Belgrad:
                     return weather;
-                case scriptsNames.Turkey:
-                    return Weather.weatherTypes.good;
+                case ScriptsNames.Turkey:
+                    return Weather.WeatherTypes.good;
             };
 
             return weather;
         }
 
-        public static string ScriptFlagName(scriptsNames script)
+        public static string ScriptFlagName(ScriptsNames script)
         {
             switch (script)
             {
-                case scriptsNames.Vietnam:
+                case ScriptsNames.Vietnam:
                     return "vn";
-                case scriptsNames.IranIraq:
+                case ScriptsNames.IranIraq:
                     return "ir";
-                case scriptsNames.DesertStorm:
+                case ScriptsNames.DesertStorm:
                     return "iq";
-                case scriptsNames.Syria:
+                case ScriptsNames.Syria:
                     return "sy";
-                case scriptsNames.Yugoslavia:
+                case ScriptsNames.Yugoslavia:
                     return "yu";
-                case scriptsNames.KoreanBoeing:
+                case ScriptsNames.KoreanBoeing:
                     return "ki";
-                case scriptsNames.Libya:
+                case ScriptsNames.Libya:
                     return "ly";
-                case scriptsNames.Yemen:
+                case ScriptsNames.Yemen:
                     return "ye";
-                case scriptsNames.Rust:
+                case ScriptsNames.Rust:
                     return "su";
-                case scriptsNames.F117Hunt:
+                case ScriptsNames.F117Hunt:
                     return "yu";
-                case scriptsNames.Khmeimim:
+                case ScriptsNames.Khmeimim:
                     return "sy";
-                case scriptsNames.Belgrad:
+                case ScriptsNames.Belgrad:
                     return "yu";
-                case scriptsNames.Turkey:
+                case ScriptsNames.Turkey:
                     return "sy";
             };
 
             return null;
         }
 
-        public static int ScriptTemperature(scriptsNames script)
+        public static int ScriptTemperature(ScriptsNames script)
         {
             switch (script)
             {
-                case scriptsNames.Vietnam:
+                case ScriptsNames.Vietnam:
                     return 35;
-                case scriptsNames.IranIraq:
+                case ScriptsNames.IranIraq:
                     return 40;
-                case scriptsNames.DesertStorm:
+                case ScriptsNames.DesertStorm:
                     return 40;
-                case scriptsNames.Syria:
+                case ScriptsNames.Syria:
                     return 40;
-                case scriptsNames.Yugoslavia:
+                case ScriptsNames.Yugoslavia:
                     return 25;
-                case scriptsNames.KoreanBoeing:
+                case ScriptsNames.KoreanBoeing:
                     return -5;
-                case scriptsNames.Libya:
+                case ScriptsNames.Libya:
                     return 40;
-                case scriptsNames.Yemen:
+                case ScriptsNames.Yemen:
                     return 20;
-                case scriptsNames.Rust:
+                case ScriptsNames.Rust:
                     return 30;
-                case scriptsNames.F117Hunt:
+                case ScriptsNames.F117Hunt:
                     return 20;
-                case scriptsNames.Khmeimim:
+                case ScriptsNames.Khmeimim:
                     return 40;
-                case scriptsNames.Belgrad:
+                case ScriptsNames.Belgrad:
                     return 25;
-                case scriptsNames.Turkey:
+                case ScriptsNames.Turkey:
                     return 40;
             };
 
             return 30;
         }
 
-        public static int?[] ScriptFriendAircrafts(scriptsNames script)
+        public static int?[] ScriptFriendAircrafts(ScriptsNames script)
         {
 
-            if (script == scriptsNames.Vietnam)
+            if (script == ScriptsNames.Vietnam)
                 return new int?[] {
                     3,      // <-- su17
                     10,     // <-- mig19
                     11,     // <-- mig21
                 };
 
-            if (script == scriptsNames.Yugoslavia)
+            if (script == ScriptsNames.Yugoslavia)
                 return new int?[] {
                     0,     // <-- mig23
                     1,     // <-- mig29
@@ -186,7 +186,7 @@ namespace shilka2
                     12,    // <-- mig25
                 };
 
-            if (script == scriptsNames.DesertStorm)
+            if (script == ScriptsNames.DesertStorm)
                 return new int?[] {
                     0,     // <-- mig23
                     1,     // <-- mig29
@@ -194,7 +194,7 @@ namespace shilka2
                     12,    // <-- mig25
                 };
 
-            if (script == scriptsNames.IranIraq)
+            if (script == ScriptsNames.IranIraq)
                 return new int?[] {
                     0,     // <-- mig23
                     3,     // <-- su17
@@ -204,7 +204,7 @@ namespace shilka2
                     19,    // <-- tu22
                 };
 
-            if (script == scriptsNames.Syria)
+            if (script == ScriptsNames.Syria)
                 return new int?[] {
                     0,     // <-- mig23
                     1,     // <-- mig29
@@ -213,7 +213,7 @@ namespace shilka2
                     15,    // <-- tu95
                 };
 
-            if (script == scriptsNames.Libya)
+            if (script == ScriptsNames.Libya)
                 return new int?[] {
                     0,     // <-- mig23
                     3,     // <-- su17
@@ -221,19 +221,19 @@ namespace shilka2
                     12,    // <-- mig25
                 };
 
-            if (script == scriptsNames.KoreanBoeing)
+            if (script == ScriptsNames.KoreanBoeing)
                 return new int?[] { };
 
-            if (script == scriptsNames.Yemen)
+            if (script == ScriptsNames.Yemen)
                 return new int?[] { };
 
-            if (script == scriptsNames.F117Hunt)
+            if (script == ScriptsNames.F117Hunt)
                 return new int?[] { };
 
-            if (script == scriptsNames.Rust)
+            if (script == ScriptsNames.Rust)
                 return new int?[] { };
 
-            if (script == scriptsNames.Khmeimim)
+            if (script == ScriptsNames.Khmeimim)
                 return new int?[] {
                     1,     // <-- mig29
                     2,     // <-- mig31
@@ -249,7 +249,7 @@ namespace shilka2
                     17,    // <-- tu22m3
                 };
 
-            if (script == scriptsNames.Belgrad)
+            if (script == ScriptsNames.Belgrad)
                 return new int?[] {
                     0,     // <-- mig23
                     1,     // <-- mig29
@@ -257,7 +257,7 @@ namespace shilka2
                     12,    // <-- mig25
                 };
 
-            if (script == scriptsNames.Turkey)
+            if (script == ScriptsNames.Turkey)
                 return new int?[] {
                     0,     // <-- mig23
                     1,     // <-- mig29
@@ -273,28 +273,28 @@ namespace shilka2
             return null;
         }
 
-        public static int?[] ScriptFriendHelicopters(scriptsNames script)
+        public static int?[] ScriptFriendHelicopters(ScriptsNames script)
         {
 
-            if (script == scriptsNames.Vietnam)
+            if (script == ScriptsNames.Vietnam)
                 return new int?[] { };
 
-            if (script == scriptsNames.Yugoslavia)
+            if (script == ScriptsNames.Yugoslavia)
                 return new int?[] { };
 
-            if (script == scriptsNames.DesertStorm)
+            if (script == ScriptsNames.DesertStorm)
                 return new int?[] {
                     1,     // <-- mi24
                     2,     // <-- mi8
                 };
 
-            if (script == scriptsNames.IranIraq)
+            if (script == ScriptsNames.IranIraq)
                 return new int?[] {
                     1,     // <-- mi24
                     2,     // <-- mi8
                 };
 
-            if (script == scriptsNames.Syria)
+            if (script == ScriptsNames.Syria)
                 return new int?[] {
                     0,     // <-- mi28
                     1,     // <-- mi24
@@ -304,25 +304,25 @@ namespace shilka2
                     7,     // <-- ka31
                 };
 
-            if (script == scriptsNames.Libya)
+            if (script == ScriptsNames.Libya)
                 return new int?[] {
                     1,     // <-- mi24
                     2,     // <-- mi8
                 };
 
-            if (script == scriptsNames.KoreanBoeing)
+            if (script == ScriptsNames.KoreanBoeing)
                 return new int?[] { };
 
-            if (script == scriptsNames.Yemen)
+            if (script == ScriptsNames.Yemen)
                 return new int?[] { };
 
-            if (script == scriptsNames.F117Hunt)
+            if (script == ScriptsNames.F117Hunt)
                 return new int?[] { };
 
-            if (script == scriptsNames.Rust)
+            if (script == ScriptsNames.Rust)
                 return new int?[] { };
 
-            if (script == scriptsNames.Khmeimim)
+            if (script == ScriptsNames.Khmeimim)
                 return new int?[] {
                     0,     // <-- mi28
                     1,     // <-- mi24
@@ -331,10 +331,10 @@ namespace shilka2
                     7,     // <-- ka31
                 };
 
-            if (script == scriptsNames.Belgrad)
+            if (script == ScriptsNames.Belgrad)
                 return new int?[] { };
 
-            if (script == scriptsNames.Turkey)
+            if (script == ScriptsNames.Turkey)
                 return new int?[] {
                     0,     // <-- mi28
                     1,     // <-- mi24
@@ -345,10 +345,10 @@ namespace shilka2
             return null;
         }
 
-        public static int?[] ScriptEnemyAircrafts(scriptsNames script)
+        public static int?[] ScriptEnemyAircrafts(ScriptsNames script)
         {
 
-            if (script == scriptsNames.Vietnam)
+            if (script == ScriptsNames.Vietnam)
                 return new int?[] {
                     2,      // <-- b52
                     4,      // <-- f14
@@ -366,7 +366,7 @@ namespace shilka2
                     51,     // <-- a26
                 };
 
-            if (script == scriptsNames.Yugoslavia)
+            if (script == ScriptsNames.Yugoslavia)
                 return new int?[] {
                     0,      // <-- a10
                     1,      // <-- b1
@@ -393,7 +393,7 @@ namespace shilka2
                     50,     // <-- harrier mk1
                 };
 
-            if (script == scriptsNames.DesertStorm)
+            if (script == ScriptsNames.DesertStorm)
                 return new int?[] {
                     0,      // <-- a10
                     1,      // <-- b1
@@ -426,7 +426,7 @@ namespace shilka2
                     50,     // <-- harrier mk1
                 };
 
-            if (script == scriptsNames.IranIraq)
+            if (script == ScriptsNames.IranIraq)
                 return new int?[] {
                     4,      // <-- f14
                     9,      // <-- f4
@@ -434,7 +434,7 @@ namespace shilka2
                     24,     // <-- f5
                 };
 
-            if (script == scriptsNames.Syria)
+            if (script == ScriptsNames.Syria)
                 return new int?[] {
                     11,     // <-- predator
                     12,     // <-- reaper
@@ -444,14 +444,14 @@ namespace shilka2
                     37,     // <-- jassm
                 };
 
-            if (script == scriptsNames.KoreanBoeing)
+            if (script == ScriptsNames.KoreanBoeing)
                 return new int?[] {
                     28,     // <-- rc135
                     29,     // <-- u2
                     30,     // <-- sr71
                 };
 
-            if (script == scriptsNames.Libya)
+            if (script == ScriptsNames.Libya)
                 return new int?[] {
                     0,      // <-- a10
                     2,      // <-- b52
@@ -475,7 +475,7 @@ namespace shilka2
                     50,     // <-- harrier mk1
                 };
 
-            if (script == scriptsNames.Yemen)
+            if (script == ScriptsNames.Yemen)
                 return new int?[] {
                     6,      // <-- f16
                     8,      // <-- f15
@@ -489,10 +489,10 @@ namespace shilka2
                     43,     // <-- kc135
                 };
 
-            if (script == scriptsNames.F117Hunt)
+            if (script == ScriptsNames.F117Hunt)
                 return new int?[] { };
 
-            if (script == scriptsNames.Rust)
+            if (script == ScriptsNames.Rust)
                 return new int?[] {
                     32,     // <-- cessna
                     1,      // <-- replace to airliner
@@ -503,10 +503,10 @@ namespace shilka2
                     6,      // <-- replace to airliner
                 };
 
-            if (script == scriptsNames.Khmeimim)
+            if (script == ScriptsNames.Khmeimim)
                 return new int?[] { };
 
-            if (script == scriptsNames.Belgrad)
+            if (script == ScriptsNames.Belgrad)
                 return new int?[] {
                     1,      // <-- b1
                     2,      // <-- b52
@@ -516,7 +516,7 @@ namespace shilka2
                     43,     // <-- kc135
                 };
 
-            if (script == scriptsNames.Turkey)
+            if (script == ScriptsNames.Turkey)
                 return new int?[] {
                     52,      // <-- anka
                     53,      // <-- bayraktar
@@ -525,10 +525,10 @@ namespace shilka2
             return null;
         }
 
-        public static int?[] ScriptEnemyHelicopters(scriptsNames script)
+        public static int?[] ScriptEnemyHelicopters(ScriptsNames script)
         {
 
-            if (script == scriptsNames.Vietnam)
+            if (script == ScriptsNames.Vietnam)
                 return new int?[] {
                     1,      // <-- ah1
                     3,      // <-- uh1
@@ -539,7 +539,7 @@ namespace shilka2
                     23,     // <-- ch54
                 };
 
-            if (script == scriptsNames.Yugoslavia)
+            if (script == ScriptsNames.Yugoslavia)
                 return new int?[] {
                     0,      // <-- ah64
                     1,      // <-- ah1
@@ -550,7 +550,7 @@ namespace shilka2
                     14,     // <-- as565
                 };
 
-            if (script == scriptsNames.DesertStorm)
+            if (script == ScriptsNames.DesertStorm)
                 return new int?[] {
                     0,      // <-- ah64
                     1,      // <-- ah1
@@ -562,17 +562,17 @@ namespace shilka2
                     16,     // <-- oh58
                 };
 
-            if (script == scriptsNames.IranIraq)
+            if (script == ScriptsNames.IranIraq)
                 return new int?[] {
                     1,      // <-- ah1
                     4,      // <-- ch46
                     16,     // <-- oh58
                 };
 
-            if (script == scriptsNames.Syria)
+            if (script == ScriptsNames.Syria)
                 return new int?[] { };
 
-            if (script == scriptsNames.Libya)
+            if (script == ScriptsNames.Libya)
                 return new int?[] {
                     0,      // <-- ah64
                     2,      // <-- uh60
@@ -583,10 +583,10 @@ namespace shilka2
                     30,     // <-- lynx
                 };
 
-            if (script == scriptsNames.KoreanBoeing)
+            if (script == ScriptsNames.KoreanBoeing)
                 return new int?[] { };
 
-            if (script == scriptsNames.Yemen)
+            if (script == ScriptsNames.Yemen)
                 return new int?[] {
                     0,      // <-- ah64
                     1,      // <-- ah1
@@ -597,13 +597,13 @@ namespace shilka2
                     29,     // <-- raven
                 };
 
-            if (script == scriptsNames.F117Hunt)
+            if (script == ScriptsNames.F117Hunt)
                 return new int?[] { };
 
-            if (script == scriptsNames.Rust)
+            if (script == ScriptsNames.Rust)
                 return new int?[] { };
 
-            if (script == scriptsNames.Khmeimim)
+            if (script == ScriptsNames.Khmeimim)
                 return new int?[] {
                     7,      // <-- drone
                     15,     // <-- drone2
@@ -617,22 +617,22 @@ namespace shilka2
                     29,     // <-- raven
                 };
 
-            if (script == scriptsNames.Belgrad)
+            if (script == ScriptsNames.Belgrad)
                 return new int?[] { };
 
-            if (script == scriptsNames.Turkey)
+            if (script == ScriptsNames.Turkey)
                 return new int?[] { };
 
             return null;
         }
 
-        public static int?[] ScriptAirliners(scriptsNames script)
+        public static int?[] ScriptAirliners(ScriptsNames script)
         {
 
-            if (script == scriptsNames.Vietnam)
+            if (script == ScriptsNames.Vietnam)
                 return new int?[] { };
 
-            if (script == scriptsNames.Yugoslavia)
+            if (script == ScriptsNames.Yugoslavia)
                 return new int?[] {
                     0,      // <-- a320
                     1,      // <-- b747
@@ -651,7 +651,7 @@ namespace shilka2
                     20,     // <-- tu154
                 };
 
-            if (script == scriptsNames.DesertStorm)
+            if (script == ScriptsNames.DesertStorm)
                 return new int?[] {
                     0,      // <-- a320
                     1,      // <-- b747
@@ -667,7 +667,7 @@ namespace shilka2
                     20,     // <-- tu154
                 };
 
-            if (script == scriptsNames.IranIraq)
+            if (script == ScriptsNames.IranIraq)
                 return new int?[] {
                     1,      // <-- b747
                     3,      // <-- atr42
@@ -681,7 +681,7 @@ namespace shilka2
                     20,     // <-- tu154
                 };
 
-            if (script == scriptsNames.Syria)
+            if (script == ScriptsNames.Syria)
                 return new int?[] {
                     0,      // <-- a320
                     1,      // <-- b747
@@ -699,7 +699,7 @@ namespace shilka2
                     20,     // <-- tu154
                 };
 
-            if (script == scriptsNames.Libya)
+            if (script == ScriptsNames.Libya)
                 return new int?[] {
                     0,      // <-- a320
                     1,      // <-- b747
@@ -717,12 +717,12 @@ namespace shilka2
                     20,     // <-- tu154
                 };
 
-            if (script == scriptsNames.KoreanBoeing)
+            if (script == ScriptsNames.KoreanBoeing)
                 return new int?[] {
                     1,      // <-- b747
                 };
 
-            if (script == scriptsNames.Yemen)
+            if (script == ScriptsNames.Yemen)
                 return new int?[] {
                     0,      // <-- a320
                     1,      // <-- b747
@@ -739,7 +739,7 @@ namespace shilka2
                     20,     // <-- tu154
                 };
 
-            if (script == scriptsNames.F117Hunt)
+            if (script == ScriptsNames.F117Hunt)
                 return new int?[] {
                     0,      // <-- a320
                     1,      // <-- b747
@@ -758,7 +758,7 @@ namespace shilka2
                     20,     // <-- tu154
                 };
 
-            if (script == scriptsNames.Rust)
+            if (script == ScriptsNames.Rust)
                 return new int?[] {
                     0,      // <-- b747
                     3,      // <-- atr42
@@ -771,7 +771,7 @@ namespace shilka2
                     20,     // <-- tu154
                 };
 
-            if (script == scriptsNames.Khmeimim)
+            if (script == ScriptsNames.Khmeimim)
                 return new int?[] {
                     0,      // <-- a320
                     1,      // <-- b747
@@ -789,10 +789,10 @@ namespace shilka2
                     20,     // <-- tu154
                 };
 
-            if (script == scriptsNames.Belgrad)
+            if (script == ScriptsNames.Belgrad)
                 return new int?[] { };
 
-            if (script == scriptsNames.Turkey)
+            if (script == ScriptsNames.Turkey)
                 return new int?[] {
                     0,      // <-- a320
                     5,      // <-- ssj100

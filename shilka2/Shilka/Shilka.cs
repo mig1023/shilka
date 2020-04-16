@@ -15,7 +15,7 @@ namespace shilka2
     {
         static int flashСount = 0;
 
-        public static Scripts.scriptsNames currentScript;
+        public static Scripts.ScriptsNames currentScript;
         public static bool night = false; 
 
         public static int degreeOfHeatingGunBurrelsMin = 0;
@@ -54,7 +54,7 @@ namespace shilka2
             reheatingGunBurrels = false;
             lastDegree = 0;
             Aircraft.allAircraftsInGame = 0;
-            Weather.RestartCycle(Weather.weatherTypes.good);
+            Weather.RestartCycle(Weather.WeatherTypes.good);
 
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {
@@ -73,7 +73,7 @@ namespace shilka2
 
         public static void RadarmMalfunction(object obj, ElapsedEventArgs e)
         {
-            if (currentScript == Scripts.scriptsNames.IranIraq)
+            if (currentScript == Scripts.ScriptsNames.IranIraq)
             {
                 Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
                 {
@@ -151,7 +151,7 @@ namespace shilka2
             Shell.currentHeight = (sender as Window).Height;
             Shell.currentWidth = (sender as Window).Width + Constants.FIRE_WIDTH_CORRECTION;
 
-            if (Shilka.currentScript == Scripts.scriptsNames.IranIraq)
+            if (Shilka.currentScript == Scripts.ScriptsNames.IranIraq)
                 Shell.ptX -= GunMalfunction();
 
             if (Shell.ptX < 0)
@@ -180,10 +180,10 @@ namespace shilka2
 
             int currentDegreeOfHeatinMin = degreeOfHeatingGunBurrelsMin;
 
-            if (Weather.currentWeather == Weather.weatherTypes.rain)
-                currentDegreeOfHeatinMin = currentDegreeOfHeatinMin + Constants.HEATING_IN_RAIN;
-            else if (Weather.currentWeather == Weather.weatherTypes.snow)
-                currentDegreeOfHeatinMin = currentDegreeOfHeatinMin + Constants.HEATING_UNDER_SNOW;
+            if (Weather.currentWeather == Weather.WeatherTypes.rain)
+                currentDegreeOfHeatinMin += Constants.HEATING_IN_RAIN;
+            else if (Weather.currentWeather == Weather.WeatherTypes.snow)
+                currentDegreeOfHeatinMin += Constants.HEATING_UNDER_SNOW;
 
             if (degreeOfHeatingGunBurrels < currentDegreeOfHeatinMin)
                 degreeOfHeatingGunBurrels = currentDegreeOfHeatinMin;
@@ -235,10 +235,11 @@ namespace shilka2
                 ((flashСount >= 7) && (numGuns == 1))
             )
             {
-                Line flash = new Line();
-
-                flash.X1 = gun.X2;
-                flash.Y1 = gun.Y2;
+                Line flash = new Line
+                {
+                    X1 = gun.X2,
+                    Y1 = gun.Y2
+                };
 
                 int flashSize = rand.Next(1, 4);
 
@@ -271,9 +272,11 @@ namespace shilka2
 
             for (int numGuns = 0; numGuns <= 1; numGuns++)
             {
-                Line gun = new Line();
-                gun.X1 = Constants.FIRE_WIDTH_CORRECTION - 3 - (12 * numGuns);
-                gun.Y1 = currentHeight - Constants.FIRE_HEIGHT_CORRECTION + 5 - (9 * numGuns);
+                Line gun = new Line
+                {
+                    X1 = Constants.FIRE_WIDTH_CORRECTION - 3 - (12 * numGuns),
+                    Y1 = currentHeight - Constants.FIRE_HEIGHT_CORRECTION + 5 - (9 * numGuns)
+                };
 
                 int gunReturnLen = 0;
                 if ( fire && (
@@ -310,17 +313,18 @@ namespace shilka2
                 Canvas.SetZIndex(gun, 200);
                 Shell.allLines.Add(gun);
 
-                if (Shilka.currentScript == Scripts.scriptsNames.Vietnam)
+                if (Shilka.currentScript == Scripts.ScriptsNames.Vietnam)
                 {
-                    Line backGun = new Line();
+                    Line backGun = new Line
+                    {
+                        X1 = gun.X1,
+                        X2 = gun.X2,
+                        Y1 = gun.Y1,
+                        Y2 = gun.Y2,
 
-                    backGun.X1 = gun.X1;
-                    backGun.X2 = gun.X2;
-                    backGun.Y1 = gun.Y1;
-                    backGun.Y2 = gun.Y2;
-
-                    backGun.StrokeThickness = gun.StrokeThickness + 2;
-                    backGun.Stroke = Brushes.White;
+                        StrokeThickness = gun.StrokeThickness + 2,
+                        Stroke = Brushes.White
+                    };
 
                     main.firePlace.Children.Add(backGun);
                     Canvas.SetZIndex(backGun, 199);
@@ -331,15 +335,16 @@ namespace shilka2
                     DrawGansFlashs(main, gun, numGuns, gun.StrokeThickness);
             }
 
-            Line gunMount = new Line();
+            Line gunMount = new Line
+            {
+                X1 = mountXY[0, 0],
+                Y1 = mountXY[0, 1],
+                X2 = mountXY[1, 0],
+                Y2 = mountXY[1, 1],
 
-            gunMount.X1 = mountXY[0, 0];
-            gunMount.Y1 = mountXY[0, 1];
-            gunMount.X2 = mountXY[1, 0];
-            gunMount.Y2 = mountXY[1, 1];
-
-            gunMount.StrokeThickness = 1;
-            gunMount.Stroke = (Shilka.night ? Brushes.White : Brushes.Black);
+                StrokeThickness = 1,
+                Stroke = (Shilka.night ? Brushes.White : Brushes.Black)
+            };
 
             main.firePlace.Children.Add(gunMount);
             Canvas.SetZIndex(gunMount, 200);

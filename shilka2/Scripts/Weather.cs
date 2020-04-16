@@ -11,7 +11,7 @@ namespace shilka2
 {
     public class Weather : FlyObject
     {
-        public enum weatherTypes { good, rain, storm, snow, sand };
+        public enum WeatherTypes { good, rain, storm, snow, sand };
 
         int direction = 0;
 
@@ -19,11 +19,11 @@ namespace shilka2
 
         public Image weatherImage;
         
-        weatherTypes type;
+        WeatherTypes type;
 
         public static List<Weather> weather = new List<Weather>();
         static int weatherCycle = 0;
-        public static weatherTypes currentWeather = weatherTypes.good;
+        public static WeatherTypes currentWeather = WeatherTypes.good;
         static int weatherMutex = 0;
 
         static int thundar = 0;
@@ -31,8 +31,8 @@ namespace shilka2
 
         public static void RestartCycle()
         {
-            Array weathers = Enum.GetValues(typeof(weatherTypes));
-            weatherTypes currentWeatherForScripts = (weatherTypes)weathers.GetValue(RandForNewWeather(weathers.Length));
+            Array weathers = Enum.GetValues(typeof(WeatherTypes));
+            WeatherTypes currentWeatherForScripts = (WeatherTypes)weathers.GetValue(RandForNewWeather(weathers.Length));
             currentWeather = Scripts.ScriptsWeather(Shilka.currentScript, currentWeatherForScripts);
 
             RestartCycle(currentWeather, newWeatherCycle: 0);
@@ -54,7 +54,7 @@ namespace shilka2
             };
         }
 
-        public static void RestartCycle(Weather.weatherTypes newWeather, int? newWeatherCycle = null)
+        public static void RestartCycle(Weather.WeatherTypes newWeather, int? newWeatherCycle = null)
         {
             currentWeather = newWeather;
             weatherCycle = newWeatherCycle ?? Constants.WEATHER_CYCLE;
@@ -68,11 +68,12 @@ namespace shilka2
 
                 if (thunderimage)
                 {
-                    Image thuderImage = new Image();
-
-                    thuderImage.Height = rand.Next(200, (int)SystemParameters.PrimaryScreenHeight);
-                    thuderImage.Source = Aircraft.ImageFromResources("thunder" + (rand.Next(1, 7)), Aircraft.ImageType.Other);
-                    thuderImage.Margin = new Thickness(rand.Next(0, (int)SystemParameters.PrimaryScreenWidth), -10, 0, 0);
+                    Image thuderImage = new Image
+                    {
+                        Height = rand.Next(200, (int)SystemParameters.PrimaryScreenHeight),
+                        Source = Aircraft.ImageFromResources("thunder" + (rand.Next(1, 7)), Aircraft.ImageType.Other),
+                        Margin = new Thickness(rand.Next(0, (int)SystemParameters.PrimaryScreenWidth), -10, 0, 0)
+                    };
 
                     thunderCurrentImage = thuderImage;
                     main.firePlace.Children.Add(thuderImage);
@@ -83,7 +84,7 @@ namespace shilka2
                         main.firePlace.Children.Remove(thunderCurrentImage);
                 }
 
-                main.thunderPlace.Background = (Shilka.currentScript == Scripts.scriptsNames.Yugoslavia ? Brushes.White : Brushes.Black);
+                main.thunderPlace.Background = (Shilka.currentScript == Scripts.ScriptsNames.Yugoslavia ? Brushes.White : Brushes.Black);
                 main.thunderPlace.Visibility = (thunderclap ? Visibility.Visible : Visibility.Hidden);
             }));
         }
@@ -115,14 +116,14 @@ namespace shilka2
             if (Shilka.training || Shilka.school)
                 return;
 
-            if ((thundar != 0) || (currentWeather == weatherTypes.storm))
+            if ((thundar != 0) || (currentWeather == WeatherTypes.storm))
                 Thunder();
 
             if (weatherCycle < Constants.WEATHER_CYCLE)
             {
                 weatherCycle += 1;
 
-                if (currentWeather == weatherTypes.storm)
+                if (currentWeather == WeatherTypes.storm)
                     if (weatherCycle.ToString().Contains("00"))
                         stormDirection = (rand.Next(2) > 0 ? Aircraft.FlightDirectionType.Right : Aircraft.FlightDirectionType.Left);
             }
@@ -131,21 +132,21 @@ namespace shilka2
 
            
 
-            if (currentWeather == weatherTypes.good)
+            if (currentWeather == WeatherTypes.good)
                 return;
 
-            int newWeatherElementsCount = (currentWeather == weatherTypes.storm ? 4 : 1);
+            int newWeatherElementsCount = (currentWeather == WeatherTypes.storm ? 4 : 1);
 
             for (int iterator = 0; iterator < newWeatherElementsCount; iterator++)
             {
                 Weather newWeather = new Weather();
 
-                if (currentWeather == weatherTypes.storm)
+                if (currentWeather == WeatherTypes.storm)
                 {
                     newWeather.x = rand.Next((int)SystemParameters.PrimaryScreenWidth * -1, (int)SystemParameters.PrimaryScreenWidth * 2);
                     newWeather.y = 0;
                 }
-                else if (currentWeather == weatherTypes.sand)
+                else if (currentWeather == WeatherTypes.sand)
                 {
                     newWeather.x = 0;
                     newWeather.y = rand.Next(0, (int)SystemParameters.PrimaryScreenHeight);
@@ -166,13 +167,13 @@ namespace shilka2
 
                     string imageName;
 
-                    if ((currentWeather == weatherTypes.rain) || (currentWeather == weatherTypes.storm))
+                    if ((currentWeather == WeatherTypes.rain) || (currentWeather == WeatherTypes.storm))
                     {
                         newImage.Width = rand.Next(Constants.RAIN_MIN_WIDTH, Constants.RAIN_MAX_WIDTH);
                         newImage.Height = rand.Next(Constants.RAIN_MIN_HEIGHT, Constants.RAIN_MAX_HEIGHT);
                         imageName = "rain" + rand.Next(1, Constants.MAX_RAIN_TYPE + 1).ToString();
                     }
-                    else if (currentWeather == weatherTypes.sand)
+                    else if (currentWeather == WeatherTypes.sand)
                     {
                         newImage.Width = Constants.CASE_LENGTH;
                         newImage.Height = Constants.CASE_LENGTH;
@@ -214,30 +215,30 @@ namespace shilka2
 
                 foreach (Weather w in weather)
                 {
-                    if (w.type == weatherTypes.snow)
+                    if (w.type == WeatherTypes.snow)
                     {
                         if (rand.Next(Constants.SNOW_DIRECTION_CHANGE_CHANCE) == 1)
                             w.direction = rand.Next(
                                 (Constants.SNOW_DIRECTION_FLY_SPEED * -1), Constants.SNOW_DIRECTION_FLY_SPEED + 1
                             );
 
-                        w.x = w.x + w.direction;
+                        w.x += w.direction;
                     }
 
-                    if (w.type == weatherTypes.sand)
+                    if (w.type == WeatherTypes.sand)
                     {
                         if (rand.Next(Constants.SNOW_DIRECTION_CHANGE_CHANCE) == 1)
                             w.direction = rand.Next(
                                 (Constants.SNOW_DIRECTION_FLY_SPEED * -1), Constants.SNOW_DIRECTION_FLY_SPEED + 1
                             );
 
-                        w.y = w.y + w.direction;
+                        w.y += w.direction;
                         w.x = (w.x + w.speed);
                     }
                     else
                         w.y = (w.y + w.speed);
 
-                    if (currentWeather == weatherTypes.storm)
+                    if (currentWeather == WeatherTypes.storm)
                         w.x += Constants.STORM_FLY_SPEED * (stormDirection == Aircraft.FlightDirectionType.Right ? 1 : -1);
 
                     w.weatherImage.Margin = new Thickness(w.x, w.y, 0, 0);
@@ -245,7 +246,7 @@ namespace shilka2
                     if (w.y > SystemParameters.PrimaryScreenHeight + 100)
                         w.fly = false;
 
-                    if ((w.type == weatherTypes.sand) && (w.x > SystemParameters.PrimaryScreenWidth + 10))
+                    if ((w.type == WeatherTypes.sand) && (w.x > SystemParameters.PrimaryScreenWidth + 10))
                         w.fly = false;
                 }
 

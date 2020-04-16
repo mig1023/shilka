@@ -10,7 +10,6 @@ namespace shilka2
     {
         double fall = 0;
 
-        int speed { get; set; }
         public Image caseImage;
 
         public static List<Case> cases = new List<Case>();
@@ -26,11 +25,13 @@ namespace shilka2
                 return;
             }
 
-            Case newCase = new Case();
-            newCase.x = Constants.FIRE_WIDTH_CORRECTION / 2;
-            newCase.y = Shell.currentHeight - Constants.EXTR_HEIGHT_CORRECTION;
+            Case newCase = new Case
+            {
+                x = Constants.FIRE_WIDTH_CORRECTION / 2,
+                y = Shell.currentHeight - Constants.EXTR_HEIGHT_CORRECTION
+            };
 
-            if (Shilka.currentScript == Scripts.scriptsNames.Libya)
+            if (Shilka.currentScript == Scripts.ScriptsNames.Libya)
             {
                 newCase.sin = rand.NextDouble() * (Constants.MAX_FRAGM_SIN_DAMAGED - Constants.MIN_FRAGM_SIN) + Constants.MIN_FRAGM_SIN;
                 newCase.cos = rand.NextDouble() * (Constants.MAX_FRAGM_COS_DAMAGED - Constants.MIN_FRAGM_COS) + Constants.MIN_FRAGM_COS;
@@ -49,13 +50,14 @@ namespace shilka2
             {
                 FirePlace main = (FirePlace)Application.Current.MainWindow;
 
-                Image newImage = new Image();
+                Image newImage = new Image
+                {
+                    Width = Constants.CASE_LENGTH,
+                    Height = Constants.CASE_LENGTH,
 
-                newImage.Width = Constants.CASE_LENGTH;
-                newImage.Height = Constants.CASE_LENGTH;
-
-                newImage.Source = Aircraft.ImageFromResources("case", Aircraft.ImageType.Other);
-                newImage.Margin = new Thickness(newCase.x, newCase.y, 0, 0);
+                    Source = Aircraft.ImageFromResources("case", Aircraft.ImageType.Other),
+                    Margin = new Thickness(newCase.x, newCase.y, 0, 0)
+                };
 
                 newCase.caseImage = newImage;
 

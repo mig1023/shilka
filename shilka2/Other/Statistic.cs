@@ -43,7 +43,7 @@ namespace shilka2
 
         public static List<string> statisticScripts; 
 
-        public enum statisticAircraftType { downed, damaged };
+        public enum StatisticAircraftType { downed, damaged };
 
         static Dictionary<string, int> downedAircrafts = new Dictionary<string, int>();
         static Dictionary<string, int> damagedAircrafts = new Dictionary<string, int>();
@@ -68,7 +68,7 @@ namespace shilka2
                     statisticLastDamageType = aircraft.aircraftName;
                     seriousDamage = (aircraft.hitpoint < (aircraft.hitpointMax / 2) ? true : false);
 
-                    AircraftToStatistic(aircraft.aircraftName, statisticAircraftType.damaged);
+                    AircraftToStatistic(aircraft.aircraftName, StatisticAircraftType.damaged);
                 }
             }
             else if (aircraft.hitpoint < aircraft.hitpointMax)
@@ -111,7 +111,7 @@ namespace shilka2
         {
             shootingNumber += 1;
 
-            if (Weather.currentWeather != Weather.weatherTypes.good)
+            if (Weather.currentWeather != Weather.WeatherTypes.good)
                 gameBadWeatherSec += 1;
 
             if (Shilka.fire)
@@ -133,7 +133,7 @@ namespace shilka2
             statisticLastDamagePrice = aircraft.price;
             statisticLastDamageType = aircraft.aircraftName;
 
-            AircraftToStatistic(aircraft.aircraftName, statisticAircraftType.downed);
+            AircraftToStatistic(aircraft.aircraftName, StatisticAircraftType.downed);
         } 
 
         public static void TargetTugDisengaged()
@@ -203,11 +203,8 @@ namespace shilka2
 
         public static void Save(string player)
         {
-            int shutdownPercent, damagedPercent, statisticWithoutDamage, inTargetPercent, shellsForShutdown;
-            double chance, baseForPercent;
-
-            Calc(out baseForPercent, out shutdownPercent, out damagedPercent, out statisticWithoutDamage,
-                out chance, out inTargetPercent, out shellsForShutdown);
+            Calc(out double baseForPercent, out int shutdownPercent, out int damagedPercent, out int statisticWithoutDamage,
+                out double chance, out int inTargetPercent, out int shellsForShutdown);
 
             double statisticAmountOfDamageRound = double.Parse(string.Format("{0:f2}", statisticAmountOfDamage));
 
@@ -263,11 +260,11 @@ namespace shilka2
             {
                 string[] stat = statLine.Split('|');
 
-                Scripts.scriptsNames scriptFullName = (Scripts.scriptsNames)Enum.Parse(typeof(Scripts.scriptsNames), stat[1]);
+                Scripts.ScriptsNames scriptFullName = (Scripts.ScriptsNames)Enum.Parse(typeof(Scripts.ScriptsNames), stat[1]);
 
                 ImageSource flagSource = null;
 
-                if (scriptFullName != Scripts.scriptsNames.noScript)
+                if (scriptFullName != Scripts.ScriptsNames.noScript)
                     flagSource = Aircraft.ImageFromResources(Scripts.ScriptFlagName(scriptFullName), Aircraft.ImageType.Interface);
 
                 statisticScripts.Add(Scripts.scriptsRuNames[scriptFullName.ToString()]);
@@ -292,9 +289,9 @@ namespace shilka2
                 return string.Format("{0:f2}", (double)statisticAmountOfDamage / 1000000) + " трлн $";
         }
 
-        public static void AircraftToStatistic(string aircraft, statisticAircraftType type)
+        public static void AircraftToStatistic(string aircraft, StatisticAircraftType type)
         {
-            if (type == statisticAircraftType.downed)
+            if (type == StatisticAircraftType.downed)
             {
                 if (downedAircrafts.ContainsKey(aircraft))
                     downedAircrafts[aircraft] += 1;
@@ -322,11 +319,8 @@ namespace shilka2
         {
             string stat = String.Empty;
 
-            int shutdownPercent, damagedPercent, statisticWithoutDamage, inTargetPercent, shellsForShutdown;
-            double chance, baseForPercent;
-
-            Calc(out baseForPercent, out shutdownPercent, out damagedPercent, out statisticWithoutDamage,
-                out chance, out inTargetPercent, out shellsForShutdown);
+            Calc(out double baseForPercent, out int shutdownPercent, out int damagedPercent, out int statisticWithoutDamage,
+                out double chance, out int inTargetPercent, out int shellsForShutdown);
 
             if (statisticShellsFired > 0)
             {

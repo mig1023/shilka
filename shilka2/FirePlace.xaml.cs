@@ -15,7 +15,7 @@ namespace shilka2
 {
     public partial class FirePlace : Window
     {
-        public enum moveDirection { horizontal_left, horizontal_right, vertical_top, vertical_bottom };
+        public enum MoveDirection { horizontal_left, horizontal_right, vertical_top, vertical_bottom };
 
         public System.Timers.Timer Game = new System.Timers.Timer(30);
         public System.Timers.Timer HandMove = new System.Timers.Timer(600);
@@ -28,9 +28,9 @@ namespace shilka2
         bool startGameAlready = false;
         bool startMenuShowYet = true;
 
-        string statisticColor = "#FF5B5B5B";
-        string startColor = "#FF343333";
-        string endColor = "#FF0F0570";
+        readonly string statisticColor = "#FF5B5B5B";
+        readonly string startColor = "#FF343333";
+        readonly string endColor = "#FF0F0570";
 
         static bool SchoolTicTac = false;
 
@@ -113,15 +113,17 @@ namespace shilka2
         {
             Random rand = new Random();
 
-            if (Shilka.currentScript == Scripts.scriptsNames.Vietnam)
+            if (Shilka.currentScript == Scripts.ScriptsNames.Vietnam)
             {
                 int palmPosition = Constants.VIETNAM_PALM_START_POSITION;
 
                 while (palmPosition < notebookBackground.ActualWidth)
                 {
-                    Image palm = new Image();
-
-                    palm.Height = rand.Next(Constants.VIETNAM_PALM_HEIGHT_RANDOM) + Constants.VIETNAM_PALM_HEIGHT_MIN;
+                    Image palm = new Image
+                    {
+                        Height = rand.Next(Constants.VIETNAM_PALM_HEIGHT_RANDOM) + Constants.VIETNAM_PALM_HEIGHT_MIN,
+                        Source = Aircraft.ImageFromResources("palm", Aircraft.ImageType.Interface)
+                    };
 
                     Canvas.SetZIndex(palm, 5);
 
@@ -130,8 +132,7 @@ namespace shilka2
 
                     double topPalmPosotion = notebookBackground.ActualHeight - palm.Height + 50;
                     palmPosition += rand.Next(Constants.VIETNAM_PALM_DISTANCE);
-
-                    palm.Source = Aircraft.ImageFromResources("palm", Aircraft.ImageType.Interface);
+                    
                     palm.Margin = new Thickness(palmPosition, topPalmPosotion, 0, 0);
 
                     firePlace.Children.Add(palm);
@@ -140,16 +141,17 @@ namespace shilka2
 
             if (Scripts.imagesNames.ContainsKey(Shilka.currentScript))
             {
-                Image singleBackImage = new Image();
-
-                singleBackImage.Height = Constants.SCRIPT_SINGLE_HEIGHT;
+                Image singleBackImage = new Image
+                {
+                    Height = Constants.SCRIPT_SINGLE_HEIGHT,
+                    Source = Aircraft.ImageFromResources(Scripts.imagesNames[Shilka.currentScript], Aircraft.ImageType.Interface)
+                };
 
                 Canvas.SetZIndex(singleBackImage, 5);
 
                 double imgTop = notebookBackground.ActualHeight - singleBackImage.Height + 50;
                 double imgLeft = notebookBackground.ActualWidth * Constants.SCRIPT_SINGLE_RIGHT_POSITION;
-
-                singleBackImage.Source = Aircraft.ImageFromResources(Scripts.imagesNames[Shilka.currentScript], Aircraft.ImageType.Interface);
+                
                 singleBackImage.Margin = new Thickness(imgLeft, imgTop, 0, 0);
 
                 firePlace.Children.Add(singleBackImage);
@@ -235,14 +237,16 @@ namespace shilka2
                 main.HandMove.Enabled = false;
                 main.HandMove.Stop();
 
-                ThicknessAnimation move = new ThicknessAnimation();
-                move.Duration = TimeSpan.FromSeconds(1.5);
-                move.From = main.HandImg.Margin;
-                move.To = new Thickness(
-                    ( SystemParameters.PrimaryScreenHeight / 2 ),
-                    SystemParameters.PrimaryScreenHeight,
-                    0, 0
-                );
+                ThicknessAnimation move = new ThicknessAnimation
+                {
+                    Duration = TimeSpan.FromSeconds(1.5),
+                    From = main.HandImg.Margin,
+                    To = new Thickness(
+                        (SystemParameters.PrimaryScreenHeight / 2),
+                        SystemParameters.PrimaryScreenHeight,
+                        0, 0
+                    )
+                };
                 main.HandImg.BeginAnimation(MarginProperty, move);
             }));
         }
@@ -355,10 +359,12 @@ namespace shilka2
             left = (left == -1 ? moveCanvas.Margin.Left : left);
             top = (top == -1 ? moveCanvas.Margin.Top : top);
 
-            ThicknessAnimation move = new ThicknessAnimation();
-            move.Duration = TimeSpan.FromSeconds(speed);
-            move.From = moveCanvas.Margin;
-            move.To = new Thickness(left, top, moveCanvas.Margin.Right, moveCanvas.Margin.Bottom);
+            ThicknessAnimation move = new ThicknessAnimation
+            {
+                Duration = TimeSpan.FromSeconds(speed),
+                From = moveCanvas.Margin,
+                To = new Thickness(left, top, moveCanvas.Margin.Right, moveCanvas.Margin.Bottom)
+            };
             moveCanvas.BeginAnimation(MarginProperty, move);
 
             left = prevCanvas.Margin.Left - (moveCanvas.Margin.Left - left);
@@ -397,9 +403,9 @@ namespace shilka2
 
             if (!pause)
             {
-                if (Shilka.currentScript == Scripts.scriptsNames.Libya)
+                if (Shilka.currentScript == Scripts.ScriptsNames.Libya)
                     RadarImg.RenderTransform = new RotateTransform(Constants.RADAR_DAMAGED, 4, 20);
-                else if (Shilka.currentScript != Scripts.scriptsNames.IranIraq)
+                else if (Shilka.currentScript != Scripts.ScriptsNames.IranIraq)
                     RadarImg.RenderTransform = new RotateTransform(Shilka.lastDegree, 4, 20);
             }
         }
@@ -560,7 +566,7 @@ namespace shilka2
             ReturnStatisticShow();
         }
 
-        public void StartScript(Scripts.scriptsNames script)
+        public void StartScript(Scripts.ScriptsNames script)
         {
             Shilka.currentScript = script;
 
@@ -576,9 +582,9 @@ namespace shilka2
             else
                 scenarioFlag.Source = null;
 
-            if (script == Scripts.scriptsNames.KoreanBoeing)
-                Weather.RestartCycle(Weather.weatherTypes.snow);
-            else if (script == Scripts.scriptsNames.Yugoslavia)
+            if (script == Scripts.ScriptsNames.KoreanBoeing)
+                Weather.RestartCycle(Weather.WeatherTypes.snow);
+            else if (script == Scripts.ScriptsNames.Yugoslavia)
             {
                 statShells.Foreground = Brushes.White;
                 Shilka.night = true;
@@ -632,14 +638,14 @@ namespace shilka2
                 scriptName = startButton.Name;
             }
 
-            Scripts.scriptsNames script;
+            Scripts.ScriptsNames script;
 
             bool scriptParsed = Enum.TryParse(scriptName, out script);
 
             if (scriptParsed)
                 StartScript(script);
             else
-                StartScript(Scripts.scriptsNames.noScript);
+                StartScript(Scripts.ScriptsNames.noScript);
         }
 
         private void schoolButton_Click(object sender, RoutedEventArgs e)

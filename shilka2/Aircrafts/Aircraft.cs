@@ -116,14 +116,14 @@ namespace shilka2
                 {
                     if (!aircraft.suspendedTarget)
                     {
-                        if ((aircraft.cloud || aircraft.aerostat) && (Weather.currentWeather == Weather.weatherTypes.storm))
+                        if ((aircraft.cloud || aircraft.aerostat) && (Weather.currentWeather == Weather.WeatherTypes.storm))
                             aircraft.speed = SpeedInStorm(aircraft.speed, ref aircraft.flightDirection);
 
                         double escape = (((aircraft.hitpoint < aircraft.hitpointMax) && !aircraft.cantEscape) ? Constants.ESCAPE_COEFFICIENT : 1);
                         double direction = (aircraft.flightDirection == FlyObject.FlightDirectionType.Left ? -1 : 1);
                         double tailWind = 1;
 
-                        if (Weather.currentWeather == Weather.weatherTypes.storm)
+                        if (Weather.currentWeather == Weather.WeatherTypes.storm)
                             tailWind = (aircraft.flightDirection == Weather.stormDirection ? 1.3 : 0.7);
 
                         aircraft.x += aircraft.speed * escape * tailWind * direction;
@@ -364,8 +364,10 @@ namespace shilka2
                 data[i] = (byte)(255 - data[i]);
             }
 
-            List<Color> colors = new List<Color>();
-            colors.Add(Colors.Black);
+            List<Color> colors = new List<Color>
+            {
+                Colors.Black
+            };
             BitmapPalette palette = new BitmapPalette(colors);
 
             return BitmapSource.Create(originalSource.PixelWidth, originalSource.PixelHeight,
@@ -384,10 +386,11 @@ namespace shilka2
 
                 zIndexType? zIndex = null;
 
-                Image newAircraftImage = new Image();
-
-                newAircraftImage.Width = size[0];
-                newAircraftImage.Height = size[1];
+                Image newAircraftImage = new Image
+                {
+                    Width = size[0],
+                    Height = size[1]
+                };
 
                 Aircraft newAircraft = Clone();
 
@@ -403,10 +406,10 @@ namespace shilka2
                 FlyObject.FlightDirectionType newDirection =
                     (rand.Next(2) == 1 ? FlyObject.FlightDirectionType.Right : FlyObject.FlightDirectionType.Left);
 
-                if ((Weather.currentWeather == Weather.weatherTypes.storm) && cloud)
+                if ((Weather.currentWeather == Weather.WeatherTypes.storm) && cloud)
                     newDirection = Weather.stormDirection;
 
-                if ((Shilka.currentScript == Scripts.scriptsNames.Belgrad) && !cloud)
+                if ((Shilka.currentScript == Scripts.ScriptsNames.Belgrad) && !cloud)
                     if (friend)
                         newDirection = FlyObject.FlightDirectionType.Right;
                     else
@@ -442,10 +445,11 @@ namespace shilka2
                     foreach (DynamicElement d in elements)
                     {
                         DynamicElement tmp = DynamicElement.Clone(d);
-                        tmp.element = new Image();
-
-                        tmp.element.Margin = new Thickness(newAircraft.x, newAircraft.y, 0, 0);
-                        tmp.element.Source = ImageFromResources(d.elementName, ImageType.DynamicElement);
+                        tmp.element = new Image
+                        {
+                            Margin = new Thickness(newAircraft.x, newAircraft.y, 0, 0),
+                            Source = ImageFromResources(d.elementName, ImageType.DynamicElement)
+                        };
                         tmp.rotateDegreeCurrent = d.startDegree;
 
                         if ((newAircraft.flightDirection == FlyObject.FlightDirectionType.Right) && !d.mirror)
@@ -496,8 +500,10 @@ namespace shilka2
 
                 if (Shilka.school || !cloud)
                 {
-                    Label aircraftLabelName = new Label();
-                    aircraftLabelName.Content = newAircraft.GetAircraftFullName();
+                    Label aircraftLabelName = new Label
+                    {
+                        Content = newAircraft.GetAircraftFullName()
+                    };
                     newAircraft.aircraftSchoolName = aircraftLabelName;
 
                     if (airliner)
@@ -512,8 +518,10 @@ namespace shilka2
 
                     if (!airliner && !friend)
                     {
-                        Label aircraftLabelPrice = new Label();
-                        aircraftLabelPrice.Content = GetAircraftPriceLine();
+                        Label aircraftLabelPrice = new Label
+                        {
+                            Content = GetAircraftPriceLine()
+                        };
                         newAircraft.aircraftSchoolPrice = aircraftLabelPrice;
                         newAircraft.aircraftSchoolPrice.Foreground = Brushes.Gray;
                         Canvas.SetZIndex(aircraftLabelPrice, Canvas.GetZIndex(newAircraftImage));
@@ -548,35 +556,36 @@ namespace shilka2
 
         public Aircraft Clone()
         {
-            Aircraft newAircraft = new Aircraft();
+            Aircraft newAircraft = new Aircraft
+            {
+                aircraftType = aircraftType,
+                aircraftName = aircraftName,
+                hitpoint = hitPoint,
+                tragetTugHitPoint = tragetTugHitPoint,
+                hitpointMax = hitPoint,
+                price = price,
+                minAltitude = minAltitude,
+                maxAltitude = maxAltitude,
+                friend = friend,
+                airliner = airliner,
+                cloud = cloud,
+                trainingTug = trainingTug,
+                cantEscape = cantEscape,
+                deadSprite = deadSprite,
+                weight = weight,
+                size = size,
 
-            newAircraft.aircraftType = aircraftType;
-            newAircraft.aircraftName = aircraftName;
-            newAircraft.hitpoint = hitPoint;
-            newAircraft.tragetTugHitPoint = tragetTugHitPoint;
-            newAircraft.hitpointMax = hitPoint;
-            newAircraft.price = price;
-            newAircraft.minAltitude = minAltitude;
-            newAircraft.maxAltitude = maxAltitude;
-            newAircraft.friend = friend;
-            newAircraft.airliner = airliner;
-            newAircraft.cloud = cloud;
-            newAircraft.trainingTug = trainingTug;
-            newAircraft.cantEscape = cantEscape;
-            newAircraft.deadSprite = deadSprite;
-            newAircraft.weight = weight;
-            newAircraft.size = size;
+                fly = true,
+                placeOfDamage = 0,
+                canPlaneForALongTime = canPlaneForALongTime,
+                fallLikeAStone = fallLikeAStone,
+                zeroSpeed = zeroSpeed,
+                doesNotFlyInBadWeather = doesNotFlyInBadWeather,
+                aerostat = aerostat,
 
-            newAircraft.fly = true;
-            newAircraft.placeOfDamage = 0;
-            newAircraft.canPlaneForALongTime = canPlaneForALongTime;
-            newAircraft.fallLikeAStone = fallLikeAStone;
-            newAircraft.zeroSpeed = zeroSpeed;
-            newAircraft.doesNotFlyInBadWeather = doesNotFlyInBadWeather;
-            newAircraft.aerostat = aerostat;
-            
-            newAircraft.wrecksMaxSize = wrecksMaxSize;
-            newAircraft.wrecksNumber = wrecksNumber;
+                wrecksMaxSize = wrecksMaxSize,
+                wrecksNumber = wrecksNumber
+            };
 
             return newAircraft;
         }
@@ -806,7 +815,7 @@ namespace shilka2
                     case 4:
                     default:
 
-                        if (Shilka.currentScript == Scripts.scriptsNames.Vietnam)
+                        if (Shilka.currentScript == Scripts.ScriptsNames.Vietnam)
                             goto case 5;
 
                         newAircraft = Aircrafts.Cloud();
@@ -829,19 +838,19 @@ namespace shilka2
 
                         string aircraftType = Aircrafts.aircraft[dice].aircraftType;
 
-                        if ((Shilka.currentScript == Scripts.scriptsNames.F117Hunt) && (aircraftType != "f117"))
+                        if ((Shilka.currentScript == Scripts.ScriptsNames.F117Hunt) && (aircraftType != "f117"))
                             goto case 1;
 
-                        if (Weather.currentWeather != Weather.weatherTypes.good && Aircrafts.aircraft[dice].doesNotFlyInBadWeather)
+                        if (Weather.currentWeather != Weather.WeatherTypes.good && Aircrafts.aircraft[dice].doesNotFlyInBadWeather)
                             goto case 9;
 
-                        if (Shilka.currentScript == Scripts.scriptsNames.Khmeimim)
+                        if (Shilka.currentScript == Scripts.ScriptsNames.Khmeimim)
                             goto case 10;
 
-                        if ((Shilka.currentScript != Scripts.scriptsNames.Rust) && (aircraftType == "cessna"))
+                        if ((Shilka.currentScript != Scripts.ScriptsNames.Rust) && (aircraftType == "cessna"))
                             goto case 5;
 
-                        if ((Shilka.currentScript == Scripts.scriptsNames.Rust) && (aircraftType != "cessna"))
+                        if ((Shilka.currentScript == Scripts.ScriptsNames.Rust) && (aircraftType != "cessna"))
                             goto case 15;
 
                         newAircraft = Aircrafts.aircraft[dice];
@@ -897,7 +906,7 @@ namespace shilka2
 
                     case 15:
 
-                        if (Shilka.currentScript == Scripts.scriptsNames.Vietnam)
+                        if (Shilka.currentScript == Scripts.ScriptsNames.Vietnam)
                             goto case 5;
 
                         if ((Scripts.scriptAirliners != null) && (Scripts.scriptAirliners.Length == 0))
@@ -916,9 +925,9 @@ namespace shilka2
                     case 16:
 
                         if (
-                                Shilka.currentScript != Scripts.scriptsNames.noScript
+                                Shilka.currentScript != Scripts.ScriptsNames.noScript
                                 &&
-                                Shilka.currentScript != Scripts.scriptsNames.KoreanBoeing
+                                Shilka.currentScript != Scripts.ScriptsNames.KoreanBoeing
                             )
                             goto case 10;
 

@@ -54,19 +54,20 @@ namespace shilka2
                 return;
             }
 
-            Wrecks newWreck = new Wrecks();
+            Wrecks newWreck = new Wrecks
+            {
+                x = startX + (randomDistance > 0 ? rand.Next(randomDistance / Constants.WRECKS_SUSP_WRECKS_PART) : 0),
+                y = startY,
 
-            newWreck.x = startX + (randomDistance > 0 ? rand.Next(randomDistance / Constants.WRECKS_SUSP_WRECKS_PART) : 0);
-            newWreck.y = startY;
+                sin = 0,
+                cos = (direction == Aircraft.FlightDirectionType.Left ? 1 : -1),
+                flightDirection = direction,
+                speed = RandomSpeed(maxSpeed),
+                rotateSpeed = rand.Next(Constants.WRECKS_MIN_ROTATE_SPEED, Constants.WRECKS_MAX_ROTATE_SPEED),
+                rotateDirection = (rand.Next(2) == 0 ? 1 : -1),
 
-            newWreck.sin = 0;
-            newWreck.cos = (direction == Aircraft.FlightDirectionType.Left ? 1 : -1);
-            newWreck.flightDirection = direction;
-            newWreck.speed = RandomSpeed(maxSpeed);
-            newWreck.rotateSpeed = rand.Next(Constants.WRECKS_MIN_ROTATE_SPEED, Constants.WRECKS_MAX_ROTATE_SPEED);
-            newWreck.rotateDirection = (rand.Next(2) == 0 ? 1 : -1);
-
-            newWreck.fly = true;
+                fly = true
+            };
 
             int wr_rand_num = Constants.WRECKS_TYPE_NUM + 1;
 
@@ -74,13 +75,14 @@ namespace shilka2
             {
                 FirePlace main = (FirePlace)Application.Current.MainWindow;
 
-                Image newImage = new Image();
+                Image newImage = new Image
+                {
+                    Width = rand.Next(maxSize) + Constants.WRECKS_MIN_SIZE,
+                    Height = rand.Next(maxSize) + Constants.WRECKS_MIN_SIZE,
 
-                newImage.Width = rand.Next(maxSize) + Constants.WRECKS_MIN_SIZE;
-                newImage.Height = rand.Next(maxSize) + Constants.WRECKS_MIN_SIZE;
-
-                newImage.Source = Aircraft.ImageFromResources("wrecks" + (Aircraft.rand.Next(1, wr_rand_num)), Aircraft.ImageType.Other);
-                newImage.Margin = new Thickness(newWreck.x, newWreck.y, 0, 0);
+                    Source = Aircraft.ImageFromResources("wrecks" + (Aircraft.rand.Next(1, wr_rand_num)), Aircraft.ImageType.Other),
+                    Margin = new Thickness(newWreck.x, newWreck.y, 0, 0)
+                };
 
                 newWreck.wreckImage = newImage;
 
@@ -108,7 +110,7 @@ namespace shilka2
                 {
                     c.fall += Constants.FREE_FALL_SPEED;
 
-                    if (Weather.currentWeather == Weather.weatherTypes.storm)
+                    if (Weather.currentWeather == Weather.WeatherTypes.storm)
                     {
                         c.speed = SpeedInStorm(c.speed, ref c.flightDirection);
                         c.cos = (c.flightDirection == Aircraft.FlightDirectionType.Left ? 1 : -1);

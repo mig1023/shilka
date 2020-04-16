@@ -40,22 +40,23 @@ namespace shilka2
 
         public static DynamicElement Clone(DynamicElement element)
         {
-            DynamicElement newElement = new DynamicElement();
-
-            newElement.elementName = element.elementName;
-            newElement.x_left = element.x_left;
-            newElement.x_right = element.x_right;
-            newElement.y = element.y;
-            newElement.rotateDegreeCurrent = element.rotateDegreeCurrent;
-            newElement.startDegree = element.startDegree;
-            newElement.mirror = element.mirror;
-            newElement.background = element.background;
-            newElement.slowRotation = element.slowRotation;
-            newElement.backSide = element.backSide;
-            newElement.currentSide = element.currentSide;
-            newElement.movingType = element.movingType;
-            newElement.oneWay = element.oneWay;
-            newElement.positiveDirection = element.positiveDirection;
+            DynamicElement newElement = new DynamicElement
+            {
+                elementName = element.elementName,
+                x_left = element.x_left,
+                x_right = element.x_right,
+                y = element.y,
+                rotateDegreeCurrent = element.rotateDegreeCurrent,
+                startDegree = element.startDegree,
+                mirror = element.mirror,
+                background = element.background,
+                slowRotation = element.slowRotation,
+                backSide = element.backSide,
+                currentSide = element.currentSide,
+                movingType = element.movingType,
+                oneWay = element.oneWay,
+                positiveDirection = element.positiveDirection
+            };
 
             return newElement;
         }
