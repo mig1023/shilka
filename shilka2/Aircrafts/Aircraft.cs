@@ -729,7 +729,7 @@ namespace shilka2
             if (!trainingTurgetTug && suspendedTargetDowned)
             {
                 trainingTurgetTug = true;
-                main.SchoolMessage(Constants.TRAINING_TUG_INFORMATION, Brushes.Green);
+                main.SchoolMessage(Constants.TRAINING_TUG_INFORMATION, Brushes.BlueViolet);
             }
 
             if (!trainingTurgetPlane && (allAircraftsInGame > Constants.TRAINING_IL28_AT_THE_START))
