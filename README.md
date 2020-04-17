@@ -7,7 +7,7 @@ The game is about a small anti-aircraft vehicle in the school notebook
 
 | Script | Period | Specifics |
 | ------------- | ------------- | ------------- |
-| Vietnam war | 1965-1973 | a lot of enemies |
+| Vietnam war | 1965-1973 | a lot of enemies, jungle shooting |
 | Iran–Iraq war | 1980-1988 | malfunctioning radar |
 | Korean Boeing incident | 1983 | airliner between spies |
 | Mathias Rust flight | 1987 | сivil aircraft as target |
