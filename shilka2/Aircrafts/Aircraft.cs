@@ -319,7 +319,7 @@ namespace shilka2
             return inList;
         }
 
-        public static ImageSource ImageFromResources(string imageName, ImageType type = ImageType.Aircraft)
+        public static ImageSource ImageFromResources(string imageName, ImageType type = ImageType.Aircraft, bool noInvert = false)
         {
             BitmapImage image = null;
 
@@ -334,7 +334,7 @@ namespace shilka2
                 return null;
             }
 
-            if (Shilka.night)
+            if (Shilka.night && !noInvert)
                 return Invert(image);
 
             return image;

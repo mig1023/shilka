@@ -265,7 +265,9 @@ namespace shilka2
                 ImageSource flagSource = null;
 
                 if (scriptFullName != Scripts.ScriptsNames.noScript)
-                    flagSource = Aircraft.ImageFromResources(Scripts.ScriptFlagName(scriptFullName), Aircraft.ImageType.Interface);
+                    flagSource = Aircraft.ImageFromResources(
+                        Scripts.ScriptFlagName(scriptFullName), Aircraft.ImageType.Interface, noInvert: true
+                    );
 
                 statisticScripts.Add(Scripts.scriptsRuNames[scriptFullName.ToString()]);
 
