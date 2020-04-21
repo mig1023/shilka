@@ -29,12 +29,14 @@
             <TextBox x:Name="PlayerName" Height="33" Canvas.Left="24" TextWrapping="Wrap" Text="" Padding="6,2,0,0" Canvas.Top="217" Width="434" FontSize="18.667" KeyUp="PlayerName_KeyUp"/>
             <Button x:Name="GameOverWithSave" Content="сохранить" Height="41" Canvas.Left="246" Canvas.Top="261" Width="212" Click="GameOverWithSave_Click" IsEnabled="False" FontFamily="font/calibri.ttf" FontSize="20"/>
             <Button x:Name="GameOverWithoutSave" Content="не сохранять" Height="41" Canvas.Left="23" Canvas.Top="261" Width="212" Click="GameOverWithoutSave_Click" FontFamily="font/calibri.ttf" FontSize="20"/>
+            <Button x:Name="ReturnInGame" Content="вернуться в игру" Height="41" Canvas.Left="23" Canvas.Top="310" Width="435" FontFamily="font/calibri.ttf" FontSize="20" Click="ReturnInGame_Click"/>
             <Label x:Name="playerPlaceHolder" Content="введите имя стрелка" FontSize="20" Foreground="Gray" Height="35" Canvas.Left="30" Canvas.Top="214" Width="212" MouseDown="playerPlaceHolder_MouseDown"/>
         </Canvas>
         <Canvas x:Name="RestartTrainingMenu" HorizontalAlignment="Left" Height="320" Margin="513,0,-511,0" VerticalAlignment="Top" Width="515">
             <TextBlock x:Name="RestartText" Height="167" TextWrapping="Wrap" Canvas.Left="24" Canvas.Top="15" Width="446" Foreground="White" FontSize="32" FontFamily="Arial Narrow"/>
             <Button x:Name="GameOverTraining" Content="закончить" Height="41" Canvas.Left="246" Canvas.Top="207" Width="212" FontFamily="font/calibri.ttf" FontSize="20" Click="GameOverWithoutSave_Click"/>
             <Button x:Name="Restart" Content="начать заново" Height="41" Canvas.Left="24" Canvas.Top="207" Width="212" FontFamily="font/calibri.ttf" FontSize="20" Click="RestartTraining_Click"/>
+            <Button x:Name="ReturnInTraining" Content="вернуться в игру" Height="41" Canvas.Left="23" Canvas.Top="257" Width="435" FontFamily="font/calibri.ttf" FontSize="20" Click="ReturnInGame_Click"/>
         </Canvas>
         <Canvas x:Name="StartMenu" HorizontalAlignment="Left" Height="612" VerticalAlignment="Top" Width="452" Margin="-452,0,0,-294">
             <Canvas x:Name="StartMenuButtons" Height="610" Width="452">

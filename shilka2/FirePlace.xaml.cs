@@ -430,6 +430,27 @@ namespace shilka2
                 EndGame(endText, endColor); 
         }
 
+        private void ReturnInGame_Click(object sender, RoutedEventArgs e)
+        {
+            endGameAlready = false;
+
+            Game.Start();
+            AircraftsStart.Start();
+            School.Start();
+            GameTimer.Start();
+
+            pause = false;
+
+            Canvas prevMenu = (Shilka.school || Shilka.training ? RestartTrainingMenu : EndMenu);
+
+            MoveCanvas(
+                moveCanvas: firePlaceDock,
+                prevCanvas: prevMenu,
+                left: 0,
+                speed: 0.2
+            );
+        }
+
         private void RestartTraining_Click(object sender, RoutedEventArgs e)
         {
             Shilka.EndGameCleaning();
