@@ -7,7 +7,7 @@ The game is about a small anti-aircraft vehicle in the school notebook
 
 | Script | Period | Specifics |
 | ------------- | ------------- | ------------- |
-| Vietnam war | 1965-1973 | a lot of enemies |
+| Vietnam war | 1965-1973 | a lot of enemies, jungle shooting |
 | Iran–Iraq war | 1980-1988 | malfunctioning radar |
 | Korean Boeing incident | 1983 | airliner between spies |
 | Mathias Rust flight | 1987 | сivil aircraft as target |
@@ -104,8 +104,8 @@ The game is about a small anti-aircraft vehicle in the school notebook
 
 | Drones | Drones | Drones |
 | ------------- | ------------- | ------------- |
-| Dan-M | Decommissioned MiG-9 | Decommissioned MiG-15 |
-| Decommissioned Su-11 | Decommissioned Yak-25 | Decommissioned Yak-27 |
-| Enics E-95 | Ilyushin Il-28BM (target tug) + 77BM2 (target) | Lockheed D-21 |
-| Lavochkin La-17MM | Northrop MQM-36A Shelduck | Tupolev M-16K |
+| Dan-M | Enics E-95 | Ilyushin Il-28BM (target tug) + 77BM2 (target) |
+| Lockheed D-21 | Lavochkin La-17MM | MiG-9 (decommissioned) |
+| MiG-15 (decommissioned) | Northrop MQM-36A Shelduck | Su-11 (decommissioned) |
+| Tupolev M-16K | Yak-25 (decommissioned) | Yak-27 (decommissioned) |
 
