@@ -278,7 +278,7 @@ namespace shilka2
             }));
         }
 
-        public void EndGame(string endText, string bgColor)
+        public void EndGame(string endText, string bgColor, bool noReturn = false)
         {
             endGameAlready = true;
 
@@ -298,6 +298,17 @@ namespace shilka2
             newMenu.Background = (Brush)converter.ConvertFrom(bgColor);
 
             GameOverWithSave.IsEnabled = false;
+
+            if (noReturn)
+            {
+                ReturnInGame.Visibility = Visibility.Hidden;
+                ReturnInTraining.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                ReturnInGame.Visibility = Visibility.Visible;
+                ReturnInTraining.Visibility = Visibility.Visible;
+            }
 
             if (Shilka.school || Shilka.training)
                 RestartText.Text = endText;

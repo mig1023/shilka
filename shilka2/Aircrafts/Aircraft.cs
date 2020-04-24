@@ -600,9 +600,10 @@ namespace shilka2
                     type = String.Empty;
 
                 main.EndGame(
-                    String.Format("Вы сбили {0}{1}!\nИгра окончена.\nСохранить статистику?", type, aircraftName),
-                    Constants.END_COLOR
-                );
+                    endText: String.Format("Вы сбили {0}{1}!\nИгра окончена.\nСохранить статистику?", type, aircraftName),
+                    bgColor: Constants.END_COLOR,
+                    noReturn: true
+                ); ;
             }
             else
             {
