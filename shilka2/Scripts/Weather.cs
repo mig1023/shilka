@@ -40,15 +40,17 @@ namespace shilka2
 
         private static int RandForNewWeather(int maxWeatherNum)
         {
-            int weatherCategory = rand.Next(1, 4);
+            int weatherCategory = rand.Next(1, 6);
 
             switch (weatherCategory)
             {
                 case 1:
                 case 2:
+                case 3:
                     return 0;
 
-                case 3:
+                case 4:
+                case 5:
                 default:
                     return rand.Next(maxWeatherNum);
             };
