@@ -340,6 +340,20 @@ namespace shilka2
             return image;
         }
 
+        private static bool InvertCount(ref int a)
+        {
+            if (a > 2)
+            {
+                a = 0;
+                return true;
+            }
+            else
+            {
+                a += 1;
+                return false;
+            }
+        }
+
         public static BitmapSource Invert(BitmapSource originalSource)
         {
             int stride = (originalSource.PixelWidth * originalSource.Format.BitsPerPixel + 7) / 8;
@@ -352,17 +366,8 @@ namespace shilka2
             int a = 0;
 
             for (int i = 0; i < length; i += 1)
-            {
-                if (a > 2)
-                {
-                    a = 0;
-                    continue;
-                }
-                else
-                    a += 1;
-
-                data[i] = (byte)(255 - data[i]);
-            }
+                if (!InvertCount(ref a))
+                    data[i] = (byte)(255 - data[i]);
 
             List<Color> colors = new List<Color>
             {
