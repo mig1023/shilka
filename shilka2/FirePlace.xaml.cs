@@ -278,7 +278,21 @@ namespace shilka2
             }));
         }
 
-        public void EndGame(string endText, string bgColor, bool noReturn = false)
+        public void EndGameByShutdown(string aircraftName, bool friend, bool trainingTug)
+        {
+            string type = (friend ? "свой" : "пассажирский") + " ";
+
+            if (trainingTug)
+                type = String.Empty;
+
+            EndGame(
+                endText: String.Format("Вы сбили {0}{1}!\nИгра окончена.\nСохранить статистику?", type, aircraftName),
+                bgColor: Constants.END_COLOR,
+                noReturn: true
+            );
+        }
+
+        private void EndGame(string endText, string bgColor, bool noReturn = false)
         {
             endGameAlready = true;
 
