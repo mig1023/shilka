@@ -36,159 +36,154 @@
             <TextBlock x:Name="RestartText" Height="167" TextWrapping="Wrap" Canvas.Left="24" Canvas.Top="15" Width="446" Foreground="White" FontSize="32" FontFamily="Arial Narrow"/>
             <Button x:Name="GameOverTraining" Content="закончить" Height="41" Canvas.Left="246" Canvas.Top="207" Width="212" FontFamily="font/calibri.ttf" FontSize="20" Click="GameOverWithoutSave_Click"/>
             <Button x:Name="Restart" Content="начать заново" Height="41" Canvas.Left="24" Canvas.Top="207" Width="212" FontFamily="font/calibri.ttf" FontSize="20" Click="RestartTraining_Click"/>
-            <Button x:Name="ReturnInTraining" Content="вернуться в игру" Height="41" Canvas.Left="23" Canvas.Top="257" Width="435" FontFamily="font/calibri.ttf" FontSize="20" Click="ReturnInGame_Click"/>
+            <Button x:Name="ReturnInTraining" Content="вернуться к тренировке" Height="41" Canvas.Left="23" Canvas.Top="257" Width="435" FontFamily="font/calibri.ttf" FontSize="20" Click="ReturnInGame_Click"/>
         </Canvas>
         <Canvas x:Name="StartMenu" HorizontalAlignment="Left" Height="612" VerticalAlignment="Top" Width="452" Margin="-452,0,0,-294">
             <Canvas x:Name="StartMenuButtons" Height="610" Width="452">
                 <Image x:Name="shilkaArt" Height="348" Canvas.Left="10" Canvas.Top="5" Width="435"  Source="images/interface/shilka-art.jpg"/>
-                <Button x:Name="noScript" Content="быстрая игра" Height="87" Canvas.Left="10" Canvas.Top="358" Width="192" Click="startScript_Click" FontFamily="font/calibri.ttf" FontSize="26"/>
-                <Button x:Name="exitButton" Content="выход" Height="41" Canvas.Left="332" Canvas.Top="358" Width="113" FontSize="21" FontFamily="font/calibri.ttf" Click="exitButton_Click"/>
-                <Button x:Name="schoolButton" Content="обучение" Height="41" Canvas.Left="207" Canvas.Top="358" Width="120" FontSize="19" FontFamily="font/calibri.ttf" Click="schoolButton_Click"/>
-                <Button x:Name="trainingButton" Content="тренировка" Height="41" Canvas.Left="207" Canvas.Top="404" Width="120" FontSize="19" FontFamily="font/calibri.ttf" Click="trainingButton_Click"/>
-                <Button x:Name="resultButton" Content="результаты" Height="41" Canvas.Left="332" Canvas.Top="404" Width="113" FontSize="19" FontFamily="font/calibri.ttf" Click="statisticButton_Click"/>
-                <Button x:Name="Vietnam" Content="вьетнамская война" Height="26" Canvas.Left="10" Canvas.Top="450" Width="134" Click="startScript_Click" FontSize="11" FontFamily="font/calibri.ttf">
+                <Button x:Name="noScript" Content="quick game" Height="87" Canvas.Left="10" Canvas.Top="358" Width="192" Click="startScript_Click" FontFamily="font/calibri.ttf" FontSize="26"/>
+                <Button x:Name="exitButton" Content="exit" Height="41" Canvas.Left="332" Canvas.Top="358" Width="113" FontSize="21" FontFamily="font/calibri.ttf" Click="exitButton_Click"/>
+                <Button x:Name="schoolButton" Content="education" Height="41" Canvas.Left="207" Canvas.Top="358" Width="120" FontSize="19" FontFamily="font/calibri.ttf" Click="schoolButton_Click"/>
+                <Button x:Name="trainingButton" Content="training" Height="41" Canvas.Left="207" Canvas.Top="404" Width="120" FontSize="19" FontFamily="font/calibri.ttf" Click="trainingButton_Click"/>
+                <Button x:Name="resultButton" Content="results" Height="41" Canvas.Left="332" Canvas.Top="404" Width="113" FontSize="19" FontFamily="font/calibri.ttf" Click="statisticButton_Click"/>
+                <Button x:Name="Vietnam" Content="vietnam war" Height="26" Canvas.Left="10" Canvas.Top="450" Width="121" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
                     <Button.ToolTip>
                         <ToolTip>
                             <StackPanel>
-                                <TextBlock Text="Вьетнамская война (1965-1973)"/>
-                                <TextBlock FontWeight="Bold" Text="особенность: врагов очень много"/>
+                                <TextBlock Text="Vietnam war (1965-1973)"/>
+                                <TextBlock FontWeight="Bold" Text="specific: a lot of enemies, jungle shooting"/>
                                 <Image Source="images/interface/vietnam.png"/>
                             </StackPanel>
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="DesertStorm" Content="буря в пустыне" Height="26" Canvas.Left="207" Canvas.Top="481" Width="238" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
+                <Button x:Name="DesertStorm" Content="operation desert storm" Height="26" Canvas.Left="171" Canvas.Top="481" Width="157" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
                     <Button.ToolTip>
                         <ToolTip>
                             <StackPanel>
-                                <TextBlock Text="Буря в пустыне (1991)"/>
-                                <TextBlock FontWeight="Bold" Text="особенность: песчанные бури"/>
+                                <TextBlock Text="Operation Desert storm (1991)"/>
+                                <TextBlock FontWeight="Bold" Text="specific: sandstorm"/>
                                 <Image Source="images/interface/storm.png"/>
                             </StackPanel>
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="Yugoslavia" Content="бомбардировки югославии" Height="26" Canvas.Left="10" Canvas.Top="512" Width="170" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
+                <Button x:Name="Yugoslavia" Content="nato bombing of yugoslavia" Height="26" Canvas.Left="10" Canvas.Top="512" Width="192" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
                     <Button.ToolTip>
                         <ToolTip>
                             <StackPanel>
-                                <TextBlock Text="Бомбардировки Югославии (1999)"/>
-                                <TextBlock FontWeight="Bold" Text="особенность: ночь"/>
+                                <TextBlock Text="NATO bombing of Yugoslavia (1999)"/>
+                                <TextBlock FontWeight="Bold" Text="specific: night"/>
                                 <Image Source="images/interface/yugoslavia.png"/>
                             </StackPanel>
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="IranIraq" Content="ирано-иракская война" Height="26" Canvas.Left="149" Canvas.Top="450" Width="157" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
+                <Button x:Name="IranIraq" Content="iran-iraq war" Height="26" Canvas.Left="136" Canvas.Top="450" Width="141" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
                     <Button.ToolTip>
                         <ToolTip>
                             <StackPanel>
-                                <TextBlock Text="Ирано-Иракская война (1980-1988)"/>
-                                <TextBlock FontWeight="Bold" Text="особенность: повреждённый радар,"/>
-                                <TextBlock FontWeight="Bold" Text="проблемы с наведением пушек"/>
+                                <TextBlock Text="Iran-Iraq war (1980-1988)"/>
+                                <TextBlock FontWeight="Bold" Text="specific: malfunctioning radar"/>
                                 <Image Source="images/interface/iraniraq.png"/>
                             </StackPanel>
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="Syria" Content="гражданская война в сирии" Height="26" Canvas.Left="10" Canvas.Top="543" Width="170" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
+                <Button x:Name="Syria" Content="syrian civil war" Height="26" Canvas.Left="10" Canvas.Top="543" Width="121" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
                     <Button.ToolTip>
                         <ToolTip>
                             <StackPanel>
-                                <TextBlock Text="Гражданская война в Сирии (2011-2020)"/>
-                                <TextBlock FontWeight="Bold" Text="особенность: только дроны,"/>
-                                <TextBlock FontWeight="Bold" Text="беспилотники и крылатые ракеты"/>
+                                <TextBlock Text="Syrian civil war (2011-2020)"/>
+                                <TextBlock FontWeight="Bold" Text="specific: only UAVs and cruise misseles"/>
                                 <Image Source="images/interface/syria.png"/>
                             </StackPanel>
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="KoreanBoeing" Content="корейский боинг" Height="26" Canvas.Left="311" Canvas.Top="450" Width="134" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
+                <Button x:Name="KoreanBoeing" Content="korean boeing incident" Height="26" Canvas.Left="282" Canvas.Top="450" Width="163" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
                     <Button.ToolTip>
                         <ToolTip>
                             <StackPanel>
-                                <TextBlock Text="Инцидент с корейским Боингом (1983)"/>
-                                <TextBlock FontWeight="Bold" Text="особенность: лайнер среди шпионов"/>
+                                <TextBlock Text="Korean Boeing incident (1983)"/>
+                                <TextBlock FontWeight="Bold" Text="specific: airliner between spies"/>
                                 <Image Source="images/interface/korea.png"/>
                             </StackPanel>
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="Libya" Content="интервенция в ливии" Height="26" Canvas.Left="185" Canvas.Top="543" Width="134" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
+                <Button x:Name="Libya" Content="intervention in libya" Height="26" Canvas.Left="136" Canvas.Top="543" Width="134" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
                     <Button.ToolTip>
                         <ToolTip>
                             <StackPanel>
-                                <TextBlock Text="Интервенция в Ливии (2011)"/>
-                                <TextBlock FontWeight="Bold" Text="особенность: непредсказуемые пушки"/>
+                                <TextBlock Text="Intervention in Libya (2011)"/>
+                                <TextBlock FontWeight="Bold" Text="specific: unpredictable guns"/>
                                 <Image Source="images/interface/libya.png"/>
                             </StackPanel>
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="Yemen" Content="война в йемене" Height="26" Canvas.Left="324" Canvas.Top="543" Width="121" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf" RenderTransformOrigin="-0.587,0.771">
+                <Button x:Name="Yemen" Content="intervention in yemen" Height="26" Canvas.Left="275" Canvas.Top="543" Width="170" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf" RenderTransformOrigin="-0.587,0.771">
                     <Button.ToolTip>
                         <ToolTip>
                             <StackPanel>
-                                <TextBlock Text="Война в Йемене (2015-2020)"/>
-                                <TextBlock FontWeight="Bold" Text="особенность: никаких союзников,"/>
-                                <TextBlock FontWeight="Bold" Text="только враги"/>
+                                <TextBlock Text="Intervention in Yemen (2015-2020)"/>
+                                <TextBlock FontWeight="Bold" Text="specific: no frendly aviation"/>
                                 <Image Source="images/interface/yemen.png"/>
                             </StackPanel>
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="Rust" Content="полёт матиаса руста" Height="26" Canvas.Left="10" Canvas.Top="481" Width="192" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
+                <Button x:Name="Rust" Content="mathias rust flight" Height="26" Canvas.Left="10" Canvas.Top="481" Width="156" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
                     <Button.ToolTip>
                         <ToolTip>
                             <StackPanel>
-                                <TextBlock Text="Полёт Матиаса Руста (1987)"/>
-                                <TextBlock FontWeight="Bold" Text="особенность: гражданский самолёт"/>
-                                <TextBlock FontWeight="Bold" Text="в качестве цели"/>
+                                <TextBlock Text="Mathias Rust flight (1987)"/>
+                                <TextBlock FontWeight="Bold" Text="specific: civil aircraft as target"/>
                                 <Image Source="images/interface/rust.png"/>
                             </StackPanel>
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="F117Hunt" Content="охота на невидимку" Height="26" Canvas.Left="308" Canvas.Top="512" Width="137" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
+                <Button x:Name="F117Hunt" Content="hunt for f-117" Height="26" Canvas.Left="333" Canvas.Top="481" Width="112" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
                     <Button.ToolTip>
                         <ToolTip>
                             <StackPanel>
-                                <TextBlock Text="Охота на невидимку (1999)"/>
-                                <TextBlock FontWeight="Bold" Text="особенность: одна конкретная цель"/>
+                                <TextBlock Text="Hunt for F-117 in Yugoslavia (1999)"/>
+                                <TextBlock FontWeight="Bold" Text="specific: wait and destroy a specific target"/>
                                 <Image Source="images/interface/hunt_f117.png"/>
                             </StackPanel>
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="Belgrad" Content="налёт на белград" Height="26" Canvas.Left="185" Canvas.Top="512" Width="118" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
+                <Button x:Name="Belgrad" Content="bomb attacks against belgrad" Height="26" Canvas.Left="207" Canvas.Top="512" Width="235" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
                     <Button.ToolTip>
                         <ToolTip>
                             <StackPanel>
-                                <TextBlock Text="Налёт на Белград (1999)"/>
-                                <TextBlock FontWeight="Bold" Text="особенность: одно направление нападения"/>
+                                <TextBlock Text="Bomb attacks against Belgrad (1999)"/>
+                                <TextBlock FontWeight="Bold" Text="specific: one direction of attack"/>
                                 <Image Source="images/interface/belgrad.png"/>
                             </StackPanel>
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="Khmeimim" Content="оборона хмеймима" Height="26" Canvas.Left="10" Canvas.Top="574" Width="192" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
+                <Button x:Name="Khmeimim" Content="siege of kmeimim" Height="26" Canvas.Left="10" Canvas.Top="574" Width="192" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
                     <Button.ToolTip>
                         <ToolTip>
                             <StackPanel>
-                                <TextBlock Text="Оборона Хмеймима (2016-2020)"/>
-                                <TextBlock FontWeight="Bold" Text="особенность: только беспилотники"/>
+                                <TextBlock Text="Siege of Kmeimim (2016-2020)"/>
+                                <TextBlock FontWeight="Bold" Text="specific: only UAVs"/>
                                 <Image Source="images/interface/khmeimim.png"/>
                             </StackPanel>
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="Turkey" Content="турецкое вторжение в сирию" Height="26" Canvas.Left="207" Canvas.Top="574" Width="238" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
+                <Button x:Name="Turkey" Content="turkey's intervention in syria" Height="26" Canvas.Left="207" Canvas.Top="574" Width="238" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
                     <Button.ToolTip>
                         <ToolTip>
                             <StackPanel>
-                                <TextBlock Text="Турецкое вторжение в Сирию (2020)"/>
-                                <TextBlock FontWeight="Bold" Text="особенность: только ударные"/>
-                                <TextBlock FontWeight="Bold" Text="беспилотники"/>
+                                <TextBlock Text="Turkey's intervention in Syria (2020)"/>
+                                <TextBlock FontWeight="Bold" Text="specific: only UCAV"/>
                                 <Image Source="images/interface/turkey.png"/>
                             </StackPanel>
                         </ToolTip>
