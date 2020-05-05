@@ -326,22 +326,22 @@ namespace shilka2
 
             if (statisticShellsFired > 0)
             {
-                stat += String.Format("выстрелов: {0}", statisticShellsFired);
+                stat += String.Format("shots: {0}", statisticShellsFired);
 
                 if (staticticAircraftShutdown > 0)
-                    stat += String.Format(" ( {0} выстр./сбитый )", shellsForShutdown);
+                    stat += String.Format(" ( {0} shots/aircraft )", shellsForShutdown);
 
                 stat += "\n";
             }
 
             if (staticticInTarget > 0)
-                stat += String.Format("попаданий: {0} ( {1}% )\n", staticticInTarget, inTargetPercent);
+                stat += String.Format("in target: {0} ( {1}% )\n", staticticInTarget, inTargetPercent);
 
             if (staticticAircraftShutdown > 0)
-                stat += String.Format("сбито: {0} ( {1}% )", staticticAircraftShutdown, shutdownPercent);
+                stat += String.Format("shutdown: {0} ( {1}% )", staticticAircraftShutdown, shutdownPercent);
 
             if (statisticDamaged > 0)
-                stat += String.Format("{0}повреждено: {1} ( {2}% )\n",
+                stat += String.Format("{0}damaged: {1} ( {2}% )\n",
                     (staticticAircraftShutdown == 0 ? String.Empty : " +"), statisticDamaged, damagedPercent);
             else if (staticticAircraftShutdown > 0)
                 stat += "\n";
@@ -353,11 +353,11 @@ namespace shilka2
                 if ((hasGonePercent == 0) && (statisticHasGone > 0))
                     hasGonePercent = 1;
 
-                stat += String.Format("упущено: {0} ( {1}%, последний {2} )",
+                stat += String.Format("missed: {0} ( {1}%, last {2} )",
                     statisticHasGone, hasGonePercent, statisticLastHasGone);
 
                 if (statisticDamaged < statisticHasGone)
-                    stat += String.Format(", в т.ч. неповредённых: {0} ( {1}% )",
+                    stat += String.Format(", without damages: {0} ( {1}% )",
                         (statisticHasGone - statisticDamaged), statisticWithoutDamage );
 
                 stat += "\n";
@@ -365,32 +365,32 @@ namespace shilka2
 
             if (statisticAmountOfDamage > 0 && !Shilka.school && !Shilka.training)
             {
-                stat += String.Format("нанесён ущерб: {0}", HumanReadableSumm(statisticAmountOfDamage));
+                stat += String.Format("caused damage: {0}", HumanReadableSumm(statisticAmountOfDamage));
 
                 if (statisticShutdownFlag)
-                    stat += String.Format(" ( +{0} млн $ сбит {1} )",
+                    stat += String.Format(" ( +{0} m $ shutdown {1} )",
                         statisticLastDamagePrice, statisticLastDamageType);
                 else
-                    stat += String.Format(" ( +{0:f2} млн ${1} повреждён {2} )",
-                        statisticLastDamagePrice, (seriousDamage ? " серьёзно" : String.Empty), statisticLastDamageType);
+                    stat += String.Format(" ( +{0:f2} m ${1}  {2} )",
+                        statisticLastDamagePrice, (seriousDamage ? " seriously" : String.Empty), statisticLastDamageType);
 
                 stat += "\n";
             }
 
             if (statisticFriendDamage > 0)
-                stat += String.Format("повреждено своих: {0} ( последний {1} )\n",
+                stat += String.Format("frends damaged: {0} ( last {1} )\n",
                     statisticFriendDamage, statisticLastDamageFriend);
 
             if (statisticAirlinerDamage > 0)
-                stat += String.Format("повреждено гражданских: {0} ( последний {1} )\n",
+                stat += String.Format("airlines damaged: {0} ( last {1} )\n",
                     statisticAirlinerDamage, statisticLastDamageAirliner);
 
             if (statisticAllAircraft > 0 && !Shilka.training)
-                stat += String.Format("удача: {0:f2}", chance) + "\n";
+                stat += String.Format("luck: {0:f2}", chance) + "\n";
 
             if (statisticShellsFired > 0)
-                stat += String.Format("температура стволов: {0}°C {1}",
-                    Shilka.degreeOfHeatingGunBurrels, (Shilka.reheatingGunBurrels ? " - перегрев стволов!" : String.Empty));
+                stat += String.Format("guns temperature: {0}°C {1}",
+                    Shilka.degreeOfHeatingGunBurrels, (Shilka.reheatingGunBurrels ? " - overheating!" : String.Empty));
 
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {
@@ -404,23 +404,23 @@ namespace shilka2
             string stat = String.Empty;
 
             if (statisticShellsFired > 0)
-                stat += String.Format("выстрелов: {0}\n", statisticShellsFired);
+                stat += String.Format("shots: {0}\n", statisticShellsFired);
 
             if (staticticInTarget > 0)
-                stat += String.Format("попаданий: {0}\n", staticticInTarget);
+                stat += String.Format("in target: {0}\n", staticticInTarget);
 
             if (staticticAircraftShutdown > 0)
-                stat += String.Format("сбито: {0}\n", staticticAircraftShutdown);
+                stat += String.Format("shutdown: {0}\n", staticticAircraftShutdown);
 
             if (statisticDamaged > 0)
-                stat += String.Format("повреждено: {0}\n", statisticDamaged);
+                stat += String.Format("damaged: {0}\n", statisticDamaged);
 
             if (statisticHasGone > 0)
-                stat += String.Format("упущено: {0}\n", statisticHasGone);
+                stat += String.Format("missed: {0}\n", statisticHasGone);
 
             if (statisticShellsFired > 0)
-                stat += String.Format("температура стволов: {0}°C {1}",
-                    Shilka.degreeOfHeatingGunBurrels, (Shilka.reheatingGunBurrels ? " - перегрев стволов!" : String.Empty));
+                stat += String.Format("guns temperature: {0}°C {1}",
+                    Shilka.degreeOfHeatingGunBurrels, (Shilka.reheatingGunBurrels ? " - overheating!" : String.Empty));
 
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {
