@@ -791,7 +791,7 @@ namespace shilka2
                 "\u2014 missed without damages", String.Format("{0}%", statRow.withoutDamage)
             });
             StatBoxAddRow(new String[] {
-                "shot at one shotdown", String.Format("{0} выстр./сбитый", shellsForShutdown),
+                "shot at one shotdown", String.Format("{0} shot/aircraft", shellsForShutdown),
                 "caused damage", Statistic.HumanReadableSumm(statRow.amountOfDamage)
             });
             StatBoxAddRow(new String[] {
@@ -804,7 +804,7 @@ namespace shilka2
             });
             StatBoxAddRow(new String[] {
                 "\u2014 bad weather", statRow.badTime.ToString(),
-                "time of queues", string.Format("{0:f2} сек", timeForQueue)
+                "time of queues", string.Format("{0:f2} sec", timeForQueue)
             });
             StatBoxAddRow(new String[] {
                 "luck", statRow.chance.ToString(),
