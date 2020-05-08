@@ -214,7 +214,7 @@ namespace shilka2
 
             if (Shilka.school || Shilka.training)
             {
-                schoolLabel.Content = (Shilka.school ? "обучающий режим" : "тренировка");
+                schoolLabel.Content = (Shilka.school ? "education" : "training");
                 schoolLabel.Visibility = Visibility.Visible;
                 School.Enabled = true;
                 School.Start();
@@ -280,13 +280,13 @@ namespace shilka2
 
         public void EndGameByShutdown(string aircraftName, bool friend, bool trainingTug)
         {
-            string type = (friend ? "свой" : "пассажирский") + " ";
+            string type = (friend ? "a friendly" : "an airliner") + " ";
 
             if (trainingTug)
                 type = String.Empty;
 
-            EndGame(
-                endText: String.Format("Вы сбили {0}{1}!\nИгра окончена.\nСохранить статистику?", type, aircraftName),
+            EndGame(               
+                endText: String.Format("You shot down {0}{1}!\nGame over.\nSave statistics?", type, aircraftName),
                 bgColor: Constants.END_COLOR,
                 noReturn: true
             );
@@ -445,11 +445,11 @@ namespace shilka2
             string endText;
 
             if (Shilka.school)
-                endText = "Выход из обучения";
+                endText = "Quit education mode.";
             else if (Shilka.training)
-                endText = "Выход из тренировки";
+                endText = "Quit training mode.";
             else
-                endText = "Выход из игры.\nСохранить статистику?";
+                endText = "Quit the game.\nSave statistics?";
 
             if (!endGameAlready)
                 EndGame(endText, endColor); 
