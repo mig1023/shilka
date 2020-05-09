@@ -332,6 +332,8 @@ namespace shilka2
                 playerPlaceHolder.Visibility = Visibility.Visible;
             }
 
+            PlayerName_KeyUp(null, null);
+
             MoveCanvas(
                 moveCanvas: newMenu,
                 prevCanvas: firePlaceDock,
@@ -593,7 +595,7 @@ namespace shilka2
             else
                 playerPlaceHolder.Visibility = Visibility.Hidden;
 
-            if (e.Key == Key.Enter)
+            if ((e != null) && (e.Key == Key.Enter))
                 GameOver(PlayerName.Text);
         }
 
