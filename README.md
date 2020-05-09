@@ -73,20 +73,20 @@ The game is about a small anti-aircraft vehicle in the school notebook
 
 | Aircraft | Aircraft | Aircraft | Aircraft |
 | ------------- | ------------- | ------------- | ------------- |
-| A-50 | MiG-19 | MiG-21 | MiG-23 |
-| MiG-25 | MiG-29 | MiG-31 | MiG-35 |
-| Su-17 | Su-24 | Su-25 | Su-27 |
-| Su-30 | Su-34 | Su-57 | Tu-16 |
-| Tu-22 | Tu-22M3 | Tu-95 | Tu-160 |
+| A-50 Mainstay | MiG-19 Farmer | MiG-21 Fishbed | MiG-23 Flogger |
+| MiG-25 Foxbat | MiG-29 Fulcrum | MiG-31 Foxhound | MiG-35 Fulcrum-F |
+| Su-17 Fitter | Su-24 Frogfoot | Su-25 | Su-27 Flanker |
+| Su-30 Flanker-C | Su-34 Fullback | Su-57 Felon | Tu-16 Badger |
+| Tu-22 Blinder | Tu-22M3 Backfire | Tu-95 Bear | Tu-160 Blackjack |
 
 ### Friend helicopters:
 
 | Helicopter | Helicopter | Helicopter |
 | ------------- | ------------- | ------------- |
-| Ansat |Mi-8 | Mi-10 | 
-| Mi-24 | Mi-26 | Mi-28 | 
-| Mi-38 | Ka-26 | Ka-27 |
-| Ka-31 | Ka-52 | Ka-60 |
+| Ansat | Mi-8 Hip | Mi-10 Harke | 
+| Mi-24 Hind | Mi-26 Halo | Mi-28 Havoc | 
+| Mi-38 | Ka-26 Hoodlum | Ka-27 Helix |
+| Ka-31 Helix | Ka-52 Hokum B | Ka-60 |
 
 ### Airliners:
 
