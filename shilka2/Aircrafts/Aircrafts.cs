@@ -2510,7 +2510,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "a320",
-                aircraftName = "Airbus А320",
+                aircraftName = "Airbus A320",
                 hitPoint = 100,
                 size = new int[] { 565, 173 },
                 speed = 8,
@@ -2666,7 +2666,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "a380",
-                aircraftName = "Airbus А380",
+                aircraftName = "Airbus A380",
                 hitPoint = 120,
                 size = new int[] { 621, 191 },
                 speed = 8,

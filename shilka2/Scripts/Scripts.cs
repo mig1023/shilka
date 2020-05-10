@@ -23,20 +23,20 @@ namespace shilka2
 
         public static Dictionary<string, string> scriptsRuNames = new Dictionary<string, string>
         {
-            ["noScript"] = "быстрая игра",
-            ["Vietnam"] = "вьетнамская война",
-            ["KoreanBoeing"] = "корейский боинг",
-            ["DesertStorm"] = "буря в пустыни",
-            ["Yugoslavia"] = "бомбардировки югославии",
-            ["IranIraq"] = "ирано-иракская война",
-            ["Syria"] = "гражданская война в сирии",
-            ["Libya"] = "интервенция в ливии",
-            ["Yemen"] = "война в йемене",
-            ["Rust"] = "полёт матиаса руста",
-            ["F117Hunt"] = "охота на невидимку",
-            ["Khmeimim"] = "оборона хмеймима",
-            ["Belgrad"] = "налёт на белград",
-            ["Turkey"] = "турецкое вторжение",
+            ["noScript"] = "quick game",
+            ["Vietnam"] = "vietnam war",
+            ["KoreanBoeing"] = "korean boeing incident",
+            ["DesertStorm"] = "desert storm",
+            ["Yugoslavia"] = "nato bombing of yugoslavia",
+            ["IranIraq"] = "iran-iraq war",
+            ["Syria"] = "syrian civil war",
+            ["Libya"] = "intervention in libya",
+            ["Yemen"] = "intervention in yemen",
+            ["Rust"] = "mathias rust flight",
+            ["F117Hunt"] = "hunt for f-117",
+            ["Khmeimim"] = "siege of kmeimim",
+            ["Belgrad"] = "bomb attacks against belgrad",
+            ["Turkey"] = "turkey's intervention in syria",
         };
 
         public static Dictionary<ScriptsNames, string> imagesNames = new Dictionary<ScriptsNames, string>
