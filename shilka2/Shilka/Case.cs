@@ -55,7 +55,7 @@ namespace shilka2
                     Width = Constants.CASE_LENGTH,
                     Height = Constants.CASE_LENGTH,
 
-                    Source = Aircraft.ImageFromResources("case", Aircraft.ImageType.Other),
+                    Source = Functions.ImageFromResources("case", Aircraft.ImageType.Other),
                     Margin = new Thickness(newCase.x, newCase.y, 0, 0)
                 };
 

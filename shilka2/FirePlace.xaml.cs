@@ -121,7 +121,7 @@ namespace shilka2
                     Image palm = new Image
                     {
                         Height = rand.Next(Constants.VIETNAM_PALM_HEIGHT_RANDOM) + Constants.VIETNAM_PALM_HEIGHT_MIN,
-                        Source = Aircraft.ImageFromResources("palm", Aircraft.ImageType.Interface)
+                        Source = Functions.ImageFromResources("palm", Aircraft.ImageType.Interface)
                     };
 
                     Canvas.SetZIndex(palm, 5);
@@ -143,7 +143,7 @@ namespace shilka2
                 Image singleBackImage = new Image
                 {
                     Height = Constants.SCRIPT_SINGLE_HEIGHT,
-                    Source = Aircraft.ImageFromResources(Scripts.imagesNames[Shilka.currentScript], Aircraft.ImageType.Interface)
+                    Source = Functions.ImageFromResources(Scripts.imagesNames[Shilka.currentScript], Aircraft.ImageType.Interface)
                 };
 
                 Canvas.SetZIndex(singleBackImage, 5);
@@ -625,7 +625,7 @@ namespace shilka2
             Shilka.night = false;
 
             if (flagName != null)
-                scenarioFlag.Source = Aircraft.ImageFromResources(flagName, Aircraft.ImageType.Interface);
+                scenarioFlag.Source = Functions.ImageFromResources(flagName, Aircraft.ImageType.Interface);
             else
                 scenarioFlag.Source = null;
 
@@ -639,9 +639,9 @@ namespace shilka2
             else
                 statShells.Foreground = Brushes.Black;
 
-            notebookBackground.Source = Aircraft.ImageFromResources("background", Aircraft.ImageType.Interface);
+            notebookBackground.Source = Functions.ImageFromResources("background", Aircraft.ImageType.Interface);
                 
-            ShilkaImg.Source = Aircraft.ImageFromResources("shilka", Aircraft.ImageType.Interface);
+            ShilkaImg.Source = Functions.ImageFromResources("shilka", Aircraft.ImageType.Interface);
 
             StartGame(
                 Scripts.ScriptEnemyAircrafts(script),

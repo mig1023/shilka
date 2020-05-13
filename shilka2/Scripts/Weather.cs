@@ -72,7 +72,7 @@ namespace shilka2
                     Image thuderImage = new Image
                     {
                         Height = rand.Next(200, (int)SystemParameters.PrimaryScreenHeight),
-                        Source = Aircraft.ImageFromResources("thunder" + (rand.Next(1, 7)), Aircraft.ImageType.Other),
+                        Source = Functions.ImageFromResources("thunder" + (rand.Next(1, 7)), Aircraft.ImageType.Other),
                         Margin = new Thickness(rand.Next(0, (int)SystemParameters.PrimaryScreenWidth), -10, 0, 0)
                     };
 
@@ -188,7 +188,7 @@ namespace shilka2
                         imageName = "snow" + rand.Next(1, Constants.MAX_SNOW_TYPE + 1).ToString();
                     }
 
-                    newImage.Source = Aircraft.ImageFromResources(imageName, Aircraft.ImageType.Other);
+                    newImage.Source = Functions.ImageFromResources(imageName, Aircraft.ImageType.Other);
                     newImage.Margin = new Thickness(newWeather.x, newWeather.y, 0, 0);
 
                     newWeather.weatherImage = newImage;

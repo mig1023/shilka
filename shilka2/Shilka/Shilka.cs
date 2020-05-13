@@ -98,7 +98,7 @@ namespace shilka2
 
                 craneTruckMove = !craneTruckMove;
                 string craneTrackSource = "truck_crane" + (craneTruckMove ? "_move" : "");
-                main.TruckCraneImg.Source = Aircraft.ImageFromResources(craneTrackSource, Aircraft.ImageType.Interface);
+                main.TruckCraneImg.Source = Functions.ImageFromResources(craneTrackSource, Aircraft.ImageType.Interface);
 
                 if (main.TruckCraneImg.Margin.Left > SystemParameters.PrimaryScreenWidth)
                     main.TruckCraneImg.Visibility = Visibility.Hidden;

@@ -57,6 +57,7 @@
     </ApplicationDefinition>
     <Compile Include="Aircrafts\Aircraft.cs" />
     <Compile Include="Aircrafts\Aircrafts.cs" />
+    <Compile Include="Other\Functions.cs" />
     <Compile Include="Shilka\Case.cs" />
     <Compile Include="Other\Constants.cs" />
     <Compile Include="Aircrafts\DynamicElement.cs" />
