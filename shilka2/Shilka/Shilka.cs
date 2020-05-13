@@ -140,7 +140,7 @@ namespace shilka2
         public static double GunMalfunction()
         {
             if (rand.Next(3) == 1)
-                gunMalfunction = rand.Next(400) - 200;
+                gunMalfunction = rand.Next(Constants.GUN_MALFUNC_RANGE * 2) - Constants.GUN_MALFUNC_RANGE;
 
             return gunMalfunction;
         }

@@ -201,5 +201,7 @@ namespace shilka2
         public const int RADAR_MALFUNC_MIN_ANGLE = 0;
         public const int RADAR_MALFUNC_MAX_ANGLE = -130;
         public const int RADAR_MALFUNC_DIRECT_CHNG = 10;
+
+        public const int GUN_MALFUNC_RANGE = 200;
     }
 }
