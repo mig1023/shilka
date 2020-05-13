@@ -18,7 +18,7 @@ The game is about a small anti-aircraft vehicle in the school notebook
 | Syrian civil war | 2011-2020 | only UAVs and cruise missiles |
 | Intervention in Libya | 2011 | unpredictable guns |
 | Intervention in Yemen | 2015-2020 | no friendly aviation |
-| Siege of Kmeimim | 2016-2020 | only UAVs |
+| Siege of Kmeimim | 2016-2020 | UAVs swarms |
 | Turkey's intervention in Syria | 2020 | only UCAV |
 
 ### Different weather:
@@ -66,7 +66,7 @@ The game is about a small anti-aircraft vehicle in the school notebook
 | UAV | UAV | UAV |
 | ------------- | ------------- | ------------- |
 | Bayraktar TB2 | MQ-1 Predator | MQ-9 Reaper |
-| Piaggio Aerospace P.1HH HammerHea | RQ-4 Global Hawk | RQ-5 Hunter |
+| Piaggio Aerospace P.1HH HammerHead | RQ-4 Global Hawk | RQ-5 Hunter |
 | RQ-11 Raven | Spy / attack drone (9 types) | TAI Anka |
 
 ### Friend aircrafts:
