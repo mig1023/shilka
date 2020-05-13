@@ -220,9 +220,9 @@ namespace shilka2
                             if (d.rotateDegreeCurrent < Constants.ROTATION_REVERT)
                             {
                                 if (d.backSide && d.currentSide)
-                                    d.element.Source = ImageFromResources(d.elementName, ImageType.DynamicElement);
+                                    d.element.Source = Functions.ImageFromResources(d.elementName, ImageType.DynamicElement);
                                 else if (d.backSide)
-                                    d.element.Source = ImageFromResources(d.elementName + "_back", ImageType.DynamicElement);
+                                    d.element.Source = Functions.ImageFromResources(d.elementName + "_back", ImageType.DynamicElement);
 
                                 d.currentSide = !d.currentSide;
                                 d.positiveDirection = true;
@@ -233,7 +233,7 @@ namespace shilka2
 
                                 if (d.oneWay)
                                 {
-                                    d.element.Source = ImageFromResources(d.elementName, ImageType.DynamicElement);
+                                    d.element.Source = Functions.ImageFromResources(d.elementName, ImageType.DynamicElement);
                                     d.currentSide = !d.currentSide;
                                 }
                             }
@@ -319,66 +319,6 @@ namespace shilka2
             return inList;
         }
 
-        public static ImageSource ImageFromResources(string imageName, ImageType type = ImageType.Aircraft, bool noInvert = false)
-        {
-            BitmapImage image = null;
-
-            string typeFolder = type.ToString();
-
-            try
-            {
-                image = new BitmapImage(new Uri(String.Format("pack://application:,,,/images/{0}/{1}.png", typeFolder, imageName))) { };
-            }
-            catch
-            {
-                return null;
-            }
-
-            if (Shilka.night && !noInvert)
-                return Invert(image);
-
-            return image;
-        }
-
-        private static bool InvertCount(ref int a)
-        {
-            if (a > 2)
-            {
-                a = 0;
-                return true;
-            }
-            else
-            {
-                a += 1;
-                return false;
-            }
-        }
-
-        public static BitmapSource Invert(BitmapSource originalSource)
-        {
-            int stride = (originalSource.PixelWidth * originalSource.Format.BitsPerPixel + 7) / 8;
-
-            int length = stride * originalSource.PixelHeight;
-            byte[] data = new byte[length];
-
-            originalSource.CopyPixels(data, stride, 0);
-
-            int a = 0;
-
-            for (int i = 0; i < length; i += 1)
-                if (!InvertCount(ref a))
-                    data[i] = (byte)(255 - data[i]);
-
-            List<Color> colors = new List<Color>
-            {
-                Colors.Black
-            };
-            BitmapPalette palette = new BitmapPalette(colors);
-
-            return BitmapSource.Create(originalSource.PixelWidth, originalSource.PixelHeight,
-                originalSource.DpiX, originalSource.DpiY, originalSource.Format, palette, data, stride);
-        }
-
         public void CreateNewAircraft(double? startX = null, double? startY = null, FlyObject.FlightDirectionType? startDirection = null,
             bool dead = false, bool transformation = false, bool suspended = false)
         {
@@ -409,7 +349,7 @@ namespace shilka2
                     newAircraft.y = newAircraft.minAltitude;
 
                 FlyObject.FlightDirectionType newDirection =
-                    (rand.Next(2) == 1 ? FlyObject.FlightDirectionType.Right : FlyObject.FlightDirectionType.Left);
+                    (Functions.TossACoin() ? FlyObject.FlightDirectionType.Right : FlyObject.FlightDirectionType.Left);
 
                 if ((Weather.currentWeather == Weather.WeatherTypes.storm) && cloud)
                     newDirection = Weather.stormDirection;
@@ -430,13 +370,13 @@ namespace shilka2
                 newAircraft.x = startX ?? newAircraft.x;
                 newAircraft.flightDirection = startDirection ?? newAircraft.flightDirection;
 
-                newAircraftImage.Source = ImageFromResources(
+                newAircraftImage.Source = Functions.ImageFromResources(
                     imageName: aircraftType,
                     type: (newAircraft.cloud ? Aircraft.ImageType.Other : Aircraft.ImageType.Aircraft)
                 );
 
                 bool flightLeftAndNotCloud = (newAircraft.flightDirection == FlyObject.FlightDirectionType.Left) && !cloud;
-                bool flightRightAndCloud = (rand.Next(2) == 1) && cloud;
+                bool flightRightAndCloud = Functions.TossACoin() && cloud;
 
                 if (flightLeftAndNotCloud || flightRightAndCloud)
                     newAircraftImage.FlowDirection = FlowDirection.RightToLeft;
@@ -453,7 +393,7 @@ namespace shilka2
                         tmp.element = new Image
                         {
                             Margin = new Thickness(newAircraft.x, newAircraft.y, 0, 0),
-                            Source = ImageFromResources(d.elementName, ImageType.DynamicElement)
+                            Source = Functions.ImageFromResources(d.elementName, ImageType.DynamicElement)
                         };
                         tmp.rotateDegreeCurrent = d.startDegree;
 
@@ -611,7 +551,7 @@ namespace shilka2
                     foreach (DynamicElement d in dynamicElemets)
                         main.firePlace.Children.Remove(d.element);
 
-                    ImageSource sprite = ImageFromResources(aircraftType + "_dead", ImageType.DeadSprite);
+                    ImageSource sprite = Functions.ImageFromResources(aircraftType + "_dead", ImageType.DeadSprite);
 
                     if (sprite != null)
                         aircraftImage.Source = sprite;

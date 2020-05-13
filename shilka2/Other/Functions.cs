@@ -10,6 +10,18 @@ namespace shilka2
 {
     class Functions
     {
+        public static Random rand;
+
+        static Functions()
+        {
+            rand = new Random();
+        }
+
+        public static bool TossACoin()
+        {
+            return rand.Next(2) == 1;
+        }
+
         public static ImageSource ImageFromResources(string imageName,
             Aircraft.ImageType type = Aircraft.ImageType.Aircraft, bool noInvert = false)
         {

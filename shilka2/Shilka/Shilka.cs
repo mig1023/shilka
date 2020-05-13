@@ -114,7 +114,7 @@ namespace shilka2
 
         public static double RadarmMalfunction()
         {
-            if ((radarMalfunctionDelay > Constants.RADAR_MALFUNC_MAX_DELAY) && (rand.Next(2) == 1))
+            if ((radarMalfunctionDelay > Constants.RADAR_MALFUNC_MAX_DELAY) && Functions.TossACoin())
                 radarMalfunctionDelay = 0;
             else if (radarMalfunctionDelay > Constants.RADAR_MALFUNC_MAX_DELAY)
                 radarMalfunctionDirection = rand.Next(Constants.RADAR_MALFUNC_DIRECT_CHNG) - Constants.RADAR_MALFUNC_BACKMOVE;
@@ -174,7 +174,7 @@ namespace shilka2
 
         public static void HeatingOfGuns(bool shooting)
         {
-            if (rand.Next(2) == 1)
+            if (Functions.TossACoin())
                 return;
 
             degreeOfHeatingGunBurrels += (shooting ? 1 : -1);

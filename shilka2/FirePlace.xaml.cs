@@ -126,7 +126,7 @@ namespace shilka2
 
                     Canvas.SetZIndex(palm, 5);
 
-                    if (rand.Next(2) == 1)
+                    if (Functions.TossACoin())
                         palm.FlowDirection = FlowDirection.RightToLeft;
 
                     double topPalmPosotion = notebookBackground.ActualHeight - palm.Height + 50;
