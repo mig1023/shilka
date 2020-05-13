@@ -75,7 +75,11 @@ namespace shilka2
                 Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
                 {
                     FirePlace main = (FirePlace)Application.Current.MainWindow;
-                    main.RadarImg.RenderTransform = new RotateTransform(RadarmMalfunction(), 4, 20);
+                    main.RadarImg.RenderTransform = new RotateTransform(
+                        RadarmMalfunction(),
+                        Constants.RADAR_MALFUNC_X,
+                        Constants.RADAR_MALFUNC_Y
+                    );
                 }));
             }
         }
@@ -110,10 +114,10 @@ namespace shilka2
 
         public static double RadarmMalfunction()
         {
-            if ((radarMalfunctionDelay > 10) && (rand.Next(2) == 1))
+            if ((radarMalfunctionDelay > Constants.RADAR_MALFUNC_MAX_DELAY) && (rand.Next(2) == 1))
                 radarMalfunctionDelay = 0;
-            else if (radarMalfunctionDelay > 10)
-                radarMalfunctionDirection = rand.Next(10) - 5;
+            else if (radarMalfunctionDelay > Constants.RADAR_MALFUNC_MAX_DELAY)
+                radarMalfunctionDirection = rand.Next(Constants.RADAR_MALFUNC_DIRECT_CHNG) - Constants.RADAR_MALFUNC_BACKMOVE;
             else
                 radarMalfunctionDelay += 1;
 
@@ -122,12 +126,12 @@ namespace shilka2
             if (radarMalfunction > 0)
             {
                 radarMalfunction = 0;
-                radarMalfunctionDirection = rand.Next(10) * -1;
+                radarMalfunctionDirection = rand.Next(Constants.RADAR_MALFUNC_DIRECT_CHNG) * -1;
             }
-            else if (radarMalfunction < -130)
+            else if (radarMalfunction < Constants.RADAR_MALFUNC_MAX_ANGLE)
             {
-                radarMalfunction = -130;
-                radarMalfunctionDirection = rand.Next(10);
+                radarMalfunction = Constants.RADAR_MALFUNC_MAX_ANGLE + (Constants.RADAR_MALFUNC_BACKMOVE * 2);
+                radarMalfunctionDirection = Constants.RADAR_MALFUNC_BACKMOVE;
             }
 
             return radarMalfunction;

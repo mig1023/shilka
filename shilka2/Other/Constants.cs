@@ -100,8 +100,6 @@ namespace shilka2
         public const int HEATING_UNDER_SNOW = -25;
 
         // school
-
-
         public const string ENEMY_INFORMATION = "ENEMY\n\nNow the first enemy aircraft will " +
             " appear - all enemy aircraft are highlighted in red for training time. You need " + 
             "to shot them down, or at least damage them. The scale will tell how damaged each " + 
@@ -195,5 +193,13 @@ namespace shilka2
 
         public const int SCRIPT_SINGLE_HEIGHT = 300;
         public const double SCRIPT_SINGLE_RIGHT_POSITION = 0.65;
+
+        public const int RADAR_MALFUNC_X = 4;
+        public const int RADAR_MALFUNC_Y = 20;
+        public const int RADAR_MALFUNC_BACKMOVE = 5;
+        public const int RADAR_MALFUNC_MAX_DELAY = 10;
+        public const int RADAR_MALFUNC_MIN_ANGLE = 0;
+        public const int RADAR_MALFUNC_MAX_ANGLE = -130;
+        public const int RADAR_MALFUNC_DIRECT_CHNG = 10;
     }
 }
