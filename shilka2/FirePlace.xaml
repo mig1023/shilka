@@ -172,7 +172,7 @@
                         <ToolTip>
                             <StackPanel>
                                 <TextBlock Text="Siege of Kmeimim (2016-2020)"/>
-                                <TextBlock FontWeight="Bold" Text="specific: only UAVs"/>
+                                <TextBlock FontWeight="Bold" Text="specific: UAVs swarms"/>
                                 <Image Source="images/interface/khmeimim.png"/>
                             </StackPanel>
                         </ToolTip>

@@ -319,8 +319,8 @@ namespace shilka2
             return inList;
         }
 
-        public void CreateNewAircraft(double? startX = null, double? startY = null, FlyObject.FlightDirectionType? startDirection = null,
-            bool dead = false, bool transformation = false, bool suspended = false)
+        public void Launch(double? startX = null, double? startY = null, FlightDirectionType? startDirection = null,
+            bool dead = false, bool transformation = false, bool suspended = false, bool swarm = false)
         {
             if (!transformation && (!Shilka.training || !cloud))
                 allAircraftsInGame += 1;
@@ -348,34 +348,36 @@ namespace shilka2
                 if ((newAircraft.minAltitude != -1) && (newAircraft.y > newAircraft.minAltitude))
                     newAircraft.y = newAircraft.minAltitude;
 
-                FlyObject.FlightDirectionType newDirection =
-                    (Functions.TossACoin() ? FlyObject.FlightDirectionType.Right : FlyObject.FlightDirectionType.Left);
+                FlightDirectionType newDirection =
+                    (Functions.TossACoin() ? FlightDirectionType.Right : FlightDirectionType.Left);
 
                 if ((Weather.currentWeather == Weather.WeatherTypes.storm) && cloud)
                     newDirection = Weather.stormDirection;
 
                 if ((Shilka.currentScript == Scripts.ScriptsNames.Belgrad) && !cloud)
                     if (friend)
-                        newDirection = FlyObject.FlightDirectionType.Right;
+                        newDirection = FlightDirectionType.Right;
                     else
-                        newDirection = FlyObject.FlightDirectionType.Left;
+                        newDirection = FlightDirectionType.Left;
 
                 newAircraft.flightDirection = newDirection;
 
-                if (newDirection == FlyObject.FlightDirectionType.Right)
-                    newAircraft.x = -1 * newAircraftImage.Width;
+                int swarmDistance = (swarm ? rand.Next(0, Constants.UAV_SWARM_DISTANCE) : 0);
+
+                if (newDirection == FlightDirectionType.Right)
+                    newAircraft.x = -1 * newAircraftImage.Width - swarmDistance;
                 else
-                    newAircraft.x = Application.Current.MainWindow.Width;
+                    newAircraft.x = Application.Current.MainWindow.Width + swarmDistance;
 
                 newAircraft.x = startX ?? newAircraft.x;
                 newAircraft.flightDirection = startDirection ?? newAircraft.flightDirection;
 
                 newAircraftImage.Source = Functions.ImageFromResources(
                     imageName: aircraftType,
-                    type: (newAircraft.cloud ? Aircraft.ImageType.Other : Aircraft.ImageType.Aircraft)
+                    type: (newAircraft.cloud ? ImageType.Other : ImageType.Aircraft)
                 );
 
-                bool flightLeftAndNotCloud = (newAircraft.flightDirection == FlyObject.FlightDirectionType.Left) && !cloud;
+                bool flightLeftAndNotCloud = (newAircraft.flightDirection == FlightDirectionType.Left) && !cloud;
                 bool flightRightAndCloud = Functions.TossACoin() && cloud;
 
                 if (flightLeftAndNotCloud || flightRightAndCloud)
@@ -397,22 +399,22 @@ namespace shilka2
                         };
                         tmp.rotateDegreeCurrent = d.startDegree;
 
-                        if ((newAircraft.flightDirection == FlyObject.FlightDirectionType.Right) && !d.mirror)
+                        if ((newAircraft.flightDirection == FlightDirectionType.Right) && !d.mirror)
                             tmp.element.FlowDirection = FlowDirection.RightToLeft;
-                        else if ((newAircraft.flightDirection == FlyObject.FlightDirectionType.Left) && d.mirror)
+                        else if ((newAircraft.flightDirection == FlightDirectionType.Left) && d.mirror)
                             tmp.element.FlowDirection = FlowDirection.RightToLeft;
 
                         newAircraft.dynamicElemets.Add(tmp);
 
                         bool flightRightAndZRotate = (
-                            (newAircraft.flightDirection == FlyObject.FlightDirectionType.Right)
+                            (newAircraft.flightDirection == FlightDirectionType.Right)
                             &&
                             (d.movingType == DynamicElement.MovingType.zRotate)
                         );
 
                         if (d.background || flightRightAndZRotate)
                             Canvas.SetZIndex(tmp.element, (zIndex == zIndexType.inFront ? 65 : 25));
-                        else if (newAircraft.flightDirection == FlyObject.FlightDirectionType.Right)
+                        else if (newAircraft.flightDirection == FlightDirectionType.Right)
                             Canvas.SetZIndex(tmp.element, (zIndex == zIndexType.inFront ? 85 : 45));
                         else
                             Canvas.SetZIndex(tmp.element, (zIndex == zIndexType.inFront ? 75 : 35));
@@ -435,7 +437,7 @@ namespace shilka2
                     Canvas.SetZIndex(newAircraftImage, 101);
                 else if (zIndex != null)
                 {
-                    if (newAircraft.flightDirection == FlyObject.FlightDirectionType.Right)
+                    if (newAircraft.flightDirection == FlightDirectionType.Right)
                         Canvas.SetZIndex(newAircraftImage, (zIndex == zIndexType.inFront ? 80 : 40));
                     else
                         Canvas.SetZIndex(newAircraftImage, (zIndex == zIndexType.inFront ? 70 : 30));
@@ -611,13 +613,13 @@ namespace shilka2
 
             Aircraft newAircraft = Aircrafts.targetTugs[il28];
             double newX = (flyDirectRight ? x + (Aircrafts.targetTugs[il28with77bm2].size[0] - Aircrafts.targetTugs[il28].size[0]) : x);
-            newAircraft.CreateNewAircraft(newX, y, flightDirection, transformation: true);
+            newAircraft.Launch(newX, y, flightDirection, transformation: true);
 
             newAircraft = Aircrafts.targetTugs[target77bm2];
             newX = (flyDirectRight ? x : x + (Aircrafts.targetTugs[il28with77bm2].size[0] - Aircrafts.targetTugs[target77bm2].size[0]));
             double newY = y + (Aircrafts.targetTugs[il28with77bm2].size[1] - Aircrafts.targetTugs[target77bm2].size[1]);
 
-            newAircraft.CreateNewAircraft(newX, newY, flightDirection, dead: true, transformation: true);
+            newAircraft.Launch(newX, newY, flightDirection, dead: true, transformation: true);
         }
 
         private static int AircraftCategoryForSchool(int currentAircraftCategory, int allAircraftsInGame)
@@ -720,7 +722,7 @@ namespace shilka2
                 
                 Aircraft newAircraft = Aircrafts.suspendedTargets[rand.Next(Aircrafts.suspendedTargets.Count)];
 
-                newAircraft.CreateNewAircraft(
+                newAircraft.Launch(
                     startX: main.TruckCraneImg.Margin.Left - newAircraft.suspendedLeftCorrection,
                     startY: main.TruckCraneImg.Margin.Top + newAircraft.suspendedTopCorrection,
                     suspended: true
@@ -804,8 +806,21 @@ namespace shilka2
                             dice = rand.Next(Aircrafts.helicopters.Count);
                         }
                         while (!AircraftInList(Scripts.scriptHelicopters, dice));
+                        
+                        if (Shilka.currentScript != Scripts.ScriptsNames.Khmeimim)
+                            newAircraft = Aircrafts.helicopters[dice];
+                        else
+                        {
+                            int swarm = rand.Next(1, Constants.UAV_SWARM_MAX);
 
-                        newAircraft = Aircrafts.helicopters[dice];
+                            FlightDirectionType newDirection =
+                                (Functions.TossACoin() ? FlightDirectionType.Right : FlightDirectionType.Left);
+
+                            for (int i = 0; i < swarm; i++)
+                                Aircrafts.helicopters[dice].Launch(swarm: true, startDirection: newDirection);
+
+                            return;
+                        }
 
                         break;
 
@@ -873,7 +888,7 @@ namespace shilka2
                         break;
                 }
 
-            newAircraft.CreateNewAircraft();
+            newAircraft.Launch();
         }
     }
 }
