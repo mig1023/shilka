@@ -177,7 +177,9 @@ namespace shilka2
                             aircraft.y = aircraft.minAltitude;
                     }
 
-                    if ((aircraft.maxAltitude >= 0) && (aircraft.y < aircraft.maxAltitude))
+                    bool notSwarmScript = Shilka.currentScript != Scripts.ScriptsNames.Khmeimim;
+
+                    if ((aircraft.maxAltitude >= 0) && (aircraft.y < aircraft.maxAltitude) && notSwarmScript)
                         aircraft.y = aircraft.maxAltitude;
                     else if (aircraft.y < maxAltitudeGlobal)
                         aircraft.y = maxAltitudeGlobal;
@@ -348,8 +350,7 @@ namespace shilka2
                 if ((newAircraft.minAltitude != -1) && (newAircraft.y > newAircraft.minAltitude))
                     newAircraft.y = newAircraft.minAltitude;
 
-                FlightDirectionType newDirection =
-                    (Functions.TossACoin() ? FlightDirectionType.Right : FlightDirectionType.Left);
+                FlightDirectionType newDirection = startDirection ?? (Functions.TossACoin() ? FlightDirectionType.Right : FlightDirectionType.Left);
 
                 if ((Weather.currentWeather == Weather.WeatherTypes.storm) && cloud)
                     newDirection = Weather.stormDirection;
@@ -370,7 +371,6 @@ namespace shilka2
                     newAircraft.x = Application.Current.MainWindow.Width + swarmDistance;
 
                 newAircraft.x = startX ?? newAircraft.x;
-                newAircraft.flightDirection = startDirection ?? newAircraft.flightDirection;
 
                 newAircraftImage.Source = Functions.ImageFromResources(
                     imageName: aircraftType,
