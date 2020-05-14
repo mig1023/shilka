@@ -730,6 +730,27 @@ namespace shilka2
             }));
         }
 
+        private static void SwarmLaunch()
+        {
+            int dice;
+
+            int swarm = rand.Next(3, Constants.UAV_SWARM_MAX);
+
+            FlightDirectionType newDirection =
+                (Functions.TossACoin() ? FlightDirectionType.Right : FlightDirectionType.Left);
+
+            for (int i = 0; i < swarm; i++)
+            {
+                do
+                {
+                    dice = rand.Next(Aircrafts.helicopters.Count);
+                }
+                while (!AircraftInList(Scripts.scriptHelicopters, dice));
+
+                Aircrafts.helicopters[dice].Launch(swarm: true, startDirection: newDirection);
+            }
+        }
+
         public static void Start(object obj, ElapsedEventArgs e)
         {
             int aircraftCategory = rand.Next(1, 17);
@@ -801,28 +822,24 @@ namespace shilka2
                         if ((Scripts.scriptHelicopters != null) && (Scripts.scriptHelicopters.Length == 0))
                             goto case 5;
 
-                        do
-                        {
-                            dice = rand.Next(Aircrafts.helicopters.Count);
-                        }
-                        while (!AircraftInList(Scripts.scriptHelicopters, dice));
-                        
                         if (Shilka.currentScript != Scripts.ScriptsNames.Khmeimim)
+                        {
+                            do
+                            {
+                                dice = rand.Next(Aircrafts.helicopters.Count);
+                            }
+                            while (!AircraftInList(Scripts.scriptHelicopters, dice));
+
                             newAircraft = Aircrafts.helicopters[dice];
+
+                            break;
+                        }
                         else
                         {
-                            int swarm = rand.Next(3, Constants.UAV_SWARM_MAX);
-
-                            FlightDirectionType newDirection =
-                                (Functions.TossACoin() ? FlightDirectionType.Right : FlightDirectionType.Left);
-
-                            for (int i = 0; i < swarm; i++)
-                                Aircrafts.helicopters[dice].Launch(swarm: true, startDirection: newDirection);
+                            SwarmLaunch();
 
                             return;
                         }
-
-                        break;
 
                     case 13:
 
