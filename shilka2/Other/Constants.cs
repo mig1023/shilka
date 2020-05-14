@@ -204,7 +204,7 @@ namespace shilka2
 
         public const int GUN_MALFUNC_RANGE = 200;
 
-        public const int UAV_SWARM_MAX = 10;
-        public const int UAV_SWARM_DISTANCE = 15;
+        public const int UAV_SWARM_MAX = 17;
+        public const int UAV_SWARM_DISTANCE = 150;
     }
 }

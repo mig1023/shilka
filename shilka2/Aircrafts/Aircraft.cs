@@ -362,7 +362,7 @@ namespace shilka2
 
                 newAircraft.flightDirection = newDirection;
 
-                int swarmDistance = (swarm ? rand.Next(0, Constants.UAV_SWARM_DISTANCE) : 0);
+                int swarmDistance = (swarm ? rand.Next(20, Constants.UAV_SWARM_DISTANCE) : 0);
 
                 if (newDirection == FlightDirectionType.Right)
                     newAircraft.x = -1 * newAircraftImage.Width - swarmDistance;
@@ -811,7 +811,7 @@ namespace shilka2
                             newAircraft = Aircrafts.helicopters[dice];
                         else
                         {
-                            int swarm = rand.Next(1, Constants.UAV_SWARM_MAX);
+                            int swarm = rand.Next(3, Constants.UAV_SWARM_MAX);
 
                             FlightDirectionType newDirection =
                                 (Functions.TossACoin() ? FlightDirectionType.Right : FlightDirectionType.Left);

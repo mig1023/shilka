@@ -614,7 +614,6 @@ namespace shilka2
                     26,     // <-- drone7
                     27,     // <-- drone8
                     28,     // <-- drone9
-                    29,     // <-- raven
                 };
 
             if (script == ScriptsNames.Belgrad)
