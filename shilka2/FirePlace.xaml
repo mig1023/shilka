@@ -156,7 +156,7 @@
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="Belgrad" Content="bomb attacks against belgrad" Height="26" Canvas.Left="207" Canvas.Top="512" Width="235" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
+                <Button x:Name="Belgrad" Content="bomb attacks against belgrad" Height="26" Canvas.Left="207" Canvas.Top="512" Width="238" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
                     <Button.ToolTip>
                         <ToolTip>
                             <StackPanel>
