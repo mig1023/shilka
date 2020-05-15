@@ -409,8 +409,11 @@ namespace shilka2
                 stat += String.Format("luck: {0:f2}", chance) + "\n";
 
             if (statisticShellsFired > 0)
-                stat += String.Format("guns temperature: {0}°C {1}",
-                    Shilka.degreeOfHeatingGunBurrels, (Shilka.reheatingGunBurrels ? " - overheating!" : String.Empty));
+                stat += String.Format("guns temperature: {0}°C{1}{2}",
+                    Shilka.degreeOfHeatingGunBurrels,
+                    (Shilka.reheatingGunBurrels ? " - overheating!" : String.Empty),
+                    (Shilka.degreeOfHeatingGunBurrels > Constants.GUNS_HEATING_WARN ? " ⚠" : String.Empty)
+                );
 
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {
