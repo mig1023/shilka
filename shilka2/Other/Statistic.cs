@@ -40,7 +40,9 @@ namespace shilka2
         static int shootingNumber = 0;
 
         static int lastShutdownPercent = 0;
-        static string percentDynamic = String.Empty;
+        static string lastShutdownDynamic = String.Empty;
+        static int lastInTargetPercent = 0;
+        static string inTargetynamic = String.Empty;
 
         public static List<string> statisticScripts;
 
@@ -336,17 +338,26 @@ namespace shilka2
             }
 
             if (staticticInTarget > 0)
-                stat += String.Format("in target: {0} ( {1}% )\n", staticticInTarget, inTargetPercent);
+            {
+                if (inTargetPercent != lastInTargetPercent)
+                {
+                    inTargetynamic = (inTargetPercent > lastInTargetPercent ? "↑" : "↓");
+                    lastInTargetPercent = inTargetPercent;
+                }
+
+                stat += String.Format("in target: {0} ( {1}% {2} )\n", staticticInTarget, inTargetPercent, inTargetynamic);
+            }
+                
 
             if (staticticAircraftShutdown > 0)
             {
                 if (shutdownPercent != lastShutdownPercent)
                 {
-                    percentDynamic = (shutdownPercent > lastShutdownPercent ? "↑" : "↓");
+                    lastShutdownDynamic = (shutdownPercent > lastShutdownPercent ? "↑" : "↓");
                     lastShutdownPercent = shutdownPercent;
                 }
 
-                stat += String.Format("shutdown: {0} ( {1}% {2} )", staticticAircraftShutdown, shutdownPercent, percentDynamic);
+                stat += String.Format("shutdown: {0} ( {1}% {2} )", staticticAircraftShutdown, shutdownPercent, lastShutdownDynamic);
             }
                 
             if (statisticDamaged > 0)
