@@ -510,10 +510,11 @@ namespace shilka2
                 return new int?[] {
                     1,      // <-- b1
                     2,      // <-- b52
+                    6,      // <-- f16
+                    8,      // <-- f15
                     3,      // <-- f117
+                    10,     // <-- tornado
                     19,     // <-- tomahawk
-                    41,     // <-- globemaster
-                    43,     // <-- kc135
                 };
 
             if (script == ScriptsNames.Turkey)
