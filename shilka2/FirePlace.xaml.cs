@@ -313,15 +313,9 @@ namespace shilka2
             GameOverWithSave.IsEnabled = false;
 
             if (noReturn)
-            {
-                ReturnInGame.Visibility = Visibility.Hidden;
-                ReturnInTraining.Visibility = Visibility.Hidden;
-            }
+                ReturnInTraining.Visibility = ReturnInGame.Visibility = Visibility.Hidden;
             else
-            {
-                ReturnInGame.Visibility = Visibility.Visible;
-                ReturnInTraining.Visibility = Visibility.Visible;
-            }
+                ReturnInTraining.Visibility = ReturnInGame.Visibility = Visibility.Visible;
 
             if (Shilka.school || Shilka.training)
                 RestartText.Text = endText;
