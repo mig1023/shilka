@@ -40,8 +40,6 @@ namespace shilka2
             this.WindowState = WindowState.Maximized;
             this.WindowStyle = WindowStyle.None;
 
-            Statistic.aircraftAveragePrice = Statistic.GetAveragePrice();
-
             double heightForShilka = SystemParameters.PrimaryScreenHeight - ShilkaImg.Height;
 
             Aircrafts.minAltitudeGlobal = (int)(heightForShilka - ShilkaImg.Height);
@@ -62,10 +60,10 @@ namespace shilka2
             StatisticMenu.Background = (Brush)converter.ConvertFrom(statisticColor);
             StatisticGrid.ItemsSource = Statistic.Load();
             StatisticGrid.Margin = new Thickness(0, 50, 0, 0);
-            StatisticGrid.Height = StatisticMenu.Height - Statistic.statisticGridMargins - 50;
+            StatisticGrid.Height = StatisticMenu.Height - Constants.STATISTIC_GRID_MARGIN - 50;
 
             foreach (DataGrid Menu in new List<DataGrid>() { StatisticGrid, StatBoxTable, StatBoxDown, StatBoxDamag })
-                Menu.Width = StatisticMenu.Width - Statistic.statisticGridMargins;
+                Menu.Width = StatisticMenu.Width - Constants.STATISTIC_GRID_MARGIN;
 
             StatBoxTable.Margin = new Thickness(0, 50, 0, 0);
             StatBoxTable.Height = 320;
@@ -347,7 +345,7 @@ namespace shilka2
             StatNotSelected.Visibility = Visibility.Visible;
 
             StatisticGrid.Margin = new Thickness(0, 50, 0, 0);
-            StatisticGrid.Height = StatisticMenu.Height - Statistic.statisticGridMargins - 50;
+            StatisticGrid.Height = StatisticMenu.Height - Constants.STATISTIC_GRID_MARGIN - 50;
 
             MoveCanvas(
                 moveCanvas: StatisticMenu,
@@ -763,10 +761,10 @@ namespace shilka2
                 StatNotSelected.Visibility = Visibility.Hidden;
 
             StatisticGrid.Margin = new Thickness(0, 540, 0, 0);
-            StatisticGrid.Height = StatisticMenu.Height - Statistic.statisticGridMargins - 590;
+            StatisticGrid.Height = StatisticMenu.Height - Constants.STATISTIC_GRID_MARGIN - 590;
 
             int shellsForShutdown = (statRow.shutdown > 0 ? (int)statRow.shellsFired / statRow.shutdown : 0);
-            string scriptName = Statistic.statisticScripts[stat.SelectedIndex];
+            string scriptName = Statistic.getStatisticScript(stat.SelectedIndex);
             int shellInQueue = (statRow.shootNumber > 0 ? (int)statRow.shellsFired / statRow.shootNumber : 0);
             double timeForQueue = (statRow.shootNumber > 0 ? (double)statRow.shootTime / (double)statRow.shootNumber : 0);
 

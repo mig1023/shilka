@@ -12,8 +12,6 @@ namespace shilka2
     class Statistic
     {
         static string statisticFileName = Constants.STATISTIC_FILE_NAME;
-        public static int statisticGridMargins = 120;
-        public static double aircraftAveragePrice = 0;
 
         static int statisticShellsFired = 0;
         static int staticticInTarget = 0;
@@ -44,9 +42,9 @@ namespace shilka2
         static int lastInTargetPercent = 0;
         static string inTargetynamic = String.Empty;
 
-        public static List<string> statisticScripts;
+        static List<string> statisticScripts;
 
-        public enum StatisticAircraftType { downed, damaged };
+        enum StatisticAircraftType { downed, damaged };
 
         static Dictionary<string, int> downedAircrafts = new Dictionary<string, int>();
         static Dictionary<string, int> damagedAircrafts = new Dictionary<string, int>();
@@ -87,6 +85,11 @@ namespace shilka2
                     statisticLastDamageAirliner = aircraft.aircraftName;
                 }
             }
+        }
+
+        public static string getStatisticScript(int script)
+        {
+            return statisticScripts[script];
         }
 
         public static void GameTimeAddSec(int sec)
@@ -157,7 +160,7 @@ namespace shilka2
             statisticWithoutDamage = (int)((statisticHasGone - statisticDamaged) * baseForPercent);
             inTargetPercent = ((statisticShellsFired > 0) ? staticticInTarget * 100 / statisticShellsFired : 0);
 
-            chance = (double)statisticPriceOfAllAircrafts / (statisticAllAircraft * aircraftAveragePrice);
+            chance = (double)statisticPriceOfAllAircrafts / (statisticAllAircraft * GetAveragePrice());
 
             if (double.IsNaN(chance))
                 chance = 0;
@@ -294,7 +297,7 @@ namespace shilka2
                 return string.Format("{0:f2}", (double)statisticAmountOfDamage / 1000000) + " mm$";
         }
 
-        public static void AircraftToStatistic(string aircraft, StatisticAircraftType type)
+        static void AircraftToStatistic(string aircraft, StatisticAircraftType type)
         {
             if (type == StatisticAircraftType.downed)
             {

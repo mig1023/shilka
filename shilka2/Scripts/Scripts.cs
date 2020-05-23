@@ -495,12 +495,12 @@ namespace shilka2
             if (script == ScriptsNames.Rust)
                 return new int?[] {
                     32,     // <-- cessna
-                    1,      // <-- replace to airliner
-                    2,      // <-- replace to airliner
-                    3,      // <-- replace to airliner
-                    4,      // <-- replace to airliner
-                    5,      // <-- replace to airliner
-                    6,      // <-- replace to airliner
+                    1,      // \
+                    2,      //  \
+                    3,      //   \ ___ replace to airliner
+                    4,      //   /
+                    5,      //  /
+                    6,      // /
                 };
 
             if (script == ScriptsNames.Khmeimim)

@@ -78,9 +78,11 @@ namespace shilka2
         public const int GUN_MIDDLE_TIMEOUT = 2;
         public const int HEATING_COLOR_BASE = 200;
         public const int GUNS_HEAT_UP = 300;
+        public const int GUNS_HEATING_WARN = 280;
         public const int GUNS_OVERHEATING = 350;
 
         // statistic
+        public static int STATISTIC_GRID_MARGIN = 120;
         public const string STATISTIC_FILE_NAME = "shilka2.stat";
 
         // weather
