@@ -368,8 +368,11 @@ namespace shilka2
                 );
                 
             if (statisticDamaged > 0)
-                stat += String.Format("{0}damaged: {1} ( {2}% )\n",
-                    (staticticAircraftShutdown == 0 ? String.Empty : " +"), statisticDamaged, damagedPercent);
+                stat += String.Format(
+                    "{0} damaged: {1} ( {2}% {3} )\n",
+                    (staticticAircraftShutdown == 0 ? String.Empty : " +"), statisticDamaged,
+                    damagedPercent, GetDynamic(damagedPercent, "damaged")
+                );
             else if (staticticAircraftShutdown > 0)
                 stat += "\n";
 
