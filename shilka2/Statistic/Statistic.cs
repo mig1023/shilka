@@ -330,7 +330,7 @@ namespace shilka2
             }
             else if (newValue != lastDynamicParam[paramValue])
             {
-                dynamicParam[paramValue] = (newValue > lastDynamicParam[paramValue] ? "↑" : "↓");
+                dynamicParam[paramValue] = " " + (newValue > lastDynamicParam[paramValue] ? "↑" : "↓");
                 lastDynamicParam[paramValue] = newValue;
             }
 
@@ -356,20 +356,20 @@ namespace shilka2
 
             if (staticticInTarget > 0)
                 stat += String.Format(
-                    "in target: {0} ( {1}% {2} )\n",
+                    "in target: {0} ( {1}%{2} )\n",
                     staticticInTarget, inTargetPercent, GetDynamic(inTargetPercent, "inTarget")
                 );
                 
 
             if (staticticAircraftShutdown > 0)
                 stat += String.Format(
-                    "shutdown: {0} ( {1}% {2} )",
+                    "shutdown: {0} ( {1}%{2} )",
                     staticticAircraftShutdown, shutdownPercent, GetDynamic(inTargetPercent, "shotsown")
                 );
                 
             if (statisticDamaged > 0)
                 stat += String.Format(
-                    "{0} damaged: {1} ( {2}% {3} )\n",
+                    "{0} damaged: {1} ( {2}%{3} )\n",
                     (staticticAircraftShutdown == 0 ? String.Empty : " +"), statisticDamaged,
                     damagedPercent, GetDynamic(damagedPercent, "damaged")
                 );
@@ -383,12 +383,15 @@ namespace shilka2
                 if ((hasGonePercent == 0) && (statisticHasGone > 0))
                     hasGonePercent = 1;
 
-                stat += String.Format("missed: {0} ( {1}%, last {2} )",
-                    statisticHasGone, hasGonePercent, statisticLastHasGone);
+                stat += String.Format(
+                    "missed: {0} ( {1}%{2}, last {3} )",
+                    statisticHasGone, hasGonePercent, GetDynamic(hasGonePercent, "hasGone"), statisticLastHasGone
+                );
 
                 if (statisticDamaged < statisticHasGone)
-                    stat += String.Format(", without damages: {0} ( {1}% )",
-                        (statisticHasGone - statisticDamaged), statisticWithoutDamage );
+                    stat += String.Format(", without damages: {0} ( {1}%{2} )",
+                        (statisticHasGone - statisticDamaged), statisticWithoutDamage, GetDynamic(statisticWithoutDamage, "withoutDamage")
+                    );
 
                 stat += "\n";
             }
@@ -401,7 +404,7 @@ namespace shilka2
                     stat += String.Format(" ( +{0} m $ shutdown {1} )",
                         statisticLastDamagePrice, statisticLastDamageType);
                 else
-                    stat += String.Format(" ( +{0:f2} m ${1}  {2} )",
+                    stat += String.Format(" ( +{0:f2} m ${1} {2} )",
                         statisticLastDamagePrice, (seriousDamage ? " seriously" : String.Empty), statisticLastDamageType);
 
                 stat += "\n";
