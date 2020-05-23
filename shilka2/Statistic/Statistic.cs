@@ -37,10 +37,8 @@ namespace shilka2
         static int shootingTimeSec = 0;
         static int shootingNumber = 0;
 
-        static int lastShutdownPercent = 0;
-        static string lastShutdownDynamic = String.Empty;
-        static int lastInTargetPercent = 0;
-        static string inTargetynamic = String.Empty;
+        static Dictionary<string, int> lastDynamicParam = new Dictionary<string, int>();
+        static Dictionary<string, string> dynamicParam = new Dictionary<string, string>();
 
         static List<string> statisticScripts;
 
@@ -323,6 +321,22 @@ namespace shilka2
                 ShowGame(obj, e);
         }
 
+        public static string GetDynamic(int newValue, string paramValue)
+        {
+            if (!lastDynamicParam.ContainsKey(paramValue))
+            {
+                dynamicParam.Add(paramValue, String.Empty);
+                lastDynamicParam.Add(paramValue, newValue);
+            }
+            else if (newValue != lastDynamicParam[paramValue])
+            {
+                dynamicParam[paramValue] = (newValue > lastDynamicParam[paramValue] ? "↑" : "↓");
+                lastDynamicParam[paramValue] = newValue;
+            }
+
+            return dynamicParam[paramValue];
+        }
+
         public static void ShowGame(object obj, ElapsedEventArgs e)
         {
             string stat = String.Empty;
@@ -341,27 +355,17 @@ namespace shilka2
             }
 
             if (staticticInTarget > 0)
-            {
-                if (inTargetPercent != lastInTargetPercent)
-                {
-                    inTargetynamic = (inTargetPercent > lastInTargetPercent ? "↑" : "↓");
-                    lastInTargetPercent = inTargetPercent;
-                }
-
-                stat += String.Format("in target: {0} ( {1}% {2} )\n", staticticInTarget, inTargetPercent, inTargetynamic);
-            }
+                stat += String.Format(
+                    "in target: {0} ( {1}% {2} )\n",
+                    staticticInTarget, inTargetPercent, GetDynamic(inTargetPercent, "inTarget")
+                );
                 
 
             if (staticticAircraftShutdown > 0)
-            {
-                if (shutdownPercent != lastShutdownPercent)
-                {
-                    lastShutdownDynamic = (shutdownPercent > lastShutdownPercent ? "↑" : "↓");
-                    lastShutdownPercent = shutdownPercent;
-                }
-
-                stat += String.Format("shutdown: {0} ( {1}% {2} )", staticticAircraftShutdown, shutdownPercent, lastShutdownDynamic);
-            }
+                stat += String.Format(
+                    "shutdown: {0} ( {1}% {2} )",
+                    staticticAircraftShutdown, shutdownPercent, GetDynamic(inTargetPercent, "shotsown")
+                );
                 
             if (statisticDamaged > 0)
                 stat += String.Format("{0}damaged: {1} ( {2}% )\n",
