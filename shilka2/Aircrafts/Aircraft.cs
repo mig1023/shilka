@@ -426,7 +426,7 @@ namespace shilka2
 
                 int randomSpeed = (cloud ? 0 : rand.Next(3));
 
-                newAircraft.speed = Constants.STANDART_SPEED + randomSpeed;
+                newAircraft.speed = (speed < 1 ? Constants.STANDART_SPEED : speed) + randomSpeed;
 
                 if (newAircraft.minAltitude == -1)
                     newAircraft.minAltitude = Aircrafts.minAltitudeGlobal;
