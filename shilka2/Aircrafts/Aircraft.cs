@@ -185,9 +185,9 @@ namespace shilka2
                         aircraft.y = maxAltitudeGlobal;
 
                     if (
-                        (((aircraft.x + aircraft.aircraftImage.Width) < 0) && (aircraft.flightDirection == FlyObject.FlightDirectionType.Left))
+                        (((aircraft.x + aircraft.aircraftImage.Width) < 0) && (aircraft.flightDirection == FlightDirectionType.Left))
                         ||
-                        ((aircraft.x > main.Width) && (aircraft.flightDirection == FlyObject.FlightDirectionType.Right))
+                        ((aircraft.x > main.Width) && (aircraft.flightDirection == FlightDirectionType.Right))
                     )
                     {
                         aircraft.fly = false;
@@ -198,7 +198,7 @@ namespace shilka2
 
                     foreach (DynamicElement d in aircraft.dynamicElemets)
                     {
-                        double xDirection = (aircraft.flightDirection == FlyObject.FlightDirectionType.Left ? d.x_left : d.x_right);
+                        double xDirection = (aircraft.flightDirection == FlightDirectionType.Left ? d.x_left : d.x_right);
                         d.element.Margin = new Thickness(aircraft.x + xDirection, aircraft.y + d.y, 0, 0);
 
                         if (d.movingType == DynamicElement.MovingType.zRotate)
@@ -221,10 +221,11 @@ namespace shilka2
 
                             if (d.rotateDegreeCurrent < Constants.ROTATION_REVERT)
                             {
-                                if (d.backSide && d.currentSide)
-                                    d.element.Source = Functions.ImageFromResources(d.elementName, ImageType.DynamicElement);
-                                else if (d.backSide)
-                                    d.element.Source = Functions.ImageFromResources(d.elementName + "_back", ImageType.DynamicElement);
+                                if (d.backSide)
+                                    d.element.Source = Functions.ImageFromResources(
+                                        d.elementName + (d.currentSide ? String.Empty : "_back"),
+                                        ImageType.DynamicElement
+                                    );
 
                                 d.currentSide = !d.currentSide;
                                 d.positiveDirection = true;
