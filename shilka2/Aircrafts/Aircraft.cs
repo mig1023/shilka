@@ -433,6 +433,9 @@ namespace shilka2
 
                 newAircraft.speed = (speed < 1 ? Constants.STANDART_SPEED : speed) + randomSpeed;
 
+                if ((Shilka.currentScript == Scripts.ScriptsNames.Khmeimim) && !friend && !airliner && !cloud)
+                    speed = Constants.UAC_SWARM_SPEED;
+
                 if (newAircraft.minAltitude == -1)
                     newAircraft.minAltitude = Aircrafts.minAltitudeGlobal;
 
