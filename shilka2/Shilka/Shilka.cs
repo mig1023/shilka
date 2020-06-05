@@ -200,11 +200,12 @@ namespace shilka2
             {
                 schoolHeating = true;
 
-                Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
-                {
-                    FirePlace main = (FirePlace)Application.Current.MainWindow;
-                    main.SchoolMessage(Constants.HEATING_INFORMATION, Brushes.Orange);
-                }));
+                _ = Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
+                  {
+                      FirePlace main = (FirePlace)Application.Current.MainWindow;
+                      bool _ = false;
+                      main.SchoolMessage(Constants.HEATING_INFORMATION, Brushes.Orange, ref _);
+                  }));
             }
         }
 

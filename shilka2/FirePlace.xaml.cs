@@ -697,7 +697,7 @@ namespace shilka2
             startScript_Click(null, null, training: true);
         }
 
-        public void SchoolMessage(string msg, Brush brush)
+        public void SchoolMessage(string msg, Brush brush, ref bool showedMarker)
         {
             Pause(stop: true);
 
@@ -711,6 +711,8 @@ namespace shilka2
             schoolInfoBox.Visibility = Visibility.Visible;
 
             Canvas.SetZIndex(schoolInfoBox, 102);
+
+            showedMarker = true;
         }
 
         private void schoolInfoBox_SizeChanged(object sender, SizeChangedEventArgs e)

@@ -413,12 +413,17 @@ namespace shilka2
                             (d.movingType == DynamicElement.MovingType.zRotate)
                         );
 
+                        int newZIndex = 0;
+                        bool inFront = (zIndex == zIndexType.inFront);
+
                         if (d.background || flightRightAndZRotate)
-                            Canvas.SetZIndex(tmp.element, (zIndex == zIndexType.inFront ? 65 : 25));
+                            newZIndex = (inFront ? 65 : 25);
                         else if (newAircraft.flightDirection == FlightDirectionType.Right)
-                            Canvas.SetZIndex(tmp.element, (zIndex == zIndexType.inFront ? 85 : 45));
+                            newZIndex = (inFront ? 85 : 45);
                         else
-                            Canvas.SetZIndex(tmp.element, (zIndex == zIndexType.inFront ? 75 : 35));
+                            newZIndex = (inFront ? 75 : 35);
+
+                        Canvas.SetZIndex(tmp.element, newZIndex);
 
                         main.firePlace.Children.Add(tmp.element);
                     }
@@ -438,10 +443,15 @@ namespace shilka2
                     Canvas.SetZIndex(newAircraftImage, 101);
                 else if (zIndex != null)
                 {
+                    int newZIndex = 0;
+                    bool inFront = (zIndex == zIndexType.inFront);
+
                     if (newAircraft.flightDirection == FlightDirectionType.Right)
-                        Canvas.SetZIndex(newAircraftImage, (zIndex == zIndexType.inFront ? 80 : 40));
+                        newZIndex = (inFront ? 80 : 40);
                     else
-                        Canvas.SetZIndex(newAircraftImage, (zIndex == zIndexType.inFront ? 70 : 30));
+                        newZIndex = (inFront ? 70 : 30);
+
+                    Canvas.SetZIndex(newAircraftImage, newZIndex);
                 }
                 else
                     Canvas.SetZIndex(newAircraftImage, (cloud ? 100 : 50));
@@ -454,12 +464,16 @@ namespace shilka2
                     };
                     newAircraft.aircraftSchoolName = aircraftLabelName;
 
+                    Brush labelNameColor = null;
+
                     if (airliner)
-                        newAircraft.aircraftSchoolName.Foreground = Brushes.Blue;
+                        labelNameColor = Brushes.Blue;
                     else if (friend)
-                        newAircraft.aircraftSchoolName.Foreground = Brushes.Green;
+                        labelNameColor = Brushes.Green;
                     else
-                        newAircraft.aircraftSchoolName.Foreground = Brushes.Red;
+                        labelNameColor = Brushes.Red;
+
+                    newAircraft.aircraftSchoolName.Foreground = labelNameColor;
 
                     Canvas.SetZIndex(aircraftLabelName, Canvas.GetZIndex(newAircraftImage));
                     main.firePlace.Children.Add(aircraftLabelName);
@@ -658,53 +672,29 @@ namespace shilka2
                 suspendedTargetTimerCount += 1;
 
                 if (suspendedTargetTimerCount > Constants.TRAINING_TIMEOUT_BEFORE_FIRST_INFO)
-                {
-                    trainingSuspendedTarget = true;
-                    main.SchoolMessage(Constants.SUSPENDED_TARGET_INFORMATION, Brushes.SeaGreen);
-                }
+                    main.SchoolMessage(Constants.SUSPENDED_TARGET_INFORMATION, Brushes.SeaGreen, ref trainingSuspendedTarget);
             }
 
             if (!trainingTurgetTug && suspendedTargetDowned)
-            {
-                trainingTurgetTug = true;
-                main.SchoolMessage(Constants.TRAINING_TUG_INFORMATION, Brushes.BlueViolet);
-            }
+                main.SchoolMessage(Constants.TRAINING_TUG_INFORMATION, Brushes.BlueViolet, ref trainingTurgetTug);
 
             if (!trainingTurgetPlane && (allAircraftsInGame > Constants.TRAINING_IL28_AT_THE_START))
-            {
-                trainingTurgetPlane = true;
-                main.SchoolMessage(Constants.TRAINING_PLANE_INFORMATION, Brushes.Crimson);
-            }
+                main.SchoolMessage(Constants.TRAINING_PLANE_INFORMATION, Brushes.Crimson, ref trainingTurgetPlane);
 
             if (!trainingTurgetDrone && (allAircraftsInGame > Constants.TRAINING_M16K_AT_THE_START))
-            {
-                trainingTurgetDrone = true;
-                main.SchoolMessage(Constants.TRAINING_DRONE_INFORMATION, Brushes.LightSeaGreen);
-            }
+                main.SchoolMessage(Constants.TRAINING_DRONE_INFORMATION, Brushes.LightSeaGreen, ref trainingTurgetDrone);
         }
 
         private void AircraftMessagesForSchool(FirePlace main)
         {
             if ((allAircraftsInGame > Constants.SCHOOL_AIRLINER_AT_THE_START) && !schoolMixAlready)
-            {
-                schoolMixAlready = true;
-                main.SchoolMessage(Constants.MIX_INFORMATION, Brushes.Gray);
-            }
+                main.SchoolMessage(Constants.MIX_INFORMATION, Brushes.Gray, ref schoolMixAlready);
             else if (airliner && !schoolAirlinerAlready)
-            {
-                schoolAirlinerAlready = true;
-                main.SchoolMessage(Constants.AIRLINER_INFORMATION, Brushes.Blue);
-            }
+                main.SchoolMessage(Constants.AIRLINER_INFORMATION, Brushes.Blue, ref schoolAirlinerAlready);
             else if (friend && !schoolFriendAlready)
-            {
-                schoolFriendAlready = true;
-                main.SchoolMessage(Constants.FRIEND_INFORMATION, Brushes.Green);
-            }
+                main.SchoolMessage(Constants.FRIEND_INFORMATION, Brushes.Green, ref schoolFriendAlready);
             else if (!schoolEnemyAlready)
-            {
-                schoolEnemyAlready = true;
-                main.SchoolMessage(Constants.ENEMY_INFORMATION, Brushes.Red);
-            }
+                main.SchoolMessage(Constants.ENEMY_INFORMATION, Brushes.Red, ref schoolEnemyAlready);
         }
 
         public static void StartSuspendedTarget()
