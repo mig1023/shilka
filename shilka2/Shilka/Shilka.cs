@@ -49,8 +49,10 @@ namespace shilka2
 
             fire = false;
             reheatingGunBurrels = false;
+
             lastDegree = 0;
             Aircraft.allAircraftsInGame = 0;
+
             Weather.RestartCycle(Weather.WeatherTypes.good);
 
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
@@ -139,7 +141,7 @@ namespace shilka2
 
         public static double GunMalfunction()
         {
-            if (rand.Next(3) == 1)
+            if (Functions.TossACoin() && Functions.TossACoin())
                 gunMalfunction = rand.Next(Constants.GUN_MALFUNC_RANGE * 2) - Constants.GUN_MALFUNC_RANGE;
 
             return gunMalfunction;
