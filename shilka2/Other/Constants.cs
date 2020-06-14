@@ -208,6 +208,6 @@ namespace shilka2
 
         public const int UAV_SWARM_MAX = 21;
         public const int UAV_SWARM_DISTANCE = 150;
-        public const int UAC_SWARM_SPEED = 9;
+        public const int UAC_SWARM_SPEED = 11;
     }
 }
