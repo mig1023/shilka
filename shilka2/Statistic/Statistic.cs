@@ -288,11 +288,11 @@ namespace shilka2
         public static string HumanReadableSumm(double statisticAmountOfDamage)
         {
             if (statisticAmountOfDamage < 1000)
-                return string.Format("{0:f2}", statisticAmountOfDamage) + " m$";
+                return string.Format("{0:f2}", statisticAmountOfDamage) + " million $";
             else if (statisticAmountOfDamage < 1000000)
-                return string.Format("{0:f2}", (double)statisticAmountOfDamage / 1000) + " b$";
+                return string.Format("{0:f2}", (double)statisticAmountOfDamage / 1000) + " billion $";
             else
-                return string.Format("{0:f2}", (double)statisticAmountOfDamage / 1000000) + " mm$";
+                return string.Format("{0:f2}", (double)statisticAmountOfDamage / 1000000) + " trillion $";
         }
 
         static void AircraftToStatistic(string aircraft, StatisticAircraftType type)
