@@ -152,7 +152,7 @@ namespace shilka2
             "pulled by an Il-28BM towing aircraft. You need to shoot at the towed target, but " +
             "in no case do not hit the towbar.\n\n[ OK ]";
 
-        public const string TRAINING_PLANE_INFORMATION = "TRAINING\n\nTo develop shooting " +
+        public const string TRAINING_PLANE_INFORMATION = "TRAINING\n\nTo improve shooting " +
             "skills, used Tu-16 aircraft, which are used up for their life, are modified into " +
             "a radio-controlled version of the M-16K target aircraft. These aircraft cannot " +
             "maneuver, but they are very large, durable and reliable, so it is very difficult " +
