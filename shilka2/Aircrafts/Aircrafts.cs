@@ -525,7 +525,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "boeing737aewc",
-                aircraftName = "Boeing 737 AEW&C",
+                aircraftName = "Боинг 737 AEW&C",
                 size = new int[] { 565, 187 },
                 price = 490,
                 speed = 7,
@@ -1018,7 +1018,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "drone",
-                aircraftName = "attack drone (type 1)",
+                aircraftName = "дрон-разведчик (тип 1)",
                 hitPoint = 1,
                 size = new int[] { 26, 9 },
                 speed = 3,
@@ -1209,7 +1209,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "mh53",
-                aircraftName = "Sikorsky MH-53",
+                aircraftName = "Сикорский MH-53",
                 hitPoint = 100,
                 size = new int[] { 375, 84 },
                 price = 53,
@@ -1269,7 +1269,7 @@ namespace shilka2
 
             new Aircraft {
                 aircraftType = "drone2",
-                aircraftName = "attack drone (type 2)",
+                aircraftName = "дрон-разведчик (тип 2)",
                 hitPoint = 1,
                 size = new int[] { 30, 17 },
                 speed = 3,
@@ -1305,7 +1305,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "oh58d",
-                aircraftName = "Bell OH-58D",
+                aircraftName = "Белл OH-58D",
                 size = new int[] { 209, 83 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
@@ -1368,7 +1368,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "ah6",
-                aircraftName = "Boeing AH-6",
+                aircraftName = "Боинг AH-6",
                 size = new int[] { 134, 58 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
@@ -1398,7 +1398,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "drone3",
-                aircraftName = "attack drone (type 3)",
+                aircraftName = "дрон-разведчик (тип 3)",
                 hitPoint = 1,
                 size = new int[] { 32, 20 },
                 speed = 3,
@@ -1434,7 +1434,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "drone4",
-                aircraftName = "attack drone (type 4)",
+                aircraftName = "дрон-разведчик (тип 4)",
                 hitPoint = 1,
                 size = new int[] { 75, 22 },
                 speed = 3,
@@ -1493,7 +1493,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "h34",
-                aircraftName = "Sikorsky H-34",
+                aircraftName = "Сикорский H-34",
                 hitPoint = 140,
                 size = new int[] { 260, 72 },
                 speed = 4,
@@ -1523,7 +1523,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "ch54",
-                aircraftName = "Sikorsky CH-54",
+                aircraftName = "Сикорский CH-54",
                 hitPoint = 140,
                 size = new int[] { 310, 87 },
                 speed = 4,
@@ -1553,7 +1553,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "drone5",
-                aircraftName = "attack drone (type 5)",
+                aircraftName = "дрон-разведчик (тип 5)",
                 hitPoint = 1,
                 size = new int[] { 35, 25 },
                 speed = 3,
@@ -1589,7 +1589,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "drone6",
-                aircraftName = "attack drone (type 6)",
+                aircraftName = "дрон-разведчик (тип 6)",
                 hitPoint = 1,
                 size = new int[] { 30, 20 },
                 speed = 3,
@@ -1625,7 +1625,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "drone7",
-                aircraftName = "attack drone (type 7)",
+                aircraftName = "дрон-разведчик (тип 7)",
                 hitPoint = 1,
                 size = new int[] { 85, 35 },
                 speed = 6,
@@ -1679,7 +1679,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "drone8",
-                aircraftName = "attack drone (type 8)",
+                aircraftName = "дрон-разведчик (тип 8)",
                 hitPoint = 1,
                 size = new int[] { 35, 12 },
                 speed = 3,
@@ -1733,7 +1733,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "drone9",
-                aircraftName = "attack drone (type 9)",
+                aircraftName = "дрон-разведчик (тип 9)",
                 hitPoint = 1,
                 size = new int[] { 35, 22 },
                 speed = 3,
@@ -1828,7 +1828,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "aerostat",
-                aircraftName = "aerostat-spy (type 1)",
+                aircraftName = "аэростат-разведчик (тип 1)",
                 size = new int[] { 82, 228 },
                 hitPoint = 20,
                 speed = 5,
@@ -1844,7 +1844,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "aerostat2",
-                aircraftName = "aerostat-spy (type 2)",
+                aircraftName = "аэростат-разведчик (тип 2)",
                 size = new int[] { 60, 132 },
                 hitPoint = 10,
                 speed = 4,
@@ -1860,7 +1860,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "aerostat3",
-                aircraftName = "aerostat-spy (type 3)",
+                aircraftName = "аэростат-разведчик (тип 3)",
                 size = new int[] { 70, 118 },
                 hitPoint = 10,
                 speed = 4,
@@ -1879,7 +1879,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "mig23",
-                aircraftName = "MiG-23 Flogger",
+                aircraftName = "МиГ-23",
                 size = new int[] { 270, 71 },
                 friend = true
             },
@@ -1887,7 +1887,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "mig29",
-                aircraftName = "MiG-29 Fulcrum",
+                aircraftName = "МиГ-29",
                 size = new int[] { 270, 66 },
                 friend = true
             },
@@ -1895,7 +1895,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "mig31",
-                aircraftName = "MiG-31 Foxhound",
+                aircraftName = "МиГ-31",
                 size = new int[] { 270, 63 },
                 speed = 14,
                 friend = true
@@ -1904,7 +1904,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "su17",
-                aircraftName = "Su-17 Fitter",
+                aircraftName = "Су-17",
                 size = new int[] { 270, 61 },
                 speed = 5,
                 friend = true
@@ -1913,7 +1913,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "su24",
-                aircraftName = "Su-24 Fencer",
+                aircraftName = "Су-24",
                 size = new int[] { 270, 67 },
                 speed = 8,
                 friend = true
@@ -1922,7 +1922,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "su25",
-                aircraftName = "Su-25 Frogfoot",
+                aircraftName = "Су-25",
                 hitPoint = 180,
                 size = new int[] { 270, 81 },
                 speed = 5,
@@ -1933,7 +1933,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "su27",
-                aircraftName = "Su-27 Flanker",
+                aircraftName = "Су-27",
                 size = new int[] { 270, 77 },
                 friend = true
             },
@@ -1941,7 +1941,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "su34",
-                aircraftName = "Su-34 Fullback",
+                aircraftName = "Су-34",
                 hitPoint = 120,
                 size = new int[] { 275, 56 },
                 friend = true
@@ -1950,7 +1950,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "pakfa",
-                aircraftName = "Su-57 Felon",
+                aircraftName = "Су-57",
                 size = new int[] { 270, 57 },
                 speed = 12,
                 friend = true
@@ -1959,7 +1959,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "tu160",
-                aircraftName = "Tu-160 Blackjack",
+                aircraftName = "Ту-160",
                 hitPoint = 140,
                 size = new int[] { 510, 108 },
                 speed = 18,
@@ -1971,7 +1971,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "mig19 ",
-                aircraftName = "MiG-19 Farmer",
+                aircraftName = "МиГ-19",
                 size = new int[] { 270, 81 },
                 friend = true
             },
@@ -1979,7 +1979,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "mig21",
-                aircraftName = "MiG-21 Fishbed",
+                aircraftName = "МиГ-21",
                 size = new int[] { 270, 62 },
                 friend = true
             },
@@ -1987,7 +1987,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "mig25",
-                aircraftName = "MiG-25 Foxbat",
+                aircraftName = "МиГ-25",
                 size = new int[] { 270, 64 },
                 speed = 14,
                 friend = true
@@ -1996,7 +1996,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "a50",
-                aircraftName = "Beriev A-50 Mainstay",
+                aircraftName = "А-50",
                 hitPoint = 150,
                 size = new int[] { 570, 175 },
                 speed = 8,
@@ -2023,7 +2023,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "tu95",
-                aircraftName = "Tu-95 Bear",
+                aircraftName = "Ту-95",
                 hitPoint = 120,
                 size = new int[] { 510, 116 },
                 speed = 5,
@@ -2077,7 +2077,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "mig35",
-                aircraftName = "MiG-35 Fulcrum-F",
+                aircraftName = "МиГ-35",
                 size = new int[] { 270, 72 },
                 friend = true
             },
@@ -2085,7 +2085,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "su30",
-                aircraftName = "Su-30 Flanker-C",
+                aircraftName = "Су-30",
                 size = new int[] { 270, 66 },
                 friend = true
             },
@@ -2093,7 +2093,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "tu22m3",
-                aircraftName = "Tu-22M3 Backfire",
+                aircraftName = "Ту-22М3",
                 size = new int[] { 434, 108 },
                 speed = 12,
                 minAltitude = minAltitudeForLargeAircraft,
@@ -2104,7 +2104,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "tu16",
-                aircraftName = "Tu-16 Badger",
+                aircraftName = "Ту-16",
                 size = new int[] { 430, 105 },
                 minAltitude = minAltitudeForLargeAircraft,
                 wrecksMaxSize = Constants.WRECKS_BIG,
@@ -2114,7 +2114,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "tu22",
-                aircraftName = "Tu-22 Blinder",
+                aircraftName = "Ту-22",
                 size = new int[] { 450, 98 },
                 minAltitude = minAltitudeForLargeAircraft,
                 wrecksMaxSize = Constants.WRECKS_BIG,
@@ -2127,7 +2127,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "mi28",
-                aircraftName = "Mi-28 Havoc",
+                aircraftName = "Ми-28",
                 hitPoint = 120,
                 size = new int[] { 215, 66 },
                 speed = 5,
@@ -2159,7 +2159,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "mi24",
-                aircraftName = "Mi-24 Hind",
+                aircraftName = "Ми-24",
                 hitPoint = 120,
                 size = new int[] { 210, 57 },
                 speed = 5,
@@ -2190,7 +2190,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "mi8",
-                aircraftName = "Mi-8 Hip",
+                aircraftName = "Ми-8",
                 size = new int[] { 220, 62 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
@@ -2220,7 +2220,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "ka52",
-                aircraftName = "Ka-52 Hokum B",
+                aircraftName = "Ка-52",
                 hitPoint = 120,
                 size = new int[] { 232, 70 },
                 speed = 5,
@@ -2252,7 +2252,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "ka27",
-                aircraftName = "Ka-27 Helix",
+                aircraftName = "Ка-27",
                 size = new int[] { 197, 63 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
@@ -2283,7 +2283,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "mi10",
-                aircraftName = "Mi-10 Harke",
+                aircraftName = "Ми-10",
                 size = new int[] { 300, 77 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
@@ -2313,7 +2313,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "mi26",
-                aircraftName = "Mi-26 Halo",
+                aircraftName = "Ми-26",
                 size = new int[] { 580, 146 },
                 wrecksMaxSize = Constants.WRECKS_GIGANT,
                 speed = 5,
@@ -2342,7 +2342,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "ka31",
-                aircraftName = "Ka-31 Helix",
+                aircraftName = "Ка-31",
                 size = new int[] { 200, 50 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
@@ -2383,7 +2383,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "ka26",
-                aircraftName = "Ka-26 Hoodlum",
+                aircraftName = "Ка-26 Hoodlum",
                 size = new int[] { 150, 56 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
@@ -2414,7 +2414,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "mi38",
-                aircraftName = "Mi-38",
+                aircraftName = "Ми-38",
                 size = new int[] { 235, 72 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
@@ -2445,7 +2445,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "ansat",
-                aircraftName = "Ansat",
+                aircraftName = "Ансат",
                 size = new int[] { 210, 61 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
@@ -2476,7 +2476,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "ka60",
-                aircraftName = "Ka-60",
+                aircraftName = "Ка-60",
                 size = new int[] { 240, 89 },
                 speed = 5,
                 maxAltitude = maxAltitudeForHelicopters,
@@ -2510,7 +2510,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "a320",
-                aircraftName = "Airbus A320",
+                aircraftName = "Аэробус A320",
                 hitPoint = 100,
                 size = new int[] { 565, 173 },
                 speed = 8,
@@ -2523,7 +2523,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "boeing747",
-                aircraftName = "Boeing 747",
+                aircraftName = "Боинг 747",
                 hitPoint = 100,
                 size = new int[] { 565, 158 },
                 speed = 8,
@@ -2595,7 +2595,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "ssj100",
-                aircraftName = "Superjet 100",
+                aircraftName = "Суперджет 100",
                 size = new int[] { 355, 124 },
                 speed = 8,
                 minAltitude = minAltitudeForLargeAircraft,
@@ -2606,7 +2606,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "boeing707",
-                aircraftName = "Boeing 707",
+                aircraftName = "Боинг 707",
                 hitPoint = 100,
                 size = new int[] { 565, 136 },
                 speed = 9,
@@ -2619,7 +2619,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "l1049",
-                aircraftName = "Lockheed L-1049",
+                aircraftName = "Локхид L-1049",
                 hitPoint = 60,
                 size = new int[] { 414, 119 },
                 speed = 6,
@@ -2653,7 +2653,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "mc21",
-                aircraftName = "Irkut МС-21",
+                aircraftName = "Иркут МС-21",
                 hitPoint = 100,
                 size = new int[] { 560, 154 },
                 speed = 8,
@@ -2666,7 +2666,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "a380",
-                aircraftName = "Airbus A380",
+                aircraftName = "Аэробус A380",
                 hitPoint = 120,
                 size = new int[] { 621, 191 },
                 speed = 8,
@@ -2679,7 +2679,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "boeing777",
-                aircraftName = "Boeing 777",
+                aircraftName = "Боинг 777",
                 hitPoint = 100,
                 size = new int[] { 585, 140 },
                 speed = 8,
@@ -2691,7 +2691,7 @@ namespace shilka2
 
             new Aircraft {
                 aircraftType = "il114",
-                aircraftName = "Il-114",
+                aircraftName = "Ил-114",
                 size = new int[] { 420, 133 },
                 speed = 5,
                 minAltitude = minAltitudeForLargeAircraft,
@@ -2713,7 +2713,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "boeing737",
-                aircraftName = "Boeing 737",
+                aircraftName = "Боинг 737",
                 size = new int[] { 565, 184 },
                 speed = 8,
                 minAltitude = minAltitudeForLargeAircraft,
@@ -2749,7 +2749,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "l1011",
-                aircraftName = "Lockheed L-1011",
+                aircraftName = "Локхид L-1011",
                 size = new int[] { 500, 180 },
                 speed = 8,
                 minAltitude = minAltitudeForLargeAircraft,
@@ -2804,7 +2804,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "tu134",
-                aircraftName = "Tu-134",
+                aircraftName = "Ту-134",
                 size = new int[] { 463, 108 },
                 speed = 12,
                 minAltitude = minAltitudeForLargeAircraft,
@@ -2816,7 +2816,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "tu154",
-                aircraftName = "Tu-154",
+                aircraftName = "Ту-154",
                 size = new int[] { 509, 111 },
                 speed = 12,
                 minAltitude = minAltitudeForLargeAircraft,
@@ -2831,7 +2831,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "la17mm",
-                aircraftName = "target drone La-17MM",
+                aircraftName = "самолёт-мишень Ла-17ММ",
                 hitPoint = 30,
                 size = new int[] { 125, 47 },
                 speed = 5,
@@ -2843,7 +2843,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "e95",
-                aircraftName = "target drone E-95",
+                aircraftName = "самолёт-мишень E-95",
                 hitPoint = 2,
                 size = new int[] { 60, 13 },
                 speed = 3,
@@ -2855,7 +2855,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "mqm36",
-                aircraftName = "target drone MQM-36A",
+                aircraftName = "самолёт-мишень MQM-36A",
                 hitPoint = 30,
                 size = new int[] { 200, 46 },
                 speed = 4,
@@ -2880,7 +2880,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "dan3",
-                aircraftName = "target drone Dan",
+                aircraftName = "самолёт-мишень Дань",
                 hitPoint = 40,
                 size = new int[] { 145, 33 },
                 speed = 8,
@@ -2892,7 +2892,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "d21",
-                aircraftName = "target drone D-21",
+                aircraftName = "самолёт-мишень D-21",
                 hitPoint = 40,
                 size = new int[] { 208, 41 },
                 speed = 12,
@@ -2905,7 +2905,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "m16k",
-                aircraftName = "target drone M-16K",
+                aircraftName = "самолёт-мишень М-16К",
                 hitPoint = 250,
                 size = new int[] { 430, 105 },
                 cantEscape = true,
@@ -2919,7 +2919,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "il28bm_77bm2",
-                aircraftName = "target tug Il-28BM",
+                aircraftName = "буксировщик мишени Ил-28БМ",
                 hitPoint = 120,
                 size = new int[] { 706, 100 },
                 speed = 9,
@@ -2933,7 +2933,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "il28bm",
-                aircraftName = "target tug Il-28BM",
+                aircraftName = "буксировщик мишени Ил-28БМ",
                 hitPoint = 120,
                 size = new int[] { 319, 100 },
                 speed = 9,
@@ -2946,7 +2946,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "77bm2",
-                aircraftName = "target 77BM7",
+                aircraftName = "мишень 77БМ7",
                 size = new int[] { 147, 42 },
                 speed = 9,
                 weight = Aircraft.WeightType.Middle,
@@ -2961,7 +2961,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "old_mig15",
-                aircraftName = "decommissioned MiG-15",
+                aircraftName = "списанный МиГ-15",
                 hitPoint = 200,
                 size = new int[] { 200, 78 },
                 weight = Aircraft.WeightType.Heavy,
@@ -2975,7 +2975,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "old_mig9",
-                aircraftName = "decommissioned MiG-9",
+                aircraftName = "списанный МиГ-9",
                 hitPoint = 200,
                 size = new int[] { 205, 68 },
                 weight = Aircraft.WeightType.Heavy,
@@ -2989,7 +2989,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "old_su11",
-                aircraftName = "decommissioned Su-11",
+                aircraftName = "списанный Су-11",
                 hitPoint = 200,
                 size = new int[] { 205, 74 },
                 weight = Aircraft.WeightType.Heavy,
@@ -3003,7 +3003,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "old_yak25",
-                aircraftName = "decommissioned Yak-25",
+                aircraftName = "списанный Як-25",
                 hitPoint = 200,
                 size = new int[] { 205, 60 },
                 weight = Aircraft.WeightType.Heavy,
@@ -3017,7 +3017,7 @@ namespace shilka2
             new Aircraft
             {
                 aircraftType = "old_yak27",
-                aircraftName = "decommissioned Yak-27",
+                aircraftName = "списанный Як-27",
                 hitPoint = 200,
                 size = new int[] { 210, 57 },
                 weight = Aircraft.WeightType.Heavy,
