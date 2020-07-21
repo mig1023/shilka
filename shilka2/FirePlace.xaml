@@ -27,163 +27,168 @@
         <Canvas x:Name="EndMenu" HorizontalAlignment="Left" Height="320" Margin="513,0,-511,0" VerticalAlignment="Top" Width="515">
             <TextBlock x:Name="EndText" Height="167" TextWrapping="Wrap" Canvas.Left="24" Canvas.Top="15" Width="446" Foreground="White" FontSize="32" FontFamily="Arial Narrow"/>
             <TextBox x:Name="PlayerName" Height="33" Canvas.Left="24" TextWrapping="Wrap" Text="" Padding="6,2,0,0" Canvas.Top="217" Width="434" FontSize="18.667" KeyUp="PlayerName_KeyUp"/>
-            <Button x:Name="GameOverWithSave" Content="save" Height="41" Canvas.Left="246" Canvas.Top="261" Width="212" Click="GameOverWithSave_Click" IsEnabled="False" FontFamily="font/calibri.ttf" FontSize="20"/>
-            <Button x:Name="GameOverWithoutSave" Content="exit without saving" Height="41" Canvas.Left="23" Canvas.Top="261" Width="212" Click="GameOverWithoutSave_Click" FontFamily="font/calibri.ttf" FontSize="20"/>
-            <Button x:Name="ReturnInGame" Content="return" Height="41" Canvas.Left="23" Canvas.Top="310" Width="435" FontFamily="font/calibri.ttf" FontSize="20" Click="ReturnInGame_Click"/>
-            <Label x:Name="playerPlaceHolder" Content="enter the name of gunner" FontSize="20" Foreground="Gray" Height="38" Canvas.Left="30" Canvas.Top="214" Width="347" MouseDown="playerPlaceHolder_MouseDown"/>
+            <Button x:Name="GameOverWithSave" Content="сохранить" Height="41" Canvas.Left="246" Canvas.Top="261" Width="212" Click="GameOverWithSave_Click" IsEnabled="False" FontFamily="font/calibri.ttf" FontSize="20"/>
+            <Button x:Name="GameOverWithoutSave" Content="не сохранять" Height="41" Canvas.Left="23" Canvas.Top="261" Width="212" Click="GameOverWithoutSave_Click" FontFamily="font/calibri.ttf" FontSize="20"/>
+            <Button x:Name="ReturnInGame" Content="вернуться в бой" Height="41" Canvas.Left="23" Canvas.Top="310" Width="435" FontFamily="font/calibri.ttf" FontSize="20" Click="ReturnInGame_Click"/>
+            <Label x:Name="playerPlaceHolder" Content="введите имя стрелка" FontSize="20" Foreground="Gray" Height="38" Canvas.Left="30" Canvas.Top="214" Width="347" MouseDown="playerPlaceHolder_MouseDown"/>
         </Canvas>
         <Canvas x:Name="RestartTrainingMenu" HorizontalAlignment="Left" Height="320" Margin="513,0,-511,0" VerticalAlignment="Top" Width="515">
             <TextBlock x:Name="RestartText" Height="167" TextWrapping="Wrap" Canvas.Left="24" Canvas.Top="15" Width="446" Foreground="White" FontSize="32" FontFamily="Arial Narrow"/>
-            <Button x:Name="GameOverTraining" Content="exit" Height="41" Canvas.Left="246" Canvas.Top="207" Width="212" FontFamily="font/calibri.ttf" FontSize="20" Click="GameOverWithoutSave_Click"/>
-            <Button x:Name="Restart" Content="restart" Height="41" Canvas.Left="24" Canvas.Top="207" Width="212" FontFamily="font/calibri.ttf" FontSize="20" Click="RestartTraining_Click"/>
-            <Button x:Name="ReturnInTraining" Content="return" Height="41" Canvas.Left="23" Canvas.Top="257" Width="435" FontFamily="font/calibri.ttf" FontSize="20" Click="ReturnInGame_Click"/>
+            <Button x:Name="GameOverTraining" Content="закончить" Height="41" Canvas.Left="246" Canvas.Top="207" Width="212" FontFamily="font/calibri.ttf" FontSize="20" Click="GameOverWithoutSave_Click"/>
+            <Button x:Name="Restart" Content="начать заново" Height="41" Canvas.Left="24" Canvas.Top="207" Width="212" FontFamily="font/calibri.ttf" FontSize="20" Click="RestartTraining_Click"/>
+            <Button x:Name="ReturnInTraining" Content="вернуться к тренировке" Height="41" Canvas.Left="23" Canvas.Top="257" Width="435" FontFamily="font/calibri.ttf" FontSize="20" Click="ReturnInGame_Click"/>
         </Canvas>
         <Canvas x:Name="StartMenu" HorizontalAlignment="Left" Height="612" VerticalAlignment="Top" Width="452" Margin="-452,0,0,-294">
             <Canvas x:Name="StartMenuButtons" Height="610" Width="452">
                 <Image x:Name="shilkaArt" Height="348" Canvas.Left="10" Canvas.Top="5" Width="435"  Source="images/interface/shilka-art.jpg"/>
-                <Button x:Name="noScript" Content="quick game" Height="87" Canvas.Left="10" Canvas.Top="358" Width="192" Click="startScript_Click" FontFamily="font/calibri.ttf" FontSize="26"/>
-                <Button x:Name="exitButton" Content="exit" Height="41" Canvas.Left="332" Canvas.Top="358" Width="113" FontSize="21" FontFamily="font/calibri.ttf" Click="exitButton_Click"/>
-                <Button x:Name="schoolButton" Content="education" Height="41" Canvas.Left="207" Canvas.Top="358" Width="120" FontSize="19" FontFamily="font/calibri.ttf" Click="schoolButton_Click"/>
-                <Button x:Name="trainingButton" Content="training" Height="41" Canvas.Left="207" Canvas.Top="404" Width="120" FontSize="19" FontFamily="font/calibri.ttf" Click="trainingButton_Click"/>
-                <Button x:Name="resultButton" Content="results" Height="41" Canvas.Left="332" Canvas.Top="404" Width="113" FontSize="19" FontFamily="font/calibri.ttf" Click="statisticButton_Click"/>
-                <Button x:Name="Vietnam" Content="vietnam war" Height="26" Canvas.Left="10" Canvas.Top="450" Width="121" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
+                <Button x:Name="noScript" Content="быстрая игра" Height="87" Canvas.Left="10" Canvas.Top="358" Width="192" Click="startScript_Click" FontFamily="font/calibri.ttf" FontSize="26"/>
+                <Button x:Name="exitButton" Content="выход" Height="41" Canvas.Left="332" Canvas.Top="358" Width="113" FontSize="21" FontFamily="font/calibri.ttf" Click="exitButton_Click"/>
+                <Button x:Name="schoolButton" Content="обучение" Height="41" Canvas.Left="207" Canvas.Top="358" Width="120" FontSize="19" FontFamily="font/calibri.ttf" Click="schoolButton_Click"/>
+                <Button x:Name="trainingButton" Content="тренировка" Height="41" Canvas.Left="207" Canvas.Top="404" Width="120" FontSize="19" FontFamily="font/calibri.ttf" Click="trainingButton_Click"/>
+                <Button x:Name="resultButton" Content="результаты" Height="41" Canvas.Left="332" Canvas.Top="404" Width="113" FontSize="19" FontFamily="font/calibri.ttf" Click="statisticButton_Click"/>
+                <Button x:Name="Vietnam" Content="вьетнамская война" Height="26" Canvas.Left="10" Canvas.Top="450" Width="121" Click="startScript_Click" FontSize="11" FontFamily="font/calibri.ttf">
                     <Button.ToolTip>
                         <ToolTip>
                             <StackPanel>
-                                <TextBlock Text="Vietnam war (1965-1973)"/>
-                                <TextBlock FontWeight="Bold" Text="specific: a lot of enemies, jungle shooting"/>
+                                <TextBlock Text="Вьетнамская война (1965-1973)"/>
+                                <TextBlock FontWeight="Bold" Text="особенность: врагов очень много"/>
                                 <Image Source="images/interface/vietnam.png"/>
                             </StackPanel>
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="DesertStorm" Content="operation desert storm" Height="26" Canvas.Left="171" Canvas.Top="481" Width="157" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
+                <Button x:Name="DesertStorm" Content="буря в пустыне" Height="26" Canvas.Left="150" Canvas.Top="481" Width="142" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
                     <Button.ToolTip>
                         <ToolTip>
                             <StackPanel>
-                                <TextBlock Text="Operation Desert storm (1991)"/>
-                                <TextBlock FontWeight="Bold" Text="specific: sandstorm"/>
+                                <TextBlock Text="Буря в пустыне (1991)"/>
+                                <TextBlock FontWeight="Bold" Text="особенность: песчанные бури"/>
                                 <Image Source="images/interface/storm.png"/>
                             </StackPanel>
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="Yugoslavia" Content="nato bombing of yugoslavia" Height="26" Canvas.Left="10" Canvas.Top="512" Width="192" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
+                <Button x:Name="Yugoslavia" Content="бомбардировки югославии" Height="26" Canvas.Left="10" Canvas.Top="512" Width="192" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
                     <Button.ToolTip>
                         <ToolTip>
                             <StackPanel>
-                                <TextBlock Text="NATO bombing of Yugoslavia (1999)"/>
-                                <TextBlock FontWeight="Bold" Text="specific: night"/>
+                                <TextBlock Text="Бомбардировки Югославии (1999)"/>
+                                <TextBlock FontWeight="Bold" Text="особенность: ночь"/>
                                 <Image Source="images/interface/yugoslavia.png"/>
                             </StackPanel>
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="IranIraq" Content="iran-iraq war" Height="26" Canvas.Left="136" Canvas.Top="450" Width="141" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
+                <Button x:Name="IranIraq" Content="ирано-иракская война" Height="26" Canvas.Left="136" Canvas.Top="450" Width="141" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
                     <Button.ToolTip>
                         <ToolTip>
                             <StackPanel>
-                                <TextBlock Text="Iran-Iraq war (1980-1988)"/>
-                                <TextBlock FontWeight="Bold" Text="specific: malfunctioning radar"/>
+                                <TextBlock Text="Ирано-Иракская война (1980-1988)"/>
+                                <TextBlock FontWeight="Bold" Text="особенность: повреждённый радар,"/>
+                                <TextBlock FontWeight="Bold" Text="проблемы с наведением пушек"/>
                                 <Image Source="images/interface/iraniraq.png"/>
                             </StackPanel>
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="Syria" Content="syrian civil war" Height="26" Canvas.Left="10" Canvas.Top="543" Width="121" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
+                <Button x:Name="Syria" Content="гражданская война в сирии" Height="26" Canvas.Left="10" Canvas.Top="543" Width="178" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
                     <Button.ToolTip>
                         <ToolTip>
                             <StackPanel>
-                                <TextBlock Text="Syrian civil war (2011-2020)"/>
-                                <TextBlock FontWeight="Bold" Text="specific: only UAVs and cruise misseles"/>
+                                <TextBlock Text="Гражданская война в Сирии (2011-2020) (2011-2020)"/>
+                                <TextBlock FontWeight="Bold" Text="особенность: только дроны,"/>
+                                <TextBlock FontWeight="Bold" Text="беспилотники и крылатые ракеты"/>
                                 <Image Source="images/interface/syria.png"/>
                             </StackPanel>
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="KoreanBoeing" Content="korean boeing incident" Height="26" Canvas.Left="282" Canvas.Top="450" Width="163" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
+                <Button x:Name="KoreanBoeing" Content="корейский боинг" Height="26" Canvas.Left="282" Canvas.Top="450" Width="163" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
                     <Button.ToolTip>
                         <ToolTip>
                             <StackPanel>
-                                <TextBlock Text="Korean Boeing incident (1983)"/>
-                                <TextBlock FontWeight="Bold" Text="specific: airliner between spies"/>
+                                <TextBlock Text="Инцидент с корейским Боингом (1983)"/>
+                                <TextBlock FontWeight="Bold" Text="особенность: лайнер среди шпионов"/>
                                 <Image Source="images/interface/korea.png"/>
                             </StackPanel>
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="Libya" Content="intervention in libya" Height="26" Canvas.Left="136" Canvas.Top="543" Width="134" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
+                <Button x:Name="Libya" Content="интервенция в ливии" Height="26" Canvas.Left="193" Canvas.Top="543" Width="134" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
                     <Button.ToolTip>
                         <ToolTip>
                             <StackPanel>
                                 <TextBlock Text="Intervention in Libya (2011)"/>
-                                <TextBlock FontWeight="Bold" Text="specific: unpredictable guns"/>
+                                <TextBlock FontWeight="Bold" Text="особенность: непредсказуемые пушки"/>
                                 <Image Source="images/interface/libya.png"/>
                             </StackPanel>
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="Yemen" Content="intervention in yemen" Height="26" Canvas.Left="275" Canvas.Top="543" Width="170" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf" RenderTransformOrigin="-0.587,0.771">
+                <Button x:Name="Yemen" Content="война в йемене" Height="26" Canvas.Left="332" Canvas.Top="543" Width="113" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf" RenderTransformOrigin="-0.587,0.771">
                     <Button.ToolTip>
                         <ToolTip>
                             <StackPanel>
-                                <TextBlock Text="Intervention in Yemen (2015-2020)"/>
-                                <TextBlock FontWeight="Bold" Text="specific: no frendly aviation"/>
+                                <TextBlock Text="Война в Йемене (2015-2020)"/>
+                                <TextBlock FontWeight="Bold" Text="особенность: никаких союзников,"/>
+                                <TextBlock FontWeight="Bold" Text="только враги"/>
                                 <Image Source="images/interface/yemen.png"/>
                             </StackPanel>
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="Rust" Content="mathias rust flight" Height="26" Canvas.Left="10" Canvas.Top="481" Width="156" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
+                <Button x:Name="Rust" Content="полёт матиаса руста" Height="26" Canvas.Left="10" Canvas.Top="481" Width="135" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
                     <Button.ToolTip>
                         <ToolTip>
                             <StackPanel>
-                                <TextBlock Text="Mathias Rust flight (1987)"/>
-                                <TextBlock FontWeight="Bold" Text="specific: civil aircraft as target"/>
+                                <TextBlock Text="Полёт Матиаса Руста (1987)"/>
+                                <TextBlock FontWeight="Bold" Text="особенность: гражданский самолёт"/>
+                                <TextBlock FontWeight="Bold" Text="в качестве цели"/>
                                 <Image Source="images/interface/rust.png"/>
                             </StackPanel>
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="F117Hunt" Content="hunt for f-117" Height="26" Canvas.Left="333" Canvas.Top="481" Width="112" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
+                <Button x:Name="F117Hunt" Content="охота на невидимку" Height="26" Canvas.Left="297" Canvas.Top="481" Width="148" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
                     <Button.ToolTip>
                         <ToolTip>
                             <StackPanel>
-                                <TextBlock Text="Hunt for F-117 in Yugoslavia (1999)"/>
-                                <TextBlock FontWeight="Bold" Text="specific: wait and destroy a specific target"/>
+                                <TextBlock Text="Охота на невидимку (1999)"/>
+                                <TextBlock FontWeight="Bold" Text="особенность: одна конкретная цель"/>
                                 <Image Source="images/interface/hunt_f117.png"/>
                             </StackPanel>
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="Belgrad" Content="bomb attacks against belgrad" Height="26" Canvas.Left="207" Canvas.Top="512" Width="238" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
+                <Button x:Name="Belgrad" Content="налёт на белград" Height="26" Canvas.Left="207" Canvas.Top="512" Width="238" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
                     <Button.ToolTip>
                         <ToolTip>
                             <StackPanel>
-                                <TextBlock Text="Bomb attacks against Belgrad (1999)"/>
-                                <TextBlock FontWeight="Bold" Text="specific: one direction of attack"/>
+                                <TextBlock Text="Налёт на Белград (1999)"/>
+                                <TextBlock FontWeight="Bold" Text="особенность: одно направление нападения"/>
                                 <Image Source="images/interface/belgrad.png"/>
                             </StackPanel>
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="Khmeimim" Content="siege of kmeimim" Height="26" Canvas.Left="10" Canvas.Top="574" Width="192" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
+                <Button x:Name="Khmeimim" Content="оборона хмеймима" Height="26" Canvas.Left="10" Canvas.Top="574" Width="192" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
                     <Button.ToolTip>
                         <ToolTip>
                             <StackPanel>
-                                <TextBlock Text="Siege of Kmeimim (2016-2020)"/>
-                                <TextBlock FontWeight="Bold" Text="specific: UAVs swarms"/>
+                                <TextBlock Text="Оборона Хмеймима (2016-2020)"/>
+                                <TextBlock FontWeight="Bold" Text="особенность: только беспилотники"/>
                                 <Image Source="images/interface/khmeimim.png"/>
                             </StackPanel>
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
-                <Button x:Name="Turkey" Content="turkey's intervention in syria" Height="26" Canvas.Left="207" Canvas.Top="574" Width="238" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
+                <Button x:Name="Turkey" Content="турецкое вторжение в сирию" Height="26" Canvas.Left="207" Canvas.Top="574" Width="238" Click="startScript_Click" FontSize="12" FontFamily="font/calibri.ttf">
                     <Button.ToolTip>
                         <ToolTip>
                             <StackPanel>
-                                <TextBlock Text="Turkey's intervention in Syria (2020)"/>
-                                <TextBlock FontWeight="Bold" Text="specific: only UCAV"/>
+                                <TextBlock Text="Турецкое вторжение в Сирию (2020)"/>
+                                <TextBlock FontWeight="Bold" Text="особенность: только ударные"/>
+                                <TextBlock FontWeight="Bold" Text="беспилотники"/>
                                 <Image Source="images/interface/turkey.png"/>
                             </StackPanel>
                         </ToolTip>
@@ -202,11 +207,11 @@
                     <DataGridTextColumn Header="column4" Foreground="White" IsReadOnly="True" Binding="{Binding Path=Column4}" Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
-            <Label x:Name="StatNotSelected" Content="select a specific battle from the table to get detailed information" Foreground="White" FontSize="26" FontFamily="Arial Narrow" Height="58" Canvas.Left="60" Width="813" Canvas.Top="44"/>
+            <Label x:Name="StatNotSelected" Content="выберите конкретный бой из таблицы для получения развёрнутой информации" Foreground="White" FontSize="26" FontFamily="Arial Narrow" Height="58" Canvas.Left="60" Width="813" Canvas.Top="44"/>
             <DataGrid x:Name="StatBoxDown" IsReadOnly="True" Height="32" Canvas.Left="61" Canvas.Top="140" ColumnWidth="*" FontSize="16" FontFamily="Arial Narrow" Width="202" Background="White"/>
             <DataGrid x:Name="StatBoxDamag" IsReadOnly="True" Height="32" Canvas.Left="61" Canvas.Top="140" ColumnWidth="*" FontSize="16" FontFamily="Arial Narrow" Width="202" Background="White"/>
-            <Label x:Name="StatBoxDownLabel" Content="downed" Canvas.Left="61" Canvas.Top="122" FontFamily="Arial Narrow" FontSize="20" Foreground="White"/>
-            <Label x:Name="StatBoxDamaglabel" Content="damaged" Canvas.Left="61" Canvas.Top="122" FontFamily="Arial Narrow" FontSize="20" Foreground="White"/>
+            <Label x:Name="StatBoxDownLabel" Content="сбитые" Canvas.Left="61" Canvas.Top="122" FontFamily="Arial Narrow" FontSize="20" Foreground="White"/>
+            <Label x:Name="StatBoxDamaglabel" Content="повреждённые" Canvas.Left="61" Canvas.Top="122" FontFamily="Arial Narrow" FontSize="20" Foreground="White"/>
             <DataGrid x:Name="StatisticGrid" Height="50" FontSize="18" Canvas.Top="85" Width="150" Canvas.Left="60" VerticalScrollBarVisibility="Hidden" BorderThickness="0" Background="#FF5B5B5B" AutoGenerateColumns="False" ColumnWidth="*" GridLinesVisibility="Horizontal" BorderBrush="#FF001B36" LoadingRow="StatisticGrid_LoadingRow" IsReadOnly="True" SelectionChanged="StatisticGrid_SelectionChanged">
                 <DataGrid.Resources>
                     <Style TargetType="DataGridCell" x:Key="grayCell">
@@ -224,27 +229,27 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTextColumn Header="gunner" Binding="{Binding name}"/>
-                    <DataGridTextColumn Header="time" Binding="{Binding time}" CellStyle="{StaticResource grayCell}"/>
-                    <DataGridTextColumn Header="shots" Binding="{Binding shellsFired}"/>
-                    <DataGridTextColumn Header="from them to the target" Binding="{Binding inTarget}" CellStyle="{StaticResource grayCell}"/>
-                    <DataGridTextColumn Header="to the target, %" Binding="{Binding inTargetPercent}"/>
-                    <DataGridTextColumn Header="shotdown" Binding="{Binding shutdown}" CellStyle="{StaticResource grayCell}"/>
-                    <DataGridTextColumn Header="shotdown, %" Binding="{Binding shutdownPercent}"/>
-                    <DataGridTextColumn Header="damaged" Binding="{Binding damaged}"  CellStyle="{StaticResource grayCell}"/>
-                    <DataGridTextColumn Header="damaged, %" Binding="{Binding damagedPercent}"/>
-                    <DataGridTextColumn Header="missed" Binding="{Binding hasGone}" CellStyle="{StaticResource grayCell}"/>
-                    <DataGridTextColumn Header="caused damage, million" Binding="{Binding amountOfDamage}"/>
-                    <DataGridTextColumn Header="luck" Binding="{Binding chance}" CellStyle="{StaticResource grayCell}"/>
-                    <DataGridTextColumn Header="taking into account good luck, million" Binding="{Binding amountOfDamageWithChance}"/>
-                    <DataGridTextColumn Visibility="Hidden" Header="friends damaged" Binding="{Binding Path=friendDamage}"/>
-                    <DataGridTextColumn Visibility="Hidden" Header="missed without damages, %" Binding="{Binding withoutDamage}"/>
-                    <DataGridTextColumn Visibility="Hidden" Header="airliners damaged" Binding="{Binding Path=airlinerDamage}"/>
-                    <DataGridTextColumn Visibility="Hidden" Header="bad weather time" Binding="{Binding badTime}"/>
+                    <DataGridTextColumn Header="зенитчик" Binding="{Binding name}"/>
+                    <DataGridTextColumn Header="общее время" Binding="{Binding time}" CellStyle="{StaticResource grayCell}"/>
+                    <DataGridTextColumn Header="настрел" Binding="{Binding shellsFired}"/>
+                    <DataGridTextColumn Header="из них в цель" Binding="{Binding inTarget}" CellStyle="{StaticResource grayCell}"/>
+                    <DataGridTextColumn Header="попаданий, %" Binding="{Binding inTargetPercent}"/>
+                    <DataGridTextColumn Header="сбито" Binding="{Binding shutdown}" CellStyle="{StaticResource grayCell}"/>
+                    <DataGridTextColumn Header="сбито, %" Binding="{Binding shutdownPercent}"/>
+                    <DataGridTextColumn Header="повреждённых" Binding="{Binding damaged}"  CellStyle="{StaticResource grayCell}"/>
+                    <DataGridTextColumn Header="повреждённых, %" Binding="{Binding damagedPercent}"/>
+                    <DataGridTextColumn Header="упущенных" Binding="{Binding hasGone}" CellStyle="{StaticResource grayCell}"/>
+                    <DataGridTextColumn Header="нанесён ущерб, млн" Binding="{Binding amountOfDamage}"/>
+                    <DataGridTextColumn Header="удача" Binding="{Binding chance}" CellStyle="{StaticResource grayCell}"/>
+                    <DataGridTextColumn Header="с учётом удачи, млн" Binding="{Binding amountOfDamageWithChance}"/>
+                    <DataGridTextColumn Visibility="Hidden" Header="повреждено своих" Binding="{Binding Path=friendDamage}"/>
+                    <DataGridTextColumn Visibility="Hidden" Header="из них без повреждений, %" Binding="{Binding withoutDamage}"/>
+                    <DataGridTextColumn Visibility="Hidden" Header="повреждено гражданских" Binding="{Binding Path=airlinerDamage}"/>
+                    <DataGridTextColumn Visibility="Hidden" Header="время непогоды" Binding="{Binding badTime}"/>
                     <DataGridTextColumn Visibility="Hidden" Header="shooting time" Binding="{Binding shootTime}"/>
-                    <DataGridTextColumn Visibility="Hidden" Header="number of queues" Binding="{Binding shootNumber}"/>
-                    <DataGridTextColumn Visibility="Hidden" Header="downed" Binding="{Binding aircrafts}"/>
-                    <DataGridTextColumn Visibility="Hidden" Header="damaged" Binding="{Binding aircraftsDamaged}"/>
+                    <DataGridTextColumn Visibility="Hidden" Header="время стрельбы" Binding="{Binding shootNumber}"/>
+                    <DataGridTextColumn Visibility="Hidden" Header="сбитые" Binding="{Binding aircrafts}"/>
+                    <DataGridTextColumn Visibility="Hidden" Header="повреждённые" Binding="{Binding aircraftsDamaged}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Canvas>
