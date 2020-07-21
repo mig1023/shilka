@@ -102,11 +102,26 @@ namespace shilka2
         public const int HEATING_UNDER_SNOW = -25;
 
         // school
-        public const string ENEMY_INFORMATION = "ENEMY\n\nNow the first enemy aircraft will appear - all enemy aircraft are highlighted in red for training time. You need to shot them down, or at least damage them. The scale will tell how damaged each of them is. The cost of the aircraft is also indicated. The more expensive the plane, the greater the priority of causing damage to him. In a real battle, you will have to determine the aircraft according to its profile, and the degree of damage to them - by eye and sensations.\n\n[OK]";
-        public const string FRIEND_INFORMATION = "FRIEND\n\nNow the first friendly aircraft will appear - all such aircraft are highlighted in green for the duration of training. Avoid damaging your planes. If at least one of them is shot down, the game will fail and immediately end. The scale will tell how damaged they are, but only during training.\n\n[ OK ]";
-        public const string AIRLINER_INFORMATION = "AIRLINER\n\nNow the first passenger plane will appear - all of them are highlighted in blue for the duration of the training. Avoid damaging passenger aircraft. If at least one of them is shot down, the game will fail and immediately end - just like with friendly planes. The scale will tell you how damaged it is, but only during the training.\n\n[ OK ]";
-        public const string MIX_INFORMATION = "NOW THEY ARE MIXED\n\nIn this game, all types of planes fly intermittently. Enemies coexist with friends and passenger aircraft. It is necessary to distinguish them before deciding to open fire on them. Remember that shooting down your own or a passenger plane is much worse than even missing an enemy.\n\n[ OK ]";
-        public const string HEATING_INFORMATION = "OVERHEATING OF GUNS\n\nWhen fired, the trunks of anti-aircraft guns warm up. This affects the accuracy of shooting: the more the barrel warms up, the less accuracy. If the shooting continues after the temperature has reached very high values, the guns will overheat and jam. It will take some time for them to cool - only after that they will be able to resume shooting.\n\n[ OK ]";
+        public const string ENEMY_INFORMATION = "ВРАГ\n\nСейчас появится первый вражеский самолёт " +
+           "- все самолёты противника выделены на время обучения красным цветом. Нужно сбить их или хотя бы повредить. " +
+           "Шкала подскажет насколько повреждён каждый из них. Также указывается стоимость самолёта. Чем дороже самолёт, тем " +
+           "в большем приоритете нанесение повреждений именно ему. В реальном бою придётся определять самолёт по профилю, " +
+           "а степень их повреждения - на глаз и по ощущениям.\n\n[ OK ]";
+        public const string FRIEND_INFORMATION = "СВОЙ\n\nСейчас появится первый дружественный самолёт " +
+            "- все подобные самолёты выделены на время обучения зелёным цветом. Нужно избегать повреждать свои самолёты. " +
+            "Если хоть один из них будет сбит, то игра будет провалена и сразу закончится. Шкала подскажет насколько они повреждены, " +
+            "но только во время обучения.\n\n[ OK ]";
+        public const string AIRLINER_INFORMATION = "ПАССАЖИРСКИЙ САМОЛЁТ\n\nСейчас появится первый пассажирский самолёт " +
+            "- все они выделяются на время обучения синим цветом. Нужно избегать повреждать пассажирские самолёты. " +
+            "Если хоть один из них будет сбит, то игра будет провалена и сразу закончится - точно также как и с дружественными самолётами. " +
+            "Шкала подскажет насколько он повреждён, но только во время оубчения.\n\n[ OK ]";
+        public const string MIX_INFORMATION = "ТЕПЕРЬ ВСЕ ВМЕСТЕ\n\nВ настоящей игре все типы самолётов летают вперемешку. " +
+            "Враги соседствуют с друзьями и пассажирскими самолётами. Необходимо отличать их прежде чем принять решение об открытии " +
+            "по ним огня. Помните, что сбить своего или пассажирский самолёт - намного хуже, чем даже пропустить врага.\n\n[ OK ]";
+        public const string HEATING_INFORMATION = "ПЕРЕГРЕВ СТВОЛОВ\n\nПри стрельбе стволы зенитных пушек разогреваются. " +
+            "Это влияет на точность стрельбы: чем сильнее разогрет ствол, тем меньше точность. " +
+            "Если стрельба продолжится после того, как температура достигла очень больших значений, то пушки перегреются " +
+            "и заклинят. Потребуется некоторое время, чтобы они остыли - только после этого удастся возобновить стрельбу.\n\n[ OK ]";
 
         public const int SCHOOL_CLOUD_AT_THE_START = 5;
         public const int SCHOOL_ENEMY_AT_THE_START = 20;
@@ -114,10 +129,18 @@ namespace shilka2
         public const int SCHOOL_AIRLINER_AT_THE_START = 30;
 
         // training
-        public const string SUSPENDED_TARGET_INFORMATION = "TRAINING\n\nFor the initial preparation of anti-aircraft guns, hanging targets are used, which must be shot from anti-aircraft guns. To do this, use old decommissioned aircraft, such as the MiG-9, MiG-15, Yak-23 or Yak-25. This is the easiest type of workout of all.\n\n[ OK ]";
-        public const string TRAINING_TUG_INFORMATION = "TRAINING\n\nOne of the most popular ways to train anti-aircraft gunners is to shoot at towed targets. They are pulled by an Il-28BM towing aircraft. You need to shoot at the towed target, but in no case do not hit the towbar.\n\n[ OK ]";
-        public const string TRAINING_PLANE_INFORMATION = "TRAINING\n\nTo improve shooting skills, used Tu-16 aircraft, which are used up for their life, are modified into a radio-controlled version of the M-16K target aircraft. These aircraft cannot maneuver, but they are very large, durable and reliable, so it is very difficult to shot them down.\n\n[ OK ]";
-        public const string TRAINING_DRONE_INFORMATION = "TRAINING\n\nTo improve the skills of anti-aircraft gunners used targets La-17MM and E-95. These are slow target aircraft, not capable of evasion maneuvers, so they will be simple targets. Faster foreign MQM-36A, AQM-34, D-21 are also used. You need to shoot down or damage as many targets as possible.\n\n[ OK ]";
+        public const string SUSPENDED_TARGET_INFORMATION = "ТРЕНИРОВКА\n\nДля начальной подготовки зенитчиков применяются подвесные мишени, " +
+            "которые необходимо расстрелять из зенитных пушек. Для этого используют старые списанные самолёты, такие как МиГ-9, МиГ-15, " +
+            "Як-23 или Як-25. Это самый простой вид тренировки из всех существующих.\n\n[ OK ]";
+        public const string TRAINING_TUG_INFORMATION = "ТРЕНИРОВКА\n\nОдин из самых популярных способов тренировки зенитчиков является " +
+            "стрельба по буксируемым мишеням. Их тянет за собой самолёт-буксировщик Ил-28БМ. Нужно стрелять по буксируемой цели, но ни в коем " +
+            "случае не попадайте по буксировщику.\n\n[ OK ]";
+        public const string TRAINING_PLANE_INFORMATION = "ТРЕНИРОВКА\n\nДля отработки навыков стрельбы используются отработавшие свой " +
+            "ресурс самолёты Ту-16, которые модифицируются в радиоуправляемый вариант самолёта-мишени М-16К. Эти самолёты не могут " +
+            "маневрировать, но очень большие, прочные и надёжные, поэтому сбить их очень сложно.\n\n[ OK ]";
+        public const string TRAINING_DRONE_INFORMATION = "ТРЕНИРОВКА\n\nДля совершенствования навыков зенитчиков используются мишени " +
+            "Ла-17ММ и Е-95. Это медленные самолёты-мишени, не способные к манёврам уклонения, поэтому они будут простыми целями. Так же " +
+            "используются более быстрые иностранные MQM-36A, AQM-34, D-21. Нужно сбить или повредить как можно больше мишеней.\n\n[ OK ]";
 
         public const int TRAINING_TIMEOUT_BEFORE_FIRST_INFO = 1;
         public const int TRAINING_CRANE_LEFT_CORRECTTION = 200;

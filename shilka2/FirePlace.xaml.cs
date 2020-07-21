@@ -211,7 +211,7 @@ namespace shilka2
 
             if (Shilka.school || Shilka.training)
             {
-                schoolLabel.Content = (Shilka.school ? "education" : "training");
+                schoolLabel.Content = (Shilka.school ? "обучающий режим" : "тренировка");
                 schoolLabel.Visibility = Visibility.Visible;
                 School.Enabled = true;
                 School.Start();
@@ -277,13 +277,13 @@ namespace shilka2
 
         public void EndGameByShutdown(string aircraftName, bool friend, bool trainingTug)
         {
-            string type = (friend ? "a friendly" : "an airliner") + " ";
+            string type = String.Format("{0} ", (friend ? "свой" : "пассажирский"));
 
             if (trainingTug)
                 type = String.Empty;
 
             EndGame(               
-                endText: String.Format("You shot down {0}{1}!\nGame over.\nSave statistics?", type, aircraftName),
+                endText: String.Format("Вы сбили {0}{1}!\nИгра окончена.\nСохранить статистику?", type, aircraftName),
                 bgColor: Constants.END_COLOR,
                 noReturn: true
             );
@@ -438,11 +438,11 @@ namespace shilka2
             string endText;
 
             if (Shilka.school)
-                endText = "Quit education mode.";
+                endText = "Выход из обучения";
             else if (Shilka.training)
-                endText = "Quit training mode.";
+                endText = "Выход из тренировки";
             else
-                endText = "Quit the game.\nSave statistics?";
+                endText = "Выход из игры.\nСохранить статистику?";
 
             if (!endGameAlready)
                 EndGame(endText, endColor); 
@@ -771,39 +771,39 @@ namespace shilka2
             double timeForQueue = (statRow.shootNumber > 0 ? (double)statRow.shootTime / (double)statRow.shootNumber : 0);
 
             StatBoxAddRow(new String[] {
-                "gunner", statRow.name,
-                "script", scriptName
+                "зенитчик", statRow.name,
+                "сценарий", scriptName
             });
             StatBoxAddRow(new String[] {
-                "downed", String.Format("{0} ( {1}% )", statRow.shutdown, statRow.shutdownPercent), 
-                "damaged", String.Format("{0} ( {1}% )", statRow.damaged, statRow.damagedPercent) });
+                "сбито", String.Format("{0} ( {1}% )", statRow.shutdown, statRow.shutdownPercent),
+                "повреждено", String.Format("{0} ( {1}% )", statRow.damaged, statRow.damagedPercent) });
             StatBoxAddRow(new String[] {
-                "shot, shells", statRow.shellsFired.ToString(),
-                "missed", statRow.hasGone.ToString()
+                "настрел, снарядов", statRow.shellsFired.ToString(),
+                "упущенных", statRow.hasGone.ToString()
             });
             StatBoxAddRow(new String[] {
-                "\u2014 from them to the target", String.Format("{0} ( {1}% )", statRow.inTarget, statRow.inTargetPercent),
-                "\u2014 missed without damages", String.Format("{0}%", statRow.withoutDamage)
+                "\u2014 из них в цель", String.Format("{0} ( {1}% )", statRow.inTarget, statRow.inTargetPercent),
+                "\u2014 из них без повреждений", String.Format("{0}%", statRow.withoutDamage)
             });
             StatBoxAddRow(new String[] {
-                "shot at one shotdown", String.Format("{0} shot/aircraft", shellsForShutdown),
-                "caused damage", Statistic.HumanReadableSumm(statRow.amountOfDamage)
+                "настрел на сбитие", String.Format("{0} выстр./сбитый", shellsForShutdown),
+                "нанесён ущерб", Statistic.HumanReadableSumm(statRow.amountOfDamage)
             });
             StatBoxAddRow(new String[] {
-                "friens damaged", statRow.friendDamage.ToString(),
-                "airliner damaged", statRow.airlinerDamage.ToString()
+                "повреждено своих", statRow.friendDamage.ToString(),
+                "повреждено гражданских", statRow.airlinerDamage.ToString()
             });
             StatBoxAddRow(new String[] {
-                "battle time", statRow.time.ToString(),
-                "shots in queues", shellInQueue.ToString()
+                "общее время боя", statRow.time.ToString(),
+                "средняя очередь, снарядов", shellInQueue.ToString()
             });
             StatBoxAddRow(new String[] {
-                "\u2014 bad weather", statRow.badTime.ToString(),
-                "time of queues", string.Format("{0:f2} sec", timeForQueue)
+                "\u2014 из них непогоды", statRow.badTime.ToString(),
+                "время средней очереди", string.Format("{0:f2} сек", timeForQueue)
             });
             StatBoxAddRow(new String[] {
-                "luck", statRow.chance.ToString(),
-                "best trothy", StatMostValuableTrophy(statRow.aircrafts)
+                "удача", statRow.chance.ToString(),
+                "лучший трофей", StatMostValuableTrophy(statRow.aircrafts)
             });
 
             StatBoxValues(StatBoxDown, statRow.aircrafts, statRow.shutdown, statRow.amountOfDamage);
@@ -814,7 +814,7 @@ namespace shilka2
         {
             string[] aircraftsData = statData.Split(',');
 
-            string trophy = "nope";
+            string trophy = "не было";
             double trophyPrice = 0;
 
             foreach (string aircraftData in aircraftsData)
@@ -846,30 +846,30 @@ namespace shilka2
             StatBox.AutoGenerateColumns = false;
             StatBox.Columns.Add(new DataGridTextColumn
             {
-                Header = "type",
+                Header = "тип",
                 Binding = new Binding("aircraft")
             });
             StatBox.Columns.Add(new DataGridTextColumn
             {
-                Header = "number",
+                Header = "количество",
                 Binding = new Binding("count"),
                 Width = new DataGridLength(100)
             });
             StatBox.Columns.Add(new DataGridTextColumn
             {
-                Header = "of the total",
+                Header = "от общего кол-ва",
                 Binding = new Binding("percent"),
                 Width = new DataGridLength(120)
             });
             StatBox.Columns.Add(new DataGridTextColumn
             {
-                Header = "of the caused damage" + (inaccurate ? " (approximate)" : String.Empty),
+                Header = String.Format("от ущерба {0}", (inaccurate ? " (примерно)" : String.Empty)),
                 Binding = new Binding("pricePercent"),
                 Width = new DataGridLength(120)
             });
 
             string[] aircraftsData = statData.Split(',');
-            string inacc = (inaccurate ? "up to" : String.Empty);
+            string inacc = (inaccurate ? "до " : String.Empty);
 
             foreach (string aircraftData in aircraftsData)
             {
