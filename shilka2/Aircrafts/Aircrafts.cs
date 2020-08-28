@@ -1970,7 +1970,7 @@ namespace shilka2
 
             new Aircraft
             {
-                aircraftType = "mig19 ",
+                aircraftType = "mig19",
                 aircraftName = "МиГ-19",
                 size = new int[] { 270, 81 },
                 friend = true
