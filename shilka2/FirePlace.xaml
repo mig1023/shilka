@@ -95,7 +95,7 @@
                     <Button.ToolTip>
                         <ToolTip>
                             <StackPanel>
-                                <TextBlock Text="Гражданская война в Сирии (2011-2020) (2011-2020)"/>
+                                <TextBlock Text="Гражданская война в Сирии (2011-2020)"/>
                                 <TextBlock FontWeight="Bold" Text="особенность: только дроны,"/>
                                 <TextBlock FontWeight="Bold" Text="беспилотники и крылатые ракеты"/>
                                 <Image Source="images/interface/syria.png"/>
