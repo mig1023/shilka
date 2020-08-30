@@ -446,7 +446,7 @@ namespace shilka2
                 stat += String.Format("попаданий: {0}\n", staticticInTarget);
 
             if (staticticAircraftShutdown > 0)
-                stat += String.Format("сбито: {0}\n", staticticAircraftShutdown);
+                stat += String.Format("сбито: {0} из {1}\n", staticticAircraftShutdown, statisticAllAircraft);
 
             if (statisticDamaged > 0)
                 stat += String.Format("повреждено: {0}\n", statisticDamaged);

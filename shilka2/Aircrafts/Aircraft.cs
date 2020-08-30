@@ -439,7 +439,7 @@ namespace shilka2
                 if (newAircraft.minAltitude == -1)
                     newAircraft.minAltitude = Aircrafts.minAltitudeGlobal;
 
-                if (!friend && !airliner)
+                if (((!friend && !airliner) || (Shilka.training && !cloud && friend)) && !transformation)
                     Statistic.NewAircraftAdd(this);
 
                 if (suspended)
