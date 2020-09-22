@@ -1,25 +1,11 @@
 # shilka
 The game is about a small anti-aircraft vehicle in the school notebook
 
-![](http://mig1023.ru/images/shilka.png)
+![](http://mig1023.ru/images/shilka/main.png)
 
 ### Scripts:
 
-| Script | Period | Specifics |
-| ------------- | ------------- | ------------- |
-| Vietnam war | 1965-1973 | a lot of enemies, jungle shooting |
-| Iran–Iraq war | 1980-1988 | malfunctioning radar |
-| Korean Boeing incident | 1983 | airliner between spies |
-| Mathias Rust flight | 1987 | сivil aircraft as target |
-| Operation Desert storm | 1991 | sandstorm |
-| NATO bombing of Yugoslavia | 1999 | night |
-| Bomb attacks against Belgrade | 1999 | one direction of attack |
-| Hunt for F-117 in Yugoslavia | 1999 | wait and destroy a specific target |
-| Syrian civil war | 2011-2020 | only UAVs and cruise missiles |
-| Intervention in Libya | 2011 | unpredictable guns |
-| Intervention in Yemen | 2015-2020 | no friendly aviation |
-| Siege of Kmeimim | 2016-2020 | UAVs swarms |
-| Turkey's intervention in Syria | 2020 | only UCAV |
+![](http://mig1023.ru/images/shilka/scripts.png)
 
 ### Different weather:
 
