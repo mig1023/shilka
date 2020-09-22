@@ -20,15 +20,7 @@ The game is about a small anti-aircraft vehicle in the school notebook
 
 ### Enemy helicopters:
 
-| Helicopter | Helicopter | Helicopter |
-| ------------- | ------------- | ------------- |
-| A129 Mangusta | Aerospatiale Gazelle | Aerospatiale Puma |
-| AH-1 Cobra | AH-6 Little Bird | AH-64 Apache |
-| CH-47 Chinook | Denel AH-2 Rooivalk | Eurocopter AS565 Panther |
-| Eurocopter Tiger HAC | Eurocopter Tiger HAP | Kawasaki OH-1 |
-| OH-58 Kiowa | RAH-66 Comanche | Sikorsky CH-53/MH-53 |
-| Sikorsky CH-54 | Sikorsky H-34 | UH-1 Iroquois |
-| UH-60 Black Hawk | V-22 Ospray | Westland Lynx |
+![](http://mig1023.ru/images/shilka/enemies_helicopters.png)
 
 ### Enemy UAV/UCAV/Drones:
 
