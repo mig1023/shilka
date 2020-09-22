@@ -16,24 +16,7 @@ The game is about a small anti-aircraft vehicle in the school notebook
 
 ### Enemy aircrafts:
 
-| Aircraft | Aircraft | Aircraft |
-| ------------- | ------------- | ------------- |
-| A-1 Skyraider | A-6 Intruder | A-10 Thunderbolt |
-| A-26 Invader | AC-130 Spectre | AGM-158 JASSM |
-| Automatic aerostat-spy (3 types) | B-1 Lancer | B-2 Spirit | 
-| B-52 Stratofortress | BGM-109 Tomahawk | Boeing 737 AEW&C |
-| C-5 Galaxy | C-17 Globemaster III | Cessna 172 |
-| E-2 Hawkeye | E-3 Centry | EA-6 Prowler |
-| Embraer EMB 314 Super Tucano | Embraer R-99 | Eurofighter Typhoon |
-| F-4 Fantom | F-5 Tiger | F-8 Crusader |
-| F-14 Tomcat | F-15 Eagle | F-16 Fighting Falcon |
-| F/A-18 Hornet | F-22 Raptor | F-35 Lightning II |
-| F-104 Starfighter | F-111 Aardvark | F-117 Nighthawk |
-| Harrier / GR3 / Sea Harrier | KC-135 Stratotanker | Mirage 2000 |
-| Mirage 2000ED | OV-10 Bronco | Panavia Tornado |
-| Rafale | RC-135 | S-3 Viking |
-| Saab JAS 39 Gripen | Saab S-100B Argus | SEPECAT Jaguar |
-| SR-71 Blackbird | Storm Shadow / SCALP | U-2 Dragon Lady |
+![](http://mig1023.ru/images/shilka/enemies_aircrafts.png)
 
 ### Enemy helicopters:
 
