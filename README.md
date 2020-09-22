@@ -28,13 +28,7 @@ The game is about a small anti-aircraft vehicle in the school notebook
 
 ### Friend aircrafts:
 
-| Aircraft | Aircraft | Aircraft | Aircraft |
-| ------------- | ------------- | ------------- | ------------- |
-| A-50 Mainstay | MiG-19 Farmer | MiG-21 Fishbed | MiG-23 Flogger |
-| MiG-25 Foxbat | MiG-29 Fulcrum | MiG-31 Foxhound | MiG-35 Fulcrum-F |
-| Su-17 Fitter | Su-24 Frogfoot | Su-25 | Su-27 Flanker |
-| Su-30 Flanker-C | Su-34 Fullback | Su-57 Felon | Tu-16 Badger |
-| Tu-22 Blinder | Tu-22M3 Backfire | Tu-95 Bear | Tu-160 Blackjack |
+![](http://mig1023.ru/images/shilka/friends_aircrafts.png)
 
 ### Friend helicopters:
 
