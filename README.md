@@ -24,11 +24,7 @@ The game is about a small anti-aircraft vehicle in the school notebook
 
 ### Enemy UAV/UCAV/Drones:
 
-| UAV | UAV | UAV |
-| ------------- | ------------- | ------------- |
-| Bayraktar TB2 | MQ-1 Predator | MQ-9 Reaper |
-| Piaggio Aerospace P.1HH HammerHead | RQ-4 Global Hawk | RQ-5 Hunter |
-| RQ-11 Raven | Spy / attack drone (9 types) | TAI Anka |
+![](http://mig1023.ru/images/shilka/enemies_UAV.png)
 
 ### Friend aircrafts:
 
