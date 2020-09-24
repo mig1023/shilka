@@ -9,10 +9,7 @@ The game is about a small anti-aircraft vehicle in the school notebook
 
 ### Different weather:
 
-| Weather | Weather | Weather |
-| ------------- | ------------- | ------------- |
-| Clear | Cloudy | Rain |
-| Sandstorm | Snow | Thunderstorm |
+![](http://mig1023.ru/images/shilka/weather.png)
 
 ### Enemy aircrafts:
 
