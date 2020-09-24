@@ -37,10 +37,4 @@ The game is about a small anti-aircraft vehicle in the school notebook
 
 ### Target drones, target planes and target tugs:
 
-| Drones | Drones | Drones |
-| ------------- | ------------- | ------------- |
-| Dan-M | Enics E-95 | Ilyushin Il-28BM (target tug) + 77BM2 (target) |
-| Lockheed D-21 | Lavochkin La-17MM | MiG-9 (decommissioned) |
-| MiG-15 (decommissioned) | Northrop MQM-36A Shelduck | Su-11 (decommissioned) |
-| Tupolev M-16K | Yak-25 (decommissioned) | Yak-27 (decommissioned) |
-
+![](http://mig1023.ru/images/shilka/targets.png)
