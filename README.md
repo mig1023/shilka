@@ -29,12 +29,7 @@ The game is about a small anti-aircraft vehicle in the school notebook
 
 ### Friend helicopters:
 
-| Helicopter | Helicopter | Helicopter |
-| ------------- | ------------- | ------------- |
-| Ansat | Mi-8 Hip | Mi-10 Harke | 
-| Mi-24 Hind | Mi-26 Halo | Mi-28 Havoc | 
-| Mi-38 | Ka-26 Hoodlum | Ka-27 Helix |
-| Ka-31 Helix | Ka-52 Hokum B | Ka-60 |
+![](http://mig1023.ru/images/shilka/friends_helicoters.png)
 
 ### Airliners:
 
