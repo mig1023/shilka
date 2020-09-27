@@ -53,7 +53,7 @@ namespace shilka2
             lastDegree = 0;
             Aircraft.allAircraftsInGame = 0;
 
-            Weather.RestartCycle(Weather.WeatherTypes.good);
+            Weather.Restart(Weather.WeatherTypes.good);
 
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {

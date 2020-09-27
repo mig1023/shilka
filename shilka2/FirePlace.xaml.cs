@@ -184,8 +184,8 @@ namespace shilka2
                 Game.Elapsed += new ElapsedEventHandler(Shell.Fly);
                 Game.Elapsed += new ElapsedEventHandler(Case.Fly);
                 Game.Elapsed += new ElapsedEventHandler(Wrecks.Fly);
-                Game.Elapsed += new ElapsedEventHandler(Weather.NewWeather);
-                Game.Elapsed += new ElapsedEventHandler(Weather.WeatherElementsFly);
+                Game.Elapsed += new ElapsedEventHandler(Weather.Change);
+                Game.Elapsed += new ElapsedEventHandler(Weather.ElementsFly);
                 Game.Elapsed += new ElapsedEventHandler(Aircraft.AircraftFly);
                 Game.Elapsed += new ElapsedEventHandler(Statistic.Show);
                 Game.Elapsed += new ElapsedEventHandler(Shilka.RadarmMalfunction);
@@ -622,7 +622,7 @@ namespace shilka2
                 scenarioFlag.Source = null;
 
             if (script == Scripts.ScriptsNames.KoreanBoeing)
-                Weather.RestartCycle(Weather.WeatherTypes.snow);
+                Weather.Restart(Weather.WeatherTypes.snow);
             else if (script == Scripts.ScriptsNames.Yugoslavia)
             {
                 statShells.Foreground = Brushes.White;

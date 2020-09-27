@@ -28,13 +28,19 @@ namespace shilka2
         static int thundar = 0;
         public static Image thunderCurrentImage;
 
-        public static void RestartCycle()
+        public static void Restart()
         {
             Array weathers = Enum.GetValues(typeof(WeatherTypes));
             WeatherTypes currentWeatherForScripts = (WeatherTypes)weathers.GetValue(RandForNewWeather(weathers.Length));
             currentWeather = Scripts.ScriptsWeather(Shilka.currentScript, currentWeatherForScripts);
 
-            RestartCycle(currentWeather, newWeatherCycle: 0);
+            Restart(currentWeather, newWeatherCycle: 0);
+        }
+
+        public static void Restart(Weather.WeatherTypes newWeather, int? newWeatherCycle = null)
+        {
+            currentWeather = newWeather;
+            weatherCycle = newWeatherCycle ?? Constants.WEATHER_CYCLE;
         }
 
         private static int RandForNewWeather(int maxWeatherNum)
@@ -53,12 +59,6 @@ namespace shilka2
                 default:
                     return rand.Next(maxWeatherNum);
             };
-        }
-
-        public static void RestartCycle(Weather.WeatherTypes newWeather, int? newWeatherCycle = null)
-        {
-            currentWeather = newWeather;
-            weatherCycle = newWeatherCycle ?? Constants.WEATHER_CYCLE;
         }
 
         private static void Lightning(bool thunderclap = false, bool thunderimage = false)
@@ -112,7 +112,7 @@ namespace shilka2
             }
         }
 
-        public static void NewWeather(object obj, ElapsedEventArgs e)
+        public static void Change(object obj, ElapsedEventArgs e)
         {
             if (Shilka.training || Shilka.school)
                 return;
@@ -129,9 +129,7 @@ namespace shilka2
                         stormDirection = (rand.Next(2) > 0 ? Aircraft.FlightDirectionType.Right : Aircraft.FlightDirectionType.Left);
             }
             else
-                RestartCycle();
-
-           
+                Restart();
 
             if (currentWeather == WeatherTypes.good)
                 return;
@@ -201,7 +199,7 @@ namespace shilka2
             }
         }
 
-        public static void WeatherElementsFly(object obj, ElapsedEventArgs e)
+        public static void ElementsFly(object obj, ElapsedEventArgs e)
         {
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {
