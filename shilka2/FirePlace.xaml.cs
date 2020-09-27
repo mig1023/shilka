@@ -609,9 +609,9 @@ namespace shilka2
         {
             Shilka.currentScript = script;
 
-            string flagName = Scripts.ScriptFlagName(script);
+            string flagName = Scripts.FlagName(script);
 
-            Shilka.degreeOfHeatingGunBurrels = Scripts.ScriptTemperature(script);
+            Shilka.degreeOfHeatingGunBurrels = Scripts.Temperature(script);
             Shilka.degreeOfHeatingGunBurrelsMin = Shilka.degreeOfHeatingGunBurrels;
 
             Shilka.night = false;
@@ -636,11 +636,11 @@ namespace shilka2
             ShilkaImg.Source = Functions.ImageFromResources("shilka", Aircraft.ImageType.Interface);
 
             StartGame(
-                Scripts.ScriptEnemyAircrafts(script),
-                Scripts.ScriptEnemyHelicopters(script),
-                Scripts.ScriptFriendAircrafts(script),
-                Scripts.ScriptFriendHelicopters(script),
-                Scripts.ScriptAirliners(script)
+                Scripts.EnemyAircrafts(script),
+                Scripts.EnemyHelicopters(script),
+                Scripts.FriendAircrafts(script),
+                Scripts.FriendHelicopters(script),
+                Scripts.Airliners(script)
             );
         }
 

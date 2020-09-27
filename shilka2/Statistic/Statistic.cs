@@ -270,10 +270,10 @@ namespace shilka2
 
                 if (scriptFullName != Scripts.ScriptsNames.noScript)
                     flagSource = Functions.ImageFromResources(
-                        Scripts.ScriptFlagName(scriptFullName), Aircraft.ImageType.Interface, noInvert: true
+                        Scripts.FlagName(scriptFullName), Aircraft.ImageType.Interface, noInvert: true
                     );
 
-                statisticScripts.Add(Scripts.scriptsRuNames[scriptFullName.ToString()]);
+                statisticScripts.Add(Scripts.ruNames[scriptFullName.ToString()]);
 
                 result.Add(new StatTable(
                     stat[0], stat[1], stat[2], stat[3], stat[4], stat[5], stat[6], stat[7],

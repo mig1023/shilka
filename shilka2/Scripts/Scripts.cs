@@ -21,7 +21,7 @@ namespace shilka2
             Turkey
         };
 
-        public static Dictionary<string, string> scriptsRuNames = new Dictionary<string, string>
+        public static Dictionary<string, string> ruNames = new Dictionary<string, string>
         {
             ["noScript"] = "быстрая игра",
             ["Vietnam"] = "вьетнамская война",
@@ -52,7 +52,7 @@ namespace shilka2
         public static int?[] scriptHelicoptersFriend;
         public static int?[] scriptAirliners;
 
-        public static Weather.WeatherTypes ScriptsWeather(ScriptsNames script, Weather.WeatherTypes weather)
+        public static Weather.WeatherTypes SuitableWeather(ScriptsNames script, Weather.WeatherTypes weather)
         {
             if (script == ScriptsNames.KoreanBoeing)
                 return Weather.WeatherTypes.snow;
@@ -98,7 +98,7 @@ namespace shilka2
             return weather;
         }
 
-        public static string ScriptFlagName(ScriptsNames script)
+        public static string FlagName(ScriptsNames script)
         {
             switch (script)
             {
@@ -133,7 +133,7 @@ namespace shilka2
             return null;
         }
 
-        public static int ScriptTemperature(ScriptsNames script)
+        public static int Temperature(ScriptsNames script)
         {
             switch (script)
             {
@@ -168,7 +168,7 @@ namespace shilka2
             return 30;
         }
 
-        public static int?[] ScriptFriendAircrafts(ScriptsNames script)
+        public static int?[] FriendAircrafts(ScriptsNames script)
         {
 
             if (script == ScriptsNames.Vietnam)
@@ -273,7 +273,7 @@ namespace shilka2
             return null;
         }
 
-        public static int?[] ScriptFriendHelicopters(ScriptsNames script)
+        public static int?[] FriendHelicopters(ScriptsNames script)
         {
 
             if (script == ScriptsNames.Vietnam)
@@ -345,7 +345,7 @@ namespace shilka2
             return null;
         }
 
-        public static int?[] ScriptEnemyAircrafts(ScriptsNames script)
+        public static int?[] EnemyAircrafts(ScriptsNames script)
         {
 
             if (script == ScriptsNames.Vietnam)
@@ -526,7 +526,7 @@ namespace shilka2
             return null;
         }
 
-        public static int?[] ScriptEnemyHelicopters(ScriptsNames script)
+        public static int?[] EnemyHelicopters(ScriptsNames script)
         {
 
             if (script == ScriptsNames.Vietnam)
@@ -626,7 +626,7 @@ namespace shilka2
             return null;
         }
 
-        public static int?[] ScriptAirliners(ScriptsNames script)
+        public static int?[] Airliners(ScriptsNames script)
         {
 
             if (script == ScriptsNames.Vietnam)

@@ -32,7 +32,7 @@ namespace shilka2
         {
             Array weathers = Enum.GetValues(typeof(WeatherTypes));
             WeatherTypes currentWeatherForScripts = (WeatherTypes)weathers.GetValue(RandForNewWeather(weathers.Length));
-            currentWeather = Scripts.ScriptsWeather(Shilka.currentScript, currentWeatherForScripts);
+            currentWeather = Scripts.SuitableWeather(Shilka.currentScript, currentWeatherForScripts);
 
             Restart(currentWeather, newWeatherCycle: 0);
         }
