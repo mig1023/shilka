@@ -34,7 +34,7 @@ namespace shilka2
         public static List<Shell> shells = new List<Shell>();
         public static List<Line> allLines = new List<Line>();
 
-        public static void ShellsFly(object obj, ElapsedEventArgs e)
+        public static void Fly(object obj, ElapsedEventArgs e)
         {
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {
@@ -147,7 +147,7 @@ namespace shilka2
             }));
         }
 
-        public static void ShellsFire(object obj, ElapsedEventArgs e)
+        public static void Fire(object obj, ElapsedEventArgs e)
         {
             int currentFragmentation = Constants.FRAGMENTATION + ( ( Shilka.degreeOfHeatingGunBurrels - 30 ) / 25 );
 

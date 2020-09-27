@@ -180,10 +180,10 @@ namespace shilka2
 
             if (!startGameAlready)
             {
-                Game.Elapsed += new ElapsedEventHandler(Shell.ShellsFire);
-                Game.Elapsed += new ElapsedEventHandler(Shell.ShellsFly);
-                Game.Elapsed += new ElapsedEventHandler(Case.CasesFly);
-                Game.Elapsed += new ElapsedEventHandler(Wrecks.WreckFly);
+                Game.Elapsed += new ElapsedEventHandler(Shell.Fire);
+                Game.Elapsed += new ElapsedEventHandler(Shell.Fly);
+                Game.Elapsed += new ElapsedEventHandler(Case.Fly);
+                Game.Elapsed += new ElapsedEventHandler(Wrecks.Fly);
                 Game.Elapsed += new ElapsedEventHandler(Weather.NewWeather);
                 Game.Elapsed += new ElapsedEventHandler(Weather.WeatherElementsFly);
                 Game.Elapsed += new ElapsedEventHandler(Aircraft.AircraftFly);

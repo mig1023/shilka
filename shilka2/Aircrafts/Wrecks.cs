@@ -80,7 +80,7 @@ namespace shilka2
                     Width = rand.Next(maxSize) + Constants.WRECKS_MIN_SIZE,
                     Height = rand.Next(maxSize) + Constants.WRECKS_MIN_SIZE,
 
-                    Source = Aircraft.ImageFromResources("wrecks" + (Aircraft.rand.Next(1, wr_rand_num)), Aircraft.ImageType.Other),
+                    Source = Functions.ImageFromResources("wrecks" + (Aircraft.rand.Next(1, wr_rand_num)), Aircraft.ImageType.Other),
                     Margin = new Thickness(newWreck.x, newWreck.y, 0, 0)
                 };
 
@@ -93,7 +93,7 @@ namespace shilka2
             wreckMutex--;
         }
 
-        public static void WreckFly(object obj, ElapsedEventArgs e)
+        public static void Fly(object obj, ElapsedEventArgs e)
         {
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {

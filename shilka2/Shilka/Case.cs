@@ -68,7 +68,7 @@ namespace shilka2
             caseMutex--;
         }
 
-        public static void CasesFly(object obj, ElapsedEventArgs e)
+        public static void Fly(object obj, ElapsedEventArgs e)
         {
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {
