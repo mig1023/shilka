@@ -106,7 +106,7 @@ namespace shilka2
             suspendedTargetAngle = 0;
         }
 
-        public static void AircraftFly(object obj, ElapsedEventArgs e)
+        public static void Fly(object obj, ElapsedEventArgs e)
         {
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {
@@ -131,11 +131,11 @@ namespace shilka2
 
                     if (aircraft.dead)
                     {
-                        aircraft.y += aircraft.AircraftDeadFallSpeed();
+                        aircraft.y += aircraft.DeadFallSpeed();
 
                         if ((aircraft.dynamicElemets.Count == 0 || aircraft.deadSprite) && !aircraft.aerostat)
                         {
-                            double angle = aircraft.AircraftFlyAngle();
+                            double angle = aircraft.FlyAngle();
 
                             aircraft.angleOfAttack += (angle * aircraft.placeOfDamage);
 
@@ -277,7 +277,7 @@ namespace shilka2
             }));
         }
 
-        private double AircraftFlyAngle()
+        private double FlyAngle()
         {
             switch (weight)
             {
@@ -290,7 +290,7 @@ namespace shilka2
             }
         }
 
-        private double AircraftDeadFallSpeed()
+        private double DeadFallSpeed()
         {
             if (canPlaneForALongTime)
                 return Constants.TANGAGE_DEAD_SPEED / 2;
@@ -305,7 +305,7 @@ namespace shilka2
             return Constants.TANGAGE_DEAD_SPEED * (rand.NextDouble() * 2 - 1) + fallSpeed + fallAcceleration;
         }
 
-        private static bool AircraftInList(int?[] scriptAircraft, int aircraft)
+        private static bool InList(int?[] scriptAircraft, int aircraft)
         {
             if (scriptAircraft == null)
                 return true;
@@ -315,8 +315,8 @@ namespace shilka2
 
             bool inList = false;
 
-            foreach (int aircraftInList in scriptAircraft)
-                if (aircraftInList == aircraft)
+            foreach (int InList in scriptAircraft)
+                if (InList == aircraft)
                     inList = true;
 
             return inList;
@@ -495,10 +495,10 @@ namespace shilka2
                 }
 
                 if (Shilka.school && !newAircraft.cloud)
-                    newAircraft.AircraftMessagesForSchool(main);
+                    newAircraft.MessagesForSchool(main);
 
                 if (Shilka.training)
-                    newAircraft.AircraftMessageForTraining(main);
+                    newAircraft.MessageForTraining(main);
 
                 newAircraft.aircraftImage = newAircraftImage;
                 main.firePlace.Children.Add(newAircraftImage);
@@ -668,7 +668,7 @@ namespace shilka2
                 return Aircrafts.targetDrones[rand.Next(Aircrafts.targetDrones.Count)];
         }
 
-        private void AircraftMessageForTraining(FirePlace main)
+        private void MessageForTraining(FirePlace main)
         {
             if (!trainingSuspendedTarget)
             {
@@ -688,7 +688,7 @@ namespace shilka2
                 main.SchoolMessage(Constants.TRAINING_DRONE_INFORMATION, Brushes.LightSeaGreen, ref trainingTurgetDrone);
         }
 
-        private void AircraftMessagesForSchool(FirePlace main)
+        private void MessagesForSchool(FirePlace main)
         {
             if ((allAircraftsInGame > Constants.SCHOOL_AIRLINER_AT_THE_START) && !schoolMixAlready)
                 main.SchoolMessage(Constants.MIX_INFORMATION, Brushes.Gray, ref schoolMixAlready);
@@ -739,7 +739,7 @@ namespace shilka2
                 {
                     dice = rand.Next(Aircrafts.helicopters.Count);
                 }
-                while (!AircraftInList(Scripts.scriptHelicopters, dice));
+                while (!InList(Scripts.scriptHelicopters, dice));
 
                 Aircrafts.helicopters[dice].Launch(swarm: true, startDirection: newDirection);
             }
@@ -786,7 +786,7 @@ namespace shilka2
                         {
                             dice = rand.Next(Aircrafts.aircraft.Count);
                         }
-                        while (!AircraftInList(Scripts.scriptAircraft, dice));
+                        while (!InList(Scripts.scriptAircraft, dice));
 
                         string aircraftType = Aircrafts.aircraft[dice].aircraftType;
 
@@ -822,7 +822,7 @@ namespace shilka2
                             {
                                 dice = rand.Next(Aircrafts.helicopters.Count);
                             }
-                            while (!AircraftInList(Scripts.scriptHelicopters, dice));
+                            while (!InList(Scripts.scriptHelicopters, dice));
 
                             newAircraft = Aircrafts.helicopters[dice];
 
@@ -844,7 +844,7 @@ namespace shilka2
                         {
                             dice = rand.Next(Aircrafts.aircraftFriend.Count);
                         }
-                        while (!AircraftInList(Scripts.scriptAircraftFriend, dice));
+                        while (!InList(Scripts.scriptAircraftFriend, dice));
 
                         newAircraft = Aircrafts.aircraftFriend[dice];
 
@@ -859,7 +859,7 @@ namespace shilka2
                         {
                             dice = rand.Next(Aircrafts.helicoptersFriend.Count);
                         }
-                        while (!AircraftInList(Scripts.scriptHelicoptersFriend, dice));
+                        while (!InList(Scripts.scriptHelicoptersFriend, dice));
 
                         newAircraft = Aircrafts.helicoptersFriend[dice];
 
@@ -877,7 +877,7 @@ namespace shilka2
                         {
                             dice = rand.Next(Aircrafts.airliners.Count);
                         }
-                        while (!AircraftInList(Scripts.scriptAirliners, dice));
+                        while (!InList(Scripts.scriptAirliners, dice));
 
                         newAircraft = Aircrafts.airliners[dice];
 

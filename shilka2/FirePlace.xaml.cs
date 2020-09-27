@@ -186,7 +186,7 @@ namespace shilka2
                 Game.Elapsed += new ElapsedEventHandler(Wrecks.Fly);
                 Game.Elapsed += new ElapsedEventHandler(Weather.Change);
                 Game.Elapsed += new ElapsedEventHandler(Weather.ElementsFly);
-                Game.Elapsed += new ElapsedEventHandler(Aircraft.AircraftFly);
+                Game.Elapsed += new ElapsedEventHandler(Aircraft.Fly);
                 Game.Elapsed += new ElapsedEventHandler(Statistic.Show);
                 Game.Elapsed += new ElapsedEventHandler(Shilka.RadarmMalfunction);
 
