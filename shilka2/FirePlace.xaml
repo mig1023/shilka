@@ -176,7 +176,7 @@
                         <ToolTip>
                             <StackPanel>
                                 <TextBlock Text="Оборона Хмеймима (2016-2020)"/>
-                                <TextBlock FontWeight="Bold" Text="особенность: только беспилотники"/>
+                                <TextBlock FontWeight="Bold" Text="особенность: рой беспилотников"/>
                                 <Image Source="images/interface/khmeimim.png"/>
                             </StackPanel>
                         </ToolTip>
