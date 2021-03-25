@@ -20,6 +20,7 @@ namespace shilka2
         private static bool schoolHeating = false;
 
         public static bool reheatingGunBurrels = false;
+        public static bool scriptDescriptionAlready = false;
 
         static int gunReturn = 0;
 

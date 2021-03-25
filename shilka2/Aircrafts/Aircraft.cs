@@ -500,6 +500,9 @@ namespace shilka2
                 if (Shilka.training)
                     newAircraft.MessageForTraining(main);
 
+                if ((Shilka.currentScript != Scripts.ScriptsNames.noScript) && !Shilka.scriptDescriptionAlready)
+                    MessageForScript(main);
+
                 newAircraft.aircraftImage = newAircraftImage;
                 main.firePlace.Children.Add(newAircraftImage);
                 aircrafts.Add(newAircraft);
@@ -686,6 +689,14 @@ namespace shilka2
 
             if (!trainingTurgetDrone && (allAircraftsInGame > Constants.TRAINING_M16K_AT_THE_START))
                 main.SchoolMessage(Constants.TRAINING_DRONE_INFORMATION, Brushes.LightSeaGreen, ref trainingTurgetDrone);
+        }
+        
+        private void MessageForScript(FirePlace main)
+        {
+            Shilka.scriptDescriptionAlready = true;
+
+            if (Shilka.currentScript == Scripts.ScriptsNames.Vietnam)
+                main.ScriptMessage(Constants.VIETNAM_INFORMATION, Brushes.DarkGreen);
         }
 
         private void MessagesForSchool(FirePlace main)

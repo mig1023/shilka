@@ -608,6 +608,7 @@ namespace shilka2
         public void StartScript(Scripts.ScriptsNames script)
         {
             Shilka.currentScript = script;
+            Shilka.scriptDescriptionAlready = false;
 
             string flagName = Scripts.FlagName(script);
 
@@ -695,6 +696,12 @@ namespace shilka2
         private void trainingButton_Click(object sender, RoutedEventArgs e)
         {
             startScript_Click(null, null, training: true);
+        }
+
+        public void ScriptMessage(string msg, Brush brush)
+        {
+            bool marker = false;
+            SchoolMessage(msg, brush, ref marker);
         }
 
         public void SchoolMessage(string msg, Brush brush, ref bool showedMarker)
