@@ -46,11 +46,11 @@
                 <Button x:Name="schoolButton" Content="обучение" Height="41" Canvas.Left="207" Canvas.Top="358" Width="120" FontSize="19" FontFamily="font/calibri.ttf" Click="schoolButton_Click"/>
                 <Button x:Name="trainingButton" Content="тренировка" Height="41" Canvas.Left="207" Canvas.Top="404" Width="120" FontSize="19" FontFamily="font/calibri.ttf" Click="trainingButton_Click"/>
                 <Button x:Name="resultButton" Content="результаты" Height="41" Canvas.Left="332" Canvas.Top="404" Width="113" FontSize="19" FontFamily="font/calibri.ttf" Click="statisticButton_Click"/>
-                <Button x:Name="Vietnam" Content="вьетнамская война" Height="26" Canvas.Left="10" Canvas.Top="450" Width="121" Click="startScript_Click" FontSize="11" FontFamily="font/calibri.ttf">
+                <Button x:Name="Vietnam" Content="война во вьетнаме" Height="26" Canvas.Left="10" Canvas.Top="450" Width="121" Click="startScript_Click" FontSize="11" FontFamily="font/calibri.ttf">
                     <Button.ToolTip>
                         <ToolTip>
                             <StackPanel>
-                                <TextBlock Text="Вьетнамская война (1965-1973)"/>
+                                <TextBlock Text="Война во Вьетнаме (1965-1973)"/>
                                 <TextBlock FontWeight="Bold" Text="особенность: врагов очень много"/>
                                 <Image Source="images/interface/vietnam.png"/>
                             </StackPanel>
