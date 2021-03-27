@@ -169,7 +169,7 @@ namespace shilka2
         public static Dictionary<Scripts.ScriptsNames, string> SCRIPT_INFORMATION = new Dictionary<Scripts.ScriptsNames, string>
         {
             [Scripts.ScriptsNames.Vietnam] = "ВОЙНА ВО ВЬЕТНАМЕ\n\nОдин из крупнейших военных конфликтов второй половины XX века, оставивший заметный след в культуре и занимающий существенное место в новейшей истории Вьетнама, а также США и СССР, сыгравших в нём немаловажную роль. Развивалась с 1955 года до падения Сайгона в 1975 году.\n\n[ OK ]",
-            [Scripts.ScriptsNames.DesertStorm] = "буря в пустыни",
+            [Scripts.ScriptsNames.DesertStorm] = "БУРЯ В ПУСТЫНЕ\n\nЧасть войны в Персидском заливе 1990-1991 годов, операция многонациональных сил против вооружённых сил Ирака, после вторжения последних в Кувейт.\n\n[ OK ]",
             [Scripts.ScriptsNames.Yugoslavia] = "бомбардировки югославии",
             [Scripts.ScriptsNames.IranIraq] = "ирано-иракская война",
             [Scripts.ScriptsNames.Syria] = "гражданская война в сирии",
