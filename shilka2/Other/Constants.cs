@@ -1,4 +1,5 @@
-﻿
+﻿using System.Collections.Generic;
+
 namespace shilka2
 {
     class Constants
@@ -165,7 +166,20 @@ namespace shilka2
         public const int UAV_SWARM_DISTANCE = 150;
         public const int UAC_SWARM_SPEED = 11;
 
-        public const string VIETNAM_INFORMATION = "ВОЙНА ВО ВЬЕТНАМЕ\n\nОдин из крупнейших военных конфликтов второй половины XX века, оставивший заметный след в культуре и занимающий существенное место в новейшей истории Вьетнама, а также США и СССР, сыгравших в нём немаловажную роль. Развивалась с 1955 года до падения Сайгона в 1975 году.\n\n[ OK ]";
-
+        public static Dictionary<Scripts.ScriptsNames, string> SCRIPT_INFORMATION = new Dictionary<Scripts.ScriptsNames, string>
+        {
+            [Scripts.ScriptsNames.Vietnam] = "ВОЙНА ВО ВЬЕТНАМЕ\n\nОдин из крупнейших военных конфликтов второй половины XX века, оставивший заметный след в культуре и занимающий существенное место в новейшей истории Вьетнама, а также США и СССР, сыгравших в нём немаловажную роль. Развивалась с 1955 года до падения Сайгона в 1975 году.\n\n[ OK ]",
+            [Scripts.ScriptsNames.DesertStorm] = "буря в пустыни",
+            [Scripts.ScriptsNames.Yugoslavia] = "бомбардировки югославии",
+            [Scripts.ScriptsNames.IranIraq] = "ирано-иракская война",
+            [Scripts.ScriptsNames.Syria] = "гражданская война в сирии",
+            [Scripts.ScriptsNames.Libya] = "интервенция в ливии",
+            [Scripts.ScriptsNames.Yemen] = "война в йемене",
+            [Scripts.ScriptsNames.Rust] = "полёт матиаса руста",
+            [Scripts.ScriptsNames.F117Hunt] = "охота на невидимку",
+            [Scripts.ScriptsNames.Khmeimim] = "оборона хмеймима",
+            [Scripts.ScriptsNames.Belgrad] = "налёт на белград",
+            [Scripts.ScriptsNames.Turkey] = "турецкое вторжение",
+        };
     }
 }

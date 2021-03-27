@@ -695,8 +695,8 @@ namespace shilka2
         {
             Shilka.scriptDescriptionAlready = true;
 
-            if (Shilka.currentScript == Scripts.ScriptsNames.Vietnam)
-                main.ScriptMessage(Constants.VIETNAM_INFORMATION, Brushes.DarkGreen);
+            if (Constants.SCRIPT_INFORMATION.ContainsKey(Shilka.currentScript))
+                main.ScriptMessage(Constants.SCRIPT_INFORMATION[Shilka.currentScript], Brushes.Red);                
         }
 
         private void MessagesForSchool(FirePlace main)
