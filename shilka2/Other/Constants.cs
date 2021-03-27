@@ -176,7 +176,7 @@ namespace shilka2
             [Scripts.ScriptsNames.Libya] = "интервенция в ливии",
             [Scripts.ScriptsNames.Yemen] = "война в йемене",
             [Scripts.ScriptsNames.Rust] = "полёт матиаса руста",
-            [Scripts.ScriptsNames.F117Hunt] = "охота на невидимку",
+            [Scripts.ScriptsNames.F117Hunt] = "ОХОТА НА НЕВИДИМКУ\n\nВ марте 1999 недалеко от Белграда был сбит F-117 из состава американских ВВС.\n\n[ OK ]",
             [Scripts.ScriptsNames.Khmeimim] = "оборона хмеймима",
             [Scripts.ScriptsNames.Belgrad] = "НАЛЁТ НА БЕЛГРАД\n\nБомбардировки Югославии в 1999 году характеризовались массовыми ударами по гражданским и инфраструктурным объектам. Большому количеству ударов подвергся и Белград, где был уничтожен телецентр, мосты и другие гражданские объекты.\n\n[ OK ]",
             [Scripts.ScriptsNames.Turkey] = "турецкое вторжение",
