@@ -178,7 +178,7 @@ namespace shilka2
             [Scripts.ScriptsNames.Rust] = "полёт матиаса руста",
             [Scripts.ScriptsNames.F117Hunt] = "охота на невидимку",
             [Scripts.ScriptsNames.Khmeimim] = "оборона хмеймима",
-            [Scripts.ScriptsNames.Belgrad] = "налёт на белград",
+            [Scripts.ScriptsNames.Belgrad] = "НАЛЁТ НА БЕЛГРАД\n\nБомбардировки Югославии в 1999 году характеризовались массовыми ударами по гражданским и инфраструктурным объектам. Большому количеству ударов подвергся и Белград, где был уничтожен телецентр, мосты и другие гражданские объекты.\n\n[ OK ]",
             [Scripts.ScriptsNames.Turkey] = "турецкое вторжение",
         };
     }
