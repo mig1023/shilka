@@ -698,17 +698,20 @@ namespace shilka2
             startScript_Click(null, null, training: true);
         }
 
-        public void ScriptMessage(string msg, Brush brush)
+        public void ScriptMessage(string msg, Brush brush, Brush font)
         {
             bool marker = false;
-            SchoolMessage(msg, brush, ref marker);
+            SchoolMessage(msg, brush, ref marker, font);
         }
 
-        public void SchoolMessage(string msg, Brush brush, ref bool showedMarker)
+        public void SchoolMessage(string msg, Brush brush, ref bool showedMarker, Brush font = null)
         {
             Pause(stop: true);
 
             schoolInfoText.Text = msg;
+
+            if (font != null)
+                schoolInfoText.Foreground = font;
 
             schoolInfoBox.Width = SystemParameters.PrimaryScreenWidth;
 
