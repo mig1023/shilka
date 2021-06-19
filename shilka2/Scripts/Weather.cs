@@ -199,7 +199,7 @@ namespace shilka2
             }
         }
 
-        public static void ElementsFly(object obj, ElapsedEventArgs e)
+        public static void Fly(object obj, ElapsedEventArgs e)
         {
             Application.Current.Dispatcher.BeginInvoke(new ThreadStart(delegate
             {
