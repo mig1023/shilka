@@ -32,6 +32,7 @@ namespace shilka2
         readonly string endColor = "#FF0F0570";
 
         static bool SchoolTicTac = false;
+        static bool dummyMarker = false;
 
         public FirePlace()
         {
@@ -155,19 +156,12 @@ namespace shilka2
             }
         }
 
-        public void StartGame(int?[] scriptAircraft, int?[] scriptHelicopters, int?[] scriptAircraftFriend,
-            int?[] scriptHelicoptersFriend, int?[] scriptAirliners)
+        public void StartGame()
         {
             startMenuShowYet = false;
 
             double trainingAdditions = ((Shilka.school || Shilka.training) ? 25 : 0);
             statShells.Margin = new Thickness(Constants.STAT_TEXT_TOP, Constants.STAT_TEXT_LEFT + trainingAdditions, 0, 0);
-
-            Scripts.scriptAircraft = scriptAircraft;
-            Scripts.scriptHelicopters = scriptHelicopters;
-            Scripts.scriptAircraftFriend = scriptAircraftFriend;
-            Scripts.scriptHelicoptersFriend = scriptHelicoptersFriend;
-            Scripts.scriptAirliners = scriptAirliners;
 
             ScriptImages();
 
@@ -410,28 +404,22 @@ namespace shilka2
             }
         }
 
-        private void Window_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            Shilka.fire = false;
-        }
+        private void Window_MouseLeftButtonUp(object sender, MouseButtonEventArgs e) => Shilka.fire = false;
 
         private void Window_MouseMove(object sender, MouseEventArgs e)
         {
             Shilka.SetNewTergetPoint(e.GetPosition((Window)sender), sender);
 
-            if (!pause)
-            {
-                if (Shilka.currentScript == Scripts.ScriptsNames.Libya)
-                    RadarImg.RenderTransform = new RotateTransform(Constants.RADAR_DAMAGED, 4, 20);
-                else if (Shilka.currentScript != Scripts.ScriptsNames.IranIraq)
-                    RadarImg.RenderTransform = new RotateTransform(Shilka.lastDegree, 4, 20);
-            }
+            if (pause)
+                return;
+
+            if (Shilka.currentScript == Scripts.ScriptsNames.Libya)
+                RadarImg.RenderTransform = new RotateTransform(Constants.RADAR_DAMAGED, 4, 20);
+            else if (Shilka.currentScript != Scripts.ScriptsNames.IranIraq)
+                RadarImg.RenderTransform = new RotateTransform(Shilka.lastDegree, 4, 20);
         }
 
-        private void exitButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
+        private void exitButton_Click(object sender, RoutedEventArgs e) => this.Close();
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
         {
@@ -636,19 +624,16 @@ namespace shilka2
                 
             ShilkaImg.Source = Functions.ImageFromResources("shilka", Aircraft.ImageType.Interface);
 
-            StartGame(
-                Scripts.EnemyAircrafts(script),
-                Scripts.EnemyHelicopters(script),
-                Scripts.FriendAircrafts(script),
-                Scripts.FriendHelicopters(script),
-                Scripts.Airliners(script)
-            );
+            Scripts.scriptAircraft = Scripts.EnemyAircrafts(script);
+            Scripts.scriptHelicopters = Scripts.EnemyHelicopters(script);
+            Scripts.scriptAircraftFriend = Scripts.FriendAircrafts(script);
+            Scripts.scriptHelicoptersFriend = Scripts.FriendHelicopters(script);
+            Scripts.scriptAirliners = Scripts.Airliners(script);
+
+            StartGame();
         }
 
-        private void startScript_Click(object sender, RoutedEventArgs e)
-        {
-            startScript_Click(sender, e, school: false, training: false);
-        }
+        private void startScript_Click(object sender, RoutedEventArgs e) => startScript_Click(sender, e, school: false, training: false);
 
         private void startScript_Click(object sender, RoutedEventArgs e,
             bool school = false, bool training = false)
@@ -688,21 +673,11 @@ namespace shilka2
                 StartScript(Scripts.ScriptsNames.noScript);
         }
 
-        private void schoolButton_Click(object sender, RoutedEventArgs e)
-        {
-            startScript_Click(null, null, school: true);
-        }
+        private void schoolButton_Click(object sender, RoutedEventArgs e) => startScript_Click(null, null, school: true);
 
-        private void trainingButton_Click(object sender, RoutedEventArgs e)
-        {
-            startScript_Click(null, null, training: true);
-        }
+        private void trainingButton_Click(object sender, RoutedEventArgs e) => startScript_Click(null, null, training: true);
 
-        public void ScriptMessage(string msg, Brush brush, Brush font)
-        {
-            bool marker = false;
-            SchoolMessage(msg, brush, ref marker, font);
-        }
+        public void ScriptMessage(string msg, Brush brush, Brush font) => SchoolMessage(msg, brush, ref dummyMarker, font);
 
         public void SchoolMessage(string msg, Brush brush, ref bool showedMarker, Brush font = null)
         {
@@ -738,16 +713,20 @@ namespace shilka2
             Pause(stop: false);
         }
 
-        private void StatisticGrid_LoadingRow(object sender, DataGridRowEventArgs e)
-        {
-            e.Row.Header = (e.Row.GetIndex()+1).ToString();
-        }
+        private void StatisticGrid_LoadingRow(object sender, DataGridRowEventArgs e) => e.Row.Header = (e.Row.GetIndex() + 1).ToString();
 
         private void StatBoxAddRow(string[] column)
         {
             string line = ' ' + new string('.', 100);
 
-            StatBox data = new StatBox { Column1 = column[0] + line, Column2 = " " + column[1], Column3 = column[2] + line, Column4 = " " + column[3] };
+            StatBox data = new StatBox
+            {
+                Column1 = column[0] + line,
+                Column2 = " " + column[1],
+                Column3 = column[2] + line,
+                Column4 = " " + column[3]
+            };
+
             StatBoxTable.Items.Add(data);
         }
 

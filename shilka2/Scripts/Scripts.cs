@@ -5,20 +5,8 @@ namespace shilka2
     public class Scripts
     {
         public enum ScriptsNames {
-            noScript,
-            Vietnam,
-            KoreanBoeing,
-            DesertStorm,
-            Yugoslavia,
-            IranIraq,
-            Syria,
-            Libya,
-            Yemen,
-            Rust,
-            F117Hunt,
-            Khmeimim,
-            Belgrad,
-            Turkey
+            noScript, Vietnam, KoreanBoeing, DesertStorm, Yugoslavia, IranIraq, Syria,
+            Libya, Yemen, Rust, F117Hunt, Khmeimim, Belgrad, Turkey
         };
 
         public static Dictionary<string, string> ruNames = new Dictionary<string, string>
@@ -628,7 +616,6 @@ namespace shilka2
 
         public static int?[] Airliners(ScriptsNames script)
         {
-
             if (script == ScriptsNames.Vietnam)
                 return new int?[] { };
 
