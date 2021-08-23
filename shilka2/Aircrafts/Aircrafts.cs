@@ -2655,7 +2655,7 @@ namespace shilka2
                 aircraftType = "mc21",
                 aircraftName = "Иркут МС-21",
                 hitPoint = 100,
-                size = new int[] { 560, 154 },
+                size = new int[] { 560, 146 },
                 speed = 8,
                 minAltitude = minAltitudeForLargeAircraft,
                 wrecksMaxSize = Constants.WRECKS_BIG,
