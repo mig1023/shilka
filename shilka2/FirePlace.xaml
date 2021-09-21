@@ -222,7 +222,7 @@
                     </Style>
                 </DataGrid.Resources>
                 <DataGrid.Columns>
-                    <DataGridTemplateColumn Width="45" Header="script">
+                    <DataGridTemplateColumn Width="45" Header="сценарий">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <Image Width="32" Height="32" Source="{Binding scriptFlag}"/>

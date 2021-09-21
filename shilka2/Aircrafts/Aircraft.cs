@@ -500,9 +500,6 @@ namespace shilka2
                 if (Shilka.training)
                     newAircraft.MessageForTraining(main);
 
-                if ((Shilka.currentScript != Scripts.ScriptsNames.noScript) && !Shilka.scriptDescriptionAlready)
-                    MessageForScript(main);
-
                 newAircraft.aircraftImage = newAircraftImage;
                 main.firePlace.Children.Add(newAircraftImage);
                 aircrafts.Add(newAircraft);
@@ -689,28 +686,6 @@ namespace shilka2
 
             if (!trainingTurgetDrone && (allAircraftsInGame > Constants.TRAINING_M16K_AT_THE_START))
                 main.SchoolMessage(Constants.TRAINING_DRONE_INFORMATION, Brushes.LightSeaGreen, ref trainingTurgetDrone);
-        }
-
-        private string СontrastColor(List<byte> color) => ((color[0] * 0.299) + (color[1] * 0.587) + (color[2] * 0.114)) > 186 ? "#000000" : "#FFFFFF";
-
-        private void MessageForScript(FirePlace main)
-        {
-            Shilka.scriptDescriptionAlready = true;
-
-            if (Constants.SCRIPT_INFORMATION.ContainsKey(Shilka.currentScript))
-            {
-                List<byte> сolor = new List<byte>();
-
-                for (int i = 0; i < 3; i++)
-                    сolor.Add((byte)rand.Next(256));
-
-                Color newColor = Color.FromRgb(сolor[0], сolor[1], сolor[2]);
-
-                var converter = new System.Windows.Media.BrushConverter();
-
-                main.ScriptMessage(Constants.SCRIPT_INFORMATION[Shilka.currentScript], new SolidColorBrush(newColor),
-                    (Brush)converter.ConvertFromString(СontrastColor(сolor)));
-            }
         }
 
         private void MessagesForSchool(FirePlace main)

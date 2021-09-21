@@ -596,7 +596,6 @@ namespace shilka2
         public void StartScript(Scripts.ScriptsNames script)
         {
             Shilka.currentScript = script;
-            Shilka.scriptDescriptionAlready = false;
 
             string flagName = Scripts.FlagName(script);
 
