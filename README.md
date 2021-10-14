@@ -1,5 +1,5 @@
 # shilka
-The game is about a small anti-aircraft vehicle in the school notebook
+A game about a small anti-aircraft vehicle in a school notebook, where it will fight against hundreds of enemy planes and helicopters, day and night, in different weather and in different circumstances. 
 
 ![](http://mig1023.ru/images/shilka/main.png)
 
